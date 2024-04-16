@@ -28,4 +28,9 @@ class SERV09ServicesCity extends Model
         return $query->where('active', 1);
     }
 
+    public function state()
+    {
+        return $this->belongsTo(SERV09ServicesState::class, 'state_id');
+    }
+
 }

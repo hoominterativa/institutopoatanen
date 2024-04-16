@@ -30,6 +30,22 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#states" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Estados
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro dos estados"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cities" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Cidades
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro das cidades"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#services" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Services', 'SERV09') }}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -150,6 +166,17 @@
                     <div class="tab-pane" id="category">
                         @include("Admin.cruds.Services.SERV09.Category.index",[
                             'categories' => $serviceCategories,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="states">
+                        @include("Admin.cruds.Services.SERV09.States.index",[
+                            'states' => $states,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="cities">
+                        @include("Admin.cruds.Services.SERV09.Cities.index",[
+                            'cities' => $cities,
+                            'statesGet' => $statesGet,
                         ])
                     </div>
                     <div class="tab-pane" id="section">

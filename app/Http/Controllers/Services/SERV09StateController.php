@@ -24,7 +24,9 @@ class SERV09StateController extends Controller
     {
         $data = $request->all();
 
-        $data['active']= $request->active ? 1 : 0;
+        $data['active'] = $request->active ? 1 : 0;
+
+        if ($request->acronym) $data['acronym'] = strtoupper($request->acronym);
 
         if(SERV09ServicesState::create($data)){
             Session::flash('success', 'Estado cadastrado com sucesso');
@@ -46,6 +48,8 @@ class SERV09StateController extends Controller
         $data = $request->all();
 
         $data['active']= $request->active ? 1 : 0;
+
+        if ($request->acronym) $data['acronym'] = strtoupper($request->acronym);
 
         if($SERV09ServicesState->fill($data)->save()){
             Session::flash('success', 'Estado atualizado com sucesso');

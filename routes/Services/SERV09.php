@@ -3,6 +3,8 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Services\SERV09Controller;
+use App\Http\Controllers\Services\SERV09CityController;
+use App\Http\Controllers\Services\SERV09StateController;
 use App\Http\Controllers\Services\SERV09TopicController;
 use App\Http\Controllers\Services\SERV09ContentController;
 use App\Http\Controllers\Services\SERV09GalleryController;
@@ -37,6 +39,16 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/delete', [SERV09CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [SERV09CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 
+    //States
+    Route::resource($route.'/estados', SERV09StateController::class)->names('admin.'.$routeName.'.state')->parameters(['estados' => 'SERV09ServicesState']);
+    Route::post($route.'/estado/delete', [SERV09StateController::class, 'destroySelected'])->name('admin.'.$routeName.'.state.destroySelected');
+    Route::post($route.'/estado/sorting', [SERV09StateController::class, 'sorting'])->name('admin.'.$routeName.'.state.sorting');
+
+    //Cities
+    Route::resource($route.'/cidades', SERV09CityController::class)->names('admin.'.$routeName.'.city')->parameters(['cidades' => 'SERV09ServicesCity']);
+    Route::post($route.'/cidade/delete', [SERV09CityController::class, 'destroySelected'])->name('admin.'.$routeName.'.city.destroySelected');
+    Route::post($route.'/cidade/sorting', [SERV09CityController::class, 'sorting'])->name('admin.'.$routeName.'.city.sorting');
+
     //Topics
     Route::resource($route.'/topicos', SERV09TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV09ServicesTopic']);
     Route::post($route.'/topico/delete', [SERV09TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
@@ -65,7 +77,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     //Sections: Home && Banner page
     Route::resource($route.'/secao', SERV09SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV09ServicesSection']);
 
-    Route::get('/cities/{state}', 'CityController@getCitiesByState')->name('cities.by_state');
+    Route::get('searchCity/'.$route, [SERV09Controller::class, 'searchCity'])->name('admin.'.$routeName.'.searchCity');
 
 });
 // CLIENT

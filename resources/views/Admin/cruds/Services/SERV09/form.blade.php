@@ -80,7 +80,7 @@
                             {!! Form::label('city', 'Cidade', ['class' => 'form-label']) !!}
                             <i class="text-danger">*</i>
                         </div>
-                        {!! Form::select('city', [], null, [
+                        {!! Form::select('city_id', $cities, null, [
                             'class' => 'form-select',
                             'id' => 'city',
                             'required' => 'required',

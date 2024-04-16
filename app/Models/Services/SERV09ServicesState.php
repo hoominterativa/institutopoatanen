@@ -30,7 +30,7 @@ class SERV09ServicesState extends Model
 
     public function cities()
     {
-        return $this->hasMany(SERV09ServicesCity::class, 'state_id')->active()->sorting()->pluck('city', 'id');
+        return $this->hasMany(SERV09ServicesCity::class, 'state_id')->active()->sorting();
     }
 
 }
