@@ -52,17 +52,19 @@
                         ]) !!}
 
                         @include('Client.Components.inputs', [
-                            'name' => 'cidade',
-                            'placeholder' => 'Cidade',
-                            'required' => true,
-                            'type' => 'text',
-                        ])
-
-                        @include('Client.Components.inputs', [
                             'name' => 'uf',
                             'placeholder' => 'Estado',
                             'required' => true,
-                            'type' => 'text',
+                            'type' => 'select',
+                            'options' => 'Rio de Janeiro, Bahia',
+                        ])
+
+                        @include('Client.Components.inputs', [
+                            'name' => 'cidade',
+                            'placeholder' => 'Cidade',
+                            'required' => true,
+                            'type' => 'select',
+                            'options' => 'Petrópolis, Salvador',
                         ])
 
                         <button type="submit" class="serv09-page__aside__filter__content__form__cta">Buscar</button>

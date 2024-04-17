@@ -4,21 +4,21 @@
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="d-flex">
-                    {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
+                    {!! Form::label('heard', 'Categoria', ['class' => 'form-label']) !!}
                     <i class="text-danger">*</i>
                 </div>
                 {!! Form::select('category_id', $categories, null, [
-                    'class'=>'form-select',
-                    'id'=>'heard',
-                    'required'=>'required',
-                    'placeholder' => 'Informe a categoria do serviço'
+                    'class' => 'form-select',
+                    'id' => 'heard',
+                    'required' => 'required',
+                    'placeholder' => 'Informe a categoria do serviço',
                 ]) !!}
             </div>
             <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
                         {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
-                        {!! Form::text('title', null, ['class' => 'form-control', 'required'=>'required', 'id' => 'title']) !!}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'required' => 'required', 'id' => 'title']) !!}
                     </div>
                     <div class="col-sm-6">
                         {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
@@ -29,21 +29,21 @@
             <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! Form::label('percentage', 'Percentual de Carregamento', ['class'=>'form-label']) !!}
+                        {!! Form::label('percentage', 'Percentual de Carregamento', ['class' => 'form-label']) !!}
                         {!! Form::number('percentage', null, [
-                            'class'=>'form-control',
-                            'min'=>1,
-                            'max'=>100,
+                            'class' => 'form-control',
+                            'min' => 1,
+                            'max' => 100,
                         ]) !!}
                     </div>
                     <div class="col-sm-6">
-                        {!! Form::label(null, 'Preço R$', ['class'=>'form-label']) !!}
+                        {!! Form::label(null, 'Preço R$', ['class' => 'form-label']) !!}
                         {!! Form::text('price', null, [
-                            'class'=>'form-control',
-                            'data-toggle'=>'input-mask',
-                            'data-mask-format'=>'#.##0,00',
-                            'data-reverse'=>'true',
-                            'placeholder'=> '87,25'
+                            'class' => 'form-control',
+                            'data-toggle' => 'input-mask',
+                            'data-mask-format' => '#.##0,00',
+                            'data-reverse' => 'true',
+                            'placeholder' => '87,25',
                         ]) !!}
                     </div>
                 </div>
@@ -52,11 +52,19 @@
                 <div class="row">
                     <div class="col-sm-6">
                         {!! Form::label('address', 'Endereço', ['class' => 'form-label']) !!}
-                        {!! Form::text('address', null, ['class' => 'form-control', 'id' => 'address', 'placeholder'=> 'Hangar 2, Av. Luís Viana Filho, 13223 - sl 215 - São Cristóvão, Salvador - BA']) !!}
+                        {!! Form::text('address', null, [
+                            'class' => 'form-control',
+                            'id' => 'address',
+                            'placeholder' => 'Hangar 2, Av. Luís Viana Filho, 13223 - sl 215 - São Cristóvão, Salvador - BA',
+                        ]) !!}
                     </div>
                     <div class="col-sm-6">
                         {!! Form::label(null, 'Link do Google Maps', ['class' => 'form-label']) !!}
-                        {!! Form::url('map_link', (isset($service) ? getUri($service->map_link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::url('map_link', isset($service) ? getUri($service->map_link) : null, [
+                            'class' => 'form-control',
+                            'parsley-type' => 'url',
+                            'id' => 'targetUrl',
+                        ]) !!}
                     </div>
                 </div>
             </div>
@@ -64,27 +72,29 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="d-flex">
-                            {!! Form::label('heard', 'Estado', ['class' => 'form-label']) !!}
+                            {!! Form::label('serv09_form_adm_panel_state', 'Estado', ['class' => 'form-label']) !!}
                             <i class="text-danger">*</i>
                         </div>
+                        <span style="display: none" data-route="{{ route('serv09.processa-cidade') }}"></span>
                         {!! Form::select('state_id', $states, null, [
                             'class' => 'form-select',
-                            'id' => 'heard',
+                            'id' => 'serv09_form_adm_panel_state',
                             'required' => 'required',
-                            'placeholder' => 'Selecione o estado'
+                            'placeholder' => 'Selecione o estado',
                         ]) !!}
                     </div>
 
+                    {{-- FRONTEND TODO: --}}
                     <div class="col-sm-6">
                         <div class="d-flex">
-                            {!! Form::label('heard', 'Cidade', ['class' => 'form-label']) !!}
+                            {!! Form::label('serv09_form_adm_panel_city', 'Cidade', ['class' => 'form-label']) !!}
                             <i class="text-danger">*</i>
                         </div>
-                        {!! Form::select('city_id', [isset($cities) ? $cities: ''], null, [
+                        {!! Form::select('city_id', [isset($cities) ? $cities : ''], null, [
                             'class' => 'form-select',
-                            'id' => 'heard',
+                            'id' => 'serv09_form_adm_panel_city',
                             'required' => 'required',
-                            'placeholder' => 'Selecione a cidade'
+                            'placeholder' => 'Selecione a cidade',
                         ]) !!}
                     </div>
 
@@ -92,7 +102,12 @@
             </div>
             <div class="mb-3">
                 {!! Form::label('title_info', 'Título info', ['class' => 'form-label']) !!}
-                {!! Form::text('title_info', null, ['class' => 'form-control', 'required'=>'required', 'id' => 'title_info', 'placeholder'=> 'Reserve agora']) !!}
+                {!! Form::text('title_info', null, [
+                    'class' => 'form-control',
+                    'required' => 'required',
+                    'id' => 'title_info',
+                    'placeholder' => 'Reserve agora',
+                ]) !!}
             </div>
             <div class="mb-3">
                 {!! Form::label('informations', 'Informações adicionais', ['class' => 'form-label']) !!}
@@ -103,7 +118,7 @@
                     'data-parsley-maxlength' => '100',
                     'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold' => '10',
-                    'placeholder'=> 'Total (taxes and charges incl.)'
+                    'placeholder' => 'Total (taxes and charges incl.)',
                 ]) !!}
             </div>
             <div class="mb-3">
@@ -130,7 +145,11 @@
                 <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                     data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-original-title="Caso este link seja inserido, o formulário na página interna será desconsiderado."></i>
-                {!! Form::url('link', (isset($service) ? getUri($service->link) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
+                {!! Form::url('link', isset($service) ? getUri($service->link) : null, [
+                    'class' => 'form-control',
+                    'parsley-type' => 'url',
+                    'id' => 'targetUrl',
+                ]) !!}
             </div>
         </div>
         <div class="d-flex">
