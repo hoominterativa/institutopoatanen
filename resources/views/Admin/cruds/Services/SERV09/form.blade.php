@@ -76,7 +76,7 @@
                             <i class="text-danger">*</i>
                         </div>
                         <span style="display: none" data-route="{{ route('serv09.processa-cidade') }}"></span>
-                        {!! Form::select('state_id', $states, null, [
+                        {!! Form::select('state_id', $state, null, [
                             'class' => 'form-select',
                             'id' => 'serv09_form_adm_panel_state',
                             'required' => 'required',

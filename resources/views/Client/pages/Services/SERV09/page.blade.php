@@ -56,7 +56,7 @@
                             'placeholder' => 'Estado',
                             'required' => true,
                             'type' => 'select',
-                            'options' => 'Rio de Janeiro, Bahia',
+                            'options' => $states,
                         ])
 
                         @include('Client.Components.inputs', [
