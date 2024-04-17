@@ -168,6 +168,51 @@ $(function () {
             }
         });
     });
+
+    const filterForm = document.querySelector(
+        ".serv09-page__aside__filter__content"
+    );
+
+    if (filterForm) {
+        const stateSelect = filterForm.querySelector("select#uf");
+        const citySelect = filterForm.querySelector("select#cidade");
+
+        const token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+
+        console.log("StateSelect: " + stateSelect);
+        console.log("citySelect: " + citySelect);
+        console.log("token: " + token);
+
+        const route = filterForm.dataset.route;
+
+        stateSelect.addEventListener("change", (ev) => {
+            fetch(route, {
+                headers: {
+                    "X-CSRF-TOKEN": token,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    state: ev.target.value,
+                }),
+                method: "POST",
+            })
+                .then((response) => response.json())
+                .then((text) => {
+                    let citiesListItems =
+                        "<option selected='selected' value=''>Cidade</option>";
+
+                    // console.log(text);
+                    Object.entries(text.cities).forEach(([key, value]) => {
+                        citiesListItems += `<option value="${key}">${value}</option>`;
+                    });
+
+                    citySelect.innerHTML = citiesListItems;
+                })
+                .catch((error) => console.error(error));
+        });
+    }
 });
 /******************************************************/
 
@@ -472,63 +517,3 @@ if (sideLinks.length > 0) {
         });
     });
 }
-
-/***********************************************************/
-
-// // / menu responsivo /
-// const backdrop = document.createElement("div");
-// backdrop.classList.add("backdrop");
-// document.body.appendChild(backdrop);
-
-// const btnSandwich = document.querySelector(".btn-mn-mbl");
-
-// const contIcon = btnSandwich.querySelector(".icon");
-
-// let spans = "";
-
-// if (btnSandwich.classList.contains("dots")) {
-//     for (let i = 0; i < 9; i++) {
-//         spans += "<span></span>";
-//     }
-// }
-
-// // DEFAULT
-// if (btnSandwich.classList.contains("bars")) {
-//     for (let i = 0; i < 3; i++) {
-//         spans += "<span></span>";
-//     }
-// }
-
-// contIcon.innerHTML = spans;
-
-// const closeMenu = () => {
-//     if (document.getElementById("menu-mobile").classList.contains("aberto")) {
-//         // backdrop.style.display = "none";
-//         document.getElementById("menu-mobile").classList.remove("aberto");
-//         document.body.style.overflowY = "visible";
-//         btnSandwich.classList.remove("open");
-//     }
-// };
-
-// btnSandwich.addEventListener("click", () => {
-//     if (!document.getElementById("menu-mobile").classList.contains("aberto")) {
-//         // backdrop.style.display = "block";
-//         // backdrop.style.opacity = "1";
-//         document.getElementById("menu-mobile").classList.add("aberto");
-//         document.body.style.overflowY = "hidden";
-//         btnSandwich.classList.add("open");
-//     } else {
-//         closeMenu();
-//     }
-// });
-
-// window.addEventListener("resize", closeMenu);
-// backdrop.addEventListener("click", closeMenu);
-// if (document.getElementById("a-mb-close")) {
-//     document.getElementById("a-mb-close").addEventListener("click", closeMenu);
-// }
-
-// for (const link of document.querySelectorAll(".engloba-sidebar li a")) {
-//     link.addEventListener("click", closeMenu);
-// }
-// // / fim menu responsivo

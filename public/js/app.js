@@ -11882,6 +11882,12 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /**************** VAI FICAR OBSOLETO ******************/
 function resizeHeightSlide() {
   // mw500=700
@@ -12014,6 +12020,43 @@ $(function () {
       }
     });
   });
+  var filterForm = document.querySelector(".serv09-page__aside__filter__content");
+  if (filterForm) {
+    var stateSelect = filterForm.querySelector("select#uf");
+    var citySelect = filterForm.querySelector("select#cidade");
+    var token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+    console.log("StateSelect: " + stateSelect);
+    console.log("citySelect: " + citySelect);
+    console.log("token: " + token);
+    var route = filterForm.dataset.route;
+    stateSelect.addEventListener("change", function (ev) {
+      fetch(route, {
+        headers: {
+          "X-CSRF-TOKEN": token,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          state: ev.target.value
+        }),
+        method: "POST"
+      }).then(function (response) {
+        return response.json();
+      }).then(function (text) {
+        var citiesListItems = "<option selected='selected' value=''>Cidade</option>";
+
+        // console.log(text);
+        Object.entries(text.cities).forEach(function (_ref) {
+          var _ref2 = _slicedToArray(_ref, 2),
+            key = _ref2[0],
+            value = _ref2[1];
+          citiesListItems += "<option value=\"".concat(key, "\">").concat(value, "</option>");
+        });
+        citySelect.innerHTML = citiesListItems;
+      })["catch"](function (error) {
+        return console.error(error);
+      });
+    });
+  }
 });
 /******************************************************/
 
@@ -12314,66 +12357,6 @@ if (sideLinks.length > 0) {
     });
   });
 }
-
-/***********************************************************/
-
-// // / menu responsivo /
-// const backdrop = document.createElement("div");
-// backdrop.classList.add("backdrop");
-// document.body.appendChild(backdrop);
-
-// const btnSandwich = document.querySelector(".btn-mn-mbl");
-
-// const contIcon = btnSandwich.querySelector(".icon");
-
-// let spans = "";
-
-// if (btnSandwich.classList.contains("dots")) {
-//     for (let i = 0; i < 9; i++) {
-//         spans += "<span></span>";
-//     }
-// }
-
-// // DEFAULT
-// if (btnSandwich.classList.contains("bars")) {
-//     for (let i = 0; i < 3; i++) {
-//         spans += "<span></span>";
-//     }
-// }
-
-// contIcon.innerHTML = spans;
-
-// const closeMenu = () => {
-//     if (document.getElementById("menu-mobile").classList.contains("aberto")) {
-//         // backdrop.style.display = "none";
-//         document.getElementById("menu-mobile").classList.remove("aberto");
-//         document.body.style.overflowY = "visible";
-//         btnSandwich.classList.remove("open");
-//     }
-// };
-
-// btnSandwich.addEventListener("click", () => {
-//     if (!document.getElementById("menu-mobile").classList.contains("aberto")) {
-//         // backdrop.style.display = "block";
-//         // backdrop.style.opacity = "1";
-//         document.getElementById("menu-mobile").classList.add("aberto");
-//         document.body.style.overflowY = "hidden";
-//         btnSandwich.classList.add("open");
-//     } else {
-//         closeMenu();
-//     }
-// });
-
-// window.addEventListener("resize", closeMenu);
-// backdrop.addEventListener("click", closeMenu);
-// if (document.getElementById("a-mb-close")) {
-//     document.getElementById("a-mb-close").addEventListener("click", closeMenu);
-// }
-
-// for (const link of document.querySelectorAll(".engloba-sidebar li a")) {
-//     link.addEventListener("click", closeMenu);
-// }
-// // / fim menu responsivo
 
 /***/ }),
 

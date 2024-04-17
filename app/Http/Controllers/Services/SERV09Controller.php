@@ -124,10 +124,10 @@ class SERV09Controller extends Controller
      */
     public function edit(SERV09Services $SERV09Services)
     {
-        $SERV09Services = SERV09Services::where('serv09_services.id', '=', $SERV09Services->id)
-            ->join('serv09_services_cities', 'serv09_services_cities.id', 'serv09_services.city_id')
-            ->select('serv09_services.*', 'serv09_services_cities.state_id')
-            ->first();
+        // $SERV09Services = SERV09Services::where('serv09_services.id', '=', $SERV09Services->id)
+        //     ->join('serv09_services_cities', 'serv09_services_cities.id', 'serv09_services.city_id')
+        //     ->select('serv09_services.*', 'serv09_services_cities.state_id')
+        //     ->first();
 
         $categories = SERV09ServicesCategory::sorting()->pluck('title', 'id');
         $states = SERV09ServicesState::active()->sorting()->pluck('state', 'id');

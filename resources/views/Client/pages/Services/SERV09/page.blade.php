@@ -45,7 +45,8 @@
                         </svg>
                     </button>
 
-                    <div class="serv09-page__aside__filter__content quedinha__content">
+                    <div class="serv09-page__aside__filter__content quedinha__content"
+                        data-route="{{ route('serv09.processa-cidade') }}">
                         {!! Form::model([
                             'method' => 'post',
                             'class' => 'serv09-page__aside__filter__content__form send_form_ajax form-contact parsley-validate',
@@ -64,7 +65,7 @@
                             'placeholder' => 'Cidade',
                             'required' => true,
                             'type' => 'select',
-                            'options' => 'Petrópolis, Salvador',
+                            'options' => 'Petrópolis, Salvador, Mudei a rota',
                         ])
 
                         <button type="submit" class="serv09-page__aside__filter__content__form__cta">Buscar</button>
