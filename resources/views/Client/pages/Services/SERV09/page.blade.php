@@ -46,26 +46,31 @@
                     </button>
 
                     <div class="serv09-page__aside__filter__content quedinha__content"
-                        data-route="{{ route('serv09.processa-cidade') }}">
-                        {!! Form::model([
-                            'method' => 'post',
-                            'class' => 'serv09-page__aside__filter__content__form send_form_ajax form-contact parsley-validate',
+                        data-route="{{ route('serv09.process-selection-city') }}">
+                        {!! Form::open([
+                            'route' => 'serv09.filter',
+                            'method' => 'POST',
+                            'class' => 'serv09-page__aside__filter__content__form form-contact parsley-validate',
                         ]) !!}
 
+                        @if ($categoryGet->exists)
+                            {!! Form::hidden('category_id', $categoryGet->id) !!}
+                        @endif
+
                         @include('Client.Components.inputs', [
-                            'name' => 'uf',
+                            'name' => 'state_select',
                             'placeholder' => 'Estado',
-                            'required' => true,
+                            'required' => false,
                             'type' => 'select',
                             'options' => $states,
                         ])
 
                         @include('Client.Components.inputs', [
-                            'name' => 'cidade',
+                            'name' => 'city_select',
                             'placeholder' => 'Cidade',
-                            'required' => true,
+                            'required' => false,
                             'type' => 'select',
-                            'options' => 'Petrópolis, Salvador, Mudei a rota',
+                            'options' => '-',
                         ])
 
                         <button type="submit" class="serv09-page__aside__filter__content__form__cta">Buscar</button>

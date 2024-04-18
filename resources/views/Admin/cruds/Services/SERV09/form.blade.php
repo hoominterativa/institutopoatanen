@@ -30,10 +30,11 @@
                 <div class="row">
                     <div class="col-sm-6">
                         {!! Form::label('percentage', 'Percentual de Carregamento', ['class' => 'form-label']) !!}
-                        {!! Form::number('percentage', null, [
+                        {!! Form::text('percentage', null, [
                             'class' => 'form-control',
-                            'min' => 1,
-                            'max' => 100,
+                            'data-toggle' => 'input-mask',
+                            'data-mask-format' => '000',
+                            'max' => '100',
                         ]) !!}
                     </div>
                     <div class="col-sm-6">
@@ -75,7 +76,7 @@
                             {!! Form::label('serv09_form_adm_panel_state', 'Estado', ['class' => 'form-label']) !!}
                             <i class="text-danger">*</i>
                         </div>
-                        <span style="display: none" data-route="{{ route('serv09.processa-cidade') }}"></span>
+                        <span style="display: none" data-route="{{ route('serv09.process-selection-city') }}"></span>
                         {!! Form::select('state_id', $states, null, [
                             'class' => 'form-select',
                             'id' => 'serv09_form_adm_panel_state',

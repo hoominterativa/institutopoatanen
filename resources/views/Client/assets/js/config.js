@@ -175,8 +175,8 @@ $(function () {
     );
 
     if (filterForm) {
-        const stateSelect = filterForm.querySelector("select#uf");
-        const citySelect = filterForm.querySelector("select#cidade");
+        const stateSelect = filterForm.querySelector("select#state_select");
+        const citySelect = filterForm.querySelector("select#city_select");
 
         const token = document
             .querySelector('meta[name="csrf-token"]')

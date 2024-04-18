@@ -81,4 +81,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 Route::get($route . '/categoria/{SERV09ServicesCategory:slug}', [SERV09Controller::class, 'page'])->name($routeName . '.category.page');
 Route::get('categoria/{SERV09ServicesCategory:slug}/' . $route . '/{SERV09Services:slug}', [SERV09Controller::class, 'show'])->name($routeName . '.page.content');
 
-Route::post('processa-cidade/' . $route, [SERV09Controller::class, 'search'])->name($routeName . '.processa-cidade'); // NOTE:  NAME: serv09.processa-cidade
+Route::post('processo-selecao-cidade/' . $route, [SERV09Controller::class, 'processSelectionCity'])->name($routeName . '.process-selection-city'); // NOTE:  NAME: serv09.process-selection-city
+Route::post('filter/' . $route, [SERV09Controller::class, 'filter'])->name($routeName.'.filter'); // NOTE:  NAME: serv09.properties-by-city

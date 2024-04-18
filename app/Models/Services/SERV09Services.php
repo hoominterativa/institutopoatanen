@@ -25,17 +25,17 @@ class SERV09Services extends Model
 
     public function scopeSorting($query)
     {
-        return $query->orderBy('sorting', 'ASC');
+        return $query->orderBy('serv09_services.sorting', 'ASC');
     }
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1);
+        return $query->where('serv09_services.active', 1);
     }
 
     public function scopeFeatured($query)
     {
-        return $query->where('featured', 1);
+        return $query->where('serv09_services.featured', 1);
     }
 
     public function categories()
@@ -47,8 +47,14 @@ class SERV09Services extends Model
     {
         return $this->hasMany(SERV09ServicesTopic::class, 'service_id')->active()->featured()->sorting();
     }
+
     public function topicsUp()
     {
         return $this->hasMany(SERV09ServicesTopicsUp::class, 'service_id')->active()->sorting();
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(SERV09ServicesCity::class, 'city_id');
     }
 }

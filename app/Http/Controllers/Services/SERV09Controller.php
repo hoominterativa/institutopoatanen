@@ -68,19 +68,25 @@ class SERV09Controller extends Controller
         ]);
     }
 
-    public function search(Request $request)
+    public function processSelectionCity(Request $request)
     {
+        $state = SERV09ServicesState::query();
 
-        if ($request->input('state_id')) {
-            return response()->json(['cities' => SERV09ServicesCity::where('state_id', $request->input('state_id'))->active()->sorting()->pluck('city', 'id')]);
-        } else {
-            return response()->json(['cities' => SERV09ServicesCity::where('state', $request->input('state'))->active()->sorting()->pluck('city', 'id')]);
+        if($request->has('state_id')){
+            $state = $state->where('id', $request->state_id);
+        }else{
+            $state = $state->where('state', $request->state);
         }
 
-        // $state = $request->input('state_id');
-        // $cities = SERV09ServicesCity::where('state_id', $state)->orWhere('state', $state)->active()->sorting()->pluck('city', 'id');
+        $state = $state->first();
 
-        // return  response()->json(['cities' => $cities]);
+
+        if($state){
+            $cities = SERV09ServicesCity::where('state_id', $state->id)->active()->orderBy('city', 'ASC')->pluck('city', 'id');
+            return  response()->json(['cities' => $cities]);
+        }
+
+        return null;
     }
 
     /**
@@ -131,10 +137,10 @@ class SERV09Controller extends Controller
      */
     public function edit(SERV09Services $SERV09Services)
     {
-        // $SERV09Services = SERV09Services::where('serv09_services.id', '=', $SERV09Services->id)
-        //     ->join('serv09_services_cities', 'serv09_services_cities.id', 'serv09_services.city_id')
-        //     ->select('serv09_services.*', 'serv09_services_cities.state_id')
-        //     ->first();
+        $SERV09Services = SERV09Services::where('serv09_services.id', '=', $SERV09Services->id)
+            ->leftJoin('serv09_services_cities', 'serv09_services_cities.id', 'serv09_services.city_id')
+            ->select('serv09_services.*', 'serv09_services_cities.state_id')
+            ->first();
 
         $categories = SERV09ServicesCategory::sorting()->pluck('title', 'id');
         $states = SERV09ServicesState::active()->sorting()->pluck('state', 'id');
@@ -326,24 +332,19 @@ class SERV09Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request, SERV09ServicesCategory $SERV09ServicesCategory, SERV09Services $SERV09Services, SERV09ServicesState $SERV09ServicesState)
+    public function page(Request $request, SERV09ServicesCategory $SERV09ServicesCategory, SERV09Services $SERV09Services, SERV09ServicesState $SERV09ServicesState, $propertiesByCity = null)
     {
         if (!$SERV09ServicesCategory->exists) {
             $SERV09ServicesCategory = SERV09ServicesCategory::exists()->sorting()->active()->first();
         }
 
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV09', 'page');
-
-        $section = SERV09ServicesSection::active()->first();
-        $categories = SERV09ServicesCategory::active()->exists()->sorting()->get();
-        $services = SERV09Services::where('category_id', $SERV09ServicesCategory->id)->with('topics')->active()->sorting()->paginate(3);
-
-        $states = SERV09ServicesState::active()->sorting()->pluck('state')->toArray();
+        $services = SERV09Services::with('topics')->where('category_id', $SERV09ServicesCategory->id)->active()->sorting()->paginate(32);
 
         foreach ($services as $service) {
             $service->price = $service->price ? number_format($service->price, '2', ',', '.') : null;
         }
+
+        $section = self::getSection();
 
         switch (deviceDetect()) {
             case 'mobile':
@@ -355,14 +356,71 @@ class SERV09Controller extends Controller
         }
 
         return view('Client.pages.Services.SERV09.page', [
-            'sections' => $sections,
+            'sections' => self::getSections(),
             'section' => $section,
-            'categories' => $categories,
+            'categories' => self::getCategories(),
             'categoryGet' => $SERV09ServicesCategory,
             'services' => $services,
-            'states' => implode(',', $states),
+            'states' => implode(',', self::getStates()),
         ]);
     }
+
+    public function filter(Request $request)
+    {
+        $services = SERV09Services::with('topics')->join('serv09_services_cities', 'serv09_services_cities.id', 'serv09_services.city_id')
+            ->select('serv09_services_cities.state_id', 'serv09_services.*');
+
+        if($request->category_id){
+            $SERV09ServicesCategory = SERV09ServicesCategory::where('id', $request->category_id)->exists()->sorting()->active()->first();
+            $services = $services->where('category_id', $SERV09ServicesCategory->id);
+        }
+
+        if($request->state_select){
+            $state = SERV09ServicesState::where('state', $request->state_select)->first();
+            $services = $services->where('state_id', $state->id);
+        }
+
+        if($request->city_select){
+            $services = $services->where('city_id', $request->city_select);
+        }
+
+        $services = $services->active()->sorting()->paginate(32);
+
+        return view('Client.pages.Services.SERV09.page', [
+            'sections' => self::getSections(),
+            'section' => self::getSection(),
+            'categories' => self::getCategories(),
+            'categoryGet' => $SERV09ServicesCategory,
+            'services' => $services,
+            'states' => implode(',', self::getStates()),
+        ]);
+    }
+
+    public function getSections()
+    {
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV09', 'page');
+        return $sections;
+    }
+
+    public function getSection()
+    {
+        $section = SERV09ServicesSection::active()->first();
+        return $section;
+    }
+
+    public function getCategories()
+    {
+        $categories = SERV09ServicesCategory::active()->exists()->sorting()->get();
+        return $categories;
+    }
+
+    public function getStates()
+    {
+        $states = SERV09ServicesState::active()->sorting()->pluck('state')->toArray();
+        return $states;
+    }
+
 
     /**
      * Section index resource.

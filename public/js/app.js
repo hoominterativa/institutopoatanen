@@ -12024,8 +12024,8 @@ $(function () {
   // SCRIPT DO FILTRO DO SERV09
   var filterForm = document.querySelector(".serv09-page__aside__filter__content");
   if (filterForm) {
-    var stateSelect = filterForm.querySelector("select#uf");
-    var citySelect = filterForm.querySelector("select#cidade");
+    var stateSelect = filterForm.querySelector("select#state_select");
+    var citySelect = filterForm.querySelector("select#city_select");
     var token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
     console.log(stateSelect);
     console.log(citySelect);
