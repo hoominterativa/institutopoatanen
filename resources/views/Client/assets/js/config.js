@@ -169,6 +169,7 @@ $(function () {
         });
     });
 
+    // SCRIPT DO FILTRO DO SERV09
     const filterForm = document.querySelector(
         ".serv09-page__aside__filter__content"
     );
@@ -181,8 +182,8 @@ $(function () {
             .querySelector('meta[name="csrf-token"]')
             .getAttribute("content");
 
-        console.log("StateSelect: " + stateSelect);
-        console.log("citySelect: " + citySelect);
+        console.log(stateSelect);
+        console.log(citySelect);
         console.log("token: " + token);
 
         const route = filterForm.dataset.route;
@@ -203,7 +204,6 @@ $(function () {
                     let citiesListItems =
                         "<option selected='selected' value=''>Cidade</option>";
 
-                    // console.log(text);
                     Object.entries(text.cities).forEach(([key, value]) => {
                         citiesListItems += `<option value="${key}">${value}</option>`;
                     });
@@ -213,6 +213,7 @@ $(function () {
                 .catch((error) => console.error(error));
         });
     }
+    // SCRIPT DO FILTRO DO SERV09
 });
 /******************************************************/
 

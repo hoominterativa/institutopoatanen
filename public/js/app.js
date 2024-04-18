@@ -12020,13 +12020,15 @@ $(function () {
       }
     });
   });
+
+  // SCRIPT DO FILTRO DO SERV09
   var filterForm = document.querySelector(".serv09-page__aside__filter__content");
   if (filterForm) {
     var stateSelect = filterForm.querySelector("select#uf");
     var citySelect = filterForm.querySelector("select#cidade");
     var token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-    console.log("StateSelect: " + stateSelect);
-    console.log("citySelect: " + citySelect);
+    console.log(stateSelect);
+    console.log(citySelect);
     console.log("token: " + token);
     var route = filterForm.dataset.route;
     stateSelect.addEventListener("change", function (ev) {
@@ -12043,8 +12045,6 @@ $(function () {
         return response.json();
       }).then(function (text) {
         var citiesListItems = "<option selected='selected' value=''>Cidade</option>";
-
-        // console.log(text);
         Object.entries(text.cities).forEach(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
             key = _ref2[0],
@@ -12057,6 +12057,7 @@ $(function () {
       });
     });
   }
+  // SCRIPT DO FILTRO DO SERV09
 });
 /******************************************************/
 
