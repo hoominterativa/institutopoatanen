@@ -70,13 +70,14 @@ class SERV09Controller extends Controller
 
     public function search(Request $request)
     {
-        // $state = $request->input('state_id');
 
         if ($request->input('state_id')) {
             return response()->json(['cities' => SERV09ServicesCity::where('state_id', $request->input('state_id'))->active()->sorting()->pluck('city', 'id')]);
         } else {
             return response()->json(['cities' => SERV09ServicesCity::where('state', $request->input('state'))->active()->sorting()->pluck('city', 'id')]);
         }
+
+        // $state = $request->input('state_id');
         // $cities = SERV09ServicesCity::where('state_id', $state)->orWhere('state', $state)->active()->sorting()->pluck('city', 'id');
 
         // return  response()->json(['cities' => $cities]);
