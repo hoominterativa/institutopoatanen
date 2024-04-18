@@ -15,7 +15,7 @@ class CreateServ09ServicesFeedbackTable extends Migration
     {
         Schema::create('serv09_services_feedback', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained('serv09_services');
+            $table->foreignId('service_id')->constrained('serv09_services')->onDelete('cascade');
             $table->string('name')->nullable();
             $table->string('profession')->nullable();
             $table->text('text')->nullable();

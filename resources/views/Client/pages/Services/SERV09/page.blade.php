@@ -17,12 +17,11 @@
 
         @if ($categories->count())
             <aside class="serv09-page__aside">
-
                 <div class="serv09-page__aside__categories">
                     <menu class="serv09-page__aside__categories__swiper-wrapper swiper-wrapper">
                         @foreach ($categories as $category)
                             <li
-                                class="serv09-page__aside__categories__item swiper-slide {{ isset($category->selected) ? 'active' : '' }}">
+                                class="serv09-page__aside__categories__item swiper-slide {{ $category->id == $categoryGet->id ? 'active' : '' }}">
                                 <a href="{{ route('serv09.category.page', ['SERV09ServicesCategory' => $category->slug]) }}"
                                     class="link-full" title="{{ $category->title }}"></a>
                                 <img src="{{ asset('storage/' . $category->path_image) }}"
@@ -35,6 +34,7 @@
                 </div>
 
                 <div class="serv09-page__aside__filter quedinha">
+                    {{-- FRONTEND o formulário está fechando quando o input é selecionado --}}
                     <button class="serv09-page__aside__filter__btn quedinha__btn">
                         Filtro
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
@@ -45,24 +45,32 @@
                         </svg>
                     </button>
 
-                    <div class="serv09-page__aside__filter__content quedinha__content">
-                        {!! Form::model([
-                            'method' => 'post',
-                            'class' => 'serv09-page__aside__filter__content__form send_form_ajax form-contact parsley-validate',
+                    <div class="serv09-page__aside__filter__content quedinha__content"
+                        data-route="{{ route('serv09.process-selection-city') }}">
+                        {!! Form::open([
+                            'route' => 'serv09.filter',
+                            'method' => 'POST',
+                            'class' => 'serv09-page__aside__filter__content__form form-contact parsley-validate',
                         ]) !!}
 
+                        @if ($categoryGet->exists)
+                            {!! Form::hidden('category_id', $categoryGet->id) !!}
+                        @endif
+
                         @include('Client.Components.inputs', [
-                            'name' => 'cidade',
-                            'placeholder' => 'Cidade',
-                            'required' => true,
-                            'type' => 'text',
+                            'name' => 'state_select',
+                            'placeholder' => 'Estado',
+                            'required' => false,
+                            'type' => 'select',
+                            'options' => $states,
                         ])
 
                         @include('Client.Components.inputs', [
-                            'name' => 'uf',
-                            'placeholder' => 'Estado',
-                            'required' => true,
-                            'type' => 'text',
+                            'name' => 'city_select',
+                            'placeholder' => 'Cidade',
+                            'required' => false,
+                            'type' => 'select',
+                            'options' => '-',
                         ])
 
                         <button type="submit" class="serv09-page__aside__filter__content__form__cta">Buscar</button>
@@ -99,7 +107,7 @@
 
                                 @if ($service->price)
                                     <span class="serv09-page__main__list__item__information__price">
-                                        R$ {{ number_format($service->price, 2, ',', '.') }}
+                                        R$ {{ $service->price }}
                                     </span>
                                 @endif
 
@@ -126,23 +134,23 @@
                                         @endforeach
                                     </ul>
                                 @endif
+                                @if ($service->percentage)
+                                    <div class="serv09-page__main__list__item__information__progress">
 
-                                <div class="serv09-page__main__list__item__information__progress">
+                                        <span class="serv09-page__main__list__item__information__progress__title">
+                                            {{ $service->percentage === 100 ? 'Concluído' : 'Em andamento' }}
+                                        </span>
 
-                                    <span class="serv09-page__main__list__item__information__progress__title">
-                                        Andamento
-                                    </span>
+                                        <div class="serv09-page__main__list__item__information__progress__bar">
+                                            <span class="serv09-page__main__list__item__information__progress__bar__fill"
+                                                style="width: {{ $service->percentage }}%;"></span>
+                                        </div>
 
-                                    <div class="serv09-page__main__list__item__information__progress__bar">
-                                        {{-- BACKEND precisa imprimir a porcentagem dentro do atributo style do span abaixo --}}
-                                        <span class="serv09-page__main__list__item__information__progress__bar__fill"
-                                            style="width: 20%;"></span>
+                                        <span class="serv09-page__main__list__item__information__progress__number">
+                                            {{ $service->percentage }}%
+                                        </span>
                                     </div>
-
-                                    <span class="serv09-page__main__list__item__information__progress__number">
-                                        20%
-                                    </span>
-                                </div>
+                                @endif
 
                             </div>
 
@@ -157,6 +165,7 @@
             </section>
         @endif
 
+        <div id="teste"></div>
         @foreach ($sections as $section)
             {!! $section !!}
         @endforeach

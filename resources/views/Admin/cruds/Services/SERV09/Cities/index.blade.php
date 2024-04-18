@@ -4,10 +4,10 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="{{route('admin.serv09.content.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContents" style="display: none;">Deletar selecionados</button>
+                        <button id="btSubmitDelete" data-route="{{route('admin.serv09.city.destroySelected')}}" type="button" class="btn btn-danger btnDeleteCity" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="javascript:void(0)"  data-bs-target="#modal-contents-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Conteúdo <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)"  data-bs-target="#modal-city-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Estado <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -15,26 +15,26 @@
                         <tr>
                             <th width="50px"></th>
                             <th width="30px" class="bs-checkbox">
-                                <label><input name="btnSelectAll" value="btnDeleteContents" type="checkbox"></label>
+                                <label><input name="btnSelectAll" value="btnDeleteCity" type="checkbox"></label>
                             </th>
-                            <th>Título</th>
-                            <th>Texto</th>
+                            <th>Estado</th>
+                            <th>Cidade</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{route('admin.serv09.content.sorting')}}">
-                        @foreach ($contents as $content)
-                            <tr data-code="{{$content->id}}">
+                    <tbody data-route="{{route('admin.serv09.city.sorting')}}">
+                        @foreach ($cities as $city)
+                            <tr data-code="{{$city->id}}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox align-middle">
-                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$content->id}}"></label>
+                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$city->id}}"></label>
                                 </td>
-                                <td class="align-middle">{{$content->title}}</td>
-                                <td class="align-middle">{!! substr($content->text, 0, 20)!!}<b>...</b></td>
+                                <td class="align-middle">{{$city->state->state}}</td>
+                                <td class="align-middle">{{$city->city}}</td>
                                 <td class="align-middle">
-                                    @if ($content->active)
+                                    @if ($city->active)
                                         <span class="badge bg-success">Ativo</span>
                                     @else
                                         <span class="badge bg-danger">Inativo</span>
@@ -43,57 +43,61 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="javascript:void(0)" data-bs-target="#modal-contents-update-{{$content->id}}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                            <a href="javascript:void(0)" data-bs-target="#modal-city-update-{{$city->id}}" data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{route('admin.serv09.content.destroy',['SERV09ServicesContent' => $content->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.serv09.city.destroy',['SERV09ServicesCity' => $city->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
-                                        {{-- BEGIN MODAL CONTENT UPDATE --}}
-                                        <div id="modal-contents-update-{{$content->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                            <div class="modal-dialog" style="max-width: 1100px;">
+                                        {{-- BEGIN MODAL CITY UPDATE --}}
+                                        <div id="modal-city-update-{{$city->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                            <div class="modal-dialog" style="max-width: 900px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
-                                                        <h4 class="page-title">Editar Conteúdo</h4>
+                                                        <h4 class="page-title">Editar cidade</h4>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include('Admin.cruds.Services.SERV09.Contents.form',[
-                                                            'content' => $content
+                                                        @include('Admin.cruds.Services.SERV09.cities.form',[
+                                                            'city' => $city
                                                         ])
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- END MODAL CONTENT UPDATE --}}
+                                        {{-- END MODAL CITY UPDATE --}}
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                {{-- PAGINATION --}}
+                <div class="mt-3 float-end">
+                    {{$cities->links()}}
+                </div>
             </div>
         </div> <!-- end card-->
     </div> <!-- end col-->
 </div>
 <!-- end row -->
 
-{{-- BEGIN MODAL CONTENT CREATE --}}
-<div id="modal-contents-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 1100px;">
+{{-- BEGIN MODAL CITY CREATE --}}
+<div id="modal-city-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="max-width: 900px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
-                <h4 class="page-title">Cadastrar Conteúdo</h4>
+                <h4 class="page-title">Cadastrar Cidade</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Services.SERV09.Contents.form',[
-                    'content' => null
+                @include('Admin.cruds.Services.SERV09.cities.form',[
+                    'city' => null
                 ])
             </div>
         </div>
     </div>
 </div>
-{{-- END MODAL CONTENT CREATE --}}
+{{-- END MODAL CITY CREATE --}}

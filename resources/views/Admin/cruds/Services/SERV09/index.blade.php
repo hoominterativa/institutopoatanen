@@ -30,6 +30,22 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#states" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Estados
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro dos estados"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cities" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Cidades
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro das cidades"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#services" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Services', 'SERV09') }}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -87,11 +103,6 @@
                                                     <th>Imagem</th>
                                                     <th>Categoria</th>
                                                     <th>Título/Subtítulo</th>
-                                                    <th>Descrição</th>
-                                                    <th>Texto</th>
-                                                    <th>Preço</th>
-                                                    <th>Título info</th>
-                                                    <th>Informações</th>
                                                     <th>Link</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
@@ -112,11 +123,6 @@
                                                         </td>
                                                         <td class="align-middle">{{$service->categories->title}}</td>
                                                         <td class="align-middle">{{$service->title}} <b>/</b>{{$service->subtitle}}</td>
-                                                        <td class="align-middle">{!! substr($service->description, 0, 20) !!}<b>...</b></td>
-                                                        <td class="align-middle">{!! substr($service->text, 0, 20) !!}<b>...</b></td>
-                                                        <td class="align-middle"><b>R$</b>{{number_format($service->price, 2, ',', '.')}}</td>
-                                                        <td class="align-middle">{{$service->title_info}}</td>
-                                                        <td class="align-middle">{!! substr($service->informations, 0, 20) !!}<b>...</b></td>
                                                         <td class="align-middle">
                                                             @if ($service->link)
                                                                 <a href="{{ $service->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>
@@ -160,6 +166,17 @@
                     <div class="tab-pane" id="category">
                         @include("Admin.cruds.Services.SERV09.Category.index",[
                             'categories' => $serviceCategories,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="states">
+                        @include("Admin.cruds.Services.SERV09.States.index",[
+                            'states' => $states,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="cities">
+                        @include("Admin.cruds.Services.SERV09.Cities.index",[
+                            'cities' => $cities,
+                            'statesGet' => $statesGet,
                         ])
                     </div>
                     <div class="tab-pane" id="section">
