@@ -19,20 +19,18 @@ class CreateServ08ServicesSectionsTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
-            $table->integer('active')->default(0);
+            $table->boolean('active')->default(0);
             //Section Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
             $table->string('path_image_desktop')->nullable();
             $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
-            $table->integer('active_banner')->default(0);
+            $table->boolean('active_banner')->default(0);
             // Section Content
             $table->string('title_content')->nullable();
             $table->string('subtitle_content')->nullable();
             $table->text('description_content')->nullable();
-            $table->integer('active_content')->default(0);
-
+            $table->boolean('active_content')->default(0);
             $table->timestamps();
         });
     }

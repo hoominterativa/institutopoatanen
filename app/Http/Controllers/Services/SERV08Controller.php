@@ -27,8 +27,7 @@ class SERV08Controller extends Controller
     public function index()
     {
         $services = SERV08Services::sorting()->paginate(32);
-        $serviceCategories = SERV08ServicesCategory::sorting()->paginate(10);
-        $categories = SERV08ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $categories = SERV08ServicesCategory::sorting()->get();
         $section = SERV08ServicesSection::first();
         $compliances = getCompliance(null, 'id', 'title_page');
         $contact = SERV08ServicesContact::first();
@@ -38,7 +37,6 @@ class SERV08Controller extends Controller
         }
         return view('Admin.cruds.Services.SERV08.index', [
             'services' => $services,
-            'serviceCategories' => $serviceCategories,
             'categories' => $categories,
             'section' => $section,
             'compliances' => $compliances,
@@ -196,24 +194,6 @@ class SERV08Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Services\SERV08Services  $SERV08Services
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SERV08Services $SERV08Services)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV08', 'show');
-
-        return view('Client.pages.Services.SERV08.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
      * Display a listing of the resourcee.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -224,18 +204,6 @@ class SERV08Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV08', 'page');
 
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $section = SERV08ServicesSection::active()->first();
-                if ($section) {
-                    $section->path_image_desktop = $section->path_image_mobile;
-                }
-            break;
-            default:
-                $section = SERV08ServicesSection::active()->first();
-            break;
-        }
         $categories = SERV08ServicesCategory::active()->exists()->sorting()->get();
         $services = SERV08Services::active();
         if($SERV08ServicesCategory->exists){
@@ -247,10 +215,19 @@ class SERV08Controller extends Controller
                 }
             }
         }
-        $services = $services->active()->sorting()->paginate(16);
+        $services = $services->active()->sorting()->paginate(32);
 
         $contact = SERV08ServicesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
+
+        $section = SERV08ServicesSection::first();
+
+        switch(deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section) $section->path_image_desktop = $section->path_image_mobile;
+            break;
+        }
 
         return view('Client.pages.Services.SERV08.page',[
             'sections' => $sections,
@@ -272,14 +249,12 @@ class SERV08Controller extends Controller
     {
         $section = SERV08ServicesSection::active()->first();
         $categories = SERV08ServicesCategory::active()->featured()->exists()->sorting()->get();
-        $categoryFirst = SERV08ServicesCategory::active()->exists()->first();
         $services = SERV08Services::active()->featured()->sorting()->get();
         $contact = SERV08ServicesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
         return view('Client.pages.Services.SERV08.section',[
             'section' => $section,
             'categories' => $categories,
-            'categoryFirst' => $categoryFirst,
             'services' => $services,
             'compliance' => $compliance,
             'contact' => $contact,

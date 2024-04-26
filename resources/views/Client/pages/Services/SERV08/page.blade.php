@@ -4,28 +4,34 @@
 
 <section class="serv08-page">
     <header class="serv08-page__header w-100">
-        <div class="serv08-banner-carousel owl-carousel w-100">
-            @if ($section)
-                <div class="serv08-banner-carousel__item" style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }});  background-color: {{$section->background_color}};">
-                    <div class="container d-flex flex-column align-items-center justify-content-center">
-                        <h3 class="serv08-banner-carousel__title text-center">{{$section->title_banner}}</h3>
-                        <h4 class="serv08-banner-carousel__subtitle text-center">{{$section->subtitle_banner}}</h4>
-                        <hr class="serv08-banner-carousel__line">
-                    </div>
+        @if ($section->active_banner)
+            <div class="serv08-banner-carousel owl-carousel w-100">
+                <div class="serv08-banner-carousel__item" style="background-image: url({{ asset('storage/'.$section->path_image_desktop) }});">
+                    @if ($section->title_banner || $section->subtitle_banner)
+                        <div class="container d-flex flex-column align-items-center justify-content-center">
+                            <h3 class="serv08-banner-carousel__title text-center">{{$section->title_banner}}</h3>
+                            <h4 class="serv08-banner-carousel__subtitle text-center">{{$section->subtitle_banner}}</h4>
+                            <hr class="serv08-banner-carousel__line">
+                        </div>
+                    @endif
                 </div>
-            @endif
-        </div>
+            </div>
+        @endif
         <div class="serv08-top w-100">
             <div class="container d-flex flex-column align-items-center justify-content-center">
-                @if ($section)
-                    <h1 class="serv08-top__title text-center">{{$section->subtitle_content}}</h1>
-                    <h2 class="serv08-top__subtitle text-center">{{$section->title_content}}</h2>
-                    <hr class="serv08-top__line">
-                    <div class="serv08-top__desc">
-                        <p>
-                            {!! $section->description_content !!}
-                        </p>
-                    </div>
+                @if ($section->active_content)
+                    @if ($section->subtitle_content || $section->subtitle_content)
+                        <h1 class="serv08-top__title text-center">{{$section->subtitle_content}}</h1>
+                        <h2 class="serv08-top__subtitle text-center">{{$section->title_content}}</h2>
+                        <hr class="serv08-top__line">
+                    @endif
+                    @if ($section->description_content)
+                        <div class="serv08-top__desc">
+                            <p>
+                                {!! $section->description_content !!}
+                            </p>
+                        </div>
+                    @endif
                 @endif
                 @if ($categories->count())
                     <div class="serv08-categories">
@@ -33,7 +39,7 @@
                             @foreach ($categories as $category)
                                 <li class="serv08-categories__list__item {{isset($category->selected) ? 'active':''}}">
                                     <a href="{{route('serv08.category.page', ['SERV08ServicesCategory' =>$category->slug])}}">
-                                        <img src="{{ asset('images/cta.png') }}" alt="" class="serv08-categories__list__item__icon">
+                                        <img src="{{ asset('storage/'.$category->path_image) }}" alt="Ícone da categoria {{$category->title}}" class="serv08-categories__list__item__icon">
                                         {{$category->title}}
                                     </a>
                                 </li>

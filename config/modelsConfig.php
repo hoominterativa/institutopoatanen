@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Services' => (object) [
-            'SERV07' => (object)[
+            'SERV08' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -38,14 +38,14 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Serviços',
                     'anchor' =>  false,
-                    'linkMenu' => 'serv07.page',
+                    'linkMenu' => 'serv08.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Serviços',
                     'iconPanel' => 'mdi-alpha-s-box-outline'
                 ],
                 'IncludeSections' => (object) [
                 ]
-            ],
+            ]
         ]
     ],
 

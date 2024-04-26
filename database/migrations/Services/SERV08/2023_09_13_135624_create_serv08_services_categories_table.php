@@ -18,8 +18,8 @@ class CreateServ08ServicesCategoriesTable extends Migration
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->text('path_image')->nullable();
-            $table->integer('active')->default(0);
-            $table->integer('featured')->default(0);
+            $table->boolean('active')->default(0);
+            $table->boolean('featured')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

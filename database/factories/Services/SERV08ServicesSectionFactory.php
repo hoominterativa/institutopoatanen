@@ -33,7 +33,6 @@ class SERV08ServicesSectionFactory extends Factory
             'active_banner' => 1,
             'path_image_desktop' => 'uploads/tmp/bg-boxitem.png',
             'path_image_mobile' => 'uploads/tmp/image-box-white.jpg',
-            'background_color' => '#FFFFFF',
             //Section Content
             'title_content' => $this->faker->text(10),
             'subtitle_content' => $this->faker->text(10),

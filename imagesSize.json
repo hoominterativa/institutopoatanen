@@ -1706,8 +1706,8 @@
                     "activeCrop": "false"
                 },
                 "path_image_mobile": {
-                    "width": "1500",
-                    "height": "269",
+                    "width": "390",
+                    "height": "321",
                     "activeCrop": "true"
                 }
             }
