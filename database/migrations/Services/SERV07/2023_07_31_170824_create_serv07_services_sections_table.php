@@ -24,7 +24,6 @@ class CreateServ07ServicesSectionsTable extends Migration
             $table->string('title_banner')->nullable();
             $table->string('path_image_desktop')->nullable();
             $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
             $table->integer('active_banner')->default(0);
             $table->timestamps();
         });

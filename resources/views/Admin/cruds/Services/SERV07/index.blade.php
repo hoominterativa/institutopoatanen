@@ -39,7 +39,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
-                            Informações complementares
+                            Seção home
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro de informações para a seção home"></i>
@@ -129,10 +129,6 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                        {{-- PAGINATION --}}
-                                        <div class="mt-3 float-end">
-                                            {{$services->links()}}
-                                        </div>
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
