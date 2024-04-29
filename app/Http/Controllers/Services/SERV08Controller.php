@@ -74,8 +74,8 @@ class SERV08Controller extends Controller
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
         $data['featured_service'] = $request->featured_service ? 1 : 0;
-        $data['slug'] = Str::slug($request->title);
-        $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title. ' ' .($request->subtitle ? $request->subtitle : ''));
+        if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -121,8 +121,8 @@ class SERV08Controller extends Controller
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
         $data['featured_service'] = $request->featured_service ? 1 : 0;
-        $data['slug'] = Str::slug($request->title);
-        $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
+        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title. ' ' .($request->subtitle ? $request->subtitle : ''));
+        if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -206,6 +206,7 @@ class SERV08Controller extends Controller
 
         $categories = SERV08ServicesCategory::active()->exists()->sorting()->get();
         $services = SERV08Services::active();
+        
         if($SERV08ServicesCategory->exists){
             $services = $services->where('category_id', $SERV08ServicesCategory->id);
 
@@ -216,6 +217,10 @@ class SERV08Controller extends Controller
             }
         }
         $services = $services->active()->sorting()->paginate(32);
+
+        foreach ($services as $service) {
+            $service->price = number_format($service->price, 2, ',', '.');
+        }
 
         $contact = SERV08ServicesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
@@ -250,6 +255,10 @@ class SERV08Controller extends Controller
         $section = SERV08ServicesSection::active()->first();
         $categories = SERV08ServicesCategory::active()->featured()->exists()->sorting()->get();
         $services = SERV08Services::active()->featured()->sorting()->get();
+        foreach ($services as $service) {
+            $service->price = number_format($service->price, 2, ',', '.');
+        }
+
         $contact = SERV08ServicesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id??'0');
         return view('Client.pages.Services.SERV08.section',[
