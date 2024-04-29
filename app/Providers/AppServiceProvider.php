@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
                 Config::set('mail.mailers.smtp.port', $setting->port);
                 Config::set('mail.mailers.smtp.username', $setting->user);
                 Config::set('mail.mailers.smtp.password', $setting->password);
-                Config::set('mail.mailers.smtp.encryption', 'ssl');
+                Config::set('mail.mailers.smtp.encryption', $setting->encryption);
             }
         } catch (Exception $e) {}
 

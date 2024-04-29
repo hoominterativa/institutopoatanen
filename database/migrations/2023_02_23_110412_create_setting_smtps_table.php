@@ -21,6 +21,7 @@ class CreateSettingSmtpsTable extends Migration
             $table->string('user')->nullable();
             $table->string('password')->nullable();
             $table->longText('report')->nullable();
+            $table->enum('encryption', ['ssl', 'tls'])->default('ssl');
             $table->timestamps();
         });
     }
