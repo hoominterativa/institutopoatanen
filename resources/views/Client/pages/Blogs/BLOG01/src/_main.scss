@@ -267,7 +267,8 @@
 
         &__modal {
             opacity: 0;
-            width: 50%;
+            width: 90%;
+            max-width: 462px;
             border: none;
             padding: 1.5rem;
             border-radius: 0.25rem;
@@ -301,17 +302,19 @@
                     border: none;
                 }
             }
+
             &__main {
                 overflow: hidden;
 
                 &__socials {
                     @include disFlex(row, space-around, center);
-                    gap: 2rem;
+                    padding-left: 0;
 
                     &__item {
+                        width: 5.5rem;
+
                         background-color: transparent;
                         border: none;
-                        width: fit-content;
                         cursor: pointer;
 
                         &__figure {
@@ -338,6 +341,11 @@
 
                     @include disFlex(row, space-between, center);
 
+                    @include medium-device-down {
+                        flex-direction: column;
+                        gap: 0.5rem;
+                    }
+
                     &__link {
                         @extend %theme__p2-cw;
                     }
@@ -348,6 +356,10 @@
                         padding: 0.5rem 1rem;
                         background-color: $color-five;
                         @extend %theme__p2-cb;
+
+                        @include medium-device-down {
+                            width: 100%;
+                        }
                     }
                 }
             }

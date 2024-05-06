@@ -34,46 +34,60 @@ new Swiper(".blog01-show__related__carousel", {
 });
 
 // FAZER FUNCIONAR O CARROSSEL DO MODAL
-// new Swiper(".blog01-show__article__modal__main__socials", {
-//     slidesPerView: 'auto',
-//     spaceBetween: 20,
-//     centerInsufficientSlides: true,
-// });
-
+new Swiper(".blog01-show__article__modal__main__socials", {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    centerInsufficientSlides: true,
+});
 
 // CONSTANTES PARA COMPARTILHAMENTO
 const shareButton = document.querySelector(".blog01-show__article__share");
-const modal = document.querySelector(".blog01-show__article__modal");
-const closeButton = document.querySelector(
-    ".blog01-show__article__modal__header__close"
-);
-const copyButton = document.querySelector(
-    ".blog01-show__article__modal__main__copy__button"
-);
-const link = document.querySelector(
-    ".blog01-show__article__modal__main__copy__link"
-);
-const url = window.location.href;
-const whatsapp = document.querySelector("#whatsapp");
-const facebook = document.querySelector("#facebook");
-const x = document.querySelector("#x");
-const email = document.querySelector("#email");
-const text = "Confira este link: ";
 
 // FRONTEND: FAZER COM O TOGGLE;
 if (shareButton) {
+    const modal = document.querySelector(".blog01-show__article__modal");
+    const closeButton = document.querySelector(
+        ".blog01-show__article__modal__header__close"
+    );
+    const copyButton = document.querySelector(
+        ".blog01-show__article__modal__main__copy__button"
+    );
+    const link = document.querySelector(
+        ".blog01-show__article__modal__main__copy__link"
+    );
+    const url = window.location.href;
+    const whatsapp = document.querySelector("#whatsapp");
+    const facebook = document.querySelector("#facebook");
+    const x = document.querySelector("#x");
+    const email = document.querySelector("#email");
+    const text = "Confira este link: ";
+
+    function handlePostModalOpen(m) {
+        m.showModal();
+        m.classList.add("open");
+        document.querySelector("body").style.overflowY = "hidden";
+    }
+
+    function handlePostModalClose(m) {
+        m.classList.remove("open");
+        document.querySelector("body").style.overflowY = "auto";
+
+        setTimeout(() => {
+            m.close();
+        }, 150);
+    }
 
     // SEÇÃO DO MODAL
-    shareButton.addEventListener("click", () => {
-        modal.showModal();
-        modal.classList.add("open");
-    });
+    shareButton.addEventListener(
+        "click",
+        handlePostModalOpen.bind(null, modal)
+    );
 
     // set timeout para colocar animação de saída
-    closeButton.addEventListener("click", () => {
-        modal.close();
-        modal.classList.remove("open");
-    });
+    closeButton.addEventListener(
+        "click",
+        handlePostModalClose.bind(null, modal)
+    );
 
     // SEÇÃO DE CÓPIA
     link.innerText = url;
