@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServ06ServicesBannersTable extends Migration
+class CreateServ09ServicesTopicsupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateServ06ServicesBannersTable extends Migration
      */
     public function up()
     {
-        Schema::create('serv06_services_banners', function (Blueprint $table) {
+        Schema::create('serv09_services_topicsups', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('service_id')->constrained('serv09_services')->onDelete('cascade');
             $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
+            $table->string('path_image')->nullable();
             $table->integer('active')->default(0);
+            $table->integer('sorting')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateServ06ServicesBannersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('serv06_services_banners');
+        Schema::dropIfExists('serv09_services_topicsups');
     }
 }

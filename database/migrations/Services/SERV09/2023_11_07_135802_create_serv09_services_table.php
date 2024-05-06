@@ -15,7 +15,8 @@ class CreateServ09ServicesTable extends Migration
     {
         Schema::create('serv09_services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('serv09_services_categories');
+            $table->foreignId('category_id')->constrained('serv09_services_categories')->onDelete('cascade');
+            $table->foreignId('city_id')->nullable()->constrained('serv09_services_cities')->onDelete('cascade');
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
@@ -25,9 +26,12 @@ class CreateServ09ServicesTable extends Migration
             $table->string('title_info')->nullable();
             $table->string('informations')->nullable();
             $table->string('path_image')->nullable();
-            $table->string('link')->nullable();
+            $table->text('link')->nullable();
+            $table->string('address')->nullable();
+            $table->text('map_link')->nullable();
             $table->integer('active')->default(0);
             $table->integer('featured')->default(0);
+            $table->integer('percentage')->nullable();
             //Section Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();

@@ -3,16 +3,16 @@
 namespace Database\Factories\Services;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Services\SERV05ServicesGalleryService;
+use App\Models\Services\SERV09ServicesState;
 
-class SERV05ServicesGalleryServiceFactory extends Factory
+class SERV09ServicesStateFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = SERV05ServicesGalleryService::class;
+    protected $model = SERV09ServicesState::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,9 @@ class SERV05ServicesGalleryServiceFactory extends Factory
     public function definition()
     {
         return [
-            'service_id' => rand(1,12),
-            'path_image_desktop' => 'uploads/tmp/thumbnail.png',
-            'path_image_mobile' => 'uploads/tmp/thumbnail-b.png',
+            /*'title' => $this->faker->text(10),
+            'path_image' => 'uploads/temp/image_temporary.png',
+            'active' => 1,*/
         ];
     }
 }

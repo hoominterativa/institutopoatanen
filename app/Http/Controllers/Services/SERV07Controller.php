@@ -31,7 +31,7 @@ class SERV07Controller extends Controller
      */
     public function index()
     {
-        $services = SERV07Services::sorting()->paginate(30);
+        $services = SERV07Services::sorting()->get();
         $serviceCategories = SERV07ServicesCategory::sorting()->paginate(10);
         $categories = SERV07ServicesCategory::exists()->sorting()->pluck('title', 'id');
         $section = SERV07ServicesSection::first();
@@ -256,21 +256,16 @@ class SERV07Controller extends Controller
      */
     public function page(Request $request, SERV07ServicesCategory $SERV07ServicesCategory)
     {
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV07', 'page');
+
+        $banner = SERV07ServicesSection::activeBanner()->first();
         switch(deviceDetect()){
             case 'mobile':
             case 'tablet':
-                $section = SERV07ServicesSection::activeBanner()->first();
-                if($section){
-                    $section->path_image_desktop = $section->path_image_mobile;
-                }
-            break;
-            default:
-                $section = SERV07ServicesSection::activeBanner()->first();
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
             break;
         }
-
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV07', 'page');
 
         $categories = SERV07ServicesCategory::exists()->active()->sorting()->get();
         $services = SERV07Services::active();
@@ -293,7 +288,7 @@ class SERV07Controller extends Controller
 
         return view('Client.pages.Services.SERV07.page',[
             'sections' => $sections,
-            'section' => $section,
+            'banner' => $banner,
             'categories' => $categories,
             'sectionCategories' => $sectionCategories,
             'categoryGet' => $categoryGet,

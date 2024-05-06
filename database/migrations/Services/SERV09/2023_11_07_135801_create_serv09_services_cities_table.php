@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServ05ServicesGalleryservicesTable extends Migration
+class CreateServ09ServicesCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateServ05ServicesGalleryservicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('serv05_services_galleryservices', function (Blueprint $table) {
+        Schema::create('serv09_services_cities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained('serv05_services');
-            $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_mobile')->nullable();
+            $table->foreignId('state_id')->nullable()->constrained('serv09_services_states')->onDelete('cascade');
+            $table->string('city')->nullable();
+            $table->integer('active')->default(1);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateServ05ServicesGalleryservicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('serv05_services_galleryservices');
+        Schema::dropIfExists('serv09_services_cities');
     }
 }

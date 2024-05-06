@@ -4,15 +4,15 @@
     <section class="serv06-page">
         @if ($banner)
             <header class="serv06-page__header"
-                style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }}); background-color: {{$banner->background_color}};">
+                style="background-image: url({{ asset('storage/' . $banner->path_image_desktop_banner) }});">
                 <div class="container d-flex flex-column align-items-center">
-                    @if ($banner->title || $banner->subtitle)
-                        <h1 class="serv06-page__title">{{$banner->title}}</h1>
-                        <h3 class="serv06-page__subtitle">{{$banner->subtitle}}</h3>
+                    @if ($banner->title_banner || $banner->subtitle_banner)
+                        <h1 class="serv06-page__title">{{$banner->title_banner}}</h1>
+                        <h3 class="serv06-page__subtitle">{{$banner->subtitle_banner}}</h3>
                         <hr class="serv06-page__line">
                     @endif
-                    <div class="serv06-categories">
-                        @if ($services->count())
+                    @if ($services->count())
+                        <div class="serv06-categories">
                             <ul class="serv06-categories__list w-100">
                                 @foreach ($services as $service)
                                     <li class="serv06-categories__list__item">
@@ -27,23 +27,20 @@
                                     </li>
                                 @endforeach
                             </ul>
-                        @endif
-                        <div class="serv06-categories__dropdown-mobile">
-                            <div class="accordion accordion-flush" id="accordionFlushExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header serv06-categories__dropdown-mobile__item">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                            aria-controls="flush-collapseOne">
-                                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                                class="serv06-categories__dropdown-mobile__item__icon">
-                                            Seções
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            @if ($services->count())
+                            <div class="serv06-categories__dropdown-mobile">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header serv06-categories__dropdown-mobile__item">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                                aria-controls="flush-collapseOne">
+                                                <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
+                                                    class="serv06-categories__dropdown-mobile__item__icon">
+                                                Seções
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
                                                 <ul>
                                                     @foreach ($services as $service)
                                                         <li class="serv06-categories__dropdown-mobile__item">
@@ -58,13 +55,13 @@
                                                         </li>
                                                     @endforeach
                                                 </ul>
-                                            @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </header>
         @endif
@@ -81,13 +78,13 @@
                                 <h3 class="serv06-page__item__title">{{$service->title}}</h3>
                                 <hr class="serv06-page__item__line">
                             @endif
-                            <div class="serv06-page__item__text">
-                                @if ($service->text)
+                            @if ($service->text)
+                                <div class="serv06-page__item__text">
                                     <p>
                                         {!! $service->text !!}
                                     </p>
-                                @endif
-                            </div>
+                                </div>
+                            @endif
                         </div>
                     </article>
                 @endforeach

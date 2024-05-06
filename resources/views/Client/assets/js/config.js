@@ -134,6 +134,10 @@ $(function () {
                     formPlaceholder.removeClass("focusing");
                 }
             });
+
+            if (that.val() != "") {
+                formPlaceholder.addClass("focusing");
+            }
         }
     });
 
@@ -151,6 +155,10 @@ $(function () {
 
         var formPlaceholder = that.parent();
 
+        if (that.val() != "") {
+            formPlaceholder.addClass("focusing");
+        }
+
         that.on("change", function () {
             var thisValue = $(this).val();
             if (thisValue != "") {
@@ -160,6 +168,52 @@ $(function () {
             }
         });
     });
+
+    // SCRIPT DO FILTRO DO SERV09
+    const filterForm = document.querySelector(
+        ".serv09-page__aside__filter__content"
+    );
+
+    if (filterForm) {
+        const stateSelect = filterForm.querySelector("select#state_select");
+        const citySelect = filterForm.querySelector("select#city_select");
+
+        const token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+
+        console.log(stateSelect);
+        console.log(citySelect);
+        console.log("token: " + token);
+
+        const route = filterForm.dataset.route;
+
+        stateSelect.addEventListener("change", (ev) => {
+            fetch(route, {
+                headers: {
+                    "X-CSRF-TOKEN": token,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    state: ev.target.value,
+                }),
+                method: "POST",
+            })
+                .then((response) => response.json())
+                .then((text) => {
+                    let citiesListItems =
+                        "<option selected='selected' value=''>Cidade</option>";
+
+                    Object.entries(text.cities).forEach(([key, value]) => {
+                        citiesListItems += `<option value="${key}">${value}</option>`;
+                    });
+
+                    citySelect.innerHTML = citiesListItems;
+                })
+                .catch((error) => console.error(error));
+        });
+    }
+    // SCRIPT DO FILTRO DO SERV09
 });
 /******************************************************/
 
@@ -402,7 +456,11 @@ quedinhaBtnList.forEach((quedinhaBtn) => {
 
 // Fecha o dropdown se o usuário clicar fora dele mesmo.
 window.onclick = function (event) {
-    if (!event.target.matches(".quedinha__btn")) {
+    if (
+        !event.target.matches(
+            ".quedinha__btn, .quedinha__content, .quedinha__content *:not(a)"
+        )
+    ) {
         document
             .querySelectorAll(".quedinha.open")
             .forEach((el) => el.classList.remove("open"));
@@ -430,14 +488,14 @@ btnsBurguer.forEach((el) => {
                 "visible"; /* valor padrão visible, permitindo rolagem*/
         }
     });
-    const burguerIcon = el.querySelector('.burguer__icon');
+    const burguerIcon = el.querySelector(".burguer__icon");
 
-    if(burguerIcon) {
-        if(!burguerIcon.classList.contains('dots')){
-            burguerIcon.innerHTML = "<span></span> <span></span> <span></span>"
-
-        }  else {
-            burguerIcon.innerHTML = "<span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span>"
+    if (burguerIcon) {
+        if (!burguerIcon.classList.contains("dots")) {
+            burguerIcon.innerHTML = "<span></span> <span></span> <span></span>";
+        } else {
+            burguerIcon.innerHTML =
+                "<span></span> <span></span> <span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span>";
         }
     }
 });
@@ -455,10 +513,8 @@ if (sideLinks.length > 0) {
                 "visible"; /* valor padrão visible, permitindo rolagem*/
 
             setTimeout(() => {
-                    window.location.assign(el.href);
+                window.location.assign(el.href);
             }, 800);
         });
     });
 }
-
-/***********************************************************/

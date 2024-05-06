@@ -66,17 +66,12 @@
                 width: 90%;
             }
 
-            &__image {
+            &__icon {
                 width: 4rem;
                 height: auto;
                 aspect-ratio: 1/1;
-
-                &__img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    object-position: center;
-                }
+                object-fit: contain;
+                object-position: center;
             }
         }
     }

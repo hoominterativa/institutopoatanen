@@ -25,13 +25,12 @@ class SERV07ServicesSectionFactory extends Factory
             //Section
             'title' => $this->faker->text(10),
             'subtitle' => $this->faker->text(10),
-            'description' => $this->faker->text(300),
+            'description' => $this->faker->text(500),
             'active' => 1,
             //Banner
             'title_banner' => $this->faker->text(10),
             'path_image_desktop' => 'uploads/tmp/thumbnail.png',
-            'path_image_mobile' => 'uploads/tmp/logo-for.png',
-            'background_color' => '#FFFFFF',
+            'path_image_mobile' => 'uploads/tmp/bg-boxitem-light.png',
             'active_banner' => 1,
         ];
     }

@@ -1515,6 +1515,16 @@
                 "height": "410",
                 "activeCrop": "false"
             },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "419",
+                "activeCrop": "false"
+            },
+            "path_image_mobile": {
+                "width": "390",
+                "height": "775",
+                "activeCrop": "true"
+            },
             "Category": {
                 "path_image_icon": {
                     "width": "250",
@@ -1522,25 +1532,13 @@
                     "activeCrop": "false"
                 }
             },
-            "Galleries": {
-                "path_image_desktop": {
+            "Section": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "419",
                     "activeCrop": "false"
                 },
-                "path_image_mobile": {
-                    "width": "390",
-                    "height": "775",
-                    "activeCrop": "true"
-                }
-            },
-            "GalleryService": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "419",
-                    "activeCrop": "false"
-                },
-                "path_image_mobile": {
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "775",
                     "activeCrop": "true"
@@ -1583,37 +1581,22 @@
                 "activeCrop": "false"
             },
             "Section": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "645",
-                    "activeCrop": "false"
-                },
-                "path_image_mobile": {
-                    "width": "390",
-                    "height": "775",
-                    "activeCrop": "true"
-                },
-                "path_image": {
+                "path_image_section": {
                     "width": "430",
                     "height": "593",
                     "activeCrop": "false"
                 }
             },
             "Banner": {
-                "path_image_desktop": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "304",
                     "activeCrop": "false"
                 },
-                "path_image_mobile": {
+                "path_image_mobile_banner": {
                     "width": "390",
                     "height": "775",
                     "activeCrop": "true"
-                },
-                "path_image": {
-                    "width": "430",
-                    "height": "593",
-                    "activeCrop": "false"
                 }
             }
         },
@@ -1723,8 +1706,8 @@
                     "activeCrop": "false"
                 },
                 "path_image_mobile": {
-                    "width": "1500",
-                    "height": "269",
+                    "width": "390",
+                    "height": "321",
                     "activeCrop": "true"
                 }
             }
@@ -1743,6 +1726,13 @@
                 }
             },
             "Topic": {
+                "path_image": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
+            },
+            "TopicUp": {
                 "path_image": {
                     "width": "300",
                     "height": "300",

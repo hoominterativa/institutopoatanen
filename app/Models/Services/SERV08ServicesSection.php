@@ -20,7 +20,7 @@ class SERV08ServicesSection extends Model
         //Section Home
         'title', 'subtitle', 'description', 'active',
         //Section Banner
-        'title_banner', 'subtitle_banner', 'description_banner', 'active_banner', 'path_image_desktop', 'path_image_mobile', 'background_color',
+        'title_banner', 'subtitle_banner', 'description_banner', 'active_banner', 'path_image_desktop', 'path_image_mobile',
         //Section Content
         'title_content', 'subtitle_content', 'description_content', 'active_content',
     ];
@@ -28,15 +28,5 @@ class SERV08ServicesSection extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
-    }
-
-    public function scopeActiveBanner($query)
-    {
-        return $query->where('active_banner', 1);
-    }
-
-    public function scopeActiveContent($query)
-    {
-        return $query->where('active_content', 1);
     }
 }

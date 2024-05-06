@@ -4,7 +4,7 @@
 
         @if ($section->active_banner)
             <section class="bran01-page__banner"
-                style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }});
+                style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }});">
 
                 @if ($section->title_banner)
                     <h1 class="bran01-page__banner__title">{{ $section->title_banner }}</h1>

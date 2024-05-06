@@ -15,7 +15,7 @@ class CreateServ05ServicesTopicsTable extends Migration
     {
         Schema::create('serv05_services_topics', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained('serv05_services');
+            $table->foreignId('service_id')->constrained('serv05_services')->onDelete('cascade');
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();

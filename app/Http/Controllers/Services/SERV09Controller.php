@@ -13,10 +13,13 @@ use App\Models\Services\SERV09ServicesSection;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV09ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV09ServicesCity;
 use App\Models\Services\SERV09ServicesContent;
 use App\Models\Services\SERV09ServicesFeedback;
 use App\Models\Services\SERV09ServicesGallery;
+use App\Models\Services\SERV09ServicesState;
 use App\Models\Services\SERV09ServicesTopic;
+use App\Models\Services\SERV09ServicesTopicsUp;
 use Database\Factories\Services\SERV09ServicesFactory;
 
 class SERV09Controller extends Controller
@@ -32,13 +35,17 @@ class SERV09Controller extends Controller
     {
         $services = SERV09Services::sorting()->paginate(32);
         $serviceCategories = SERV09ServicesCategory::sorting()->paginate(10);
-        $categories = SERV09ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $states = SERV09ServicesState::sorting()->paginate(15);
+        $statesGet = SERV09ServicesState::sorting()->pluck('state', 'id');
+        $cities = SERV09ServicesCity::sorting()->paginate(32);
         $section = SERV09ServicesSection::first();
         return view('Admin.cruds.Services.SERV09.index', [
             'services' => $services,
             'serviceCategories' => $serviceCategories,
-            'categories' => $categories,
             'section' => $section,
+            'states' => $states,
+            'cities' => $cities,
+            'statesGet' => $statesGet,
             'cropSetting' => getCropImage('Services', 'SERV09')
         ]);
     }
@@ -51,10 +58,35 @@ class SERV09Controller extends Controller
     public function create()
     {
         $categories = SERV09ServicesCategory::sorting()->pluck('title', 'id');
+        $states = SERV09ServicesState::active()->sorting()->pluck('state', 'id');
+        $cities = '';
         return view('Admin.cruds.Services.SERV09.create', [
             'categories' => $categories,
+            'states' => $states,
+            'cities' => $cities,
             'cropSetting' => getCropImage('Services', 'SERV09')
         ]);
+    }
+
+    public function processSelectionCity(Request $request)
+    {
+        $state = SERV09ServicesState::query();
+
+        if($request->has('state_id')){
+            $state = $state->where('id', $request->state_id);
+        }else{
+            $state = $state->where('state', $request->state);
+        }
+
+        $state = $state->first();
+
+
+        if($state){
+            $cities = SERV09ServicesCity::where('state_id', $state->id)->active()->orderBy('city', 'ASC')->pluck('city', 'id');
+            return  response()->json(['cities' => $cities]);
+        }
+
+        return null;
     }
 
     /**
@@ -71,23 +103,24 @@ class SERV09Controller extends Controller
         $data['active'] = $request->active ? 1 : 0;
         $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
-        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
-        if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
-        if($request->link) $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        if ($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
+        if ($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
+        if ($request->link) $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        if ($request->map_link) $data['map_link'] = isset($data['map_link']) ? getUri($data['map_link']) : null;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) $data['path_image'] = $path_image;
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
-        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
+        if ($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
-        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
+        if ($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        if($service = SERV09Services::create($data)){
+        if ($service = SERV09Services::create($data)) {
             Session::flash('success', 'Serviço cadastrado com sucesso');
             return redirect()->route('admin.serv09.edit', ['SERV09Services' => $service->id]);
-        }else{
+        } else {
             Storage::delete($path_image);
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
@@ -104,11 +137,19 @@ class SERV09Controller extends Controller
      */
     public function edit(SERV09Services $SERV09Services)
     {
+        $SERV09Services = SERV09Services::where('serv09_services.id', '=', $SERV09Services->id)
+            ->leftJoin('serv09_services_cities', 'serv09_services_cities.id', 'serv09_services.city_id')
+            ->select('serv09_services.*', 'serv09_services_cities.state_id')
+            ->first();
+
         $categories = SERV09ServicesCategory::sorting()->pluck('title', 'id');
+        $states = SERV09ServicesState::active()->sorting()->pluck('state', 'id');
+        $cities = SERV09ServicesCity::active()->sorting()->pluck('city', 'id');
         $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
         $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
         $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->get();
         $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->get();
+        $topicsUp = SERV09ServicesTopicsUp::where('service_id', $SERV09Services->id)->get();
         return view('Admin.cruds.Services.SERV09.edit', [
             'service' => $SERV09Services,
             'categories' => $categories,
@@ -116,6 +157,9 @@ class SERV09Controller extends Controller
             'galleries' => $galleries,
             'contents' => $contents,
             'feedbacks' => $feedbacks,
+            'topicsUp' => $topicsUp,
+            'states' => $states,
+            'cities' => $cities,
             'cropSetting' => getCropImage('Services', 'SERV09')
         ]);
     }
@@ -135,43 +179,44 @@ class SERV09Controller extends Controller
         $data['active'] = $request->active ? 1 : 0;
         $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
-        if($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
-        if($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
-        if($request->link) $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        if ($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
+        if ($request->price) $data['price'] = (float) str_replace(',', '.', str_replace('.', '', $request->price));
+        if ($request->link) $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        if ($request->map_link) $data['map_link'] = isset($data['map_link']) ? getUri($data['map_link']) : null;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) {
             storageDelete($SERV09Services, 'path_image');
             $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image && !$path_image){
+        if ($request->delete_path_image && !$path_image) {
             storageDelete($SERV09Services, 'path_image');
             $data['path_image'] = null;
         }
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
-        if($path_image_desktop){
+        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null, 100);
+        if ($path_image_desktop) {
             storageDelete($SERV09Services, 'path_image_desktop');
             $data['path_image_desktop'] = $path_image_desktop;
         }
-        if($request->delete_path_image_desktop && !$path_image_desktop){
+        if ($request->delete_path_image_desktop && !$path_image_desktop) {
             storageDelete($SERV09Services, 'path_image_desktop');
             $data['path_image_desktop'] = null;
         }
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
-        if($path_image_mobile){
+        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null, 100);
+        if ($path_image_mobile) {
             storageDelete($SERV09Services, 'path_image_mobile');
             $data['path_image_mobile'] = $path_image_mobile;
         }
-        if($request->delete_path_image_mobile && !$path_image_mobile){
+        if ($request->delete_path_image_mobile && !$path_image_mobile) {
             storageDelete($SERV09Services, 'path_image_mobile');
             $data['path_image_mobile'] = null;
         }
 
-        if($SERV09Services->fill($data)->save()){
+        if ($SERV09Services->fill($data)->save()) {
             Session::flash('success', 'Serviço atualizado com sucesso');
-        }else{
+        } else {
             Storage::delete($path_image);
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
@@ -188,42 +233,11 @@ class SERV09Controller extends Controller
      */
     public function destroy(SERV09Services $SERV09Services)
     {
-        $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
-        if ($topics->count()) {
-            foreach ($topics as $topic) {
-                storageDelete($topic, 'path_image');
-                $topic->delete();
-            }
-        }
-
-        $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
-        if ($galleries->count()) {
-            foreach ($galleries as $gallery) {
-                storageDelete($gallery, 'path_image');
-                $gallery->delete();
-            }
-        }
-
-        $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->get();
-        if ($contents->count()) {
-            foreach ($contents as $content) {
-                $content->delete();
-            }
-        }
-
-        $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->get();
-        if ($feedbacks->count()) {
-            foreach ($feedbacks as $feedback) {
-                storageDelete($feedback, 'path_image');
-                $feedback->delete();
-            }
-        }
-
         storageDelete($SERV09Services, 'path_image');
         storageDelete($SERV09Services, 'path_image_desktop');
         storageDelete($SERV09Services, 'path_image_mobile');
 
-        if($SERV09Services->delete()){
+        if ($SERV09Services->delete()) {
             Session::flash('success', 'Serviço deletado com sucessso');
             return redirect()->back();
         }
@@ -239,57 +253,26 @@ class SERV09Controller extends Controller
     {
 
         $SERV09Servicess = SERV09Services::whereIn('id', $request->deleteAll)->get();
-        foreach($SERV09Servicess as $SERV09Services){
-            $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->get();
-            if ($topics->count()) {
-                foreach ($topics as $topic) {
-                    storageDelete($topic, 'path_image');
-                    $topic->delete();
-                }
-            }
-
-            $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->get();
-            if ($galleries->count()) {
-                foreach ($galleries as $gallery) {
-                    storageDelete($gallery, 'path_image');
-                    $gallery->delete();
-                }
-            }
-
-            $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->get();
-            if ($contents->count()) {
-                foreach ($contents as $content) {
-                    $content->delete();
-                }
-            }
-
-            $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->get();
-            if ($feedbacks->count()) {
-                foreach ($feedbacks as $feedback) {
-                    storageDelete($feedback, 'path_image');
-                    $feedback->delete();
-                }
-            }
-
+        foreach ($SERV09Servicess as $SERV09Services) {
             storageDelete($SERV09Services, 'path_image');
             storageDelete($SERV09Services, 'path_image_desktop');
             storageDelete($SERV09Services, 'path_image_mobile');
         }
 
-        if($deleted = SERV09Services::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' serviços deletados com sucessso']);
+        if ($deleted = SERV09Services::whereIn('id', $request->deleteAll)->delete()) {
+            return Response::json(['status' => 'success', 'message' => $deleted . ' serviços deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             SERV09Services::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
@@ -311,29 +294,33 @@ class SERV09Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV09', 'show');
 
         $categories = SERV09ServicesCategory::active()->exists()->sorting()->get();
-        $services = SERV09Services::with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->whereNotIn('id', [$SERV09Services->id])->active()->sorting()->get();
+        $services = SERV09Services::with('topics')->whereNotIn('id', [$SERV09Services->id])->active()->sorting()->get();
+        foreach ($services as $service) {
+            $service->price = $service->price ? number_format($service->price, '2', ',', '.') : null;
+        }
         $topics = SERV09ServicesTopic::where('service_id', $SERV09Services->id)->active()->sorting()->get();
+        $topicsUp = SERV09ServicesTopicsUp::where('service_id', $SERV09Services->id)->active()->sorting()->get();
         $galleries = SERV09ServicesGallery::where('service_id', $SERV09Services->id)->sorting()->get();
         $contents = SERV09ServicesContent::where('service_id', $SERV09Services->id)->active()->sorting()->get();
         $feedbacks = SERV09ServicesFeedback::where('service_id', $SERV09Services->id)->active()->sorting()->get();
-        $section = SERV09ServicesSection::active()->first();
 
-        switch(deviceDetect()) {
+        switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                if ($SERV09Services)
-                    {$SERV09Services->path_image_desktop = $SERV09Services->path_image_mobile;}
-            break;
+                if ($SERV09Services) {
+                    $SERV09Services->path_image_desktop = $SERV09Services->path_image_mobile;
+                }
+                break;
         }
 
-        return view('Client.pages.Services.SERV09.show',[
+        return view('Client.pages.Services.SERV09.show', [
             'sections' => $sections,
             'service' => $SERV09Services,
             'topics' => $topics,
+            'topicsUp' => $topicsUp,
             'galleries' => $galleries,
             'contents' => $contents,
             'feedbacks' => $feedbacks,
-            'section' => $section,
             'categories' => $categories,
             'services' => $services,
         ]);
@@ -345,40 +332,95 @@ class SERV09Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request, SERV09ServicesCategory $SERV09ServicesCategory, SERV09Services $SERV09Services)
+    public function page(Request $request, SERV09ServicesCategory $SERV09ServicesCategory, SERV09Services $SERV09Services, SERV09ServicesState $SERV09ServicesState, $propertiesByCity = null)
+    {
+        if (!$SERV09ServicesCategory->exists) {
+            $SERV09ServicesCategory = SERV09ServicesCategory::exists()->sorting()->active()->first();
+        }
+
+        $services = SERV09Services::with('topics')->where('category_id', $SERV09ServicesCategory->id)->active()->sorting()->paginate(32);
+
+        foreach ($services as $service) {
+            $service->price = $service->price ? number_format($service->price, '2', ',', '.') : null;
+        }
+
+        $section = self::getSection();
+
+        switch (deviceDetect()) {
+            case 'mobile':
+            case 'tablet':
+                if ($section) {
+                    $section->path_image_desktop = $section->path_image_mobile;
+                }
+                break;
+        }
+
+        return view('Client.pages.Services.SERV09.page', [
+            'sections' => self::getSections(),
+            'section' => $section,
+            'categories' => self::getCategories(),
+            'categoryGet' => $SERV09ServicesCategory,
+            'services' => $services,
+            'states' => implode(',', self::getStates()),
+        ]);
+    }
+
+    public function filter(Request $request)
+    {
+        $services = SERV09Services::with('topics')->join('serv09_services_cities', 'serv09_services_cities.id', 'serv09_services.city_id')
+            ->select('serv09_services_cities.state_id', 'serv09_services.*');
+
+        if($request->category_id){
+            $SERV09ServicesCategory = SERV09ServicesCategory::where('id', $request->category_id)->exists()->sorting()->active()->first();
+            $services = $services->where('category_id', $SERV09ServicesCategory->id);
+        }
+
+        if($request->state_select){
+            $state = SERV09ServicesState::where('state', $request->state_select)->first();
+            $services = $services->where('state_id', $state->id);
+        }
+
+        if($request->city_select){
+            $services = $services->where('city_id', $request->city_select);
+        }
+
+        $services = $services->active()->sorting()->paginate(32);
+
+        return view('Client.pages.Services.SERV09.page', [
+            'sections' => self::getSections(),
+            'section' => self::getSection(),
+            'categories' => self::getCategories(),
+            'categoryGet' => $SERV09ServicesCategory,
+            'services' => $services,
+            'states' => implode(',', self::getStates()),
+        ]);
+    }
+
+    public function getSections()
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV09', 'page');
-
-        $section = SERV09ServicesSection::active()->first();
-        $categories = SERV09ServicesCategory::active()->exists()->sorting()->get();
-        $services = SERV09Services::active();
-        if($SERV09ServicesCategory->exists){
-            $services = $services->where('category_id', $SERV09ServicesCategory->id);
-
-            foreach ($categories as $category) {
-                if($SERV09ServicesCategory->id==$category->id){
-                    $category->selected = true;
-                }
-            }
-        }
-        $services = $services->with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->active()->sorting()->paginate(3);
-
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                if ($section)
-                    {$section->path_image_desktop = $section->path_image_mobile;}
-            break;
-        }
-
-        return view('Client.pages.Services.SERV09.page',[
-            'sections' => $sections,
-            'section' => $section,
-            'categories' => $categories,
-            'services' => $services,
-        ]);
+        return $sections;
     }
+
+    public function getSection()
+    {
+        $section = SERV09ServicesSection::active()->first();
+        return $section;
+    }
+
+    public function getCategories()
+    {
+        $categories = SERV09ServicesCategory::active()->exists()->sorting()->get();
+        return $categories;
+    }
+
+    public function getStates()
+    {
+        $states = SERV09ServicesState::active()->sorting()->pluck('state')->toArray();
+        return $states;
+    }
+
 
     /**
      * Section index resource.
@@ -390,8 +432,11 @@ class SERV09Controller extends Controller
         $section = SERV09ServicesSection::active()->first();
         $categories = SERV09ServicesCategory::active()->featured()->exists()->sorting()->get();
         $categoryFirst = SERV09ServicesCategory::active()->exists()->first();
-        $services = SERV09Services::with(['topics' => function ($query) {$query->where(['featured' => 1, 'active' => 1]);}])->active()->featured()->sorting()->get();
-        return view('Client.pages.Services.SERV09.section',[
+        $services = SERV09Services::with('topics')->active()->featured()->sorting()->get();
+        foreach ($services as $service) {
+            $service->price = $service->price ? number_format($service->price, '2', ',', '.') : null;
+        }
+        return view('Client.pages.Services.SERV09.section', [
             'section' => $section,
             'categories' => $categories,
             'categoryFirst' => $categoryFirst,

@@ -15,14 +15,18 @@ class CreateServ06ServicesSectionsTable extends Migration
     {
         Schema::create('serv06_services_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->text('description')->nullable();
-            $table->string('path_image')->nullable();
-            $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
-            $table->integer('active')->default(0);
+            //Section
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->text('description_section')->nullable();
+            $table->string('path_image_section')->nullable();
+            $table->integer('active_section')->default(0);
+            //Banner
+            $table->string('title_banner')->nullable();
+            $table->string('subtitle_banner')->nullable();
+            $table->string('path_image_desktop_banner')->nullable();
+            $table->string('path_image_mobile_banner')->nullable();
+            $table->integer('active_banner')->default(0);
             $table->timestamps();
         });
     }

@@ -22,16 +22,12 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="normal-editor__content mb-3">
                 {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
                 {!! Form::textarea('description', null, [
-                    'class' => 'form-control',
+                    'class' => 'form-control normal-editor',
+                    'data-height' => 500,
                     'id' => 'description',
-                    'data-parsley-trigger' => 'keyup',
-                    'data-parsley-minlength' => '20',
-                    'data-parsley-maxlength' => '900',
-                    'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold' => '10',
                 ]) !!}
             </div>
         </div>

@@ -12,16 +12,17 @@
 
         margin-bottom: 2rem;
 
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.75rem;
+        }
+
         &__paragraph {
             width: 100%;
-            max-width: 45%;
+            max-width: 680px;
 
             @extend %theme__p1-c2;
             text-align: center;
-
-            @include large-device-down {
-                max-width: unset;
-            }
         }
     }
 

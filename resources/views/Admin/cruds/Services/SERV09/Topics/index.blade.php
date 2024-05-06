@@ -7,7 +7,7 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.serv09.topic.destroySelected')}}" type="button" class="btn btn-danger btnDeleteTopics" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="javascript:void(0)"  data-bs-target="#modal-topics-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)"  data-bs-target="#modal-topics-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Característica <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -61,7 +61,7 @@
                                             <div class="modal-dialog" style="max-width: 1100px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
-                                                        <h4 class="page-title">Editar Tópico</h4>
+                                                        <h4 class="page-title">Editar Características</h4>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
 
@@ -86,12 +86,12 @@
 </div>
 <!-- end row -->
 
-{{-- BEGIN MODAL ADDITIONALTOPICS CREATE --}}
+{{-- BEGIN MODAL TOPICS CREATE --}}
 <div id="modal-topics-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" style="max-width: 1100px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
-                <h4 class="page-title">Cadastrar Tópico</h4>
+                <h4 class="page-title">Cadastrar Características</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -103,4 +103,4 @@
         </div>
     </div>
 </div>
-{{-- END MODAL ADDITIONALTOPICS CREATE --}}
+{{-- END MODAL TOPICS CREATE --}}

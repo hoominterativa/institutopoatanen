@@ -98,6 +98,10 @@ details {
 
             transition: all ease 0.4s;
         }
+
+        * {
+            pointer-events: none;
+        }
     }
 
     &.open > &__btn::after {
@@ -1682,7 +1686,7 @@ body {
 
 .animated {
     opacity: 1;
-    animation-duration: 1.5s !important;
+    animation-duration: 0.8s !important;
 
     &.blur-5 {
         filter: blur(0px);
@@ -2053,6 +2057,12 @@ body {
         &__icon {
             width: 2rem;
             height: 2rem;
+
+            // Fazer ajustes das barras ou dos pontos aqui para ficar igual ao design no cliente;
+            // span {
+            //     // height: 3px;
+            //     // background-color: $color-white;
+            // }
         }
     }
 
@@ -2120,10 +2130,10 @@ body {
                 height: 20px;
 
                 border-radius: 0;
-                background-color: rgba($color-two, 0.5);
+                background-color: $color-two;
 
                 &-active {
-                    background-color: $color-two;
+                    opacity: 1;
                 }
             }
         }

@@ -22,14 +22,18 @@ class SERV06ServicesSectionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(10),
-            'subtitle' => $this->faker->text(15),
-            'description' => $this->faker->text(400),
-            'path_image' => 'uploads/tmp/image-pmg.png',
-            'path_image_desktop' => 'uploads/tmp/thumbnail.png',
-            'path_image_mobile' => 'uploads/tmp/secaobox.png',
-            'background_color' => '#FFFFFF',
-            'active' => 1,
+            //Section
+            'title_section' => $this->faker->text(10),
+            'subtitle_section' => $this->faker->text(15),
+            'description_section' => $this->faker->text(400),
+            'path_image_section' => 'uploads/tmp/image-pmg.png',
+            'active_section' => 1,
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(15),
+            'path_image_desktop_banner' => 'uploads/tmp/thumbnail.png',
+            'path_image_mobile_banner' => 'uploads/tmp/secaobox.png',
+            'active_banner' => 1,
         ];
     }
 }

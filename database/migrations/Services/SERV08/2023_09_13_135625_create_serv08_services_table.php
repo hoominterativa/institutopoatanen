@@ -15,7 +15,7 @@ class CreateServ08ServicesTable extends Migration
     {
         Schema::create('serv08_services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('serv08_services_categories');
+            $table->foreignId('category_id')->constrained('serv08_services_categories')->onDelete('cascade');
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
@@ -25,10 +25,10 @@ class CreateServ08ServicesTable extends Migration
             $table->decimal('price', 10, 2)->nullable();
             $table->string('title_featured_service')->nullable();
             $table->string('color_featured_service')->nullable();
-            $table->integer('featured_service')->default(0);
+            $table->boolean('featured_service')->default(0);
             $table->text('path_image')->nullable();
-            $table->integer('active')->default(0);
-            $table->integer('featured')->default(0);
+            $table->boolean('active')->default(0);
+            $table->boolean('featured')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

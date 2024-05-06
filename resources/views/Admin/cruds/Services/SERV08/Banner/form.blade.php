@@ -1,10 +1,10 @@
 @if ($section)
-    {!! Form::model($section, ['route' => ['admin.serv08.banner.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
+    {!! Form::model($section, ['route' => ['admin.serv08.section.update', $section->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
     {!! Form::hidden('active', $section->active) !!}
     {!! Form::hidden('active_content', $section->active_content) !!}
 @else
-    {!! Form::model(null, ['route' => 'admin.serv08.banner.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => 'admin.serv08.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 
 <div class="row col-12">
@@ -22,10 +22,6 @@
                     </div>
 
                 </div>
-            </div>
-            <div class="col-12">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, ['class' => 'form-control colorpicker-default','id' => 'background_color',]) !!}
             </div>
         </div>
         <div class="col-12">

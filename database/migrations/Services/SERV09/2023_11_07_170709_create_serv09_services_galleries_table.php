@@ -15,7 +15,7 @@ class CreateServ09ServicesGalleriesTable extends Migration
     {
         Schema::create('serv09_services_galleries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained('serv09_services');
+            $table->foreignId('service_id')->constrained('serv09_services')->onDelete('cascade');
             $table->string('path_image')->nullable();
             $table->integer('sorting')->default(0);
             $table->timestamps();

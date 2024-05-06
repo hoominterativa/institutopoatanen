@@ -26,23 +26,24 @@ class SERV06SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $data['active_section'] = $request->active_section?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image_section = $helper->optimizeImage($request, 'path_image_section', $this->path, null,100);
+        if($path_image_section) $data['path_image_section'] = $path_image_section;
 
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
-        if($path_image_desktop) $data['path_image_desktop'] = $path_image_desktop;
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
-        if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
 
         if(SERV06ServicesSection::create($data)){
             Session::flash('success', 'Seção cadastrada com sucesso');
         }else{
-            Storage::delete($path_image);
-            Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_section);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao cadastradar a seção');
         }
         return redirect()->back();
@@ -60,44 +61,45 @@ class SERV06SectionController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $data['active_section'] = $request->active_section?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($SERV06ServicesSection, 'path_image');
-            $data['path_image'] = $path_image;
+        $path_image_section = $helper->optimizeImage($request, 'path_image_section', $this->path, null,100);
+        if($path_image_section){
+            storageDelete($SERV06ServicesSection, 'path_image_section');
+            $data['path_image_section'] = $path_image_section;
         }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($SERV06ServicesSection, 'path_image');
-            $data['path_image'] = null;
-        }
-
-        $path_image_desktop = $helper->optimizeImage($request, 'path_image_desktop', $this->path, null,100);
-        if($path_image_desktop){
-            storageDelete($SERV06ServicesSection, 'path_image_desktop');
-            $data['path_image_desktop'] = $path_image_desktop;
-        }
-        if($request->delete_path_image_desktop && !$path_image_desktop){
-            storageDelete($SERV06ServicesSection, 'path_image_desktop');
-            $data['path_image_desktop'] = null;
+        if($request->delete_path_image_section && !$path_image_section){
+            storageDelete($SERV06ServicesSection, 'path_image_section');
+            $data['path_image_section'] = null;
         }
 
-        $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $this->path, null,100);
-        if($path_image_mobile){
-            storageDelete($SERV06ServicesSection, 'path_image_mobile');
-            $data['path_image_mobile'] = $path_image_mobile;
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($SERV06ServicesSection, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
         }
-        if($request->delete_path_image_mobile && !$path_image_mobile){
-            storageDelete($SERV06ServicesSection, 'path_image_mobile');
-            $data['path_image_mobile'] = null;
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($SERV06ServicesSection, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($SERV06ServicesSection, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($SERV06ServicesSection, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
         }
 
         if($SERV06ServicesSection->fill($data)->save()){
             Session::flash('success', 'Seção atualizada com sucesso');
         }else{
-            Storage::delete($path_image);
-            Storage::delete($path_image_desktop);
-            Storage::delete($path_image_mobile);
+            Storage::delete($path_image_section);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao atualizar a seção');
         }
         return redirect()->back();
