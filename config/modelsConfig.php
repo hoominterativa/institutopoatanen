@@ -294,12 +294,31 @@ return [
                     'iconPanel' => 'mdi-contacts'
                 ],
                 'IncludeSections' => (object) [
+                    'Contents.5' => 'CONT02V2',
                     'Topics.4' => 'TOPI03',
                     'Contents.2' => 'CONT02V1',
                     'Contents.3' => 'CONT06',
                     'Topics.5' => 'TOPI02',
                     'Contents.4' => 'CONT11',
                     'Galleries' => 'GALL01'
+                ]
+            ],
+        ],
+
+        'Contents.5' => (object) [
+            'CONT02V2' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => 'mdi-content-copy'
                 ]
             ],
         ],
@@ -390,24 +409,6 @@ return [
                     'iconMenu' => '',
                     'titlePanel' => 'Unidade',
                     'iconPanel' => 'mdi-table-of-contents'
-                ]
-            ],
-        ],
-
-        'Contents.5' => (object) [
-            'CONT02V2' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
-                    'iconPanel' => 'mdi-content-copy'
                 ]
             ],
         ],
