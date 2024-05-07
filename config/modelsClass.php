@@ -93,6 +93,11 @@ return [
                 'model' => App\Models\Contents\CONT02V1Contents::class,
                 'seedQty' => 1,
             ],
+            'CONT02V2' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT02V2Controller::class,
+                'model' => App\Models\Contents\CONT02V2Contents::class,
+                'seedQty' => 2,
+            ],
             'CONT03' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT03Controller::class,
                 'model' => App\Models\Contents\CONT03Contents::class,

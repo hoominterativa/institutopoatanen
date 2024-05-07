@@ -11864,10 +11864,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var _pages_Topics_TOPI02_src_main__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../pages/Topics/TOPI02/src/main */ "./resources/views/Client/pages/Topics/TOPI02/src/main.js");
 /* harmony import */ var _pages_Contents_CONT11_src_main__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../pages/Contents/CONT11/src/main */ "./resources/views/Client/pages/Contents/CONT11/src/main.js");
-/* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../pages/Galleries/GALL01/src/main */ "./resources/views/Client/pages/Galleries/GALL01/src/main.js");
-/* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _pages_Contents_CONT02V2_src_main__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../pages/Contents/CONT02V2/src/main */ "./resources/views/Client/pages/Contents/CONT02V2/src/main.js");
+/* harmony import */ var _pages_Contents_CONT02V2_src_main__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT02V2_src_main__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../pages/Galleries/GALL01/src/main */ "./resources/views/Client/pages/Galleries/GALL01/src/main.js");
+/* harmony import */ var _pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_pages_Galleries_GALL01_src_main__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_22__);
+
 
 
 
@@ -12546,6 +12549,16 @@ if (shareButton) {
 /***/ "./resources/views/Client/pages/Contents/CONT02V1/src/main.js":
 /*!********************************************************************!*\
   !*** ./resources/views/Client/pages/Contents/CONT02V1/src/main.js ***!
+  \********************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Contents/CONT02V2/src/main.js":
+/*!********************************************************************!*\
+  !*** ./resources/views/Client/pages/Contents/CONT02V2/src/main.js ***!
   \********************************************************************/
 /***/ (() => {
 
