@@ -14,7 +14,7 @@
                     </div>
                     <div class="w-100 px-0">
                         {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form01__boxLeft__form form-contact parsley-validate d-flex row mx-0']) !!}
-                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_lead" value="Newslatter">
                             <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
                             @foreach ($inputs as $name => $input)
                                 @include('Client.Components.inputs', [
@@ -64,7 +64,7 @@
 
                         {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form02__content__form form-contact parsley-validate align-items-center']) !!}
                             <div class="form02__content__inputs d-flex justify-content-between">
-                                <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                                <input type="hidden" name="target_lead" value="Newslatter">
                                 <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
                                 @php
                                     $i=1;
@@ -103,7 +103,7 @@
                                 </div>
                                 {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax lifo__boxLeft__form form-contact parsley-validate align-items-center']) !!}
                                     <div class="lifo__boxLeft__inputs d-flex justify-content-between">
-                                        <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                                        <input type="hidden" name="target_lead" value="Newslatter">
                                         <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
                                         @foreach ($inputs as $name => $input)
                                             @include('Client.Components.inputs', [
@@ -176,7 +176,7 @@
 
                     {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form03__boxRight__form form-contact parsley-validate align-items-center']) !!}
                         <div class="form03__boxRight__inputs d-flex justify-content-between">
-                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_lead" value="Newslatter">
                             <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
                             @foreach ($inputs as $name => $input)
                                 @include('Client.Components.inputs', [
@@ -224,7 +224,7 @@
                     </div>
                     <div class="form101__content col-lg-6 px-0">
                         {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form101__content__form form-contact parsley-validate d-flex row mx-0']) !!}
-                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_lead" value="Newslatter">
                             <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
                             @foreach ($inputs as $name => $input)
                                 @include('Client.Components.inputs', [
@@ -265,7 +265,7 @@
                 <div class="form102__content col-lg-8 px-0 d-flex justify-content-between align-items-center">
                     {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax form102__content__form form-contact parsley-validate align-items-center']) !!}
                         <div class="form102__content__inputs d-flex justify-content-between">
-                            <input type="hidden" name="target_lead" value="TITULO COM DESCRIÇÃO Subtitulo">
+                            <input type="hidden" name="target_lead" value="Newslatter">
                             <input type="hidden" name="target_send" value="{{base64_encode($contactForm->email)}}">
                             @foreach ($inputs as $name => $input)
                                 @include('Client.Components.inputs', [
