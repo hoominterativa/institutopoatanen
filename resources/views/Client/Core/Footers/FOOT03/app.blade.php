@@ -43,7 +43,7 @@
 
                     <div class="foot03__top__redeSocial d-flex justify-content-between align-items-center">
                         @foreach ($socials as $social)
-                            <a href="{{$social->link}}" class="social-link transition" title="{{$social->title}}">
+                            <a href="{{$social->link}}" class="social-link transition" target="_blank" title="{{$social->title}}">
                                 <img src="{{asset('storage/'.$social->path_image_icon)}}" width="28.5px" alt="{{$social->title}}">
                             </a>
                         @endforeach
