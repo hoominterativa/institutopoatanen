@@ -69,10 +69,7 @@ class SERV10CategoryController extends Controller
     public function destroy(SERV10ServicesCategory $SERV10ServicesCategory)
     {
 
-        if(SERV10Services::where('category_id', $SERV10ServicesCategory->id)->count()) {
-            Session::flash('error', 'Não é possível excluir a categoria porque existem serviços associadas a ela.');
-            return redirect()->back();
-        }
+        storageDelete($SERV10ServicesCategory, 'path_image');
 
         if($SERV10ServicesCategory->delete()){
             Session::flash('success', 'Categoria deletada com sucessso');
@@ -89,25 +86,13 @@ class SERV10CategoryController extends Controller
     public function destroySelected(Request $request)
     {
 
-        $categoryIds = $request->deleteAll;
-
-        // Verificar se existem serviços associadas às categorias
-        $serviceExist = SERV10Services::whereIn('category_id', $categoryIds)->exists();
-        if ($serviceExist) {
-            return Response::json([
-                'status' => 'error',
-                'message' => 'Não é possível excluir as categorias porque existem serviços associadas a elas.'
-            ]);
+        $SERV10ServicesCategories = SERV10ServicesCategory::whereIn('id', $request->deleteAll)->get();
+        foreach($SERV10ServicesCategories as $SERV10ServicesCategory){
+            storageDelete($SERV10ServicesCategory, 'path_image');
         }
 
-        // Excluir as categorias
-        $deletedCategories = SERV10ServicesCategory::whereIn('id', $categoryIds)->get();
-        foreach ($deletedCategories as $category) {
-            storageDelete($category, 'path_image');
-        }
-
-        if ($deleted = SERV10ServicesCategory::whereIn('id', $categoryIds)->delete()) {
-            return Response::json(['status' => 'success','message' => $deleted . ' categorias deletadas com sucesso']);
+        if($deleted = SERV10ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
+            return Response::json(['status' => 'success', 'message' => $deleted.' categorias deletadas com sucesso']);
         }
     }
     /**

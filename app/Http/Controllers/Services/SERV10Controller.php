@@ -29,13 +29,11 @@ class SERV10Controller extends Controller
     public function index()
     {
         $services = SERV10Services::sorting()->get();
-        $serviceCategories = SERV10ServicesCategory::sorting()->get();
-        $categories = SERV10ServicesCategory::exists()->sorting()->pluck('title', 'id');
+        $categories = SERV10ServicesCategory::sorting()->get();
         $section = SERV10ServicesSection::first();
         return view('Admin.cruds.Services.SERV10.index', [
             'services' => $services,
             'section' => $section,
-            'serviceCategories' => $serviceCategories,
             'categories' => $categories
         ]);
     }
