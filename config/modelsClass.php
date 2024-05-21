@@ -493,6 +493,18 @@ return [
                     ]
                 ]
             ],
+            'SERV11' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV11Controller::class,
+                'model' => App\Models\Services\SERV11Services::class,
+                'seedQty' => 16,
+                'relationship' => [
+                    'session' => [
+                        'class' => App\Models\Services\SERV11ServicesSession::class,
+                        'column' => 'session_id',
+                        'seedQty' => 2,
+                    ]
+                ]
+            ],
         ],
         // END SERVICES
 

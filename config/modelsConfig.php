@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Services' => (object) [
-            'SERV10' => (object)[
+            'SERV11' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
@@ -28,8 +28,8 @@ return [
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title',
                     'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
+                        'session' =>(object)[
+                            'name' => 'Sessão',
                             'titleList' => 'title',
                             'condition' => 'active=1{Ativos}',
                         ]
@@ -38,14 +38,13 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Serviços',
                     'anchor' =>  false,
-                    'linkMenu' => 'serv10.page',
+                    'linkMenu' => 'serv11.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Serviços',
                     'iconPanel' => 'mdi-alpha-s-box-outline'
                 ],
-                'IncludeSections' => (object) [
-                ]
-            ],
+                'IncludeSections' => (object) []
+            ]
         ]
     ],
 
