@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV11ServicesSection;
+use App\Models\Services\SERV11ServicesSession;
 
 class SERV11Controller extends Controller
 {
@@ -24,9 +26,13 @@ class SERV11Controller extends Controller
     public function index()
     {
         $service = SERV11Services::sorting()->paginate(32);
+        $sessions = SERV11ServicesSession::sorting()->get();
+        $section = SERV11ServicesSection::sorting()->first();
 
         return view('Admin.cruds.Services.SERV11.index', [
-            'services' => $service
+            'services' => $service,
+            'sessions' => $sessions,
+            'section' => $section
         ]);
     }
 
@@ -37,7 +43,10 @@ class SERV11Controller extends Controller
      */
     public function create()
     {
+        $sessions = SERV11ServicesSession::sorting()->pluck('title', 'id');
+
         return view('Admin.cruds.Services.SERV11.create', [
+            'sessions' => $sessions,
             'cropSetting' => getCropImage('Services', 'SERV11')
         ]);
     }
@@ -87,8 +96,11 @@ class SERV11Controller extends Controller
      */
     public function edit(SERV11Services $SERV11Services)
     {
+        $sessions = SERV11ServicesSession::sorting()->pluck('title', 'id');
+
         return view('Admin.cruds.Services.SERV11.edit', [
             'service' => $SERV11Services,
+            'sessions' => $sessions,
             'cropSetting' => getCropImage('Services', 'SERV11')
         ]);
     }
@@ -217,8 +229,13 @@ class SERV11Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV11', 'page');
 
+        $sessions = SERV11ServicesSession::with('services')->exists()->active()->sorting()->get();
+        $section = SERV11ServicesSection::activeBanner()->sorint()->first();
+
         return view('Client.pages.Services.SERV11.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'sessions' => $sessions,
+            'section' => $section
         ]);
     }
 
@@ -229,6 +246,12 @@ class SERV11Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV11.section');
+        $services = SERV11Services::active()->featured()->sorting()->get();
+        $section = SERV11ServicesSection::activeSection()->sorint()->first();
+
+        return view('Client.pages.Services.SERV11.section', [
+            'services' => $services,
+            'section' => $section
+        ]);
     }
 }

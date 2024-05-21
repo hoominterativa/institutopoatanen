@@ -15,6 +15,10 @@ class CreateServ11ServicesSessionsTable extends Migration
     {
         Schema::create('serv11_services_sessions', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->nullable();
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

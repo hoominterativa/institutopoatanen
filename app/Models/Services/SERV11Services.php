@@ -28,6 +28,11 @@ class SERV11Services extends Model
         return $query->where('active', 1);
     }
 
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
+
     public function session()
     {
         return $this->belongsTo(SERV11ServicesSession::class, 'session_id');

@@ -2,8 +2,9 @@
 
 namespace Database\Factories\Services;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use App\Models\Services\SERV11ServicesSession;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SERV11ServicesSessionFactory extends Factory
 {
@@ -21,10 +22,14 @@ class SERV11ServicesSessionFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(10);
+        $subtitle = $this->faker->text(10);
+
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'slug' => Str::slug($title. ' '.$subtitle),
+            'title' => $title,
+            'subtitle' => $subtitle,
+            'active' => 1,
         ];
     }
 }
