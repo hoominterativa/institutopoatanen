@@ -230,7 +230,7 @@ class SERV11Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV11', 'page');
 
         $sessions = SERV11ServicesSession::with('services')->exists()->active()->sorting()->get();
-        $section = SERV11ServicesSection::activeBanner()->sorint()->first();
+        $section = SERV11ServicesSection::activeBanner()->sorting()->first();
 
         return view('Client.pages.Services.SERV11.page',[
             'sections' => $sections,
@@ -247,7 +247,7 @@ class SERV11Controller extends Controller
     public static function section()
     {
         $services = SERV11Services::active()->featured()->sorting()->get();
-        $section = SERV11ServicesSection::activeSection()->sorint()->first();
+        $section = SERV11ServicesSection::activeSection()->sorting()->first();
 
         return view('Client.pages.Services.SERV11.section', [
             'services' => $services,

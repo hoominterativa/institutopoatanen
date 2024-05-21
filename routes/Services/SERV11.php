@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV11Controller;
 use App\Http\Controllers\Services\SERV11SectionController;
 use App\Http\Controllers\Services\SERV11SessionController;
 
@@ -32,5 +33,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
     Route::resource($route.'/secao', SERV11SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV11ServicesSection']);
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// CLIENT
+Route::get($route . '/sessao/{SERV11ServicesSession:slug}', [SERV11Controller::class, 'page'])->name($routeName . '.session.page');
