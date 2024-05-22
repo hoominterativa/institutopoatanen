@@ -34,4 +34,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao', SERV11SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'SERV11ServicesSection']);
 });
 // CLIENT
-Route::get($route . '/sessao/{SERV11ServicesSession:slug}', [SERV11Controller::class, 'page'])->name($routeName . '.session.page');
+// Route::get($route . '/sessao/{SERV11ServicesSession:slug}', [SERV11Controller::class, 'page'])->name($routeName . '.session.page');
