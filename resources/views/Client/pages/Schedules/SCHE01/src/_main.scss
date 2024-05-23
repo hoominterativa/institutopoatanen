@@ -85,261 +85,119 @@
     width: 100%;
 
     &__banner {
-        @include backG;
-        padding: 87px 0 54px 0;
-
+        @extend %theme__banner;
         &__title {
-            font-family: $font-primary;
-            font-size: $T1;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-black;
-            text-align: center;
-
-            @include medium-device-down {
-                font-size: $T1-mobile;
-            }
+            @extend %theme__banner__title;
         }
 
         &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            line-height: $font-22;
-            color: $color-two;
-            text-align: center;
-            margin-bottom: 28px;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-
-        &__line {
-            width: 95%;
-            max-width: 610px;
-            border-top: 1px solid $color-black;
-            margin: 0 auto;
-            opacity: 1;
+            @extend %theme__banner__subtitle;
         }
     }
 
-    &__cont {
-        padding: 48px 0 118px 0;
+    &__content {
+        @extend %theme__padding;
 
-        &__body {
-            @include Flex($align: start, $justify: space-between);
-
-            @include medium-device-down {
-                flex-direction: column;
-            }
-        }
+        @include disFlex(row, space-between, start);
+        width: 100%;
 
         &__main {
             width: 60%;
 
             @include medium-device-down {
                 width: 100%;
-                margin-bottom: 40px;
-            }
-        }
-
-        &__top {
-            margin-bottom: 39px;
-        }
-
-        &__title {
-            font-family: $font-primary;
-            font-size: $T2;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-black;
-            text-align: left;
-
-            @include medium-device-down {
-                font-size: $T2-mobile;
-            }
-        }
-
-        &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            line-height: $font-22;
-            color: $color-two;
-            text-align: left;
-            margin-bottom: 28px;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-
-        &__line {
-            width: 100%;
-            border-top: 1px solid $color-black;
-            margin: 0 auto;
-            opacity: 1;
-        }
-
-        &__list {
-            gap: 35px;
-        }
-
-        &__item {
-            width: 100%;
-
-            & + & {
-                padding-top: 80px;
-                border-top: solid 1px $color-one;
+                margin-bottom: 2.5rem;
             }
 
-            &__header {
-                gap: 30px;
+            &__top {
+                @include disFlex(column, start, start);
+                margin-bottom: 2.5rem;
+                border-bottom: solid 1px $color-black;
 
-                &__topics {
-                    @include Flex($justify: start);
-                    flex-wrap: wrap;
-                    gap: 22px;
+                &__title {
+                    @extend %theme__t2-cb;
+                }
+
+                &__subtitle {
+                    @extend %theme__t4-c2;
+                }
+            }
+
+            &__list {
+                @include disFlex(column);
+                gap: 35px;
+
+                &__item {
                     width: 100%;
-                    padding: 0;
 
-                    &__item {
-                        @include Flex($justify: start);
-                        gap: 10px;
-                        font-size: $T4;
-                        font-family: $font-primary;
-                        font-weight: 700;
-                        color: $color-one;
+                    & + & {
+                        padding-top: 80px;
+                        border-top: solid 1px $color-one;
+                    }
 
-                        @include medium-device-down {
-                            font-size: $T4-mobile;
+                    &__header {
+                        @include disFlex(row, start, start);
+                        gap: 1.75rem;
+
+                        &__date {
+                            @include disFlex(column, center, center);
+                            width: 120px;
+                            height: 120px;
+                            background-color: $color-nine;
+
+                            &__day {
+                                @extend %theme__t3-c1;
+                                margin-bottom: 2px;
+                            }
+
+                            &__month {
+                                @extend %theme__t4-c1;
+                            }
+
+                            &__year {
+                                @extend %theme__t5-c1;
+                            }
+                        }
+
+                        &__information {
+                            width: calc(100% - 150px);
+                            margin-bottom: 1.75rem;
+
+                            &__title {
+                                @extend %theme__t2-cb;
+                                text-align: left;
+                            }
+
+                            &__topics {
+                                @include disFlex(row, start, center);
+                                flex-wrap: wrap;
+                                gap: 1.25rem;
+                                width: 100%;
+                                padding: 0;
+
+                                &__item {
+                                    @include disFlex(row, start, center);
+                                    gap: 10px;
+
+                                    @extend %theme__t4-c1;
+                                }
+                            }
                         }
                     }
-                }
-            }
 
-            &__date {
-                width: 120px;
-                height: 120px;
-                background-color: $color-nine;
-            }
+                    &__img {
+                        width: 100%;
+                        height: auto;
+                        margin-bottom: 1.75rem;
+                    }
 
-            &__day {
-                font-size: $T3;
-                font-family: $font-primary;
-                font-weight: 700;
-                color: $color-one;
-                line-height: $T3;
-                margin-bottom: 2px;
+                    &__paragraph {
+                        @extend %theme__p1-c1;
+                    }
 
-                @include medium-device-down {
-                    font-size: $T3-mobile;
-                }
-            }
-
-            &__month {
-                font-size: $T4;
-                font-family: $font-primary;
-                font-weight: 700;
-                line-height: 120%;
-                color: $color-one;
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                }
-            }
-
-            &__year {
-                font-size: $T5;
-                font-family: $font-primary;
-                font-weight: 700;
-                line-height: 120%;
-                color: $color-one;
-
-                @include medium-device-down {
-                    font-size: $T5-mobile;
-                }
-            }
-
-            &__right {
-                width: calc(100% - 150px);
-                margin-bottom: 28px;
-            }
-
-            &__title {
-                font-family: $font-primary;
-                font-size: $T2;
-                font-weight: 700;
-                line-height: $font-46;
-                color: $color-black;
-                text-align: left;
-
-                @include medium-device-down {
-                    font-size: $T2-mobile;
-                }
-            }
-
-            &__line {
-                opacity: 1;
-                width: 100%;
-                border-top: 1px solid $color-one;
-                margin: 21px 0;
-            }
-
-            &__img {
-                width: 100%;
-                height: auto;
-                margin-bottom: 28px;
-            }
-
-            &__desc {
-                width: 100%;
-
-                font: $paragraph;
-                font-weight: 400;
-                color: $color-one;
-
-                @include medium-device-down {
-                    font: $paragraph-mobile;
-                }
-
-                p {
-                    font: inherit;
-                    color: inherit;
-                    font-weight: inherit;
-                    margin-bottom: 0;
-                }
-            }
-
-            &__cta {
-                @include Flex();
-                gap: 16px;
-                align-self: end;
-                white-space: nowrap;
-                background-color: $color-four;
-                padding: 10px 40px;
-                margin-top: 28px;
-
-                font: $paragraph-min;
-                font-weight: 700;
-                color: $color-one;
-
-                &:hover {
-                    background-color: $color-one;
-                    color: $color-four;
-                }
-
-                &__icon {
-                    height: 19px;
-                    width: 19px;
-                    object-fit: contain;
-                    object-position: center;
-                    @include trans($transition: 0.5s);
-                }
-
-                &:hover &__icon {
-                    filter: brightness(1) contrast(1) invert(1) grayscale(1);
+                    &__cta {
+                        @extend %theme__cta;
+                    }
                 }
             }
         }
