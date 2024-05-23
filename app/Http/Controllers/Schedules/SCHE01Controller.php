@@ -44,7 +44,7 @@ class SCHE01Controller extends Controller
             'sectionSchedule' => $sectionSchedule,
             'compliances' => $compliances,
             'contact' => $contact,
-            'configForm' => !is_array($configForm)?$configForm:null,
+            'configForm' => !is_array($configForm) ? $configForm : null,
             'cropSetting' => getCropImage('Schedules', 'SCHE01')
         ]);
     }
@@ -72,18 +72,18 @@ class SCHE01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $data['active'] = $request->active ? 1 : 0;
         $data['event_date'] = Carbon::createFromFormat('d/m/Y', $request->event_date)->format('Y-m-d');
         $data['slug'] = Str::slug($request->title);
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) $data['path_image'] = $path_image;
 
-        $path_image_sub = $helper->optimizeImage($request, 'path_image_sub', $this->path, null,100);
-        if($path_image_sub) $data['path_image_sub'] = $path_image_sub;
+        $path_image_sub = $helper->optimizeImage($request, 'path_image_sub', $this->path, null, 100);
+        if ($path_image_sub) $data['path_image_sub'] = $path_image_sub;
 
-        $path_image_hours = $helper->optimizeImage($request, 'path_image_hours', $this->path, null,100);
-        if($path_image_hours) $data['path_image_hours'] = $path_image_hours;
+        $path_image_hours = $helper->optimizeImage($request, 'path_image_hours', $this->path, null, 100);
+        if ($path_image_hours) $data['path_image_hours'] = $path_image_hours;
 
         if ($schedule = SCHE01Schedules::create($data)) {
             Session::flash('success', 'Agenda cadastrada com sucesso');
@@ -126,38 +126,38 @@ class SCHE01Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $data['active'] = $request->active ? 1 : 0;
         $data['event_date'] = Carbon::createFromFormat('d/m/Y', $request->event_date)->format('Y-m-d');
         $data['slug'] = Str::slug($request->title);
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) {
             storageDelete($SCHE01Schedules, 'path_image');
             $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image && !$path_image){
+        if ($request->delete_path_image && !$path_image) {
             storageDelete($SCHE01Schedules, 'path_image');
             $data['path_image'] = null;
         }
 
         //Hours icon
-        $path_image_hours = $helper->optimizeImage($request, 'path_image_hours', $this->path, null,100);
-        if($path_image_hours){
+        $path_image_hours = $helper->optimizeImage($request, 'path_image_hours', $this->path, null, 100);
+        if ($path_image_hours) {
             storageDelete($SCHE01Schedules, 'path_image_hours');
             $data['path_image_hours'] = $path_image_hours;
         }
-        if($request->delete_path_image_hours && !$path_image_hours){
+        if ($request->delete_path_image_hours && !$path_image_hours) {
             storageDelete($SCHE01Schedules, 'path_image_hours');
             $data['path_image_hours'] = null;
         }
 
         //Subtitle icon
-        $path_image_sub = $helper->optimizeImage($request, 'path_image_sub', $this->path, null,100);
-        if($path_image_sub){
+        $path_image_sub = $helper->optimizeImage($request, 'path_image_sub', $this->path, null, 100);
+        if ($path_image_sub) {
             storageDelete($SCHE01Schedules, 'path_image_sub');
             $data['path_image_sub'] = $path_image_sub;
         }
-        if($request->delete_path_image_sub && !$path_image_sub){
+        if ($request->delete_path_image_sub && !$path_image_sub) {
             storageDelete($SCHE01Schedules, 'path_image_sub');
             $data['path_image_sub'] = null;
         }
@@ -209,7 +209,7 @@ class SCHE01Controller extends Controller
     public function destroySelected(Request $request)
     {
         $SCHE01Scheduless = SCHE01Schedules::whereIn('id', $request->deleteAll)->get();
-        foreach($SCHE01Scheduless as $SCHE01Schedules){
+        foreach ($SCHE01Scheduless as $SCHE01Schedules) {
 
             $bannerShow = SCHE01SchedulesBannerShow::where('schedule_id', $SCHE01Schedules->id)->first();
             if ($bannerShow) {
@@ -258,20 +258,20 @@ class SCHE01Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $bannerShow = SCHE01SchedulesBannerShow::where('schedule_id', $SCHE01Schedules->id)->active()->first();
-                if($bannerShow) {
+                if ($bannerShow) {
                     $bannerShow->path_image_desktop = $bannerShow->path_image_mobile;
                 }
-            break;
+                break;
             default:
                 $bannerShow = SCHE01SchedulesBannerShow::where('schedule_id', $SCHE01Schedules->id)->active()->first();
-            break;
+                break;
         }
 
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Schedules', 'SCHE01', 'show');
 
         $contact = SCHE01SchedulesContact::active()->first();
-        $compliance = getCompliance($contact->compliance_id??'0');
+        $compliance = getCompliance($contact->compliance_id ?? '0');
 
         $monthlyEventCounts = SCHE01Schedules::select(
             DB::raw('MONTH(event_date) as month'),
@@ -304,24 +304,24 @@ class SCHE01Controller extends Controller
             case 'mobile':
             case 'tablet':
                 $banner = SCHE01SchedulesBanner::active()->first();
-                if($banner) {
+                if ($banner) {
                     $banner->path_image_desktop = $banner->path_image_mobile;
                 }
-            break;
+                break;
             default:
                 $banner = SCHE01SchedulesBanner::active()->first();
-            break;
+                break;
         }
 
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Schedules', 'SCHE01', 'page');
 
         $contact = SCHE01SchedulesContact::active()->first();
-        $compliance = getCompliance($contact->compliance_id??'0');
+        $compliance = getCompliance($contact->compliance_id ?? '0');
         $sectionSchedule = SCHE01SchedulesSectionSchedule::active()->first();
         $schedules = SCHE01Schedules::active();
-        if($month) {
-            $schedules = $schedules->whereRaw('MONTH(event_date) = '.$month);
+        if ($month) {
+            $schedules = $schedules->whereRaw('MONTH(event_date) = ' . $month);
         }
         $schedules = $schedules->sorting()->paginate(2);
 
@@ -343,5 +343,10 @@ class SCHE01Controller extends Controller
             'schedules' => $schedules,
             'monthlyEventCounts' => $monthlyEventCounts,
         ]);
+    }
+
+    public function section()
+    {
+        return view("Client.pages.Schedules.SCHE01.section", ["title" => "Schedules"]);
     }
 }

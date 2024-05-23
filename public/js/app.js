@@ -11837,7 +11837,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Services_SERV10_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Services/SERV10/src/main */ "./resources/views/Client/pages/Services/SERV10/src/main.js");
+/* harmony import */ var _pages_Schedules_SCHE01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Schedules/SCHE01/src/main */ "./resources/views/Client/pages/Schedules/SCHE01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12350,27 +12350,23 @@ if (sideLinks.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Services/SERV10/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Services/SERV10/src/main.js ***!
-  \******************************************************************/
+/***/ "./resources/views/Client/pages/Schedules/SCHE01/src/main.js":
+/*!*******************************************************************!*\
+  !*** ./resources/views/Client/pages/Schedules/SCHE01/src/main.js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.serv10__main__carousel', {
-  slidesPerView: 'auto',
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".sche01__carousel", {
+  slidesPerView: "auto",
   spaceBetween: 12,
-  pagination: {
-    el: '.serv10__main__swiper-pagination',
-    clickable: true
+  navigation: {
+    prevEl: ".sche01__carousel__nav__swiper-button-prev",
+    nextEl: ".sche01__carousel__nav__swiper-button-next"
   }
-});
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.serv10-page__main__categories__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 12
 });
 
 /***/ }),
