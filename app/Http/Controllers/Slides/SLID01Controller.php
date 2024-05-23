@@ -217,7 +217,7 @@ class SLID01Controller extends Controller
                 $slides = SLID01Slides::active()->sorting()->get();
                 if ($slides) {
                     foreach($slides as $slide){
-                        $slide->path_image_desktop = $slide->path_image_mobile;
+                        // $slide->path_image_desktop = $slide->path_image_mobile;
                         // $slide->path_image_png = null;
                     }
                 }
