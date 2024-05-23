@@ -48,11 +48,11 @@
         <div class="d-flex">
             <div class="mb-3 form-check me-3">
                 {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição ?', ['class' => 'form-check-label']) !!}
+                {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
             </div>
             <div class="mb-3 form-check me-3">
                 {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
-                {!! Form::label('featured', 'Destacar na home ?', ['class' => 'form-check-label']) !!}
+                {!! Form::label('featured', 'Destacar na home?', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         {{-- end card-body --}}

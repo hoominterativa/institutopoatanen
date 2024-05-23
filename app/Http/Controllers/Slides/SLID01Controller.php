@@ -58,8 +58,8 @@ class SLID01Controller extends Controller
         $path_image_mobile = $helper->optimizeImage($request, 'path_image_mobile', $path, null,100);
         if($path_image_mobile) $data['path_image_mobile'] = $path_image_mobile;
 
-        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, null,100);
-        if($path_image_png) $data['path_image_png'] = $path_image_png;
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        if($path_image) $data['path_image'] = $path_image;
 
         $data['active'] = $request->active?1:0;
 
@@ -69,7 +69,7 @@ class SLID01Controller extends Controller
         }else{
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
-            Storage::delete($path_image_png);
+            Storage::delete($path_image);
             Session::flash('success', 'Erro ao cadastradar o banner');
             return redirect()->back();
         }
@@ -129,14 +129,14 @@ class SLID01Controller extends Controller
         }
 
         // IMAGE PNG
-        $path_image_png = $helper->optimizeImage($request, 'path_image_png', $path, null,100);
-        if($path_image_png){
-            storageDelete($SLID01Slides, 'path_image_png');
-            $data['path_image_png'] = $path_image_png;
+        $path_image = $helper->optimizeImage($request, 'path_image', $path, null,100);
+        if($path_image){
+            storageDelete($SLID01Slides, 'path_image');
+            $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image_png && !$path_image_png){
-            storageDelete($SLID01Slides, 'path_image_png');
-            $data['path_image_png'] = null;
+        if($request->delete_path_image && !$path_image){
+            storageDelete($SLID01Slides, 'path_image');
+            $data['path_image'] = null;
         }
 
         $data['active'] = $request->active?1:0;
@@ -146,7 +146,7 @@ class SLID01Controller extends Controller
         }else{
             Storage::delete($path_image_desktop);
             Storage::delete($path_image_mobile);
-            Storage::delete($path_image_png);
+            Storage::delete($path_image);
             Session::flash('success', 'Erro ao atualizar banner');
         }
         return redirect()->back();
@@ -162,7 +162,7 @@ class SLID01Controller extends Controller
     {
         storageDelete($SLID01Slides, 'path_image_desktop');
         storageDelete($SLID01Slides, 'path_image_mobile');
-        storageDelete($SLID01Slides, 'path_image_png');
+        storageDelete($SLID01Slides, 'path_image');
 
         if($SLID01Slides->delete()){
             Session::flash('success', 'Banner deletado com sucessso');
@@ -182,7 +182,7 @@ class SLID01Controller extends Controller
         foreach($SLID01Slidess as $SLID01Slides){
             Storage::delete($SLID01Slides->path_image_desktop);
             Storage::delete($SLID01Slides->path_image_mobile);
-            Storage::delete($SLID01Slides->path_image_png);
+            Storage::delete($SLID01Slides->path_image);
         }
 
         if($deleted = SLID01Slides::whereIn('id', $request->deleteAll)->delete()){
@@ -211,21 +211,7 @@ class SLID01Controller extends Controller
      */
     public static function section()
     {
-        switch(deviceDetect()){
-            case 'mobile':
-            case 'tablet':
-                $slides = SLID01Slides::active()->sorting()->get();
-                if ($slides) {
-                    foreach($slides as $slide){
-                        // $slide->path_image_desktop = $slide->path_image_mobile;
-                        // $slide->path_image_png = null;
-                    }
-                }
-            break;
-            default:
-                $slides = SLID01Slides::active()->sorting()->get();
-            break;
-        }
+        $slides = SLID01Slides::active()->sorting()->get();
 
         return view('Client.pages.Slides.SLID01.section',[
             'slides' => $slides

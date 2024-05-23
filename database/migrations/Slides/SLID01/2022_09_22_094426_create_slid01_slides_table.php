@@ -15,18 +15,16 @@ class CreateSlid01SlidesTable extends Migration
     {
         Schema::create('slid01_slides', function (Blueprint $table) {
             $table->id();
-
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
             $table->string('title_button')->nullable();
             $table->string('link_button')->nullable();
             $table->string('path_image_desktop')->nullable();
-            $table->string('path_image_png')->nullable();
+            $table->string('path_image')->nullable();
             $table->enum('target_link_button',['_self', '_blank'])->default('_self');
-            $table->enum('position_content',['center','start','end'])->default('start');
             $table->string('path_image_mobile')->nullable();
-            $table->integer('active')->default(0);
+            $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
