@@ -1,22 +1,25 @@
-<div class="serv11-show" id="M{{ $i }}">
-    <img class="serv11-show__image" src="{{asset('images/imageServ.png')}}" alt="Imagem do serviço {{--BACKEND: INSERIR A VARIAVEL DE TITULO DO SERVICO  --}}">
+<div class="serv11-show" id="M{{$service->id}}">
+    @if ($service->path_image)
+        <img class="serv11-show__image" src="{{asset('storage/'.$service->path_image)}}" alt="Imagem do serviço {{$service->title}}">
+    @endif
     <div class="serv11-show__information">
         <header class="serv11-show__information__header">
-            <h3 class="serv11-show__information__header__subtitle">Subtitulo do serviço</h3>
-            <h2 class="serv11-show__information__header__title">Titulo do serviço</h2>
-            <img src="{{asset('images/icon.svg')}}" alt="Ícone do serviço {{--BACKEND: INSERIR A VARIAVEL DE TITULO DO SERVICO  --}} " class="serv11-show__information__header__icon">
+            @if ($service->subtitle)
+                <h3 class="serv11-show__information__header__subtitle">{{$service->subtitle}}</h3>
+            @endif
+            @if ($service->title)
+                <h2 class="serv11-show__information__header__title">{{$service->title}}</h2>
+            @endif
+            @if ($service->path_image_icon)
+                <img src="{{asset('storage/'.$service->path_image_icon)}}" alt="Ícone do serviço {{$service->title}} " class="serv11-show__information__header__icon">
+            @endif
         </header>
-
-        <div class="serv11-show__information__paragraph">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin
-                vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis
-                posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi
-                pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero.
-                Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec
-                tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectet
-            </p>
-        </div>
+        @if ($service->text)
+            <div class="serv11-show__information__paragraph">
+                <p>
+                    {!! $service->text !!}
+                </p>
+            </div>
+        @endif
     </div>
 </div>

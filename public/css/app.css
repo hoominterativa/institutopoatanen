@@ -1755,12 +1755,12 @@ body .owl-dots .owl-dot.active {
 .serv11__services__item__title, .serv11-page__section-service__list__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.serv11__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .serv11__services__cta, .head02__navigation__item--menu-mobile__item, .serv11-show__information__paragrapg, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.serv11__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .serv11__cta, .head02__navigation__item--menu-mobile__item, .serv11-show__information__paragrapg, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.serv11__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .serv11__services__cta p, .head02__navigation__item--menu-mobile__item p, .serv11-show__information__paragrapg p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.serv11__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .serv11__cta p, .head02__navigation__item--menu-mobile__item p, .serv11-show__information__paragrapg p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1768,7 +1768,7 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .serv11__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .serv11__services__cta, .head02__navigation__item--menu-mobile__item, .serv11-show__information__paragrapg, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .serv11__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .serv11__cta, .head02__navigation__item--menu-mobile__item, .serv11-show__information__paragrapg, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
@@ -1778,7 +1778,7 @@ body .owl-dots .owl-dot.active {
 .serv11-show__information__paragrapg, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .serv11__services__cta, .head02__navigation__item--menu-mobile__item {
+.head02__navigation__item__link, .head02__navigation__item__btn, .serv11__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
 .serv11__header__paragraph {
@@ -1831,7 +1831,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: start;
 }
-.serv11__services__cta {
+.serv11__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1843,7 +1843,7 @@ body .owl-dots .owl-dot.active {
   border: none;
   font-weight: 700;
 }
-.serv11__services__cta:focus {
+.serv11__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -2383,7 +2383,7 @@ body .owl-dots .owl-dot.active {
 .serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph {
   text-align: center;
 }
-.serv11__services__cta {
+.serv11__cta {
   margin-left: auto;
 }
 

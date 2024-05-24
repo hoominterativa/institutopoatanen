@@ -105,7 +105,7 @@
                     </label>
                 </div><!-- END container image crop -->
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
@@ -127,7 +127,7 @@
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

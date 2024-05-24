@@ -99,10 +99,10 @@
             }
         }
 
-        &__cta {
-            @extend %theme__cta;
-            margin-left: auto;
-        }
+    }
+    &__cta {
+        @extend %theme__cta;
+        margin-left: auto;
     }
 }
 
