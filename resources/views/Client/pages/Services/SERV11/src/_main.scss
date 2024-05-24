@@ -54,16 +54,17 @@
             width: calc(25% - 6px);
             height: auto;
             padding: 3.75rem 4.5rem 5rem;
+            aspect-ratio: 330/327;
 
             @include disFlex(column, center, center);
 
-            @include large-device-down {
+            @include x-large-device-down {
                 width: 33.33%;
             }
-            @include medium-device-down {
+            @include large-device-down {
                 width: 50%;
             }
-            @include small-device-down {
+            @include medium-device-down {
                 width: 100%;
             }
 
@@ -101,6 +102,71 @@
         &__cta {
             @extend %theme__cta;
             margin-left: auto;
+        }
+    }
+}
+
+.serv11-page {
+    &__banner {
+        @extend %theme__banner;
+        &__title {
+            @extend %theme__banner__title;
+        }
+
+        &__subtitle {
+            @extend %theme__banner__subtitle;
+        }
+    }
+
+    &__section-service {
+        @extend %theme__padding;
+        background-color: $color-three;
+
+        &:nth-of-type(even) {
+            background-color: $color-white;
+        }
+
+        &__header {
+            margin-bottom: 2.5rem;
+            &__title {
+                @extend %theme__t2-cb;
+                text-align: left;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c1;
+            }
+        }
+
+        &__list {
+            @include disFlex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+
+            &__item {
+                width: calc(25% - 9px);
+                @extend .serv11__services__item;
+
+                @include x-large-device-down {
+                    width: calc(33.33% - 8px);
+                }
+                @include large-device-down {
+                    width: calc(50% - 6px);
+                }
+                @include medium-device-down {
+                    width: 100%;
+                }
+
+                &__icon {
+                    @extend .serv11__services__item__icon;
+                }
+                &__title {
+                    @extend .serv11__services__item__title;
+                }
+                &__paragraph {
+                    @extend .serv11__services__item__paragraph;
+                }
+            }
         }
     }
 }
