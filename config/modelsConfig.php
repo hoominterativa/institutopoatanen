@@ -14,24 +14,24 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Slides' => (object) [
-            'SLID01' => (object)[
+        'Services' => (object) [
+            'SERV11' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'Serviços',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'serv11.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Slide',
-                    'iconPanel' => 'mdi-projector-screen'
-                ]
-            ],
-        ],
-
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-alpha-s-box-outline'
+                ],
+                'IncludeSections' => (object) []
+            ]
+        ]
     ],
 
     'ModelsForm' => (object)[

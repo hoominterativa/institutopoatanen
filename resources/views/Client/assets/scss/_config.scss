@@ -26,6 +26,10 @@ body {
         margin-bottom: 0;
     }
 
+    diaglog{
+        pointer-events: auto;
+    }
+
     /* CARROSSEL - SWIPER */
     .swiper-slide {
         display: flex;
@@ -42,6 +46,8 @@ body {
         bottom: unset;
         left: unset;
     }
+
+
 }
 /************************************************************ ACCORDION PADRÃO ************************************************************/
 details {

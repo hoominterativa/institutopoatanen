@@ -1840,6 +1840,35 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "SERV11": {
+            "path_image": {
+                "width": "582",
+                "height": "341",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "330",
+                "height": "400",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "200",
+                "height": "200",
+                "activeCrop": "false"
+            },
+            "Section": {
+                "path_image_desktop": {
+                    "width": "1300",
+                    "height": "750",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "420",
+                    "height": "700",
+                    "activeCrop": "true"
+                }
+            }
         }
     },
     "Slides": {
