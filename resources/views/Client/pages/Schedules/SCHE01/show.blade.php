@@ -51,108 +51,113 @@
                         </ul>
                     </div>
                 </header>
-                <main class="sche01-show__content__main__main d-flex flex-column">
-                    @if ($schedule->path_image)
-                        <img src="{{ asset('storage/' . $schedule->path_image) }}" alt=""
-                            class="sche01-show__content__main__img">
+
+                @if ($schedule->path_image)
+                    <img src="{{ asset('storage/' . $schedule->path_image) }}" alt="{{ $schedule->title }}" loading="lazy"
+                        class="sche01-show__content__main__img">
+                @endif
+
+                <h3 class="sche01-show__content__main__subtitle">Descrição</h3>
+                <div class="sche01-show__content__main__paragraph">
+                    @if ($schedule->description)
+                        <p>
+                            {!! $schedule->description !!}
+                        </p>
                     @endif
-                    <h3 class="sche01-show__content__main__subtitle">Descrição</h3>
-                    <div class="sche01-show__content__main__desc">
-                        @if ($schedule->description)
-                            <p>
-                                {!! $schedule->description !!}
-                            </p>
-                        @endif
-                    </div>
-                    <h3 class="sche01-show__content__main__subtitle">Local</h3>
-                    <div class="sche01-show__content__main__desc">
-                        @if ($schedule->information)
-                            <p>
-                                {!! $schedule->information !!}
-                            </p>
-                        @endif
-                    </div>
-                    @if ($schedule->link_button)
-                        <a href="{{ getUri($schedule->link_button) }}" target="{{ $schedule->target_link_button }}"
-                            class="sche01-show__content__main__cta">
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt=""
-                                class="sche01-show__content__main__cta__icon">
-                            @if ($schedule->title_button)
-                                {{ $schedule->title_button }}
-                            @endif
-                        </a>
+                </div>
+
+                <h3 class="sche01-show__content__main__subtitle">Local</h3>
+                <div class="sche01-show__content__main__paragraph">
+                    @if ($schedule->information)
+                        <p>
+                            {!! $schedule->information !!}
+                        </p>
                     @endif
-                </main>
+                </div>
+
+                @if ($schedule->link_button)
+                    <a href="{{ getUri($schedule->link_button) }}" target="{{ $schedule->target_link_button }}"
+                        class="sche01-show__content__main__cta">
+                        @if ($schedule->title_button)
+                            {{ $schedule->title_button }}
+                        @endif
+                    </a>
+                @endif
             </article>
 
-            <aside class="sche01-show__cont__aside d-flex flex-column align-items-stretch justify-content-start">
+            <aside class="sche01-show__content__aside">
                 @if ($contact)
-                    <div class="sche01-form d-flex flex-column align-items-start justify-content-start">
-                        @if ($contact->title || $contact->subtitle)
-                            <h4 class="sche01-form__subtitle">{{ $contact->subtitle }}</h4>
-                            <h3 class="sche01-form__title">{{ $contact->title }}</h3>
+                    {!! Form::open([
+                        'route' => 'lead.store',
+                        'method' => 'post',
+                        'files' => true,
+                        'class' => 'send_form_ajax form-contact parsley-validate sche01-show__content__aside__form',
+                    ]) !!}
+
+                    <header class="sche01-show__content__aside__form__header">
+                        @if ($contact->subtitle)
+                            <h4 class="sche01-show__content__aside__form__header__subtitle">{{ $contact->subtitle }}</h4>
                         @endif
-                        <div class="sche01-form__desc">
-                            @if ($contact->description)
-                                <p>
-                                    {!! $contact->description !!}
-                                </p>
-                            @endif
+
+                        @if ($contact->title)
+                            <h3 class="sche01-show__content__aside__form__header__title">{{ $contact->title }}</h3>
+                        @endif
+
+                        @if ($contact->description)
+                            <div class="sche01-show__content__aside__form__header__paragraph">
+                                {!! $contact->description !!}
+                            </div>
+                        @endif
+                    </header>
+
+
+                    <div class="sche01-show__content__aside__form__inputs">
+                        <input type="hidden" name="target_lead" value="{{ $contact->title }}">
+                        <input type="hidden" name="target_send" value="{{ base64_encode($contact->email) }}">
+
+                        @foreach ($inputs as $name => $input)
+                            @include('Client.Components.inputs', [
+                                'name' => $name,
+                                'options' => $input->option,
+                                'placeholder' => $input->placeholder,
+                                'required' => isset($input->required) ? $input->required : false,
+                                'type' => $input->type,
+                            ])
+                        @endforeach
+
+                        <div class="sche01-show__content__aside__form__inputs__compliance">
+                            {!! Form::checkbox('term_accept', 1, null, [
+                                'class' => 'form-check-input me-1',
+                                'id' => 'term_accept',
+                                'required' => true,
+                            ]) !!}
+                            {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                            <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank"
+                                class="sche01-show__content__aside__form__inputs__compliance__link">Política de
+                                Privacidade</a>
                         </div>
-                        {!! Form::open([
-                            'route' => 'lead.store',
-                            'method' => 'post',
-                            'files' => true,
-                            'class' =>
-                                'send_form_ajax sche01-form__form d-flex w-100 flex-column align-items-stretch form-contact parsley-validate align-items-center',
-                        ]) !!}
-                        <div class="sche01-form__form__inputs d-flex flex-column w-100 align-items-stretch">
-                            <input type="hidden" name="target_lead" value="{{ $contact->title }}">
-                            <input type="hidden" name="target_send" value="{{ base64_encode($contact->email) }}">
-                            @foreach ($inputs as $name => $input)
-                                @include('Client.Components.inputs', [
-                                    'name' => $name,
-                                    'options' => $input->option,
-                                    'placeholder' => $input->placeholder,
-                                    'required' => isset($input->required) ? $input->required : false,
-                                    'type' => $input->type,
-                                    'class' => 'col-md-8',
-                                ])
-                            @endforeach
-                            <label for="" class="sche01-form__form__checkbox-label">
-                                {{-- <input type="checkbox" name='checkbox' id=""> Lorem ipsum dolor sit amet,
-                                    consectetur a --}}
-                                {!! Form::checkbox('term_accept', 1, null, [
-                                    'class' => 'form-check-input me-1',
-                                    'id' => 'term_accept',
-                                    'required' => true,
-                                ]) !!}
-                                {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                <a href="{{ getUri($compliance->link ?? '#') }}" target="_blank" class="">Política de
-                                    Privacidade</a>
-                            </label>
-                        </div>
-                        <button type="submit" class="sche01-form__cta">
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" class="sche01-form__cta__icon"
-                                alt="Ícone">
+
+                        <button type="submit" class="sche01-show__content__aside__form__inputs__cta">
                             @if ($contact->title_button)
                                 {{ $contact->title_button }}
                             @endif
                         </button>
-                        {!! Form::close() !!}
                     </div>
+                    {!! Form::close() !!}
                 @endif
-                <ul class="sche01-month-categories w-100 d-flex flex-column align-items-stretch">
+
+                <ul class="sche01-show__content__aside__month-categories">
                     @foreach ($monthlyEventCounts as $month => $count)
-                        <li
-                            class="sche01-month-categories__item w-100 position-relative d-flex align-items-center justify-content-between">
-                            <a href="{{ route('sche01.monthlyEventCounts', ['month' => $month]) }}" class="link-full"></a>
-                            <h3 class="sche01-month-categories__item__title">
+                        <li class="sche01-show__content__aside__month-categories__item">
+                            <a href="{{ route('sche01.monthlyEventCounts', ['month' => $month]) }}" class="link-full"
+                                title="{{ $count }} eventos em {{ ucfirst(\Carbon\Carbon::createFromFormat('m', $month)->formatLocalized('%B')) }}"></a>
+                            <h3 class="sche01-show__content__aside__month-categories__item__title">
                                 {{ ucfirst(\Carbon\Carbon::createFromFormat('m', $month)->formatLocalized('%B')) }}
                             </h3>
-                            <h4 class="sche01-month-categories__item__subtitle">
+                            <h4 class="sche01-show__content__aside__month-categories__item__subtitle">
                                 Eventos
-                                <span class="sche01-month-categories__item__counter">{{ $count }}</span>
+                                <span
+                                    class="sche01-show__content__aside__month-categories__item__subtitle__counter">{{ $count }}</span>
                             </h4>
                         </li>
                     @endforeach

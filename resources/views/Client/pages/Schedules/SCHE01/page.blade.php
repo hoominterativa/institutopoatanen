@@ -73,25 +73,23 @@
                                     </div>
                                 </header>
 
-                                <div class="sche01-page__content__main__list__item__main">
-                                    @if ($schedule->path_image)
-                                        <img src="{{ asset('storage/' . $schedule->path_image) }}" alt=""
-                                            class="sche01-page__content__main__list__item__img">
-                                    @endif
+                                @if ($schedule->path_image)
+                                    <img src="{{ asset('storage/' . $schedule->path_image) }}" alt=""
+                                        class="sche01-page__content__main__list__item__img">
+                                @endif
 
-                                    @if ($schedule->description)
-                                        <div class="sche01-page__content__main__list__item__paragraph">
-                                            {!! $schedule->description !!}
+                                @if ($schedule->description)
+                                    <div class="sche01-page__content__main__list__item__paragraph">
+                                        {!! $schedule->description !!}
 
-                                        </div>
-                                    @endif
+                                    </div>
+                                @endif
 
-                                    <a href="{{ route('sche01.show.content', ['SCHE01Schedules' => $schedule->slug]) }}"
-                                        class="sche01-page__content__main__list__item__cta">
-                                        CTA
-                                    </a>
+                                <a href="{{ route('sche01.show.content', ['SCHE01Schedules' => $schedule->slug]) }}"
+                                    class="sche01-page__content__main__list__item__cta">
+                                    CTA
+                                </a>
 
-                                </div>
                             </article>
                         @endforeach
                     </div>
