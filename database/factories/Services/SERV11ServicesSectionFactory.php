@@ -30,7 +30,8 @@ class SERV11ServicesSectionFactory extends Factory
             //Banner
             'title_banner' => $this->faker->text(10),
             'subtitle_banner' => $this->faker->text(10),
-            'description_banner' => $this->faker->text(250),
+            'path_image_desktop' => 'uploads/tmp/image-box.jpg',
+            'path_image_mobile' => 'uploads/tmp/gall01_image1.png',
             'active_banner' => 1,
         ];
     }

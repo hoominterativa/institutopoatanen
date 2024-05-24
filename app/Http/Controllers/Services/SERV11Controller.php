@@ -32,7 +32,8 @@ class SERV11Controller extends Controller
         return view('Admin.cruds.Services.SERV11.index', [
             'services' => $service,
             'sessions' => $sessions,
-            'section' => $section
+            'section' => $section,
+            'cropSetting' => getCropImage('Services', 'SERV11')
         ]);
     }
 
@@ -131,6 +132,7 @@ class SERV11Controller extends Controller
             storageDelete($SERV11Services, 'path_image_icon');
             $data['path_image_icon'] = null;
         }
+
         $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
         if($path_image_box){
             storageDelete($SERV11Services, 'path_image_box');
@@ -230,12 +232,19 @@ class SERV11Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV11', 'page');
 
         $sessions = SERV11ServicesSession::with('services')->exists()->active()->sorting()->get();
-        $section = SERV11ServicesSection::activeBanner()->sorting()->first();
+        $banner = SERV11ServicesSection::activeBanner()->sorting()->first();
+
+        switch(deviceDetect()) {
+            case "mobile":
+            case "tablet":
+                if($banner) $banner->path_image_desktop = $banner->path_image_mobile;
+            break;
+        }
 
         return view('Client.pages.Services.SERV11.page',[
             'sections' => $sections,
             'sessions' => $sessions,
-            'section' => $section
+            'banner' => $banner
         ]);
     }
 

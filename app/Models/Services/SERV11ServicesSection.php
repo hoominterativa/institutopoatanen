@@ -16,7 +16,7 @@ class SERV11ServicesSection extends Model
     }
 
     protected $table = "serv11_services_sections";
-    protected $fillable = ['title_section', 'subtitle_section', 'description_section', 'active_section', 'title_banner', 'subtitle_banner', 'description_banner', 'active_banner', 'sorting'];
+    protected $fillable = ['title_section', 'subtitle_section', 'description_section', 'active_section', 'title_banner', 'subtitle_banner', 'path_image_desktop', 'path_image_mobile', 'active_banner', 'sorting'];
 
     public function scopeSorting($query)
     {

@@ -23,7 +23,8 @@ class CreateServ11ServicesSectionsTable extends Migration
             //Banner
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
-            $table->string('description_banner')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
             $table->boolean('active_banner')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
