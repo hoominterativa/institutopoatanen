@@ -15,14 +15,16 @@
         <div class="serv11__services__carousel">
             <div class="serv11__services__carousel__swiper-wrapper swiper-wrapper">
                 @for ($i = 0; $i < 15; $i++)
-                    <article class="serv11__services__item swiper-slide">
+                    <article class="serv11__services__item swiper-slide" data-fancybox data-src='#M{{$i}}'>
                         <img src="{{asset('images/icon.svg')}}" loading="lazy" class="serv11__services__item__icon" alt="Ícone do item ">
                         <h3 class="serv11__services__item__title">Titulo Topico</h3>
-                        <p class="serv11__services__item__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                        <p class="serv11__services__item__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+
+                        @include('Client.pages.Services.SERV11.show')
                     </article>
                 @endfor
 
-                @include('Client.pages.Services.SERV11.show')
             </div>
 
             <div class="serv11__services__carousel__swiper-pagination"></div>

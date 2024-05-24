@@ -1,7 +1,7 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.serv11{
+.serv11 {
     overflow: hidden; /* prevenção do shift da animação*/
     @extend %theme__padding;
 
@@ -30,7 +30,7 @@
         }
     }
 
-    &__services{
+    &__services {
         height: auto;
 
         &__carousel {
@@ -42,7 +42,7 @@
             }
 
             @extend %theme__pagination;
-            .swiper-pagination-bullets{
+            .swiper-pagination-bullets {
                 text-align: center;
             }
         }
@@ -98,10 +98,84 @@
             }
         }
 
-        &__cta{
+        &__cta {
             @extend %theme__cta;
             margin-left: auto;
         }
     }
+}
 
+.serv11-show {
+    padding: 0;
+    @include disFlex;
+    display: none;
+    max-width: 90vw;
+
+    @include large-device-down {
+        flex-direction: column;
+    }
+
+    &__image {
+        width: 40%;
+        object-fit: cover;
+        object-position: center;
+
+        @include large-device-down {
+            width: 100%;
+        }
+    }
+
+    &__information {
+        @extend %theme__padding;
+        width: 60%;
+
+        @include large-device-down {
+            width: 100%;
+        }
+
+        &__header {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                "icon subtitle"
+                "icon title";
+
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0 1.5rem;
+
+            margin-bottom: 3.5rem;
+
+            &__icon {
+                grid-area: icon;
+            }
+
+            &__title {
+                grid-area: title;
+                @extend %theme__t2-cb;
+                text-align: left;
+            }
+
+            &__subtitle {
+                grid-area: subtitle;
+                @extend %theme__t4-c1;
+            }
+        }
+
+        &__paragrapg {
+            @extend %theme__p1-cb;
+        }
+    }
+
+    .carousel__button {
+        cursor: pointer;
+        top: 0.5rem !important;
+        right: 0.5rem !important;
+
+        svg {
+            stroke: $color-black;
+            filter: none;
+        }
+    }
 }

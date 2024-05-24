@@ -12360,11 +12360,11 @@ if (sideLinks.length > 0) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.serv11__services__carousel', {
-  slidesPerView: 'auto',
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv11__services__carousel", {
+  slidesPerView: "auto",
   spaceBetween: 8,
   pagination: {
-    el: '.serv11__services__carousel__swiper-pagination',
+    el: ".serv11__services__carousel__swiper-pagination",
     clickable: true
   }
 });

@@ -1,7 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=b73131185eabd5a51f9281d984d6224b",
+    "/js/app.js": "/js/app.js?id=867532af26a81003ee221563ac953d4d",
     "/css/libraries.css": "/css/libraries.css?id=ec210b753d225c9700d9ea9fe3ffadca",
-    "/css/app.css": "/css/app.css?id=6cecd9149a6eb487714cbf48e70aa592",
+    "/css/app.css": "/css/app.css?id=648b631d6f63e902fc1547e96a33c264",
     "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
@@ -267,6 +267,8 @@
     "/images/facebook.png": "/images/facebook.png?id=1aab8bbf90ebdecd9a2d957d4c2504af",
     "/images/gray.png": "/images/gray.png?id=b13c2bebd2c53561cbe2e5bf2bb18612",
     "/images/icon.png": "/images/icon.png?id=64c89a8c37cbce4bd3093b1c468a4c6d",
+    "/images/icon.svg": "/images/icon.svg?id=65ce8e0af75f18ef222c646bad2f1d60",
+    "/images/imageServ.png": "/images/imageServ.png?id=8de8f3c7887d1909cad1fe7bf6c96b94",
     "/images/instagram.png": "/images/instagram.png?id=381b83763091d7ccc284de27a366a49f",
     "/images/linkedin.png": "/images/linkedin.png?id=b4535d4d50deed32111a7616dd570ca9",
     "/images/logo-menu-sidebar.svg": "/images/logo-menu-sidebar.svg?id=e071ff0ddda03e1d85602a6ee6daee6d",
@@ -450,6 +452,5 @@
     "/Admin/assets/libs/i18n/ur.js": "/Admin/assets/libs/i18n/ur.js?id=3cc894ecacb70594c1df9552064c8d97",
     "/Admin/assets/libs/i18n/zh_cn.extra.js": "/Admin/assets/libs/i18n/zh_cn.extra.js?id=e5d635d10d14819a7ffc950fe9f3077a",
     "/Admin/assets/libs/i18n/zh_cn.js": "/Admin/assets/libs/i18n/zh_cn.js?id=3b26d4d158a3f6e8a7702cdcee0d0452",
-    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf",
-    "/images/icon.svg": "/images/icon.svg?id=65ce8e0af75f18ef222c646bad2f1d60"
+    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf"
 }
