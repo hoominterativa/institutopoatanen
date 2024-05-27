@@ -25,6 +25,7 @@ class SCHE01SchedulesFactory extends Factory
 
         $title = $this->faker->text(25);
         return [
+            //Schedule
             'title' => $title,
             'slug' => Str::slug($title),
             'subtitle' => $this->faker->text(10),
@@ -40,6 +41,13 @@ class SCHE01SchedulesFactory extends Factory
             'path_image_sub' => 'uploads/tmp/favicon.png',
             'path_image_hours' => 'uploads/tmp/favicon.png',
             'active' => 1,
+            'featured' => rand(0,1),
+            //Banner inner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            'path_image_desktop_banner' => 'uploads/tmp/image-box.jpg',
+            'path_image_mobile_banner' => 'uploads/tmp/gall01_image2.png',
+            'active_banner' => 1,
         ];
     }
 }

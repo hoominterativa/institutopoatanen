@@ -15,6 +15,7 @@ class CreateSche01SchedulesTable extends Migration
     {
         Schema::create('sche01_schedules', function (Blueprint $table) {
             $table->id();
+            //Schedule
             $table->string('title')->nullable();
             $table->text('slug')->nullable();
             $table->string('subtitle')->nullable();
@@ -29,7 +30,15 @@ class CreateSche01SchedulesTable extends Migration
             $table->string('path_image_sub')->nullable();
             $table->string('path_image_hours')->nullable();
             $table->string('path_image')->nullable();
-            $table->integer('active')->default(0);
+            $table->boolean('active')->default(0);
+            $table->boolean('featured')->default(0);
+            //Banner inner
+            $table->string('title_banner')->nullable();
+            $table->string('subtitle_banner')->nullable();
+            $table->string('path_image_desktop_banner')->nullable();
+            $table->string('path_image_mobile_banner')->nullable();
+            $table->boolean('active_banner')->default(0);
+
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

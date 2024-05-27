@@ -30,15 +30,23 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Secão home
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações complementares que serão exibidas na seção home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Este banner será exibido acima do conteúdo principal"></i>
+                                data-bs-original-title="Banner da página principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#sectionSchedule" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                        <a href="#sectionPage" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
                             Informações da seção
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -104,6 +112,9 @@
                                                             @else
                                                                 <span class="badge bg-danger">Inativo</span>
                                                             @endif
+                                                            @if ($schedule->featured)
+                                                                <span class="badge bg-primary text-white">Destaque</span>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             <div class="row">
@@ -125,14 +136,19 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane" id="banner">
-                        @include('Admin.cruds.Schedules.SCHE01.Banner.form', [
-                            'banner' => $banner
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Schedules.SCHE01.Section.form', [
+                            'section' => $section
                         ])
                     </div>
-                    <div class="tab-pane" id="sectionSchedule">
-                        @include('Admin.cruds.Schedules.SCHE01.SectionSchedule.form', [
-                            'sectionSchedule' => $sectionSchedule
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Schedules.SCHE01.Banner.form', [
+                            'section' => $section
+                        ])
+                    </div>
+                    <div class="tab-pane" id="sectionPage">
+                        @include('Admin.cruds.Schedules.SCHE01.SectionPage.form', [
+                            'section' => $section
                         ])
                     </div>
                     <div class="tab-pane" id="contact">

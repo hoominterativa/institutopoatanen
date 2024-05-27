@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSche01SchedulesBannershowsTable extends Migration
+class CreateSche01SchedulesSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,22 @@ class CreateSche01SchedulesBannershowsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sche01_schedules_bannershows', function (Blueprint $table) {
+        Schema::create('sche01_schedules_sections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('schedule_id')->constrained('sche01_schedules');
+            //Home page
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
+            $table->boolean('active')->default(0);
+            //Section
+            $table->string('title_section')->nullable();
+            $table->string('subtitle_section')->nullable();
+            $table->boolean('active_section')->default(0);
+            //Banner
+            $table->string('title_banner')->nullable();
+            $table->string('subtitle_banner')->nullable();
             $table->string('path_image_desktop')->nullable();
             $table->string('path_image_mobile')->nullable();
-            $table->string('background_color')->nullable();
-            $table->integer('active')->default(0);
+            $table->boolean('active_banner')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
@@ -34,6 +41,6 @@ class CreateSche01SchedulesBannershowsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sche01_schedules_bannershows');
+        Schema::dropIfExists('sche01_schedules_sections');
     }
 }

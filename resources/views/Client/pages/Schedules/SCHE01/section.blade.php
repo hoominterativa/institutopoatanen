@@ -1,6 +1,6 @@
 <section class="sche01" id="SCHE01">
     <header class="sche01__header">
-        <h2 class="sche01__header__title">{{ $title }}</h2>
+        <h2 class="sche01__header__title">Título</h2>
         <h3 class="sche01__header__sutbtitle">Subtítulo</h3>
     </header>
 

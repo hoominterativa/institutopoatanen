@@ -2088,7 +2088,17 @@
                 "height": "300",
                 "activeCrop": "false"
             },
-            "Banner": {
+            "path_image_desktop_banner": {
+                "width": "1500",
+                "height": "270",
+                "activeCrop": "false"
+            },
+            "path_image_mobile_banner": {
+                "width": "390",
+                "height": "321",
+                "activeCrop": "true"
+            },
+            "Section": {
                 "path_image_desktop": {
                     "width": "1500",
                     "height": "270",
@@ -2101,16 +2111,7 @@
                 }
             },
             "BannerShow": {
-                "path_image_desktop": {
-                    "width": "1500",
-                    "height": "270",
-                    "activeCrop": "false"
-                },
-                "path_image_mobile": {
-                    "width": "390",
-                    "height": "321",
-                    "activeCrop": "true"
-                }
+
             }
         },
         "SCHE02": {

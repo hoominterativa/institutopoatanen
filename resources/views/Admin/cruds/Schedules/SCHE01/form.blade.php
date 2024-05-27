@@ -155,6 +155,10 @@
                 {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
                 {!! Form::label('active', 'Ativar exibição do conteúdo?', ['class' => 'form-check-label']) !!}
             </div>
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
+                {!! Form::label('featured', 'Destacar na home?', ['class' => 'form-check-label']) !!}
+            </div>
         </div>
         {{-- end card-body --}}
     </div>
@@ -173,7 +177,7 @@
                             'data-min-width' => $cropSetting->path_image->width, // px
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedule) ? false : true,
+                            'required' => (!isset($schedule) || empty($schedule->path_image)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image != ''
@@ -197,7 +201,7 @@
                             'data-min-width' => $cropSetting->path_image_hours->width, // px
                             'data-min-height' => $cropSetting->path_image_hours->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedule) ? false : true,
+                            'required' => (!isset($schedule) || empty($schedule->path_image_hours)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image_hours != ''
@@ -221,7 +225,7 @@
                             'data-min-width' => $cropSetting->path_image_sub->width, // px
                             'data-min-height' => $cropSetting->path_image_sub->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedule) ? false : true,
+                            'required' => (!isset($schedule) || empty($schedule->path_image_sub)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image_sub != ''
