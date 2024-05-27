@@ -78,13 +78,7 @@
                                                     </th>
                                                     <th>Imagem</th>
                                                     <th>Título/Subtítulo</th>
-                                                    <th>Descrição</th>
-                                                    <th>Texto</th>
-                                                    <th>Info</th>
                                                     <th>Dia do Evento</th>
-                                                    <th>Hora do Evento</th>
-                                                    <th>Título do botão</th>
-                                                    <th>Link do botão</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -98,24 +92,12 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$schedule->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($schedule->path_image_sub)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $schedule->path_image_sub)}})"></div>
-                                                            @endif
-                                                            @if ($schedule->path_image_hours)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $schedule->path_image_hours)}})"></div>
-                                                            @endif
                                                             @if ($schedule->path_image)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $schedule->path_image)}})"></div>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">{{$schedule->title}} <b>/</b>{{$schedule->subtitle}}</td>
-                                                        <td class="align-middle">{!! substr($schedule->description, 0, 20) !!}</td>
-                                                        <td class="align-middle">{!! substr($schedule->text, 0, 20) !!}</td>
-                                                        <td class="align-middle">{!! substr($schedule->information, 0, 20) !!}</td>
                                                         <td class="align-middle">{{Carbon\Carbon::parse($schedule->event_date)->format('d/m/Y')}}</td>
-                                                        <td class="align-middle">{{ date('H:i', strtotime($schedule->event_time)) }}</td>
-                                                        <td class="align-middle">{{$schedule->title_button}}</td>
-                                                        <td class="align-middle"><a href="{{ $schedule->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                         <td class="align-middle">
                                                             @if ($schedule->active)
                                                                 <span class="badge bg-success">Ativo</span>

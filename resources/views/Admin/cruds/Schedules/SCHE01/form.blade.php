@@ -1,34 +1,39 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
-            <div class="row">
-                <div class="col-12 col-sm-6">
-                    {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
-                    {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'required'=>'required',]) !!}
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'required'=>'required',]) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                    </div>
                 </div>
-                <div class="col-12 col-sm-6">
-                    {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
-                    {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
-                </div>
-
-                <div class="col-12 col-sm-6">
-                    {!! Form::label(null, 'Data do evento', ['class'=>'form-label']) !!}
-                    {!! Form::text('event_date', null, [
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label(null, 'Data do evento', ['class'=>'form-label']) !!}
+                        {!! Form::text('event_date', null, [
                             'class'=>'form-control',
                             'required'=>'required',
                             'data-provide'=>'datepicker',
                             'data-date-autoclose'=>'true',
                             'data-date-format'=>'dd/mm/yyyy',
                             'data-date-language'=>'pt-BR',
-                        ])!!}
-                </div>
-                <div class="col-12 col-sm-6">
-                    {!! Form::label(null, 'Hora do evento', ['class'=>'form-label']) !!}
-                    {!! Form::text('event_time', null, [
-                        'class'=>'form-control',
-                        'data-toggle'=>'input-mask',
-                        'data-mask-format'=>'00:00',
-                    ]) !!}
+                            ])!!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label(null, 'Hora do evento', ['class'=>'form-label']) !!}
+                        {!! Form::text('event_time', null, [
+                            'class'=>'form-control',
+                            'data-toggle'=>'input-mask',
+                            'data-mask-format'=>'00:00',
+                            ]) !!}
+                    </div>
                 </div>
             </div>
             <div class="mb-3">
@@ -63,6 +68,19 @@
                     'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold'=>'10',
                 ]) !!}
+            </div>
+            <div class="col-12">
+                <div class="complete-editor__content mb-3">
+                    {!! Form::label('text', 'Texto', ['class'=>'form-label']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Este texto será mostrado na página interna de cada evento em específico "></i>
+                    {!! Form::textarea('text', null, [
+                        'class'=>'form-control complete-editor',
+                        'data-height'=>500,
+                        'id'=>'text',
+                    ]) !!}
+                </div>
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
@@ -131,6 +149,12 @@
                 </div>
             </div> {{-- END ."wrapper-links --}}
 
+        </div>
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                {!! Form::label('active', 'Ativar exibição do conteúdo?', ['class' => 'form-check-label']) !!}
+            </div>
         </div>
         {{-- end card-body --}}
     </div>
@@ -210,29 +234,6 @@
             </div>
         </div>
         {{-- end card-body --}}
-    </div>
-    <div class="col-12">
-        <div class="card card-body" id="tooltip-container">
-            <div class="col-12">
-                <div class="complete-editor__content mb-3">
-                    {!! Form::label('text', 'Texto', ['class'=>'form-label']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
-                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Este texto será mostrado na página interna de cada evento em específico "></i>
-                    {!! Form::textarea('text', null, [
-                        'class'=>'form-control complete-editor',
-                        'data-height'=>500,
-                        'id'=>'text',
-                    ]) !!}
-                </div>
-            </div>
-        </div>
-        <div class="d-flex">
-            <div class="mb-3 form-check me-3">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição do conteúdo', ['class' => 'form-check-label']) !!}
-            </div>
-        </div>
     </div>
 </div>
 {{-- end row --}}

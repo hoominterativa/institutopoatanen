@@ -300,21 +300,19 @@ class SCHE01Controller extends Controller
      */
     public function page(Request $request, $month = null)
     {
+        $IncludeSectionsController = new IncludeSectionsController();
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Schedules', 'SCHE01', 'page');
+
+        $banner = SCHE01SchedulesBanner::active()->first();
         switch (deviceDetect()) {
             case 'mobile':
             case 'tablet':
-                $banner = SCHE01SchedulesBanner::active()->first();
                 if ($banner) {
                     $banner->path_image_desktop = $banner->path_image_mobile;
                 }
-                break;
-            default:
-                $banner = SCHE01SchedulesBanner::active()->first();
-                break;
-        }
+            break;
 
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Schedules', 'SCHE01', 'page');
+        }
 
         $contact = SCHE01SchedulesContact::active()->first();
         $compliance = getCompliance($contact->compliance_id ?? '0');
@@ -347,6 +345,9 @@ class SCHE01Controller extends Controller
 
     public function section()
     {
-        return view("Client.pages.Schedules.SCHE01.section", ["title" => "Schedules"]);
+        $schedules = SCHE01Schedules::active()->sorting()->get();
+        return view('Client.pages.Schedules.SCHE01.section',[
+            'schedules' => $schedules
+        ]);
     }
 }
