@@ -64,10 +64,10 @@ class UNIT05Controller extends Controller
 
         */
 
-        if(UNIT05Units::create($data)){
+        if (UNIT05Units::create($data)) {
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
-        }else{
+        } else {
             //Storage::delete($path_image);
             //Storage::delete($path_archive);
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -132,10 +132,10 @@ class UNIT05Controller extends Controller
 
         */
 
-        if($UNIT05Units->fill($data)->save()){
+        if ($UNIT05Units->fill($data)->save()) {
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.code.index');
-        }else{
+        } else {
             //Storage::delete($path_image);
             //Storage::delete($path_archive);
             Session::flash('error', 'Erro ao atualizar item');
@@ -154,7 +154,7 @@ class UNIT05Controller extends Controller
         //storageDelete($UNIT05Units, 'path_image');
         //storageDelete($UNIT05Units, 'path_archive');
 
-        if($UNIT05Units->delete()){
+        if ($UNIT05Units->delete()) {
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -177,20 +177,20 @@ class UNIT05Controller extends Controller
         }
         */
 
-        if($deleted = UNIT05Units::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+        if ($deleted = UNIT05Units::whereIn('id', $request->deleteAll)->delete()) {
+            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
         }
     }
     /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+     * Sort record by dragging and dropping
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
+        foreach ($request->arrId as $sorting => $id) {
             UNIT05Units::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
@@ -209,9 +209,9 @@ class UNIT05Controller extends Controller
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT05', 'show');
 
-        return view('Client.pages.Module.Model.show',[
+        return view('Client.pages.Units.UNIT05.show', [
             'sections' => $sections
         ]);
     }
@@ -225,9 +225,9 @@ class UNIT05Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT05', 'page');
 
-        return view('Client.pages.Module.Model.page',[
+        return view('Client.pages.Units.UNIT05.page', [
             'sections' => $sections
         ]);
     }
@@ -239,6 +239,6 @@ class UNIT05Controller extends Controller
      */
     public static function section()
     {
-        return view('');
+        return view('Client.pages.Units.UNIT05.section');
     }
 }

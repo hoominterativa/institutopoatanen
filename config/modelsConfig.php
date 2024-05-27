@@ -14,21 +14,36 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Slides' => (object) [
-            'SLID01' => (object)[
+        'Units' => (object) [
+            'UNIT05' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
+                'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
+                // 'IncludeCore' => (object) [
+                //     'include' => true,
+                //     'sorting' => true,
+                //     'limit' => 'all',
+                //     'condition' => 'active=1{Ativos}',
+                //     'titleList' => 'title',
+                //     'relation' => (object)[
+                //         'category' => (object)[
+                //             'name' => 'Categoria',
+                //             'titleList' => 'title',
+                //             'condition' => 'active=1{Ativos}',
+                //         ]
+                //     ],
+                // ],
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'titleMenu' => 'Unidades',
+                    'anchor' => false,
+                    'linkMenu' => 'unit05.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Slide',
-                    'iconPanel' => 'mdi-projector-screen'
-                ]
+                    'titlePanel' => 'Unidades',
+                    'iconPanel' => 'mdi-warehouse'
+                ],
+                'IncludeSections' => (object) []
             ],
         ],
 
