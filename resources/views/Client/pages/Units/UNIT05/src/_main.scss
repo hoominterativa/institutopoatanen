@@ -71,6 +71,47 @@
                     text-align: center;
                 }
             }
+/* BEGIN STYLE */
+.unit05 {
+    overflow: hidden;
+    @include disFlex(column);
+
+    &__categories {
+        @extend %theme__padding;
+        width: 100%;
+        padding-top: 2.5rem;
+        padding-bottom: 0;
+
+        &__item {
+            @extend %theme__category;
+        }
+    }
+
+    &__content {
+        @extend %theme__padding;
+        @include disFlex(row, space-between, start);
+
+        &__gallery {
+            @extend %theme__nav;
+
+            margin: 0;
+            width: 45%;
+            height: auto;
+            aspect-ratio: 1/1;
+
+            position: relative;
+
+            overflow: hidden;
+
+            &__item {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &__information {
+            @include disFlex(column);
+            width: 50%;
         }
     }
 }
