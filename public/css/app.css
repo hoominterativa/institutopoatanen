@@ -1670,23 +1670,23 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
+.unit05__content, .unit05__categories, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item {
     font-size: 1.125rem;
   }
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item {
   color: #000;
 }
 .side02__navigation__item__link, .side02__navigation__item__btn {
@@ -1758,6 +1758,31 @@ body .owl-dots .owl-dot.active {
 .head02__navigation__item--menu-mobile__item__icon {
   width: 2rem;
   height: 2rem;
+}
+.unit05__categories__item {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  align-items: center;
+  background-color: #efefef;
+}
+.active.unit05__categories__item {
+  background-color: #cacaca;
+}
+.unit05__content__gallery {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.unit05__content__gallery:has(.swiper-button-lock) {
+  display: none;
 }
 .head02 {
   width: 100%;
@@ -2190,6 +2215,46 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.unit05 {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+}
+.unit05__categories {
+  width: 100%;
+  padding-top: 2.5rem;
+  padding-bottom: 0;
+}
+.unit05__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+.unit05__content__gallery {
+  margin: 0;
+  width: 45%;
+  height: auto;
+  aspect-ratio: 1/1;
+  position: relative;
+  overflow: hidden;
+}
+.unit05__content__gallery__item {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.unit05__content__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  width: 50%;
+}
+
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
