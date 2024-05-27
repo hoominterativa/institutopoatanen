@@ -1,3 +1,76 @@
-@import 'variables';
+@import "variables";
 
-/* BEGIN STYLE */
+.unit05-page {
+    &__banner {
+        @extend %theme__banner;
+
+        &__title {
+            @extend %theme__banner__title;
+        }
+
+        &__subtitle {
+            @extend %theme__banner__subtitle;
+        }
+    }
+
+    &__form {
+        @include disFlex(row, center, center);
+        @extend %theme__padding;
+        padding-top: 0;
+        padding-bottom: 0;
+        &__input {
+        }
+        &__submit {
+        }
+    }
+
+    &__menus {
+    }
+
+    &__services {
+        @extend %theme__padding;
+        background-color: $color-three;
+        @include disFlex(row, start, start);
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        &__item {
+            width: calc(25% - 0.75rem);
+            min-height: 512px;
+
+            &__bg {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 325/236;
+
+                object-fit: cover;
+                object-position: center;
+            }
+
+            &__information {
+                @include disFlex(column, start, center);
+                padding: 2rem;
+                background-color: $color-white;
+
+                &__logo{
+                    width: 100%;
+                    height: auto;
+                    margin-top: calc(-50% - 2rem);
+                    aspect-ratio: 1/1;
+                }
+
+                &__title {
+                    text-align: center;
+                }
+
+                &__subtitle {
+                    text-align: center;
+                }
+
+                &__paragraph {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

@@ -1670,11 +1670,39 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
+.unit05-page__services, .unit05-page__form, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .unit05-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
+}
+.unit05-page__banner__title {
+  font: 700 3.125rem "Ubuntu", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.0125rem;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .unit05-page__banner__title {
+    font-size: 2.5rem;
+    line-height: 90%;
+  }
+}
+.unit05-page__banner__title {
+  color: #404040;
+}
+.unit05-page__banner__subtitle {
+  font: 700 1.875rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .unit05-page__banner__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.unit05-page__banner__subtitle {
+  color: #b3b3b3;
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
@@ -1758,6 +1786,19 @@ body .owl-dots .owl-dot.active {
 .head02__navigation__item--menu-mobile__item__icon {
   width: 2rem;
   height: 2rem;
+}
+.unit05-page__banner {
+  width: 100%;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #cacaca;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 }
 .head02 {
   width: 100%;
@@ -2189,7 +2230,60 @@ body .owl-dots .owl-dot.active {
      object-position: center;
 }
 
-/* BEGIN STYLE */
+.unit05-page__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.unit05-page__services {
+  background-color: #b3b3b3;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.unit05-page__services__item {
+  width: calc(25% - 0.75rem);
+  min-height: 512px;
+}
+.unit05-page__services__item__bg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 325/236;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.unit05-page__services__item__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+.unit05-page__services__item__information__logo {
+  width: 100%;
+  height: auto;
+  margin-top: calc(-50% - 2rem);
+  aspect-ratio: 1/1;
+}
+.unit05-page__services__item__information__title {
+  text-align: center;
+}
+.unit05-page__services__item__information__subtitle {
+  text-align: center;
+}
+.unit05-page__services__item__information__paragraph {
+  text-align: center;
+}
+
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
