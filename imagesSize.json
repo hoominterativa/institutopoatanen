@@ -2078,6 +2078,11 @@
                 "height": "315",
                 "activeCrop": "false"
             },
+            "path_image_box": {
+                "width": "774",
+                "height": "315",
+                "activeCrop": "false"
+            },
             "path_image_hours": {
                 "width": "300",
                 "height": "300",

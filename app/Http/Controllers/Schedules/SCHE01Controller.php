@@ -72,10 +72,13 @@ class SCHE01Controller extends Controller
         $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
         $data['event_date'] = Carbon::createFromFormat('d/m/Y', $request->event_date)->format('Y-m-d');
-        if ($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' '. ($request->subtitle ? $request->subtitle : ''));
+        if ($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) $data['path_image'] = $path_image;
+
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
+        if ($path_image_box) $data['path_image_box'] = $path_image_box;
 
         $path_image_sub = $helper->optimizeImage($request, 'path_image_sub', $this->path, null, 100);
         if ($path_image_sub) $data['path_image_sub'] = $path_image_sub;
@@ -94,6 +97,7 @@ class SCHE01Controller extends Controller
             return redirect()->route('admin.sche01.edit', ['SCHE01Schedules' => $schedule->id]);
         } else {
             Storage::delete($path_image);
+            Storage::delete($path_image_box);
             Storage::delete($path_image_hours);
             Storage::delete($path_image_sub);
             Storage::delete($path_image_desktop_banner);
@@ -134,7 +138,7 @@ class SCHE01Controller extends Controller
         $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
         $data['event_date'] = Carbon::createFromFormat('d/m/Y', $request->event_date)->format('Y-m-d');
-        if ($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' '. ($request->subtitle ? $request->subtitle : ''));
+        if ($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) {
@@ -155,6 +159,16 @@ class SCHE01Controller extends Controller
         if ($request->delete_path_image_hours && !$path_image_hours) {
             storageDelete($SCHE01Schedules, 'path_image_hours');
             $data['path_image_hours'] = null;
+        }
+
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
+        if ($path_image_box) {
+            storageDelete($SCHE01Schedules, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
+        }
+        if ($request->delete_path_image_box && !$path_image_box) {
+            storageDelete($SCHE01Schedules, 'path_image_box');
+            $data['path_image_box'] = null;
         }
 
         //Subtitle icon
@@ -193,6 +207,7 @@ class SCHE01Controller extends Controller
             Session::flash('success', 'Agenda atualizada com sucesso');
         } else {
             Storage::delete($path_image);
+            Storage::delete($path_image_box);
             Storage::delete($path_image_hours);
             Storage::delete($path_image_sub);
             Storage::delete($path_image_desktop_banner);
@@ -211,6 +226,7 @@ class SCHE01Controller extends Controller
     public function destroy(SCHE01Schedules $SCHE01Schedules)
     {
         storageDelete($SCHE01Schedules, 'path_image');
+        storageDelete($SCHE01Schedules, 'path_image_box');
         storageDelete($SCHE01Schedules, 'path_image_hours');
         storageDelete($SCHE01Schedules, 'path_image_sub');
         storageDelete($SCHE01Schedules, 'path_image_desktop_banner');
@@ -235,6 +251,7 @@ class SCHE01Controller extends Controller
         foreach ($SCHE01Scheduless as $SCHE01Schedules) {
 
             storageDelete($SCHE01Schedules, 'path_image');
+            storageDelete($SCHE01Schedules, 'path_image_box');
             storageDelete($SCHE01Schedules, 'path_image_hours');
             storageDelete($SCHE01Schedules, 'path_image_sub');
             storageDelete($SCHE01Schedules, 'path_image_desktop_banner');

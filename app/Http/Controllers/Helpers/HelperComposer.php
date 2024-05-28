@@ -47,8 +47,8 @@ if(!function_exists('dateFormat'))
     }
 }
 
-if(!function_exists('extenso')) {
-    function extenso($date) {
+if(!function_exists('dayFull')) {
+    function dayFull($date) {
         $diasDaSemana = [
             'Sun' => 'Domingo',
             'Mon' => 'Segunda-feira',
@@ -66,6 +66,34 @@ if(!function_exists('extenso')) {
         }
 
         return 'Dia não encontrado';
+    }
+}
+
+if(!function_exists('monthFull')) {
+    function monthFull($date) {
+        $mesDoAno = [
+            'Jan' => 'Janeiro',
+            'Feb' => 'Fevereiro',
+            'Mar' => 'Março',
+            'Apr' => 'Abril',
+            'May' => 'Maio',
+            'Jun' => 'Junho',
+            'Jul' => 'Julho',
+            'Aug' => 'Agosto',
+            'Sep' => 'Setembro',
+            'Oct' => 'Outubro',
+            'Nov' => 'Novembro',
+            'Dec' => 'Dezembro',
+        ];
+
+
+        $mes = date('M', $date);
+
+        if (array_key_exists($mes, $mesDoAno)) {
+            return $mesDoAno[$mes];
+        }
+
+        return 'Mês não encontrado';
     }
 }
 

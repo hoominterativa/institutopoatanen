@@ -1,5 +1,6 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
+        {!! Form::hidden('active_banner', isset($schedule) ? $schedule->active_banner : null) !!}
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="row">
@@ -37,6 +38,36 @@
                 </div>
             </div>
             <div class="mb-3">
+                {!! Form::label('description_box', 'Descrição do box', ['class'=>'form-label']) !!}
+                <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-original-title="Uma breve descrição que será mostrada no box na home"></i>
+                {!! Form::textarea('description_box', null, [
+                    'class'=>'form-control',
+                    'id'=>'message',
+                    'rows'=>'7',
+                    'data-parsley-trigger'=>'keyup',
+                    'data-parsley-maxlength'=>'250',
+                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
+                    'data-parsley-validation-threshold'=>'10',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+                <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-original-title="Uma breve descrição que será mostrada na página principal"></i>
+                {!! Form::textarea('description', null, [
+                    'class'=>'form-control',
+                    'id'=>'message',
+                    'rows'=>'7',
+                    'data-parsley-trigger'=>'keyup',
+                    'data-parsley-maxlength'=>'900',
+                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
+                    'data-parsley-validation-threshold'=>'10',
+                ]) !!}
+            </div>
+            <div class="mb-3">
                 {!! Form::label('information', 'Informações', ['class'=>'form-label']) !!}
                 <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
                     data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -51,22 +82,6 @@
                     'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold'=>'10',
                     'placeholder'=>'Exemplo: Local do evento',
-                ]) !!}
-            </div>
-            <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
-                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-original-title="Uma breve descrição que será mostrada na página principal"></i>
-                {!! Form::textarea('description', null, [
-                    'class'=>'form-control',
-                    'id'=>'message',
-                    'rows'=>'7',
-                    'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'900',
-                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold'=>'10',
                 ]) !!}
             </div>
             <div class="col-12">
@@ -166,6 +181,30 @@
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas
+                        {{ $cropSetting->path_image_box->width }}x{{ $cropSetting->path_image_box->height }}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_box', [
+                            'id' => 'inputImage',
+                            'class' => 'inputImage',
+                            'data-status' => $cropSetting->path_image_box->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_box->width, // px
+                            'data-min-height' => $cropSetting->path_image_box->height, // px
+                            'data-box-height' => '205', // Input height in the form
+                            // 'required' => (!isset($schedule) || empty($schedule->path_image_box)) ? true : false, //
+                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file' => isset($schedule)
+                                ? ($schedule->path_image_box != ''
+                                    ? url('storage/' . $schedule->path_image_box)
+                                    : '')
+                                : '',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+            <div class="mb-3">
+                <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
                         {{ $cropSetting->path_image->width }}x{{ $cropSetting->path_image->height }}px!</small>
@@ -177,7 +216,7 @@
                             'data-min-width' => $cropSetting->path_image->width, // px
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => (!isset($schedule) || empty($schedule->path_image)) ? true : false, //
+                            // 'required' => (!isset($schedule) || empty($schedule->path_image)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image != ''
@@ -201,7 +240,7 @@
                             'data-min-width' => $cropSetting->path_image_hours->width, // px
                             'data-min-height' => $cropSetting->path_image_hours->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => (!isset($schedule) || empty($schedule->path_image_hours)) ? true : false, //
+                            // 'required' => (!isset($schedule) || empty($schedule->path_image_hours)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image_hours != ''
@@ -225,7 +264,7 @@
                             'data-min-width' => $cropSetting->path_image_sub->width, // px
                             'data-min-height' => $cropSetting->path_image_sub->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => (!isset($schedule) || empty($schedule->path_image_sub)) ? true : false, //
+                            // 'required' => (!isset($schedule) || empty($schedule->path_image_sub)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image_sub != ''

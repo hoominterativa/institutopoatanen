@@ -24,12 +24,14 @@ class SCHE01SchedulesFactory extends Factory
     {
 
         $title = $this->faker->text(25);
+        $subtitle = $this->faker->text(10);
         return [
             //Schedule
             'title' => $title,
-            'slug' => Str::slug($title),
-            'subtitle' => $this->faker->text(10),
+            'slug' => Str::slug($title. ' ' .$subtitle),
+            'subtitle' => $subtitle,
             'description' => $this->faker->text(300),
+            'description_box' => $this->faker->text(100),
             'information' => $this->faker->text(150),
             'text' => $this->faker->paragraph(3),
             'event_date' => $this->faker->date('Y-m-d'),
@@ -38,6 +40,7 @@ class SCHE01SchedulesFactory extends Factory
             'link_button' => $this->faker->url(),
             'target_link_button' => '_blank',
             'path_image' => 'uploads/tmp/gall01_image2.png',
+            'path_image_box' => 'uploads/tmp/gall01_image2.png',
             'path_image_sub' => 'uploads/tmp/favicon.png',
             'path_image_hours' => 'uploads/tmp/favicon.png',
             'active' => 1,

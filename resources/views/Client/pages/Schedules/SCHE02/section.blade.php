@@ -32,7 +32,7 @@
                                                 <span class="sche02__main__box__left__engDropdown__dropdown__aba__leftAba__subtitle">{{Carbon\Carbon::parse($scheduleFeatured->event_date)->formatLocalized('%b')}}</span>
                                             </div>
                                             <div class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba">
-                                                <span class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba__title">{{ extenso(strtotime($scheduleFeatured->event_date)) }}</span>
+                                                <span class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba__title">{{ dayFull(strtotime($scheduleFeatured->event_date)) }}</span>
                                                 <h3 class="sche02__main__box__left__engDropdown__dropdown__aba__rightAba__subtitle">{{$scheduleFeatured->event_locale}}</h3>
                                             </div>
                                         </button>

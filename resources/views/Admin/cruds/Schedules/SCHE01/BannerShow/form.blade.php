@@ -1,29 +1,32 @@
-@if ($bannerShow)
-    {!! Form::model($bannerShow, [
-        'route' => ['admin.sche01.bannershow.update', $bannerShow->id],
+@if ($schedule)
+    {!! Form::model($schedule, [
+        'route' => ['admin.sche01.update', $schedule->id],
         'class' => 'parsley-validate',
         'files' => true,
     ]) !!}
     @method('PUT')
+    {!! Form::hidden('slug', $schedule->slug) !!}
+    {!! Form::hidden('featured', $schedule->featured) !!}
+    {!! Form::hidden('active', $schedule->active) !!}
+    {!! Form::hidden('event_date', isset($schedule) ? $schedule->event_date : null) !!}
 @else
-    {!! Form::model(null, ['route' => 'admin.sche01.bannershow.store', 'class' => 'parsley-validate', 'files' => true]) !!}
-    <input type="hidden" name="schedule_id" value="{{ $schedule->id }}">
+    {!! Form::model(null, ['route' => 'admin.sche01.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
 
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
-                {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
+                {!! Form::label('title_banner', 'Título', ['class' => 'form-label']) !!}
+                {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
             </div>
             <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                {!! Form::label('subtitle_banner', 'Subtítulo', ['class' => 'form-label']) !!}
+                {!! Form::text('subtitle_banner', null, ['class' => 'form-control', 'id' => 'subtitle_banner']) !!}
             </div>
             <div class="mb-3 form-check">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição', ['class' => 'form-check-label']) !!}
+                {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}
+                {!! Form::label('active_banner', 'Ativar exibição', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         {{-- end card-body --}}
@@ -34,19 +37,19 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background desktop', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->BannerShow->path_image_desktop->width }}x{{ $cropSetting->BannerShow->path_image_desktop->height }}px!</small>
+                        {{ $cropSetting->path_image_desktop_banner->width }}x{{ $cropSetting->path_image_desktop_banner->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_desktop', [
+                        {!! Form::file('path_image_desktop_banner', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->BannerShow->path_image_desktop->activeCrop, // px
-                            'data-min-width' => $cropSetting->BannerShow->path_image_desktop->width, // px
-                            'data-min-height' => $cropSetting->BannerShow->path_image_desktop->height, // px
+                            'data-status' => $cropSetting->path_image_desktop_banner->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_desktop_banner->width, // px
+                            'data-min-height' => $cropSetting->path_image_desktop_banner->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($bannerShow)
-                                ? ($bannerShow->path_image_desktop != ''
-                                    ? url('storage/' . $bannerShow->path_image_desktop)
+                            'data-default-file' => isset($schedule)
+                                ? ($schedule->path_image_desktop_banner != ''
+                                    ? url('storage/' . $schedule->path_image_desktop_banner)
                                     : '')
                                 : '',
                         ]) !!}
@@ -57,34 +60,24 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Background Mobile', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->BannerShow->path_image_mobile->width }}x{{ $cropSetting->BannerShow->path_image_mobile->height }}px!</small>
+                        {{ $cropSetting->path_image_mobile_banner->width }}x{{ $cropSetting->path_image_mobile_banner->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_mobile', [
+                        {!! Form::file('path_image_mobile_banner', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->BannerShow->path_image_mobile->activeCrop, // px
-                            'data-min-width' => $cropSetting->BannerShow->path_image_mobile->width, // px
-                            'data-min-height' => $cropSetting->BannerShow->path_image_mobile->height, // px
+                            'data-status' => $cropSetting->path_image_mobile_banner->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_mobile_banner->width, // px
+                            'data-min-height' => $cropSetting->path_image_mobile_banner->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($bannerShow)
-                                ? ($bannerShow->path_image_mobile != ''
-                                    ? url('storage/' . $bannerShow->path_image_mobile)
+                            'data-default-file' => isset($schedule)
+                                ? ($schedule->path_image_mobile_banner != ''
+                                    ? url('storage/' . $schedule->path_image_mobile_banner)
                                     : '')
                                 : '',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->
-            </div>
-        </div>
-        {{-- Color Picker --}}
-        <div class="card card-body" id="tooltip-container">
-            <div class="mb-3">
-                {!! Form::label('background_color', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color', null, [
-                    'class' => 'form-control colorpicker-default',
-                    'id' => 'background_color',
-                ]) !!}
             </div>
         </div>
     </div>
