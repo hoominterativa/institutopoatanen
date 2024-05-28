@@ -27,30 +27,32 @@
                         @if ($schedule->title)
                             <h2 class="sche01-show__content__main__header__information__title">{{ $schedule->title }}</h2>
                         @endif
-                        <ul class="sche01-show__content__main__header__information__topics">
-                            @if ($schedule->path_image_hours || $schedule->event_time)
-                                <li class="sche01-show__content__main__header__information__topics__item">
-                                    @if ($schedule->path_image_hours)
-                                        <img src="{{ asset('storage/' . $schedule->path_image_hours) }}" alt="Ícone do {{$schedule->event_time}}"
-                                            class="sche01-show__content__main__header__information__topics__item__icon">
-                                    @endif
-                                    @if ($schedule->event_time)
-                                        {{ date('H:i', strtotime($schedule->event_time)) }}
-                                    @endif
-                                </li>
-                            @endif
-                            @if ($schedule->path_image_sub || $schedule->subtitle)
-                                <li class="sche01-show__content__main__header__information__topics__item">
-                                    @if ($schedule->path_image_sub)
-                                        <img src="{{ asset('storage/' . $schedule->path_image_sub) }}" alt="Ícone do {{$schedule->subtitle}}"
-                                            class="sche01-show__content__main__header__information__topics__item__icon">
-                                    @endif
-                                    @if ($schedule->subtitle)
-                                        {{ $schedule->subtitle }}
-                                    @endif
-                                </li>
-                            @endif
-                        </ul>
+                        @if ($schedule->path_image_hours || $schedule->event_time || $schedule->path_image_sub || $schedule->subtitle)
+                            <ul class="sche01-show__content__main__header__information__topics">
+                                @if ($schedule->path_image_hours || $schedule->event_time)
+                                    <li class="sche01-show__content__main__header__information__topics__item">
+                                        @if ($schedule->path_image_hours)
+                                            <img src="{{ asset('storage/' . $schedule->path_image_hours) }}" alt="Ícone do {{$schedule->event_time}}"
+                                                class="sche01-show__content__main__header__information__topics__item__icon">
+                                        @endif
+                                        @if ($schedule->event_time)
+                                            {{ date('H:i', strtotime($schedule->event_time)) }}
+                                        @endif
+                                    </li>
+                                @endif
+                                @if ($schedule->path_image_sub || $schedule->subtitle)
+                                    <li class="sche01-show__content__main__header__information__topics__item">
+                                        @if ($schedule->path_image_sub)
+                                            <img src="{{ asset('storage/' . $schedule->path_image_sub) }}" alt="Ícone do {{$schedule->subtitle}}"
+                                                class="sche01-show__content__main__header__information__topics__item__icon">
+                                        @endif
+                                        @if ($schedule->subtitle)
+                                            {{ $schedule->subtitle }}
+                                        @endif
+                                    </li>
+                                @endif
+                            </ul>
+                        @endif
                     </div>
                 </header>
                 @if ($schedule->path_image)

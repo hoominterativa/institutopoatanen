@@ -373,7 +373,7 @@ class SCHE01Controller extends Controller
 
     public static function section()
     {
-        $schedules = SCHE01Schedules::active()->sorting()->get();
+        $schedules = SCHE01Schedules::active()->featured()->sorting()->get();
         $section = SCHE01SchedulesSection::active()->sorting()->first();
         return view('Client.pages.Schedules.SCHE01.section',[
             'schedules' => $schedules,
