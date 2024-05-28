@@ -506,6 +506,11 @@ return [
                     ]
                 ]
             ],
+            'SERV12' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV12Controller::class,
+                'model' => App\Models\Services\SERV12Services::class,
+                'seedQty' => 6,
+            ],
         ],
         // END SERVICES
 

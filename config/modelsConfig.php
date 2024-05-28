@@ -14,22 +14,49 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Schedules' => (object) [
-            'SCHE01' => (object)[
+        'Services' => (object) [
+            'SERV12' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown        
                 'config' => (object) [
-                    'titleMenu' => 'Agenda',
+                    'titleMenu' => 'Serviços',
                     'anchor' =>  false,
-                    'linkMenu' => 'sche01.page',
+                    'linkMenu' => 'serv12.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Agenda',
-                    'iconPanel' => 'mdi-calendar-month-outline'
+                    'titlePanel' => 'Serviços',
+                    'iconPanel' => 'mdi-alpha-s-box-outline'
                 ],
-                'IncludeSections' => (object) [],
+                'IncludeSections' => (object) []
+            ]
+        ],
+        'Abouts' => (object) [
+            'ABOU01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title',
+                    'relation' => '',
+                ],
+                'config' => (object) [
+                'titleMenu' => 'Sobre',
+                'anchor' => false,
+                'linkMenu' => 'abou01.page',
+                'iconMenu' => '',
+                'titlePanel' => 'Sobre',
+                'iconPanel' => 'mdi-information'
+                ],
+                'IncludeSections' => (object) [
+                ],
             ],
         ],
     ],

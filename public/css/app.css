@@ -27,6 +27,9 @@ body ul {
 body p {
   margin-bottom: 0;
 }
+body diaglog {
+  pointer-events: auto;
+}
 body .swiper-slide {
   display: flex;
 }
@@ -1670,107 +1673,88 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.sche01-page__content, .sche01-show__content, .sche01, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .sche01-show__banner, .sche01-page__banner {
+.abou01-page__topics, .abou01-page__main, .abou01-page__section, .abou01, .serv12-page__categories, .serv12__services, .serv12__categories, .serv12, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .abou01-page__banner, .serv12-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.sche01-show__banner__title, .sche01-page__banner__title {
+.abou01-page__banner__title, .serv12-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .sche01-show__banner__title, .sche01-page__banner__title {
+  .abou01-page__banner__title, .serv12-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.sche01-show__banner__title, .sche01-page__banner__title {
+.abou01-page__banner__title, .serv12-page__banner__title {
   color: #404040;
 }
-.sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title {
+.abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .serv12__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title {
+  .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .serv12__header__title {
     font-size: 1.875rem;
   }
 }
-.sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title {
-  color: #000;
-}
-.sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title {
+.abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .serv12__header__title {
   color: #404040;
 }
-.sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
+.abou01-page__banner__subtitle, .serv12-page__banner__subtitle {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
+  .abou01-page__banner__subtitle, .serv12-page__banner__subtitle {
     font-size: 1.563rem;
   }
 }
-.sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
-  color: #404040;
-}
-.sche01-show__banner__subtitle, .sche01-page__banner__subtitle {
+.abou01-page__banner__subtitle, .serv12-page__banner__subtitle {
   color: #b3b3b3;
 }
-.sche01__header__subtitle, .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .serv12__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .sche01__header__subtitle, .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .serv12__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item {
     font-size: 1.125rem;
   }
 }
-.sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item {
   color: #000;
 }
-.sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month {
-  color: #404040;
-}
-.sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle {
-  color: #7c7c7c;
-}
-.sche01__header__subtitle {
+.abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .serv12__header__subtitle {
   color: #b3b3b3;
 }
-.sche01-page__content__main__list__item__header__date__year, .sche01-show__content__main__header__date__year, .sche01__carousel__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+.abou01-page__topics__item__header__title, .serv12__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .sche01-page__content__main__list__item__header__date__year, .sche01-show__content__main__header__date__year, .sche01__carousel__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+  .abou01-page__topics__item__header__title, .serv12__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.sche01__carousel__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+.abou01-page__topics__item__header__title, .serv12__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.sche01-page__content__main__list__item__header__date__year, .sche01-show__content__main__header__date__year {
-  color: #404040;
-}
-.sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .head02__navigation__item--menu-mobile__item, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
-.sche01-page__content__aside__form__inputs__compliance .form-check-label,
-.sche01-show__content__aside__form__inputs__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .serv12__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .serv12__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.sche01-page__content__main__list__item__paragraph p, .sche01-show__content__main__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .sche01-page__content__aside__form__inputs__cta p, .sche01-show__content__aside__form__inputs__cta p, .sche01-page__content__main__list__item__cta p, .sche01-show__content__main__cta p, .sche01__cta p, .sche01__carousel__item__information__cta p, .head02__navigation__item--menu-mobile__item p, .sche01-page__content__aside__form__inputs__compliance__link p, .sche01-show__content__aside__form__inputs__compliance__link p,
-.sche01-page__content__aside__form__inputs__compliance .form-check-label p,
-.sche01-show__content__aside__form__inputs__compliance .form-check-label p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.abou01-page__main__information__paragraph p, .abou01-page__section__information__paragraph p, .abou01__paragraph p, .serv12__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .abou01-page__section__information__cta p, .abou01__cta p, .serv12__cta p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1778,29 +1762,28 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .head02__navigation__item--menu-mobile__item, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
-  .sche01-page__content__aside__form__inputs__compliance .form-check-label,
-  .sche01-show__content__aside__form__inputs__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .serv12__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .serv12__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
-.sche01-page__content__aside__form__inputs__compliance .form-check-label,
-.sche01-show__content__aside__form__inputs__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .head02__navigation__item--menu-mobile__item {
+.head02__navigation__item__link, .head02__navigation__item__btn, .abou01-page__section__information__cta, .abou01__cta, .serv12__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item, .sche01__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
+.abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .serv12__header__paragraph {
+  color: #7c7c7c;
+}
+.abou01-page__topics__item__paragraph, .serv12__services__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.sche01-page__content__aside__month-categories__item__subtitle p, .sche01-show__content__aside__month-categories__item__subtitle p, .sche01__carousel__item__information__paragraph p, .sche01-page__content__aside__form__header__paragraph p, .sche01-show__content__aside__form__header__paragraph p, .sche01-page__content .pagination .page-item .page-link p, .sche01-show__content .pagination .page-item .page-link p, .foot02__copyright__compliances__item p, .sche01__carousel__item__information__subtitle p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .sche01-page__content__aside__month-categories__item__subtitle__counter p, .sche01-show__content__aside__month-categories__item__subtitle__counter p {
+.abou01-page__topics__item__paragraph p, .serv12__services__item__paragraph p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1808,21 +1791,18 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item, .sche01__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
+  .abou01-page__topics__item__paragraph, .serv12__services__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
-.sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
-  color: #fff;
-}
-.sche01__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
-.sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item {
+.foot02__copyright__compliances__item {
   color: #404040;
 }
-.sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph {
+.abou01-page__topics__item__paragraph, .serv12__services__item__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -1832,7 +1812,7 @@ body .owl-dots .owl-dot.active {
   width: 2rem;
   height: 2rem;
 }
-.sche01-show__banner, .sche01-page__banner {
+.abou01-page__banner, .serv12-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -1845,7 +1825,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: start;
 }
-.sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta {
+.abou01-page__section__information__cta, .abou01__cta, .serv12__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1857,24 +1837,32 @@ body .owl-dots .owl-dot.active {
   border: none;
   font-weight: 700;
 }
-.sche01-page__content__aside__form__inputs__cta:focus, .sche01-show__content__aside__form__inputs__cta:focus, .sche01-page__content__main__list__item__cta:focus, .sche01-show__content__main__cta:focus, .sche01__cta:focus, .sche01__carousel__item__information__cta:focus {
+.abou01-page__section__information__cta:focus, .abou01__cta:focus, .serv12__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
-.sche01__carousel__nav {
-  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
-  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
-  position: relative;
-  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
-  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
-  margin: 3rem auto 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.serv12-page__categories__item, .serv12__categories__item {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
   align-items: center;
+  background-color: #efefef;
 }
-.sche01__carousel__nav:has(.swiper-button-lock) {
-  display: none;
+.active.serv12-page__categories__item, .active.serv12__categories__item {
+  background-color: #cacaca;
+}
+.abou01-page__topics__carousel .swiper-pagination-bullets, .serv12__services__carousel .swiper-pagination-bullets {
+  margin-top: 2rem;
+  text-align: left;
+}
+.abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .serv12__services__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  background-color: #7c7c7c;
+}
+.abou01-page__topics__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .serv12__services__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  opacity: 1;
 }
 .head02 {
   width: 100%;
@@ -2307,15 +2295,13 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.sche01 {
+.serv12 {
   overflow: hidden; /* prevenção do shift da animação*/
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
-.sche01__header {
+.serv12__header {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -2323,306 +2309,257 @@ body .owl-dots .owl-dot.active {
   align-items: center;
   margin-bottom: 3rem;
 }
-.sche01__header__title {
+.serv12__header__title {
   margin-bottom: 0.25rem;
 }
-.sche01__header__subtitle {
+.serv12__header__subtitle {
   margin-bottom: 2rem;
 }
-.sche01__carousel {
+.serv12__header__paragraph {
+  width: 100%;
+  max-width: 938px;
+  text-align: center;
+}
+.serv12__categories {
+  padding-top: 0;
+  padding-bottom: 1.5rem;
+  width: 100%;
+}
+.serv12__categories__swiper-wrapper {
+  margin: inherit;
+  padding: 0;
+}
+.serv12__services {
+  height: auto;
+  background-color: #404040;
+}
+.serv12__services__carousel {
+  height: auto;
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .serv12__services__carousel {
+    overflow: visible;
+  }
+}
+.serv12__services__carousel .swiper-pagination-bullets {
+  text-align: center;
+}
+.serv12__services__item {
   position: relative;
-  width: 100%;
-}
-.sche01__carousel__item {
-  width: 301px;
+  background-color: #efefef;
+  /* Qtde de gaps * tamanho do gap / qtde de elementos */
+  width: calc(25% - 6px);
   height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-}
-.sche01__carousel__item__image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 301/197;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-.sche01__carousel__item__information {
+  padding: 3.75rem 4.5rem 5rem;
+  aspect-ratio: 330/327;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.25rem 2.5rem;
-  background-color: #b3b3b3;
 }
-.sche01__carousel__item__information__title {
-  text-align: center;
+@media (max-width: 1199.98px) {
+  .serv12__services__item {
+    width: 33.33%;
+  }
 }
-.sche01__carousel__item__information__subtitle {
-  text-align: center;
+@media (max-width: 991.98px) {
+  .serv12__services__item {
+    width: 50%;
+  }
+}
+@media (max-width: 767.98px) {
+  .serv12__services__item {
+    width: 100%;
+  }
+}
+.serv12__services__item__bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1; /* envia para o fundo o bg do topico */
+}
+.serv12__services__item__icon {
+  width: 3rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  margin-bottom: 1.5rem;
+}
+.serv12__services__item__title {
   margin-bottom: 0.75rem;
 }
-.sche01__carousel__item__information__paragraph {
+.serv12__services__item__paragraph {
   text-align: center;
-  margin-bottom: 1.25rem;
 }
-.sche01__cta {
-  align-self: end;
+.serv12__cta {
+  margin-left: auto;
 }
 
-.sche01-page {
+.serv12-page__categories {
+  padding-top: 0;
+  padding-bottom: 1.5rem;
   width: 100%;
 }
-.sche01-page__content, .sche01-show__content {
+.serv12-page__categories__swiper-wrapper {
+  margin: inherit;
+  padding: 0;
+}
+/* BEGIN STYLE */
+.abou01 {
+  overflow: hidden; /* prevenção do shift da animação*/
+}
+.abou01__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.abou01__header__title {
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+.abou01__header__subtitle {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.abou01__paragraph {
+  width: 100%;
+  max-width: 1206px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+.abou01__cta {
+  margin-inline: auto;
+}
+
+.abou01-page__main, .abou01-page__section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: start;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.sche01-page__content__main {
-  width: 60%;
+  align-items: stretch;
+  padding-bottom: 0;
 }
 @media (max-width: 991.98px) {
-  .sche01-page__content__main {
-    width: 100%;
-    margin-bottom: 2.5rem;
+  .abou01-page__main, .abou01-page__section {
+    flex-direction: column;
+    gap: 5rem;
+    padding-bottom: 3rem;
   }
 }
-.sche01-page__content__main__top {
+.abou01-page__main:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__main__information, .abou01-page__main:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__section__information, .abou01-page__section:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__main__information, .abou01-page__section:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__section__information {
+  width: 65%;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__main__information, .abou01-page__main:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__section__information, .abou01-page__section:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__main__information, .abou01-page__section:has(.abou01-page__main__image, .abou01-page__section__image) .abou01-page__section__information {
+    width: 100%;
+  }
+}
+.abou01-page__main:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__main__image, .abou01-page__main:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__section__image, .abou01-page__section:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__main__image, .abou01-page__section:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__section__image {
+  width: 30%;
+}
+@media (max-width: 991.98px) {
+  .abou01-page__main:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__main__image, .abou01-page__main:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__section__image, .abou01-page__section:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__main__image, .abou01-page__section:has(.abou01-page__main__information, .abou01-page__section__information) .abou01-page__section__image {
+    width: 100%;
+  }
+}
+.abou01-page__main__information, .abou01-page__section__information {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  margin-bottom: 2.5rem;
-  border-bottom: solid 1px #000;
+  padding-bottom: 2.5rem;
+  width: 100%;
 }
-.sche01-page__content__main__list {
+@media (max-width: 991.98px) {
+  .abou01-page__main__information, .abou01-page__section__information {
+    width: 100%;
+    padding-bottom: 0px;
+  }
+}
+.abou01-page__main__information__header, .abou01-page__section__information__header {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.abou01-page__main__information__header__title, .abou01-page__section__information__header__title {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle {
+  text-align: left;
+}
+.abou01-page__main__image, .abou01-page__section__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 436/528;
+}
+.abou01-page__main__image__img, .abou01-page__section__image__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center bottom;
+     object-position: center bottom;
+}
+.abou01-page__topics {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+  /* FRONTEND CASO SEJA NECESSÁRIO O CARROSSEL VAZANDO, REMOVER O OVERFLOW HIDDEN */
+}
+.abou01-page__topics__carousel {
+  overflow: hidden;
+}
+.abou01-page__topics__item {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  gap: 35px;
+  padding: 2.8rem 2.25rem;
+  width: calc(33.33% - 1rem);
+  height: auto;
+  background-color: #cacaca;
 }
-.sche01-page__content__main__list__item, .sche01-show__content__main {
-  width: 100%;
+@media (max-width: 991.98px) {
+  .abou01-page__topics__item {
+    width: calc(50% - 0.75rem);
+  }
 }
-.sche01-page__content__main__list__item + .sche01-page__content__main__list__item, .sche01-show__content__main + .sche01-page__content__main__list__item, .sche01-page__content__main__list__item + .sche01-show__content__main, .sche01-show__content__main + .sche01-show__content__main {
-  padding-top: 80px;
-  border-top: solid 1px #404040;
+@media (max-width: 767.98px) {
+  .abou01-page__topics__item {
+    width: 100%;
+  }
 }
-.sche01-page__content__main__list__item__header, .sche01-show__content__main__header {
+.abou01-page__topics__item__header {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: start;
-  gap: 1.75rem;
-}
-.sche01-page__content__main__list__item__header__date, .sche01-show__content__main__header__date {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 120px;
-  background-color: #d9d9d9;
-}
-.sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
-  margin-bottom: 2px;
-}
-.sche01-page__content__main__list__item__header__information, .sche01-show__content__main__header__information {
-  width: calc(100% - 150px);
+  align-items: stretch;
+  gap: 1.25rem;
   margin-bottom: 1.75rem;
 }
-.sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title {
-  text-align: left;
-}
-.sche01-page__content__main__list__item__header__information__topics, .sche01-show__content__main__header__information__topics {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  width: 100%;
-  padding: 0;
-}
-.sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  gap: 10px;
-}
-.sche01-page__content__main__list__item__header__information__topics__item__icon, .sche01-show__content__main__header__information__topics__item__icon {
-  width: 1.25rem;
-  height: auot;
+.abou01-page__topics__item__header__icon {
+  width: 2rem;
+  height: auto;
   aspect-ratio: 1/1;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
 }
-.sche01-page__content__main__list__item__img, .sche01-show__content__main__img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 1.75rem;
-}
-.sche01-page__content .pagination, .sche01-show__content .pagination {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap: 0.5rem;
-  margin-top: 3.5rem;
-  list-style-type: none;
-}
-.sche01-page__content .pagination .page-item, .sche01-show__content .pagination .page-item {
-  height: 2rem;
-  width: 2rem;
-}
-.sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  width: 100%;
-  height: 100%;
-  vertical-align: center;
-  font-weight: 500;
-  background-color: #d9d9d9;
-}
-.sche01-page__content .pagination .page-item .page-link:hover, .sche01-show__content .pagination .page-item .page-link:hover {
-  background-color: #404040;
-  color: #d9d9d9;
-}
-.sche01-page__content .pagination .page-item:first-of-type .page-link, .sche01-show__content .pagination .page-item:first-of-type .page-link, .sche01-page__content .pagination .page-item:last-of-type .page-link, .sche01-show__content .pagination .page-item:last-of-type .page-link {
-  background-color: transparent !important;
-  color: #404040;
-  font-size: 2rem;
-}
-.sche01-page__content .pagination .page-item.active .page-link, .sche01-show__content .pagination .page-item.active .page-link {
-  background-color: #404040;
-  color: #d9d9d9;
-}
-.sche01-page__content__aside, .sche01-show__content__aside {
-  width: 33%;
-  gap: 60px;
-}
-@media (max-width: 991.98px) {
-  .sche01-page__content__aside, .sche01-show__content__aside {
-    width: 100%;
-  }
-}
-.sche01-page__content__aside__form, .sche01-show__content__aside__form {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-  background-color: #cacaca;
-  padding: 1.5rem 1.75rem 2rem;
-}
-.sche01-page__content__aside__form__header, .sche01-show__content__aside__form__header {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-}
-.sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle {
-  margin-bottom: 0.25rem;
-}
-.sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title {
-  text-align: left;
-}
-.sche01-page__content__aside__form__inputs, .sche01-show__content__aside__form__inputs {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-}
-.sche01-page__content__aside__form__inputs__compliance, .sche01-show__content__aside__form__inputs__compliance {
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.sche01-page__content__aside__form__inputs__compliance .form-check-input, .sche01-show__content__aside__form__inputs__compliance .form-check-input {
-  box-shadow: none;
-  margin-top: 0.25em;
-}
-.sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta {
-  margin: 0 0 0 auto;
-}
-.sche01-page__content__aside__month-categories, .sche01-show__content__aside__month-categories {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-}
-.sche01-page__content__aside__month-categories__item, .sche01-show__content__aside__month-categories__item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  padding: 0.75rem 0 1rem 1.5rem;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.3019607843);
-}
-.sche01-page__content__aside__month-categories__item::before, .sche01-show__content__aside__month-categories__item::before {
-  content: "";
-  width: 3px;
-  height: 28px;
-  background-color: #404040;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title {
-  text-align: left;
-  vertical-align: middle;
-  margin-bottom: 0;
-}
-.sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 0;
-}
-.sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0.75rem;
-  vertical-align: middle;
-  height: 1.75rem;
-  width: 1.75rem;
-  border-radius: 50%;
-  background-color: #404040;
-}
-
-.sche01-show {
-  width: 100%;
-}
-.sche01-show__content__main {
-  width: 60%;
-}
-@media (max-width: 991.98px) {
-  .sche01-show__content__main {
-    width: 100%;
-    margin-bottom: 2.5rem;
-  }
-}
-.sche01-show__content__main__subtitle {
-  margin: 2rem 0;
+.abou01-page__section__information__cta {
+  margin-top: 3rem;
 }
 /* BEGIN STYLE */
 .comp01-page__header {
