@@ -1,7 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=d6d5d37d70c189ee93eec0c755a46ef7",
+    "/js/app.js": "/js/app.js?id=0b8972cb91b12fb8221d75702bc21fdb",
     "/css/libraries.css": "/css/libraries.css?id=e0ab35093795e79da5fdb9e7d1d2fc21",
-    "/css/app.css": "/css/app.css?id=db0845e9ab6bde4d306cf568544d6146",
+    "/css/app.css": "/css/app.css?id=8ae320f8b44df0c0558d56a8e89b4bce",
     "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
@@ -451,5 +451,6 @@
     "/Admin/assets/libs/i18n/ur.js": "/Admin/assets/libs/i18n/ur.js?id=3cc894ecacb70594c1df9552064c8d97",
     "/Admin/assets/libs/i18n/zh_cn.extra.js": "/Admin/assets/libs/i18n/zh_cn.extra.js?id=e5d635d10d14819a7ffc950fe9f3077a",
     "/Admin/assets/libs/i18n/zh_cn.js": "/Admin/assets/libs/i18n/zh_cn.js?id=3b26d4d158a3f6e8a7702cdcee0d0452",
-    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf"
+    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf",
+    "/images/bg-colorido.svg": "/images/bg-colorido.svg?id=b457cc5ca9abb2a5c9dcffe604db91fe"
 }

@@ -12396,6 +12396,13 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit05-page__menus__
   slidesPerView: "auto",
   spaceBetween: 12
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit05-show__related__carousel", {
+  slidesPerView: "auto",
+  navigation: {
+    prevEl: ".unit05-show__related__carousel__nav__swiper-button-prev",
+    nextEl: ".unit05-show__related__carousel__nav__swiper-button-next"
+  }
+});
 
 /***/ }),
 
