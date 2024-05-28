@@ -1,7 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=0b8972cb91b12fb8221d75702bc21fdb",
-    "/css/libraries.css": "/css/libraries.css?id=e0ab35093795e79da5fdb9e7d1d2fc21",
-    "/css/app.css": "/css/app.css?id=8ae320f8b44df0c0558d56a8e89b4bce",
+    "/js/app.js": "/js/app.js?id=163a103ab37227baf12ac4f48dac9bc4",
+    "/css/libraries.css": "/css/libraries.css?id=ec210b753d225c9700d9ea9fe3ffadca",
+    "/css/app.css": "/css/app.css?id=7e592b94c453b10557e973994efe9eb6",
     "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc273bfa4a7e3f",
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=769cb8c28ab38e53e026fbdfed654956",
@@ -259,6 +259,7 @@
     "/images/arrow-faq.png": "/images/arrow-faq.png?id=b6f6fe7a72d510f05fb6e660280c6eba",
     "/images/banner.png": "/images/banner.png?id=a0d9f306ac747b9132b08ce03b2d6ae1",
     "/images/bell-icon.png": "/images/bell-icon.png?id=97e2473b8ff369c3c6272998907f8a92",
+    "/images/bg-colorido.svg": "/images/bg-colorido.svg?id=65d23a0d9711da34d28bd508336307ee",
     "/images/calendar.png": "/images/calendar.png?id=c3656f24528bd44fdce2de2782d184e2",
     "/images/cota05-icon01.png": "/images/cota05-icon01.png?id=90d4ac8cac1d707687257002e8eca94a",
     "/images/cota05-icon02.png": "/images/cota05-icon02.png?id=a51344a3a54b20670897ea3ca1fad023",
@@ -269,7 +270,7 @@
     "/images/icon.png": "/images/icon.png?id=64c89a8c37cbce4bd3093b1c468a4c6d",
     "/images/instagram.png": "/images/instagram.png?id=381b83763091d7ccc284de27a366a49f",
     "/images/linkedin.png": "/images/linkedin.png?id=b4535d4d50deed32111a7616dd570ca9",
-    "/images/logo-client.svg": "/images/logo-client.svg?id=d3a89c42f67d786648f094aa58c40c2f",
+    "/images/logo-client.svg": "/images/logo-client.svg?id=7d0c62a14faef6cad5e4538125be08f4",
     "/images/logo-menu-sidebar.svg": "/images/logo-menu-sidebar.svg?id=e071ff0ddda03e1d85602a6ee6daee6d",
     "/images/twitter.png": "/images/twitter.png?id=b10045e516d28135c960a736d4de5236",
     "/images/vendor/@ckeditor/ckeditor5-basic-styles/theme/icons/italic.svg": "/images/vendor/@ckeditor/ckeditor5-basic-styles/theme/icons/italic.svg?id=38197d766d25fda4f12714600924b096",
@@ -451,6 +452,5 @@
     "/Admin/assets/libs/i18n/ur.js": "/Admin/assets/libs/i18n/ur.js?id=3cc894ecacb70594c1df9552064c8d97",
     "/Admin/assets/libs/i18n/zh_cn.extra.js": "/Admin/assets/libs/i18n/zh_cn.extra.js?id=e5d635d10d14819a7ffc950fe9f3077a",
     "/Admin/assets/libs/i18n/zh_cn.js": "/Admin/assets/libs/i18n/zh_cn.js?id=3b26d4d158a3f6e8a7702cdcee0d0452",
-    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf",
-    "/images/bg-colorido.svg": "/images/bg-colorido.svg?id=b457cc5ca9abb2a5c9dcffe604db91fe"
+    "/Admin/assets/libs/i18n/zh_tw.js": "/Admin/assets/libs/i18n/zh_tw.js?id=933a334998592b9a6b41d26c83c086cf"
 }

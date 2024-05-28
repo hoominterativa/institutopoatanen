@@ -44,6 +44,8 @@ new Swiper(".unit05-page__menus__subcategories", {
 
 new Swiper(".unit05-show__related__carousel", {
     slidesPerView: "auto",
+    spaceBetween: 12,
+
     navigation: {
         prevEl: ".unit05-show__related__carousel__nav__swiper-button-prev",
         nextEl: ".unit05-show__related__carousel__nav__swiper-button-next",

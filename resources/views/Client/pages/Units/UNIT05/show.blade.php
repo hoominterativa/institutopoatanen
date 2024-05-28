@@ -22,7 +22,7 @@
                 <menu class="unit05-show__header__information__menu">
                     @for ($i = 0; $i < 3; $i++)
                         <a class="unit05-show__header__information__menu__item" title="{{-- BACKEND INSERIR A VARIAVEL DO LINK AQUI --}}"
-                            href="#">cta</a>
+                            href="#">ver mais</a>
                     @endfor
                 </menu>
 
