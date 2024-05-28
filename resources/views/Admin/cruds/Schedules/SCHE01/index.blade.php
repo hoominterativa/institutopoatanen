@@ -30,15 +30,23 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Secão home
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações complementares que serão exibidas na seção home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#banner" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Este banner será exibido acima do conteúdo principal"></i>
+                                data-bs-original-title="Banner da página principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#sectionSchedule" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
+                        <a href="#sectionPage" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center" >
                             Informações da seção
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -78,13 +86,7 @@
                                                     </th>
                                                     <th>Imagem</th>
                                                     <th>Título/Subtítulo</th>
-                                                    <th>Descrição</th>
-                                                    <th>Texto</th>
-                                                    <th>Info</th>
                                                     <th>Dia do Evento</th>
-                                                    <th>Hora do Evento</th>
-                                                    <th>Título do botão</th>
-                                                    <th>Link do botão</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -98,29 +100,20 @@
                                                             <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$schedule->id}}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            @if ($schedule->path_image_sub)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $schedule->path_image_sub)}})"></div>
-                                                            @endif
-                                                            @if ($schedule->path_image_hours)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $schedule->path_image_hours)}})"></div>
-                                                            @endif
                                                             @if ($schedule->path_image)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $schedule->path_image)}})"></div>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">{{$schedule->title}} <b>/</b>{{$schedule->subtitle}}</td>
-                                                        <td class="align-middle">{!! substr($schedule->description, 0, 20) !!}</td>
-                                                        <td class="align-middle">{!! substr($schedule->text, 0, 20) !!}</td>
-                                                        <td class="align-middle">{!! substr($schedule->information, 0, 20) !!}</td>
                                                         <td class="align-middle">{{Carbon\Carbon::parse($schedule->event_date)->format('d/m/Y')}}</td>
-                                                        <td class="align-middle">{{ date('H:i', strtotime($schedule->event_time)) }}</td>
-                                                        <td class="align-middle">{{$schedule->title_button}}</td>
-                                                        <td class="align-middle"><a href="{{ $schedule->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
                                                         <td class="align-middle">
                                                             @if ($schedule->active)
                                                                 <span class="badge bg-success">Ativo</span>
                                                             @else
                                                                 <span class="badge bg-danger">Inativo</span>
+                                                            @endif
+                                                            @if ($schedule->featured)
+                                                                <span class="badge bg-primary text-white">Destaque</span>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">
@@ -143,14 +136,19 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane" id="banner">
-                        @include('Admin.cruds.Schedules.SCHE01.Banner.form', [
-                            'banner' => $banner
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Schedules.SCHE01.Section.form', [
+                            'section' => $section
                         ])
                     </div>
-                    <div class="tab-pane" id="sectionSchedule">
-                        @include('Admin.cruds.Schedules.SCHE01.SectionSchedule.form', [
-                            'sectionSchedule' => $sectionSchedule
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Schedules.SCHE01.Banner.form', [
+                            'section' => $section
+                        ])
+                    </div>
+                    <div class="tab-pane" id="sectionPage">
+                        @include('Admin.cruds.Schedules.SCHE01.SectionPage.form', [
+                            'section' => $section
                         ])
                     </div>
                     <div class="tab-pane" id="contact">

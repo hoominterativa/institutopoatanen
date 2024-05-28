@@ -513,7 +513,7 @@ return [
             'SCHE01' => (object)[
                 'controller' => App\Http\Controllers\Schedules\SCHE01Controller::class,
                 'model' => App\Models\Schedules\SCHE01Schedules::class,
-                'seedQty' => 2,
+                'seedQty' => 6,
             ],
             'SCHE02' => (object)[
                 'controller' => App\Http\Controllers\Schedules\SCHE02Controller::class,

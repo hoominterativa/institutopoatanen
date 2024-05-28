@@ -27,9 +27,6 @@ body ul {
 body p {
   margin-bottom: 0;
 }
-body diaglog {
-  pointer-events: auto;
-}
 body .swiper-slide {
   display: flex;
 }
@@ -1673,94 +1670,107 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.serv11-show__information, .serv11-page__section-service, .serv11, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .serv11-page__banner {
+.sche01-page__content, .sche01-show__content, .sche01, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .sche01-show__banner, .sche01-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.serv11-page__banner__title {
+.sche01-show__banner__title, .sche01-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .serv11-page__banner__title {
+  .sche01-show__banner__title, .sche01-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.serv11-page__banner__title {
+.sche01-show__banner__title, .sche01-page__banner__title {
   color: #404040;
 }
-.serv11__header__title, .serv11-show__information__header__title, .serv11-page__section-service__header__title {
+.sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .serv11__header__title, .serv11-show__information__header__title, .serv11-page__section-service__header__title {
+  .sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title {
     font-size: 1.875rem;
   }
 }
-.serv11-show__information__header__title, .serv11-page__section-service__header__title {
+.sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title {
   color: #000;
 }
-.serv11__header__title {
+.sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title {
   color: #404040;
 }
-.serv11-page__banner__subtitle {
+.sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .serv11-page__banner__subtitle {
+  .sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
     font-size: 1.563rem;
   }
 }
-.serv11-page__banner__subtitle {
+.sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
+  color: #404040;
+}
+.sche01-show__banner__subtitle, .sche01-page__banner__subtitle {
   color: #b3b3b3;
 }
-.serv11__header__subtitle, .serv11-show__information__header__subtitle, .serv11-page__section-service__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.sche01__header__subtitle, .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .serv11__header__subtitle, .serv11-show__information__header__subtitle, .serv11-page__section-service__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .sche01__header__subtitle, .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
 }
-.serv11-show__information__header__subtitle, .serv11-page__section-service__header__subtitle {
+.sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month {
   color: #404040;
 }
-.serv11__header__subtitle {
+.sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle {
+  color: #7c7c7c;
+}
+.sche01__header__subtitle {
   color: #b3b3b3;
 }
-.serv11__services__item__title, .serv11-page__section-service__list__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+.sche01-page__content__main__list__item__header__date__year, .sche01-show__content__main__header__date__year, .sche01__carousel__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .serv11__services__item__title, .serv11-page__section-service__list__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+  .sche01-page__content__main__list__item__header__date__year, .sche01-show__content__main__header__date__year, .sche01__carousel__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.serv11__services__item__title, .serv11-page__section-service__list__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+.sche01__carousel__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.serv11__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .serv11__cta, .head02__navigation__item--menu-mobile__item, .serv11-show__information__paragrapg, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.sche01-page__content__main__list__item__header__date__year, .sche01-show__content__main__header__date__year {
+  color: #404040;
+}
+.sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .head02__navigation__item--menu-mobile__item, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
+.sche01-page__content__aside__form__inputs__compliance .form-check-label,
+.sche01-show__content__aside__form__inputs__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.serv11__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .serv11__cta p, .head02__navigation__item--menu-mobile__item p, .serv11-show__information__paragrapg p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.sche01-page__content__main__list__item__paragraph p, .sche01-show__content__main__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .sche01-page__content__aside__form__inputs__cta p, .sche01-show__content__aside__form__inputs__cta p, .sche01-page__content__main__list__item__cta p, .sche01-show__content__main__cta p, .sche01__cta p, .sche01__carousel__item__information__cta p, .head02__navigation__item--menu-mobile__item p, .sche01-page__content__aside__form__inputs__compliance__link p, .sche01-show__content__aside__form__inputs__compliance__link p,
+.sche01-page__content__aside__form__inputs__compliance .form-check-label p,
+.sche01-show__content__aside__form__inputs__compliance .form-check-label p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1768,28 +1778,29 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .serv11__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .serv11__cta, .head02__navigation__item--menu-mobile__item, .serv11-show__information__paragrapg, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .head02__navigation__item--menu-mobile__item, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
+  .sche01-page__content__aside__form__inputs__compliance .form-check-label,
+  .sche01-show__content__aside__form__inputs__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.serv11-show__information__paragrapg, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
+.sche01-page__content__aside__form__inputs__compliance .form-check-label,
+.sche01-show__content__aside__form__inputs__compliance .form-check-label, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .serv11__cta, .head02__navigation__item--menu-mobile__item {
+.sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.serv11__header__paragraph {
-  color: #7c7c7c;
-}
-.serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item, .sche01__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.serv11__services__item__paragraph p, .serv11-page__section-service__list__item__paragraph p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.sche01-page__content__aside__month-categories__item__subtitle p, .sche01-show__content__aside__month-categories__item__subtitle p, .sche01__carousel__item__information__paragraph p, .sche01-page__content__aside__form__header__paragraph p, .sche01-show__content__aside__form__header__paragraph p, .sche01-page__content .pagination .page-item .page-link p, .sche01-show__content .pagination .page-item .page-link p, .foot02__copyright__compliances__item p, .sche01__carousel__item__information__subtitle p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .sche01-page__content__aside__month-categories__item__subtitle__counter p, .sche01-show__content__aside__month-categories__item__subtitle__counter p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1797,18 +1808,21 @@ body .owl-dots .owl-dot.active {
   margin: inherit;
 }
 @media (max-width: 991.98px) {
-  .serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item, .sche01__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
-.side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
+  color: #fff;
+}
+.sche01__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
-.foot02__copyright__compliances__item {
+.sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item {
   color: #404040;
 }
-.serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph {
+.sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -1818,7 +1832,7 @@ body .owl-dots .owl-dot.active {
   width: 2rem;
   height: 2rem;
 }
-.serv11-page__banner {
+.sche01-show__banner, .sche01-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -1831,7 +1845,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: start;
 }
-.serv11__cta {
+.sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1843,22 +1857,24 @@ body .owl-dots .owl-dot.active {
   border: none;
   font-weight: 700;
 }
-.serv11__cta:focus {
+.sche01-page__content__aside__form__inputs__cta:focus, .sche01-show__content__aside__form__inputs__cta:focus, .sche01-page__content__main__list__item__cta:focus, .sche01-show__content__main__cta:focus, .sche01__cta:focus, .sche01__carousel__item__information__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
-.serv11__services__carousel .swiper-pagination-bullets {
-  margin-top: 2rem;
-  text-align: left;
+.sche01__carousel__nav {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-.serv11__services__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
-  border-radius: 0;
-  background-color: #7c7c7c;
-}
-.serv11__services__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
-  opacity: 1;
+.sche01__carousel__nav:has(.swiper-button-lock) {
+  display: none;
 }
 .head02 {
   width: 100%;
@@ -2291,10 +2307,15 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.serv11 {
+.sche01 {
   overflow: hidden; /* prevenção do shift da animação*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
 }
-.serv11__header {
+.sche01__header {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -2302,193 +2323,307 @@ body .owl-dots .owl-dot.active {
   align-items: center;
   margin-bottom: 3rem;
 }
-.serv11__header__title {
+.sche01__header__title {
   margin-bottom: 0.25rem;
 }
-.serv11__header__subtitle {
+.sche01__header__subtitle {
   margin-bottom: 2rem;
 }
-.serv11__header__paragraph {
-  width: 100%;
-  max-width: 938px;
-  text-align: center;
-}
-.serv11__services {
-  height: auto;
-}
-.serv11__services__carousel {
-  height: auto;
-  overflow: hidden;
-}
-@media (max-width: 991.98px) {
-  .serv11__services__carousel {
-    overflow: visible;
-  }
-}
-.serv11__services__carousel .swiper-pagination-bullets {
-  text-align: center;
-}
-.serv11__services__item, .serv11-page__section-service__list__item {
+.sche01__carousel {
   position: relative;
-  background-color: #efefef;
-  /* Qtde de gaps * tamanho do gap / qtde de elementos */
-  width: calc(25% - 6px);
+  width: 100%;
+}
+.sche01__carousel__item {
+  width: 301px;
   height: auto;
-  padding: 3.75rem 4.5rem 5rem;
-  aspect-ratio: 330/327;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+}
+.sche01__carousel__item__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 301/197;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.sche01__carousel__item__information {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1.25rem 2.5rem;
+  background-color: #b3b3b3;
 }
-@media (max-width: 1199.98px) {
-  .serv11__services__item, .serv11-page__section-service__list__item {
-    width: 33.33%;
-  }
+.sche01__carousel__item__information__title {
+  text-align: center;
+}
+.sche01__carousel__item__information__subtitle {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.sche01__carousel__item__information__paragraph {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.sche01__cta {
+  align-self: end;
+}
+
+.sche01-page {
+  width: 100%;
+}
+.sche01-page__content, .sche01-show__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.sche01-page__content__main {
+  width: 60%;
 }
 @media (max-width: 991.98px) {
-  .serv11__services__item, .serv11-page__section-service__list__item {
-    width: 50%;
-  }
-}
-@media (max-width: 767.98px) {
-  .serv11__services__item, .serv11-page__section-service__list__item {
+  .sche01-page__content__main {
     width: 100%;
+    margin-bottom: 2.5rem;
   }
 }
-.serv11__services__item__bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: -1; /* envia para o fundo o bg do topico */
+.sche01-page__content__main__top {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  margin-bottom: 2.5rem;
+  border-bottom: solid 1px #000;
 }
-.serv11__services__item__icon, .serv11-page__section-service__list__item__icon {
-  width: 3rem;
-  height: auto;
+.sche01-page__content__main__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  gap: 35px;
+}
+.sche01-page__content__main__list__item, .sche01-show__content__main {
+  width: 100%;
+}
+.sche01-page__content__main__list__item + .sche01-page__content__main__list__item, .sche01-show__content__main + .sche01-page__content__main__list__item, .sche01-page__content__main__list__item + .sche01-show__content__main, .sche01-show__content__main + .sche01-show__content__main {
+  padding-top: 80px;
+  border-top: solid 1px #404040;
+}
+.sche01-page__content__main__list__item__header, .sche01-show__content__main__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  gap: 1.75rem;
+}
+.sche01-page__content__main__list__item__header__date, .sche01-show__content__main__header__date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background-color: #d9d9d9;
+}
+.sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
+  margin-bottom: 2px;
+}
+.sche01-page__content__main__list__item__header__information, .sche01-show__content__main__header__information {
+  width: calc(100% - 150px);
+  margin-bottom: 1.75rem;
+}
+.sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title {
+  text-align: left;
+}
+.sche01-page__content__main__list__item__header__information__topics, .sche01-show__content__main__header__information__topics {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  width: 100%;
+  padding: 0;
+}
+.sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+.sche01-page__content__main__list__item__header__information__topics__item__icon, .sche01-show__content__main__header__information__topics__item__icon {
+  width: 1.25rem;
+  height: auot;
   aspect-ratio: 1/1;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
-  margin-bottom: 1.5rem;
 }
-.serv11__services__item__title, .serv11-page__section-service__list__item__title {
-  margin-bottom: 0.75rem;
+.sche01-page__content__main__list__item__img, .sche01-show__content__main__img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.75rem;
 }
-.serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph {
-  text-align: center;
+.sche01-page__content .pagination, .sche01-show__content .pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  margin-top: 3.5rem;
+  list-style-type: none;
 }
-.serv11__cta {
-  margin-left: auto;
+.sche01-page__content .pagination .page-item, .sche01-show__content .pagination .page-item {
+  height: 2rem;
+  width: 2rem;
 }
-
-.serv11-page__section-service {
-  background-color: #b3b3b3;
+.sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 100%;
+  height: 100%;
+  vertical-align: center;
+  font-weight: 500;
+  background-color: #d9d9d9;
 }
-.serv11-page__section-service:nth-of-type(even) {
-  background-color: #fff;
+.sche01-page__content .pagination .page-item .page-link:hover, .sche01-show__content .pagination .page-item .page-link:hover {
+  background-color: #404040;
+  color: #d9d9d9;
 }
-.serv11-page__section-service__header {
-  margin-bottom: 2.5rem;
+.sche01-page__content .pagination .page-item:first-of-type .page-link, .sche01-show__content .pagination .page-item:first-of-type .page-link, .sche01-page__content .pagination .page-item:last-of-type .page-link, .sche01-show__content .pagination .page-item:last-of-type .page-link {
+  background-color: transparent !important;
+  color: #404040;
+  font-size: 2rem;
 }
-.serv11-page__section-service__header__title {
+.sche01-page__content .pagination .page-item.active .page-link, .sche01-show__content .pagination .page-item.active .page-link {
+  background-color: #404040;
+  color: #d9d9d9;
+}
+.sche01-page__content__aside, .sche01-show__content__aside {
+  width: 33%;
+  gap: 60px;
+}
+@media (max-width: 991.98px) {
+  .sche01-page__content__aside, .sche01-show__content__aside {
+    width: 100%;
+  }
+}
+.sche01-page__content__aside__form, .sche01-show__content__aside__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  background-color: #cacaca;
+  padding: 1.5rem 1.75rem 2rem;
+}
+.sche01-page__content__aside__form__header, .sche01-show__content__aside__form__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+}
+.sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle {
+  margin-bottom: 0.25rem;
+}
+.sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title {
   text-align: left;
 }
-.serv11-page__section-service__list {
+.sche01-page__content__aside__form__inputs, .sche01-show__content__aside__form__inputs {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  flex-wrap: wrap;
-  gap: 0.75rem;
 }
-.serv11-page__section-service__list__item {
-  width: calc(25% - 9px);
+.sche01-page__content__aside__form__inputs__compliance, .sche01-show__content__aside__form__inputs__compliance {
+  width: -moz-fit-content;
+  width: fit-content;
 }
-@media (max-width: 1199.98px) {
-  .serv11-page__section-service__list__item {
-    width: calc(33.33% - 8px);
-  }
+.sche01-page__content__aside__form__inputs__compliance .form-check-input, .sche01-show__content__aside__form__inputs__compliance .form-check-input {
+  box-shadow: none;
+  margin-top: 0.25em;
 }
-@media (max-width: 991.98px) {
-  .serv11-page__section-service__list__item {
-    width: calc(50% - 6px);
-  }
+.sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta {
+  margin: 0 0 0 auto;
 }
-@media (max-width: 767.98px) {
-  .serv11-page__section-service__list__item {
-    width: 100%;
-  }
-}
-.serv11-show {
-  padding: 0;
+.sche01-page__content__aside__month-categories, .sche01-show__content__aside__month-categories {
+  list-style-type: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  display: none;
-  max-width: 90vw;
 }
-@media (max-width: 991.98px) {
-  .serv11-show {
-    flex-direction: column;
-  }
+.sche01-page__content__aside__month-categories__item, .sche01-show__content__aside__month-categories__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0.75rem 0 1rem 1.5rem;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.3019607843);
 }
-.serv11-show__image {
-  width: 40%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+.sche01-page__content__aside__month-categories__item::before, .sche01-show__content__aside__month-categories__item::before {
+  content: "";
+  width: 3px;
+  height: 28px;
+  background-color: #404040;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
-@media (max-width: 991.98px) {
-  .serv11-show__image {
-    width: 100%;
-  }
+.sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title {
+  text-align: left;
+  vertical-align: middle;
+  margin-bottom: 0;
 }
-.serv11-show__information {
+.sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0;
+}
+.sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 50%;
+  background-color: #404040;
+}
+
+.sche01-show {
+  width: 100%;
+}
+.sche01-show__content__main {
   width: 60%;
 }
 @media (max-width: 991.98px) {
-  .serv11-show__information {
+  .sche01-show__content__main {
     width: 100%;
+    margin-bottom: 2.5rem;
   }
 }
-.serv11-show__information__header {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
-  grid-template-areas: "icon subtitle" "icon title";
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0 1.5rem;
-  margin-bottom: 3.5rem;
+.sche01-show__content__main__subtitle {
+  margin: 2rem 0;
 }
-.serv11-show__information__header__icon {
-  grid-area: icon;
-}
-.serv11-show__information__header__title {
-  grid-area: title;
-  text-align: left;
-}
-.serv11-show__information__header__subtitle {
-  grid-area: subtitle;
-}
-.serv11-show .carousel__button {
-  cursor: pointer;
-  top: 0.5rem !important;
-  right: 0.5rem !important;
-}
-.serv11-show .carousel__button svg {
-  stroke: #000;
-  filter: none;
-}
-
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

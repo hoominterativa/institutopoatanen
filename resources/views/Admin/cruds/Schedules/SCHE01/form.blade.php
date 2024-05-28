@@ -1,35 +1,71 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
+        {!! Form::hidden('active_banner', isset($schedule) ? $schedule->active_banner : null) !!}
         <div class="card card-body" id="tooltip-container">
-            <div class="row">
-                <div class="col-12 col-sm-6">
-                    {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
-                    {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'required'=>'required',]) !!}
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
+                        {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'required'=>'required',]) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
+                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
+                    </div>
                 </div>
-                <div class="col-12 col-sm-6">
-                    {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
-                    {!! Form::text('subtitle', null, ['class' => 'form-control', 'id' => 'subtitle']) !!}
-                </div>
-
-                <div class="col-12 col-sm-6">
-                    {!! Form::label(null, 'Data do evento', ['class'=>'form-label']) !!}
-                    {!! Form::text('event_date', null, [
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Form::label(null, 'Data do evento', ['class'=>'form-label']) !!}
+                        {!! Form::text('event_date', null, [
                             'class'=>'form-control',
                             'required'=>'required',
                             'data-provide'=>'datepicker',
                             'data-date-autoclose'=>'true',
                             'data-date-format'=>'dd/mm/yyyy',
                             'data-date-language'=>'pt-BR',
-                        ])!!}
+                            ])!!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! Form::label(null, 'Hora do evento', ['class'=>'form-label']) !!}
+                        {!! Form::text('event_time', null, [
+                            'class'=>'form-control',
+                            'data-toggle'=>'input-mask',
+                            'data-mask-format'=>'00:00',
+                            ]) !!}
+                    </div>
                 </div>
-                <div class="col-12 col-sm-6">
-                    {!! Form::label(null, 'Hora do evento', ['class'=>'form-label']) !!}
-                    {!! Form::text('event_time', null, [
-                        'class'=>'form-control',
-                        'data-toggle'=>'input-mask',
-                        'data-mask-format'=>'00:00',
-                    ]) !!}
-                </div>
+            </div>
+            <div class="mb-3">
+                {!! Form::label('description_box', 'Descrição do box', ['class'=>'form-label']) !!}
+                <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-original-title="Uma breve descrição que será mostrada no box na home"></i>
+                {!! Form::textarea('description_box', null, [
+                    'class'=>'form-control',
+                    'id'=>'message',
+                    'rows'=>'7',
+                    'data-parsley-trigger'=>'keyup',
+                    'data-parsley-maxlength'=>'250',
+                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
+                    'data-parsley-validation-threshold'=>'10',
+                ]) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+                <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-original-title="Uma breve descrição que será mostrada na página principal"></i>
+                {!! Form::textarea('description', null, [
+                    'class'=>'form-control',
+                    'id'=>'message',
+                    'rows'=>'7',
+                    'data-parsley-trigger'=>'keyup',
+                    'data-parsley-maxlength'=>'900',
+                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
+                    'data-parsley-validation-threshold'=>'10',
+                ]) !!}
             </div>
             <div class="mb-3">
                 {!! Form::label('information', 'Informações', ['class'=>'form-label']) !!}
@@ -48,21 +84,18 @@
                     'placeholder'=>'Exemplo: Local do evento',
                 ]) !!}
             </div>
-            <div class="mb-3">
-                {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
-                <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
-                    data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-original-title="Uma breve descrição que será mostrada na página principal"></i>
-                {!! Form::textarea('description', null, [
-                    'class'=>'form-control',
-                    'id'=>'message',
-                    'rows'=>'7',
-                    'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
-                    'data-parsley-maxlength'=>'900',
-                    'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir uma descrição de pelo menos 20 caracteres.',
-                    'data-parsley-validation-threshold'=>'10',
-                ]) !!}
+            <div class="col-12">
+                <div class="complete-editor__content mb-3">
+                    {!! Form::label('text', 'Texto', ['class'=>'form-label']) !!}
+                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
+                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-original-title="Este texto será mostrado na página interna de cada evento em específico "></i>
+                    {!! Form::textarea('text', null, [
+                        'class'=>'form-control complete-editor',
+                        'data-height'=>500,
+                        'id'=>'text',
+                    ]) !!}
+                </div>
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
@@ -132,10 +165,44 @@
             </div> {{-- END ."wrapper-links --}}
 
         </div>
+        <div class="d-flex">
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                {!! Form::label('active', 'Ativar exibição do conteúdo?', ['class' => 'form-check-label']) !!}
+            </div>
+            <div class="mb-3 form-check me-3">
+                {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
+                {!! Form::label('featured', 'Destacar na home?', ['class' => 'form-check-label']) !!}
+            </div>
+        </div>
         {{-- end card-body --}}
     </div>
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem do box', ['class' => 'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas
+                        {{ $cropSetting->path_image_box->width }}x{{ $cropSetting->path_image_box->height }}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_box', [
+                            'id' => 'inputImage',
+                            'class' => 'inputImage',
+                            'data-status' => $cropSetting->path_image_box->activeCrop, // px
+                            'data-min-width' => $cropSetting->path_image_box->width, // px
+                            'data-min-height' => $cropSetting->path_image_box->height, // px
+                            'data-box-height' => '205', // Input height in the form
+                            // 'required' => (!isset($schedule) || empty($schedule->path_image_box)) ? true : false, //
+                            'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file' => isset($schedule)
+                                ? ($schedule->path_image_box != ''
+                                    ? url('storage/' . $schedule->path_image_box)
+                                    : '')
+                                : '',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
@@ -149,7 +216,7 @@
                             'data-min-width' => $cropSetting->path_image->width, // px
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedule) ? false : true,
+                            // 'required' => (!isset($schedule) || empty($schedule->path_image)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image != ''
@@ -173,7 +240,7 @@
                             'data-min-width' => $cropSetting->path_image_hours->width, // px
                             'data-min-height' => $cropSetting->path_image_hours->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedule) ? false : true,
+                            // 'required' => (!isset($schedule) || empty($schedule->path_image_hours)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image_hours != ''
@@ -197,7 +264,7 @@
                             'data-min-width' => $cropSetting->path_image_sub->width, // px
                             'data-min-height' => $cropSetting->path_image_sub->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($schedule) ? false : true,
+                            // 'required' => (!isset($schedule) || empty($schedule->path_image_sub)) ? true : false, //
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($schedule)
                                 ? ($schedule->path_image_sub != ''
@@ -210,29 +277,6 @@
             </div>
         </div>
         {{-- end card-body --}}
-    </div>
-    <div class="col-12">
-        <div class="card card-body" id="tooltip-container">
-            <div class="col-12">
-                <div class="complete-editor__content mb-3">
-                    {!! Form::label('text', 'Texto', ['class'=>'form-label']) !!}
-                    <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
-                        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-original-title="Este texto será mostrado na página interna de cada evento em específico "></i>
-                    {!! Form::textarea('text', null, [
-                        'class'=>'form-control complete-editor',
-                        'data-height'=>500,
-                        'id'=>'text',
-                    ]) !!}
-                </div>
-            </div>
-        </div>
-        <div class="d-flex">
-            <div class="mb-3 form-check me-3">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição do conteúdo', ['class' => 'form-check-label']) !!}
-            </div>
-        </div>
     </div>
 </div>
 {{-- end row --}}
