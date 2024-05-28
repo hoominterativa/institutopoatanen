@@ -49,6 +49,6 @@
             </div>
         @endif
 
-        <a href="#" class="sche01__cta" title='Ir para página interna de eventos'>CTA</a>
+        <a href="{{route('sche01.page')}}" class="sche01__cta" title='Ir para página interna de eventos'>CTA</a>
     </section>
 @endif
