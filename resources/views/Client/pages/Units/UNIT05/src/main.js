@@ -21,3 +21,13 @@ new Swiper(".unit05__content__information__subcategories", {
         nextEl: ".unit05__content__information__subcategories__nav__swiper-button-next",
     },
 });
+
+new Swiper(".unit05-page__menus__categories", {
+    slidesPerView: "auto",
+    spaceBetween: 12,
+});
+
+new Swiper(".unit05-page__menus__subcategories", {
+    slidesPerView: "auto",
+    spaceBetween: 12,
+});

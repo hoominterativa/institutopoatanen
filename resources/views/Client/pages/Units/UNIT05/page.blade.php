@@ -5,10 +5,9 @@
             <h2 class="unit05-page__banner__subtitle">Subtítulo</h2>
             <h1 class="unit05-page__banner__title">título</h1>
         </section>
-        {{-- FRONTEND TIRAR DUVIDA SOBRE O POSICIONAMENTO DO BOTÃO --}}
         <form class="unit05-page__form">
             <div class="unit05-page__form__input">
-                <input type="search" name="buscar" class="" placeholder="Buscar">
+                <input type="search" name="buscar" placeholder="Buscar">
             </div>
             <button class="unit05-page__form__submit" type="submit">
                 <img src="{{ asset('storage/uploads/tmp/lupa.png') }}" alt="Lupa">
@@ -16,11 +15,20 @@
         </form>
 
         <section class="unit05-page__menus">
-            {{-- FRONTEND: DIV CATEGORIA --}}
-            <menu class="unit05-page__menus__subcategory">
-                <div class="unit05-page__menus__subcategory__swiper-wrapper swiper-wrapper">
+            <menu class="unit05-page__menus__categories">
+                <div class="unit05-page__menus__categories__swiper-wrapper swiper-wrapper">
+                    @for ($i = 0; $i < 5; $i++)
+                        <a title="{{-- BACKEND: INSERIR A VARIAVEL DE CATEGORIA AQUI --}}" href="{{ route('unit05.page') }}"
+                            class="unit05-page__menus__categories__item swiper-slide">Categoria
+                            {{ $i }}</a>
+                    @endfor
+                </div>
+            </menu>
+            <menu class="unit05-page__menus__subcategories">
+                <div class="unit05-page__menus__subcategories__swiper-wrapper swiper-wrapper">
                     @for ($i = 0; $i < 4; $i++)
-                        <a href="#" class="unit05-page__menus__subcategory__item swiper-slide">subcategoria
+                        <a {{-- BACKEND: INSERIR A VARIAVEL DE CATEGORIA AQUI --}} href="#"
+                            class="unit05-page__menus__subcategories__item swiper-slide">subcategoria
                             {{ $i }}</a>
                     @endfor
                 </div>
@@ -38,11 +46,13 @@
 
                         <h4 class="unit05-page__services__item__information__subtitle">Subtítulo</h4>
                         <h3 class="unit05-page__services__item__information__title">Titulo Topico</h3>
-                        <p class="unit05-page__services__item__information__paragraph">Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. </p>
-
-                        <a href="#" class="unit05-page__services__item__information__cta">CTA</a>
-                        <a href="#" class="unit05-page__services__item__information__cta">CTA</a>
+                        <div class="unit05-page__services__item__information__paragraph">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                        </div>
+                        {{-- BACKEND: LEMBRANDO QUE AQUI SO VAI IMPRIMIR NO MAXIMO DOIS --}}
+                        @for ($j = 0; $j < 2; $j++)
+                            <a href="#" class="unit05-page__services__item__information__cta">CTA</a>
+                        @endfor
                     </div>
                 </article>
             @endfor
