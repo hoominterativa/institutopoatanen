@@ -2,7 +2,8 @@
     <menu class="unit05__categories">
         <div class="unit05__categories__swiper-wrapper swiper-wrapper">
             @for ($i = 0; $i < 5; $i++)
-                <a title="{{-- BACKEND: INSERIR A VARIAVEL DE CATEGORIA AQUI--}}" href="{{ route('unit05.page') }}" class="unit05__categories__item swiper-slide">Categoria
+                <a title="{{-- BACKEND: INSERIR A VARIAVEL DE CATEGORIA AQUI --}}" href="{{ route('unit05.page') }}"
+                    class="unit05__categories__item swiper-slide">Categoria
                     {{ $i }}</a>
             @endfor
         </div>
@@ -20,8 +21,6 @@
 
             <div class="unit05__content__gallery__nav__swiper-button-prev swiper-button-prev"></div>
             <div class="unit05__content__gallery__nav__swiper-button-next swiper-button-next"></div>
-            {{-- <div class="unit05__content__gallery__nav">
-            </div> --}}
         </div>
 
         <div class="unit05__content__information">

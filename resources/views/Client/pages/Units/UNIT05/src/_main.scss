@@ -24,6 +24,8 @@
     &__content {
         @extend %theme__padding;
         @include disFlex(row, space-between, start);
+        flex-wrap: wrap;
+        background-color: $color-three;
 
         &__gallery {
             @extend %theme__nav;
@@ -34,8 +36,11 @@
             aspect-ratio: 1/1;
 
             position: relative;
-
             overflow: hidden;
+
+            @include large-device-down {
+                width: 100%;
+            }
 
             &__item {
                 object-fit: cover;
@@ -46,7 +51,82 @@
         &__information {
             @include disFlex(column);
             width: 50%;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-cb;
+                text-align: left;
+            }
+
+            &__title {
+                @extend %theme__t2-c1;
+                text-align: left;
+                margin-bottom: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-c1;
+                margin-bottom: 3.5rem;
+            }
+
+            &__subcategories {
+                width: 100%;
+                overflow: hidden;
+
+                @include large-device-down {
+                    overflow: visible;
+                }
+
+                &__item {
+                    @include disFlex(column, center, center);
+                    background-color: $color-five;
+                    padding: 1.5rem 0.75rem;
+
+                    width: 172px;
+
+                    &__icon {
+                        width: 2rem;
+                        height: auto;
+                        aspect-ratio: 1/1;
+                        object-fit: contain;
+                        object-position: center;
+                        margin-bottom: 0.25rem;
+                    }
+
+                    &__title {
+                        @extend %theme__t5-cb;
+                        text-align: center;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    &__paragraph {
+                        @extend %theme__p2-c2;
+                        text-align: center;
+                    }
+                }
+
+                &__nav {
+                    @extend %theme__nav;
+                    margin: 1rem auto 0 0;
+                }
+            }
+
+            &__cta {
+                @extend %theme__cta;
+                align-self: end;
+            }
         }
+    }
+
+    &__section-banner {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1500/229;
+        object-fit: cover;
+        object-position: center;
     }
 }
 
@@ -144,15 +224,15 @@
             width: calc(25% - 0.75rem);
             min-height: 512px;
 
-            @include large-device-down{
+            @include large-device-down {
                 width: calc(33.33% - 11px);
             }
 
-            @include medium-device-down{
+            @include medium-device-down {
                 width: calc(50% - 0.5rem);
             }
 
-            @include small-device-down{
+            @include small-device-down {
                 width: 100%;
             }
 
@@ -199,7 +279,7 @@
                     margin-bottom: 0.75rem;
                 }
 
-                &__cta{
+                &__cta {
                     width: 100%;
                     background-color: $color-nine;
                     @extend %theme__p1-cb;

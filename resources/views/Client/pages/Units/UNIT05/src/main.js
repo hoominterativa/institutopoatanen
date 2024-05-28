@@ -14,11 +14,21 @@ new Swiper(".unit05__content__gallery", {
 });
 
 new Swiper(".unit05__content__information__subcategories", {
-    slidesPerView: 4,
+    slidesPerView: "auto",
     spaceBetween: 8,
     navigation: {
         prevEl: ".unit05__content__information__subcategories__nav__swiper-button-prev",
         nextEl: ".unit05__content__information__subcategories__nav__swiper-button-next",
+    },
+
+    breakpointsBase: "container",
+    breakpoints: {
+        620: {
+            slidesPerView: 4,
+        },
+        500: {
+            slidesPerView: 3,
+        },
     },
 });
 
