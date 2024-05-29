@@ -1,7 +1,7 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body " id="tooltip-container">
-            {{-- <div class="mb-3">
+            <div class="mb-3">
                 <div class="d-flex">
                     {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
                     <i class="text-danger">*</i>
@@ -12,7 +12,7 @@
                     'required'=>'required',
                     'placeholder' => 'Informe a categoria'
                 ]) !!}
-            </div> --}}
+            </div>
             <div class="mb-3">
                 <div class="row">
                     <div class="col-sm-6">

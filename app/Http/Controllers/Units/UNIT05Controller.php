@@ -11,8 +11,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Units\UNIT05UnitsCategory;
 use App\Models\Units\UNIT05UnitsContent;
+use App\Models\Units\UNIT05UnitsGallery;
 use App\Models\Units\UNIT05UnitsLink;
+use App\Models\Units\UNIT05UnitsSection;
 
 class UNIT05Controller extends Controller
 {
@@ -25,9 +28,15 @@ class UNIT05Controller extends Controller
      */
     public function index()
     {
-        $units = UNIT05Units::sorting()->paginate(30);
+        $units = UNIT05Units::sorting()->paginate(20);
+        $categories = UNIT05UnitsCategory::sorting()->get();
+        $section = UNIT05UnitsSection::sorting()->first();
+        $galleries = UNIT05UnitsGallery::sorting()->get();
         return view('Admin.cruds.Units.UNIT05.index', [
             'units' => $units,
+            'section' => $section,
+            'galleries' => $galleries,
+            'categories' => $categories,
             'cropSetting' => getCropImage('Units', 'UNIT05')
         ]);
     }
@@ -39,7 +48,9 @@ class UNIT05Controller extends Controller
      */
     public function create()
     {
+        $categories = UNIT05UnitsCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Units.UNIT05.create',[
+            'categories' => $categories,
             'cropSetting' => getCropImage('Units', 'UNIT05')
         ]);
     }
@@ -87,9 +98,11 @@ class UNIT05Controller extends Controller
      */
     public function edit(UNIT05Units $UNIT05Units)
     {
+        $categories = UNIT05UnitsCategory::sorting()->pluck('title', 'id');
         $contents = UNIT05UnitsContent::where('unit_id', $UNIT05Units->id)->sorting()->get();
         $links = UNIT05UnitsLink::where('unit_id', $UNIT05Units->id)->sorting()->get();
         return view('Admin.cruds.Units.UNIT05.edit', [
+            'categories' => $categories,
             'unit' => $UNIT05Units,
             'contents' => $contents,
             'links' => $links,

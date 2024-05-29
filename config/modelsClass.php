@@ -667,13 +667,13 @@ return [
                 'model' => App\Models\Units\UNIT05Units::class,
                 'seedQty' => 8,
                 'routeName' => 'unit05.page.content',
-                // 'relationship' => [
-                //     'category' => [
-                //         'class' => App\Models\Units\UNIT05UnitsCategory::class,
-                //         'column' => 'category_id',
-                //         'seedQty' => 6,
-                //     ]
-                // ]
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Units\UNIT05UnitsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ]
+                ]
             ],
         ],
         // END UNITS

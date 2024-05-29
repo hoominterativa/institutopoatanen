@@ -2348,6 +2348,23 @@
                     "height": "700",
                     "activeCrop":"false"
                 }
+            },
+            "Section": {
+                "path_image_section": {
+                    "width": "1200",
+                    "height": "600",
+                    "activeCrop":"true"
+                },
+                "path_image_desktop_banner": {
+                    "width": "1200",
+                    "height": "400",
+                    "activeCrop":"false"
+                },
+                "path_image_mobile_banner": {
+                    "width": "1200",
+                    "height": "600",
+                    "activeCrop":"true"
+                }
             }
         }
     },

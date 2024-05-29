@@ -25,6 +25,7 @@ class UNIT05UnitsFactory extends Factory
         $title = $this->faker->text(10);
         $subtitle = $this->faker->text(12);
         return [
+            'category_id' => rand(1,5),
             'slug' => Str::slug($title. ' ' .$subtitle),
             'title' => $title,
             'subtitle' => $subtitle,
