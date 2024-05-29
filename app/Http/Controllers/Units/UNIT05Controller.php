@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers\Units;
 
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Models\Units\UNIT05Units;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Units\UNIT05UnitsContent;
+use App\Models\Units\UNIT05UnitsLink;
 
 class UNIT05Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Units/UNIT05/images/';
 
     /**
      * Display a listing of the resource.
@@ -22,7 +25,11 @@ class UNIT05Controller extends Controller
      */
     public function index()
     {
-        //
+        $units = UNIT05Units::sorting()->paginate(30);
+        return view('Admin.cruds.Units.UNIT05.index', [
+            'units' => $units,
+            'cropSetting' => getCropImage('Units', 'UNIT05')
+        ]);
     }
 
     /**
@@ -32,7 +39,9 @@ class UNIT05Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Units.UNIT05.create',[
+            'cropSetting' => getCropImage('Units', 'UNIT05')
+        ]);
     }
 
     /**
@@ -44,33 +53,28 @@ class UNIT05Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
+        if ($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        $helper = new HelperArchive();
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if (UNIT05Units::create($data)) {
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        if ($units = UNIT05Units::create($data)) {
+            Session::flash('success', 'Unidade cadastrada com sucesso');
+            return redirect()->route('admin.unit05.edit', ['UNIT05Units' => $units->id]);
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_box);
+            Session::flash('error', 'Erro ao cadastradar a unidade');
             return redirect()->back();
         }
     }
@@ -83,7 +87,14 @@ class UNIT05Controller extends Controller
      */
     public function edit(UNIT05Units $UNIT05Units)
     {
-        //
+        $contents = UNIT05UnitsContent::where('unit_id', $UNIT05Units->id)->sorting()->get();
+        $links = UNIT05UnitsLink::where('unit_id', $UNIT05Units->id)->sorting()->get();
+        return view('Admin.cruds.Units.UNIT05.edit', [
+            'unit' => $UNIT05Units,
+            'contents' => $contents,
+            'links' => $links,
+            'cropSetting' => getCropImage('Units', 'UNIT05')
+        ]);
     }
 
     /**
@@ -96,11 +107,10 @@ class UNIT05Controller extends Controller
     public function update(Request $request, UNIT05Units $UNIT05Units)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active ? 1 : 0;
+        if ($request->title || $request->subtitle) $data['slug'] = Str::slug($request->title . ' ' . ($request->subtitle ? $request->subtitle : ''));
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +121,36 @@ class UNIT05Controller extends Controller
             storageDelete($UNIT05Units, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($UNIT05Units, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($UNIT05Units, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
+        }
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($UNIT05Units, 'path_image_icon');
+            $data['path_image_icon'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($UNIT05Units, 'path_archive');
-            $data['path_archive'] = null;
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null,100);
+        if($path_image_box){
+            storageDelete($UNIT05Units, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
         }
-
-        */
+        if($request->delete_path_image_box && !$path_image_box){
+            storageDelete($UNIT05Units, 'path_image_box');
+            $data['path_image_box'] = null;
+        }
 
         if ($UNIT05Units->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Unidade atualizada com sucesso');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Storage::delete($path_image_icon);
+            Storage::delete($path_image_box);
+            Session::flash('error', 'Erro ao atualizar a unidade');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +161,12 @@ class UNIT05Controller extends Controller
      */
     public function destroy(UNIT05Units $UNIT05Units)
     {
-        //storageDelete($UNIT05Units, 'path_image');
-        //storageDelete($UNIT05Units, 'path_archive');
+        storageDelete($UNIT05Units, 'path_image');
+        storageDelete($UNIT05Units, 'path_image_icon');
+        storageDelete($UNIT05Units, 'path_image_box');
 
         if ($UNIT05Units->delete()) {
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Unidade deletada com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +179,16 @@ class UNIT05Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $UNIT05Unitss = UNIT05Units::whereIn('id', $request->deleteAll)->get();
         foreach($UNIT05Unitss as $UNIT05Units){
             storageDelete($UNIT05Units, 'path_image');
-            storageDelete($UNIT05Units, 'path_archive');
+            storageDelete($UNIT05Units, 'path_image_icon');
+            storageDelete($UNIT05Units, 'path_image_box');
         }
-        */
 
         if ($deleted = UNIT05Units::whereIn('id', $request->deleteAll)->delete()) {
-            return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted . ' unidades deletadas com sucessso']);
         }
     }
     /**

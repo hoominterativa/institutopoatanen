@@ -2325,6 +2325,30 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "UNIT05" : {
+            "path_image": {
+                "width": "800",
+                "height": "700",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "500",
+                "height": "450",
+                "activeCrop": "false"
+            },
+            "Content": {
+                "path_image": {
+                    "width": "800",
+                    "height": "700",
+                    "activeCrop":"false"
+                }
+            }
         }
     },
     "WorkWith": {

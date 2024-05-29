@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnit05UnitsTable extends Migration
+class CreateUnit05UnitsContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateUnit05UnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('unit05_units', function (Blueprint $table) {
+        Schema::create('unit05_units_contents', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->nullable();
+            $table->foreignId('unit_id')->constrained('unit05_units')->onDelete('cascade');
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
-            $table->text('description')->nullable();
             $table->text('text')->nullable();
-            $table->text('path_image_icon')->nullable();
-            $table->text('path_image_box')->nullable();
             $table->text('path_image')->nullable();
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
@@ -36,6 +33,6 @@ class CreateUnit05UnitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unit05_units');
+        Schema::dropIfExists('unit05_units_contents');
     }
 }
