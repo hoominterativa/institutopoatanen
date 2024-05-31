@@ -26,7 +26,8 @@ class UNIT05UnitsSectionFactory extends Factory
             'title_section' => $this->faker->text(10),
             'subtitle_section' => $this->faker->text(12),
             'description_section' => $this->faker->paragraphs(3, true),
-            'path_image_section' => 'uploads/tmp/bg-section-dark-gray.jpg',
+            'path_image_desktop_section' => 'uploads/tmp/bg-section-dark-gray.jpg',
+            'path_image_mobile_section' => 'uploads/tmp/image-box-white.jpg',
             'active_section' => 1,
             //Banner
             'title_banner' => $this->faker->text(10),

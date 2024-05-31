@@ -26,6 +26,8 @@ class UNIT05UnitsSubcategoryFactory extends Factory
         return [
             'slug' => Str::slug($title),
             'title' => $title,
+            'description' => $this->faker->text(100),
+            'path_image_icon' => 'uploads/tmp/favicon.png',
             'active' => 1,
         ];
     }

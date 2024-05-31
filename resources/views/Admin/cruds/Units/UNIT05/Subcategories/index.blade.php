@@ -7,7 +7,7 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.unit05.subcategory.destroySelected')}}" type="button" class="btn btn-danger btnDeleteSubcategory" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="javascript:void(0)"  data-bs-target="#modal-subcategory-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Categoria <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)"  data-bs-target="#modal-subcategory-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar Subcategoria <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -17,7 +17,8 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteSubcategory" type="checkbox"></label>
                             </th>
-                            <th>Title</th>
+                            <th>Imagem</th>
+                            <th>Título</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -29,6 +30,11 @@
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox align-middle">
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$subcategory->id}}"></label>
+                                </td>
+                                <td class="align-middle avatar-group">
+                                    @if ($subcategory->path_image_icon)
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$subcategory->path_image_icon)}})"></div>
+                                    @endif
                                 </td>
                                 <td class="align-middle">{{$subcategory->title}}</td>
                                 <td class="align-middle">
@@ -49,15 +55,15 @@
                                         </form>
                                         {{-- BEGIN MODAL SUBCATEGORY UPDATE --}}
                                         <div id="modal-subcategory-update-{{$subcategory->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                            <div class="modal-dialog" style="max-width: 900px;">
+                                            <div class="modal-dialog" style="max-width: 1100px;">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-3 pt-2 pb-2">
-                                                        <h4 class="page-title">Editar Categoria</h4>
+                                                        <h4 class="page-title">Editar Subcategoria</h4>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include('Admin.cruds.Units.UNIT05.Categories.form',[
+                                                        @include('Admin.cruds.Units.UNIT05.Subcategories.form',[
                                                             'subcategory' => $subcategory
                                                         ])
                                                     </div>
@@ -79,15 +85,15 @@
 
 {{-- BEGIN MODAL SUBCATEGORY CREATE --}}
 <div id="modal-subcategory-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" style="max-width: 900px;">
+    <div class="modal-dialog" style="max-width: 1100px;">
         <div class="modal-content">
             <div class="modal-header p-3 pt-2 pb-2">
-                <h4 class="page-title">Cadastrar Categoria</h4>
+                <h4 class="page-title">Cadastrar Subcategoria</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Units.UNIT05.Categories.form',[
+                @include('Admin.cruds.Units.UNIT05.Subcategories.form',[
                     'subcategory' => null
                 ])
             </div>

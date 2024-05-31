@@ -18,7 +18,7 @@ class UNIT05UnitsSection extends Model
     protected $table = "unit05_units_sections";
     protected $fillable = [
         //Section
-        "title_section", "subtitle_section", "description_section", "path_image_section", "active_section",
+        "title_section", "subtitle_section", "description_section", "path_image_desktop_section", "path_image_mobile_section", "active_section",
         //Banner
         "title_banner", "subtitle_banner", "path_image_desktop_banner", "path_image_mobile_banner", "active_banner",
         //General

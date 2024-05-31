@@ -14,6 +14,8 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class UNIT05SubcategoryController extends Controller
 {
+    protected $path = 'uploads/Units/UNIT05/images/';
+
     /**
      * Store a newly created resource in storage.
      *
@@ -23,13 +25,18 @@ class UNIT05SubcategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
         if($request->title) $data['slug'] = Str::slug($request->title);
 
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
+
         if(UNIT05UnitsSubcategory::create($data)){
             Session::flash('success', 'Subcategoria cadastrada com sucesso');
         }else{
+            Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao cadastradar a subcategoria');
         }
         return redirect()->back();
@@ -45,13 +52,25 @@ class UNIT05SubcategoryController extends Controller
     public function update(Request $request, UNIT05UnitsSubcategory $UNIT05UnitsSubcategory)
     {
         $data = $request->all();
+        $helper = new HelperArchive();
 
         $data['active'] = $request->active ? 1 : 0;
         if($request->title) $data['slug'] = Str::slug($request->title);
 
+        $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
+        if($path_image_icon){
+            storageDelete($UNIT05UnitsSubcategory, 'path_image_icon');
+            $data['path_image_icon'] = $path_image_icon;
+        }
+        if($request->delete_path_image_icon && !$path_image_icon){
+            storageDelete($UNIT05UnitsSubcategory, 'path_image_icon');
+            $data['path_image_icon'] = null;
+        }
+
         if($UNIT05UnitsSubcategory->fill($data)->save()){
             Session::flash('success', 'Subcategoria atualizada com sucesso');
         }else{
+            Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao atualizar a subcategoria');
         }
         return redirect()->back();
@@ -65,6 +84,7 @@ class UNIT05SubcategoryController extends Controller
      */
     public function destroy(UNIT05UnitsSubcategory $UNIT05UnitsSubcategory)
     {
+        storageDelete($UNIT05UnitsSubcategory, 'path_image_icon');
 
         if($UNIT05UnitsSubcategory->delete()){
             Session::flash('success', 'Subcategoria deletada com sucessso');
@@ -80,6 +100,10 @@ class UNIT05SubcategoryController extends Controller
      */
     public function destroySelected(Request $request)
     {
+        $UNIT05UnitsSubcategorys = UNIT05UnitsSubcategory::whereIn('id', $request->deleteAll)->get();
+        foreach($UNIT05UnitsSubcategorys as $UNIT05UnitsSubcategory){
+            storageDelete($UNIT05UnitsSubcategory, 'path_image_icon');
+        }
 
         if($deleted = UNIT05UnitsSubcategory::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' subcategorias deletadas com sucessso']);

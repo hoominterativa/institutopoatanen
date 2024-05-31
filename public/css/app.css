@@ -2494,6 +2494,9 @@ body .owl-dots .owl-dot.active {
   background-color: #d9d9d9;
   font-weight: 700;
 }
+.unit05-page__menus__subcategories__item:is(.active, :hover) {
+  background-color: #404040;
+}
 .unit05-page__services {
   padding-top: 2.5rem;
   background-color: #b3b3b3;

@@ -2349,10 +2349,22 @@
                     "activeCrop":"false"
                 }
             },
+            "Subcategory": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop":"false"
+                }
+            },
             "Section": {
-                "path_image_section": {
+                "path_image_mobile_section": {
+                    "width": "500",
+                    "height": "400",
+                    "activeCrop":"true"
+                },
+                "path_image_desktop_section": {
                     "width": "1200",
-                    "height": "600",
+                    "height": "450",
                     "activeCrop":"true"
                 },
                 "path_image_desktop_banner": {

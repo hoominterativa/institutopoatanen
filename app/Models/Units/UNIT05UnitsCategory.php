@@ -57,11 +57,11 @@ class UNIT05UnitsCategory extends Model
     {
         return $this->belongsToMany(UNIT05UnitsSubcategory::class, 'unit05_units','category_id','subcategory_id')->groupBy('category_id');
     }
-    
-    // public function UNIT05UnitsSubcategories()
-    // {
-    //     return $this->belongsToMany(UNIT05UnitsSubcategory::class, 'unit05_units','category_id','subcategory_id')->groupBy('category_id');
-    // }
+
+    public function UNIT05UnitsSubcategories()
+    {
+        return $this->belongsToMany(UNIT05UnitsSubcategory::class, 'unit05_units','category_id','subcategory_id')->groupBy('category_id');
+    }
 
 
 }

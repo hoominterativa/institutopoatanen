@@ -37,4 +37,9 @@ class UNIT05Units extends Model
     {
         return $this->belongsTo(UNIT05UnitsSubcategory::class, 'subcategory_id');
     }
+
+    public function links()
+    {
+        return $this->hasMany(UNIT05UnitsLink::class, 'unit_id')->active()->sorting()->limit(2);
+    }
 }

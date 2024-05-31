@@ -17,6 +17,8 @@ class CreateUnit05UnitsSubcategoriesTable extends Migration
             $table->id();
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->text('path_image_icon')->nullable();
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

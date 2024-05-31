@@ -218,6 +218,9 @@
                 background-color: $color-nine;
                 @extend %theme__p1-c2;
                 font-weight: 700;
+                &:is(.active, :hover) {
+                    background-color: $color-one;
+                }
             }
         }
     }

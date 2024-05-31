@@ -252,13 +252,39 @@ class UNIT05Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, UNIT05UnitsCategory $UNIT05UnitsCategory, UNIT05UnitsSubcategory $UNIT05UnitsSubcategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT05', 'page');
 
+        if (!$UNIT05UnitsCategory->exists) {
+            $UNIT05UnitsCategory = UNIT05UnitsCategory::exists()->sorting()->active()->first();
+        }
+
+        $categories = UNIT05UnitsCategory::exists()->active()->sorting()->get();
+        $subcategories = UNIT05UnitsSubcategory::getSubCategoryByCategory($UNIT05UnitsCategory);
+        $units = UNIT05Units::with(['links', 'category', 'subcategory'])->where('category_id', $UNIT05UnitsCategory->id)->active()->sorting()->get();
+        if($UNIT05UnitsSubcategory->exists){
+            $units = $units->where('subcategory_id', $UNIT05UnitsSubcategory->id);
+        }
+        $section = UNIT05UnitsSection::activeBanner()->sorting()->first();
+        switch(deviceDetect()) {
+            case "table":
+            case "mobile":
+                if ($section) $section->path_image_desktop_banner = $section->path_image_mobile_banner;
+            break;
+        }
+
+        // dd($units);
+
         return view('Client.pages.Units.UNIT05.page', [
-            'sections' => $sections
+            'sections' => $sections,
+            'section' => $section,
+            'categories' => $categories,
+            'categorySelected' => $UNIT05UnitsCategory,
+            'subcategorySelected' => $UNIT05UnitsSubcategory,
+            'subcategories' => $subcategories,
+            'units' => $units
         ]);
     }
 
@@ -269,6 +295,21 @@ class UNIT05Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Units.UNIT05.section');
+        $section = UNIT05UnitsSection::activeSection()->sorting()->first();
+        $galleries = UNIT05UnitsGallery::sorting()->get();
+        $categories = UNIT05UnitsCategory::exists()->active()->featured()->sorting()->get();
+        $categoryFirst = UNIT05UnitsCategory::exists()->active()->featured()->sorting()->first();
+
+        $subcategories = UNIT05UnitsSubcategory::getSubCategoryByCategory($categoryFirst);
+
+        // dd($subcategories);
+
+        return view('Client.pages.Units.UNIT05.section', [
+            'section' => $section,
+            'galleries' => $galleries,
+            'categories' => $categories,
+            'categoryFirst' => $categoryFirst,
+            'subcategories' => $subcategories
+        ]);
     }
 }

@@ -17,7 +17,7 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteCategory" type="checkbox"></label>
                             </th>
-                            <th>Title</th>
+                            <th>Título</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>

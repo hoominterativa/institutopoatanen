@@ -19,7 +19,8 @@ class CreateUnit05UnitsSectionsTable extends Migration
             $table->string('title_section')->nullable();
             $table->string('subtitle_section')->nullable();
             $table->text('description_section')->nullable();
-            $table->text('path_image_section')->nullable();
+            $table->text('path_image_desktop_section')->nullable();
+            $table->text('path_image_mobile_section')->nullable();
             $table->boolean('active_section')->default(0);
             //Banner
             $table->string('title_banner')->nullable();

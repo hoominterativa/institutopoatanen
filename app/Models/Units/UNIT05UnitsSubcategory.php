@@ -16,7 +16,7 @@ class UNIT05UnitsSubcategory extends Model
     }
 
     protected $table = "unit05_units_subcategories";
-    protected $fillable = ['slug', 'title', 'active', 'sorting'];
+    protected $fillable = ['slug', 'title', 'description', 'path_image_icon', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -31,6 +31,13 @@ class UNIT05UnitsSubcategory extends Model
     public function units()
     {
         return $this->hasMany(UNIT05Units::class, 'subcategory_id')->active()->sorting();
+    }
+
+    public static function getSubCategoryByCategory( UNIT05UnitsCategory $category)
+    {
+        return self::whereHas('units', function ($query) use ($category) {
+            $query->where('category_id', $category->id);
+        })->exists()->active()->sorting()->get();
     }
 
     public function scopeExists($query){

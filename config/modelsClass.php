@@ -666,7 +666,7 @@ return [
                 'controller' => App\Http\Controllers\Units\UNIT05Controller::class,
                 'model' => App\Models\Units\UNIT05Units::class,
                 'seedQty' => 8,
-                'routeName' => 'unit05.page.content',
+                'routeName' => 'unit05.category.page',
                 'relationship' => [
                     'category' => [
                         'class' => App\Models\Units\UNIT05UnitsCategory::class,
