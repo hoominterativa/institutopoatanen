@@ -2,16 +2,32 @@
     <div class="col-12 col-lg-6">
         <div class="card card-body " id="tooltip-container">
             <div class="mb-3">
-                <div class="d-flex">
-                    {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
-                    <i class="text-danger">*</i>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
+                            <i class="text-danger">*</i>
+                        </div>
+                        {!! Form::select('category_id', $categories, null, [
+                            'class'=>'form-select',
+                            'id'=>'heard',
+                            'required'=>'required',
+                            'placeholder' => 'Informe a categoria'
+                        ]) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            {!! Form::label('heard', 'Subcategoria', ['class'=>'form-label']) !!}
+                            <i class="text-danger">*</i>
+                        </div>
+                        {!! Form::select('subcategory_id', $subcategories, null, [
+                            'class'=>'form-select',
+                            'id'=>'heard',
+                            'required'=>'required',
+                            'placeholder' => 'Informe a subcategoria'
+                        ]) !!}
+                    </div>
                 </div>
-                {!! Form::select('category_id', $categories, null, [
-                    'class'=>'form-select',
-                    'id'=>'heard',
-                    'required'=>'required',
-                    'placeholder' => 'Informe a categoria'
-                ]) !!}
             </div>
             <div class="mb-3">
                 <div class="row">

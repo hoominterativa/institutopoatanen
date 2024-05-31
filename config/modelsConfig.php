@@ -32,6 +32,11 @@ return [
                             'name' => 'Categoria',
                             'titleList' => 'title',
                             'condition' => 'active=1{Ativos}',
+                        ],
+                        'subcategory' =>(object)[
+                            'name' => 'Subcategoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
                         ]
                     ],
                 ],

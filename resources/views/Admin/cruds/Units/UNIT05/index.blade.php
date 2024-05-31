@@ -27,7 +27,16 @@
                             Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastre as categorias"></i>
+                                data-bs-original-title="Cadastre as categorias das unidades"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#subcategories" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Subcategorias
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre as subcategorias das unidades"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -86,7 +95,7 @@
                                                         <label><input name="btnSelectAll" value="btnDeleteUNIT05" type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
-                                                    {{-- <th>Categoria/Subcategoria</th> --}}
+                                                    <th>Categoria/Subcategoria</th>
                                                     <th>Título/Subtítulo</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
@@ -105,7 +114,7 @@
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$unit->path_image)}})"></div>
                                                             @endif
                                                         </td>
-                                                        {{-- <td class="align-middle">{{ implode(' / ', array_filter([$unit->category->title, $unit->subcategory->title])) }}</td> --}}
+                                                        <td class="align-middle">{{ implode(' / ', array_filter([$unit->category->title, $unit->subcategory->title])) }}</td>
                                                         <td class="align-middle">{{ implode(' / ', array_filter([$unit->title, $unit->subtitle])) }}</td>
                                                         <td class="align-middle">
                                                             @switch($unit->active)
@@ -139,7 +148,12 @@
                     </div>
                     <div class="tab-pane" id="categories">
                         @include('Admin.cruds.Units.UNIT05.Categories.index', [
-                            'categories' => $categories
+                            'categories' => $categories,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="subcategories">
+                        @include('Admin.cruds.Units.UNIT05.Subcategories.index', [
+                            'subcategories' => $subcategories
                         ])
                     </div>
                     <div class="tab-pane" id="section">

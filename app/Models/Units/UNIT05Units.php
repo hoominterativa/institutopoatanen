@@ -16,7 +16,7 @@ class UNIT05Units extends Model
     }
 
     protected $table = "unit05_units";
-    protected $fillable = ['category_id', 'slug', 'title', 'subtitle', 'description', 'text', 'path_image_icon', 'path_image_box', 'path_image', 'active', 'sorting'];
+    protected $fillable = ['category_id', 'subcategory_id', 'slug', 'title', 'subtitle', 'description', 'text', 'path_image_icon', 'path_image_box', 'path_image', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -33,8 +33,8 @@ class UNIT05Units extends Model
         return $this->belongsTo(UNIT05UnitsCategory::class, 'category_id');
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function subcategory()
+    {
+        return $this->belongsTo(UNIT05UnitsSubcategory::class, 'subcategory_id');
+    }
 }

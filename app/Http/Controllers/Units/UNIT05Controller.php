@@ -6,16 +6,17 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Units\UNIT05Units;
 use App\Http\Controllers\Controller;
+use App\Models\Units\UNIT05UnitsLink;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Response;
-use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Controllers\IncludeSectionsController;
-use App\Models\Units\UNIT05UnitsCategory;
 use App\Models\Units\UNIT05UnitsContent;
 use App\Models\Units\UNIT05UnitsGallery;
-use App\Models\Units\UNIT05UnitsLink;
 use App\Models\Units\UNIT05UnitsSection;
+use Illuminate\Support\Facades\Response;
+use App\Models\Units\UNIT05UnitsCategory;
+use App\Models\Units\UNIT05UnitsSubcategory;
+use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Controllers\IncludeSectionsController;
 
 class UNIT05Controller extends Controller
 {
@@ -30,6 +31,7 @@ class UNIT05Controller extends Controller
     {
         $units = UNIT05Units::sorting()->paginate(20);
         $categories = UNIT05UnitsCategory::sorting()->get();
+        $subcategories = UNIT05UnitsSubcategory::sorting()->get();
         $section = UNIT05UnitsSection::sorting()->first();
         $galleries = UNIT05UnitsGallery::sorting()->get();
         return view('Admin.cruds.Units.UNIT05.index', [
@@ -37,6 +39,7 @@ class UNIT05Controller extends Controller
             'section' => $section,
             'galleries' => $galleries,
             'categories' => $categories,
+            'subcategories' => $subcategories,
             'cropSetting' => getCropImage('Units', 'UNIT05')
         ]);
     }
@@ -49,8 +52,10 @@ class UNIT05Controller extends Controller
     public function create()
     {
         $categories = UNIT05UnitsCategory::sorting()->pluck('title', 'id');
+        $subcategories = UNIT05UnitsSubcategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Units.UNIT05.create',[
             'categories' => $categories,
+            'subcategories' => $subcategories,
             'cropSetting' => getCropImage('Units', 'UNIT05')
         ]);
     }
@@ -99,10 +104,12 @@ class UNIT05Controller extends Controller
     public function edit(UNIT05Units $UNIT05Units)
     {
         $categories = UNIT05UnitsCategory::sorting()->pluck('title', 'id');
+        $subcategories = UNIT05UnitsSubcategory::sorting()->pluck('title', 'id');
         $contents = UNIT05UnitsContent::where('unit_id', $UNIT05Units->id)->sorting()->get();
         $links = UNIT05UnitsLink::where('unit_id', $UNIT05Units->id)->sorting()->get();
         return view('Admin.cruds.Units.UNIT05.edit', [
             'categories' => $categories,
+            'subcategories' => $subcategories,
             'unit' => $UNIT05Units,
             'contents' => $contents,
             'links' => $links,

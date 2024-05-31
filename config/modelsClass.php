@@ -672,6 +672,11 @@ return [
                         'class' => App\Models\Units\UNIT05UnitsCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 5,
+                    ],
+                    'subcategory' => [
+                        'class' => App\Models\Units\UNIT05UnitsSubcategory::class,
+                        'column' => 'subcategory_id',
+                        'seedQty' => 5,
                     ]
                 ]
             ],

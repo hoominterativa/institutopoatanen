@@ -53,8 +53,15 @@ class UNIT05UnitsCategory extends Model
         });
     }
 
-    // public function getRelationCore()
+    public function getRelationCore()
+    {
+        return $this->belongsToMany(UNIT05UnitsSubcategory::class, 'unit05_units','category_id','subcategory_id')->groupBy('category_id');
+    }
+    
+    // public function UNIT05UnitsSubcategories()
     // {
-    //     return null;
+    //     return $this->belongsToMany(UNIT05UnitsSubcategory::class, 'unit05_units','category_id','subcategory_id')->groupBy('category_id');
     // }
+
+
 }

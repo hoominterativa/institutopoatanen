@@ -19,13 +19,18 @@
                     'name' => 'Categoria',
                     'titleList' => 'title',
                     'condition' => 'active=1{Ativos}',
+                ],
+                'subcategory' =>(object)[
+                    'name' => 'Subcategoria',
+                    'titleList' => 'title',
+                    'condition' => 'active=1{Ativos}',
                 ]
             ],
         ],
         'config' => (object) [
             'titleMenu' => 'Unidades',
             'anchor' => false,
-            'linkMenu' => 'unit03.page',
+            'linkMenu' => 'unit05.page',
             'iconMenu' => '',
             'titlePanel' => 'Unidades',
             'iconPanel' => 'mdi-warehouse'
