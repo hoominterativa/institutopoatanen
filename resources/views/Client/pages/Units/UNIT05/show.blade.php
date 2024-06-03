@@ -3,101 +3,123 @@
     <main id="root" class="unit05-show">
         <header class="unit05-show__header">
             <img src="{{ asset('images/bg-colorido.svg') }}" alt="" class="unit05-show__header__bg">
-
-            <div class="unit05-show__header__images">
-                <img class="unit05-show__header__images__item" src="{{ asset('images/banner.png') }}"
-                    alt="Image descritiva do serviço [BACKEND: INSERIR VARIAVEL DE TITULO E SUBTITULO]">
-                <img class="unit05-show__header__images__logo" src="{{ asset('images/logo-client.svg') }}"
-                    alt="Logomarca do serviço [BACKEND: INSERIR VARIAVEL DE TITULO E SUBTITULO]">
-            </div>
-            <section class="unit05-show__header__information">
-                <h3 class="unit05-show__header__information__subtitle">Subtitlo da página</h3>
-                <h2 class="unit05-show__header__information__title">Título</h2>
-                <div class="unit05-show__header__information__paragraph">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                        sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget
-                        purus ma</p>
+            @if ($unit->path_image || $unit->path_image_icon)
+                <div class="unit05-show__header__images">
+                    @if ($unit->path_image)
+                        <img class="unit05-show__header__images__item" src="{{ asset('storage/'. $unit->path_image) }}"
+                            alt="Image descritiva da unidade {{$unit->title}}">
+                    @endif
+                    @if ($unit->path_image_icon)
+                        <img class="unit05-show__header__images__logo" src="{{ asset('storage/'. $unit->path_image_icon) }}"
+                        alt="Logomarca da unidade {{$unit->title}}">
+                    @endif
                 </div>
-
-                <menu class="unit05-show__header__information__menu">
-                    @for ($i = 0; $i < 3; $i++)
-                        <a class="unit05-show__header__information__menu__item" title="{{-- BACKEND INSERIR A VARIAVEL DO LINK AQUI --}}"
-                            href="#">ver mais</a>
-                    @endfor
-                </menu>
-
-            </section>
+            @endif
+            @if ($unit->title || $unit->text || $unit->subtitle || $links->count())
+                <section class="unit05-show__header__information">
+                    @if ($unit->subtitle)
+                        <h3 class="unit05-show__header__information__subtitle">{{$unit->subtitle}}</h3>
+                    @endif
+                    @if ($unit->title)
+                        <h2 class="unit05-show__header__information__title">{{$unit->title}}</h2>
+                    @endif
+                    @if ($unit->text)
+                        <div class="unit05-show__header__information__paragraph">
+                            <p>{!! $unit->text !!}</p>
+                        </div>
+                    @endif
+                    @if ($links->count())
+                        <menu class="unit05-show__header__information__menu">
+                            @foreach ($links as $link)
+                                <a class="unit05-show__header__information__menu__item" title="{{$link->title}}"
+                                    href="{{getUri($link->link)}}" target="{{$link->target_link}}">{{$link->title}}</a>
+                            @endforeach
+                        </menu>
+                    @endif
+                </section>
+            @endif
         </header>
+        @if ($contents->count())
+            @foreach ($contents as $content)
+                <section class="unit05-show__content">
+                    <div class="unit05-show__content__information">
+                        @if ($content->subtitle)
+                            <h3 class="unit05-show__content__information__subtitle">{{$content->subtitle}}</h3>
+                        @endif
+                        @if ($content->title)
+                            <h2 class="unit05-show__content__information__title">{{$content->title}}</h2>
+                        @endif
+                        @if ($content->text)
+                            <div class="unit05-show__content__information__paragraph">
+                                <p>
+                                    {!! $content->text !!}
+                                </p>
+                            </div>
+                        @endif
+                    </div>
+                    @if ($content->path_image)
+                        <img src="{{ asset('storage/' . $content->path_image) }}" loading='lazy'
+                            alt="Banner da seção {{$content->title}}" class="unit05-show__content__image">
+                    @endif
+                </section>
+            @endforeach
+        @endif
+        @if ($relatedUnits->count())
+            <section class="unit05-show__related">
+                <header class="unit05-show__related__header">
+                    <h2 class="unit05-show__related__header__title">{{$unit->category->title}}</h2>
+                    <h3 class="unit05-show__related__header__subtitle">{{$unit->subcategory->title}}</h3>
+                </header>
+                <div class="unit05-show__related__carousel">
+                    <div class="unit05-show__related__carousel__swiper-wrapper swiper-wrapper">
+                        @foreach ($relatedUnits as $relatedUnit)
+                            <article class="unit05-show__related__carousel__item swiper-slide" style="position: relative">
+                                {{-- FRONTEND ajustar link-full --}}
+                                <a title="{{$relatedUnit->title}}" href="{{ route('unit05.show', ['UNIT05UnitsCategory' => $relatedUnit->category->slug, 'UNIT05UnitsSubcategory' => $relatedUnit->subcategory->slug, 'UNIT05Units' => $relatedUnit->slug]) }}"
+                                    class="link-full">
+                                </a>
+                                @if ($relatedUnit->path_image_box)
+                                    <img class="unit05-show__related__carousel__item__bg" src="{{ asset('storage/'. $relatedUnit->path_image_box) }}"
+                                    alt="Imagem de background {{$relatedUnit->title}}">
+                                @endif
+                                <div class="unit05-show__related__carousel__item__information">
+                                    @if ($relatedUnit->path_image_icon)
+                                        <img class="unit05-show__related__carousel__item__information__logo"
+                                            src="{{ asset('storage/'. $relatedUnit->path_image_icon) }}" alt="Logo marca da unidade {{$relatedUnit->title}}">
+                                    @endif
+                                    @if ($relatedUnit->subtitle)
+                                        <h4 class="unit05-show__related__carousel__item__information__subtitle">{{$relatedUnit->subtitle}}</h4>
+                                    @endif
+                                    @if ($relatedUnit->title)
+                                        <h3 class="unit05-show__related__carousel__item__information__title">{{$relatedUnit->title}}</h3>
+                                    @endif
+                                    @if ($relatedUnit->description)
+                                        <div class="unit05-show__related__carousel__item__information__paragraph">
+                                            <p>
+                                                {!! $relatedUnit->description !!}
+                                            </p>
+                                        </div>
+                                    @endif
+                                    @if ($relatedUnit->links->count())
+                                        @foreach ($relatedUnit->links as $relatedLink)
+                                            <a href="{{getUri($relatedLink->link)}}" target="{{$relatedLink->target_link}}"
+                                                class="unit05-show__related__carousel__item__information__cta">
+                                                {{$relatedLink->title}}
+                                            </a>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
 
-        @for ($i = 0; $i < 2; $i++)
-            <section class="unit05-show__content">
-
-                <div class="unit05-show__content__information">
-                    <h3 class="unit05-show__content__information__subtitle">Subtítle</h3>
-                    <h2 class="unit05-show__content__information__title">Títle</h2>
-                    <div class="unit05-show__content__information__paragraph">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida
-                            sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu
-                            eget
-                            purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo
-                            porta
-                            velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt
-                            dignissim
-                            faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus
-                            gravida
-                            sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu
-                            eget
-                            purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectet
-                        </p>
+                    <div class="unit05-show__related__carousel__nav">
+                        <div class="unit05-show__related__carousel__nav__swiper-button-prev swiper-button-prev"></div>
+                        <div class="unit05-show__related__carousel__nav__swiper-button-next swiper-button-next"></div>
                     </div>
                 </div>
-
-                <img src="{{ asset('storage/uploads/tmp/bloco.png') }}" loading='lazy'
-                    alt="Banner da seção [BACKEND add título da seção aqui]" class="unit05-show__content__image">
             </section>
-        @endfor
-
-
-        <section class="unit05-show__related">
-            <header class="unit05-show__related__header">
-                <h2 class="unit05-show__related__header__title">Categoria</h2>
-                <h3 class="unit05-show__related__header__subtitle">Subcategoria</h3>
-            </header>
-
-            <div class="unit05-show__related__carousel">
-                <div class="unit05-show__related__carousel__swiper-wrapper swiper-wrapper">
-                    @for ($i = 0; $i < 5; $i++)
-                        <article class="unit05-show__related__carousel__item swiper-slide">
-                            <img class="unit05-show__related__carousel__item__bg" src="{{ asset('images/banner.png') }}"
-                                alt="Imagem de background {{-- BACKEND: Inserir variavel de titulo e subtitulo --}}">
-
-                            <div class="unit05-show__related__carousel__item__information">
-                                <img class="unit05-show__related__carousel__item__information__logo"
-                                    src="{{ asset('images/logo-client.svg') }}"
-                                    alt="Logo marca do serviço {{-- BACKEND: Inserir variavel de titulo e subtitulo --}}">
-
-                                <h4 class="unit05-show__related__carousel__item__information__subtitle">Subtítulo</h4>
-                                <h3 class="unit05-show__related__carousel__item__information__title">Titulo Topico</h3>
-                                <div class="unit05-show__related__carousel__item__information__paragraph">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                                </div>
-                                {{-- BACKEND: LEMBRANDO QUE AQUI SO VAI IMPRIMIR NO MAXIMO DOIS --}}
-                                @for ($j = 0; $j < 2; $j++)
-                                    <a href="#" class="unit05-show__related__carousel__item__information__cta">CTA</a>
-                                @endfor
-                            </div>
-                        </article>
-                    @endfor
-                </div>
-
-                <div class="unit05-show__related__carousel__nav">
-                    <div class="unit05-show__related__carousel__nav__swiper-button-prev swiper-button-prev"></div>
-                    <div class="unit05-show__related__carousel__nav__swiper-button-next swiper-button-next"></div>
-                </div>
-            </div>
-        </section>
+        @endif
 
         @foreach ($sections as $section)
             {!! $section !!}

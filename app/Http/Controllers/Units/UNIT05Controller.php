@@ -236,13 +236,21 @@ class UNIT05Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(UNIT05Units $UNIT05Units)
-    public function show()
+    public function show($UNIT05UnitsCategory, $UNIT05UnitsSubcategory, UNIT05Units $UNIT05Units)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT05', 'show');
 
+        $links = UNIT05UnitsLink::where('unit_id', $UNIT05Units->id)->active()->sorting()->get();
+        $contents = UNIT05UnitsContent::where('unit_id', $UNIT05Units->id)->active()->sorting()->get();
+        $relatedUnits = UNIT05Units::where('category_id', $UNIT05Units->category_id)->whereNotIn('id', [$UNIT05Units->id])->active()->sorting()->get();
+
         return view('Client.pages.Units.UNIT05.show', [
-            'sections' => $sections
+            'sections' => $sections,
+            'unit' => $UNIT05Units,
+            'links' => $links,
+            'contents' => $contents,
+            'relatedUnits' => $relatedUnits
         ]);
     }
 
@@ -257,16 +265,44 @@ class UNIT05Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT05', 'page');
 
-        if (!$UNIT05UnitsCategory->exists) {
-            $UNIT05UnitsCategory = UNIT05UnitsCategory::exists()->sorting()->active()->first();
-        }
+        // if (!$UNIT05UnitsCategory->exists) {
+        //     $UNIT05UnitsCategory = UNIT05UnitsCategory::exists()->sorting()->active()->first();
+        // }
 
         $categories = UNIT05UnitsCategory::exists()->active()->sorting()->get();
-        $subcategories = UNIT05UnitsSubcategory::getSubCategoryByCategory($UNIT05UnitsCategory);
-        $units = UNIT05Units::with(['links', 'category', 'subcategory'])->where('category_id', $UNIT05UnitsCategory->id)->active()->sorting()->get();
-        if($UNIT05UnitsSubcategory->exists){
-            $units = $units->where('subcategory_id', $UNIT05UnitsSubcategory->id);
+        // $subcategories = UNIT05UnitsSubcategory::getSubCategoryByCategory($UNIT05UnitsCategory);
+
+        $subcategories = UNIT05UnitsSubcategory::exists()->sorting()->active()
+            ->whereHas('units', function ($query) use ($UNIT05UnitsCategory) {
+            $query->where('category_id', $UNIT05UnitsCategory->id);
+        })->get();
+
+        //Buscador
+        $search = $request->buscar;
+
+        $unitsQuery = UNIT05Units::with(['links', 'category', 'subcategory'])->active()->sorting();
+
+        if ($search) {
+            $unitsQuery->where(function ($query) use ($search) {
+                $query->where('title', 'like', "%$search%")
+                      ->orWhere('description', 'like', "%$search%")
+                      ->orWhereHas('category', function ($query) use ($search) {
+                          $query->where('title', 'like', "%$search%");
+                      })
+                      ->orWhereHas('subcategory', function ($query) use ($search) {
+                          $query->where('title', 'like', "%$search%");
+                      });
+            });
+        } else {
+            $unitsQuery->where('category_id', $UNIT05UnitsCategory->id);
+
+            if ($UNIT05UnitsSubcategory && $UNIT05UnitsSubcategory->exists) {
+                $unitsQuery->where('subcategory_id', $UNIT05UnitsSubcategory->id);
+            }
         }
+
+        $units = $unitsQuery->get();
+
         $section = UNIT05UnitsSection::activeBanner()->sorting()->first();
         switch(deviceDetect()) {
             case "table":
@@ -274,8 +310,6 @@ class UNIT05Controller extends Controller
                 if ($section) $section->path_image_desktop_banner = $section->path_image_mobile_banner;
             break;
         }
-
-        // dd($units);
 
         return view('Client.pages.Units.UNIT05.page', [
             'sections' => $sections,
@@ -299,10 +333,7 @@ class UNIT05Controller extends Controller
         $galleries = UNIT05UnitsGallery::sorting()->get();
         $categories = UNIT05UnitsCategory::exists()->active()->featured()->sorting()->get();
         $categoryFirst = UNIT05UnitsCategory::exists()->active()->featured()->sorting()->first();
-
         $subcategories = UNIT05UnitsSubcategory::getSubCategoryByCategory($categoryFirst);
-
-        // dd($subcategories);
 
         return view('Client.pages.Units.UNIT05.section', [
             'section' => $section,

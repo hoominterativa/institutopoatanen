@@ -11,7 +11,7 @@
                 @endif
             </section>
         @endif
-        <form class="unit05-page__form">
+        <form action="{{route('unit05.search')}}" method="GET" class="unit05-page__form">
             <div class="unit05-page__form__input">
                 <input type="search" name="buscar" placeholder="Buscar">
             </div>
