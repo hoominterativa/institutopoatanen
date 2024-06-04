@@ -2360,6 +2360,59 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "UNIT05" : {
+            "path_image": {
+                "width": "800",
+                "height": "700",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "500",
+                "height": "450",
+                "activeCrop": "false"
+            },
+            "Content": {
+                "path_image": {
+                    "width": "800",
+                    "height": "700",
+                    "activeCrop":"false"
+                }
+            },
+            "Subcategory": {
+                "path_image_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop":"false"
+                }
+            },
+            "Section": {
+                "path_image_mobile_section": {
+                    "width": "500",
+                    "height": "400",
+                    "activeCrop":"true"
+                },
+                "path_image_desktop_section": {
+                    "width": "1200",
+                    "height": "450",
+                    "activeCrop":"true"
+                },
+                "path_image_desktop_banner": {
+                    "width": "1200",
+                    "height": "400",
+                    "activeCrop":"false"
+                },
+                "path_image_mobile_banner": {
+                    "width": "1200",
+                    "height": "600",
+                    "activeCrop":"true"
+                }
+            }
         }
     },
     "WorkWith": {

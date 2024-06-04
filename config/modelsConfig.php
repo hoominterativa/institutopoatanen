@@ -14,24 +14,44 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Schedules' => (object) [
-            'SCHE01' => (object)[
+        'Units' => (object) [
+            'UNIT05' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Agenda',
-                    'anchor' =>  false,
-                    'linkMenu' => 'sche01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Agenda',
-                    'iconPanel' => 'mdi-calendar-month-outline'
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' => (object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ],
+                        'subcategory' =>(object)[
+                            'name' => 'Subcategoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
                 ],
-                'IncludeSections' => (object) [],
+                'config' => (object) [
+                    'titleMenu' => 'Unidades',
+                    'anchor' => false,
+                    'linkMenu' => 'unit05.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Unidades',
+                    'iconPanel' => 'mdi-warehouse'
+                ],
+                'IncludeSections' => (object) []
             ],
         ],
+
     ],
 
     'ModelsForm' => (object)[

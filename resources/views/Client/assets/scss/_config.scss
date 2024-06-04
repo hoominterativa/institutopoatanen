@@ -26,8 +26,9 @@ body {
         margin-bottom: 0;
     }
 
-    diaglog{
-        pointer-events: auto;
+    menu {
+        margin: 0;
+        padding: 0;
     }
 
     /* CARROSSEL - SWIPER */
@@ -46,8 +47,6 @@ body {
         bottom: unset;
         left: unset;
     }
-
-
 }
 /************************************************************ ACCORDION PADRÃO ************************************************************/
 details {
@@ -1964,7 +1963,7 @@ body {
                 letter-spacing: inherit;
                 color: inherit;
                 letter-spacing: inherit;
-                margin: inherit;
+                margin: 0;
             }
 
             @include large-device-down {
@@ -2014,7 +2013,7 @@ body {
                 letter-spacing: inherit;
                 color: inherit;
                 letter-spacing: inherit;
-                margin: inherit;
+                margin: 0;
             }
 
             @include large-device-down {

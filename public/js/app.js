@@ -11837,7 +11837,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_Schedules_SCHE01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Schedules/SCHE01/src/main */ "./resources/views/Client/pages/Schedules/SCHE01/src/main.js");
+/* harmony import */ var _pages_Units_UNIT05_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Units/UNIT05/src/main */ "./resources/views/Client/pages/Units/UNIT05/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
 /* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -12350,22 +12350,58 @@ if (sideLinks.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Schedules/SCHE01/src/main.js":
-/*!*******************************************************************!*\
-  !*** ./resources/views/Client/pages/Schedules/SCHE01/src/main.js ***!
-  \*******************************************************************/
+/***/ "./resources/views/Client/pages/Units/UNIT05/src/main.js":
+/*!***************************************************************!*\
+  !*** ./resources/views/Client/pages/Units/UNIT05/src/main.js ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".sche01__carousel", {
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit05__categories", {
+  slidesPerView: "auto",
+  spaceBetween: 12
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit05__content__gallery", {
+  slidesPerView: 1,
+  navigation: {
+    prevEl: ".unit05__content__gallery__nav__swiper-button-prev",
+    nextEl: ".unit05__content__gallery__nav__swiper-button-next"
+  }
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit05__content__information__subcategories", {
+  slidesPerView: "auto",
+  spaceBetween: 8,
+  navigation: {
+    prevEl: ".unit05__content__information__subcategories__nav__swiper-button-prev",
+    nextEl: ".unit05__content__information__subcategories__nav__swiper-button-next"
+  },
+  breakpointsBase: "container",
+  breakpoints: {
+    620: {
+      slidesPerView: 4
+    },
+    500: {
+      slidesPerView: 3
+    }
+  }
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit05-page__menus__categories", {
+  slidesPerView: "auto",
+  spaceBetween: 12
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit05-page__menus__subcategories", {
+  slidesPerView: "auto",
+  spaceBetween: 12
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit05-show__related__carousel", {
   slidesPerView: "auto",
   spaceBetween: 12,
   navigation: {
-    prevEl: ".sche01__carousel__nav__swiper-button-prev",
-    nextEl: ".sche01__carousel__nav__swiper-button-next"
+    prevEl: ".unit05-show__related__carousel__nav__swiper-button-prev",
+    nextEl: ".unit05-show__related__carousel__nav__swiper-button-next"
   }
 });
 
