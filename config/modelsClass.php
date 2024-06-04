@@ -509,7 +509,15 @@ return [
             'SERV12' => (object)[
                 'controller' => App\Http\Controllers\Services\SERV12Controller::class,
                 'model' => App\Models\Services\SERV12Services::class,
-                'seedQty' => 6,
+                'seedQty' => 12,
+                'routeName' => 'serv12.show',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV12ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ]
+                ]
             ],
         ],
         // END SERVICES

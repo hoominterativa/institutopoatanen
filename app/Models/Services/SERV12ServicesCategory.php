@@ -2,21 +2,21 @@
 
 namespace App\Models\Services;
 
-use Database\Factories\Services\SERV12ServicesFactory;
+use Database\Factories\Services\SERV12ServicesCategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SERV12Services extends Model
+class SERV12ServicesCategory extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return SERV12ServicesFactory::new();
+        return SERV12ServicesCategoryFactory::new();
     }
 
-    protected $table = "serv12_services";
-    protected $fillable = ['category_id', 'slug', 'title', 'subtitle', 'description', 'text', 'path_image', 'path_image_icon', 'active', 'featured', 'sorting'];
+    protected $table = "serv12_services_categories";
+    protected $fillable = ['slug', 'title', 'text', 'path_image', 'active', 'featured', 'sorting'];
 
     public function scopeSorting($query)
     {
@@ -33,8 +33,8 @@ class SERV12Services extends Model
         return $query->where('featured', 1);
     }
 
-    public function category()
+    public function services()
     {
-        return $this->belongsTo(SERV12ServicesCategory::class, 'category_id');
+        return $this->hasMany(SERV12Services::class, 'category_id')->active()->sorting();
     }
 }

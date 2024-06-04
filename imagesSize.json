@@ -1869,6 +1869,25 @@
                     "activeCrop": "true"
                 }
             }
+        },
+        "SERV12": {
+            "path_image": {
+                "width": "582",
+                "height": "341",
+                "activeCrop": "false"
+            },
+            "path_image_icon": {
+                "width": "200",
+                "height": "200",
+                "activeCrop": "false"
+            },
+            "Category": {
+                "path_image": {
+                    "width": "582",
+                    "height": "341",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
     "Slides": {

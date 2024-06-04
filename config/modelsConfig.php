@@ -19,8 +19,22 @@ return [
                 'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown        
+                'ViewListFooter' => true,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title',
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
+                ],
                 'config' => (object) [
                     'titleMenu' => 'Serviços',
                     'anchor' =>  false,
@@ -29,36 +43,10 @@ return [
                     'titlePanel' => 'Serviços',
                     'iconPanel' => 'mdi-alpha-s-box-outline'
                 ],
-                'IncludeSections' => (object) []
-            ]
-        ],
-        'Abouts' => (object) [
-            'ABOU01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => '',
-                ],
-                'config' => (object) [
-                'titleMenu' => 'Sobre',
-                'anchor' => false,
-                'linkMenu' => 'abou01.page',
-                'iconMenu' => '',
-                'titlePanel' => 'Sobre',
-                'iconPanel' => 'mdi-information'
-                ],
                 'IncludeSections' => (object) [
-                ],
-            ],
-        ],
+                ]
+            ]
+        ]
     ],
 
     'ModelsForm' => (object)[

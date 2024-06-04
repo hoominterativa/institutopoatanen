@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Module', 'CODE')}}</li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Services', 'SERV12')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Module', 'CODE')}}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Services', 'SERV12')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -26,10 +26,10 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <button id="btSubmitDelete" data-route="{{route('admin.code.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                        <button id="btSubmitDelete" data-route="{{route('admin.serv12.destroySelected')}}" type="button" class="btn btn-danger btnDeleteServices" style="display: none;">Deletar selecionados</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="{{route('admin.code.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        <a href="{{route('admin.serv12.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                     </div>
                                 </div>
                                 <table class="table table-bordered table-sortable">
@@ -37,31 +37,30 @@
                                         <tr>
                                             <th width="50px"></th>
                                             <th width="30px" class="bs-checkbox">
-                                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                                <label><input name="btnSelectAll" value="" type="checkbox"></label>
+                                                <label><input name="btnSelectAll" value="btnDeleteServices" type="checkbox"></label>
                                             </th>
                                             <th>Imagem</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Job Title</th>
-                                            <th>DOB</th>
+                                            <th>Categoria</th>
+                                            <th>Título/Subtítulo</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
                                         </tr>
                                     </thead>
 
-                                    <tbody data-route="{{route('admin.code.sorting')}}">
-                                        @foreach ($teste as $test)
-                                            <tr data-code="{{$test->id}}">
+                                    <tbody data-route="{{route('admin.serv12.sorting')}}">
+                                        @foreach ($services as $service)
+                                            <tr data-code="{{$service->id}}">
                                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox align-middle">
-                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$test->id}}"></label>
+                                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$service->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('Admin/assets/images/users/user-10.jpg')}})"></div>
+                                                    @if ($service->path_image)
+                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'. $service->path_image)}})"></div>
+                                                    @endif
                                                 </td>
-                                                <td class="align-middle">Boudreaux</td>
-                                                <td class="align-middle">Traffic Court Referee</td>
+                                                <td class="align-middle">{{$service->category->title}}</td>
+                                                <td class="align-middle">{{implode(array_slice())}}</td>
                                                 <td class="align-middle">22 Jun 1972</td>
                                                 <td class="align-middle">22 Jun 1972</td>
                                                 <td class="align-middle">
