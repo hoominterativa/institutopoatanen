@@ -13,7 +13,7 @@
         @endif
         <form action="{{route('unit05.search')}}" method="GET" class="unit05-page__form">
             <div class="unit05-page__form__input">
-                <input type="search" name="buscar" placeholder="Buscar">
+                <input type="search" name="buscar" placeholder="Buscar" value="{{request()->buscar}}">
             </div>
             <button class="unit05-page__form__submit" type="submit">
                 <img src="{{ asset('storage/uploads/tmp/lupa.png') }}" alt="Lupa">

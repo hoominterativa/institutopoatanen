@@ -33,7 +33,7 @@ class UNIT05UnitsSubcategory extends Model
         return $this->hasMany(UNIT05Units::class, 'subcategory_id')->active()->sorting();
     }
 
-    public static function getSubCategoryByCategory( UNIT05UnitsCategory $category)
+    public static function getSubCategoryByCategory($category)
     {
         return self::whereHas('units', function ($query) use ($category) {
             $query->where('category_id', $category->id);

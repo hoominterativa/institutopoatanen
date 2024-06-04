@@ -265,26 +265,25 @@ class UNIT05Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Units', 'UNIT05', 'page');
 
-        // if (!$UNIT05UnitsCategory->exists) {
-        //     $UNIT05UnitsCategory = UNIT05UnitsCategory::exists()->sorting()->active()->first();
-        // }
-
-        $categories = UNIT05UnitsCategory::exists()->active()->sorting()->get();
-        // $subcategories = UNIT05UnitsSubcategory::getSubCategoryByCategory($UNIT05UnitsCategory);
-
-        $subcategories = UNIT05UnitsSubcategory::exists()->sorting()->active()
-            ->whereHas('units', function ($query) use ($UNIT05UnitsCategory) {
-            $query->where('category_id', $UNIT05UnitsCategory->id);
-        })->get();
-
         //Buscador
         $search = $request->buscar;
+
+        if (!$UNIT05UnitsCategory->exists && !$search) {
+            $UNIT05UnitsCategory = UNIT05UnitsCategory::exists()->sorting()->active()->first();
+        }
+
+        $categories = UNIT05UnitsCategory::exists()->active()->sorting()->get();
+        // $subcategories = UNIT05UnitsSubcategory::query();
+        $subcategories = UNIT05UnitsSubcategory::getSubCategoryByCategory($UNIT05UnitsCategory);
+
+        // dd($UNIT05UnitsCategory);
 
         $unitsQuery = UNIT05Units::with(['links', 'category', 'subcategory'])->active()->sorting();
 
         if ($search) {
             $unitsQuery->where(function ($query) use ($search) {
                 $query->where('title', 'like', "%$search%")
+                      ->orWhere('subtitle', 'like', "%$search%")
                       ->orWhere('description', 'like', "%$search%")
                       ->orWhereHas('category', function ($query) use ($search) {
                           $query->where('title', 'like', "%$search%");
@@ -301,7 +300,7 @@ class UNIT05Controller extends Controller
             }
         }
 
-        $units = $unitsQuery->get();
+        $units = $unitsQuery->active()->sorting()->get();
 
         $section = UNIT05UnitsSection::activeBanner()->sorting()->first();
         switch(deviceDetect()) {
