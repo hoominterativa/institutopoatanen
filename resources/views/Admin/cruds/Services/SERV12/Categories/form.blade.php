@@ -1,16 +1,16 @@
 <div class="row col-12">
-    <div class="col-12">
+    <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
                 {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title']) !!}
             </div>
             <div class="normal-editor__content mb-3">
-                {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
-                {!! Form::textarea('description', null, [
+                {!! Form::label('text', 'Descrição', ['class' => 'form-label']) !!}
+                {!! Form::textarea('text', null, [
                     'class' => 'form-control normal-editor',
                     'data-height' => 500,
-                    'id' => 'description',
+                    'id' => 'text',
                 ]) !!}
             </div>
         </div>

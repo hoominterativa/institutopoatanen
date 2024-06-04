@@ -25,9 +25,11 @@ class SERV12Controller extends Controller
     public function index()
     {
         $services = SERV12Services::sorting()->get();
+        $categories = SERV12ServicesCategory::sorting()->get();
         return view('Admin.cruds.Services.SERV12.index',[
             'cropSetting' => getCropImage('Services', 'SERV12'),
-            'services' => $services
+            'services' => $services,
+            'categories' => $categories
         ]);
     }
 
