@@ -588,6 +588,11 @@ return [
                 'model' => App\Models\Topics\TOPI10Topics::class,
                 'seedQty' => 6,
             ],
+            'TOPI10V1' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI10V1Controller::class,
+                'model' => App\Models\Topics\TOPI10V1Topics::class,
+                'seedQty' => 6,
+            ],
             'TOPI11' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI11Controller::class,
                 'model' => App\Models\Topics\TOPI11Topics::class,

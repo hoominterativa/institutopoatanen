@@ -2041,6 +2041,18 @@
                 "activeCrop": "false"
             }
         },
+        "TOPI10V1": {
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_box": {
+                "width": "360",
+                "height": "232",
+                "activeCrop": "false"
+            }
+        },
         "TOPI11": {
             "path_image_icon": {
                 "width": "300",
