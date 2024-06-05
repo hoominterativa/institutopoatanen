@@ -14,41 +14,21 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Units' => (object) [
-            'UNIT05' => (object)[
+        'Topics' => (object) [
+            'TOPI10V1' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' => (object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ],
-                        'subcategory' =>(object)[
-                            'name' => 'Subcategoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'Unidades',
-                    'anchor' => false,
-                    'linkMenu' => 'unit05.page',
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Unidades',
-                    'iconPanel' => 'mdi-warehouse'
-                ],
-                'IncludeSections' => (object) []
+                    'titlePanel' => 'Tópicos V1',
+                    'iconPanel' => 'mdi-apps'
+                ]
             ],
         ],
 
