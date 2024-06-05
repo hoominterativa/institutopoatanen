@@ -51,7 +51,7 @@
                                 <div class="unit05__content__information__subcategories__item swiper-slide">
                                     <a title="{{ $subcategory->title }}"
                                         href="{{ route('unit05.subcategory.page', ['UNIT05UnitsCategory' => $category->slug, 'UNIT05UnitsSubcategory' => $subcategory->slug]) }}"
-                                        class="unit05__content__information__subcategories__item__title"></a>
+                                        class="link-full"></a>
                                     @if ($subcategory->path_image_icon)
                                         <img src="{{ asset('storage/' . $subcategory->path_image_icon) }}"
                                             alt="Ícone de {{ $subcategory->title }}" loading='lazy'

@@ -2512,6 +2512,7 @@ body .owl-dots .owl-dot.active {
 .unit05__content__information__subcategories {
   width: 100%;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 @media (max-width: 991.98px) {
   .unit05__content__information__subcategories {

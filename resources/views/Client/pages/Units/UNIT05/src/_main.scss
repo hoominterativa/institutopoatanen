@@ -75,6 +75,7 @@
             &__subcategories {
                 width: 100%;
                 overflow: hidden;
+                margin-bottom: 1rem;
 
                 @include large-device-down {
                     overflow: visible;
