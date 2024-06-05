@@ -1674,20 +1674,20 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.topi10, .topi09, .cont06, .cont02, .serv11-show__information, .serv11-page__section-service, .serv11, .cont11__information, .sche01-page__content, .sche01-show__content, .sche01, .bran01-page__main, .bran01, .unit05-show__related, .unit05-show__content, .unit05-show__header, .unit05-page__services, .unit05-page__menus__subcategories, .unit05-page__form, .unit05__content, .unit05__categories, .unit05-page__menus__categories, .slid01__item, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .serv11-page__banner, .sche01-show__banner, .sche01-page__banner, .bran01-page__banner, .unit05-page__banner {
+.topi10v1, .topi10, .topi09, .cota02__form, .cota02__topics, .cont06, .cont02, .serv11-show__information, .serv11-page__section-service, .serv11, .cont11__information, .sche01-page__content, .sche01-show__content, .sche01, .bran01-page__main, .bran01, .unit05-show__related, .unit05-show__content, .unit05-show__header, .unit05-page__services, .unit05-page__menus__subcategories, .unit05-page__form, .unit05__content, .unit05__categories, .unit05-page__menus__categories, .slid01__item, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .cota02__banner, .serv11-page__banner, .sche01-show__banner, .sche01-page__banner, .bran01-page__banner, .unit05-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.serv11-page__banner__title, .sche01-show__banner__title, .sche01-page__banner__title, .bran01-page__banner__title, .unit05-page__banner__title, .unit05-show__header__information__title, .slid01__item__header__title {
+.cota02__banner__title, .serv11-page__banner__title, .sche01-show__banner__title, .sche01-page__banner__title, .bran01-page__banner__title, .unit05-page__banner__title, .unit05-show__header__information__title, .slid01__item__header__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .serv11-page__banner__title, .sche01-show__banner__title, .sche01-page__banner__title, .bran01-page__banner__title, .unit05-page__banner__title, .unit05-show__header__information__title, .slid01__item__header__title {
+  .cota02__banner__title, .serv11-page__banner__title, .sche01-show__banner__title, .sche01-page__banner__title, .bran01-page__banner__title, .unit05-page__banner__title, .unit05-show__header__information__title, .slid01__item__header__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
@@ -1695,55 +1695,55 @@ body .owl-dots .owl-dot.active {
 .unit05-show__header__information__title, .slid01__item__header__title {
   color: #000;
 }
-.serv11-page__banner__title, .sche01-show__banner__title, .sche01-page__banner__title, .bran01-page__banner__title, .unit05-page__banner__title {
+.cota02__banner__title, .serv11-page__banner__title, .sche01-show__banner__title, .sche01-page__banner__title, .bran01-page__banner__title, .unit05-page__banner__title {
   color: #404040;
 }
-.topi10__header__title, .cont06__header__title, .cont02__information__title, .serv11__header__title, .cont11__information__title, .sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .bran01__header__title, .bran01-page__main__header__title, .unit05__content__information__title, .serv11-show__information__header__title, .serv11-page__section-service__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title, .unit05-show__related__header__title, .unit05-show__content__information__title {
+.topi10v1__header__title, .topi10__header__title, .cota02__form__header__title, .cont06__header__title, .cont02__information__title, .serv11__header__title, .cont11__information__title, .sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .bran01__header__title, .bran01-page__main__header__title, .unit05__content__information__title, .serv11-show__information__header__title, .serv11-page__section-service__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title, .unit05-show__related__header__title, .unit05-show__content__information__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .topi10__header__title, .cont06__header__title, .cont02__information__title, .serv11__header__title, .cont11__information__title, .sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .bran01__header__title, .bran01-page__main__header__title, .unit05__content__information__title, .serv11-show__information__header__title, .serv11-page__section-service__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title, .unit05-show__related__header__title, .unit05-show__content__information__title {
+  .topi10v1__header__title, .topi10__header__title, .cota02__form__header__title, .cont06__header__title, .cont02__information__title, .serv11__header__title, .cont11__information__title, .sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .bran01__header__title, .bran01-page__main__header__title, .unit05__content__information__title, .serv11-show__information__header__title, .serv11-page__section-service__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title, .unit05-show__related__header__title, .unit05-show__content__information__title {
     font-size: 1.875rem;
   }
 }
 .serv11-show__information__header__title, .serv11-page__section-service__header__title, .sche01-page__content__main__list__item__header__information__title, .sche01-show__content__main__header__information__title, .sche01-page__content__main__top__title, .unit05-show__related__header__title, .unit05-show__content__information__title {
   color: #000;
 }
-.topi10__header__title, .cont06__header__title, .cont02__information__title, .serv11__header__title, .cont11__information__title, .sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .bran01__header__title, .bran01-page__main__header__title, .unit05__content__information__title {
+.topi10v1__header__title, .topi10__header__title, .cota02__form__header__title, .cont06__header__title, .cont02__information__title, .serv11__header__title, .cont11__information__title, .sche01-page__content__aside__form__header__title, .sche01-show__content__aside__form__header__title, .sche01__header__title, .bran01__header__title, .bran01-page__main__header__title, .unit05__content__information__title {
   color: #404040;
 }
-.serv11-page__banner__subtitle, .sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .bran01-page__banner__subtitle, .unit05-page__banner__subtitle, .slid01__item__header__subtitle, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
+.cota02__banner__subtitle, .serv11-page__banner__subtitle, .sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .bran01-page__banner__subtitle, .unit05-page__banner__subtitle, .slid01__item__header__subtitle, .cota02__topics__item__title, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .serv11-page__banner__subtitle, .sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .bran01-page__banner__subtitle, .unit05-page__banner__subtitle, .slid01__item__header__subtitle, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
+  .cota02__banner__subtitle, .serv11-page__banner__subtitle, .sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .bran01-page__banner__subtitle, .unit05-page__banner__subtitle, .slid01__item__header__subtitle, .cota02__topics__item__title, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
     font-size: 1.563rem;
   }
 }
-.sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
+.cota02__topics__item__title, .sche01-show__content__main__subtitle, .sche01-page__content__main__list__item__header__date__day, .sche01-show__content__main__header__date__day {
   color: #404040;
 }
 .slid01__item__header__subtitle {
   color: #7c7c7c;
 }
-.serv11-page__banner__subtitle, .sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .bran01-page__banner__subtitle, .unit05-page__banner__subtitle {
+.cota02__banner__subtitle, .serv11-page__banner__subtitle, .sche01-show__banner__subtitle, .sche01-page__banner__subtitle, .bran01-page__banner__subtitle, .unit05-page__banner__subtitle {
   color: #b3b3b3;
 }
-.topi10__header__subtitle, .cont02__information__subtitle, .serv11__header__subtitle, .cont11__information__subtitle, .sche01__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .unit05-show__header__information__subtitle, .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle, .serv11-show__information__header__subtitle, .serv11-page__section-service__header__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .unit05-show__related__header__subtitle, .unit05-show__content__information__subtitle, .topi10__topics__item__header__title, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .unit05__content__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item, .unit05-page__menus__categories__item {
+.topi10v1__header__subtitle, .topi10__header__subtitle, .cont02__information__subtitle, .serv11__header__subtitle, .cont11__information__subtitle, .sche01__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .unit05-show__header__information__subtitle, .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle, .serv11-show__information__header__subtitle, .serv11-page__section-service__header__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .unit05-show__related__header__subtitle, .unit05-show__content__information__subtitle, .topi10v1__topics__item__header__title, .topi10__topics__item__header__title, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .unit05__content__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item, .unit05-page__menus__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .topi10__header__subtitle, .cont02__information__subtitle, .serv11__header__subtitle, .cont11__information__subtitle, .sche01__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .unit05-show__header__information__subtitle, .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle, .serv11-show__information__header__subtitle, .serv11-page__section-service__header__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .unit05-show__related__header__subtitle, .unit05-show__content__information__subtitle, .topi10__topics__item__header__title, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .unit05__content__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item, .unit05-page__menus__categories__item {
+  .topi10v1__header__subtitle, .topi10__header__subtitle, .cont02__information__subtitle, .serv11__header__subtitle, .cont11__information__subtitle, .sche01__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .unit05-show__header__information__subtitle, .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle, .serv11-show__information__header__subtitle, .serv11-page__section-service__header__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .unit05-show__related__header__subtitle, .unit05-show__content__information__subtitle, .topi10v1__topics__item__header__title, .topi10__topics__item__header__title, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .unit05__content__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item, .unit05-page__menus__categories__item {
     font-size: 1.125rem;
   }
 }
-.topi10__topics__item__header__title, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .unit05__content__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item, .unit05-page__menus__categories__item {
+.topi10v1__topics__item__header__title, .topi10__topics__item__header__title, .sche01-page__content__aside__month-categories__item__title, .sche01-show__content__aside__month-categories__item__title, .unit05__content__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit05__categories__item, .unit05-page__menus__categories__item {
   color: #000;
 }
 .serv11-show__information__header__subtitle, .serv11-page__section-service__header__subtitle, .sche01-page__content__main__list__item__header__information__topics__item, .sche01-show__content__main__header__information__topics__item, .sche01-page__content__main__list__item__header__date__month, .sche01-show__content__main__header__date__month, .unit05-show__related__header__subtitle, .unit05-show__content__information__subtitle {
@@ -1752,7 +1752,7 @@ body .owl-dots .owl-dot.active {
 .sche01-page__content__aside__form__header__subtitle, .sche01-show__content__aside__form__header__subtitle, .sche01-page__content__main__top__subtitle {
   color: #7c7c7c;
 }
-.topi10__header__subtitle, .cont02__information__subtitle, .serv11__header__subtitle, .cont11__information__subtitle, .sche01__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .unit05-show__header__information__subtitle {
+.topi10v1__header__subtitle, .topi10__header__subtitle, .cont02__information__subtitle, .serv11__header__subtitle, .cont11__information__subtitle, .sche01__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .unit05-show__header__information__subtitle {
   color: #b3b3b3;
 }
 .sche01-page__content__main__list__item__header__date__year, .sche01-show__content__main__header__date__year, .serv11__services__item__title, .serv11-page__section-service__list__item__title, .sche01__carousel__item__information__title, .unit05-page__services__item__information__title, .unit05-show__related__carousel__item__information__title, .unit05__content__information__subcategories__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
@@ -1771,14 +1771,14 @@ body .owl-dots .owl-dot.active {
 .sche01-page__content__main__list__item__header__date__year, .sche01-show__content__main__header__date__year {
   color: #404040;
 }
-.topi10__header__paragraph, .cont06__header__paragraph, .serv11__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .unit05-page__menus__subcategories__item, .slid01__item__header__description, .sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .unit05__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cont06__cta, .cont02__information__cta, .serv11__cta, .cont11__information__cta, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .bran01__cta, .unit05__content__information__cta, .slid01__item__header__cta, .head02__navigation__item--menu-mobile__item, .topi09__topics__item__information__title, .serv11-show__information__paragrapg, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
+.topi10v1__header__paragraph, .topi10__header__paragraph, .cont06__header__paragraph, .serv11__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .unit05-page__menus__subcategories__item, .slid01__item__header__description, .cota02__form__header__paragraph, .sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .unit05__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota02__form__footer__cta, .cont06__cta, .cont02__information__cta, .serv11__cta, .cont11__information__cta, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .bran01__cta, .unit05__content__information__cta, .slid01__item__header__cta, .head02__navigation__item--menu-mobile__item, .topi09__topics__item__information__title, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv11-show__information__paragrapg, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
 .sche01-page__content__aside__form__inputs__compliance .form-check-label,
 .sche01-show__content__aside__form__inputs__compliance .form-check-label, .unit05-show__header__information__paragraph, .unit05-page__services__item__information__cta, .unit05-show__related__carousel__item__information__cta, .unit05-show__header__information__menu__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.topi10__header__paragraph p, .cont06__header__paragraph p, .serv11__header__paragraph p, .bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .unit05-page__menus__subcategories__item p, .slid01__item__header__description p, .sche01-page__content__main__list__item__paragraph p, .sche01-show__content__main__paragraph p, .unit05__content__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .cont06__cta p, .cont02__information__cta p, .serv11__cta p, .cont11__information__cta p, .sche01-page__content__aside__form__inputs__cta p, .sche01-show__content__aside__form__inputs__cta p, .sche01-page__content__main__list__item__cta p, .sche01-show__content__main__cta p, .sche01__cta p, .sche01__carousel__item__information__cta p, .bran01__cta p, .unit05__content__information__cta p, .slid01__item__header__cta p, .head02__navigation__item--menu-mobile__item p, .topi09__topics__item__information__title p, .serv11-show__information__paragrapg p, .sche01-page__content__aside__form__inputs__compliance__link p, .sche01-show__content__aside__form__inputs__compliance__link p,
+.topi10v1__header__paragraph p, .topi10__header__paragraph p, .cont06__header__paragraph p, .serv11__header__paragraph p, .bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .unit05-page__menus__subcategories__item p, .slid01__item__header__description p, .cota02__form__header__paragraph p, .sche01-page__content__main__list__item__paragraph p, .sche01-show__content__main__paragraph p, .unit05__content__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .cota02__form__footer__cta p, .cont06__cta p, .cont02__information__cta p, .serv11__cta p, .cont11__information__cta p, .sche01-page__content__aside__form__inputs__cta p, .sche01-show__content__aside__form__inputs__cta p, .sche01-page__content__main__list__item__cta p, .sche01-show__content__main__cta p, .sche01__cta p, .sche01__carousel__item__information__cta p, .bran01__cta p, .unit05__content__information__cta p, .slid01__item__header__cta p, .head02__navigation__item--menu-mobile__item p, .topi09__topics__item__information__title p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .serv11-show__information__paragrapg p, .sche01-page__content__aside__form__inputs__compliance__link p, .sche01-show__content__aside__form__inputs__compliance__link p,
 .sche01-page__content__aside__form__inputs__compliance .form-check-label p,
 .sche01-show__content__aside__form__inputs__compliance .form-check-label p, .unit05-show__header__information__paragraph p, .unit05-page__services__item__information__cta p, .unit05-show__related__carousel__item__information__cta p, .unit05-show__header__information__menu__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
@@ -1788,7 +1788,7 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .topi10__header__paragraph, .cont06__header__paragraph, .serv11__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .unit05-page__menus__subcategories__item, .slid01__item__header__description, .sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .unit05__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cont06__cta, .cont02__information__cta, .serv11__cta, .cont11__information__cta, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .bran01__cta, .unit05__content__information__cta, .slid01__item__header__cta, .head02__navigation__item--menu-mobile__item, .topi09__topics__item__information__title, .serv11-show__information__paragrapg, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
+  .topi10v1__header__paragraph, .topi10__header__paragraph, .cont06__header__paragraph, .serv11__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .unit05-page__menus__subcategories__item, .slid01__item__header__description, .cota02__form__header__paragraph, .sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .unit05__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota02__form__footer__cta, .cont06__cta, .cont02__information__cta, .serv11__cta, .cont11__information__cta, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .bran01__cta, .unit05__content__information__cta, .slid01__item__header__cta, .head02__navigation__item--menu-mobile__item, .topi09__topics__item__information__title, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv11-show__information__paragrapg, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
   .sche01-page__content__aside__form__inputs__compliance .form-check-label,
   .sche01-show__content__aside__form__inputs__compliance .form-check-label, .unit05-show__header__information__paragraph, .unit05-page__services__item__information__cta, .unit05-show__related__carousel__item__information__cta, .unit05-show__header__information__menu__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
@@ -1797,23 +1797,23 @@ body .owl-dots .owl-dot.active {
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.topi09__topics__item__information__title, .serv11-show__information__paragrapg, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
+.topi09__topics__item__information__title, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv11-show__information__paragrapg, .sche01-page__content__aside__form__inputs__compliance__link, .sche01-show__content__aside__form__inputs__compliance__link,
 .sche01-page__content__aside__form__inputs__compliance .form-check-label,
 .sche01-show__content__aside__form__inputs__compliance .form-check-label, .unit05-show__header__information__paragraph, .unit05-page__services__item__information__cta, .unit05-show__related__carousel__item__information__cta, .unit05-show__header__information__menu__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .unit05__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cont06__cta, .cont02__information__cta, .serv11__cta, .cont11__information__cta, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .bran01__cta, .unit05__content__information__cta, .slid01__item__header__cta, .head02__navigation__item--menu-mobile__item {
+.cota02__form__header__paragraph, .sche01-page__content__main__list__item__paragraph, .sche01-show__content__main__paragraph, .unit05__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .cota02__form__footer__cta, .cont06__cta, .cont02__information__cta, .serv11__cta, .cont11__information__cta, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .bran01__cta, .unit05__content__information__cta, .slid01__item__header__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
 .cont06__header__paragraph, .serv11__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .unit05-page__menus__subcategories__item, .slid01__item__header__description {
   color: #7c7c7c;
 }
-.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .cont02__information__paragraph, .serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph, .cont11__information__paragraph, .sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .unit05-show__content__information__paragraph, .unit05-page__services__item__information__paragraph, .unit05-show__related__carousel__item__information__paragraph, .unit05__content__information__subcategories__item__paragraph, .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item, .sche01__carousel__item__information__subtitle, .unit05-page__services__item__information__subtitle, .unit05-show__related__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
+.topi10v1__topics__item__paragraph, .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .cont02__information__paragraph, .serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph, .cont11__information__paragraph, .sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .unit05-show__content__information__paragraph, .unit05-page__services__item__information__paragraph, .unit05-show__related__carousel__item__information__paragraph, .unit05__content__information__subcategories__item__paragraph, .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item, .sche01__carousel__item__information__subtitle, .unit05-page__services__item__information__subtitle, .unit05-show__related__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.topi10__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .cont02__information__paragraph p, .serv11__services__item__paragraph p, .serv11-page__section-service__list__item__paragraph p, .cont11__information__paragraph p, .sche01-page__content__aside__month-categories__item__subtitle p, .sche01-show__content__aside__month-categories__item__subtitle p, .sche01__carousel__item__information__paragraph p, .unit05-show__content__information__paragraph p, .unit05-page__services__item__information__paragraph p, .unit05-show__related__carousel__item__information__paragraph p, .unit05__content__information__subcategories__item__paragraph p, .sche01-page__content__aside__form__header__paragraph p, .sche01-show__content__aside__form__header__paragraph p, .sche01-page__content .pagination .page-item .page-link p, .sche01-show__content .pagination .page-item .page-link p, .foot02__copyright__compliances__item p, .sche01__carousel__item__information__subtitle p, .unit05-page__services__item__information__subtitle p, .unit05-show__related__carousel__item__information__subtitle p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .sche01-page__content__aside__month-categories__item__subtitle__counter p, .sche01-show__content__aside__month-categories__item__subtitle__counter p {
+.topi10v1__topics__item__paragraph p, .topi10__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .cont02__information__paragraph p, .serv11__services__item__paragraph p, .serv11-page__section-service__list__item__paragraph p, .cont11__information__paragraph p, .sche01-page__content__aside__month-categories__item__subtitle p, .sche01-show__content__aside__month-categories__item__subtitle p, .sche01__carousel__item__information__paragraph p, .unit05-show__content__information__paragraph p, .unit05-page__services__item__information__paragraph p, .unit05-show__related__carousel__item__information__paragraph p, .unit05__content__information__subcategories__item__paragraph p, .sche01-page__content__aside__form__header__paragraph p, .sche01-show__content__aside__form__header__paragraph p, .sche01-page__content .pagination .page-item .page-link p, .sche01-show__content .pagination .page-item .page-link p, .foot02__copyright__compliances__item p, .sche01__carousel__item__information__subtitle p, .unit05-page__services__item__information__subtitle p, .unit05-show__related__carousel__item__information__subtitle p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .sche01-page__content__aside__month-categories__item__subtitle__counter p, .sche01-show__content__aside__month-categories__item__subtitle__counter p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1821,7 +1821,7 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .cont02__information__paragraph, .serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph, .cont11__information__paragraph, .sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .unit05-show__content__information__paragraph, .unit05-page__services__item__information__paragraph, .unit05-show__related__carousel__item__information__paragraph, .unit05__content__information__subcategories__item__paragraph, .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item, .sche01__carousel__item__information__subtitle, .unit05-page__services__item__information__subtitle, .unit05-show__related__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
+  .topi10v1__topics__item__paragraph, .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .cont02__information__paragraph, .serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph, .cont11__information__paragraph, .sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .unit05-show__content__information__paragraph, .unit05-page__services__item__information__paragraph, .unit05-show__related__carousel__item__information__paragraph, .unit05__content__information__subcategories__item__paragraph, .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item, .sche01__carousel__item__information__subtitle, .unit05-page__services__item__information__subtitle, .unit05-show__related__carousel__item__information__subtitle, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .sche01-page__content__aside__month-categories__item__subtitle__counter, .sche01-show__content__aside__month-categories__item__subtitle__counter {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -1835,7 +1835,7 @@ body .owl-dots .owl-dot.active {
 .sche01-page__content__aside__form__header__paragraph, .sche01-show__content__aside__form__header__paragraph, .sche01-page__content .pagination .page-item .page-link, .sche01-show__content .pagination .page-item .page-link, .foot02__copyright__compliances__item {
   color: #404040;
 }
-.topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .cont02__information__paragraph, .serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph, .cont11__information__paragraph, .sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .unit05-show__content__information__paragraph, .unit05-page__services__item__information__paragraph, .unit05-show__related__carousel__item__information__paragraph, .unit05__content__information__subcategories__item__paragraph {
+.topi10v1__topics__item__paragraph, .topi10__topics__item__paragraph, .topi09__topics__item__information__paragraph, .cont02__information__paragraph, .serv11__services__item__paragraph, .serv11-page__section-service__list__item__paragraph, .cont11__information__paragraph, .sche01-page__content__aside__month-categories__item__subtitle, .sche01-show__content__aside__month-categories__item__subtitle, .sche01__carousel__item__information__paragraph, .unit05-show__content__information__paragraph, .unit05-page__services__item__information__paragraph, .unit05-show__related__carousel__item__information__paragraph, .unit05__content__information__subcategories__item__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -1845,7 +1845,7 @@ body .owl-dots .owl-dot.active {
   width: 2rem;
   height: 2rem;
 }
-.serv11-page__banner, .sche01-show__banner, .sche01-page__banner, .bran01-page__banner, .unit05-page__banner {
+.cota02__banner, .serv11-page__banner, .sche01-show__banner, .sche01-page__banner, .bran01-page__banner, .unit05-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -1858,7 +1858,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: start;
 }
-.cont06__cta, .cont02__information__cta, .serv11__cta, .cont11__information__cta, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .bran01__cta, .unit05__content__information__cta, .slid01__item__header__cta {
+.cota02__form__footer__cta, .cont06__cta, .cont02__information__cta, .serv11__cta, .cont11__information__cta, .sche01-page__content__aside__form__inputs__cta, .sche01-show__content__aside__form__inputs__cta, .sche01-page__content__main__list__item__cta, .sche01-show__content__main__cta, .sche01__cta, .sche01__carousel__item__information__cta, .bran01__cta, .unit05__content__information__cta, .slid01__item__header__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1870,7 +1870,7 @@ body .owl-dots .owl-dot.active {
   border: none;
   font-weight: 700;
 }
-.cont06__cta:focus, .cont02__information__cta:focus, .serv11__cta:focus, .cont11__information__cta:focus, .sche01-page__content__aside__form__inputs__cta:focus, .sche01-show__content__aside__form__inputs__cta:focus, .sche01-page__content__main__list__item__cta:focus, .sche01-show__content__main__cta:focus, .sche01__cta:focus, .sche01__carousel__item__information__cta:focus, .bran01__cta:focus, .unit05__content__information__cta:focus, .slid01__item__header__cta:focus {
+.cota02__form__footer__cta:focus, .cont06__cta:focus, .cont02__information__cta:focus, .serv11__cta:focus, .cont11__information__cta:focus, .sche01-page__content__aside__form__inputs__cta:focus, .sche01-show__content__aside__form__inputs__cta:focus, .sche01-page__content__main__list__item__cta:focus, .sche01-show__content__main__cta:focus, .sche01__cta:focus, .sche01__carousel__item__information__cta:focus, .bran01__cta:focus, .unit05__content__information__cta:focus, .slid01__item__header__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -4153,275 +4153,88 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.cota02__header {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-.cota02__header .container-cont02-page__header {
-  padding: 108px 0;
-  position: relative;
-  z-index: 100;
+.cota02__topics {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: start;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
 }
-@media (max-width: 575.98px) {
-  .cota02__header .container-cont02-page__header {
-    padding: 44px 20px;
-  }
-}
-.cota02__header__mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
-}
-.cota02__header__title {
-  font-size: 3.125rem;
-  color: #404040;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 0;
-  text-align: center;
-}
-@media (max-width: 575.98px) {
-  .cota02__header__title {
-    font-size: 1.875rem;
-  }
-}
-.cota02__header__subtitle {
-  font-size: 1.875rem;
-  font-family: "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
-  font-weight: 700;
-  text-align: center;
-}
-@media (max-width: 575.98px) {
-  .cota02__header__subtitle {
-    font-size: 1.563rem;
-  }
-}
-.cota02__header__line {
-  margin-top: 1.25rem;
-  color: #7c7c7c;
-  width: 100%;
-}
-.cota02__boxForm {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.cota02__boxForm .justify-content-center {
-  gap: 25px 0;
-}
-.cota02__boxForm .container--boxForm {
-  padding: 68px 0 59px 0 !important;
-}
-@media (max-width: 575.98px) {
-  .cota02__boxForm .container--boxForm .row {
-    margin: 0 auto;
-  }
-}
-.cota02__boxForm__item:last-of-type .cota02__boxForm__item__content::after {
-  display: none;
-}
-@media (max-width: 767.98px) {
-  .cota02__boxForm__item {
-    margin: 0 auto;
-    padding: 0;
-    width: 94%;
-  }
-}
-.cota02__boxForm__item__content {
-  position: relative;
+.cota02__topics__item {
   display: flex;
   flex-direction: column;
-  padding: 0 36px;
+  justify-content: start;
+  align-items: center;
+  flex: 1 0 auto;
+  gap: 0.75rem;
+  width: -moz-fit-content;
+  width: fit-content;
 }
-.cota02__boxForm__item__content::after {
-  content: "";
-  width: 1px;
-  height: 88%;
-  background: rgba(64, 64, 64, 0.18);
-  display: flex;
-  position: absolute;
-  right: -10px;
-  top: 0;
-}
-.cota02__boxForm__item__content__image {
-  width: 55px;
-  height: 55px;
-  margin-bottom: 14.04px;
-}
-@media (max-width: 991.98px) {
-  .cota02__boxForm__item__content__image {
-    width: 50px;
-    height: 50px;
-  }
-}
-.cota02__boxForm__item__content__image img {
-  width: 100%;
+.cota02__topics__item__icon {
+  width: 3.25rem;
+  height: auto;
+  aspect-ratio: 1/1;
   -o-object-fit: contain;
      object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
-.cota02__boxForm__item__content__description__title {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #404040;
-  font-family: "Ubuntu", sans-serif, arial;
-  margin-bottom: 5px;
-}
-@media (max-width: 991.98px) {
-  .cota02__boxForm__item__content__description__title {
-    font-size: 1.125rem;
-  }
-}
-.cota02__boxForm__item__content__description__paragraph {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 400;
-  color: #404040;
-}
-.cota02__boxForm__item__content__description__paragraph p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 400;
-  color: #404040;
-  margin-bottom: 0;
-}
-@media (max-width: 991.98px) {
-  .cota02__boxForm__item__content__description__paragraph p {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
+.cota02__topics__item__paragraph {
+  text-align: center;
+  max-width: 292px;
 }
 .cota02__form {
-  padding: 78px 0 154.45px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 0 1.5rem;
 }
 .cota02__form__header {
-  margin-bottom: 50px;
+  width: 100%;
+  margin-bottom: 3rem;
 }
-.cota02__form__header__title {
-  font-size: 2.5rem;
-  color: #404040;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  background: linear-gradient(to right, #404040 14.8%, #7c7c7c 25px);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-@media (max-width: 575.98px) {
-  .cota02__form__header__title {
-    font-size: 1.875rem;
-    background: linear-gradient(to right, #132229 39.8%, #b34423 25px);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-.cota02__form__header__line {
-  background: #404040;
-  display: flex;
-  margin-top: 15px;
-  margin-bottom: 18px;
-  display: block;
-}
-.cota02__form__header__paragraph p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #000;
-}
-@media (max-width: 991.98px) {
-  .cota02__form__header__paragraph p {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
+.cota02__form__header__paragraph {
+  text-align: center;
 }
 .cota02__form .input__item {
+  width: calc(50% - 0.75rem);
+}
+@media (max-width: 991.98px) {
+  .cota02__form .input__item {
+    width: 100%;
+  }
+}
+.cota02__form .input__item--textarea {
   width: 100%;
 }
-.cota02__form .input__item--select .form-select {
-  margin-bottom: 0 !important;
-  height: 52px;
-  border-radius: 0 !important;
+.cota02__form .input__item--textarea .form-control {
+  padding-top: 1.5rem;
 }
-.cota02__form__inputs__formIput {
+.cota02__form__footer {
   width: 100%;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  display: flex;
-}
-.cota02__form__inputs__formIput .input__item {
-  width: 100%;
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #404040;
-}
-.cota02__form__inputs__formIput .input__item .form-control {
-  height: 52px;
-  border-radius: 0 !important;
-}
-.cota02__form__inputs__compliance {
-  display: flex;
-}
-.cota02__form__inputs__compliance input {
-  border: 1px solid #393939;
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-}
-.cota02__form__inputs__compliance label {
-  color: #393939;
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-}
-.cota02__form__inputs__compliance label a {
-  color: #7c7c7c;
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-}
-
-.cota02-show__form__item__input:nth-of-type(5) {
-  width: 100% !important;
-}
-
-.cota02-show__form__item__input .input__item--textarea textarea {
-  height: 136px !important;
-}
-
-.cota02-show__form__inputs__formIput__input-submit {
-  height: 31px;
-  width: 165px;
-  background-color: #7c7c7c;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  border: 2px solid #7c7c7c;
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #fff;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
-.cota02-show__form__inputs__formIput__input-submit:hover {
-  background-color: transparent;
-  color: #7c7c7c;
+.cota02__form__footer__compliance {
+  display: inline;
 }
-
-.cota02-show__form__compliance {
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #393939;
-}
-.cota02-show__form__compliance a {
-  color: #7c7c7c;
+.cota02__form__footer__compliance__link {
   text-decoration: underline;
 }
-
-.form-check-input:checked[type=checkbox] {
-  border: 1px solid #393939;
+.cota02__form__footer__compliance__checkbox[type=checkbox] {
+  border: 1px solid #000;
 }
-
-.form-check-input:checked {
-  background-color: #b34423;
-  border-color: #b34423;
+.cota02__form__footer__compliance__checkbox[type=checkbox]:checked {
+  accent-color: #b3b3b3;
 }
-
 /* BEGIN STYLE */
 /* BEGIN STYLE */
 .topi09__topics {
@@ -4579,6 +4392,96 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 0;
 }
 .topi10__topics__item__paragraph {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* BEGIN STYLE */
+.topi10v1 {
+  overflow: hidden; /* prevenção do shift da animação*/
+}
+.topi10v1__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.topi10v1__header__title {
+  margin-bottom: 0.25rem;
+}
+.topi10v1__header__subtitle {
+  margin-bottom: 2rem;
+}
+.topi10v1__header__line {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-top: solid 1px #b3b3b3;
+}
+.topi10v1__header__paragraph {
+  width: 100%;
+  max-width: 938px;
+  text-align: center;
+}
+.topi10v1__topics {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.topi10v1__topics__item {
+  position: relative;
+  width: calc(33.33% - 1.34rem);
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+}
+@media (max-width: 991.98px) {
+  .topi10v1__topics__item {
+    width: calc(50% - 1rem);
+  }
+}
+@media (max-width: 767.98px) {
+  .topi10v1__topics__item {
+    width: 100%;
+  }
+}
+.topi10v1__topics__item__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.topi10v1__topics__item__header {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.topi10v1__topics__item__header__icon {
+  width: 3rem;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.topi10v1__topics__item__header__title {
+  width: calc(100% - 4rem);
+  align-self: center;
+  margin-bottom: 0;
+}
+.topi10v1__topics__item__paragraph {
   width: 100%;
   margin-top: 1rem;
 }
