@@ -75,6 +75,7 @@
             &__subcategories {
                 width: 100%;
                 overflow: hidden;
+                margin-bottom: 1rem;
 
                 @include large-device-down {
                     overflow: visible;
@@ -86,6 +87,7 @@
                     padding: 1.5rem 0.75rem;
 
                     width: 172px;
+                    position: relative;
 
                     &__icon {
                         width: 2rem;
@@ -124,9 +126,14 @@
     &__section-banner {
         width: 100%;
         height: auto;
-        aspect-ratio: 1500/229;
-        object-fit: cover;
-        object-position: center;
+
+        &__img {
+            height: 100%;
+            width: 100%;
+            aspect-ratio: 1500/229;
+            object-fit: cover;
+            object-position: center;
+        }
     }
 }
 
@@ -236,6 +243,7 @@
         &__item {
             width: calc(25% - 0.75rem);
             min-height: 512px;
+            position: relative;
 
             @include large-device-down {
                 width: calc(33.33% - 11px);
@@ -299,6 +307,8 @@
                     text-align: center;
                     padding: 0.5rem;
                     font-weight: 700;
+                    z-index: 11;
+
                     & + & {
                         margin-top: 0.5rem;
                     }
