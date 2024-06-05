@@ -127,7 +127,7 @@ return [
 
         'Schedules' => (object) [
             'SCHE01' => (object)[
-                'ViewHome' => false,
+                'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => true,
