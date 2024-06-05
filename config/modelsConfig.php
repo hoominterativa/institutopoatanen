@@ -231,7 +231,7 @@ return [
 
         'Contents.4' => (object) [
             'CONT06' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -292,6 +292,7 @@ return [
                 'IncludeSections' => (object) [
                     'Tópics.1' => 'TOPI09',
                     'Tópics.2' => 'TOPI10',
+                    'Tópics.3' => 'TOPI10V1',
                 ]
             ],
         ],
@@ -327,6 +328,24 @@ return [
                     'linkMenu' => '',
                     'iconMenu' => '',
                     'titlePanel' => 'Comercialização - Comercial',
+                    'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
+
+        'Topics.3' => (object) [
+            'TOPI10V1' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Mídia - Comercial',
                     'iconPanel' => 'mdi-apps'
                 ]
             ],
