@@ -52,7 +52,7 @@ return [
 
         'Units' => (object) [
             'UNIT05' => (object)[
-                'ViewHome' => false,
+                'ViewHome' => true,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => true,

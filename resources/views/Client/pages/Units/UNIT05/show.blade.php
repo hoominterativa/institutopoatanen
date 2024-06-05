@@ -6,22 +6,22 @@
             @if ($unit->path_image || $unit->path_image_icon)
                 <div class="unit05-show__header__images">
                     @if ($unit->path_image)
-                        <img class="unit05-show__header__images__item" src="{{ asset('storage/'. $unit->path_image) }}"
-                            alt="Image descritiva da unidade {{$unit->title}}">
+                        <img class="unit05-show__header__images__item" src="{{ asset('storage/' . $unit->path_image) }}"
+                            alt="Image descritiva da unidade {{ $unit->title }}">
                     @endif
                     @if ($unit->path_image_icon)
-                        <img class="unit05-show__header__images__logo" src="{{ asset('storage/'. $unit->path_image_icon) }}"
-                        alt="Logomarca da unidade {{$unit->title}}">
+                        <img class="unit05-show__header__images__logo" src="{{ asset('storage/' . $unit->path_image_icon) }}"
+                            alt="Logomarca da unidade {{ $unit->title }}">
                     @endif
                 </div>
             @endif
             @if ($unit->title || $unit->text || $unit->subtitle || $links->count())
                 <section class="unit05-show__header__information">
                     @if ($unit->subtitle)
-                        <h3 class="unit05-show__header__information__subtitle">{{$unit->subtitle}}</h3>
+                        <h3 class="unit05-show__header__information__subtitle">{{ $unit->subtitle }}</h3>
                     @endif
                     @if ($unit->title)
-                        <h2 class="unit05-show__header__information__title">{{$unit->title}}</h2>
+                        <h2 class="unit05-show__header__information__title">{{ $unit->title }}</h2>
                     @endif
                     @if ($unit->text)
                         <div class="unit05-show__header__information__paragraph">
@@ -31,8 +31,9 @@
                     @if ($links->count())
                         <menu class="unit05-show__header__information__menu">
                             @foreach ($links as $link)
-                                <a class="unit05-show__header__information__menu__item" title="{{$link->title}}"
-                                    href="{{getUri($link->link)}}" target="{{$link->target_link}}">{{$link->title}}</a>
+                                <a class="unit05-show__header__information__menu__item" title="{{ $link->title }}"
+                                    href="{{ getUri($link->link) }}"
+                                    target="{{ $link->target_link }}">{{ $link->title }}</a>
                             @endforeach
                         </menu>
                     @endif
@@ -44,10 +45,10 @@
                 <section class="unit05-show__content">
                     <div class="unit05-show__content__information">
                         @if ($content->subtitle)
-                            <h3 class="unit05-show__content__information__subtitle">{{$content->subtitle}}</h3>
+                            <h3 class="unit05-show__content__information__subtitle">{{ $content->subtitle }}</h3>
                         @endif
                         @if ($content->title)
-                            <h2 class="unit05-show__content__information__title">{{$content->title}}</h2>
+                            <h2 class="unit05-show__content__information__title">{{ $content->title }}</h2>
                         @endif
                         @if ($content->text)
                             <div class="unit05-show__content__information__paragraph">
@@ -59,7 +60,7 @@
                     </div>
                     @if ($content->path_image)
                         <img src="{{ asset('storage/' . $content->path_image) }}" loading='lazy'
-                            alt="Banner da seção {{$content->title}}" class="unit05-show__content__image">
+                            alt="Banner da seção {{ $content->title }}" class="unit05-show__content__image">
                     @endif
                 </section>
             @endforeach
@@ -67,31 +68,35 @@
         @if ($relatedUnits->count())
             <section class="unit05-show__related">
                 <header class="unit05-show__related__header">
-                    <h2 class="unit05-show__related__header__title">{{$unit->category->title}}</h2>
-                    <h3 class="unit05-show__related__header__subtitle">{{$unit->subcategory->title}}</h3>
+                    <h2 class="unit05-show__related__header__title">{{ $unit->category->title }}</h2>
+                    <h3 class="unit05-show__related__header__subtitle">{{ $unit->subcategory->title }}</h3>
                 </header>
                 <div class="unit05-show__related__carousel">
                     <div class="unit05-show__related__carousel__swiper-wrapper swiper-wrapper">
                         @foreach ($relatedUnits as $relatedUnit)
                             <article class="unit05-show__related__carousel__item swiper-slide" style="position: relative">
-                                {{-- FRONTEND ajustar link-full --}}
-                                <a title="{{$relatedUnit->title}}" href="{{ route('unit05.show', ['UNIT05UnitsCategory' => $relatedUnit->category->slug, 'UNIT05UnitsSubcategory' => $relatedUnit->subcategory->slug, 'UNIT05Units' => $relatedUnit->slug]) }}"
+                                <a title="{{ $relatedUnit->title }}"
+                                    href="{{ route('unit05.show', ['UNIT05UnitsCategory' => $relatedUnit->category->slug, 'UNIT05UnitsSubcategory' => $relatedUnit->subcategory->slug, 'UNIT05Units' => $relatedUnit->slug]) }}"
                                     class="link-full">
                                 </a>
                                 @if ($relatedUnit->path_image_box)
-                                    <img class="unit05-show__related__carousel__item__bg" src="{{ asset('storage/'. $relatedUnit->path_image_box) }}"
-                                    alt="Imagem de background {{$relatedUnit->title}}">
+                                    <img class="unit05-show__related__carousel__item__bg"
+                                        src="{{ asset('storage/' . $relatedUnit->path_image_box) }}"
+                                        alt="Imagem de background {{ $relatedUnit->title }}">
                                 @endif
                                 <div class="unit05-show__related__carousel__item__information">
                                     @if ($relatedUnit->path_image_icon)
                                         <img class="unit05-show__related__carousel__item__information__logo"
-                                            src="{{ asset('storage/'. $relatedUnit->path_image_icon) }}" alt="Logo marca da unidade {{$relatedUnit->title}}">
+                                            src="{{ asset('storage/' . $relatedUnit->path_image_icon) }}"
+                                            alt="Logo marca da unidade {{ $relatedUnit->title }}">
                                     @endif
                                     @if ($relatedUnit->subtitle)
-                                        <h4 class="unit05-show__related__carousel__item__information__subtitle">{{$relatedUnit->subtitle}}</h4>
+                                        <h4 class="unit05-show__related__carousel__item__information__subtitle">
+                                            {{ $relatedUnit->subtitle }}</h4>
                                     @endif
                                     @if ($relatedUnit->title)
-                                        <h3 class="unit05-show__related__carousel__item__information__title">{{$relatedUnit->title}}</h3>
+                                        <h3 class="unit05-show__related__carousel__item__information__title">
+                                            {{ $relatedUnit->title }}</h3>
                                     @endif
                                     @if ($relatedUnit->description)
                                         <div class="unit05-show__related__carousel__item__information__paragraph">
@@ -102,9 +107,10 @@
                                     @endif
                                     @if ($relatedUnit->links->count())
                                         @foreach ($relatedUnit->links as $relatedLink)
-                                            <a href="{{getUri($relatedLink->link)}}" target="{{$relatedLink->target_link}}"
+                                            <a href="{{ getUri($relatedLink->link) }}"
+                                                target="{{ $relatedLink->target_link }}"
                                                 class="unit05-show__related__carousel__item__information__cta">
-                                                {{$relatedLink->title}}
+                                                {{ $relatedLink->title }}
                                             </a>
                                         @endforeach
                                     @endif
