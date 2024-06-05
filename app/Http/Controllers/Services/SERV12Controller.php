@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV12ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV12ServicesGallery;
 use App\Models\Services\SERV12ServicesTopic;
 
 class SERV12Controller extends Controller
@@ -90,12 +91,14 @@ class SERV12Controller extends Controller
     public function edit(SERV12Services $SERV12Services)
     {
         $categories = SERV12ServicesCategory::sorting()->pluck('title', 'id');
-        $topics = SERV12ServicesTopic::sorting()->get();
+        $topics = SERV12ServicesTopic::where('service_id', $SERV12Services->id)->sorting()->get();
+        $galleries = SERV12ServicesGallery::where('service_id', $SERV12Services->id)->sorting()->get();
         return view('Admin.cruds.Services.SERV12.edit', [
             'cropSetting' => getCropImage('Services', 'SERV12'),
             'service' => $SERV12Services,
             'categories' => $categories,
-            'topics' => $topics
+            'topics' => $topics,
+            'galleries' => $galleries
         ]);
     }
 

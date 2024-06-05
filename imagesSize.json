@@ -1888,6 +1888,13 @@
                     "activeCrop": "false"
                 }
             },
+            "Gallery": {
+                "path_image": {
+                    "width": "582",
+                    "height": "341",
+                    "activeCrop": "false"
+                }
+            },
             "Banner": {
                 "path_image_desktop_banner": {
                     "width": "1300",

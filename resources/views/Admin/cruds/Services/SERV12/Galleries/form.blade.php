@@ -1,17 +1,13 @@
-@if (isset($topic))
-    {!! Form::model($topic, ['route' => ['admin.serv12.topic.update', $topic->id], 'class'=>'parsley-validate', 'files' => true]) !!}
+@if (isset($gallery))
+    {!! Form::model($gallery, ['route' => ['admin.serv12.gallery.update', $gallery->id], 'class'=>'parsley-validate', 'files' => true]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => ['admin.serv12.topic.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
+    {!! Form::model(null, ['route' => ['admin.serv12.gallery.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
     {!! Form::hidden('service_id', $service->id) !!}
 @endif
 <div class="row">
     <div class="col-12 col-lg-6">
         <div class="card card-body border" id="tooltip-container">
-            <div class="mb-3">
-                {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title',]) !!}
-            </div>
             <div class="mb-3">
                 {!! Form::label('description', 'Descrição', ['class' => 'form-label']) !!}
                 {!! Form::textarea('description', null, [
@@ -35,21 +31,21 @@
         <div class="card card-body border" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Ícone', ['class' => 'form-label']) !!}
+                    {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->Topic->path_image_icon->width }}x{{ $cropSetting->Topic->path_image_icon->height }}px!</small>
+                        {{ $cropSetting->Gallery->path_image->width }}x{{ $cropSetting->Gallery->path_image->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image_icon', [
+                        {!! Form::file('path_image', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->Topic->path_image_icon->activeCrop, // px
-                            'data-min-width' => $cropSetting->Topic->path_image_icon->width, // px
-                            'data-min-height' => $cropSetting->Topic->path_image_icon->height, // px
+                            'data-status' => $cropSetting->Gallery->path_image->activeCrop, // px
+                            'data-min-width' => $cropSetting->Gallery->path_image->width, // px
+                            'data-min-height' => $cropSetting->Gallery->path_image->height, // px
                             'data-box-height' => '225', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
-                            'data-default-file' => isset($topic)
-                                ? ($topic->path_image_icon != ''
-                                    ? url('storage/' . $topic->path_image_icon)
+                            'data-default-file' => isset($gallery)
+                                ? ($gallery->path_image != ''
+                                    ? url('storage/' . $gallery->path_image)
                                     : '')
                                 : '',
                         ]) !!}

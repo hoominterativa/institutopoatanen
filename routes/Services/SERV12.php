@@ -3,6 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Services\SERV12TopicController;
+use App\Http\Controllers\Services\SERV12GalleryController;
 use App\Http\Controllers\Services\SERV12CategoryController;
 
 /**
@@ -34,6 +35,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/topicos', SERV12TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV12ServicesTopic']);
     Route::post($route.'/topico/delete', [SERV12TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [SERV12TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+    //Galleries
+    Route::resource($route.'/galerias', SERV12GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galerias' => 'SERV12ServicesGallery']);
+    Route::post($route.'/galeria/delete', [SERV12GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/galeria/sorting', [SERV12GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
