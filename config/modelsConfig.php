@@ -261,7 +261,7 @@ return [
         'BlankPages' => (object) [
             'BAPA01' => (object)[
                 'ViewHome' => false,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => false,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
