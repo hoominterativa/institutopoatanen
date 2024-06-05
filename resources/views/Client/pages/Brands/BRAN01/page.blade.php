@@ -56,10 +56,8 @@
                             @endif
 
                             @if ($brand->path_image_icon)
-                                <div class="bran01-page__main__content__item__image">
-                                    <img src="{{ asset('storage/' . $brand->path_image_icon) }}"
-                                        class="bran01-page__main__content__item__image__img" alt="Logo" loading="lazy">
-                                </div>
+                                <img src="{{ asset('storage/' . $brand->path_image_icon) }}"
+                                    class="bran01-page__main__content__item__icon" alt="Logo" loading="lazy">
                             @endif
 
                         </div>
