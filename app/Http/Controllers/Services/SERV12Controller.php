@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV12ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV12ServicesTopic;
 
 class SERV12Controller extends Controller
 {
@@ -89,10 +90,12 @@ class SERV12Controller extends Controller
     public function edit(SERV12Services $SERV12Services)
     {
         $categories = SERV12ServicesCategory::sorting()->pluck('title', 'id');
+        $topics = SERV12ServicesTopic::sorting()->get();
         return view('Admin.cruds.Services.SERV12.edit', [
             'cropSetting' => getCropImage('Services', 'SERV12'),
             'service' => $SERV12Services,
-            'categories' => $categories
+            'categories' => $categories,
+            'topics' => $topics
         ]);
     }
 

@@ -47,8 +47,11 @@
                         {!! Form::model($category, [ 'route' => ['admin.serv12.category.update', $category->id], 'class' => 'parsley-validate','method' => 'PUT', 'files' => true, ]) !!}
                             @include('Admin.cruds.Services.SERV12.Categories.form')
                             {!! Form::button('Salvar', [ 'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit', ]) !!}
-                            {{-- <a href="{{route('admin.cota04.edit',['COTA04Contacts' => $contact->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a> --}}
+                            <a href="{{route('admin.serv12.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Services.SERV12.Banner.form')
                     </div>
                 </div> <!-- container -->
             </div>

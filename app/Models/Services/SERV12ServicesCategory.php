@@ -16,7 +16,14 @@ class SERV12ServicesCategory extends Model
     }
 
     protected $table = "serv12_services_categories";
-    protected $fillable = ['slug', 'title', 'text', 'path_image', 'active', 'featured', 'sorting'];
+    protected $fillable = [
+        //Categories
+        'slug', 'title', 'text', 'path_image', 'active', 'featured',
+        //Banner
+        'title_banner', 'subtitle_banner','path_image_desktop_banner', 'path_image_mobile_banner', 'active_banner',
+        //General
+        'sorting'
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,6 +35,11 @@ class SERV12ServicesCategory extends Model
         return $query->where('active', 1);
     }
 
+    public function scopeActiveBanner($query)
+    {
+        return $query->where('active_banner', 1);
+    }
+
     public function scopeFeatured($query)
     {
         return $query->where('featured', 1);
@@ -36,5 +48,20 @@ class SERV12ServicesCategory extends Model
     public function services()
     {
         return $this->hasMany(SERV12Services::class, 'category_id')->active()->sorting();
+    }
+
+    public function scopeExists($query){
+        return $query->whereExists(function($query){
+            $query->select('id')->from('serv12_services')->whereColumn('serv12_services.category_id', 'serv12_services_categories.id');
+        });
+    }
+
+    // DROPDOW MENU
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('serv12_services')->whereColumn('serv12_services.category_id', 'serv12_services_categories.id');
+        });
     }
 }

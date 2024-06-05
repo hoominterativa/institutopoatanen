@@ -50,7 +50,7 @@
                                                 <button id="btSubmitDelete" data-route="{{route('admin.serv12.destroySelected')}}" type="button" class="btn btn-danger btnDeleteServices" style="display: none;">Deletar selecionados</button>
                                             </div>
                                             <div class="col-6">
-                                                <a href="{{route('admin.serv12.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                                <a href="{{route('admin.serv12.create')}}" class="btn btn-success float-end">Adicionar Serviço <i class="mdi mdi-plus"></i></a>
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">

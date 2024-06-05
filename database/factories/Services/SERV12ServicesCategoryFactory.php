@@ -24,12 +24,19 @@ class SERV12ServicesCategoryFactory extends Factory
     {
         $title = $this->faker->text(12);
         return [
+            //Categories
             'slug' => Str::slug($title),
             'title' => $title,
             'text' => $this->faker->paragraphs(2, true),
             'path_image' => 'uploads/tmp/png-slide.png',
             'active' => 1,
-            'featured' => rand(0,1)
+            'featured' => rand(0,1),
+            //Banner
+            'title_banner' => $this->faker->text(10),
+            'subtitle_banner' => $this->faker->text(10),
+            'path_image_desktop_banner' => 'uploads/tmp/thumbnail.png',
+            'path_image_mobile_banner' => 'uploads/tmp/secaobox.png',
+            'active_banner' => 1,
         ];
     }
 }

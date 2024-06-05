@@ -1,5 +1,6 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
+        {!! Form::hidden('active_banner', $category->active_banner) !!}
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}

@@ -39,19 +39,30 @@ class SERV12CategoryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
 
         if ($request->title) $data['slug'] = Str::slug($request->title);
 
+        //Categories
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
+
+        //Banner
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
 
         if($category = SERV12ServicesCategory::create($data)){
             Session::flash('success', 'Categoria cadastrada com sucesso');
             return redirect()->route('admin.serv12.category.edit', ['SERV12ServicesCategory' => $category->id]);
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao cadastradar a categoria');
             return redirect()->back();
         }
@@ -83,11 +94,13 @@ class SERV12CategoryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
         $data['active'] = $request->active ? 1 : 0;
         $data['featured'] = $request->featured ? 1 : 0;
 
         if ($request->title) $data['slug'] = Str::slug($request->title);
 
+        //Categories
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
             storageDelete($SERV12ServicesCategory, 'path_image');
@@ -98,10 +111,33 @@ class SERV12CategoryController extends Controller
             $data['path_image'] = null;
         }
 
+        //Banner
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($SERV12ServicesCategory, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+        }
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($SERV12ServicesCategory, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($SERV12ServicesCategory, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($SERV12ServicesCategory, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
+        }
+
         if($SERV12ServicesCategory->fill($data)->save()){
             Session::flash('success', 'Categoria atualizada com sucesso');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao atualizar a categoria');
         }
         return redirect()->back();
@@ -116,6 +152,8 @@ class SERV12CategoryController extends Controller
     public function destroy(SERV12ServicesCategory $SERV12ServicesCategory)
     {
         storageDelete($SERV12ServicesCategory, 'path_image');
+        storageDelete($SERV12ServicesCategory, 'path_image_desktop_banner');
+        storageDelete($SERV12ServicesCategory, 'path_image_mobile_banner');
 
         if($SERV12ServicesCategory->delete()){
             Session::flash('success', 'Categoria deletada com sucessso');
@@ -134,6 +172,8 @@ class SERV12CategoryController extends Controller
         $SERV12ServicesCategories = SERV12ServicesCategory::whereIn('id', $request->deleteAll)->get();
         foreach($SERV12ServicesCategories as $SERV12ServicesCategory){
             storageDelete($SERV12ServicesCategory, 'path_image');
+            storageDelete($SERV12ServicesCategory, 'path_image_desktop_banner');
+            storageDelete($SERV12ServicesCategory, 'path_image_mobile_banner');
         }
 
         if($deleted = SERV12ServicesCategory::whereIn('id', $request->deleteAll)->delete()){
