@@ -1,57 +1,39 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-#CONT05{
-    padding: 63px 0 59px 0;
-}
-.cont05{
-    @include backG();
-    &__header{
-        width: 85%;
-        display: table;
-        margin: 0 auto;
-        text-align: center;
-        margin-bottom: 60px;
+.cont05 {
+    overflow: hidden; /* prevenção do shift da animação*/
+    @extend %theme__padding;
 
-        &__title{
-            font-size: $T2;
-            font-family: $font-primary;
-            font-weight: $weight-700;
+    &__header {
+        width: 100%;
+        @include disFlex(column, center, center);
+        margin-bottom: 2.5rem;
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
         }
-        &__paragraph{
-            font-size: $paragraph;
-            font-weight: $weight-400;
-            width: 95%;
-            max-width: 680px;
-            display: table;
-            margin: 0 auto;
+
+        &__subtitle {
+            @extend %theme__t4-c3;
         }
     }
-    &__content{
-        &__cta{
-            font: $paragraph;
-            font-weight: $weight-700;
-            color: $color-black;
-            display: block;
-            margin: 28px auto 0;
-            max-width: 177px;
-            padding: 10px 15px;
-            background-color: $bg-soft;
 
-            @include small-device{
-                font: $paragraph-mobile;
-                margin: 36px auto 0;
-                width: 147px;
-            }
+    &__main {
+        @include disFlex(column, center, center);
 
-            &:hover{
-                color: $color-white;
-                background-color: $bg-black;
+        &__paragraph {
+            width: 100%;
+            max-width: 680px;
 
-                .cont05__cta__icon{
-                    filter: invert(1) grayscale(1);
-                }
-            }
+            @extend %theme__p1-c2;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        &__cta {
+            @extend %theme__cta;
         }
     }
 }
