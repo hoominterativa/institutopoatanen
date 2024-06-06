@@ -17,10 +17,8 @@ class COTA02Contacts extends Model
 
     protected $table = "cota02_contacts";
     protected $fillable = [
-        'title_banner', 'subtitle_banner', 'path_image_banner_desktop', 'path_image_banner_mobile', 'background_color_banner',
-        'path_image_topic_desktop', 'path_image_topic_mobile', 'background_color_topic',
-        'title_form', 'description_form', 'path_image_form_desktop', 'path_image_form_mobile', 'background_color_form',
-        "email_form", "slug", "inputs_form", 'title_button_form', "compliance_id", 'active', 'sorting', 'title_page'
+        'title_banner', 'subtitle_banner', 'path_image_banner_desktop', 'path_image_banner_mobile',
+        'title_form', 'description_form', 'email_form', 'slug', 'inputs_form', 'title_button_form', 'compliance_id', 'active', 'sorting', 'title_page'
     ];
 
     public function scopeSorting($query)

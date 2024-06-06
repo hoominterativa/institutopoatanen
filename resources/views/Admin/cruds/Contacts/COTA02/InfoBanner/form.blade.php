@@ -20,10 +20,6 @@
                 </div>
                 {!! Form::text('subtitle_banner', null, ['class' => 'form-control', 'id' => 'subtitle_banner']) !!}
             </div>
-            <div class="mb-3">
-                {!! Form::label('colorpicker-default', 'Cor de fundo', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color_banner', null, ['class' => 'form-control colorpicker-default','id' => 'colorpicker-default',]) !!}
-            </div>
         </div>
     </div>
     <div class="col-12 col-lg-6">

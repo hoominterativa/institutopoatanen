@@ -2,7 +2,7 @@
 @section('content')
     @if ($contact)
         <main id="root" class="cota02">
-            <section class="cota02__banner" {{-- BACKEND: Retirar do painel bg color --}}
+            <section class="cota02__banner"
                 style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }})">
                 @if ($contact->title_banner)
                     <h1 class="cota02__banner__title">{{ $contact->title_banner }}</h1>
@@ -13,7 +13,7 @@
                 @endif
             </section>
 
-            <section class="cota02__topics" {{-- BACKEND: Ocultar bg image e bg color do painel --}}>
+            <section class="cota02__topics">
                 @foreach ($topics as $topic)
                     <div class="cota02__topics__item">
                         @if ($topic->path_image_icon)

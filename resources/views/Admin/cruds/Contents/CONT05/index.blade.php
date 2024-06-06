@@ -39,9 +39,7 @@
                                             <th width="30px" class="bs-checkbox">
                                                 <label><input name="btnSelectAll" value="btnDeleteContents" type="checkbox"></label>
                                             </th>
-                                            <th>Imagem</th>
                                             <th>Título/Subtítulo</th>
-                                            <th>Descrição</th>
                                             <th>Link do botão</th>
                                             <th width="100px">Status</th>
                                             <th width="90px">Ações</th>
@@ -55,20 +53,7 @@
                                                 <td class="bs-checkbox align-middle">
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$content->id}}"></label>
                                                 </td>
-                                                <td class="align-middle avatar-group">
-                                                    @if ($content->path_image_desktop)
-                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_desktop)}})"></div>
-                                                    @endif
-                                                    @if ($content->path_image_mobile)
-                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $content->path_image_mobile)}})"></div>
-                                                    @endif
-                                                </td>
-                                                <td class="align-middle">{{$content->title}}<b>/</b>{{$content->subtitle}}</td>
-                                                <td class="align-middle">
-                                                    @if ($content->description)
-                                                        {!! substr($content->description, 0, 25) !!}<b>...</b>
-                                                    @endif
-                                                </td>
+                                                <td class="align-middle">{{implode(' / ', array_filter([$content->title, $content->subtitle]))}}</td>
                                                 <td class="align-middle">
                                                     @if ($content->link_button)
                                                         <a href="{{ $content->link_button }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a>

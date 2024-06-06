@@ -28,9 +28,9 @@
                                 <div class="sche01__carousel__item__information">
 
                                     <div class="sche01__carousel__item__information__date">
-                                        <span class="sche01__carousel__item__information__date__day">16</span>
-                                        <span class="sche01__carousel__item__information__date__month">Maio</span>
-                                        <span class="sche01__carousel__item__information__date__year">2024</span>
+                                        <span class="sche01__carousel__item__information__date__day">{{ Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%d') }}</span>
+                                        <span class="sche01__carousel__item__information__date__month">{{ monthFull(strtotime($schedule->event_date)) }}</span>
+                                        <span class="sche01__carousel__item__information__date__year">{{ Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%Y') }}</span>
                                     </div>
 
                                     <header class="sche01__carousel__item__information__header">
