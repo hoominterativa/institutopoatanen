@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Services\SERV12Controller;
 use App\Http\Controllers\Services\SERV12TopicController;
+use App\Http\Controllers\Services\SERV12VideoController;
 use App\Http\Controllers\Services\SERV12GalleryController;
+use App\Http\Controllers\Services\SERV12SectionController;
 use App\Http\Controllers\Services\SERV12CategoryController;
 
 /**
@@ -39,6 +42,11 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/galerias', SERV12GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galerias' => 'SERV12ServicesGallery']);
     Route::post($route.'/galeria/delete', [SERV12GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
     Route::post($route.'/galeria/sorting', [SERV12GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
+    //Video
+    Route::resource($route.'/video', SERV12VideoController::class)->names('admin.'.$routeName.'.video')->parameters(['video' => 'SERV12ServicesVideo']);
+    //Section
+    Route::resource($route.'/section', SERV12SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['section' => 'SERV12ServicesSection']);
 });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// CLIENT
+Route::get($route.'/categoria/{SERV12ServicesCategory:slug}', [SERV12Controller::class, 'page'])->name($routeName.'.category.page');
+

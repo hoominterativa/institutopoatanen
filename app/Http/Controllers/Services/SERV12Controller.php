@@ -13,7 +13,9 @@ use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Services\SERV12ServicesCategory;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Services\SERV12ServicesGallery;
+use App\Models\Services\SERV12ServicesSection;
 use App\Models\Services\SERV12ServicesTopic;
+use App\Models\Services\SERV12ServicesVideo;
 
 class SERV12Controller extends Controller
 {
@@ -28,10 +30,12 @@ class SERV12Controller extends Controller
     {
         $services = SERV12Services::sorting()->get();
         $categories = SERV12ServicesCategory::sorting()->get();
+        $section = SERV12ServicesSection::sorting()->first();
         return view('Admin.cruds.Services.SERV12.index',[
             'cropSetting' => getCropImage('Services', 'SERV12'),
             'services' => $services,
-            'categories' => $categories
+            'categories' => $categories,
+            'section' => $section
         ]);
     }
 
@@ -93,12 +97,14 @@ class SERV12Controller extends Controller
         $categories = SERV12ServicesCategory::sorting()->pluck('title', 'id');
         $topics = SERV12ServicesTopic::where('service_id', $SERV12Services->id)->sorting()->get();
         $galleries = SERV12ServicesGallery::where('service_id', $SERV12Services->id)->sorting()->get();
+        $video = SERV12ServicesVideo::where('service_id', $SERV12Services->id)->sorting()->first();
         return view('Admin.cruds.Services.SERV12.edit', [
             'cropSetting' => getCropImage('Services', 'SERV12'),
             'service' => $SERV12Services,
             'categories' => $categories,
             'topics' => $topics,
-            'galleries' => $galleries
+            'galleries' => $galleries,
+            'video' => $video
         ]);
     }
 
@@ -243,6 +249,12 @@ class SERV12Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Services.SERV12.section');
+        $section = SERV12ServicesSection::active()->first();
+        $categories = SERV12ServicesCategory::with('services')->exists()->active()->featured()->sorting()->get();
+        // ddd($categories);
+        return view('Client.pages.Services.SERV12.section', [
+            'section' => $section,
+            'categories' => $categories
+        ]);
     }
 }

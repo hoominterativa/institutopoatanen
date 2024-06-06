@@ -1913,6 +1913,13 @@
                     "height": "200",
                     "activeCrop": "false"
                 }
+            },
+            "Video": {
+                "path_image": {
+                    "width": "1200",
+                    "height": "500",
+                    "activeCrop": "false"
+                }
             }
         }
     },

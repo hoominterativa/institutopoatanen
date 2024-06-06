@@ -37,6 +37,14 @@
                                 data-bs-original-title="Cadastro do conteúdo principal"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#section" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                            Seção home
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Informações para a seção home"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -116,6 +124,9 @@
                         @include('Admin.cruds.Services.SERV12.Categories.index',[
                             'categories' => $categories,
                         ])
+                    </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Services.SERV12.Section.form')
                     </div>
                 </div>
                 <!-- end row -->
