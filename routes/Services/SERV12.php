@@ -48,5 +48,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/section', SERV12SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['section' => 'SERV12ServicesSection']);
 });
 // CLIENT
-Route::get($route.'/categoria/{SERV12ServicesCategory:slug}', [SERV12Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get($route.'/categoria/{SERV12ServicesCategory:slug}/{SERV12Services:slug?}', [SERV12Controller::class, 'page'])->name($routeName.'.category.page');
 

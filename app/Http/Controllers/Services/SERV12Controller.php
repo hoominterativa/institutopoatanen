@@ -250,11 +250,15 @@ class SERV12Controller extends Controller
     public static function section()
     {
         $section = SERV12ServicesSection::active()->first();
-        $categories = SERV12ServicesCategory::with('services')->exists()->active()->featured()->sorting()->get();
-        // ddd($categories);
+        $categorySelected = SERV12ServicesCategory::exists()->active()->featured()->sorting()->first();
+        $categories = SERV12ServicesCategory::exists()->active()->featured()->sorting()->get();
+        $services = SERV12Services::with('category')->active()->featured()->sorting()->get();
+
         return view('Client.pages.Services.SERV12.section', [
             'section' => $section,
-            'categories' => $categories
+            'categories' => $categories,
+            'categorySelected' => $categorySelected,
+            'services' => $services
         ]);
     }
 }
