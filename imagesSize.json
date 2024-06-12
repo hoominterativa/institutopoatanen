@@ -2074,6 +2074,13 @@
                 }
             }
         },
+        "TOPI12": {
+            "path_image_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            }
+        },
         "TOPI101": {
             "path_image": {
                 "width": "1450",
