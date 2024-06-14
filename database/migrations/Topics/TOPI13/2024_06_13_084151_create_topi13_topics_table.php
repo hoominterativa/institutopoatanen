@@ -15,6 +15,15 @@ class CreateTopi13TopicsTable extends Migration
     {
         Schema::create('topi13_topics', function (Blueprint $table) {
             $table->id();
+            $table->text('text')->nullable();
+            $table->string('title_button')->nullable();
+            $table->string('link_button')->nullable();
+            $table->enum('target_link', ['_self', '_blank'])->default('_self');
+            $table->string('path_image_icon')->nullable();
+            $table->string('path_image_desktop')->nullable();
+            $table->string('path_image_mobile')->nullable();
+            $table->string('color')->nullable();
+            $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

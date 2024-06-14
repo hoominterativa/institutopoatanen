@@ -63,7 +63,7 @@
                                                     <th width="90px"></th>
                                                     <th>Título</th>
                                                     <th>Descrição</th>
-                                                    <th>link</th>
+                                                    <th>Link</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>

@@ -15,6 +15,9 @@ class CreateTopi13TopicsSectionsTable extends Migration
     {
         Schema::create('topi13_topics_sections', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

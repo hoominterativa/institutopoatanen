@@ -22,9 +22,15 @@ class TOPI13TopicsFactory extends Factory
     public function definition()
     {
         return [
-            /*'title' => $this->faker->text(10),
-            'path_image' => 'uploads/temp/image_temporary.png',
-            'active' => 1,*/
+            'text' => $this->faker->paragraphs(3, true),
+            'title_button' => $this->faker->text(10),
+            'link_button' => 'https://www.example.com',
+            'target_link' => '_blank',
+            'path_image_icon' => 'uploads/tmp/favicon.png',
+            'path_image_desktop' => 'uploads/tmp/bg-boxitem-light.png',
+            'path_image_mobile' => 'uploads/tmp/port01_path_image_box.png',
+            'color' => sprintf('#%06X', mt_rand(0, 0xFFFFFF)),
+            'active' => 1,
         ];
     }
 }
