@@ -14,7 +14,7 @@
                             @endif
                         </picture>
                     @endif
-                    @if ($slide->title || $slide->subtitle || $slide->description || $$slide->link_button)
+                    @if ($slide->title || $slide->subtitle || $slide->description || $slide->link_button)
                         <header class="slid01__item__header">
                             @if ($slide->title)
                                 <h1 class="slid01__item__header__title">{{ $slide->title }}</h1>
