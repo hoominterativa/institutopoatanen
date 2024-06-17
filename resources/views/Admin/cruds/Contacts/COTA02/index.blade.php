@@ -55,14 +55,8 @@
                                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$contact->id}}"></label>
                                                 </td>
                                                 <td class="align-middle avatar-group">
-                                                    @if ($contact->path_image_topic_desktop)
-                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $contact->path_image_topic_desktop)}})"></div>
-                                                    @endif
                                                     @if ($contact->path_image_banner_desktop)
                                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $contact->path_image_banner_desktop)}})"></div>
-                                                    @endif
-                                                    @if ($contact->path_image_form_desktop)
-                                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $contact->path_image_form_desktop)}})"></div>
                                                     @endif
                                                 </td>
                                                 <td class="align-middle">{{$contact->title_banner}}</td>

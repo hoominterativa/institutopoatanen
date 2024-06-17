@@ -601,9 +601,24 @@ return [
                 'model' => App\Models\Topics\TOPI10Topics::class,
                 'seedQty' => 6,
             ],
+            'TOPI10V1' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI10V1Controller::class,
+                'model' => App\Models\Topics\TOPI10V1Topics::class,
+                'seedQty' => 6,
+            ],
             'TOPI11' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI11Controller::class,
                 'model' => App\Models\Topics\TOPI11Topics::class,
+                'seedQty' => 6,
+            ],
+            'TOPI12' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI12Controller::class,
+                'model' => App\Models\Topics\TOPI12Topics::class,
+                'seedQty' => 6,
+            ],
+            'TOPI13' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI13Controller::class,
+                'model' => App\Models\Topics\TOPI13Topics::class,
                 'seedQty' => 6,
             ],
             'TOPI101' => (object)[
@@ -685,6 +700,24 @@ return [
                         'class' => App\Models\Units\UNIT03UnitsCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 6,
+                    ]
+                ]
+            ],
+            'UNIT05' => (object)[
+                'controller' => App\Http\Controllers\Units\UNIT05Controller::class,
+                'model' => App\Models\Units\UNIT05Units::class,
+                'seedQty' => 8,
+                'routeName' => 'unit05.category.page',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Units\UNIT05UnitsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ],
+                    'subcategory' => [
+                        'class' => App\Models\Units\UNIT05UnitsSubcategory::class,
+                        'column' => 'subcategory_id',
+                        'seedQty' => 5,
                     ]
                 ]
             ],

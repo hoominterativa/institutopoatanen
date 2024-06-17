@@ -1,42 +1,53 @@
-
 @if ($schedules->count() || $section)
     <section class="sche01" id="SCHE01">
         @if ($section)
             <header class="sche01__header">
                 @if ($section->title)
-                    <h2 class="sche01__header__title">{{$section->title}}</h2>
+                    <h2 class="sche01__header__title">{{ $section->title }}</h2>
                 @endif
                 @if ($section->subtitle)
-                    <h3 class="sche01__header__sutbtitle">{{$section->subtitle}}</h3>
+                    <h3 class="sche01__header__sutbtitle">{{ $section->subtitle }}</h3>
                 @endif
             </header>
         @endif
+
         @if ($schedules->count())
             <div class="sche01__carousel">
                 <div class="sche01__carousel__swiper-wrapper swiper-wrapper">
                     @foreach ($schedules as $schedule)
                         <article class="sche01__carousel__item swiper-slide">
+                            <a href="{{ route('sche01.show.content', ['SCHE01Schedules' => $schedule->slug]) }}"
+                                class="link-full" title="{{ $schedule->title }}"></a>
+
                             @if ($schedule->path_image_box)
-                                <img loading='lazy' src="{{ asset('storage/'.$schedule->path_image_box) }}"
-                                alt="Imagem do evento: {{$schedule->title}}" class="sche01__carousel__item__image">
+                                <img loading='lazy' src="{{ asset('storage/' . $schedule->path_image_box) }}"
+                                    alt="Imagem do evento: {{ $schedule->title }}"
+                                    class="sche01__carousel__item__image">
                             @endif
                             @if ($schedule->title || $schedule->subtitle || $schedule->description_box)
                                 <div class="sche01__carousel__item__information">
-                                    @if ($schedule->title)
-                                        <h4 class="sche01__carousel__item__information__title">{{$schedule->title}}</h4>
-                                    @endif
-                                    @if ($schedule->subtitle)
-                                        <h5 class="sche01__carousel__item__information__subtitle">{{$schedule->subtitle}}</h5>
-                                    @endif
-                                    @if ($schedule->description_box)
-                                        <div class="sche01__carousel__item__information__paragraph">
-                                            <p>
+
+                                    <div class="sche01__carousel__item__information__date">
+                                        <span class="sche01__carousel__item__information__date__day">{{ Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%d') }}</span>
+                                        <span class="sche01__carousel__item__information__date__month">{{ monthFull(strtotime($schedule->event_date)) }}</span>
+                                        <span class="sche01__carousel__item__information__date__year">{{ Carbon\Carbon::parse($schedule->event_date)->formatLocalized('%Y') }}</span>
+                                    </div>
+
+                                    <header class="sche01__carousel__item__information__header">
+                                        @if ($schedule->title)
+                                            <h4 class="sche01__carousel__item__information__header__title">
+                                                {{ $schedule->title }}</h4>
+                                        @endif
+                                        @if ($schedule->subtitle)
+                                            <h5 class="sche01__carousel__item__information__header__subtitle">
+                                                {{ $schedule->subtitle }}</h5>
+                                        @endif
+                                        @if ($schedule->description_box)
+                                            <div class="sche01__carousel__item__information__header__paragraph">
                                                 {!! $schedule->description_box !!}
-                                            </p>
-                                        </div>
-                                    @endif
-                                    <a href="{{route('sche01.show.content', ['SCHE01Schedules' => $schedule->slug])}}" class="sche01__carousel__item__information__cta"
-                                    title="{{$schedule->title}}">CTA</a>
+                                            </div>
+                                        @endif
+                                    </header>
                                 </div>
                             @endif
                         </article>
@@ -49,6 +60,6 @@
             </div>
         @endif
 
-        <a href="{{route('sche01.page')}}" class="sche01__cta" title='Ir para página interna de eventos'>CTA</a>
+        <a href="{{ route('sche01.page') }}" class="sche01__cta" title='Ir para página interna de eventos'>CTA</a>
     </section>
 @endif

@@ -1,0 +1,46 @@
+<div class="row col-12">
+    <div class="col-12 col-lg-6">
+        <div class="card card-body" id="tooltip-container">
+            <div class="mb-3">
+                {!! Form::label('title', 'Título', ['class'=>'form-label']) !!}
+                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required'=>'required']) !!}
+            </div>
+            <div class="basic-editor__content mb-3">
+                {!! Form::label('basic-editor', 'Texto', ['class'=>'form-label']) !!}
+                {!! Form::textarea('description', null, [
+                    'class'=>'form-control basic-editor',
+                    'id'=>'basic-editor',
+                ]) !!}
+            </div>
+        </div>
+        <div class="mb-3 form-check">
+            {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
+            {!! Form::label('active', 'Ativar Exibição?', ['class'=>'form-check-label']) !!}
+        </div>
+        {{-- end card-body --}}
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="card card-body" id="tooltip-container">
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Ícone', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_icon->width}}x{{$cropSetting->path_image_icon->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image_icon', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_image_icon->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_icon->width, // px
+                            'data-min-height'=>$cropSetting->path_image_icon->height, // px
+                            'data-box-height'=>'180', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
+                            'data-default-file'=> isset($topic)?($topic->path_image_icon<>''?url('storage/'.$topic->path_image_icon):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+        </div>
+        {{-- end card-body --}}
+    </div>
+</div>
+{{-- end row --}}

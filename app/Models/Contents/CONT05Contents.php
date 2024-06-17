@@ -16,7 +16,7 @@ class CONT05Contents extends Model
     }
 
     protected $table = "cont05_contents";
-    protected $fillable = ['title', 'description', 'subtitle', 'title_button', 'link_button', 'target_link_button', 'path_image_desktop', 'path_image_mobile', 'active', 'sorting', 'background_color'];
+    protected $fillable = ['title', 'description', 'subtitle', 'title_button', 'link_button', 'target_link_button', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

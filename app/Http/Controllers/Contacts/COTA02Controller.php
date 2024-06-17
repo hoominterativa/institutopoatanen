@@ -95,20 +95,6 @@ class COTA02Controller extends Controller
         $path_image_banner_mobile = $helper->optimizeImage($request, 'path_image_banner_mobile', $this->path, null,100);
         if($path_image_banner_mobile) $data['path_image_banner_mobile'] = $path_image_banner_mobile;
 
-        //Topics
-        $path_image_topic_desktop = $helper->optimizeImage($request, 'path_image_topic_desktop', $this->path, null,100);
-        if($path_image_topic_desktop) $data['path_image_topic_desktop'] = $path_image_topic_desktop;
-
-        $path_image_topic_mobile = $helper->optimizeImage($request, 'path_image_topic_mobile', $this->path, null,100);
-        if($path_image_topic_mobile) $data['path_image_topic_mobile'] = $path_image_topic_mobile;
-
-        //Forms
-        $path_image_form_desktop = $helper->optimizeImage($request, 'path_image_form_desktop', $this->path, null,100);
-        if($path_image_form_desktop) $data['path_image_form_desktop'] = $path_image_form_desktop;
-
-        $path_image_form_mobile = $helper->optimizeImage($request, 'path_image_form_mobile', $this->path, null,100);
-        if($path_image_form_mobile) $data['path_image_form_mobile'] = $path_image_form_mobile;
-
         if($contact = COTA02Contacts::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.cota02.edit', ['COTA02Contacts' => $contact->id]);
@@ -116,10 +102,6 @@ class COTA02Controller extends Controller
         }else{
             Storage::delete($path_image_banner_desktop);
             Storage::delete($path_image_banner_mobile);
-            Storage::delete($path_image_topic_desktop);
-            Storage::delete($path_image_topic_mobile);
-            Storage::delete($path_image_form_desktop);
-            Storage::delete($path_image_form_mobile);
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
@@ -216,57 +198,11 @@ class COTA02Controller extends Controller
             $data['path_image_banner_mobile'] = null;
         }
 
-        //Topic
-        $path_image_topic_desktop = $helper->optimizeImage($request, 'path_image_topic_desktop', $this->path, null,100);
-        if($path_image_topic_desktop){
-            storageDelete($COTA02Contacts, 'path_image_topic_desktop');
-            $data['path_image_topic_desktop'] = $path_image_topic_desktop;
-        }
-        if($request->delete_path_image_topic_desktop && !$path_image_topic_desktop){
-            storageDelete($COTA02Contacts, 'path_image_topic_desktop');
-            $data['path_image_topic_desktop'] = null;
-        }
-
-        $path_image_topic_mobile = $helper->optimizeImage($request, 'path_image_topic_mobile', $this->path, null,100);
-        if($path_image_topic_mobile){
-            storageDelete($COTA02Contacts, 'path_image_topic_mobile');
-            $data['path_image_topic_mobile'] = $path_image_topic_mobile;
-        }
-        if($request->delete_path_image_topic_mobile && !$path_image_topic_mobile){
-            storageDelete($COTA02Contacts, 'path_image_topic_mobile');
-            $data['path_image_topic_mobile'] = null;
-        }
-
-        //Form
-        $path_image_form_desktop = $helper->optimizeImage($request, 'path_image_form_desktop', $this->path, null,100);
-        if($path_image_form_desktop){
-            storageDelete($COTA02Contacts, 'path_image_form_desktop');
-            $data['path_image_form_desktop'] = $path_image_form_desktop;
-        }
-        if($request->delete_path_image_form_desktop && !$path_image_form_desktop){
-            storageDelete($COTA02Contacts, 'path_image_form_desktop');
-            $data['path_image_form_desktop'] = null;
-        }
-
-        $path_image_form_mobile = $helper->optimizeImage($request, 'path_image_form_mobile', $this->path, null,100);
-        if($path_image_form_mobile){
-            storageDelete($COTA02Contacts, 'path_image_form_mobile');
-            $data['path_image_form_mobile'] = $path_image_form_mobile;
-        }
-        if($request->delete_path_image_form_mobile && !$path_image_form_mobile){
-            storageDelete($COTA02Contacts, 'path_image_form_mobile');
-            $data['path_image_form_mobile'] = null;
-        }
-
         if($COTA02Contacts->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
         }else{
             Storage::delete($path_image_banner_desktop);
             Storage::delete($path_image_banner_mobile);
-            Storage::delete($path_image_topic_desktop);
-            Storage::delete($path_image_topic_mobile);
-            Storage::delete($path_image_form_desktop);
-            Storage::delete($path_image_form_mobile);
             Session::flash('error', 'Erro ao atualizar item');
         }
         return redirect()->back();
@@ -282,10 +218,6 @@ class COTA02Controller extends Controller
     {
         storageDelete($COTA02Contacts, 'path_image_banner_desktop');
         storageDelete($COTA02Contacts, 'path_image_banner_mobile');
-        storageDelete($COTA02Contacts, 'path_image_topic_desktop');
-        storageDelete($COTA02Contacts, 'path_image_topic_mobile');
-        storageDelete($COTA02Contacts, 'path_image_form_mobile');
-        storageDelete($COTA02Contacts, 'path_image_form_desktop');
 
         $topics = COTA02ContactsTopic::where('contact_id', $COTA02Contacts->id)->get();
         if($topics->count()){
@@ -321,10 +253,6 @@ class COTA02Controller extends Controller
 
             storageDelete($COTA02Contacts, 'path_image_banner_desktop');
             storageDelete($COTA02Contacts, 'path_image_banner_mobile');
-            storageDelete($COTA02Contacts, 'path_image_topic_desktop');
-            storageDelete($COTA02Contacts, 'path_image_topic_mobile');
-            storageDelete($COTA02Contacts, 'path_image_form_mobile');
-            storageDelete($COTA02Contacts, 'path_image_form_desktop');
         }
 
 
@@ -369,8 +297,6 @@ class COTA02Controller extends Controller
             case 'tablet':
                 if($COTA02Contacts) {
                     $COTA02Contacts->path_image_banner_desktop = $COTA02Contacts->path_image_banner_mobile;
-                    $COTA02Contacts->path_image_topic_desktop = $COTA02Contacts->path_image_topic_mobile;
-                    $COTA02Contacts->path_image_form_desktop = $COTA02Contacts->path_image_form_mobile;
                 }
                 break;
         }
@@ -404,8 +330,6 @@ class COTA02Controller extends Controller
             case 'tablet':
                 if($contact) {
                     $contact->path_image_banner_desktop = $contact->path_image_banner_mobile;
-                    $contact->path_image_topic_desktop = $contact->path_image_topic_mobile;
-                    $contact->path_image_form_desktop = $contact->path_image_form_mobile;
                 }
             break;
         }
