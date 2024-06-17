@@ -44,6 +44,6 @@ class PORT05Portfolios extends Model
 
     public function categories()
     {
-        return $this->hasMany(PORT05PortfoliosCategory::class, 'category_id');
+        return $this->hasMany(PORT05PortfoliosCategory::class);
     }
 }

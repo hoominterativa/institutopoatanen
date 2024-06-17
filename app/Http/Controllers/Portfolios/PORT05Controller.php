@@ -66,6 +66,8 @@ class PORT05Controller extends Controller
         if($path_image) $data['path_image'] = $path_image;
 
         if($portfolio = PORT05Portfolios::create($data)){
+            $selectedCategories = $request->input('categories');
+            $portfolio->categories()->attach($selectedCategories);
             Session::flash('success', 'Portifólio cadastrado com sucesso');
             return redirect()->route('admin.port05.edit', ['PORT05Portfolios' => $portfolio->id]);
         }else{

@@ -32,4 +32,9 @@ class PORT05PortfoliosCategory extends Model
     {
         return $query->where('featured', 1);
     }
+
+    public function products()
+    {
+        return $this->belongsTo(PORT05Portfolios::class);
+    }
 }
