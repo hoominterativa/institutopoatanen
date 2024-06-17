@@ -41,7 +41,8 @@
         "PORT01",
         "PORT02",
         "PORT04",
-        "PORT03"
+        "PORT03",
+        "PORT05"
     ],
     "Topics": [
         "TOPI01",

@@ -558,6 +558,49 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "PORT05": {
+            "path_image": {
+                "width": "416",
+                "height": "375",
+                "activeCrop": "false"
+            },
+            "path_image_desktop": {
+                "width": "1500",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_image_mobile": {
+                "width": "400",
+                "height": "286",
+                "activeCrop": "true"
+            },
+            "Banner": {
+                "path_image_desktop": {
+                    "width": "1500",
+                    "height": "300",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile": {
+                    "width": "400",
+                    "height": "286",
+                    "activeCrop": "true"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "417",
+                    "height": "350",
+                    "activeCrop": "false"
+                }
+            },
+            "Testimonial": {
+                "path_image": {
+                    "width": "417",
+                    "height": "350",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
 

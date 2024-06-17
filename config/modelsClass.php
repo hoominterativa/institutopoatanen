@@ -323,6 +323,19 @@ return [
                     ]
                 ]
             ],
+            'PORT05' => (object)[
+                'controller' => App\Http\Controllers\Portfolios\PORT05Controller::class,
+                'model' => App\Models\Portfolios\PORT05Portfolios::class,
+                'seedQty' => 9,
+                'routeName' => 'port05.show',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Portfolios\PORT05PortfoliosCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
+                    ]
+                ]
+            ],
             'PORT101' => (object)[
                 'controller' => App\Http\Controllers\Portfolios\PORT101Controller::class,
                 'model' => App\Models\Portfolios\PORT101Portfolios::class,
