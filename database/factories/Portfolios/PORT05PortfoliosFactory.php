@@ -24,7 +24,6 @@ class PORT05PortfoliosFactory extends Factory
     {
         $title = $this->faker->text(10);
         return [
-            'category_id' => rand(1,4),
             'slug' => Str::slug($title),
             'title' => $title,
             'description' => $this->faker->paragraphs(3, true),

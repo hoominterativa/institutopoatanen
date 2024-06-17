@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryProductTable extends Migration
+class CreatePort05PortfoliosCategoryportfoliosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateCategoryProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_product', function (Blueprint $table) {
+        Schema::create('port05_portfolios_categoryportfolios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained('port05_portfolios')->onDelete('cascade');
+            $table->foreignId('portfolio_id')->constrained('port05_portfolios')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('port05_portfolios_categories')->onDelete('cascade');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateCategoryProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_product');
+        Schema::dropIfExists('port05_portfolios_categoryportfolios');
     }
 }

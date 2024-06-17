@@ -58,6 +58,8 @@ class PORT05Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
+        // dd($data);
+
         $data['featured'] = $request->featured?1:0;
         $data['active'] = $request->active?1:0;
         if($request->title) $data['slug'] = Str::slug($data['title']);
@@ -66,8 +68,11 @@ class PORT05Controller extends Controller
         if($path_image) $data['path_image'] = $path_image;
 
         if($portfolio = PORT05Portfolios::create($data)){
-            $selectedCategories = $request->input('categories');
-            $portfolio->categories()->attach($selectedCategories);
+            // Associa as categorias ao portfolio, se houver categorias selecionadas
+            if ($request->has('categories')) {
+                $categoryIds = $request->input('categories'); // Recebe os IDs das categorias
+                $portfolio->categories()->attach($categoryIds); // Associa as categorias ao portfolio
+            }
             Session::flash('success', 'Portifólio cadastrado com sucesso');
             return redirect()->route('admin.port05.edit', ['PORT05Portfolios' => $portfolio->id]);
         }else{
@@ -121,6 +126,13 @@ class PORT05Controller extends Controller
         }
 
         if($PORT05Portfolios->fill($data)->save()){
+            if ($request->has('categories')) {
+                $categoryIds = $request->input('categories'); // Recebe os IDs das categorias
+                $PORT05Portfolios->categories()->sync($categoryIds); // Sincroniza as categorias com o portfolio
+            }else {
+                // Se nenhuma categoria for selecionada, desassocia todas as categorias
+                $PORT05Portfolios->categories()->sync([]);
+            }
             Session::flash('success', 'Portifólio atualizado com sucesso');
         }else{
             Storage::delete($path_image);

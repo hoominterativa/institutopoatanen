@@ -6,7 +6,7 @@
                     {!! Form::label('heard', 'Categorias', ['class'=>'form-label']) !!}
                     <i class="text-danger">*</i>
                 </div>
-                {!! Form::select('category_id', $categories, null, [
+                {!! Form::select('category_id[]', $categories, null, [
                     'class'=>'form-select',
                     'id'=>'heard',
                     'required'=>'required',
@@ -55,7 +55,6 @@
                             'data-min-width' => $cropSetting->path_image->width, // px
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '205', // Input height in the form
-                            'required' => isset($portfolio) ? false : true,
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($portfolio)
                                 ? ($portfolio->path_image != ''

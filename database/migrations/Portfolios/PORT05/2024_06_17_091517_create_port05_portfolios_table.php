@@ -15,7 +15,6 @@ class CreatePort05PortfoliosTable extends Migration
     {
         Schema::create('port05_portfolios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('port05_portfolios_categories')->onDelete('cascade');
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();

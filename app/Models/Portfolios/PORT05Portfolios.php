@@ -17,7 +17,6 @@ class PORT05Portfolios extends Model
 
     protected $table = "port05_portfolios";
     protected $fillable = [
-        'category_id',
         'slug',
         'title',
         'description',
@@ -44,6 +43,6 @@ class PORT05Portfolios extends Model
 
     public function categories()
     {
-        return $this->hasMany(PORT05PortfoliosCategory::class);
+        return $this->belongsToMany(PORT05PortfoliosCategory::class);
     }
 }
