@@ -1,12 +1,13 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
+        "dev": "npm run development --admin=true",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "client": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
-        "prod": "npm run production",
+        "prod": "npm run production --admin=true",
         "production": "mix --production"
     },
     "devDependencies": {
@@ -17,8 +18,8 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "resolve-url-loader": "^4.0.0",
-        "sass": "^1.38.0",
-        "sass-loader": "^12.1.0"
+        "sass": "^1.77.5",
+        "sass-loader": "^14.2.1"
     },
     "dependencies": {
         "@ckeditor/ckeditor5-basic-styles": "^35.3.1",
