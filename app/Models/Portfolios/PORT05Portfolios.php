@@ -43,6 +43,6 @@ class PORT05Portfolios extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(PORT05PortfoliosCategory::class);
+        return $this->belongsToMany(PORT05PortfoliosCategory::class)->using(PORT05PortfoliosCategoryPortfolio::class);
     }
 }
