@@ -1,5 +1,11 @@
 import Swiper from "swiper/bundle";
 
+new Swiper(".serv12__categories", {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    centerInsufficientSlides: true,
+});
+
 new Swiper(".serv12__services__carousel", {
     slidesPerView: "auto",
     spaceBetween: 8,
@@ -10,8 +16,3 @@ new Swiper(".serv12__services__carousel", {
 });
 
 
-new Swiper(".serv12__categories", {
-    slidesPerView: "auto",
-    spaceBetween: 20,
-    centerInsufficientSlides: true,
-});

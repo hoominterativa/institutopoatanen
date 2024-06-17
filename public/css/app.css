@@ -27,8 +27,9 @@ body ul {
 body p {
   margin-bottom: 0;
 }
-body diaglog {
-  pointer-events: auto;
+body menu {
+  margin: 0;
+  padding: 0;
 }
 body .swiper-slide {
   display: flex;
@@ -88,8 +89,7 @@ details .details-content {
   aspect-ratio: 6/4;
   background-color: #7c7c7c;
   content: "";
-  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: all ease 0.4s;
 }
 .quedinha__btn * {
@@ -1673,7 +1673,7 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.serv12-page__categories, .serv12__services, .serv12__categories, .serv12, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .serv12-page__banner {
+.serv12-page__categories, .serv12__services, .serv12__categories, .serv12__header, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .serv12-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -1759,7 +1759,7 @@ body .owl-dots .owl-dot.active {
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
-  margin: inherit;
+  margin: 0;
 }
 @media (max-width: 991.98px) {
   .serv12__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .serv12__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
@@ -1788,7 +1788,7 @@ body .owl-dots .owl-dot.active {
   letter-spacing: inherit;
   color: inherit;
   letter-spacing: inherit;
-  margin: inherit;
+  margin: 0;
 }
 @media (max-width: 991.98px) {
   .serv12__services__item__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
@@ -2297,9 +2297,6 @@ body .owl-dots .owl-dot.active {
 /* BEGIN STYLE */
 .serv12 {
   overflow: hidden; /* prevenção do shift da animação*/
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0;
 }
 .serv12__header {
   width: 100%;
@@ -2307,7 +2304,8 @@ body .owl-dots .owl-dot.active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4.5rem;
+  padding-bottom: 0;
 }
 .serv12__header__title {
   margin-bottom: 0.25rem;
@@ -2319,6 +2317,11 @@ body .owl-dots .owl-dot.active {
   width: 100%;
   max-width: 938px;
   text-align: center;
+}
+@media (max-width: 991.98px) {
+  .serv12__header__paragraph {
+    max-width: 100%;
+  }
 }
 .serv12__categories {
   padding-top: 0;
@@ -2402,6 +2405,7 @@ body .owl-dots .owl-dot.active {
 }
 .serv12__cta {
   margin-left: auto;
+  margin-top: 1.75rem;
 }
 
 .serv12-page__categories {
