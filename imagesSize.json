@@ -565,23 +565,23 @@
                 "height": "375",
                 "activeCrop": "false"
             },
-            "path_image_desktop": {
+            "path_image_desktop_banner": {
                 "width": "1500",
                 "height": "300",
                 "activeCrop": "false"
             },
-            "path_image_mobile": {
+            "path_image_mobile_banner": {
                 "width": "400",
                 "height": "286",
                 "activeCrop": "true"
             },
             "Banner": {
-                "path_image_desktop": {
+                "path_image_desktop_banner": {
                     "width": "1500",
                     "height": "300",
                     "activeCrop": "false"
                 },
-                "path_image_mobile": {
+                "path_image_mobile_banner": {
                     "width": "400",
                     "height": "286",
                     "activeCrop": "true"

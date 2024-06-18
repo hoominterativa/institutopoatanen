@@ -136,6 +136,12 @@
                             'categories' => $categories
                         ])
                     </div>
+                    <div class="tab-pane" id="section">
+                        @include('Admin.cruds.Portfolios.PORT05.Section.form')
+                    </div>
+                    <div class="tab-pane" id="banner">
+                        @include('Admin.cruds.Portfolios.PORT05.Banner.form')
+                    </div>
                 </div>
                 <!-- end row -->
             </div> <!-- container -->

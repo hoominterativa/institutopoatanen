@@ -23,6 +23,10 @@ class PORT05Portfolios extends Model
         'path_image',
         'active',
         'featured',
+        'title_banner',
+        'path_image_desktop_banner',
+        'path_image_mobile_banner',
+        'active_banner',
         'sorting'
     ];
 
@@ -41,8 +45,18 @@ class PORT05Portfolios extends Model
         return $query->where('featured', 1);
     }
 
-    public function categories()
+    public function scopeActiveBanner($query)
     {
-        return $this->belongsToMany(PORT05PortfoliosCategory::class)->using(PORT05PortfoliosCategoryPortfolio::class);
+        return $query->where('active_banner', 1);
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(PORT05PortfoliosGallery::class, 'portfolio_id')->sorting()->active();
+    }
+
+    // public function categories()
+    // {
+    //     return $this->belongsToMany(PORT05PortfoliosCategory::class)->using(PORT05PortfoliosCategoryPortfolio::class);
+    // }
 }

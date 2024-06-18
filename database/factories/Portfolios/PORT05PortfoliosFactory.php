@@ -30,6 +30,11 @@ class PORT05PortfoliosFactory extends Factory
             'path_image' => 'uploads/tmp/bg-boxitem.png',
             'active' => 1,
             'featured' => rand(0, 1),
+            //Banner show
+            'title_banner' => $title,
+            'path_image_desktop_banner' => 'uploads/tmp/image-box.jpg',
+            'path_image_mobile_banner' => 'uploads/tmp/port01_path_image_box.png',
+            'active_banner' => 1
         ];
     }
 }

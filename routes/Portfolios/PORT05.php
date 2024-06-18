@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Portfolios\PORT05CategoryController;
 use App\Models\Portfolios\PORT05Portfolios;
+use App\Http\Controllers\Portfolios\PORT05GalleryController;
+use App\Http\Controllers\Portfolios\PORT05SectionController;
+use App\Http\Controllers\Portfolios\PORT05CategoryController;
 
 /**
  * Uncomment the code below
@@ -29,6 +31,12 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/categorias', PORT05CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT05PortfoliosCategory']);
     Route::post($route.'/categoria/delete', [PORT05CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [PORT05CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+
+    Route::resource($route.'/secao', PORT05SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['secao' => 'PORT05PortfoliosSection']);
+
+    Route::resource($route.'/galeria', PORT05GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'PORT05PortfoliosGallery']);
+    Route::post($route.'/galeria/delete', [PORT05GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/galeria/sorting', [PORT05GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 
     Route::get('/teste', function() {
         $portfolio = PORT05Portfolios::find(1);

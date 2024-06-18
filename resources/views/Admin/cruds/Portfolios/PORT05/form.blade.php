@@ -1,7 +1,8 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
+        {!! Form::hidden('active_banner', $portfolio->active_banner) !!}
         <div class="card card-body" id="tooltip-container">
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <div class="d-flex">
                     {!! Form::label('heard', 'Categorias', ['class'=>'form-label']) !!}
                     <i class="text-danger">*</i>
@@ -12,7 +13,7 @@
                     'required'=>'required',
                     'multiple' => 'multiple',
                 ]) !!}
-            </div>
+            </div> --}}
             <div class="mb-3">
                 {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
                 {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'required'=>'required',]) !!}

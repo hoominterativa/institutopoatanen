@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\Portfolios\PORT05Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Portfolios\PORT05PortfoliosSection;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Portfolios\PORT05PortfoliosCategory;
+use App\Models\Portfolios\PORT05PortfoliosGallery;
+use App\Models\Portfolios\PORT05PortfoliosTestimonial;
 
 class PORT05Controller extends Controller
 {
@@ -26,9 +29,11 @@ class PORT05Controller extends Controller
     {
         $portfolios = PORT05Portfolios::sorting()->paginate(20);
         $categories = PORT05PortfoliosCategory::sorting()->get();
+        $section = PORT05PortfoliosSection::sorting()->first();
         return view('Admin.cruds.Portfolios.PORT05.index', [
             'portfolios' => $portfolios,
             'categories' => $categories,
+            'section' => $section,
             'cropSetting' => getCropImage('Portfolios', 'PORT05')
         ]);
     }
@@ -62,21 +67,30 @@ class PORT05Controller extends Controller
 
         $data['featured'] = $request->featured?1:0;
         $data['active'] = $request->active?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
         if($request->title) $data['slug'] = Str::slug($data['title']);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner) $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+
         if($portfolio = PORT05Portfolios::create($data)){
             // Associa as categorias ao portfolio, se houver categorias selecionadas
-            if ($request->has('categories')) {
-                $categoryIds = $request->input('categories'); // Recebe os IDs das categorias
-                $portfolio->categories()->attach($categoryIds); // Associa as categorias ao portfolio
-            }
+            // if ($request->has('categories')) {
+            //     $categoryIds = $request->input('categories'); // Recebe os IDs das categorias
+            //     $portfolio->categories()->attach($categoryIds); // Associa as categorias ao portfolio
+            // }
             Session::flash('success', 'Portifólio cadastrado com sucesso');
             return redirect()->route('admin.port05.edit', ['PORT05Portfolios' => $portfolio->id]);
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao cadastradar o portifólio');
             return redirect()->back();
         }
@@ -91,9 +105,13 @@ class PORT05Controller extends Controller
     public function edit(PORT05Portfolios $PORT05Portfolios)
     {
         $categories = PORT05PortfoliosCategory::sorting()->pluck('title', 'id');
+        $galleries = PORT05PortfoliosGallery::where('portfolio_id', $PORT05Portfolios->id)->sorting()->get();
+        $testimonials = PORT05PortfoliosTestimonial::where('portfolio_id', $PORT05Portfolios->id)->sorting()->get();
         return view('Admin.cruds.Portfolios.PORT05.edit', [
             'portfolio' => $PORT05Portfolios,
             'categories' => $categories,
+            'galleries' => $galleries,
+            'testimonials' => $testimonials,
             'cropSetting' => getCropImage('Portfolios', 'PORT05')
 
         ]);
@@ -113,6 +131,7 @@ class PORT05Controller extends Controller
 
         $data['featured'] = $request->featured?1:0;
         $data['active'] = $request->active?1:0;
+        $data['active_banner'] = $request->active_banner?1:0;
         if($request->title) $data['slug'] = Str::slug($data['title']);
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -125,17 +144,39 @@ class PORT05Controller extends Controller
             $data['path_image'] = null;
         }
 
+        $path_image_desktop_banner = $helper->optimizeImage($request, 'path_image_desktop_banner', $this->path, null,100);
+        if($path_image_desktop_banner){
+            storageDelete($PORT05Portfolios, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = $path_image_desktop_banner;
+        }
+        if($request->delete_path_image_desktop_banner && !$path_image_desktop_banner){
+            storageDelete($PORT05Portfolios, 'path_image_desktop_banner');
+            $data['path_image_desktop_banner'] = null;
+        }
+
+        $path_image_mobile_banner = $helper->optimizeImage($request, 'path_image_mobile_banner', $this->path, null,100);
+        if($path_image_mobile_banner){
+            storageDelete($PORT05Portfolios, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = $path_image_mobile_banner;
+        }
+        if($request->delete_path_image_mobile_banner && !$path_image_mobile_banner){
+            storageDelete($PORT05Portfolios, 'path_image_mobile_banner');
+            $data['path_image_mobile_banner'] = null;
+        }
+
         if($PORT05Portfolios->fill($data)->save()){
-            if ($request->has('categories')) {
-                $categoryIds = $request->input('categories'); // Recebe os IDs das categorias
-                $PORT05Portfolios->categories()->sync($categoryIds); // Sincroniza as categorias com o portfolio
-            }else {
-                // Se nenhuma categoria for selecionada, desassocia todas as categorias
-                $PORT05Portfolios->categories()->sync([]);
-            }
+            // if ($request->has('categories')) {
+            //     $categoryIds = $request->input('categories'); // Recebe os IDs das categorias
+            //     $PORT05Portfolios->categories()->sync($categoryIds); // Sincroniza as categorias com o portfolio
+            // }else {
+            //     // Se nenhuma categoria for selecionada, desassocia todas as categorias
+            //     $PORT05Portfolios->categories()->sync([]);
+            // }
             Session::flash('success', 'Portifólio atualizado com sucesso');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_image_desktop_banner);
+            Storage::delete($path_image_mobile_banner);
             Session::flash('error', 'Erro ao atualizar o portfólio');
         }
         return redirect()->back();
@@ -150,6 +191,8 @@ class PORT05Controller extends Controller
     public function destroy(PORT05Portfolios $PORT05Portfolios)
     {
         storageDelete($PORT05Portfolios, 'path_image');
+        storageDelete($PORT05Portfolios, 'path_image_desktop_banner');
+        storageDelete($PORT05Portfolios, 'path_image_mobile_banner');
 
         if($PORT05Portfolios->delete()){
             Session::flash('success', 'Portifólio deletado com sucessso');
@@ -169,6 +212,8 @@ class PORT05Controller extends Controller
         $PORT05Portfolioss = PORT05Portfolios::whereIn('id', $request->deleteAll)->get();
         foreach($PORT05Portfolioss as $PORT05Portfolios){
             storageDelete($PORT05Portfolios, 'path_image');
+            storageDelete($PORT05Portfolios, 'path_image_desktop_banner');
+            storageDelete($PORT05Portfolios, 'path_image_mobile_banner');
         }
 
         if($deleted = PORT05Portfolios::whereIn('id', $request->deleteAll)->delete()){
