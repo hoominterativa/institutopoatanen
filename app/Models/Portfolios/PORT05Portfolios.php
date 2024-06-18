@@ -60,8 +60,8 @@ class PORT05Portfolios extends Model
         return $this->hasMany(PORT05PortfoliosTestimonial::class, 'portfolio_id')->sorting()->active();
     }
 
-    // public function categories()
-    // {
-    //     return $this->belongsToMany(PORT05PortfoliosCategory::class)->using(PORT05PortfoliosCategoryPortfolio::class);
-    // }
+    public function categories()
+    {
+        return $this->belongsToMany(PORT05PortfoliosCategory::class, 'category_portfolio', 'portfolio_id', 'category_id');
+    }
 }

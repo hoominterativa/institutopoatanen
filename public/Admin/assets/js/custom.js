@@ -886,4 +886,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch((error) => console.error(error));
         });
     }
+
+
+    const channelSelect = document.querySelectorAll('.port05-select');
+
+if (channelSelect) {
+
+    channelSelect.forEach((el) => {
+        const categories_container = el.parentNode.querySelector('.categories_container');
+
+        el.addEventListener('change', ev => {
+            const channelSelectedValue = ev.target.value;
+            const channelSelectedOption = ev.target.querySelector(`option[value="${channelSelectedValue}"]`).innerText;
+
+
+            if (!categories_container.querySelector(`[value="${channelSelectedValue}"]`)) {
+                categories_container.innerHTML += ` <label class="btn btn-light btn-xs waves-effect waves-light">${channelSelectedOption} <i class="mdi mdi-close" onclick="deleteChannelHandler(event)"></i>
+                 <input type="hidden" value='${channelSelectedValue}' name="value_id[]"></label>`
+            }
+        });
+    })
+}
 });
+
+

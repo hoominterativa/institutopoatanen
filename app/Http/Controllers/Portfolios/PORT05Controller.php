@@ -12,6 +12,7 @@ use App\Models\Portfolios\PORT05Portfolios;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Portfolios\PORT05PortfoliosSection;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Portfolios\CategoryPortfolio;
 use App\Models\Portfolios\PORT05PortfoliosCategory;
 use App\Models\Portfolios\PORT05PortfoliosGallery;
 use App\Models\Portfolios\PORT05PortfoliosTestimonial;
@@ -45,7 +46,12 @@ class PORT05Controller extends Controller
      */
     public function create()
     {
-        $categories = PORT05PortfoliosCategory::sorting()->pluck('title', 'id');
+        $categories = PORT05PortfoliosCategory::sorting()->get();
+        // dd($categories);
+        // $array = [];
+        // foreach ($categories as $category) {
+        //     $array [$category->id][$category->title] = $category->title;
+        // }
         return view('Admin.cruds.Portfolios.PORT05.create', [
             'categories' => $categories,
             'cropSetting' => getCropImage('Portfolios', 'PORT05')
@@ -63,8 +69,6 @@ class PORT05Controller extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        // dd($data);
-
         $data['featured'] = $request->featured?1:0;
         $data['active'] = $request->active?1:0;
         $data['active_banner'] = $request->active_banner?1:0;
@@ -80,11 +84,11 @@ class PORT05Controller extends Controller
         if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
 
         if($portfolio = PORT05Portfolios::create($data)){
-            // Associa as categorias ao portfolio, se houver categorias selecionadas
-            // if ($request->has('categories')) {
-            //     $categoryIds = $request->input('categories'); // Recebe os IDs das categorias
-            //     $portfolio->categories()->attach($categoryIds); // Associa as categorias ao portfolio
-            // }
+            // dd($request);
+            if ($request->has('category_id')) {
+                $categoryIds = $request->input('category_id');
+                $portfolio->categories()->attach($categoryIds);
+            }
             Session::flash('success', 'Portifólio cadastrado com sucesso');
             return redirect()->route('admin.port05.edit', ['PORT05Portfolios' => $portfolio->id]);
         }else{
@@ -104,7 +108,7 @@ class PORT05Controller extends Controller
      */
     public function edit(PORT05Portfolios $PORT05Portfolios)
     {
-        $categories = PORT05PortfoliosCategory::sorting()->pluck('title', 'id');
+        $categories = PORT05PortfoliosCategory::sorting()->get();
         $galleries = PORT05PortfoliosGallery::where('portfolio_id', $PORT05Portfolios->id)->sorting()->get();
         $testimonials = PORT05PortfoliosTestimonial::where('portfolio_id', $PORT05Portfolios->id)->sorting()->get();
         return view('Admin.cruds.Portfolios.PORT05.edit', [
@@ -165,13 +169,12 @@ class PORT05Controller extends Controller
         }
 
         if($PORT05Portfolios->fill($data)->save()){
-            // if ($request->has('categories')) {
-            //     $categoryIds = $request->input('categories'); // Recebe os IDs das categorias
-            //     $PORT05Portfolios->categories()->sync($categoryIds); // Sincroniza as categorias com o portfolio
-            // }else {
-            //     // Se nenhuma categoria for selecionada, desassocia todas as categorias
-            //     $PORT05Portfolios->categories()->sync([]);
-            // }
+            if ($request->has('category_id')) {
+                $categoryIds = $request->input('category_id');
+                $PORT05Portfolios->categories()->sync($categoryIds);
+            }else {
+                $PORT05Portfolios->categories()->sync([]);
+            }
             Session::flash('success', 'Portifólio atualizado com sucesso');
         }else{
             Storage::delete($path_image);

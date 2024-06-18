@@ -33,8 +33,8 @@ class PORT05PortfoliosCategory extends Model
         return $query->where('featured', 1);
     }
 
-    // public function portfolios()
-    // {
-    //     return $this->belongsToMany(PORT05Portfolios::class)->using(PORT05PortfoliosCategoryPortfolio::class);
-    // }
+    public function portfolios()
+    {
+        return $this->belongsToMany(PORT05Portfolios::class, 'category_portfolio', 'category_id', 'portfolio_id');
+    }
 }
