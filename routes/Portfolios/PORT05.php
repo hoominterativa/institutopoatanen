@@ -6,6 +6,7 @@ use App\Models\Portfolios\PORT05Portfolios;
 use App\Http\Controllers\Portfolios\PORT05GalleryController;
 use App\Http\Controllers\Portfolios\PORT05SectionController;
 use App\Http\Controllers\Portfolios\PORT05CategoryController;
+use App\Http\Controllers\Portfolios\PORT05TestimonialController;
 
 /**
  * Uncomment the code below
@@ -37,6 +38,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/galeria', PORT05GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['galeria' => 'PORT05PortfoliosGallery']);
     Route::post($route.'/galeria/delete', [PORT05GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
     Route::post($route.'/galeria/sorting', [PORT05GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
+
+    Route::resource($route.'/depoimentos', PORT05TestimonialController::class)->names('admin.'.$routeName.'.testimonial')->parameters(['depoimentos' => 'PORT05PortfoliosTestimonial']);
+    Route::post($route.'/depoimento/delete', [PORT05TestimonialController::class, 'destroySelected'])->name('admin.'.$routeName.'.testimonial.destroySelected');
+    Route::post($route.'/depoimento/sorting', [PORT05TestimonialController::class, 'sorting'])->name('admin.'.$routeName.'.testimonial.sorting');
 
     Route::get('/teste', function() {
         $portfolio = PORT05Portfolios::find(1);

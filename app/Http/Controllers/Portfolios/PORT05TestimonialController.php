@@ -13,27 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class PORT05TestimonialController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    protected $path = 'uploads/Portfolios/PORT05/images/';
 
     /**
      * Store a newly created resource in storage.
@@ -44,46 +24,20 @@ class PORT05TestimonialController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
         if(PORT05PortfoliosTestimonial::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Depoimento cadastrado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o depoimento');
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolios\PORT05PortfoliosTestimonial  $PORT05PortfoliosTestimonial
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PORT05PortfoliosTestimonial $PORT05PortfoliosTestimonial)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -96,11 +50,9 @@ class PORT05TestimonialController extends Controller
     public function update(Request $request, PORT05PortfoliosTestimonial $PORT05PortfoliosTestimonial)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
+
+        $data['active'] = $request->active?1:0;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
@@ -111,36 +63,14 @@ class PORT05TestimonialController extends Controller
             storageDelete($PORT05PortfoliosTestimonial, 'path_image');
             $data['path_image'] = null;
         }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($PORT05PortfoliosTestimonial, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PORT05PortfoliosTestimonial, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($PORT05PortfoliosTestimonial->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Depoimento atualizado com sucesso');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar o depoimento');
         }
+        return redirect()->back();
     }
 
     /**
@@ -151,11 +81,10 @@ class PORT05TestimonialController extends Controller
      */
     public function destroy(PORT05PortfoliosTestimonial $PORT05PortfoliosTestimonial)
     {
-        //storageDelete($PORT05PortfoliosTestimonial, 'path_image');
-        //storageDelete($PORT05PortfoliosTestimonial, 'path_archive');
+        storageDelete($PORT05PortfoliosTestimonial, 'path_image');
 
         if($PORT05PortfoliosTestimonial->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Depoimento deletado com sucessso');
             return redirect()->back();
         }
     }
@@ -168,17 +97,14 @@ class PORT05TestimonialController extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $PORT05PortfoliosTestimonials = PORT05PortfoliosTestimonial::whereIn('id', $request->deleteAll)->get();
         foreach($PORT05PortfoliosTestimonials as $PORT05PortfoliosTestimonial){
             storageDelete($PORT05PortfoliosTestimonial, 'path_image');
-            storageDelete($PORT05PortfoliosTestimonial, 'path_archive');
         }
-        */
 
         if($deleted = PORT05PortfoliosTestimonial::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' depoimentos deletados com sucessso']);
         }
     }
     /**
@@ -194,51 +120,5 @@ class PORT05TestimonialController extends Controller
             PORT05PortfoliosTestimonial::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
-    }
-
-    // METHODS CLIENT
-
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Portfolios\PORT05PortfoliosTestimonial  $PORT05PortfoliosTestimonial
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(PORT05PortfoliosTestimonial $PORT05PortfoliosTestimonial)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
-
-        return view('Client.pages.Module.Model.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function page(Request $request)
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
-
-        return view('Client.pages.Module.Model.page',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public static function section()
-    {
-        return view('');
     }
 }

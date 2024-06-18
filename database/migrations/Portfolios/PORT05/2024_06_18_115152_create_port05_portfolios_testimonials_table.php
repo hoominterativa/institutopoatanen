@@ -15,6 +15,12 @@ class CreatePort05PortfoliosTestimonialsTable extends Migration
     {
         Schema::create('port05_portfolios_testimonials', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('portfolio_id')->constrained('port05_portfolios')->onDelete('cascade');
+            $table->string('name')->nullable();
+            $table->string('profession')->nullable();
+            $table->text('feedback')->nullable();
+            $table->string('path_image')->nullable();
+            $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

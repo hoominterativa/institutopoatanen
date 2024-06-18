@@ -40,8 +40,6 @@
                                 data-bs-original-title="Cada portfólio terá seu banner interno"></i>
                         </a>
                     </li>
-
-
                     <li class="nav-item">
                         <a href="#gallery" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
@@ -51,7 +49,15 @@
                                 data-bs-original-title="Cadastro de imagens e/ou vídeos"></i>
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a href="#testimonials" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Depoimentos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro dos depoimentos"></i>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -68,6 +74,12 @@
                     <div class="tab-pane" id="gallery">
                         @include('Admin.cruds.Portfolios.PORT05.Gallery.index', [
                             'galleries' => $galleries,
+                            'portfolio' => $portfolio,
+                        ])
+                    </div>
+                    <div class="tab-pane" id="testimonials">
+                        @include('Admin.cruds.Portfolios.PORT05.Testimonials.index', [
+                            'testimonials' => $testimonials,
                             'portfolio' => $portfolio,
                         ])
                     </div>

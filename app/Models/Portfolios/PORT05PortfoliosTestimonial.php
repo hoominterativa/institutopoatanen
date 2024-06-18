@@ -2,7 +2,7 @@
 
 namespace App\Models\Portfolios;
 
-use Database\Factories\PORT05PortfoliosTestimonialFactory;
+use Database\Factories\Portfolios\PORT05PortfoliosTestimonialFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,16 @@ class PORT05PortfoliosTestimonial extends Model
         return PORT05PortfoliosTestimonialFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "port05_portfolios_testimonials";
+    protected $fillable = [
+        'portfolio_id',
+        'name',
+        'profession',
+        'feedback',
+        'path_image',
+        'active',
+        'sorting'
+    ];
 
     public function scopeSorting($query)
     {
@@ -28,8 +36,8 @@ class PORT05PortfoliosTestimonial extends Model
         return $query->where('active', 1);
     }
 
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function portfolio()
+    {
+        return $this->belongsTo(PORT05Portfolios::class, 'portfolio_id');
+    }
 }
