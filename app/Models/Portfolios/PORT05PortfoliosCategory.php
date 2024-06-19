@@ -37,4 +37,19 @@ class PORT05PortfoliosCategory extends Model
     {
         return $this->belongsToMany(PORT05Portfolios::class, 'category_portfolio', 'category_id', 'portfolio_id');
     }
+
+    public function scopeExists($query){
+        return $query->whereExists(function($query){
+            $query->select('id')->from('category_portfolio')->whereColumn('category_portfolio.category_id', 'port05_portfolios_categories.id');
+        });
+    }
+
+    // DROPDOW MENU
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('category_portfolio')->whereColumn('category_portfolio.category_id', 'port05_portfolios_categories.id');
+        });
+    }
 }

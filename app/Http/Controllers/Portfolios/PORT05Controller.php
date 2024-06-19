@@ -80,7 +80,6 @@ class PORT05Controller extends Controller
         if($path_image_mobile_banner) $data['path_image_mobile_banner'] = $path_image_mobile_banner;
 
         if($portfolio = PORT05Portfolios::create($data)){
-            // dd($request);
             if ($request->has('category_id')) {
                 $categoryIds = $request->input('category_id');
                 $portfolio->categories()->attach($categoryIds);
@@ -250,7 +249,7 @@ class PORT05Controller extends Controller
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolio', 'PORT05', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT05', 'show');
 
         return view('Client.pages.Portfolios.PORT05.show',[
             'sections' => $sections
@@ -266,7 +265,7 @@ class PORT05Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolio', 'PORT05', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT05', 'page');
 
         return view('Client.pages.Portfolios.PORT05.page',[
             'sections' => $sections
@@ -280,6 +279,14 @@ class PORT05Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Portfolios.PORT05.section');
+        $categories = PORT05PortfoliosCategory::exists()->featured()->active()->sorting()->get();
+        $portfolios = PORT05Portfolios::with('categories')->active()->featured()->sorting()->get();
+        $section = PORT05PortfoliosSection::activeSection()->sorting()->first();
+        // dd($section);
+        return view('Client.pages.Portfolios.PORT05.section', [
+            'categories' => $categories,
+            'portfolios' => $portfolios,
+            'section' => $section
+        ]);
     }
 }

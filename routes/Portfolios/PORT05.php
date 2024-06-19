@@ -6,6 +6,7 @@ use App\Models\Portfolios\PORT05Portfolios;
 use App\Http\Controllers\Portfolios\PORT05GalleryController;
 use App\Http\Controllers\Portfolios\PORT05SectionController;
 use App\Http\Controllers\Portfolios\PORT05CategoryController;
+use App\Http\Controllers\Portfolios\PORT05Controller;
 use App\Http\Controllers\Portfolios\PORT05TestimonialController;
 
 /**
@@ -50,4 +51,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     });
 });
 // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{PORT05PortfoliosCategory:slug}', [PORT05Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get('categoria/{PORT05PortfoliosCategory:slug}/'.$route.'/{PORT05Portfolios:slug}', [PORT05Controller::class, 'show'])->name($routeName.'.show');
