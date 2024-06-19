@@ -5,11 +5,21 @@
             <div class="mb-3 d-flex align-items-start flex-column">
                 <label for="port05-select" class="form-label">Categorias</label>
                 <script>
-                    function deleteChannelHandler(event) {
-                        event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+                    function deleteCategoryHandler(event) {
+                        const categoryItem = event.target.parentNode;
+                        const categoryContainer = document.querySelector('.categories_container');
+
+                        categoryItem.parentNode.removeChild(categoryItem);
+
+                        if (!categoryContainer.querySelector('label')) {
+                            const selectElement = categoryContainer.parentNode.querySelector('select');
+                            if(!selectElement.hasAttribute('required')){
+                                selectElement.setAttribute('required','');
+                            }
+                        }
                     }
                 </script>
-                <select class="form-select port05-select" id="port05-select" name="category_id">
+                <select class="form-select port05-select" id="port05-select" required>
                     <option disabled selected>Selecione a categoria</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">
@@ -17,15 +27,19 @@
                         </option>
                     @endforeach
                 </select>
-                <input type="hidden" name="category_id" value="{{ isset($category->id) ? $category->id : '' }}">
+
                 <div class="categories_container mt-2" id="categories_container">
-                    {{-- BACKEND: FAZER UM FOR EACH PARA OS ELEMENTOS SELECIONADOS --}}
-                    <label class="btn btn-light btn-xs waves-effect waves-light">{{-- $category->title --}}
-                        <i class="mdi mdi-close" onclick="deleteChannelHandler(event)"></i>
-                        <input type="hidden" value='{{$category->id}}' name="value_id[]"></label>
+                    @if(isset($portfolio))
+                        @foreach ($portfolio->categories as $category)
+                            <label class="btn btn-light btn-xs waves-effect waves-light">
+                                {{ $category->title }}
+                                <i class="mdi mdi-close" onclick="deleteCategoryHandler(event)"></i>
+                                <input type="hidden" value='{{ $category->id }}' name="category_id[]">
+                            </label>
+                        @endforeach
+                    @endif
                 </div>
             </div>
-
             <div class="mb-3">
                 {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
                 {!! Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'required' => 'required']) !!}

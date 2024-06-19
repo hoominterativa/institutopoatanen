@@ -47,11 +47,6 @@ class PORT05Controller extends Controller
     public function create()
     {
         $categories = PORT05PortfoliosCategory::sorting()->get();
-        // dd($categories);
-        // $array = [];
-        // foreach ($categories as $category) {
-        //     $array [$category->id][$category->title] = $category->title;
-        // }
         return view('Admin.cruds.Portfolios.PORT05.create', [
             'categories' => $categories,
             'cropSetting' => getCropImage('Portfolios', 'PORT05')
@@ -66,6 +61,7 @@ class PORT05Controller extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
         $helper = new HelperArchive();
 
@@ -111,9 +107,11 @@ class PORT05Controller extends Controller
         $categories = PORT05PortfoliosCategory::sorting()->get();
         $galleries = PORT05PortfoliosGallery::where('portfolio_id', $PORT05Portfolios->id)->sorting()->get();
         $testimonials = PORT05PortfoliosTestimonial::where('portfolio_id', $PORT05Portfolios->id)->sorting()->get();
+        $portfolioCategories = $PORT05Portfolios->categories;
         return view('Admin.cruds.Portfolios.PORT05.edit', [
             'portfolio' => $PORT05Portfolios,
             'categories' => $categories,
+            'portfolioCategories' => $portfolioCategories,
             'galleries' => $galleries,
             'testimonials' => $testimonials,
             'cropSetting' => getCropImage('Portfolios', 'PORT05')
@@ -130,6 +128,7 @@ class PORT05Controller extends Controller
      */
     public function update(Request $request, PORT05Portfolios $PORT05Portfolios)
     {
+
         $data = $request->all();
         $helper = new HelperArchive();
 
