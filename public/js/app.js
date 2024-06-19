@@ -11459,9 +11459,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_validation_init_js__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../views/Admin/assets/js/pages/form-masks.init.js */ "./resources/views/Admin/assets/js/pages/form-masks.init.js");
 /* harmony import */ var _views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_views_Admin_assets_js_pages_form_masks_init_js__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
-/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
-/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../views/Client/assets/js/config */ "./resources/views/Client/assets/js/config.js");
+/* harmony import */ var _views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_config__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _views_Client_assets_js_base__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../views/Client/assets/js/base */ "./resources/views/Client/assets/js/base.js");
 /* harmony import */ var _views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../views/Client/assets/js/ajax */ "./resources/views/Client/assets/js/ajax.js");
 /* harmony import */ var _views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_views_Client_assets_js_ajax__WEBPACK_IMPORTED_MODULE_16__);
 /* provided dependency */ var __webpack_provided_window_dot_jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
@@ -12358,6 +12358,11 @@ if (sideLinks.length > 0) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv12__categories", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  centerInsufficientSlides: true
+});
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv12__services__carousel", {
   slidesPerView: "auto",
   spaceBetween: 8,
@@ -12366,11 +12371,66 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv12__services__ca
     clickable: true
   }
 });
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv12__categories", {
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv12-page__categories", {
   slidesPerView: "auto",
-  spaceBetween: 20,
-  centerInsufficientSlides: true
+  spaceBetween: 20
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv12-page__services-section__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 24
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".serv12-page__services-section__topics", {
+  slidesPerView: "auto",
+  spaceBetween: 24
+});
+function reproduzirVideozinho(playButton, iframeClass) {
+  playButton.addEventListener("click", function () {
+    var src = playButton.parentNode.dataset.src;
+    var iframe = document.createElement("iframe");
+    iframe.setAttribute("src", src + "?autoplay=1");
+    iframe.classList.add(iframeClass);
+    iframe.setAttribute("id", "urlYoutube");
+    playButton.style.display = "none";
+    playButton.parentNode.appendChild(iframe);
+  });
+}
+var buttonsPlay = document.querySelectorAll(".serv12-page__services-section__video__button");
+if (buttonsPlay) {
+  buttonsPlay.forEach(function (el) {
+    reproduzirVideozinho(el, "serv12-page__services-section__video__iframe");
+  });
+}
+
+// CARROSSEL DO LIGHTBOX
+var serv12Show = document.querySelectorAll(".serv12-show");
+if (serv12Show) {
+  serv12Show.forEach(function (el) {
+    var thumbs = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](el.querySelector(".serv12-show__gallery__thumbs"), {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      slideToClickedSlide: true,
+      watchSlidesProgress: true
+    });
+    new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](el.querySelector(".serv12-show__gallery__carousel"), {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      thumbs: {
+        swiper: thumbs
+      },
+      navigation: {
+        nextEl: ".serv12-show__gallery__carousel__swiper-button-next",
+        prevEl: ".serv12-show__gallery__carousel__swiper-button-prev"
+      }
+    });
+    var videoShow = el.querySelectorAll(".serv12-show__gallery__carousel__item__button");
+    if (videoShow) {
+      videoShow.forEach(function (el) {
+        return reproduzirVideozinho(el, "serv12-page__services-section__video__iframe");
+      });
+    }
+  });
+}
 
 /***/ }),
 
