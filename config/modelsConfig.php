@@ -36,11 +36,11 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Portifólio',
+                    'titleMenu' => 'Portifólios',
                     'anchor' =>  false,
                     'linkMenu' => 'port05.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Portifólio',
+                    'titlePanel' => 'Portifólios',
                     'iconPanel' => 'mdi-alpha-p-box'
                 ],
                 'IncludeSections' => (object) []

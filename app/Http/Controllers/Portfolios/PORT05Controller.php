@@ -246,13 +246,34 @@ class PORT05Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(PORT05Portfolios $PORT05Portfolios)
-    public function show()
+    public function show($PORT05PortfoliosCategory, PORT05Portfolios $PORT05Portfolios)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT05', 'show');
 
-        return view('Client.pages.Portfolios.PORT05.show',[
-            'sections' => $sections
+        $galleries = PORT05PortfoliosGallery::where('portfolio_id', $PORT05Portfolios->id)->active()->sorting()->get();
+
+        $testimonials = PORT05PortfoliosTestimonial::where('portfolio_id', $PORT05Portfolios->id)->active()->sorting()->get();
+
+        $portfolios = PORT05Portfolios::whereHas('categories', function ($query) use ($PORT05Portfolios) {
+            $query->whereIn('category_id', $PORT05Portfolios->categories()->pluck('category_id'));
+        })->where('id', '!=', $PORT05Portfolios->id)->get();
+
+        switch(deviceDetect()) {
+            case "mobile":
+            case "tablet":
+                if ($PORT05Portfolios) {
+                    $PORT05Portfolios->path_image_desktop_banner = $PORT05Portfolios->path_image_mobile_banner;
+                }
+                break;
+        }
+
+        return view('Client.pages.Portfolios.PORT05.show', [
+            'sections' => $sections,
+            'portfolio' => $PORT05Portfolios,
+            'galleries' => $galleries,
+            'testimonials' => $testimonials,
+            'portfolios' => $portfolios
         ]);
     }
 
@@ -262,15 +283,47 @@ class PORT05Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, PORT05PortfoliosCategory $PORT05PortfoliosCategory)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT05', 'page');
 
-        return view('Client.pages.Portfolios.PORT05.page',[
-            'sections' => $sections
+        $categories = PORT05PortfoliosCategory::active()->sorting()->get();
+
+        $portfoliosQuery = PORT05Portfolios::with('categories')->active();
+
+        if($PORT05PortfoliosCategory->exists){
+            $portfoliosQuery = $portfoliosQuery->whereHas('categories', function($query) use ($PORT05PortfoliosCategory) {
+                $query->where('port05_portfolios_categories.id', $PORT05PortfoliosCategory->id);
+            });
+
+            foreach ($categories as $category) {
+                if ($PORT05PortfoliosCategory->id == $category->id) {
+                    $category->selected = true;
+                }
+            }
+        }
+
+        $portfolios = $portfoliosQuery->sorting()->get();
+
+        $banner = PORT05PortfoliosSection::activeBanner()->sorting()->first();
+
+        switch(deviceDetect()) {
+            case "mobile":
+            case "tablet":
+                if ($banner) $banner->path_image_desktop_banner = $banner->path_image_mobile_banner;
+                break;
+        }
+
+        return view('Client.pages.Portfolios.PORT05.page', [
+            'sections' => $sections,
+            'banner' => $banner,
+            'categories' => $categories,
+            'portfolios' => $portfolios
         ]);
     }
+
+
 
     /**
      * Section index resource.
