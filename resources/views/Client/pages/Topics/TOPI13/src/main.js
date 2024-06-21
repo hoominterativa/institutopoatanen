@@ -1,25 +1,22 @@
-import Swiper from 'swiper/bundle';
+import Splide from '@splidejs/splide';
+import '@splidejs/splide/css';
 
-new Swiper('.topi13__topics', {
-    slidesPerView: "auto",
-    spaceBetween: 8,
-    slideToClickedSlide: true,
-    slideActiveClass: 'topi13__active',
-    loop: true
+const topi13Splide = new Splide( '.topi13__container', {
+    pagination: false,
+    arrows: true,
+    autoWidth: true,
+    updateOnMove: true,
+    perMove: 1,
+    perPage: 1
+} )
+
+// https://github.com/Splidejs/splide/discussions/498
+// https://splidejs.com/guides/options/#updateonmove
+// https://splidejs.com/guides/apis/#go
+
+topi13Splide.on('click', (s, e) => {
+    console.log(s.index);
+    topi13Splide.go(s.index);
 });
 
-const topi13Items = document.querySelectorAll(".topi13__topics__item");
-
-if(topi13Items){
-    topi13Items.forEach((el, i) =>{
-        console.log('item :' + i);
-        console.log('color: ' + el.dataset.color);
-        console.log('bgDesktop: ' + el.dataset.bgDesktop);
-        console.log('bgMobile: ' + el.dataset.bgMobile);
-
-        // el.addEventListener("click", ()=>{
-        //     el.parentElement.querySelector('.topi13__active').classList.remove('topi13__active');
-        //     el.classList.add('topi13__active');
-        // })
-    })
-}
+topi13Splide.mount();
