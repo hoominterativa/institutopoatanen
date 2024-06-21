@@ -1,3 +1,80 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
+.topi13 {
+    // @extend %theme__padding;
+    background-color: var(--color);
+    width: 100%;
+    position: relative;
+
+    &__header {
+        @include disFlex(column);
+        margin-bottom: 5rem;
+        &__title {
+            @extend %theme__t2-cb;
+        }
+        &__subtitle {
+            @extend %theme__t3-cb;
+        }
+    }
+
+    &__container{
+      width: 95%;
+      margin-left: auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    &__topics {
+        width: 100%;
+        position: relative;
+        // max-width: 777px;
+        // padding-left: 5vw;
+
+        &__item {
+            width: fit-content;
+            height: auto;
+
+            &.topi13__active {
+                width: 777px;
+            }
+
+            &__image {
+                width: 15.5rem;
+                height: 27.75rem;
+                max-height: 100dvh;
+                object-fit: cover;
+            }
+
+            &__information {
+                @include disFlex(column, center, start);
+                gap: 1.25rem;
+                padding-left: 2.75rem;
+
+                width: 0;
+
+                .topi13__active > & {
+                    width: auto;
+                }
+
+                &__paragraph {
+                    @extend %theme__p1-cb;
+                    display: none;
+
+                    .topi13__active & {
+                        display: block;
+                    }
+                }
+
+                &__cta {
+                    @extend %theme__cta;
+                    display: none;
+
+                    .topi13__active & {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
