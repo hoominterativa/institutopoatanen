@@ -9,6 +9,7 @@
                         </h2>
                     @endif
 
+                    {{-- BACKEND: O subtitulo não está imprimindo --}}
                     @if ($section->subitle)
                         <h3 class="topi12__header__subtitle">
                             {{ $section->subtitle }}
@@ -23,29 +24,41 @@
                 </header>
             @endif
         @endif
+
+        @if ($topics->count())
+            <div class="topi12__topics">
+                <div class="topi12__topics__swiper-wrapper swiper-wrapper">
+                    @foreach ($topics as $topic)
+                        <div class="topi12__topics__item swiper-slide">
+                            @if ($topic->path_image_icon)
+                                <img class="topi12__topics__item__image"
+                                    src="{{ asset('storage/' . $topic->path_image_icon) }}"
+                                    alt="Imagem do {{ $topic->title }}">
+                            @endif
+                            <div class="topi12__topics__item__information">
+                                @if ($topic->title)
+                                    <h4 class="topi12__topics__item__information__title">
+                                        {{ $topic->title }}
+                                    </h4>
+                                @endif
+                                @if ($topic->description)
+                                    <div class="topi12__topics__item__information__paragraph">
+                                        {!! $topic->description !!}
+                                    </div>
+                                @endif
+
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+                <div class="topi12__topics__navigation">
+                    <div class="topi12__topics__navigation__swiper-button-prev swiper-button-prev"></div>
+                    <div class="topi12__topics__navigation__swiper-button-next swiper-button-next"></div>
+                </div>
+            </div>
+        @endif
     </section>
 
-    @if ($topics->count())
-        <div class="topi12__topics">
-            <div class="topi12__topics__swiper-wrapper swiper-wrapper">
-                @foreach ($topics as $topic)
-                    <div class="topi12__topics__item swiper-slide">
-                        @if ($topic->path_image_icon)
-                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
-                                alt="Imagem do {{ $topic->title }}">
-                        @endif
-                        @if ($topic->title)
-                            {{ $topic->title }}
-                        @endif
-                        @if ($topic->description)
-                            <div>
-                                {!! $topic->description !!}
-                            </div>
-                        @endif
-                    </div>
-                @endforeach
-            </div>
 
-        </div>
-    @endif
 @endif

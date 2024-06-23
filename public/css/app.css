@@ -1674,11 +1674,27 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
+.topi12, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
+}
+.topi12__header__subtitle, .topi12__header__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .topi12__header__subtitle, .topi12__header__title {
+    font-size: 1.875rem;
+  }
+}
+.topi12__header__title {
+  color: #000;
+}
+.topi12__header__subtitle {
+  color: #b3b3b3;
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
@@ -1693,25 +1709,25 @@ body .owl-dots .owl-dot.active {
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
 }
-.side02__navigation__item__link, .side02__navigation__item__btn {
+.topi12__topics__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .side02__navigation__item__link, .side02__navigation__item__btn {
+  .topi12__topics__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.side02__navigation__item__link, .side02__navigation__item__btn {
+.topi12__topics__item__information__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi12__header__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .topi12__header__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1719,25 +1735,25 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .topi12__header__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.topi12__header__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
 .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.topi12__topics__item__information__paragraph p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1745,7 +1761,7 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -1753,7 +1769,7 @@ body .owl-dots .owl-dot.active {
 .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
-.foot02__copyright__compliances__item {
+.topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item {
   color: #404040;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -1762,6 +1778,21 @@ body .owl-dots .owl-dot.active {
 .head02__navigation__item--menu-mobile__item__icon {
   width: 2rem;
   height: 2rem;
+}
+.topi12__topics__navigation {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.topi12__topics__navigation:has(.swiper-button-lock) {
+  display: none;
 }
 .head02 {
   width: 100%;
@@ -2194,6 +2225,95 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+.topi12 {
+  padding-right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  max-height: 100dvh;
+  height: 100dvh;
+}
+@media (max-width: 991.98px) {
+  .topi12 {
+    flex-direction: column;
+    gap: 4.5rem;
+  }
+}
+.topi12__header {
+  width: 45%;
+}
+@media (max-width: 991.98px) {
+  .topi12__header {
+    width: 100%;
+  }
+}
+.topi12__header__title {
+  text-align: left;
+}
+.topi12__header__paragraph {
+  margin-top: 2rem;
+}
+.topi12__topics {
+  width: 45%;
+  height: 100%;
+  padding-right: 5vw;
+}
+@media (max-width: 991.98px) {
+  .topi12__topics {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+}
+.topi12__topics__navigation {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  rotate: -90deg;
+}
+@media (max-width: 991.98px) {
+  .topi12__topics__navigation {
+    translate: 0 -50%;
+  }
+}
+.topi12__topics__item {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.topi12__topics__item__image {
+  width: auto;
+  height: 70%;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 575.98px) {
+  .topi12__topics__item__image {
+    max-height: 10dvh;
+  }
+}
+.topi12__topics__item__information {
+  opacity: 0;
+  overflow: hidden;
+  translate: -100% 0;
+  transition: all ease 0.3s;
+}
+.topi12__active > .topi12__topics__item__information {
+  opacity: 1;
+  translate: 0 0;
+  display: block;
+  max-width: 100%;
+  padding: 0.5rem 1.5rem;
+}
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
