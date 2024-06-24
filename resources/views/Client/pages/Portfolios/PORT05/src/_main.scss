@@ -1,3 +1,87 @@
-@import 'variables';
+@import "variables";
 
-/* BEGIN STYLE */
+.port05 {
+    @extend %theme__padding;
+    overflow: hidden; /* prevenção do shift da animação */
+
+    &__header {
+        margin-bottom: 3.25rem;
+        &__title {
+            @extend %theme__t2-cb;
+        }
+        &__subtitle {
+            @extend %theme__t4-c2;
+            text-align: center;
+        }
+    }
+
+    &__categories {
+        margin-bottom: 2.25rem;
+        &__item {
+            @extend %theme__category;
+        }
+    }
+
+    &__list {
+        @include disFlex(row, start, start);
+        flex-wrap: wrap;
+        gap: 2rem 1rem;
+
+        &__item {
+            overflow: hidden;
+            position: relative;
+            width: calc(33.33% - 11px);
+            aspect-ratio: 415/375;
+
+            @include large-device-down {
+                width: calc(50% - 0.5rem);
+            }
+
+            @include small-device-down {
+                width: 100%;
+            }
+
+            &__image {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            &__description {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                translate: -50% 100%;
+
+                padding: 0.5rem 2rem;
+
+                background-color: $color-five;
+                @extend %theme__p1-cb;
+
+                opacity: 0;
+
+                transition: translate ease 0.3s, opacity ease 0.3s;
+
+                @include large-device-down {
+                    translate: -50% 0;
+                    opacity: 1;
+
+                    :hover > & {
+                        translate: none;
+                        opacity: unset;
+                    }
+                }
+
+                :hover > & {
+                    translate: -50% 0;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__cta {
+        @extend %theme__cta;
+    }
+}

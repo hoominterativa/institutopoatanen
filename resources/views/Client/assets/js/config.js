@@ -518,3 +518,51 @@ if (sideLinks.length > 0) {
         });
     });
 }
+
+// FILTRINHO //
+function updateActiveButton(menu, newButton) {
+    const activeButton = menu.querySelector(".active");
+
+    if (activeButton) {
+        activeButton.classList.remove("active");
+    }
+    newButton.classList.add("active");
+}
+
+function filterItems(elements, category) {
+    elements.forEach((el) => {
+        const elCategory = el.dataset.category;
+
+        if (elCategory === category) {
+            el.removeAttribute("hidden");
+        } else {
+            el.setAttribute("hidden", "");
+        }
+    });
+}
+
+const categories = document.querySelector(".categories");
+
+if (categories) {
+    const categoriesBtn = document.querySelectorAll(".categoryBtn");
+    const items = document.querySelectorAll(".item");
+    let itemIndex = 0;
+    items.forEach((item) => {
+        item.style.viewTransitionName = `itemIndex-${++itemIndex}`;
+    });
+
+    categoriesBtn.forEach((category) => {
+        category.addEventListener("click", (ev) => {
+            const category = ev.target.dataset.category;
+            if (!document.startViewTransition) {
+                updateActiveButton(categories, ev.target);
+                filterItems(items, category);
+            } else {
+                document.startViewTransition(() => {
+                    updateActiveButton(categories, ev.target);
+                    filterItems(items, category);
+                });
+            }
+        });
+    });
+}

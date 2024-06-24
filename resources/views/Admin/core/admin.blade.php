@@ -20,27 +20,27 @@
         @stack('indexCss')
         @stack('dashboardCss')
 
-        <link href="{{url(mix('Admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
-        <link href="{{url(mix('Admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
+        <link href="{{url(('Admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
+        <link href="{{url(('Admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
 
 		<!-- App css -->
-		<link href="{{url(mix('Admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
-		<link href="{{url(mix('Admin/assets/css/config/app.min.css'))}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"  disabled/>
+		<link href="{{url(('Admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
+		<link href="{{url(('Admin/assets/css/config/app.min.css'))}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"  disabled/>
 
-		<link href="{{url(mix('Admin/assets/css/config/bootstrap-dark.min.css'))}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-		<link href="{{url(mix('Admin/assets/css/config/app-dark.min.css'))}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+		<link href="{{url(('Admin/assets/css/config/bootstrap-dark.min.css'))}}" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+		<link href="{{url(('Admin/assets/css/config/app-dark.min.css'))}}" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 		<!-- icons -->
-		<link href="{{url(mix('Admin/assets/css/icons.min.css'))}}" rel="stylesheet" type="text/css" />
+		<link href="{{url(('Admin/assets/css/icons.min.css'))}}" rel="stylesheet" type="text/css" />
 
         <!-- Custom -->
-        <link href="{{url(mix('Admin/assets/css/custom.css'))}}" rel="stylesheet" type="text/css" />
+        <link href="{{url(('Admin/assets/css/custom.css'))}}" rel="stylesheet" type="text/css" />
 
         <script>
             $url = "{{url('')}}";
         </script>
 
         <!-- Vendor js -->
-        <script src="{{url(mix('Admin/assets/js/vendor.min.js'))}}"></script>
+        <script src="{{url(('Admin/assets/js/vendor.min.js'))}}"></script>
     </head>
 
     <!-- body start -->
@@ -358,11 +358,11 @@
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
-        <script src="{{url(mix('Admin/assets/libs/fancybox.js'))}}"></script>
-        <script src="{{url(mix('Admin/assets/libs/tippy.all.min.js'))}}"></script>
-        <script src="{{url(mix('Admin/assets/libs/jquery.sortable.min.js'))}}"></script>
-        <script src="{{url(mix('Admin/assets/libs/jquery.toast.min.js'))}}"></script>
-        <script src="{{url(mix('Admin/assets/js/pages/toastr.init.js'))}}"></script>
+        <script src="{{url(('Admin/assets/libs/fancybox.js'))}}"></script>
+        <script src="{{url(('Admin/assets/libs/tippy.all.min.js'))}}"></script>
+        <script src="{{url(('Admin/assets/libs/jquery.sortable.min.js'))}}"></script>
+        <script src="{{url(('Admin/assets/libs/jquery.toast.min.js'))}}"></script>
+        <script src="{{url(('Admin/assets/js/pages/toastr.init.js'))}}"></script>
 
         <script>
             class MyUploadAdapter {
@@ -436,17 +436,17 @@
 
         </script>
 
-        <link href="{{url(mix('Admin/assets/libs/owl.carousel.min.css'))}}" rel="stylesheet" type="text/css" />
-        <script src="{{url(mix('Admin/assets/libs/owl.carousel.min.js'))}}"></script>
+        <link href="{{url(('Admin/assets/libs/owl.carousel.min.css'))}}" rel="stylesheet" type="text/css" />
+        <script src="{{url(('Admin/assets/libs/owl.carousel.min.js'))}}"></script>
 
         @stack('createEditJs')
         @stack('indexJs')
         @stack('dashboardJs')
 
         <!-- App js -->
-        <script src="{{url(mix('Admin/assets/js/app.min.js'))}}"></script>
-        <script src="{{url(mix('Admin/assets/js/custom.js'))}}"></script>
-        <script src="{{url(mix('Admin/assets/js/ajax.js'))}}"></script>
+        <script src="{{url(('Admin/assets/js/app.min.js'))}}"></script>
+        <script src="{{url(('Admin/assets/js/custom.js'))}}"></script>
+        <script src="{{url(('Admin/assets/js/ajax.js'))}}"></script>
 
 
         @if(Session::has('success'))

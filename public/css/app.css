@@ -1674,24 +1674,40 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
+.port05, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.port05__header__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .port05__header__title {
+    font-size: 1.875rem;
+  }
+}
+.port05__header__title {
+  color: #000;
+}
+.port05__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .port05__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05__categories__item {
     font-size: 1.125rem;
   }
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05__categories__item {
   color: #000;
+}
+.port05__header__subtitle {
+  color: #7c7c7c;
 }
 .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
@@ -1706,12 +1722,12 @@ body .owl-dots .owl-dot.active {
 .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .port05__cta, .head02__navigation__item--menu-mobile__item, .port05__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.head02__navigation__item__link p, .head02__navigation__item__btn p, .port05__cta p, .head02__navigation__item--menu-mobile__item p, .port05__list__item__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1719,17 +1735,17 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .head02__navigation__item__link, .head02__navigation__item__btn, .port05__cta, .head02__navigation__item--menu-mobile__item, .port05__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.port05__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .head02__navigation__item--menu-mobile__item {
+.head02__navigation__item__link, .head02__navigation__item__btn, .port05__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
 .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
@@ -1762,6 +1778,34 @@ body .owl-dots .owl-dot.active {
 .head02__navigation__item--menu-mobile__item__icon {
   width: 2rem;
   height: 2rem;
+}
+.port05__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  background-color: #cacaca;
+  border: none;
+  font-weight: 700;
+}
+.port05__cta:focus {
+  /* uso do !important para resetar o valor do fancybox */
+  outline: none !important;
+}
+.port05__categories__item {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  align-items: center;
+  outline: none;
+  border: none;
+  background-color: #efefef;
+}
+.active.port05__categories__item {
+  background-color: #cacaca;
 }
 .head02 {
   width: 100%;
@@ -2193,7 +2237,74 @@ body .owl-dots .owl-dot.active {
      object-position: center;
 }
 
-/* BEGIN STYLE */
+.port05 {
+  overflow: hidden; /* prevenção do shift da animação */
+}
+.port05__header {
+  margin-bottom: 3.25rem;
+}
+.port05__header__subtitle {
+  text-align: center;
+}
+.port05__categories {
+  margin-bottom: 2.25rem;
+}
+.port05__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+}
+.port05__list__item {
+  overflow: hidden;
+  position: relative;
+  width: calc(33.33% - 11px);
+  aspect-ratio: 415/375;
+}
+@media (max-width: 991.98px) {
+  .port05__list__item {
+    width: calc(50% - 0.5rem);
+  }
+}
+@media (max-width: 575.98px) {
+  .port05__list__item {
+    width: 100%;
+  }
+}
+.port05__list__item__image {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.port05__list__item__description {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 100%;
+  padding: 0.5rem 2rem;
+  background-color: #efefef;
+  opacity: 0;
+  transition: translate ease 0.3s, opacity ease 0.3s;
+}
+@media (max-width: 991.98px) {
+  .port05__list__item__description {
+    translate: -50% 0;
+    opacity: 1;
+  }
+  :hover > .port05__list__item__description {
+    translate: none;
+    opacity: unset;
+  }
+}
+:hover > .port05__list__item__description {
+  translate: -50% 0;
+  opacity: 1;
+}
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

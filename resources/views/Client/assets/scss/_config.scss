@@ -2117,6 +2117,8 @@ body {
         width: fit-content;
         padding: 0.75rem 3rem;
         align-items: center;
+        outline: none;
+        border: none;
 
         background-color: $color-five;
         @extend %theme__t4-cb;
