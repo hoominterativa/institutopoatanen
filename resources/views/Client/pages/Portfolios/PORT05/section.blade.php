@@ -16,19 +16,14 @@
         {{-- BACKEND: As categorias não estão imprimindo. Para fazer o filtro eu criei a estrutura abaixo. Ai vc já sabe o que fazer 💕. --}}
         <aside class="port05__categories categories">
             <menu class="port05__categories__swiper-wrapper swiper-wrapper">
-                @for ($i = 0; $i < 10; $i++)
-                    <button data-category='categoria {{ $i }}' class="port05__categories__item swiper-slide categoryBtn"
-                        title="categoria {{ $i }}">
-                        Categoria {{ $i }}
+
+                @foreach ($categories as $category)
+                    <button data-category='id' class="port05__categories__item swiper-slide categoryBtn">
+                        {{-- <a href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}"
+                            class="link-full" title="{{ $category->title }}"></a> --}}
+                        {{ $category->title }}
                     </button>
-                    {{-- @foreach ($categories as $category)
-                        <li>
-                            {{ $category->title }}
-                            <a href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}"
-                                class="link-full" title="{{ $category->title }}"></a>
-                        </li>
-                    @endforeach --}}
-                @endfor
+                @endforeach
             </menu>
         </aside>
         {{-- @endif --}}
@@ -37,8 +32,8 @@
             <div class="port05__list">
                 @foreach ($portfolios as $portfolio)
                     @for ($i = 0; $i < 10; $i++)
-                    {{-- BACKEND: O parametro do data-category pode ser o category-title, mas o script tem que ser revisado depois de consertar o link das categorias --}}
-                        <figure class="port05__list__item category__item" data-category="categoria {{ $i }}">
+                        {{-- BACKEND: O parametro do data-category pode ser o category-title, mas o script tem que ser revisado depois de consertar o link das categorias --}}
+                        <figure class="port05__list__item category__item" data-category="id{{ $i }}">
                             {{-- BACKEND: O link aqui tbm não está funcionando --}}
                             @foreach ($portfolio->categories as $category)
                                 <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"
@@ -46,9 +41,8 @@
                             @endforeach
 
                             @if ($portfolio->path_image)
-                                <img
-                                class="port05__list__item__image"
-                                src="{{ asset('storage/' . $portfolio->path_image) }}"
+                                <img class="port05__list__item__image"
+                                    src="{{ asset('storage/' . $portfolio->path_image) }}"
                                     alt="Imagem do {{ $portfolio->title }}" loading="lazy">
                             @endif
 
