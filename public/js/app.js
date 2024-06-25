@@ -12358,7 +12358,7 @@ function filterItems(elements, category) {
 var categories = document.querySelector(".categories");
 if (categories) {
   var categoriesBtn = document.querySelectorAll(".categoryBtn");
-  var items = document.querySelectorAll(".item");
+  var items = document.querySelectorAll(".category__item");
   var itemIndex = 0;
   items.forEach(function (item) {
     item.style.viewTransitionName = "itemIndex-".concat(++itemIndex);
@@ -12402,6 +12402,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port05__categories", {
+  slidesPerView: "auto",
+  spaceBetween: 8
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port05-page__categories", {
   slidesPerView: "auto",
   spaceBetween: 8
 });

@@ -38,7 +38,7 @@
                 @foreach ($portfolios as $portfolio)
                     @for ($i = 0; $i < 10; $i++)
                     {{-- BACKEND: O parametro do data-category pode ser o category-title, mas o script tem que ser revisado depois de consertar o link das categorias --}}
-                        <figure class="port05__list__item item" data-category="categoria {{ $i }}">
+                        <figure class="port05__list__item category__item" data-category="categoria {{ $i }}">
                             {{-- BACKEND: O link aqui tbm não está funcionando --}}
                             @foreach ($portfolio->categories as $category)
                                 <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"

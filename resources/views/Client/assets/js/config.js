@@ -545,7 +545,7 @@ const categories = document.querySelector(".categories");
 
 if (categories) {
     const categoriesBtn = document.querySelectorAll(".categoryBtn");
-    const items = document.querySelectorAll(".item");
+    const items = document.querySelectorAll(".category__item");
     let itemIndex = 0;
     items.forEach((item) => {
         item.style.viewTransitionName = `itemIndex-${++itemIndex}`;

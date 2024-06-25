@@ -5,3 +5,8 @@ new Swiper(".port05__categories", {
     spaceBetween: 8,
 });
 
+new Swiper(".port05-page__categories", {
+    slidesPerView: "auto",
+    spaceBetween: 8,
+});
+

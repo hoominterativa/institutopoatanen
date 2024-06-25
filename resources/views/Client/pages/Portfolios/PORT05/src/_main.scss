@@ -28,6 +28,7 @@
         gap: 2rem 1rem;
 
         &__item {
+            margin: 0;
             overflow: hidden;
             position: relative;
             width: calc(33.33% - 11px);
@@ -39,6 +40,16 @@
 
             @include small-device-down {
                 width: 100%;
+            }
+
+            &:hover &__description {
+                translate: -50% 0;
+                opacity: 1;
+
+                @include large-device-down {
+                    translate: none;
+                    opacity: unset;
+                }
             }
 
             &__image {
@@ -62,26 +73,50 @@
                 opacity: 0;
 
                 transition: translate ease 0.3s, opacity ease 0.3s;
-
-                @include large-device-down {
-                    translate: -50% 0;
-                    opacity: 1;
-
-                    :hover > & {
-                        translate: none;
-                        opacity: unset;
-                    }
-                }
-
-                :hover > & {
-                    translate: -50% 0;
-                    opacity: 1;
-                }
             }
         }
     }
 
     &__cta {
         @extend %theme__cta;
+    }
+}
+
+.port05-page {
+    &__banner {
+        @extend %theme__banner;
+        &__title {
+            @extend %theme__banner__title;
+        }
+    }
+
+    &__categories {
+        @extend %theme__padding;
+
+        &__swiper-wrapper {
+            height: fit-content;
+        }
+
+        &__item {
+            @extend %theme__category;
+        }
+    }
+
+    &__list {
+        @extend %theme__padding;
+        padding-top: 0;
+        @extend .port05__list;
+
+        &__item {
+            @extend .port05__list__item;
+
+            &__image {
+                @extend .port05__list__item__image;
+            }
+
+            &__description {
+                @extend .port05__list__item__description;
+            }
+        }
     }
 }

@@ -1,45 +1,53 @@
 @extends('Client.Core.client')
 @section('content')
-{{-- BEGIN Page content --}}
-    @if ($banner)
-        <section style="background-image: url({{ asset('storage/' . $banner->path_image_desktop_banner) }});">
-            @if ($banner->title_banner)
-                <h1>{{ $banner->title_banner }}</h1>
-            @endif
-        </section>
-    @endif
-    @if ($categories->count())
-        <aside>
-            <menu>
-                @foreach ($categories as $category)
-                    <li class="{{ isset($category->selected) ? 'active' : '' }}">
-                        <a href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}"
-                            class="link-full" title="{{ $category->title }}"></a>
-                        {{ $category->title }}
-                    </li>
-                @endforeach
-            </menu>
-        </aside>
-    @endif
-    @if ($portfolios->count())
-        <main>
-            <div>
+    <main id="root" class="port05-page">
+        @if ($banner)
+            <section class="port05-page__banner"
+                style="background-image: url({{ asset('storage/' . $banner->path_image_desktop_banner) }});">
+                @if ($banner->title_banner)
+                    <h1 class="port05-page__banner__title">{{ $banner->title_banner }}</h1>
+                @endif
+            </section>
+        @endif
+        @if ($categories->count())
+            <aside class="port05-page__categories">
+                <menu class="port05-page__categories__swiper-wrapper swiper-wrapper">
+                    @foreach ($categories as $category)
+                        <button data-category="{{ $category->title }}"
+                            class="port05-page__categories__item swiper-slide">
+                            <a href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}"
+                                class="link-full" title="{{ $category->title }}"></a>
+                            {{ $category->title }}
+                        </button>
+                    @endforeach
+                </menu>
+            </aside>
+        @endif
+        @if ($portfolios->count())
+            <div class="port05-page__list">
                 @foreach ($portfolios as $portfolio)
-                    <li>
+                    <figure class="port05-page__list__item" data-category="{{ $category->title }}">
                         @foreach ($portfolio->categories as $category)
-                            <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}" class="link-full" title="{{ $category->title }}"></a>
+                            <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"
+                                class="link-full" title="{{ $category->title }}"></a>
                         @endforeach
+
                         @if ($portfolio->path_image)
-                            <img src="{{ asset('storage/' . $portfolio->path_image) }}" alt="Ícone de {{ $portfolio->title }}" loading="lazy">
+                            <img class="port05-page__list__item__image"
+                                src="{{ asset('storage/' . $portfolio->path_image) }}"
+                                alt="Ícone de {{ $portfolio->title }}" loading="lazy">
                         @endif
-                        {{ $portfolio->title }}
-                    </li>
+
+                        <figcaption class="port05-page__list__item__description">
+                            {{ $portfolio->title }}
+                        </figcaption>
+                    </figure>
                 @endforeach
             </div>
-        </main>
-    @endif
-{{-- Finish Content page Here --}}
-@foreach ($sections as $section)
-    {!!$section!!}
-@endforeach
-@endsection
+        @endif
+        {{-- Finish Content page Here --}}
+        @foreach ($sections as $section)
+            {!! $section !!}
+        @endforeach
+    @endsection
+</main>
