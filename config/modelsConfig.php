@@ -4,8 +4,8 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD02',
-            'themeMenu' => 'SIDE02'
+            'Code' => 'HEAD03',
+            'themeMenu' => 'SIDE03'
         ],
         'Footers' => (object)[
             'Code' => 'FOOT02',
@@ -14,38 +14,24 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Portfolios' => (object) [
-            'PORT05' => (object)[
+        'Slides' => (object) [
+            'SLID03' => (object)[
                 'ViewHome' => true,
-                'ViewListMenu' => true,
+                'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' => (object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'Portifólios',
+                    'titleMenu' => '',
                     'anchor' =>  false,
-                    'linkMenu' => 'port05.page',
+                    'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Portifólios',
-                    'iconPanel' => 'mdi-alpha-p-box'
-                ],
-                'IncludeSections' => (object) []
+                    'titlePanel' => 'Banner',
+                    'iconPanel' => ''
+                ]
             ],
         ],
+
     ],
 
     'ModelsForm' => (object)[
