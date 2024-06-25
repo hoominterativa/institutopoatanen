@@ -6,6 +6,7 @@
     background-color: var(--color);
     width: 100%;
     position: relative;
+    transition: all ease 0.3s;
 
     &__header {
         @include disFlex(column);
@@ -18,61 +19,54 @@
         }
     }
 
-    &__container{
-      width: 95%;
-      margin-left: auto;
-      overflow: hidden;
-      position: relative;
+    &__container {
+        width: 95%;
+        margin-left: auto;
+        overflow: hidden;
     }
 
-    &__topics {
-        width: 100%;
-        position: relative;
-        // max-width: 777px;
-        // padding-left: 5vw;
+    &__item {
+        width: fit-content;
+        height: auto;
+        transition: all ease 0.3s;
 
-        &__item {
-            width: fit-content;
-            height: auto;
+        &.topi13__active {
+            width: 777px;
+        }
 
-            &.topi13__active {
-                width: 777px;
+        &__image {
+            width: 15.5rem;
+            height: 27.75rem;
+            max-height: 100dvh;
+            object-fit: cover;
+        }
+
+        &__information {
+            @include disFlex(column, center, start);
+            gap: 1.25rem;
+            padding-left: 2.75rem;
+
+            width: 0;
+
+            .topi13__active > & {
+                width: auto;
             }
 
-            &__image {
-                width: 15.5rem;
-                height: 27.75rem;
-                max-height: 100dvh;
-                object-fit: cover;
+            &__paragraph {
+                @extend %theme__p1-cb;
+                display: none;
+
+                .topi13__active & {
+                    display: block;
+                }
             }
 
-            &__information {
-                @include disFlex(column, center, start);
-                gap: 1.25rem;
-                padding-left: 2.75rem;
+            &__cta {
+                @extend %theme__cta;
+                display: none;
 
-                width: 0;
-
-                .topi13__active > & {
-                    width: auto;
-                }
-
-                &__paragraph {
-                    @extend %theme__p1-cb;
-                    display: none;
-
-                    .topi13__active & {
-                        display: block;
-                    }
-                }
-
-                &__cta {
-                    @extend %theme__cta;
-                    display: none;
-
-                    .topi13__active & {
-                        display: block;
-                    }
+                .topi13__active & {
+                    display: block;
                 }
             }
         }
