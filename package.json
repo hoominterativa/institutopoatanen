@@ -36,7 +36,6 @@
         "@fullcalendar/timegrid": "^6.1.9",
         "@popperjs/core": "^2.9.1",
         "@selectize/selectize": "^0.15.2",
-        "@splidejs/splide": "^4.1.4",
         "admin-resources": "git+https://github.com/coderthemes/admin-resources.git#master",
         "animate.css": "^4.1.1",
         "apexcharts": "3.26.0",

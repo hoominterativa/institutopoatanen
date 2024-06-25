@@ -18,78 +18,60 @@
         }
     }
 
-    &__container {
-        overflow: hidden;
-        margin-left: 5vw;
+    &__container{
+      width: 95%;
+      margin-left: auto;
+      overflow: hidden;
+      position: relative;
+    }
 
-        &__topics {
-            width: 777px;
-            position: relative;
-            overflow: visible;
-            &.splide__track {
-                overflow: visible;
+    &__topics {
+        width: 100%;
+        position: relative;
+        // max-width: 777px;
+        // padding-left: 5vw;
+
+        &__item {
+            width: fit-content;
+            height: auto;
+
+            &.topi13__active {
+                width: 777px;
             }
 
-            &__list {
-                // width: 777px;
-                // max-width: 100dvw;
+            &__image {
+                width: 15.5rem;
+                height: 27.75rem;
+                max-height: 100dvh;
+                object-fit: cover;
+            }
 
-                &__item {
-                    @include disFlex(row, start, center);
-                    width: fit-content;
-                    overflow: hidden;
-                    max-width: 100dvw;
+            &__information {
+                @include disFlex(column, center, start);
+                gap: 1.25rem;
+                padding-left: 2.75rem;
 
-                    &__image {
-                        width: 15.5rem;
-                        height: 27.75rem;
-                        max-height: 100dvh;
-                        object-fit: cover;
-                        object-position: center;
+                width: 0;
+
+                .topi13__active > & {
+                    width: auto;
+                }
+
+                &__paragraph {
+                    @extend %theme__p1-cb;
+                    display: none;
+
+                    .topi13__active & {
+                        display: block;
                     }
+                }
 
-                    &__information {
-                        @include disFlex(column, center, start);
-                        gap: 1.25rem;
-                        padding-left: 2.75rem;
-                        max-width: 0;
-                        overflow: hidden;
+                &__cta {
+                    @extend %theme__cta;
+                    display: none;
 
-                        transition: max-width 0.3s ease 0.5s;
-
-                        .is-visible > & {
-                            max-width: calc(100% - 15.5rem - 2.75rem);
-                        }
-
-                        &__paragraph {
-                            @extend %theme__p1-cb;
-                            display: none;
-                            width: 0;
-                            opacity: 0;
-                            max-width: 0;
-                            transition: all 0.5s ease;
-
-                            .is-visible & {
-                                display: block;
-                                opacity: 1;
-                                max-width: 100%;
-                                width: 100%;
-                            }
-                        }
-
-                        &__cta {
-                            @extend %theme__cta;
-                            display: none;
-                            opacity: 0;
-                            max-width: 0;
-
-                            transition: all 0.5s ease 0.6s;
-                            .is-visible & {
-                                display: block;
-                                opacity: 1;
-                                max-width: fit-content;
-                            }
-                        }
+                    .topi13__active & {
+                        display: block;
                     }
                 }
             }

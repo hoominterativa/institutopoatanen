@@ -1732,12 +1732,12 @@ body .owl-dots .owl-dot.active {
 .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .topi13__container__topics__list__item__information__cta, .head02__navigation__item--menu-mobile__item, .topi13__container__topics__list__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .topi13__topics__item__information__cta, .head02__navigation__item--menu-mobile__item, .topi13__topics__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .topi13__container__topics__list__item__information__cta p, .head02__navigation__item--menu-mobile__item p, .topi13__container__topics__list__item__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.head02__navigation__item__link p, .head02__navigation__item__btn p, .topi13__topics__item__information__cta p, .head02__navigation__item--menu-mobile__item p, .topi13__topics__item__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1745,17 +1745,17 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .topi13__container__topics__list__item__information__cta, .head02__navigation__item--menu-mobile__item, .topi13__container__topics__list__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .head02__navigation__item__link, .head02__navigation__item__btn, .topi13__topics__item__information__cta, .head02__navigation__item--menu-mobile__item, .topi13__topics__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.topi13__container__topics__list__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.topi13__topics__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .topi13__container__topics__list__item__information__cta, .head02__navigation__item--menu-mobile__item {
+.head02__navigation__item__link, .head02__navigation__item__btn, .topi13__topics__item__information__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
 .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
@@ -1789,7 +1789,7 @@ body .owl-dots .owl-dot.active {
   width: 2rem;
   height: 2rem;
 }
-.topi13__container__topics__list__item__information__cta {
+.topi13__topics__item__information__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1801,7 +1801,7 @@ body .owl-dots .owl-dot.active {
   border: none;
   font-weight: 700;
 }
-.topi13__container__topics__list__item__information__cta:focus {
+.topi13__topics__item__information__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -2249,74 +2249,53 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 5rem;
 }
 .topi13__container {
+  width: 95%;
+  margin-left: auto;
   overflow: hidden;
-  margin-left: 5vw;
-}
-.topi13__container__topics {
-  width: 777px;
   position: relative;
-  overflow: visible;
 }
-.topi13__container__topics.splide__track {
-  overflow: visible;
+.topi13__topics {
+  width: 100%;
+  position: relative;
 }
-.topi13__container__topics__list__item {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
+.topi13__topics__item {
   width: -moz-fit-content;
   width: fit-content;
-  overflow: hidden;
-  max-width: 100dvw;
+  height: auto;
 }
-.topi13__container__topics__list__item__image {
+.topi13__topics__item.topi13__active {
+  width: 777px;
+}
+.topi13__topics__item__image {
   width: 15.5rem;
   height: 27.75rem;
   max-height: 100dvh;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
 }
-.topi13__container__topics__list__item__information {
+.topi13__topics__item__information {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
   gap: 1.25rem;
   padding-left: 2.75rem;
-  max-width: 0;
-  overflow: hidden;
-  transition: max-width 0.3s ease 0.5s;
-}
-.is-visible > .topi13__container__topics__list__item__information {
-  max-width: calc(100% - 15.5rem - 2.75rem);
-}
-.topi13__container__topics__list__item__information__paragraph {
-  display: none;
   width: 0;
-  opacity: 0;
-  max-width: 0;
-  transition: all 0.5s ease;
 }
-.is-visible .topi13__container__topics__list__item__information__paragraph {
-  display: block;
-  opacity: 1;
-  max-width: 100%;
-  width: 100%;
+.topi13__active > .topi13__topics__item__information {
+  width: auto;
 }
-.topi13__container__topics__list__item__information__cta {
+.topi13__topics__item__information__paragraph {
   display: none;
-  opacity: 0;
-  max-width: 0;
-  transition: all 0.5s ease 0.6s;
 }
-.is-visible .topi13__container__topics__list__item__information__cta {
+.topi13__active .topi13__topics__item__information__paragraph {
   display: block;
-  opacity: 1;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+}
+.topi13__topics__item__information__cta {
+  display: none;
+}
+.topi13__active .topi13__topics__item__information__cta {
+  display: block;
 }
 
 /* BEGIN STYLE */
