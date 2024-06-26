@@ -8,6 +8,7 @@ use App\Http\Controllers\Services\SERV12VideoController;
 use App\Http\Controllers\Services\SERV12GalleryController;
 use App\Http\Controllers\Services\SERV12SectionController;
 use App\Http\Controllers\Services\SERV12CategoryController;
+use App\Http\Controllers\Services\SERV12TopicGalleryController;
 
 /**
  * Uncomment the code below
@@ -46,6 +47,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/video', SERV12VideoController::class)->names('admin.'.$routeName.'.video')->parameters(['video' => 'SERV12ServicesVideo']);
     //Section
     Route::resource($route.'/section', SERV12SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['section' => 'SERV12ServicesSection']);
+    //TopicGalleries
+    Route::resource($route.'/galeriastopicos', SERV12TopicGalleryController::class)->names('admin.'.$routeName.'.gallery-topic')->parameters(['galeriastopicos' => 'SERV12ServicesTopicGallery']);
+    Route::post($route.'/galeriatopico/delete', [SERV12TopicGalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery-topic.destroySelected');
+    Route::post($route.'/galeriatopic/sorting', [SERV12TopicGalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery-topic.sorting');
 });
 // CLIENT
 Route::get($route.'/categoria/{SERV12ServicesCategory:slug}/{SERV12Services:slug?}', [SERV12Controller::class, 'page'])->name($routeName.'.category.page');

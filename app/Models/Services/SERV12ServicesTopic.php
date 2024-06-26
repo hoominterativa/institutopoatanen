@@ -27,4 +27,9 @@ class SERV12ServicesTopic extends Model
     {
         return $query->where('active', 1);
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(SERV12ServicesTopicGallery::class, 'topic_id')->sorting();
+    }
 }

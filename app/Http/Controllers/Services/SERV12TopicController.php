@@ -10,10 +10,23 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV12ServicesTopicGallery;
 
 class SERV12TopicController extends Controller
 {
     protected $path = 'uploads/Services/SERV12/images/';
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('Admin.cruds.Services.SERV12.Topics.create',[
+            'cropSetting' => getCropImage('Services', 'SERV12'),
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -31,13 +44,30 @@ class SERV12TopicController extends Controller
         $path_image_icon = $helper->optimizeImage($request, 'path_image_icon', $this->path, null,100);
         if($path_image_icon) $data['path_image_icon'] = $path_image_icon;
 
-        if(SERV12ServicesTopic::create($data)){
+        if($topic = SERV12ServicesTopic::create($data)){
             Session::flash('success', 'Tópico cadastrado com sucesso');
+            return redirect()->route('admin.serv12.topic.edit', ['SERV12ServicesTopic' => $topic->id]);
         }else{
             Storage::delete($path_image_icon);
             Session::flash('error', 'Erro ao cadastradar o tópico');
+            return redirect()->back();
         }
-        return redirect()->back();
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Services\SERV12ServicesTopic  $SERV12ServicesTopic
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(SERV12ServicesTopic $SERV12ServicesTopic)
+    {
+        $topicGalleries = SERV12ServicesTopicGallery::where('topic_id', $SERV12ServicesTopic->id)->sorting()->get();
+        return view('Admin.cruds.Services.SERV12.Topics.edit',[
+            'cropSetting' => getCropImage('Services', 'SERV12'),
+            'topic' => $SERV12ServicesTopic,
+            'topicGalleries' => $topicGalleries
+        ]);
     }
 
     /**
