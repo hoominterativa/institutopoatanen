@@ -1,6 +1,8 @@
 @if ($topics->count() || $section)
     <section id="TOPI13" class="topi13">
 
+        <div class="topi13__bg"></div>
+
         @if ($section)
             <header class="topi13__header">
                 @if ($section->title)

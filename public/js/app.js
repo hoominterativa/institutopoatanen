@@ -11866,20 +11866,27 @@ function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), 
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 var SliderishItem = /*#__PURE__*/function () {
-  function SliderishItem(item, index, gap, parentSection) {
+  function SliderishItem(item, index, parentSection, bgElement, gap, offset, mobile) {
     var _this = this;
     _classCallCheck(this, SliderishItem);
     this.htmlItem = item;
     this.width = this.htmlItem.getBoundingClientRect().width;
+    this.height = this.htmlItem.getBoundingClientRect().height;
     this.color = this.htmlItem.dataset.color;
     this.index = index;
     this.htmlItem.dataset.index = this.index;
     this.gap = gap;
     this.parentSection = parentSection;
+    this.bgElement = bgElement;
+    this.offset = offset;
+    this.mobile = mobile;
     this.htmlItem.addEventListener("click", function () {
       return _this.clicked();
     });
-    this.getIndex() === 0 && this.updateParentSection();
+    window.addEventListener("resize", function () {
+      return _this.reposition();
+    });
+    this.getIndex() === 0 && this.updateBgElement();
     this.visualLoad();
     this.reposition();
   }
@@ -11887,28 +11894,37 @@ var SliderishItem = /*#__PURE__*/function () {
     key: "clicked",
     value: function clicked() {
       if (this.getIndex() !== 0) {
-        this.updateParentSection();
+        this.updateBgElement();
         this.parentSection.update(this.getIndex());
       }
     }
   }, {
-    key: "updateParentSection",
-    value: function updateParentSection() {
-      if (this.htmlItem.hasAttribute("data-img-desktop")) {
-        this.parentSection.setBackgroundImage(this.htmlItem.dataset.imgDesktop);
+    key: "updateBgElement",
+    value: function updateBgElement() {
+      if (this.htmlItem.hasAttribute("data-bg-mobile") || this.htmlItem.hasAttribute("data-bg-desktop")) {
+        if (this.htmlItem.hasAttribute("data-bg-mobile") && window.innerWidth < this.mobile) {
+          this.bgElement.style.backgroundImage = "url(".concat(this.htmlItem.dataset.bgMobile, ")");
+        } else if (this.htmlItem.hasAttribute("data-bg-desktop")) {
+          this.bgElement.style.backgroundImage = "url(".concat(this.htmlItem.dataset.bgDesktop, ")");
+        }
       } else {
-        this.parentSection.setBackgroundImage("");
-        this.parentSection.setBackgroundColor(this.color);
+        this.bgElement.style.backgroundImage = "";
+        this.bgElement.style.backgroundColor = this.color;
       }
     }
   }, {
     key: "reposition",
     value: function reposition() {
-      // Por regra, esses elementos têm largura igual
+      var _this2 = this;
+      var left = window.innerWidth > this.mobile ? this.getIndex() * (this.getCalculatedWidth() + this.gap) + this.offset : this.getIndex() * (this.getCalculatedWidth() + this.gap);
       if (this.getIndex() !== 0) {
-        this.htmlItem.style.left = "".concat(this.getIndex() * (this.width + this.gap), "px");
+        this.htmlItem.style.left = "".concat(left, "px");
       } else {
         this.htmlItem.style.left = "0px";
+        // garante o tempo de shift antes de travar a altura do elemento pai
+        setTimeout(function () {
+          _this2.setParentHeight(_this2.getCalculatedHieght());
+        }, 300);
       }
     }
   }, {
@@ -11928,6 +11944,12 @@ var SliderishItem = /*#__PURE__*/function () {
     value: function setParentHeight(newHeight) {
       this.htmlItem.parentElement.style.height = "".concat(newHeight, "px");
       this.htmlItem.parentElement.style.position = "relative";
+      this.htmlItem.parentElement.style.overflow = "hidden";
+    }
+  }, {
+    key: "getParentHeight",
+    value: function getParentHeight() {
+      return Number(this.htmlItem.parentElement.getBoundingClientRect().height);
     }
   }, {
     key: "getColor",
@@ -11940,20 +11962,26 @@ var SliderishItem = /*#__PURE__*/function () {
       return Number(this.htmlItem.getBoundingClientRect().height);
     }
   }, {
+    key: "getCalculatedWidth",
+    value: function getCalculatedWidth() {
+      return Number(this.htmlItem.getBoundingClientRect().width);
+    }
+  }, {
     key: "visualLoad",
     value: function visualLoad() {
-      this.htmlItem.style.backgroundColor = this.color;
       this.htmlItem.style.position = "absolute";
     }
   }]);
 }();
 var Sliderish = /*#__PURE__*/function () {
-  function Sliderish(query) {
+  function Sliderish(query, settings) {
     _classCallCheck(this, Sliderish);
     this.query = query;
     this.slider = document.querySelector(query);
     this.sliderItems = [];
-    this.gap = 32;
+    this.gap = settings.gap;
+    this.offset = settings.offset;
+    this.mobile = settings.mobile;
     if (this.slider) {
       this.build();
     } else {
@@ -11963,39 +11991,25 @@ var Sliderish = /*#__PURE__*/function () {
   return _createClass(Sliderish, [{
     key: "build",
     value: function build() {
-      var _this2 = this;
-      var height = 0;
+      var _this3 = this;
+      var bgElment = this.slider.querySelector("".concat(this.query, "__bg"));
       var items = this.slider.querySelectorAll("".concat(this.query, "__item"));
       if (items.length > 0) {
         items.forEach(function (el, i) {
-          var item = new SliderishItem(el, i, _this2.gap, _this2);
-          _this2.sliderItems.push(item);
-          if (item.getCalculatedHieght() > height) {
-            height = item.getCalculatedHieght();
-          }
+          var item = new SliderishItem(el, i, _this3, bgElment, _this3.gap, _this3.offset, _this3.mobile);
+          _this3.sliderItems.push(item);
         });
-        this.sliderItems[0].setParentHeight(height);
       } else {
         console.error("Sliderish error: DOM '__item' elements not found");
       }
     }
   }, {
-    key: "setBackgroundColor",
-    value: function setBackgroundColor(color) {
-      this.slider.style.backgroundColor = color;
-    }
-  }, {
-    key: "setBackgroundImage",
-    value: function setBackgroundImage(imgDesktop, imgMobile) {
-      this.slider.style.backgroundImage = "url(".concat(imgDesktop, ")");
-    }
-  }, {
     key: "update",
     value: function update(targetIndex) {
-      var _this3 = this;
+      var _this4 = this;
       this.sliderItems.forEach(function (el) {
         if (el.getIndex() === 0) {
-          el.setIndex(_this3.sliderItems.length - 1);
+          el.setIndex(_this4.sliderItems.length - 1);
         } else if (el.getIndex() > targetIndex) {
           el.setIndex(el.getIndex() - 1);
         } else if (el.getIndex() === targetIndex) {
@@ -12518,7 +12532,12 @@ if (sideLinks.length > 0) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_js_boilerplate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../assets/js/boilerplate */ "./resources/views/Client/assets/js/boilerplate.js");
 
-new _assets_js_boilerplate__WEBPACK_IMPORTED_MODULE_0__.Sliderish(".topi13");
+new _assets_js_boilerplate__WEBPACK_IMPORTED_MODULE_0__.Sliderish(".topi13", {
+  offset: 368,
+  // diferença entre o item aberto e o item fechado;
+  gap: 24,
+  mobile: 992 // valor para começar a trabalhar como mobile;
+});
 
 /***/ }),
 
