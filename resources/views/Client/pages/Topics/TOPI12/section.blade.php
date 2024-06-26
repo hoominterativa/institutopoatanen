@@ -8,14 +8,11 @@
                             {{ $section->title }}
                         </h2>
                     @endif
-
-                    {{-- BACKEND: O subtitulo não está imprimindo --}}
-                    @if ($section->subitle)
+                    @if ($section->subtitle)
                         <h3 class="topi12__header__subtitle">
                             {{ $section->subtitle }}
                         </h3>
                     @endif
-
                     @if ($section->text)
                         <div class="topi12__header__paragraph">
                             {!! $section->text !!}
@@ -24,7 +21,6 @@
                 </header>
             @endif
         @endif
-
         @if ($topics->count())
             <div class="topi12__topics">
                 <div class="topi12__topics__swiper-wrapper swiper-wrapper">
@@ -46,11 +42,9 @@
                                         {!! $topic->description !!}
                                     </div>
                                 @endif
-
                             </div>
                         </div>
                     @endforeach
-
                 </div>
                 <div class="topi12__topics__navigation">
                     <div class="topi12__topics__navigation__swiper-button-prev swiper-button-prev"></div>
@@ -59,6 +53,4 @@
             </div>
         @endif
     </section>
-
-
 @endif
