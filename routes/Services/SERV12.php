@@ -37,6 +37,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/categoria/sorting', [SERV12CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
     //Topics
     Route::resource($route.'/topicos', SERV12TopicController::class)->names('admin.'.$routeName.'.topic')->parameters(['topicos' => 'SERV12ServicesTopic']);
+    Route::get($route.'/topico/{SERV12Services}/create', [SERV12TopicController::class, 'create'])->name('admin.'.$routeName.'.topic.create');
     Route::post($route.'/topico/delete', [SERV12TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
     Route::post($route.'/topico/sorting', [SERV12TopicController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
     //Galleries

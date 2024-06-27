@@ -16,7 +16,7 @@ class SERV12ServicesTopic extends Model
     }
 
     protected $table = "serv12_services_topics";
-    protected $fillable = ['service_id', 'title', 'description', 'path_image_icon', 'active', 'sorting'];
+    protected $fillable = ['service_id', 'title', 'subtitle', 'text', 'description', 'path_image_icon', 'active', 'sorting'];
 
     public function scopeSorting($query)
     {

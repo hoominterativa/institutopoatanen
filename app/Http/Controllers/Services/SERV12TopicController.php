@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\Services\SERV12Services;
 use App\Models\Services\SERV12ServicesTopicGallery;
 
 class SERV12TopicController extends Controller
@@ -21,10 +22,11 @@ class SERV12TopicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(SERV12Services $SERV12Services)
     {
         return view('Admin.cruds.Services.SERV12.Topics.create',[
             'cropSetting' => getCropImage('Services', 'SERV12'),
+            'service' => $SERV12Services
         ]);
     }
 
@@ -62,11 +64,13 @@ class SERV12TopicController extends Controller
      */
     public function edit(SERV12ServicesTopic $SERV12ServicesTopic)
     {
+        $service = SERV12Services::find($SERV12ServicesTopic->service_id);
         $topicGalleries = SERV12ServicesTopicGallery::where('topic_id', $SERV12ServicesTopic->id)->sorting()->get();
         return view('Admin.cruds.Services.SERV12.Topics.edit',[
             'cropSetting' => getCropImage('Services', 'SERV12'),
             'topic' => $SERV12ServicesTopic,
-            'topicGalleries' => $topicGalleries
+            'topicGalleries' => $topicGalleries,
+            'service' => $service
         ]);
     }
 

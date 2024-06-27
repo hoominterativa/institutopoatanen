@@ -17,7 +17,9 @@ class CreateServ12ServicesTopicsTable extends Migration
             $table->id();
             $table->foreignId('service_id')->constrained('serv12_services')->onDelete('cascade');
             $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
+            $table->text('text')->nullable();
             $table->text('path_image_icon')->nullable();
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
