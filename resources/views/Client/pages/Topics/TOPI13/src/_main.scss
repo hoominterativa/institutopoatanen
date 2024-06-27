@@ -1,3 +1,117 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
+.topi13 {
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+
+    &__bg {
+        @include bg;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        translate: -50% 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        transition: all ease 0.3s;
+    }
+
+    &__header {
+        @extend %theme__padding;
+        @include disFlex(column, center, center);
+
+        &__title {
+            @extend %theme__t2-cb;
+        }
+        &__subtitle {
+            @extend %theme__t3-cb;
+        }
+    }
+
+    &__container {
+        width: 95%;
+        margin-left: auto;
+    }
+
+    &__item {
+        overflow: hidden;
+        width: 15.5rem;
+        height: fit-content;
+        transition: all ease 0.3s;
+        @include disFlex();
+        isolation: isolate;
+        position: relative;
+        z-index: 0;
+        box-sizing: content-box;
+
+        &[data-index="0"] {
+            width: 616px;
+
+            @include large-device-down {
+                width: 15.5rem;
+            }
+        }
+
+        @include large-device-down {
+            width: 15.5rem;
+            flex-direction: column;
+        }
+
+        &__image {
+            width: 15.5rem;
+            height: 27.75rem;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+
+            [data-index="0"] > & {
+                border: solid 1px $color-white;
+            }
+        }
+
+        &__information {
+            @include disFlex(column, center, start);
+            gap: 1.25rem;
+            padding-left: 2.75rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            translate: -100% 0;
+
+            width: 23rem;
+            height: 27.75rem;
+            overflow: hidden;
+            z-index: -1;
+
+            [data-index="0"] > & {
+                opacity: 1;
+                translate: 0 0;
+                position: relative;
+                height: auto;
+            }
+
+            @include large-device-down {
+                width: 100%;
+                padding-left: 0;
+                padding-top: 1.25rem;
+                align-items: center;
+                position: relative;
+                translate: 0 0;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+
+                @include large-device-down {
+                    text-align: center;
+                }
+            }
+
+            &__cta {
+                @extend %theme__cta;
+            }
+        }
+    }
+}
