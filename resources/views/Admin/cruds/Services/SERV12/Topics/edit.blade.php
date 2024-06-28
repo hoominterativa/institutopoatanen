@@ -33,11 +33,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#topicGallery" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
+                        <a href="#topicGalleries" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Galeria
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro de uma ou mais imagens"></i>
+                                data-bs-original-title="Cadastro de imagens e/ou vídeos"></i>
                         </a>
                     </li>
                 </ul>
@@ -50,9 +50,12 @@
                             <a href="{{route('admin.serv12.edit', ['SERV12Services' => $service->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
                     </div>
-                    {{-- <div class="tab-pane" id="topicGallery">
-                        @include('Admin.cruds.Services.SERV12.TopicGallery.form')
-                    </div> --}}
+                    <div class="tab-pane" id="topicGalleries">
+                        @include('Admin.cruds.Services.SERV12.TopicGalleries.index', [
+                            'galleries' => $topicGalleries,
+                            'topic' => $topic
+                        ])
+                    </div>
                 </div> <!-- container -->
             </div>
         </div> <!-- content -->

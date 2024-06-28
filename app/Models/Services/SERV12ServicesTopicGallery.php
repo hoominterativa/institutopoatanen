@@ -19,6 +19,7 @@ class SERV12ServicesTopicGallery extends Model
     protected $fillable = [
         'topic_id',
         'path_image',
+        'link_video',
         'sorting'
     ];
 

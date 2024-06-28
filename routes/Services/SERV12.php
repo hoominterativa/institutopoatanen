@@ -49,7 +49,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     //Section
     Route::resource($route.'/section', SERV12SectionController::class)->names('admin.'.$routeName.'.section')->parameters(['section' => 'SERV12ServicesSection']);
     //TopicGalleries
-    Route::resource($route.'/galeriastopicos', SERV12TopicGalleryController::class)->names('admin.'.$routeName.'.gallery-topic')->parameters(['galeriastopicos' => 'SERV12ServicesTopicGallery']);
+    Route::resource($route.'/galeriatopicos', SERV12TopicGalleryController::class)->names('admin.'.$routeName.'.gallery-topic')->parameters(['galeriatopicos' => 'SERV12ServicesTopicGallery']);
     Route::post($route.'/galeriatopico/delete', [SERV12TopicGalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery-topic.destroySelected');
     Route::post($route.'/galeriatopic/sorting', [SERV12TopicGalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery-topic.sorting');
 });

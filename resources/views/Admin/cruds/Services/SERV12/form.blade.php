@@ -61,7 +61,7 @@
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem interna', ['class' => 'form-label']) !!}
+                    {!! Form::label('inputImage', 'Imagem flutuante', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
                         {{ $cropSetting->path_image->width }}x{{ $cropSetting->path_image->height }}px!</small>
                     <label class="area-input-image-crop" for="inputImage">

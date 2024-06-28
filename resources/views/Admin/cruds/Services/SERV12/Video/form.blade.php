@@ -34,6 +34,7 @@
                             'data-status' => $cropSetting->Video->path_image->activeCrop, // px
                             'data-min-width' => $cropSetting->Video->path_image->width, // px
                             'data-min-height' => $cropSetting->Video->path_image->height, // px
+                            'required' => (!isset($video) || empty($video->path_image)) ? true : false, //
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($video)

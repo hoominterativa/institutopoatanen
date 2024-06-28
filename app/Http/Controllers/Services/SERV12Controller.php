@@ -209,36 +209,44 @@ class SERV12Controller extends Controller
     // METHODS CLIENT
 
     /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\Services\SERV12Services  $SERV12Services
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(SERV12Services $SERV12Services)
-    public function show()
-    {
-        $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV12', 'show');
-
-        return view('Client.pages.Services.SERV12.show',[
-            'sections' => $sections
-        ]);
-    }
-
-    /**
      * Display a listing of the resourcee.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, SERV12ServicesCategory $SERV12ServicesCategory, SERV12Services $SERV12Services)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Services', 'SERV12', 'page');
 
+        if(!$SERV12ServicesCategory->exists){$SERV12ServicesCategory = SERV12ServicesCategory::exists()->sorting()->active()->first();}
+
+        switch(deviceDetect()) {
+            case "mobile":
+            case "tablet":
+                if($SERV12ServicesCategory) $SERV12ServicesCategory->path_image_desktop_banner = $SERV12ServicesCategory->path_image_mobile_banner;
+            break;
+        }
+
+        $categories = SERV12ServicesCategory::exists()->active()->sorting()->get();
+        $services = SERV12Services::where('category_id', $SERV12ServicesCategory->id)->active()->sorting()->get();
+        $serviceSelected = SERV12Services::where('category_id', $SERV12ServicesCategory->id);
+        if($SERV12Services->exists) $serviceSelected = $serviceSelected->where('id', $SERV12Services->id);
+        $serviceSelected = $serviceSelected->active()->sorting()->first();
+
+        $topics = SERV12ServicesTopic::with('galleries')->where('service_id', $SERV12Services->id)->active()->sorting()->get();
+        $video = SERV12ServicesVideo::where('service_id', $SERV12Services->id)->active()->sorting()->first();
+        $galleries = SERV12ServicesGallery::where('service_id', $SERV12Services->id)->active()->sorting()->get();
+
         return view('Client.pages.Services.SERV12.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'categorySelected' => $SERV12ServicesCategory,
+            'categories' => $categories,
+            'services' => $services,
+            'serviceSelected' => $serviceSelected,
+            'topics' => $topics,
+            'video' => $video,
+            'galleries' => $galleries
         ]);
     }
 

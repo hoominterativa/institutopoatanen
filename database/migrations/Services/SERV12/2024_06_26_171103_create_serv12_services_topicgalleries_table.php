@@ -16,6 +16,7 @@ class CreateServ12ServicesTopicgalleriesTable extends Migration
         Schema::create('serv12_services_topicgalleries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('topic_id')->constrained('serv12_services_topics')->onDelete('cascade');
+            $table->string('link_video')->nullable();
             $table->string('path_image')->nullable();
             $table->integer('sorting')->default(0);
             $table->timestamps();

@@ -27,6 +27,7 @@ class SERV12TopicGalleryController extends Controller
         $helper = new HelperArchive();
 
         $path_image =  $helper->uploadMultipleImage($request, 'path_image', $this->path, null,100);
+        $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
 
         foreach ($path_image as $image) {
             $data['path_image'] = $image;
@@ -34,6 +35,39 @@ class SERV12TopicGalleryController extends Controller
         }
 
         return Response::json(['status' => 'success', 'countUploads' => COUNT($path_image)]);
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Services\SERV12ServicesTopicGallery  $SERV12ServicesTopicGallery
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, SERV12ServicesTopicGallery $SERV12ServicesTopicGallery)
+    {
+        $data = $request->all();
+        $helper = new HelperArchive();
+
+        $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        if($path_image){
+            storageDelete($SERV12ServicesTopicGallery, 'path_image');
+            $data['path_image'] = $path_image;
+        }
+        if($request->delete_path_image && !$path_image){
+            storageDelete($SERV12ServicesTopicGallery, 'path_image');
+            $data['path_image'] = null;
+        }
+
+        if($SERV12ServicesTopicGallery->fill($data)->save()){
+            Session::flash('success', 'Galeria atualizada com sucesso');
+        }else{
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao atualizar a galeria');
+        }
+        return redirect()->back();
     }
 
     /**

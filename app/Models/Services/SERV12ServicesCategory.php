@@ -50,6 +50,11 @@ class SERV12ServicesCategory extends Model
         return $this->hasMany(SERV12Services::class, 'category_id')->active()->sorting();
     }
 
+    public function sERV12Services()
+    {
+        return $this->hasMany(SERV12Services::class, 'category_id')->active()->sorting();
+    }
+
     public function scopeExists($query){
         return $query->whereExists(function($query){
             $query->select('id')->from('serv12_services')->whereColumn('serv12_services.category_id', 'serv12_services_categories.id');
