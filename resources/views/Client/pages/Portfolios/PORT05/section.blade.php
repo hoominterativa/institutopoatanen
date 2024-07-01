@@ -12,45 +12,36 @@
             </header>
         @endif
 
-        {{-- @if ($categories->count()) --}}
-        {{-- BACKEND: As categorias não estão imprimindo. Para fazer o filtro eu criei a estrutura abaixo. Ai vc já sabe o que fazer 💕. --}}
-        <aside class="port05__categories categories">
-            <menu class="port05__categories__swiper-wrapper swiper-wrapper">
+        @if ($categories->count())
+            <aside class="port05__categories categories">
+                <menu class="port05__categories__swiper-wrapper swiper-wrapper">
 
-                @foreach ($categories as $category)
-                    <button data-category='id' class="port05__categories__item swiper-slide categoryBtn">
-                        {{-- <a href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}"
-                            class="link-full" title="{{ $category->title }}"></a> --}}
-                        {{ $category->title }}
-                    </button>
-                @endforeach
-            </menu>
-        </aside>
-        {{-- @endif --}}
+                    @foreach ($categories as $category)
+                        <button data-category='{{$category->id}}' class="port05__categories__item swiper-slide categoryBtn">
+                            {{ $category->title }}
+                        </button>
+                    @endforeach
+                </menu>
+            </aside>
+        @endif
 
         @if ($portfolios->count())
             <div class="port05__list">
                 @foreach ($portfolios as $portfolio)
-                    @for ($i = 0; $i < 10; $i++)
-                        {{-- BACKEND: O parametro do data-category pode ser o category-title, mas o script tem que ser revisado depois de consertar o link das categorias --}}
-                        <figure class="port05__list__item category__item" data-category="id{{ $i }}">
-                            {{-- BACKEND: O link aqui tbm não está funcionando --}}
-                            @foreach ($portfolio->categories as $category)
-                                <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"
-                                    class="link-full" title="{{ $portfolio->title }}"></a>
-                            @endforeach
+                    {{-- BACKEND: O parametro do data-category pode ser o category-title, mas o script tem que ser revisado depois de consertar o link das categorias --}}
+                    <figure class="port05__list__item category__item" data-category="{{ $portfolio->categoryIds }}">
+                        {{-- BACKEND: O link aqui tbm não está funcionando --}}
+                            <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}" class="link-full" title="{{ $portfolio->title }}"></a>
+                        @if ($portfolio->path_image)
+                            <img class="port05__list__item__image"
+                                src="{{ asset('storage/' . $portfolio->path_image) }}"
+                                alt="Imagem do {{ $portfolio->title }}" loading="lazy">
+                        @endif
 
-                            @if ($portfolio->path_image)
-                                <img class="port05__list__item__image"
-                                    src="{{ asset('storage/' . $portfolio->path_image) }}"
-                                    alt="Imagem do {{ $portfolio->title }}" loading="lazy">
-                            @endif
-
-                            <figcaption class="port05__list__item__description">
-                                {{ $portfolio->title }}
-                            </figcaption>
-                        </figure>
-                    @endfor
+                        <figcaption class="port05__list__item__description">
+                            {{ $portfolio->title }}
+                        </figcaption>
+                    </figure>
                 @endforeach
             </div>
         @endif

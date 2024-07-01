@@ -246,12 +246,12 @@ class PORT05Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(PORT05Portfolios $PORT05Portfolios)
-    public function show($PORT05PortfoliosCategory, PORT05Portfolios $PORT05Portfolios)
+    public function show(PORT05Portfolios $PORT05Portfolios)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT05', 'show');
 
-        $galleries = PORT05PortfoliosGallery::where('portfolio_id', $PORT05Portfolios->id)->active()->sorting()->get();
+        $galleries = PORT05PortfoliosGallery::where('portfolio_id', $PORT05Portfolios->id)->sorting()->get();
 
         $testimonials = PORT05PortfoliosTestimonial::where('portfolio_id', $PORT05Portfolios->id)->active()->sorting()->get();
 
@@ -334,8 +334,13 @@ class PORT05Controller extends Controller
     {
         $categories = PORT05PortfoliosCategory::exists()->featured()->active()->sorting()->get();
         $portfolios = PORT05Portfolios::with('categories')->active()->featured()->sorting()->get();
+        foreach ($portfolios as $portfolio) {
+            $categoryIds = $portfolio->categories->pluck('id')->toArray();
+            $portfolio->categoryIds = implode(',',$categoryIds);
+        }
+
         $section = PORT05PortfoliosSection::activeSection()->sorting()->first();
-        // dd($section);
+        // dd($portfolios);
         return view('Client.pages.Portfolios.PORT05.section', [
             'categories' => $categories,
             'portfolios' => $portfolios,

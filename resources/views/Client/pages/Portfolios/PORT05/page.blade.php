@@ -27,10 +27,8 @@
             <div class="port05-page__list">
                 @foreach ($portfolios as $portfolio)
                     <figure class="port05-page__list__item" data-category="{{ $category->title }}">
-                        @foreach ($portfolio->categories as $category)
-                            <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"
+                            <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}"
                                 class="link-full" title="{{ $category->title }}"></a>
-                        @endforeach
 
                         @if ($portfolio->path_image)
                             <img class="port05-page__list__item__image"
