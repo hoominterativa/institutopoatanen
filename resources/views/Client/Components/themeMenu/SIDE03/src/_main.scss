@@ -41,19 +41,19 @@
     /* ANIMAÇÕES DE ABERTURA */
     /* top to bottom - de cima para baixo*/
     &--ttb {
-        @extend .side02;
+        // @extend .side02;
         transform: translate(0, -100%);
     }
 
     /*right to left - de esquerda para direita*/
     &--rtl {
-        @extend .side02;
+        // @extend .side02;
         transform: translate(100%, 0);
     }
 
     /* bottom to top - de baixo para cima */
     &--btt {
-        @extend .side02;
+        // @extend .side02;
         transform: translate(0, 100%);
     }
 
