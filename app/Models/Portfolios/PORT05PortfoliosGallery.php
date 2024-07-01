@@ -20,18 +20,13 @@ class PORT05PortfoliosGallery extends Model
         'portfolio_id',
         'link_video',
         'path_image',
-        'active',
+        'featured',
         'sorting'
     ];
 
     public function scopeSorting($query)
     {
         return $query->orderBy('sorting', 'ASC');
-    }
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
     }
 
     public function portfolio()

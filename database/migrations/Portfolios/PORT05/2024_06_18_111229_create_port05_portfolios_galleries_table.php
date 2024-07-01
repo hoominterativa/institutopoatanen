@@ -18,7 +18,7 @@ class CreatePort05PortfoliosGalleriesTable extends Migration
             $table->foreignId('portfolio_id')->constrained('port05_portfolios')->onDelete('cascade');
             $table->string('link_video')->nullable();
             $table->string('path_image')->nullable();
-            $table->boolean('active')->default(0);
+            $table->boolean('featured')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

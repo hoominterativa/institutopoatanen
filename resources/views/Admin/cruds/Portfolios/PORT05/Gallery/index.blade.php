@@ -42,10 +42,8 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">
-                                    @if ($gallery->active)
-                                        <span class="badge bg-success">Ativo</span>
-                                    @else
-                                        <span class="badge bg-danger">Inativo</span>
+                                    @if ($gallery->featured)
+                                        <span class="badge bg-primary text-white">Destaque</span>
                                     @endif
                                 </td>
                                 <td class="align-middle">
@@ -67,7 +65,7 @@
                                                     </div>
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include('Admin.cruds.Portfolios.PORT05.Gallery.form',[
+                                                        @include('Admin.cruds.Portfolios.PORT05.Gallery.formEdit',[
                                                             'gallery' => $gallery
                                                         ])
                                                     </div>

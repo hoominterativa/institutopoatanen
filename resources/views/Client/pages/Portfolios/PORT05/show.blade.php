@@ -23,22 +23,31 @@
     @endif
     @if ($galleries->count())
         <div>
-            @if (!$gallery->featured)
-                @foreach ($galleries as $gallery)
-                    {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
-                    @if ($gallery->link_video)
-                        <a href="{{ getUri($gallery->link_video) }}" data-fancybox="gallery">
-                            <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagem da galeria">
-                        </a>
-                    @else
-                        <img src="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox="gallery" alt="Imagem da galeria">
-                    @endif
-
-                @endforeach
-            @else
-            @endif
+            @foreach ($galleries->where('featured', 0) as $gallery)
+                {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
+                @if ($gallery->link_video)
+                    <a href="{{ getUri($gallery->link_video) }}" data-fancybox="gallery">
+                        <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagem da galeria">
+                    </a>
+                @else
+                    <img src="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox="gallery" alt="Imagem da galeria">
+                @endif
+            @endforeach
+        </div>
+        <div>
+            @foreach ($galleries->where('featured', 1) as $gallery)
+                {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
+                @if ($gallery->link_video)
+                    <a href="{{ getUri($gallery->link_video) }}" data-fancybox="gallery">
+                        <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagem da galeria">
+                    </a>
+                @else
+                    <img src="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox="gallery" alt="Imagem da galeria">
+                @endif
+            @endforeach
         </div>
     @endif
+
     @if ($testimonials->count())
         <h2>Depoimentos</h2>
         @foreach ($testimonials as $testimonial)
