@@ -28,16 +28,13 @@
         @if ($portfolios->count())
             <div class="port05__list">
                 @foreach ($portfolios as $portfolio)
-                    {{-- BACKEND: O parametro do data-category pode ser o category-title, mas o script tem que ser revisado depois de consertar o link das categorias --}}
                     <figure class="port05__list__item category__item" data-category="{{ $portfolio->categoryIds }}">
-                        {{-- BACKEND: O link aqui tbm não está funcionando --}}
-                            <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}" class="link-full" title="{{ $portfolio->title }}"></a>
+                        <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}" class="link-full" title="{{ $portfolio->title }}"></a>
                         @if ($portfolio->path_image)
                             <img class="port05__list__item__image"
                                 src="{{ asset('storage/' . $portfolio->path_image) }}"
                                 alt="Imagem do {{ $portfolio->title }}" loading="lazy">
                         @endif
-
                         <figcaption class="port05__list__item__description">
                             {{ $portfolio->title }}
                         </figcaption>
@@ -45,7 +42,6 @@
                 @endforeach
             </div>
         @endif
-
 
         <a title="ver todos os projetos" href="{{ route('port05.page') }}" class="port05__cta">
             Ver todos

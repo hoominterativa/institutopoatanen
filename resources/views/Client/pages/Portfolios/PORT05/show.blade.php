@@ -22,8 +22,9 @@
         </ul>
     @endif
     @if ($galleries->count())
+        {{-- FRONTEND: Galeria sem destaque --}}
         <div>
-            @foreach ($galleries->where('featured', 0) as $gallery)
+            @foreach ($galleries->where('featured', false) as $gallery)
                 {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
                 @if ($gallery->link_video)
                     <a href="{{ getUri($gallery->link_video) }}" data-fancybox="gallery">
@@ -34,8 +35,9 @@
                 @endif
             @endforeach
         </div>
+        {{-- FRONTEND: Galeria com destaque --}}
         <div>
-            @foreach ($galleries->where('featured', 1) as $gallery)
+            @foreach ($galleries->where('featured', true) as $gallery)
                 {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
                 @if ($gallery->link_video)
                     <a href="{{ getUri($gallery->link_video) }}" data-fancybox="gallery">
