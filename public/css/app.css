@@ -89,8 +89,7 @@ details .details-content {
   aspect-ratio: 6/4;
   background-color: #7c7c7c;
   content: "";
-  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: all ease 0.4s;
 }
 .quedinha__btn * {
@@ -1674,51 +1673,51 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.port05-page__list, .port05-page__categories, .port05, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .port05-page__banner {
+.port05-show__gallery, .port05-page__list, .port05-page__content, .port05-show__content, .port05, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .port05-show__banner, .port05-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.port05-page__banner__title {
+.port05-show__banner__title, .port05-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .port05-page__banner__title {
+  .port05-show__banner__title, .port05-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.port05-page__banner__title {
+.port05-show__banner__title, .port05-page__banner__title {
   color: #404040;
 }
-.port05__header__title {
+.port05-page__content__title, .port05-show__content__title, .port05__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .port05__header__title {
+  .port05-page__content__title, .port05-show__content__title, .port05__header__title {
     font-size: 1.875rem;
   }
 }
-.port05__header__title {
+.port05-page__content__title, .port05-show__content__title, .port05__header__title {
   color: #000;
 }
-.port05__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05-page__categories__item, .port05__categories__item {
+.port05__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .port05__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05-page__categories__item, .port05__categories__item {
+  .port05__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
     font-size: 1.125rem;
   }
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05-page__categories__item, .port05__categories__item {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
   color: #000;
 }
 .port05__header__subtitle {
@@ -1737,12 +1736,12 @@ body .owl-dots .owl-dot.active {
 .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .port05__cta, .head02__navigation__item--menu-mobile__item, .port05__list__item__description, .port05-page__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .port05__cta, .head02__navigation__item--menu-mobile__item, .port05-show__content__paragraph, .port05__list__item__description, .port05-page__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .port05__cta p, .head02__navigation__item--menu-mobile__item p, .port05__list__item__description p, .port05-page__list__item__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.head02__navigation__item__link p, .head02__navigation__item__btn p, .port05__cta p, .head02__navigation__item--menu-mobile__item p, .port05-show__content__paragraph p, .port05__list__item__description p, .port05-page__list__item__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1750,14 +1749,14 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .port05__cta, .head02__navigation__item--menu-mobile__item, .port05__list__item__description, .port05-page__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .head02__navigation__item__link, .head02__navigation__item__btn, .port05__cta, .head02__navigation__item--menu-mobile__item, .port05-show__content__paragraph, .port05__list__item__description, .port05-page__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.port05__list__item__description, .port05-page__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.port05-show__content__paragraph, .port05__list__item__description, .port05-page__list__item__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
 .head02__navigation__item__link, .head02__navigation__item__btn, .port05__cta, .head02__navigation__item--menu-mobile__item {
@@ -1794,7 +1793,7 @@ body .owl-dots .owl-dot.active {
   width: 2rem;
   height: 2rem;
 }
-.port05-page__banner {
+.port05-show__banner, .port05-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -1823,7 +1822,7 @@ body .owl-dots .owl-dot.active {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
-.port05-page__categories__item, .port05__categories__item {
+.port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.75rem 3rem;
@@ -1832,7 +1831,7 @@ body .owl-dots .owl-dot.active {
   border: none;
   background-color: #efefef;
 }
-.active.port05-page__categories__item, .active.port05__categories__item {
+.active.port05-page__content__categories__item, .active.port05-show__content__categories__item, .active.port05__categories__item {
   background-color: #cacaca;
 }
 .head02 {
@@ -2330,13 +2329,40 @@ body .owl-dots .owl-dot.active {
   opacity: 0;
   transition: translate ease 0.3s, opacity ease 0.3s;
 }
-.port05-page__categories__swiper-wrapper {
+.port05-page__content, .port05-show__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.port05-page__content__categories, .port05-show__content__categories {
+  width: 100%;
+}
+.port05-page__content__categories__swiper-wrapper, .port05-show__content__categories__swiper-wrapper {
   height: -moz-fit-content;
   height: fit-content;
 }
 .port05-page__list {
   padding-top: 0;
 }
+.port05-show__content__paragraph {
+  text-align: center;
+  max-width: 1122px;
+}
+.port05-show__gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.5rem;
+}
+.port05-show__gallery__item {
+  width: calc(33.33% - 0.3333333333rem);
+}
+
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

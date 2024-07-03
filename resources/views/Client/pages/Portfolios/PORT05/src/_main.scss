@@ -90,15 +90,26 @@
         }
     }
 
-    &__categories {
+    &__content {
         @extend %theme__padding;
+        @include disFlex(column, start, center);
+        gap: 1rem;
+        width: 100%;
 
-        &__swiper-wrapper {
-            height: fit-content;
+        &__title {
+            @extend %theme__t2-cb;
         }
 
-        &__item {
-            @extend %theme__category;
+        &__categories {
+            width: 100%;
+
+            &__swiper-wrapper {
+                height: fit-content;
+            }
+
+            &__item {
+                @extend %theme__category;
+            }
         }
     }
 
@@ -116,6 +127,69 @@
 
             &__description {
                 @extend .port05__list__item__description;
+            }
+        }
+    }
+}
+
+.port05-show {
+    &__banner {
+        @extend %theme__banner;
+
+        &__title {
+            @extend %theme__banner__title;
+        }
+    }
+
+    &__content {
+        @extend .port05-page__content;
+
+        &__title {
+            @extend .port05-page__content__title;
+        }
+
+        &__categories {
+            @extend .port05-page__content__categories;
+
+            &__swiper-wrapper {
+                @extend .port05-page__content__categories__swiper-wrapper;
+            }
+
+            &__item {
+                @extend .port05-page__content__categories__item;
+            }
+        }
+
+        &__paragraph {
+            @extend %theme__p1-cb;
+            text-align: center;
+            max-width: 1122px;
+        }
+    }
+
+    &__gallery {
+        @extend %theme__padding;
+        @include disFlex();
+        flex-wrap: wrap;
+        gap: 0.75rem 0.5rem;
+
+        &__item {
+            width: calc(33.33% - calc(1rem / 3));
+            height: auto;
+            aspect-ratio: 411/350;
+            position: relative;
+            z-index: 0;
+            isolation: isolate;
+
+            &--highlighted {
+                @extend %theme__gallery__item;
+                width: 100%;
+            }
+
+            &__bg {
+                position: absolute;
+                inset: 0;
+                z-index: -1;
             }
         }
     }

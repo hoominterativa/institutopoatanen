@@ -1,98 +1,155 @@
 @extends('Client.Core.client')
 
 @section('content')
-{{-- BEGIN Page content --}}
-    @if ($portfolio->active_banner === 1)
-        <section style="background-image: url({{ asset('storage/' . $portfolio->path_image_desktop_banner) }});">
-            @if ($portfolio->title_banner)
-                <h1>{{ $portfolio->title_banner }}</h1>
-            @endif
-        </section>
-    @endif
+    <main id="root" class="port05-show">
 
-    <h1>{{ $portfolio->title }}</h1>
-    @if ($portfolio->categories->count())
-        <ul>
-            @foreach ($portfolio->categories as $category)
-                <li>
-                    <a href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}" class="link-full" title="{{ $category->title }}"></a>
-                    {{ $category->title }}
-                </li>
-            @endforeach
-        </ul>
-    @endif
-    @if ($galleries->count())
-        {{-- FRONTEND: Galeria sem destaque --}}
-        <div>
-            @foreach ($galleries->where('featured', false) as $gallery)
-                {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
-                @if ($gallery->link_video)
-                    <a href="{{ getUri($gallery->link_video) }}" data-fancybox="gallery">
-                        <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagem da galeria">
-                    </a>
-                @else
-                    <img src="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox="gallery" alt="Imagem da galeria">
-                @endif
-            @endforeach
-        </div>
-        {{-- FRONTEND: Galeria com destaque --}}
-        <div>
-            @foreach ($galleries->where('featured', true) as $gallery)
-                {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
-                @if ($gallery->link_video)
-                    <a href="{{ getUri($gallery->link_video) }}" data-fancybox="gallery">
-                        <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Imagem da galeria">
-                    </a>
-                @else
-                    <img src="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox="gallery" alt="Imagem da galeria">
-                @endif
-            @endforeach
-        </div>
-    @endif
 
-    @if ($testimonials->count())
-        <h2>Depoimentos</h2>
-        @foreach ($testimonials as $testimonial)
-            <div>
-                @if ($testimonial->path_image)
-                    <img src="{{asset('storage/' . $testimonial->path_image)}}" alt="Imagem do {{$testimonial->name}}">
+        {{-- BEGIN Page content --}}
+        @if ($portfolio->active_banner === 1)
+            <section class="port05-show__banner"
+                style="background-image: url({{ asset('storage/' . $portfolio->path_image_desktop_banner) }});">
+                @if ($portfolio->title_banner)
+                    <h1 class="port05-show__banner__title">{{ $portfolio->title_banner }}</h1>
                 @endif
-            </div>
-            <div>
-                @if ($testimonial->name)
-                    <h3>{{$testimonial->name}}</h3>
-                @endif
-                @if ($testimonial->profession)
-                    <h3>{{$testimonial->profession}}</h3>
-                @endif
-                @if ($testimonial->feedback)
-                    {!! $testimonial->feedback !!}
-                @endif
-            </div>
-        @endforeach
-    @endif
+            </section>
+        @endif
 
-    @if ($portfolios->count())
-        <h2>Relacionados</h2>
-        <main>
-            <div>
-                @foreach ($portfolios as $portfolio)
-                    <li>
+        <section class="port05-show__content">
+            <h2 class="port05-show__content__title">{{ $portfolio->title }}</h2>
+
+            @if ($portfolio->categories->count())
+                <div class="port05-show__content__categories">
+                    <menu class="port05-show__content__categories__swiper-wrapper swiper-wrapper">
                         @foreach ($portfolio->categories as $category)
-                            <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}" class="link-full" title="{{ $category->title }}"></a>
+                            <a class="port05-show__content__categories__item swiper-slide"
+                                href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}"
+                                title="{{ $category->title }}">
+                                {{ $category->title }}
+                            </a>
                         @endforeach
-                        @if ($portfolio->path_image)
-                            <img src="{{ asset('storage/' . $portfolio->path_image) }}" alt="Ícone de {{ $portfolio->title }}" loading="lazy">
-                        @endif
-                        {{ $portfolio->title }}
-                    </li>
+                    </menu>
+                </div>
+            @endif
+
+            <div class="port05-show__content__paragraph">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin
+                    vel
+                    non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis
+                    posuere.
+                    Donec tincidunt dignissim faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                    posuere
+                    cubilia curae; Sed Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus
+                    gravida
+                    sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget
+                    purus
+                    mattis posuere. Donec tincidunt dignissim faucibus. Vestibulum ante ipsum primis in faucibus orci luctus
+                    et
+                    ultrices posuere cubilia curae; Sed. </p>
+            </div>
+        </section>
+
+        @if ($galleries->count())
+            {{-- FRONTEND: Galeria sem destaque --}}
+            <section class="port05-show__gallery">
+                @foreach ($galleries->where('featured', false) as $gallery)
+                    {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
+                    @if ($gallery->link_video)
+                        <div class="port05-show__gallery__item">
+                            <img class="port05-show__gallery__item__bg" src="{{ asset('storage/' . $gallery->path_image) }}"
+                                alt="Imagem da galeria">
+
+                            <button class="port05-show__gallery__item__button" data-src="{{ getUri($gallery->link_video) }}"
+                                data-fancybox="gallery">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="117" viewBox="0 0 100 117"
+                                    fill="none">
+                                    <path d="M100 58.5L0.249995 116.091L0.25 0.909305L100 58.5Z" fill="#404040" />
+                                </svg>
+                            </button>
+                        </div>
+                    @else
+                        <div class="port05-show__gallery__item">
+                            <img class="port05-show__gallery__item__bg" src="{{ asset('storage/' . $gallery->path_image) }}"
+                                data-fancybox="gallery" alt="Imagem da galeria">
+                        </div>
+                    @endif
+                @endforeach
+            </section>
+
+            {{-- FRONTEND: Galeria com destaque --}}
+            <div>
+                @foreach ($galleries->where('featured', true) as $gallery)
+                    {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
+                    @if ($gallery->link_video)
+                        <div class="port05-show__gallery__item--highlighted">
+                            <img class="port05-show__gallery__item__bg" src="{{ asset('storage/' . $gallery->path_image) }}"
+                                alt="Imagem da galeria">
+
+                            <button class="port05-show__gallery__item__button"
+                                data-src="{{ getUri($gallery->link_video) }}" data-fancybox="gallery">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="117" viewBox="0 0 100 117"
+                                    fill="none">
+                                    <path d="M100 58.5L0.249995 116.091L0.25 0.909305L100 58.5Z" fill="#404040" />
+                                </svg>
+                            </button>
+                        </div>
+                    @else
+                        <div class="port05-show__gallery__item--highlighted">
+                            <img class="port05-show__gallery__item__bg"
+                                src="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox="gallery"
+                                alt="Imagem da galeria">
+                        </div>
+                    @endif
                 @endforeach
             </div>
-        </main>
-    @endif
+        @endif
 
-{{-- Finish Content page Here --}}
-    @foreach ($sections as $section)
-        {!! $section !!}
-    @endforeach
+        @if ($testimonials->count())
+            <h2>Depoimentos</h2>
+            @foreach ($testimonials as $testimonial)
+                <div>
+                    @if ($testimonial->path_image)
+                        <img src="{{ asset('storage/' . $testimonial->path_image) }}"
+                            alt="Imagem do {{ $testimonial->name }}">
+                    @endif
+                </div>
+                <div>
+                    @if ($testimonial->name)
+                        <h3>{{ $testimonial->name }}</h3>
+                    @endif
+                    @if ($testimonial->profession)
+                        <h3>{{ $testimonial->profession }}</h3>
+                    @endif
+                    @if ($testimonial->feedback)
+                        {!! $testimonial->feedback !!}
+                    @endif
+                </div>
+            @endforeach
+        @endif
+
+        @if ($portfolios->count())
+            <h2>Relacionados</h2>
+            <main>
+                <div>
+                    @foreach ($portfolios as $portfolio)
+                        <li>
+                            @foreach ($portfolio->categories as $category)
+                                <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"
+                                    class="link-full" title="{{ $category->title }}"></a>
+                            @endforeach
+                            @if ($portfolio->path_image)
+                                <img src="{{ asset('storage/' . $portfolio->path_image) }}"
+                                    alt="Ícone de {{ $portfolio->title }}" loading="lazy">
+                            @endif
+                            {{ $portfolio->title }}
+                        </li>
+                    @endforeach
+                </div>
+            </main>
+        @endif
+
+        {{-- Finish Content page Here --}}
+        @foreach ($sections as $section)
+            {!! $section !!}
+        @endforeach
+    </main>
 @endsection

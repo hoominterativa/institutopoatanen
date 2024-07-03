@@ -9,26 +9,29 @@
                 @endif
             </section>
         @endif
-        @if ($categories->count())
-            <aside class="port05-page__categories">
-                <menu class="port05-page__categories__swiper-wrapper swiper-wrapper">
-                    @foreach ($categories as $category)
-                        <button data-category="{{ $category->title }}"
-                            class="port05-page__categories__item swiper-slide">
-                            <a href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}"
-                                class="link-full" title="{{ $category->title }}"></a>
-                            {{ $category->title }}
-                        </button>
-                    @endforeach
-                </menu>
-            </aside>
-        @endif
+        <section class="port05-page__content">
+            {{-- BACKEND ADD ESSE TÍTULO QUE FICOU FALTANDO --}}
+            <h2 class="port05-page__content__title">Título</h2>
+            @if ($categories->count())
+                <div class="port05-page__content__categories">
+                    <menu class="port05-page__content__categories__swiper-wrapper swiper-wrapper">
+                        @foreach ($categories as $category)
+                            <a class="port05-page__content__categories__item swiper-slide"
+                                href="{{ route('port05.category.page', ['PORT05PortfoliosCategory' => $category->slug]) }}"
+                                title="{{ $category->title }}">
+                                {{ $category->title }}
+                            </a>
+                        @endforeach
+                    </menu>
+                </div>
+            @endif
+        </section>
         @if ($portfolios->count())
             <div class="port05-page__list">
                 @foreach ($portfolios as $portfolio)
                     <figure class="port05-page__list__item" data-category="{{ $category->title }}">
-                            <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}"
-                                class="link-full" title="{{ $category->title }}"></a>
+                        <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}" class="link-full"
+                            title="{{ $category->title }}"></a>
 
                         @if ($portfolio->path_image)
                             <img class="port05-page__list__item__image"
@@ -43,7 +46,7 @@
                 @endforeach
             </div>
         @endif
-        {{-- Finish Content page Here --}}
+
         @foreach ($sections as $section)
             {!! $section !!}
         @endforeach
