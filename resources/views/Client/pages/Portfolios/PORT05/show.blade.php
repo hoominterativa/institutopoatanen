@@ -73,10 +73,7 @@
                         </div>
                     @endif
                 @endforeach
-            </section>
 
-            {{-- FRONTEND: Galeria com destaque --}}
-            <div>
                 @foreach ($galleries->where('featured', true) as $gallery)
                     {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}
                     @if ($gallery->link_video)
@@ -100,51 +97,72 @@
                         </div>
                     @endif
                 @endforeach
-            </div>
+            </section>
         @endif
 
         @if ($testimonials->count())
-            <h2>Depoimentos</h2>
-            @foreach ($testimonials as $testimonial)
-                <div>
-                    @if ($testimonial->path_image)
-                        <img src="{{ asset('storage/' . $testimonial->path_image) }}"
-                            alt="Imagem do {{ $testimonial->name }}">
-                    @endif
+            <section class="port05-show__feedback">
+                <h2 class="port05-show__feedback__title">Depoimentos</h2>
+
+                <div class="port05-show__feedback__carousel">
+                    <div class="port05-show__feedback__carousel__swiper-wrapper swiper-wrapper">
+
+                        @foreach ($testimonials as $testimonial)
+                            <article class="port05-show__feedback__carousel__item swiper-slide">
+                                @if ($testimonial->path_image)
+                                    <img class="port05-show__feedback__carousel__item__image"
+                                        src="{{ asset('storage/' . $testimonial->path_image) }}"
+                                        alt="Imagem do {{ $testimonial->name }}">
+                                @endif
+                                <div class="port05-show__feedback__carousel__item__information">
+                                    @if ($testimonial->name)
+                                        <h3 class="port05-show__feedback__carousel__item__information__name">
+                                            {{ $testimonial->name }}</h3>
+                                    @endif
+                                    @if ($testimonial->profession)
+                                        <h4 class="port05-show__feedback__carousel__item__information__role">
+                                            {{ $testimonial->profession }}</h4>
+                                    @endif
+                                    @if ($testimonial->feedback)
+                                        <div class="port05-show__feedback__carousel__item__information__paragraph">
+                                            {!! $testimonial->feedback !!}
+                                        </div>
+                                    @endif
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
                 </div>
-                <div>
-                    @if ($testimonial->name)
-                        <h3>{{ $testimonial->name }}</h3>
-                    @endif
-                    @if ($testimonial->profession)
-                        <h3>{{ $testimonial->profession }}</h3>
-                    @endif
-                    @if ($testimonial->feedback)
-                        {!! $testimonial->feedback !!}
-                    @endif
-                </div>
-            @endforeach
+            </section>
         @endif
 
         @if ($portfolios->count())
-            <h2>Relacionados</h2>
-            <main>
-                <div>
-                    @foreach ($portfolios as $portfolio)
-                        <li>
-                            @foreach ($portfolio->categories as $category)
-                                <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"
-                                    class="link-full" title="{{ $category->title }}"></a>
-                            @endforeach
-                            @if ($portfolio->path_image)
-                                <img src="{{ asset('storage/' . $portfolio->path_image) }}"
-                                    alt="Ícone de {{ $portfolio->title }}" loading="lazy">
-                            @endif
-                            {{ $portfolio->title }}
-                        </li>
-                    @endforeach
+            <section class="port05-show__related">
+                <h2 class="port05-show__related">Relacionados</h2>
+
+                <div class="port05-show__related__carousel">
+                    <div class="port05-show__related__carousel__swiper-wrapper swiper-wrapper">
+
+                        @foreach ($portfolios as $portfolio)
+                            <figure class="port05-show__related__carousel__item swiper-slide">
+                                @foreach ($portfolio->categories as $category)
+                                    {{-- BACKEND CORRIGIR LINK AQUI --}}
+                                    <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"
+                                        class="link-full" title="{{ $category->title }}"></a>
+                                @endforeach
+                                @if ($portfolio->path_image)
+                                    <img class="port05-show__related__carousel__item__image"
+                                        src="{{ asset('storage/' . $portfolio->path_image) }}"
+                                        alt="Ícone de {{ $portfolio->title }}" loading="lazy">
+                                @endif
+                                <figcaption class="port05-show__related__carousel__item__description">
+                                    {{ $portfolio->title }}
+                                </figcaption>
+                            </figure>
+                        @endforeach
+                    </div>
                 </div>
-            </main>
+            </section>
         @endif
 
         {{-- Finish Content page Here --}}

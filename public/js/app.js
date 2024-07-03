@@ -12414,6 +12414,31 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port05-show__content
   spaceBetween: 8,
   centerInsufficientSlides: true
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port05-show__feedback__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 8
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port05-show__related__carousel", {
+  slidesPerView: 1,
+  spaceBetween: 8,
+  direction: "vertical",
+  height: 375,
+  grid: {
+    rows: 1
+  },
+  breakpoints: {
+    992: {
+      grid: {
+        rows: 3
+      }
+    },
+    720: {
+      grid: {
+        rows: 2
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -25154,9 +25179,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nThe target selector was not found.\nUse \"@extend %theme__gallery__item !optional\" to avoid this error.\n    ╷\n183 │                 @extend %theme__gallery__item;\n    │                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ╵\n  resources\\views\\Client\\pages\\Portfolios\\PORT05\\src\\_main.scss 183:17  root stylesheet\n    at processResult (C:\\xampp\\htdocs\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:841:19)\n    at C:\\xampp\\htdocs\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:966:5\n    at C:\\xampp\\htdocs\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\xampp\\htdocs\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\xampp\\htdocs\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\xampp\\htdocs\\WebsiteConstructorSystem\\node_modules\\sass-loader\\dist\\index.js:65:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -35737,6 +35765,7 @@ _shared_swiper_core_mjs__WEBPACK_IMPORTED_MODULE_0__.S.use(modules);
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/libraries": 0,
+/******/ 			"css/app": 0,
 /******/ 			"css/icons": 0
 /******/ 		};
 /******/ 		
@@ -35787,10 +35816,10 @@ _shared_swiper_core_mjs__WEBPACK_IMPORTED_MODULE_0__.S.use(modules);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

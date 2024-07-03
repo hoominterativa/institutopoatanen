@@ -181,15 +181,118 @@
             z-index: 0;
             isolation: isolate;
 
-            &--highlighted {
-                @extend %theme__gallery__item;
+            @include large-device-down {
+                width: calc(50% - 0.5rem);
+            }
+
+            @include medium-device-down {
                 width: 100%;
+            }
+
+            &--highlighted {
+                @extend .port05-show__gallery__item;
+                width: 100%;
+                aspect-ratio: 1294/424;
+            }
+
+            &--highlighted &__button {
+                @extend %theme__play-button;
+                width: 120px;
             }
 
             &__bg {
                 position: absolute;
                 inset: 0;
                 z-index: -1;
+                object-fit: cover;
+                object-position: center;
+                height: 100%;
+                width: 100%;
+            }
+
+            &__button {
+                @extend %theme__play-button;
+            }
+        }
+    }
+
+    &__feedback {
+        @extend %theme__padding;
+        @include disFlex(column, start, center);
+        gap: 1rem;
+
+        &__title {
+            @extend %theme__t2-cb;
+            text-align: center;
+        }
+
+        &__carousel {
+            width: 100%;
+            max-width: 915px;
+            overflow: hidden;
+
+            &__item {
+                width: 100%;
+
+                &__image {
+                    width: 25%;
+                    height: auto;
+                    aspect-ratio: 411/350;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                &__information {
+                    @include disFlex(column);
+                    width: 75%;
+                    padding: 54px 24px 54px 54px;
+                    background-color: $color-three;
+
+                    &__name {
+                        @extend %theme__t4-c1;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    &__role {
+                        @extend %theme__p1-c1;
+                    }
+
+                    &__paragraph {
+                        @extend %theme__p1-c1;
+                    }
+                }
+            }
+        }
+    }
+
+    &__related {
+        @extend %theme__padding;
+        padding-bottom: 0;
+        width: 100%;
+
+        &__carousel {
+            overflow: hidden;
+            padding-bottom: 80px;
+
+            &__item {
+                @extend .port05__list__item;
+                width: calc(33.33% - 0.3333rem);
+
+                @include large-device-down {
+                    width: calc(50% - 0.5rem);
+                }
+
+                @include medium-device-down {
+                    width: 100%;
+                }
+
+                &__image {
+                    @extend .port05__list__item__image;
+                }
+
+                &__description {
+                    @extend .port05__list__item__description;
+                }
             }
         }
     }
