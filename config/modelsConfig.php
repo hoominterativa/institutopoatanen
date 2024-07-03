@@ -32,7 +32,7 @@ return [
             ],
         ],
 
-        'Contents' => (object) [
+        'Contents.1' => (object) [
             'CONT02' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -84,7 +84,7 @@ return [
             ],
         ],
 
-        'Contents' => (object) [
+        'Contents.2' => (object) [
             'CONT02V1' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -120,7 +120,7 @@ return [
             ],
         ],
 
-        'Topics' => (object) [
+        'Topics.1' => (object) [
             'TOPI01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -156,7 +156,7 @@ return [
             ],
         ],
 
-        'Topics' => (object) [
+        'Topics.2' => (object) [
             'TOPI11' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -257,7 +257,7 @@ return [
 
         'Units' => (object) [
             'UNIT01' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => true,
@@ -323,11 +323,14 @@ return [
                     'titlePanel' => 'Pagina em branco',
                     'iconPanel' => 'mdi-contacts'
                 ],
-            'IncludeSections' => (object) []
+            'IncludeSections' => (object) [
+                'Topics.3' => 'TOPI09',
+                'Topics.4' => 'TOPI10'
+            ]
             ],
         ],
 
-        'Topics' => (object) [
+        'Topics.3' => (object) [
             'TOPI09' => (object)[
             'ViewHome' => true,
             'ViewListMenu' => false,
@@ -345,7 +348,7 @@ return [
             ],
         ],
 
-        'Topics' => (object) [
+        'Topics.4' => (object) [
             'TOPI10' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
