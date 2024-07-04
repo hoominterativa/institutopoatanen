@@ -31,6 +31,7 @@
             @endif
 
             <div class="port05-show__content__paragraph">
+                {{-- BACKEND ADD ESSA DESCRIÇÃO --}}
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin
                     vel
                     non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis
