@@ -12418,22 +12418,27 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port05-show__feedbac
   slidesPerView: "auto",
   spaceBetween: 8
 });
+
+// NOTE: AO AJUSTAR ESTE CAROUSEL COM GRID TBM É NECESSÁRIO AJUSTAR O CSS DA CLASSE .swiper-wrapper
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port05-show__related__carousel", {
   slidesPerView: 1,
-  spaceBetween: 8,
+  spaceBetween: 0,
   direction: "vertical",
   height: 375,
   grid: {
+    fill: "column",
     rows: 1
   },
   breakpoints: {
     992: {
       grid: {
+        fill: "row",
         rows: 3
       }
     },
-    720: {
+    767: {
       grid: {
+        fill: "row",
         rows: 2
       }
     }

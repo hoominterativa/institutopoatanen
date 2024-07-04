@@ -45,11 +45,6 @@
             &:hover &__description {
                 translate: -50% 0;
                 opacity: 1;
-
-                @include large-device-down {
-                    translate: none;
-                    opacity: unset;
-                }
             }
 
             &__image {
@@ -73,6 +68,11 @@
                 opacity: 0;
 
                 transition: translate ease 0.3s, opacity ease 0.3s;
+
+                @include large-device-down {
+                    translate: -50% 0;
+                    opacity: 1;
+                }
             }
         }
     }
@@ -267,12 +267,30 @@
 
     &__related {
         @extend %theme__padding;
+        @include disFlex(column, start, center);
+        gap: 1rem;
         padding-bottom: 0;
         width: 100%;
 
+        &__title {
+            @extend %theme__t2-c1;
+            text-align: center;
+        }
+
         &__carousel {
             overflow: hidden;
-            padding-bottom: 80px;
+            padding-bottom: 25px;
+            height: 400px;
+
+            .swiper-wrapper {
+                // NOTE: AO AJUSTAR ESTE CAROUSEL COM GRID TBM É NECESSÁRIO AJUSTAR O JS;
+                flex-direction: row;
+                gap: 8px;
+
+                @include medium-device-down {
+                    flex-direction: column;
+                }
+            }
 
             &__item {
                 @extend .port05__list__item;

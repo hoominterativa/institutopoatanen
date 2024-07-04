@@ -22,22 +22,26 @@ new Swiper(".port05-show__feedback__carousel", {
     spaceBetween: 8,
 });
 
+// NOTE: AO AJUSTAR ESTE CAROUSEL COM GRID TBM É NECESSÁRIO AJUSTAR O CSS DA CLASSE .swiper-wrapper
 new Swiper(".port05-show__related__carousel", {
     slidesPerView: 1,
-    spaceBetween: 8,
+    spaceBetween: 0,
     direction: "vertical",
     height: 375,
     grid: {
+        fill: "column",
         rows: 1,
     },
     breakpoints: {
         992: {
             grid: {
+                fill: "row",
                 rows: 3,
             },
         },
-        720: {
+        767: {
             grid: {
+                fill: "row",
                 rows: 2,
             },
         },

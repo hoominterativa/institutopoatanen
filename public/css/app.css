@@ -187,18 +187,21 @@ details .details-content {
 .port05-show__banner__title, .port05-page__banner__title {
   color: #404040;
 }
-.port05-show__feedback__title, .port05-page__content__title, .port05-show__content__title, .port05__header__title {
+.port05-show__related__title, .port05-show__feedback__title, .port05-page__content__title, .port05-show__content__title, .port05__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .port05-show__feedback__title, .port05-page__content__title, .port05-show__content__title, .port05__header__title {
+  .port05-show__related__title, .port05-show__feedback__title, .port05-page__content__title, .port05-show__content__title, .port05__header__title {
     font-size: 1.875rem;
   }
 }
 .port05-show__feedback__title, .port05-page__content__title, .port05-show__content__title, .port05__header__title {
   color: #000;
+}
+.port05-show__related__title {
+  color: #404040;
 }
 .port05__header__subtitle, .port05-show__feedback__carousel__item__information__name, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
@@ -2326,12 +2329,6 @@ body .owl-dots .owl-dot.active {
   translate: -50% 0;
   opacity: 1;
 }
-@media (max-width: 991.98px) {
-  .port05__list__item:hover .port05__list__item__description, .port05__list__item:hover .port05-show__related__carousel__item__description, .port05-show__related__carousel__item:hover .port05__list__item__description, .port05-show__related__carousel__item:hover .port05-show__related__carousel__item__description, .port05__list__item:hover .port05-page__list__item__description, .port05-show__related__carousel__item:hover .port05-page__list__item__description, .port05-page__list__item:hover .port05__list__item__description, .port05-page__list__item:hover .port05-show__related__carousel__item__description, .port05-page__list__item:hover .port05-page__list__item__description {
-    translate: none;
-    opacity: unset;
-  }
-}
 .port05__list__item__image, .port05-show__related__carousel__item__image, .port05-page__list__item__image {
   width: 100%;
   height: auto;
@@ -2349,6 +2346,12 @@ body .owl-dots .owl-dot.active {
   background-color: #efefef;
   opacity: 0;
   transition: translate ease 0.3s, opacity ease 0.3s;
+}
+@media (max-width: 991.98px) {
+  .port05__list__item__description, .port05-show__related__carousel__item__description, .port05-page__list__item__description {
+    translate: -50% 0;
+    opacity: 1;
+  }
 }
 .port05-page__content, .port05-show__content {
   display: flex;
@@ -2456,12 +2459,30 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 0.5rem;
 }
 .port05-show__related {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
   padding-bottom: 0;
   width: 100%;
 }
+.port05-show__related__title {
+  text-align: center;
+}
 .port05-show__related__carousel {
   overflow: hidden;
-  padding-bottom: 80px;
+  padding-bottom: 25px;
+  height: 400px;
+}
+.port05-show__related__carousel .swiper-wrapper {
+  flex-direction: row;
+  gap: 8px;
+}
+@media (max-width: 767.98px) {
+  .port05-show__related__carousel .swiper-wrapper {
+    flex-direction: column;
+  }
 }
 .port05-show__related__carousel__item {
   width: calc(33.33% - 0.3333rem);

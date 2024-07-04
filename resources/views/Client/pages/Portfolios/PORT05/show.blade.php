@@ -3,7 +3,6 @@
 @section('content')
     <main id="root" class="port05-show">
 
-
         {{-- BEGIN Page content --}}
         @if ($portfolio->active_banner === 1)
             <section class="port05-show__banner"
@@ -138,7 +137,7 @@
 
         @if ($portfolios->count())
             <section class="port05-show__related">
-                <h2 class="port05-show__related">Relacionados</h2>
+                <h2 class="port05-show__related__title">Relacionados</h2>
 
                 <div class="port05-show__related__carousel">
                     <div class="port05-show__related__carousel__swiper-wrapper swiper-wrapper">
