@@ -9,8 +9,7 @@
                  @endforeach
             </div>
         </div>
-        
-        {{-- END .lightbox-unit01__image --}}
+
         <div class="lightbox-unit01__description p-5 col-md-6 d-block">
             <h3 class="lightbox-unit01__subtitle">{{$topic->subtitle}}</h3>
             <h2 class="lightbox-unit01__title mb-0"><img src="{{asset('storage/' . $topic->path_image_icon)}}" alt="Logo">{{$topic->title}}</h2>
@@ -23,8 +22,8 @@
                 @endif
             </div>
         </div>
-        {{-- END .lightbox-unit01__description --}}
+
     </div>
 </div>
-{{-- END .lightbox-unit01 --}}
+
 
