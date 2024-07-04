@@ -12353,6 +12353,68 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog03__main", {
   slidesPerView: "auto",
   spaceBetween: 32
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog03-show__related__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 32
+});
+
+// CONSTANTES PARA COMPARTILHAMENTO
+var shareButton = document.querySelector(".blog03-show__article__share");
+
+// FRONTEND: FAZER COM O TOGGLE;
+if (shareButton) {
+  var handlePostModalOpen = function handlePostModalOpen(m) {
+    m.showModal();
+    m.classList.add("open");
+    document.querySelector("body").style.overflowY = "hidden";
+  };
+  var handlePostModalClose = function handlePostModalClose(m) {
+    m.classList.remove("open");
+    document.querySelector("body").style.overflowY = "auto";
+    setTimeout(function () {
+      m.close();
+    }, 150);
+  }; // SEÇÃO DO MODAL
+  var modal = document.querySelector(".blog03-show__article__modal");
+  var closeButton = document.querySelector(".blog03-show__article__modal__header__close");
+  var copyButton = document.querySelector(".blog03-show__article__modal__main__copy__button");
+  var link = document.querySelector(".blog03-show__article__modal__main__copy__link");
+  var url = window.location.href;
+  var whatsapp = document.querySelector("#whatsapp");
+  var facebook = document.querySelector("#facebook");
+  var x = document.querySelector("#x");
+  var email = document.querySelector("#email");
+  var text = "Confira este link: ";
+  shareButton.addEventListener("click", handlePostModalOpen.bind(null, modal));
+
+  // set timeout para colocar animação de saída
+  closeButton.addEventListener("click", handlePostModalClose.bind(null, modal));
+
+  // SEÇÃO DE CÓPIA
+  link.innerText = url;
+  copyButton.addEventListener("click", function () {
+    navigator.clipboard.writeText(link.innerText).then(function () {
+      alert("Link copiado");
+    });
+  });
+
+  // SEÇÃO DE COMPARTILHAMENTO
+  whatsapp.addEventListener("click", function () {
+    whatsapp.href = "https://api.whatsapp.com/send?text=" + encodeURIComponent(text + url);
+  });
+  facebook.addEventListener("click", function () {
+    facebook.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+  });
+  x.addEventListener("click", function () {
+    x.href = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(url) + "&text=" + encodeURIComponent(text);
+  });
+  email.addEventListener("click", function () {
+    var title = document.querySelector(".blog03-show__article__title").innerText;
+    var descritption = document.querySelector(".blog03-show__article__description").innerText;
+    email.href = "mailto:?subject=Confira este artigo".concat(title, "&body=").concat(descritption, "\n Aqui est\xE1 o link ").concat(url);
+    console.log(email.href);
+  });
+}
 
 /***/ }),
 

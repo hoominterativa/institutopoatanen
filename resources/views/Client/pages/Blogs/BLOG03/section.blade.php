@@ -33,7 +33,7 @@
                     @if ($blog->title || $blog->description)
                         <div class="blog03__main__item__information">
                             @if ($blog->title)
-                                <h4 itemprop="name" class="blog03__main__item__information__title">{{ $blog->title }}
+                                <h4 class="blog03__main__item__information__title">{{ $blog->title }}
                                 </h4>
                             @endif
 

@@ -1674,75 +1674,78 @@ body .owl-dots .owl-dot.active {
 }
 
 /* CONFIGURAÇÃO DO TEMA */
-.blog03-page__main, .blog03-page__navigation, .blog03, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .blog03-page__banner {
+.blog03-show__related, .blog03-show__article, .blog03-page__main, .blog03-page__navigation, .blog03, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .blog03-show__banner, .blog03-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.blog03-page__banner__title {
+.blog03-show__banner__title, .blog03-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .blog03-page__banner__title {
+  .blog03-show__banner__title, .blog03-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.blog03-page__banner__title {
+.blog03-show__banner__title, .blog03-page__banner__title {
   color: #404040;
 }
-.blog03__header__title {
+.blog03__header__title, .blog03-show__article__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .blog03__header__title {
+  .blog03__header__title, .blog03-show__article__title {
     font-size: 1.875rem;
   }
+}
+.blog03-show__article__title {
+  color: #000;
 }
 .blog03__header__title {
   color: #404040;
 }
-.blog03__header__subtitle, .blog03__main__item__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog03-page__navigation__categories__item {
+.blog03__header__subtitle, .blog03-show__article__modal__header__title, .blog03__main__item__information__title, .blog03-show__related__carousel__item__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog03-page__navigation__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .blog03__header__subtitle, .blog03__main__item__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog03-page__navigation__categories__item {
+  .blog03__header__subtitle, .blog03-show__article__modal__header__title, .blog03__main__item__information__title, .blog03-show__related__carousel__item__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog03-page__navigation__categories__item {
     font-size: 1.125rem;
   }
 }
-.blog03__main__item__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog03-page__navigation__categories__item {
+.blog03-show__article__modal__header__title, .blog03__main__item__information__title, .blog03-show__related__carousel__item__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog03-page__navigation__categories__item {
   color: #000;
 }
 .blog03__header__subtitle {
   color: #b3b3b3;
 }
-.side02__navigation__item__link, .side02__navigation__item__btn {
+.blog03-show__related__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .side02__navigation__item__link, .side02__navigation__item__btn {
+  .blog03-show__related__title, .side02__navigation__item__link, .side02__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.side02__navigation__item__link, .side02__navigation__item__btn {
+.blog03-show__related__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.blog03__main__item__information__paragraph, .blog03__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .blog03__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .blog03-show__article__share, .blog03__cta, .head02__navigation__item--menu-mobile__item, .blog03-show__article__modal__main__socials__item__figure__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.blog03__main__item__information__paragraph p, .blog03__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .blog03__cta p, .head02__navigation__item--menu-mobile__item p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.blog03-show__article__body p, .blog03-show__article__description p, .blog03__main__item__information__paragraph p, .blog03-show__related__carousel__item__information__paragraph p, .blog03__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .blog03-show__article__share p, .blog03__cta p, .head02__navigation__item--menu-mobile__item p, .blog03-show__article__modal__main__socials__item__figure__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1750,28 +1753,28 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .blog03__main__item__information__paragraph, .blog03__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .blog03__cta, .head02__navigation__item--menu-mobile__item, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .blog03-show__article__share, .blog03__cta, .head02__navigation__item--menu-mobile__item, .blog03-show__article__modal__main__socials__item__figure__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.blog03-show__article__modal__main__socials__item__figure__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .blog03__cta, .head02__navigation__item--menu-mobile__item {
+.head02__navigation__item__link, .head02__navigation__item__btn, .blog03-show__article__share, .blog03__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.blog03__main__item__information__paragraph, .blog03__header__paragraph {
+.blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph {
   color: #7c7c7c;
 }
-.foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.blog03-show__article__time, .foot02__copyright__compliances__item, .blog03-show__article__modal__main__copy__button, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .blog03-show__article__modal__main__copy__link {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p {
+.blog03-show__article__time p, .foot02__copyright__compliances__item p, .blog03-show__article__modal__main__copy__button p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .blog03-show__article__modal__main__copy__link p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -1779,16 +1782,22 @@ body .owl-dots .owl-dot.active {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+  .blog03-show__article__time, .foot02__copyright__compliances__item, .blog03-show__article__modal__main__copy__button, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .blog03-show__article__modal__main__copy__link {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
-.side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
+.blog03-show__article__modal__main__copy__link {
+  color: #fff;
+}
+.blog03-show__article__modal__main__copy__button, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item {
   color: #000;
 }
 .foot02__copyright__compliances__item {
   color: #404040;
+}
+.blog03-show__article__time {
+  color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
   /* edita apenas o btn de menu mobile */
@@ -1797,7 +1806,7 @@ body .owl-dots .owl-dot.active {
   width: 2rem;
   height: 2rem;
 }
-.blog03-page__banner {
+.blog03-show__banner, .blog03-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -1810,7 +1819,7 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: start;
 }
-.blog03__cta {
+.blog03-show__article__share, .blog03__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -1822,7 +1831,7 @@ body .owl-dots .owl-dot.active {
   border: none;
   font-weight: 700;
 }
-.blog03__cta:focus {
+.blog03-show__article__share:focus, .blog03__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -2298,7 +2307,7 @@ body .owl-dots .owl-dot.active {
     overflow: visible;
   }
 }
-.blog03__main__item, .blog03-page__main__item {
+.blog03__main__item, .blog03-show__related__carousel__item, .blog03-page__main__item {
   position: relative;
   width: calc(50% - 1rem);
   height: auto;
@@ -2309,33 +2318,33 @@ body .owl-dots .owl-dot.active {
   gap: 2rem;
 }
 @media (max-width: 991.98px) {
-  .blog03__main__item, .blog03-page__main__item {
+  .blog03__main__item, .blog03-show__related__carousel__item, .blog03-page__main__item {
     flex-direction: column;
     width: 60%;
   }
 }
 @media (max-width: 767.98px) {
-  .blog03__main__item, .blog03-page__main__item {
+  .blog03__main__item, .blog03-show__related__carousel__item, .blog03-page__main__item {
     width: 70%;
   }
 }
 @media (max-width: 575.98px) {
-  .blog03__main__item, .blog03-page__main__item {
+  .blog03__main__item, .blog03-show__related__carousel__item, .blog03-page__main__item {
     width: 90%;
   }
 }
-.blog03__main__item__image, .blog03-page__main__item__image {
+.blog03__main__item__image, .blog03-show__related__carousel__item__image, .blog03-page__main__item__image {
   margin: 0;
   width: 50%;
   height: auto;
   aspect-ratio: 422/276;
 }
 @media (max-width: 991.98px) {
-  .blog03__main__item__image, .blog03-page__main__item__image {
+  .blog03__main__item__image, .blog03-show__related__carousel__item__image, .blog03-page__main__item__image {
     width: 100%;
   }
 }
-.blog03__main__item__image__img, .blog03-page__main__item__image__img {
+.blog03__main__item__image__img, .blog03-show__related__carousel__item__image__img, .blog03-page__main__item__image__img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -2343,15 +2352,15 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.blog03__main__item__information, .blog03-page__main__item__information {
+.blog03__main__item__information, .blog03-show__related__carousel__item__information, .blog03-page__main__item__information {
   width: 50%;
 }
 @media (max-width: 991.98px) {
-  .blog03__main__item__information, .blog03-page__main__item__information {
+  .blog03__main__item__information, .blog03-show__related__carousel__item__information, .blog03-page__main__item__information {
     width: 100%;
   }
 }
-.blog03__main__item__information__title {
+.blog03__main__item__information__title, .blog03-show__related__carousel__item__information__title {
   margin-bottom: 2rem;
 }
 .blog03__cta {
@@ -2440,136 +2449,127 @@ body .owl-dots .owl-dot.active {
     width: 100%;
   }
 }
-.blog03-show {
-  padding: 80px 0;
+.blog03-show__article {
+  overflow: hidden; /* Prevenção do shift da animação */
 }
-@media (max-width: 767.98px) {
-  .blog03-show {
-    padding: 50px 30px;
-  }
+.blog03-show__article__title {
+  margin-bottom: 0;
+  text-align: left;
 }
-.blog03-show__item__title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #000;
+.blog03-show__article__time {
+  margin-bottom: 0.75rem;
 }
-@media (max-width: 767.98px) {
-  .blog03-show__item__title {
-    font-size: 1.875rem;
-  }
+.blog03-show__article__description {
+  margin-bottom: 1.5rem;
 }
-.blog03-show__item__published {
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  color: #7c7c7c;
-}
-@media (max-width: 767.98px) {
-  .blog03-show__item__published {
-    font: 400 0.813rem "Montserrat", sans-serif, arial;
-  }
-}
-.blog03-show__item__paragraph {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  color: #7c7c7c;
-  margin-top: 20px;
-}
-@media (max-width: 767.98px) {
-  .blog03-show__item__paragraph {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.blog03-show__item__description {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #7c7c7c;
-  line-height: 27px;
-}
-.blog03-show__item__description ul,
-.blog03-show__item__description ol {
-  margin: 20px 0;
-}
-@media (max-width: 767.98px) {
-  .blog03-show__related {
-    margin-top: 80px;
-  }
-}
-.blog03-show__related__title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 30px;
-}
-@media (max-width: 767.98px) {
-  .blog03-show__related__title {
-    font-size: 1.063rem;
-  }
-}
-.blog03-show__boxs__item {
-  margin-bottom: 75px;
-}
-@media (max-width: 767.98px) {
-  .blog03-show__boxs__item {
-    margin: 0;
-    margin-bottom: 30px;
-  }
-}
-.blog03-show__boxs__item__content:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 5px #ccc;
-}
-.blog03-show__boxs__item__image {
-  margin-bottom: 20px;
-  height: 285px;
-  display: block;
-}
-.blog03-show__boxs__item__image__img {
+.blog03-show__article__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 940/572;
+  max-height: 100dvh;
+  margin-bottom: 2.5rem;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  width: 100%;
-  height: 100%;
-  display: block;
 }
-.blog03-show__boxs__item__date-publish {
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #7c7c7c;
+.blog03-show__article__body {
+  margin-bottom: 2rem;
+}
+.blog03-show__article__share {
+  margin-left: auto;
+}
+.blog03-show__article__modal {
+  opacity: 0;
+  width: 90%;
+  max-width: 462px;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  background-color: #b3b3b3;
+  transition: all ease 0.5s;
+  transform: translateY(-40%);
+}
+.blog03-show__article__modal.open {
+  opacity: 1;
+  transition: all ease 0.5s;
+  transform: translateY(0%);
+}
+.blog03-show__article__modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.blog03-show__article__modal__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.blog03-show__article__modal__header__title {
+  margin-bottom: 0;
+}
+.blog03-show__article__modal__header__close {
+  background-color: transparent;
+  border: none;
+}
+.blog03-show__article__modal__main {
+  overflow: hidden;
+}
+.blog03-show__article__modal__main__socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 0;
+}
+.blog03-show__article__modal__main__socials__item {
+  width: 5.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.blog03-show__article__modal__main__socials__item__figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.blog03-show__article__modal__main__socials__item__figure svg {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+.blog03-show__article__modal__main__copy {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 @media (max-width: 767.98px) {
-  .blog03-show__boxs__item__date-publish {
-    font: 400 0.813rem "Montserrat", sans-serif, arial;
+  .blog03-show__article__modal__main__copy {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
-.blog03-show__boxs__item__description {
-  padding: 0 15px;
-}
-.blog03-show__boxs__item__title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #000;
+.blog03-show__article__modal__main__copy__button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #efefef;
 }
 @media (max-width: 767.98px) {
-  .blog03-show__boxs__item__title {
-    font-size: 1.125rem;
+  .blog03-show__article__modal__main__copy__button {
+    width: 100%;
   }
 }
-.blog03-show__boxs__item__paragraph {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  color: #7c7c7c;
-  margin-top: 20px;
+.blog03-show__related__title {
+  margin-bottom: 1.5rem;
 }
-@media (max-width: 767.98px) {
-  .blog03-show__boxs__item__paragraph {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.blog03-show__boxs__item__icon {
-  width: 34px !important;
-}
-
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;
