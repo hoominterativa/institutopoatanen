@@ -1,7 +1,7 @@
 <section id="BLOG03" class="blog03">
     @if ($section)
-    {{-- BACKEND: Os items do header não estão imprimindo --}}
-        @if ($section->title || $section->subtitle ||  $section->description)
+        {{-- BACKEND: Os items do header não estão imprimindo --}}
+        @if ($section->title || $section->subtitle || $section->description)
             <header class="blog03__header">
                 @if ($section->title)
                     <h2 class="blog03__header__title">{{ $section->title }}</h2>
@@ -30,20 +30,20 @@
                                 class="blog03__main__item__image__img" alt="image" />
                         </figure>
                     @endif
+                    @if ($blog->title || $blog->description)
+                        <div class="blog03__main__item__information">
+                            @if ($blog->title)
+                                <h4 itemprop="name" class="blog03__main__item__information__title">{{ $blog->title }}
+                                </h4>
+                            @endif
 
-                    <div class="blog03__main__item__information">
-                        @if ($blog->title)
-                            <h4 itemprop="name" class="blog03__main__item__information__title">{{ $blog->title }}
-                            </h4>
-                        @endif
-
-                        @if ($blog->description)
-                            <p class="blog03__main__item__information__paragraph">
-                                {!! $blog->description !!}
-                            </p>
-                        @endif
-                    </div>
-
+                            @if ($blog->description)
+                                <p class="blog03__main__item__information__paragraph">
+                                    {!! $blog->description !!}
+                                </p>
+                            @endif
+                        </div>
+                    @endif
                 </article>
             @endforeach
         </div>
