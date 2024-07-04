@@ -520,20 +520,20 @@ if (sideLinks.length > 0) {
 }
 
 // FILTRINHO //
-function updateActiveButton(menu, newButton) {
-    const activeButton = menu.querySelector(".active");
+function updateActiveFiltrinho(filtrinho) {
+    const activeFiltrinho = filtrinho.parentElement.querySelector(".active");
 
-    if (activeButton) {
-        activeButton.classList.remove("active");
+    if (activeFiltrinho) {
+        activeFiltrinho.classList.remove("active");
     }
-    newButton.classList.add("active");
+    filtrinho.classList.add("active");
 }
 
-function filterItems(elements, category) {
+function filterItems(elements, filtrinho) {
     elements.forEach((el) => {
-        const elCategory = el.dataset.category;
+        const elCategoryArray = el.dataset.filtrinhoTarget.split(",");
 
-        if (elCategory === category) {
+        if (elCategoryArray.includes(filtrinho)) {
             el.removeAttribute("hidden");
         } else {
             el.setAttribute("hidden", "");
@@ -541,26 +541,26 @@ function filterItems(elements, category) {
     });
 }
 
-const categories = document.querySelector(".categories");
+const filtrinhos = document.querySelectorAll("[data-filtrinho]");
 
-if (categories) {
-    const categoriesBtn = document.querySelectorAll(".categoryBtn");
-    const items = document.querySelectorAll(".category__item");
+if (filtrinhos) {
+    const items = document.querySelectorAll("[data-filtrinho-target]");
     let itemIndex = 0;
     items.forEach((item) => {
         item.style.viewTransitionName = `itemIndex-${++itemIndex}`;
     });
 
-    categoriesBtn.forEach((category) => {
-        category.addEventListener("click", (ev) => {
-            const category = ev.target.dataset.category;
+    filtrinhos.forEach((filtrinho) => {
+        filtrinho.addEventListener("click", (ev) => {
+            const filtrinho = ev.target.dataset.filtrinho;
+
             if (!document.startViewTransition) {
-                updateActiveButton(categories, ev.target);
-                filterItems(items, category);
+                updateActiveFiltrinho(ev.target);
+                filterItems(items, filtrinho);
             } else {
                 document.startViewTransition(() => {
-                    updateActiveButton(categories, ev.target);
-                    filterItems(items, category);
+                    updateActiveFiltrinho(ev.target);
+                    filterItems(items, filtrinho);
                 });
             }
         });

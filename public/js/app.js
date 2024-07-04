@@ -12337,41 +12337,40 @@ if (sideLinks.length > 0) {
 }
 
 // FILTRINHO //
-function updateActiveButton(menu, newButton) {
-  var activeButton = menu.querySelector(".active");
-  if (activeButton) {
-    activeButton.classList.remove("active");
+function updateActiveFiltrinho(filtrinho) {
+  var activeFiltrinho = filtrinho.parentElement.querySelector(".active");
+  if (activeFiltrinho) {
+    activeFiltrinho.classList.remove("active");
   }
-  newButton.classList.add("active");
+  filtrinho.classList.add("active");
 }
-function filterItems(elements, category) {
+function filterItems(elements, filtrinho) {
   elements.forEach(function (el) {
-    var elCategory = el.dataset.category;
-    if (elCategory === category) {
+    var elCategoryArray = el.dataset.filtrinhoTarget.split(",");
+    if (elCategoryArray.includes(filtrinho)) {
       el.removeAttribute("hidden");
     } else {
       el.setAttribute("hidden", "");
     }
   });
 }
-var categories = document.querySelector(".categories");
-if (categories) {
-  var categoriesBtn = document.querySelectorAll(".categoryBtn");
-  var items = document.querySelectorAll(".category__item");
+var filtrinhos = document.querySelectorAll("[data-filtrinho]");
+if (filtrinhos) {
+  var items = document.querySelectorAll("[data-filtrinho-target]");
   var itemIndex = 0;
   items.forEach(function (item) {
     item.style.viewTransitionName = "itemIndex-".concat(++itemIndex);
   });
-  categoriesBtn.forEach(function (category) {
-    category.addEventListener("click", function (ev) {
-      var category = ev.target.dataset.category;
+  filtrinhos.forEach(function (filtrinho) {
+    filtrinho.addEventListener("click", function (ev) {
+      var filtrinho = ev.target.dataset.filtrinho;
       if (!document.startViewTransition) {
-        updateActiveButton(categories, ev.target);
-        filterItems(items, category);
+        updateActiveFiltrinho(ev.target);
+        filterItems(items, filtrinho);
       } else {
         document.startViewTransition(function () {
-          updateActiveButton(categories, ev.target);
-          filterItems(items, category);
+          updateActiveFiltrinho(ev.target);
+          filterItems(items, filtrinho);
         });
       }
     });

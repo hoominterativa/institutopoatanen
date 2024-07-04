@@ -13,11 +13,11 @@
         @endif
 
         @if ($categories->count())
-            <aside class="port05__categories categories">
+            <aside class="port05__categories">
                 <menu class="port05__categories__swiper-wrapper swiper-wrapper">
 
                     @foreach ($categories as $category)
-                        <button data-category='{{$category->id}}' class="port05__categories__item swiper-slide categoryBtn">
+                        <button data-filtrinho='{{ $category->id }}' class="port05__categories__item swiper-slide">
                             {{ $category->title }}
                         </button>
                     @endforeach
@@ -28,8 +28,10 @@
         @if ($portfolios->count())
             <div class="port05__list">
                 @foreach ($portfolios as $portfolio)
-                    <figure class="port05__list__item category__item" data-category="{{ $portfolio->categoryIds }}">
-                        <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}" class="link-full" title="{{ $portfolio->title }}"></a>
+                    <figure class="port05__list__item category__item"
+                        data-filtrinho-target='{{ $portfolio->categoryIds }}'>
+                        <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}" class="link-full"
+                            title="{{ $portfolio->title }}"></a>
                         @if ($portfolio->path_image)
                             <img class="port05__list__item__image"
                                 src="{{ asset('storage/' . $portfolio->path_image) }}"
