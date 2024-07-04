@@ -44,7 +44,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo',
+                    'titlePanel' => 'Conteúdo Um',
                     'iconPanel' => 'mdi-table-of-contents'
                 ]
             ],
@@ -132,7 +132,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Tópicos Um',
                     'iconPanel' => 'mdi-book-multiple-outline'
                 ]
             ],
@@ -342,7 +342,7 @@ return [
                 'anchor' => false,
                 'linkMenu' => '',
                 'iconMenu' => '',
-                'titlePanel' => 'Tópicos',
+                'titlePanel' => 'Tópicos Três',
                 'iconPanel' => 'mdi-apps'
                 ]
             ],
@@ -360,7 +360,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos',
+                    'titlePanel' => 'Tópicos Quatro',
                     'iconPanel' => 'mdi-apps'
                 ]
             ],
