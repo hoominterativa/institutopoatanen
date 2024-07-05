@@ -5,7 +5,7 @@
     {!! Form::model(null, ['route' => ['admin.unit01.category.store'], 'class'=>'parsley-validate', 'files' => true]) !!}
 @endif
     <div class="row">
-        <div class="col-12 col-lg-6 ">
+        <div class="col-12">
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-6 ">
+        {{-- <div class="col-12 col-lg-6 ">
             <div class="card card-body border" id="tooltip-container">
                 <div class="mb-3">
                     <div class="container-image-crop">
@@ -48,7 +48,7 @@
                         </label>
                     </div><!-- END container image crop -->
                 </div>
-            </div>
+            </div> --}}
             {{-- end card-body --}}
         </div>
 
