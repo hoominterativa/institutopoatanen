@@ -31,13 +31,11 @@
             @endif
 
             <div class="port05-show__content__paragraph">
-                {{-- BACKEND ADD ESSA DESCRIÇÃO --}}
-                <p>{!! $portfolio->description !!} </p>
+                {!! $portfolio->description !!}
             </div>
         </section>
 
         @if ($galleries->count())
-            {{-- FRONTEND: Galeria sem destaque --}}
             <section class="port05-show__gallery">
                 @foreach ($galleries->where('featured', false) as $gallery)
                     {{-- FRONTEND: Caso tenha $gallery->link_video, a imagem será usada como capa --}}

@@ -10,7 +10,6 @@
             </section>
         @endif
         <section class="port05-page__content">
-            {{-- BACKEND ADD ESSE TÍTULO QUE FICOU FALTANDO --}}
             <h2 class="port05-page__content__title">{{$banner->title_page}}</h2>
             @if ($categories->count())
                 <div class="port05-page__content__categories">
