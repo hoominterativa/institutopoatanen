@@ -32,19 +32,7 @@
 
             <div class="port05-show__content__paragraph">
                 {{-- BACKEND ADD ESSA DESCRIÇÃO --}}
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin
-                    vel
-                    non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis
-                    posuere.
-                    Donec tincidunt dignissim faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                    posuere
-                    cubilia curae; Sed Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus
-                    gravida
-                    sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget
-                    purus
-                    mattis posuere. Donec tincidunt dignissim faucibus. Vestibulum ante ipsum primis in faucibus orci luctus
-                    et
-                    ultrices posuere cubilia curae; Sed. </p>
+                <p>{!! $portfolio->description !!} </p>
             </div>
         </section>
 
