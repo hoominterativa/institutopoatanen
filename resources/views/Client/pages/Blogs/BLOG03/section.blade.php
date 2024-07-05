@@ -1,6 +1,5 @@
 <section id="BLOG03" class="blog03">
     @if ($section)
-        {{-- BACKEND: Os items do header não estão imprimindo --}}
         @if ($section->title_section || $section->subtitle_section || $section->description)
             <header class="blog03__header">
                 @if ($section->title_section)

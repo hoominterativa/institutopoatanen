@@ -4,7 +4,7 @@
     <main id="root" class="blog03-page">
         @if ($section)
             @if ($section->title_banner)
-                <section class="blog03-page__banner" {{-- BACKEND: Ocultar do painel bgColor do painel - background-color: {{ $section->background_color_banner }}; --}}
+                <section class="blog03-page__banner"
                     style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); ">
                     <h1 class="blog03-page__banner__title">{{ $section->title_banner }}</h1>
                 </section>
