@@ -145,10 +145,6 @@
 
                         @foreach ($portfolios as $portfolio)
                             <figure class="port05-show__related__carousel__item swiper-slide">
-                                {{-- @foreach ($portfolio->categories as $category)
-                                    <a href="{{ route('port05.show', ['PORT05PortfoliosCategory' => $category->slug, 'PORT05Portfolios' => $portfolio->slug]) }}"
-                                        class="link-full" title="{{ $category->title }}"></a>
-                                @endforeach --}}
                                 <a href="{{ route('port05.show', ['PORT05Portfolios' => $portfolio->slug]) }}"
                                     class="link-full" title="{{ $category->title }}"></a>
                                 @if ($portfolio->path_image)

@@ -11,7 +11,7 @@
         @endif
         <section class="port05-page__content">
             {{-- BACKEND ADD ESSE TÍTULO QUE FICOU FALTANDO --}}
-            <h2 class="port05-page__content__title">Título</h2>
+            <h2 class="port05-page__content__title">{{$banner->title_page}}</h2>
             @if ($categories->count())
                 <div class="port05-page__content__categories">
                     <menu class="port05-page__content__categories__swiper-wrapper swiper-wrapper">
