@@ -1,16 +1,16 @@
 <section id="BLOG03" class="blog03">
     @if ($section)
         {{-- BACKEND: Os items do header não estão imprimindo --}}
-        @if ($section->title || $section->subtitle || $section->description)
+        @if ($section->title_section || $section->subtitle_section || $section->description)
             <header class="blog03__header">
-                @if ($section->title)
-                    <h2 class="blog03__header__title">{{ $section->title }}</h2>
+                @if ($section->title_section)
+                    <h2 class="blog03__header__title">{{ $section->title_section }}</h2>
                 @endif
-                @if ($section->subtitle)
-                    <h3 class="blog03__header__subtitle">{{ $section->subtitle }}</h3>
+                @if ($section->subtitle_section)
+                    <h3 class="blog03__header__subtitle">{{ $section->subtitle_section }}</h3>
                 @endif
-                @if ($section->description)
-                    <p class="blog03__header__paragraph">{!! $section->description !!}</p>
+                @if ($section->description_section)
+                    <p class="blog03__header__paragraph">{!! $section->description_section !!}</p>
                 @endif
             </header>
         @endif
