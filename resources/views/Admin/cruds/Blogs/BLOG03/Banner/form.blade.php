@@ -13,10 +13,6 @@
                 {!! Form::label('title_banner', 'Título', ['class' => 'form-label']) !!}
                 {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
             </div>
-            <div class="mb-3">
-                {!! Form::label('background_color_banner', 'Cor do background', ['class' => 'form-label']) !!}
-                {!! Form::text('background_color_banner', null, ['class' => 'form-control colorpicker-default','id' => 'background_color_banner',]) !!}
-            </div>
         </div>
         {{-- end card-body --}}
         <div class="d-flex">
