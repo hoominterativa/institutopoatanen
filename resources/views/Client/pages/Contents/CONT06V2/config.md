@@ -1,7 +1,7 @@
 <!-- IDEAL CONFIGURATION FOR THE MODEL -->
 
 'Contents' => (object) [
-'CONT06V1' => (object)[
+'CONT06V2' => (object)[
 'ViewHome' => true,
 'ViewListMenu' => false,
 'ViewListPanel' => true,

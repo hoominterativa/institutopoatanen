@@ -1684,7 +1684,6 @@ body .owl-dots .owl-dot.active {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
-  text-align: center;
 }
 @media (max-width: 991.98px) {
   .cota02__banner__title, .abou01-page__banner__title, .slid01__item__header__title {
@@ -1701,7 +1700,6 @@ body .owl-dots .owl-dot.active {
 .cota02__form__header__title, .topi10__header__title, .cont02__information__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
-  text-align: center;
 }
 @media (max-width: 991.98px) {
   .cota02__form__header__title, .topi10__header__title, .cont02__information__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title {
