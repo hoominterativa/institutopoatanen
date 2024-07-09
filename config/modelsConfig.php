@@ -5,7 +5,7 @@ return [
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
             'Code' => 'HEAD03',
-            'themeMenu' => 'SIDE02'
+            'themeMenu' => 'SIDE03'
         ],
         'Footers' => (object)[
             'Code' => 'FOOT02',
@@ -264,7 +264,6 @@ return [
                 ]
             ],
         ],
-
     ],
 
     'ModelsForm' => (object)[
