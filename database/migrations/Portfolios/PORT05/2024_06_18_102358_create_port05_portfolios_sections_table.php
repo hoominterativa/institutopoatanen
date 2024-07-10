@@ -21,6 +21,7 @@ class CreatePort05PortfoliosSectionsTable extends Migration
             $table->boolean('active_section')->default(0);
             //Banner page
             $table->string('title_banner')->nullable();
+            $table->string('title_page')->nullable();
             $table->string('path_image_desktop_banner')->nullable();
             $table->string('path_image_mobile_banner')->nullable();
             $table->boolean('active_banner')->default(0);

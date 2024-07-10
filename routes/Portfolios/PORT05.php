@@ -52,4 +52,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 });
 // CLIENT
 Route::get($route.'/categoria/{PORT05PortfoliosCategory:slug}', [PORT05Controller::class, 'page'])->name($routeName.'.category.page');
-Route::get('categoria/{PORT05PortfoliosCategory:slug}/'.$route.'/{PORT05Portfolios:slug}', [PORT05Controller::class, 'show'])->name($routeName.'.show');
+Route::get($route.'/{PORT05Portfolios:slug}', [PORT05Controller::class, 'show'])->name($routeName.'.show');

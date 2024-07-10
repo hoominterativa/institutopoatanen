@@ -13,6 +13,10 @@
                 {!! Form::label('title_banner', 'Título', ['class' => 'form-label']) !!}
                 {!! Form::text('title_banner', null, ['class' => 'form-control', 'id' => 'title_banner']) !!}
             </div>
+            <div class="mb-3">
+                {!! Form::label('title_page', 'Título da página', ['class' => 'form-label']) !!}
+                {!! Form::text('title_page', null, ['class' => 'form-control', 'id' => 'title_page']) !!}
+            </div>
         </div>
         {{-- end card-body --}}
         <div class="mb-3 form-check">

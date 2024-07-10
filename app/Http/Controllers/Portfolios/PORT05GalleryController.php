@@ -26,19 +26,17 @@ class PORT05GalleryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
         $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image) $data['path_image'] = $path_image;
+        $path_image =  $helper->uploadMultipleImage($request, 'path_image', $this->path, null,100);
 
-        if(PORT05PortfoliosGallery::create($data)){
-            Session::flash('success', 'Galeria cadastrada com sucesso');
-        }else{
-            Storage::delete($path_image);
-            Session::flash('error', 'Erro ao cadastradar a galeria');
+        foreach ($path_image as $image) {
+            $data['path_image'] = $image;
+            PORT05PortfoliosGallery::create($data);
         }
-        return redirect()->back();
+
+        return Response::json(['status' => 'success', 'countUploads' => COUNT($path_image)]);
     }
 
     /**
@@ -53,7 +51,7 @@ class PORT05GalleryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['active'] = $request->active?1:0;
+        $data['featured'] = $request->featured?1:0;
         $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
