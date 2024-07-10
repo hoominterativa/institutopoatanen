@@ -37,9 +37,8 @@
 
             <div class="menu-sidebar-header">
                 <div class="btn-menu-sidebar-header">
-                    <span>Menu</span>
-                    <a href="#menu02--sidebar-right" alt="#" nofollow data-plugin="sidebar"
-                        data-sb-position="right" class="d-flex align-items-center">
+                    <a href="#menu02--sidebar-right" class="d-flex align-items-center burguer">
+                        <span>Menu</span>
                         <img src="{{ asset('images/menu-icon.svg') }}" alt="icone menu">
                     </a>
                 </div>
