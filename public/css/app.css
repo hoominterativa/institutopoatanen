@@ -165,6 +165,253 @@ details .details-content {
 }
 
 /*******************************************************************************************************************************************/
+/* CONFIGURAÇÃO DO TEMA */
+.cota02__form, .cota02__topics, .serv12-show__information, .serv12-page__services-section, .serv12-page__category-section, .serv12-page__categories, .serv12__services, .serv12__categories, .serv12__header, .blog01-show__related, .blog01-show__article, .blog01-page__articles, .blog01-page__categories, .blog01, .bran04, .topi01, .topi12, .cont06v2, .port05-show__related, .port05-show__feedback, .port05-show__gallery, .port05-page__list, .port05-page__content, .port05-show__content, .port05, .topi13__header, .cont02, .cont06, .slid01__item, .foot02__copyright, .foot02__navigation, .side03__navigation, .cota02__banner, .serv12-page__banner, .blog01-show__banner, .blog01-page__banner, .port05-show__banner, .port05-page__banner {
+  padding-top: 4.5rem;
+  padding-right: 5vw;
+  padding-bottom: 4.5rem;
+  padding-left: 5vw;
+}
+.cota02__banner__title, .serv12-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .port05-show__banner__title, .port05-page__banner__title, .slid01__item__header__title {
+  font: 700 3.125rem "Ubuntu", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.0125rem;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .cota02__banner__title, .serv12-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .port05-show__banner__title, .port05-page__banner__title, .slid01__item__header__title {
+    font-size: 2.5rem;
+    line-height: 90%;
+  }
+}
+.slid01__item__header__title {
+  color: #000;
+}
+.cota02__banner__title, .serv12-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .port05-show__banner__title, .port05-page__banner__title {
+  color: #404040;
+}
+.topi12__header__subtitle, .cota02__form__header__title, .serv12__header__title, .blog01__header__title, .bran04__header__title, .topi01__header__title, .cont06v2__header__title, .port05-show__related__title, .cont02__information__title, .cont06__header__title, .serv12-show__information__title, .serv12-page__services-section__main__information__title, .serv12-page__category-section__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .topi12__header__title, .port05-show__feedback__title, .port05-page__content__title, .port05-show__content__title, .port05__header__title, .topi13__header__title {
+  font: 700 2.5rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .topi12__header__subtitle, .cota02__form__header__title, .serv12__header__title, .blog01__header__title, .bran04__header__title, .topi01__header__title, .cont06v2__header__title, .port05-show__related__title, .cont02__information__title, .cont06__header__title, .serv12-show__information__title, .serv12-page__services-section__main__information__title, .serv12-page__category-section__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .topi12__header__title, .port05-show__feedback__title, .port05-page__content__title, .port05-show__content__title, .port05__header__title, .topi13__header__title {
+    font-size: 1.875rem;
+  }
+}
+.serv12-show__information__title, .serv12-page__services-section__main__information__title, .serv12-page__category-section__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .topi12__header__title, .port05-show__feedback__title, .port05-page__content__title, .port05-show__content__title, .port05__header__title, .topi13__header__title {
+  color: #000;
+}
+.cota02__form__header__title, .serv12__header__title, .blog01__header__title, .bran04__header__title, .topi01__header__title, .cont06v2__header__title, .port05-show__related__title, .cont02__information__title, .cont06__header__title {
+  color: #404040;
+}
+.topi12__header__subtitle {
+  color: #b3b3b3;
+}
+.cota02__banner__subtitle, .serv12-page__banner__subtitle, .slid01__item__header__subtitle, .cota02__topics__item__title, .topi13__header__subtitle {
+  font: 700 1.875rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .cota02__banner__subtitle, .serv12-page__banner__subtitle, .slid01__item__header__subtitle, .cota02__topics__item__title, .topi13__header__subtitle {
+    font-size: 1.563rem;
+  }
+}
+.topi13__header__subtitle {
+  color: #000;
+}
+.cota02__topics__item__title {
+  color: #404040;
+}
+.slid01__item__header__subtitle {
+  color: #7c7c7c;
+}
+.cota02__banner__subtitle, .serv12-page__banner__subtitle {
+  color: #b3b3b3;
+}
+.serv12__header__subtitle, .blog01__header__subtitle, .bran04__header__subtitle, .topi01__header__subtitle, .cont02__information__subtitle, .serv12-show__information__subtitle, .port05__header__subtitle, .serv12-page__services-section__main__information__subtitle, .port05-show__feedback__carousel__item__information__name, .serv12-page__services-section__gallery__item__description, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item, .blog01-page__categories__item, .port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
+  font: 700 1.25rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .serv12__header__subtitle, .blog01__header__subtitle, .bran04__header__subtitle, .topi01__header__subtitle, .cont02__information__subtitle, .serv12-show__information__subtitle, .port05__header__subtitle, .serv12-page__services-section__main__information__subtitle, .port05-show__feedback__carousel__item__information__name, .serv12-page__services-section__gallery__item__description, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item, .blog01-page__categories__item, .port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
+    font-size: 1.125rem;
+  }
+}
+.serv12-page__services-section__gallery__item__description, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item, .blog01-page__categories__item, .port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
+  color: #000;
+}
+.serv12-page__services-section__main__information__subtitle, .port05-show__feedback__carousel__item__information__name {
+  color: #404040;
+}
+.serv12-show__information__subtitle, .port05__header__subtitle {
+  color: #7c7c7c;
+}
+.serv12__header__subtitle, .blog01__header__subtitle, .bran04__header__subtitle, .topi01__header__subtitle, .cont02__information__subtitle {
+  color: #b3b3b3;
+}
+.serv12-page__services-section__topics__item__title, .serv12__services__item__title, .blog01-show__related__title, .topi01__topics__item__title, .topi12__topics__item__information__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+  font: 700 1.125rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .serv12-page__services-section__topics__item__title, .serv12__services__item__title, .blog01-show__related__title, .topi01__topics__item__title, .topi12__topics__item__information__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+    font-size: 1.063rem;
+  }
+}
+.serv12-page__services-section__topics__item__title, .serv12__services__item__title, .blog01-show__related__title, .topi01__topics__item__title, .topi12__topics__item__information__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+  color: #000;
+}
+.serv12-page__category-section__information__paragraph, .serv12__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran04__header__paragraph, .topi01__header__paragraph, .cont06v2__header__paragraph, .cont06__header__paragraph, .slid01__item__header__description, .cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .port05-show__feedback__carousel__item__information__paragraph, .port05-show__feedback__carousel__item__information__role, .cota02__form__footer__cta, .serv12__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06v2__cta, .port05__cta, .topi13__item__information__cta, .cont02__information__cta, .cont06__cta, .slid01__item__header__cta, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv12-show__information__paragraph, .serv12-page__services-section__topics__item__paragraph, .serv12-page__services-section__main__information__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .topi12__header__paragraph, .port05-show__content__paragraph, .port05__list__item__description, .port05-show__related__carousel__item__description, .port05-page__list__item__description, .topi13__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+  font: 400 1rem "Montserrat", sans-serif, arial;
+  line-height: 170%;
+  letter-spacing: 0.2px;
+}
+.serv12-page__category-section__information__paragraph p, .serv12__header__paragraph p, .blog01-show__article__body p, .blog01-show__article__description p, .blog01-page__articles__highlighted__item__information__paragraph p, .blog01__header__paragraph p, .bran04__header__paragraph p, .topi01__header__paragraph p, .cont06v2__header__paragraph p, .cont06__header__paragraph p, .slid01__item__header__description p, .cota02__form__header__paragraph p, .blog01__main__item__description__paragraph p, .blog01-show__related__item__description__paragraph p, .blog01-page__articles__list__item__description__paragraph p, .port05-show__feedback__carousel__item__information__paragraph p, .port05-show__feedback__carousel__item__information__role p, .cota02__form__footer__cta p, .serv12__cta p, .blog01-show__article__share p, .blog01-page__articles__highlighted__item__information__cta p, .blog01__cta p, .cont06v2__cta p, .port05__cta p, .topi13__item__information__cta p, .cont02__information__cta p, .cont06__cta p, .slid01__item__header__cta p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .serv12-show__information__paragraph p, .serv12-page__services-section__topics__item__paragraph p, .serv12-page__services-section__main__information__paragraph p, .blog01-show__article__modal__main__socials__item__figure__title p, .topi12__header__paragraph p, .port05-show__content__paragraph p, .port05__list__item__description p, .port05-show__related__carousel__item__description p, .port05-page__list__item__description p, .topi13__item__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side03__navigation__cta p {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+}
+@media (max-width: 991.98px) {
+  .serv12-page__category-section__information__paragraph, .serv12__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran04__header__paragraph, .topi01__header__paragraph, .cont06v2__header__paragraph, .cont06__header__paragraph, .slid01__item__header__description, .cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .port05-show__feedback__carousel__item__information__paragraph, .port05-show__feedback__carousel__item__information__role, .cota02__form__footer__cta, .serv12__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06v2__cta, .port05__cta, .topi13__item__information__cta, .cont02__information__cta, .cont06__cta, .slid01__item__header__cta, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv12-show__information__paragraph, .serv12-page__services-section__topics__item__paragraph, .serv12-page__services-section__main__information__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .topi12__header__paragraph, .port05-show__content__paragraph, .port05__list__item__description, .port05-show__related__carousel__item__description, .port05-page__list__item__description, .topi13__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+    font-size: 0.938rem;
+  }
+}
+.side03__navigation__cta {
+  color: #fff;
+}
+.cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv12-show__information__paragraph, .serv12-page__services-section__topics__item__paragraph, .serv12-page__services-section__main__information__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .topi12__header__paragraph, .port05-show__content__paragraph, .port05__list__item__description, .port05-show__related__carousel__item__description, .port05-page__list__item__description, .topi13__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+  color: #000;
+}
+.cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .port05-show__feedback__carousel__item__information__paragraph, .port05-show__feedback__carousel__item__information__role, .cota02__form__footer__cta, .serv12__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06v2__cta, .port05__cta, .topi13__item__information__cta, .cont02__information__cta, .cont06__cta, .slid01__item__header__cta {
+  color: #404040;
+}
+.serv12-page__category-section__information__paragraph, .serv12__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran04__header__paragraph, .topi01__header__paragraph, .cont06v2__header__paragraph, .cont06__header__paragraph, .slid01__item__header__description {
+  color: #7c7c7c;
+}
+.serv12__services__item__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .topi01__topics__item__paragraph, .cont02__information__paragraph, .topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .blog01-show__article__modal__main__copy__link {
+  font: 400 0.875rem "Montserrat", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+}
+.serv12__services__item__paragraph p, .blog01__main__item__description__time p, .blog01-show__related__item__description__time p, .blog01-show__article__time p, .blog01-page__articles__list__item__description__time p, .blog01-page__articles__highlighted__item__information__time p, .topi01__topics__item__paragraph p, .cont02__information__paragraph p, .topi12__topics__item__information__paragraph p, .foot02__copyright__compliances__item p, .blog01-show__article__modal__main__copy__button p, .blog01-page__articles__highlighted__item__information__category p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p, .blog01-show__article__modal__main__copy__link p {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+}
+@media (max-width: 991.98px) {
+  .serv12__services__item__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .topi01__topics__item__paragraph, .cont02__information__paragraph, .topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .blog01-show__article__modal__main__copy__link {
+    font-size: 0.813rem;
+    line-height: 170%;
+  }
+}
+.blog01-show__article__modal__main__copy__link {
+  color: #fff;
+}
+.blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+  color: #000;
+}
+.topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item {
+  color: #404040;
+}
+.serv12__services__item__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .topi01__topics__item__paragraph, .cont02__information__paragraph {
+  color: #7c7c7c;
+}
+.cota02__banner, .serv12-page__banner, .blog01-show__banner, .blog01-page__banner, .port05-show__banner, .port05-page__banner {
+  width: 100%;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #cacaca;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.cota02__form__footer__cta, .serv12__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06v2__cta, .port05__cta, .topi13__item__information__cta, .cont02__information__cta, .cont06__cta, .slid01__item__header__cta {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  background-color: #cacaca;
+  border: none;
+  font-weight: 700;
+}
+.cota02__form__footer__cta:focus, .serv12__cta:focus, .blog01-show__article__share:focus, .blog01-page__articles__highlighted__item__information__cta:focus, .blog01__cta:focus, .cont06v2__cta:focus, .port05__cta:focus, .topi13__item__information__cta:focus, .cont02__information__cta:focus, .cont06__cta:focus, .slid01__item__header__cta:focus {
+  /* uso do !important para resetar o valor do fancybox */
+  outline: none !important;
+}
+.port05-show__gallery__item__button, .port05-show__gallery__item--highlighted .port05-show__gallery__item__button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: auto;
+  width: 80px;
+  aspect-ratio: 1/1;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+.port05-show__gallery__item__button *, .port05-show__gallery__item--highlighted .port05-show__gallery__item__button * {
+  height: 100%;
+  width: 100%;
+}
+.serv12-page__categories__item, .serv12__categories__item, .blog01-page__categories__item, .port05-page__content__categories__item, .port05-show__content__categories__item, .port05__categories__item {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 3rem;
+  align-items: center;
+  outline: none;
+  border: none;
+  background-color: #efefef;
+}
+.active.serv12-page__categories__item, .active.serv12__categories__item, .active.blog01-page__categories__item, .active.port05-page__content__categories__item, .active.port05-show__content__categories__item, .active.port05__categories__item {
+  background-color: #cacaca;
+}
+.serv12__services__carousel .swiper-pagination-bullets, .blog01__main__carousel .swiper-pagination-bullets, .blog01-show__related__carousel .swiper-pagination-bullets, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets {
+  margin-top: 2rem;
+  text-align: left;
+}
+.serv12__services__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .blog01__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .blog01-show__related__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  background-color: #7c7c7c;
+}
+.serv12__services__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .blog01__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .blog01-show__related__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+.topi12__topics__navigation {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.topi12__topics__navigation:has(.swiper-button-lock) {
+  display: none;
+}
+/*******************************************************************************************************************************************/
 .form-check-input {
   width: 1.2em;
   height: 1.2em;
@@ -1672,233 +1919,6 @@ body .owl-dots .owl-dot.active {
   transition: all 0.4s ease;
 }
 
-/* CONFIGURAÇÃO DO TEMA */
-.cota02__form, .cota02__topics, .serv12-show__information, .serv12-page__services-section, .serv12-page__category-section, .serv12-page__categories, .serv12__services, .serv12__categories, .serv12__header, .blog01-show__related, .blog01-show__article, .blog01-page__articles, .blog01-page__categories, .blog01, .bran04, .topi12, .cont06v2, .topi13__header, .cont06, .slid01__item, .foot02__copyright, .foot02__navigation, .side03__navigation, .cota02__banner, .serv12-page__banner, .blog01-show__banner, .blog01-page__banner {
-  padding-top: 4.5rem;
-  padding-right: 5vw;
-  padding-bottom: 4.5rem;
-  padding-left: 5vw;
-}
-.cota02__banner__title, .serv12-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .slid01__item__header__title {
-  font: 700 3.125rem "Ubuntu", sans-serif, arial;
-  line-height: 140%;
-  letter-spacing: 0.0125rem;
-}
-@media (max-width: 991.98px) {
-  .cota02__banner__title, .serv12-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .slid01__item__header__title {
-    font-size: 2.5rem;
-    line-height: 90%;
-  }
-}
-.slid01__item__header__title {
-  color: #000;
-}
-.cota02__banner__title, .serv12-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title {
-  color: #404040;
-}
-.topi12__header__subtitle, .cota02__form__header__title, .serv12__header__title, .blog01__header__title, .bran04__header__title, .cont06v2__header__title, .cont06__header__title, .serv12-show__information__title, .serv12-page__services-section__main__information__title, .serv12-page__category-section__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .topi12__header__title, .topi13__header__title {
-  font: 700 2.5rem "Ubuntu", sans-serif, arial;
-  line-height: normal;
-}
-@media (max-width: 991.98px) {
-  .topi12__header__subtitle, .cota02__form__header__title, .serv12__header__title, .blog01__header__title, .bran04__header__title, .cont06v2__header__title, .cont06__header__title, .serv12-show__information__title, .serv12-page__services-section__main__information__title, .serv12-page__category-section__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .topi12__header__title, .topi13__header__title {
-    font-size: 1.875rem;
-  }
-}
-.serv12-show__information__title, .serv12-page__services-section__main__information__title, .serv12-page__category-section__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .topi12__header__title, .topi13__header__title {
-  color: #000;
-}
-.cota02__form__header__title, .serv12__header__title, .blog01__header__title, .bran04__header__title, .cont06v2__header__title, .cont06__header__title {
-  color: #404040;
-}
-.topi12__header__subtitle {
-  color: #b3b3b3;
-}
-.cota02__banner__subtitle, .serv12-page__banner__subtitle, .slid01__item__header__subtitle, .cota02__topics__item__title, .topi13__header__subtitle {
-  font: 700 1.875rem "Ubuntu", sans-serif, arial;
-  line-height: normal;
-  text-align: left;
-}
-@media (max-width: 991.98px) {
-  .cota02__banner__subtitle, .serv12-page__banner__subtitle, .slid01__item__header__subtitle, .cota02__topics__item__title, .topi13__header__subtitle {
-    font-size: 1.563rem;
-  }
-}
-.topi13__header__subtitle {
-  color: #000;
-}
-.cota02__topics__item__title {
-  color: #404040;
-}
-.slid01__item__header__subtitle {
-  color: #7c7c7c;
-}
-.cota02__banner__subtitle, .serv12-page__banner__subtitle {
-  color: #b3b3b3;
-}
-.serv12__header__subtitle, .blog01__header__subtitle, .bran04__header__subtitle, .serv12-show__information__subtitle, .serv12-page__services-section__main__information__subtitle, .serv12-page__services-section__gallery__item__description, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item, .blog01-page__categories__item {
-  font: 700 1.25rem "Ubuntu", sans-serif, arial;
-  line-height: normal;
-  text-align: left;
-}
-@media (max-width: 991.98px) {
-  .serv12__header__subtitle, .blog01__header__subtitle, .bran04__header__subtitle, .serv12-show__information__subtitle, .serv12-page__services-section__main__information__subtitle, .serv12-page__services-section__gallery__item__description, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item, .blog01-page__categories__item {
-    font-size: 1.125rem;
-  }
-}
-.serv12-page__services-section__gallery__item__description, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv12-page__categories__item, .serv12__categories__item, .blog01-page__categories__item {
-  color: #000;
-}
-.serv12-page__services-section__main__information__subtitle {
-  color: #404040;
-}
-.serv12-show__information__subtitle {
-  color: #7c7c7c;
-}
-.serv12__header__subtitle, .blog01__header__subtitle, .bran04__header__subtitle {
-  color: #b3b3b3;
-}
-.serv12-page__services-section__topics__item__title, .serv12__services__item__title, .blog01-show__related__title, .topi12__topics__item__information__title, .side03__navigation__item__link, .side03__navigation__item__btn {
-  font: 700 1.125rem "Ubuntu", sans-serif, arial;
-  line-height: normal;
-  text-align: left;
-}
-@media (max-width: 991.98px) {
-  .serv12-page__services-section__topics__item__title, .serv12__services__item__title, .blog01-show__related__title, .topi12__topics__item__information__title, .side03__navigation__item__link, .side03__navigation__item__btn {
-    font-size: 1.063rem;
-  }
-}
-.serv12-page__services-section__topics__item__title, .serv12__services__item__title, .blog01-show__related__title, .topi12__topics__item__information__title, .side03__navigation__item__link, .side03__navigation__item__btn {
-  color: #000;
-}
-.serv12-page__category-section__information__paragraph, .serv12__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran04__header__paragraph, .cont06v2__header__paragraph, .cont06__header__paragraph, .slid01__item__header__description, .cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cota02__form__footer__cta, .serv12__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06v2__cta, .topi13__item__information__cta, .cont06__cta, .slid01__item__header__cta, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv12-show__information__paragraph, .serv12-page__services-section__topics__item__paragraph, .serv12-page__services-section__main__information__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .topi12__header__paragraph, .topi13__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  line-height: 170%;
-  letter-spacing: 0.2px;
-}
-.serv12-page__category-section__information__paragraph p, .serv12__header__paragraph p, .blog01-show__article__body p, .blog01-show__article__description p, .blog01-page__articles__highlighted__item__information__paragraph p, .blog01__header__paragraph p, .bran04__header__paragraph p, .cont06v2__header__paragraph p, .cont06__header__paragraph p, .slid01__item__header__description p, .cota02__form__header__paragraph p, .blog01__main__item__description__paragraph p, .blog01-show__related__item__description__paragraph p, .blog01-page__articles__list__item__description__paragraph p, .cota02__form__footer__cta p, .serv12__cta p, .blog01-show__article__share p, .blog01-page__articles__highlighted__item__information__cta p, .blog01__cta p, .cont06v2__cta p, .topi13__item__information__cta p, .cont06__cta p, .slid01__item__header__cta p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .serv12-show__information__paragraph p, .serv12-page__services-section__topics__item__paragraph p, .serv12-page__services-section__main__information__paragraph p, .blog01-show__article__modal__main__socials__item__figure__title p, .topi12__header__paragraph p, .topi13__item__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side03__navigation__cta p {
-  font: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  letter-spacing: inherit;
-  margin: 0;
-}
-@media (max-width: 991.98px) {
-  .serv12-page__category-section__information__paragraph, .serv12__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran04__header__paragraph, .cont06v2__header__paragraph, .cont06__header__paragraph, .slid01__item__header__description, .cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cota02__form__footer__cta, .serv12__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06v2__cta, .topi13__item__information__cta, .cont06__cta, .slid01__item__header__cta, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv12-show__information__paragraph, .serv12-page__services-section__topics__item__paragraph, .serv12-page__services-section__main__information__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .topi12__header__paragraph, .topi13__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
-    font-size: 0.938rem;
-  }
-}
-.side03__navigation__cta {
-  color: #fff;
-}
-.cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .serv12-show__information__paragraph, .serv12-page__services-section__topics__item__paragraph, .serv12-page__services-section__main__information__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .topi12__header__paragraph, .topi13__item__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
-  color: #000;
-}
-.cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cota02__form__footer__cta, .serv12__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06v2__cta, .topi13__item__information__cta, .cont06__cta, .slid01__item__header__cta {
-  color: #404040;
-}
-.serv12-page__category-section__information__paragraph, .serv12__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran04__header__paragraph, .cont06v2__header__paragraph, .cont06__header__paragraph, .slid01__item__header__description {
-  color: #7c7c7c;
-}
-.serv12__services__item__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .blog01-show__article__modal__main__copy__link {
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-  line-height: 140%;
-  letter-spacing: 0.2px;
-}
-.serv12__services__item__paragraph p, .blog01__main__item__description__time p, .blog01-show__related__item__description__time p, .blog01-show__article__time p, .blog01-page__articles__list__item__description__time p, .blog01-page__articles__highlighted__item__information__time p, .topi12__topics__item__information__paragraph p, .foot02__copyright__compliances__item p, .blog01-show__article__modal__main__copy__button p, .blog01-page__articles__highlighted__item__information__category p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p, .blog01-show__article__modal__main__copy__link p {
-  font: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  letter-spacing: inherit;
-  margin: 0;
-}
-@media (max-width: 991.98px) {
-  .serv12__services__item__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .blog01-show__article__modal__main__copy__link {
-    font-size: 0.813rem;
-    line-height: 170%;
-  }
-}
-.blog01-show__article__modal__main__copy__link {
-  color: #fff;
-}
-.blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
-  color: #000;
-}
-.topi12__topics__item__information__paragraph, .foot02__copyright__compliances__item {
-  color: #404040;
-}
-.serv12__services__item__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time {
-  color: #7c7c7c;
-}
-.cota02__banner, .serv12-page__banner, .blog01-show__banner, .blog01-page__banner {
-  width: 100%;
-  padding-top: 6.5rem;
-  padding-bottom: 6.5rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #cacaca;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-}
-.cota02__form__footer__cta, .serv12__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06v2__cta, .topi13__item__information__cta, .cont06__cta, .slid01__item__header__cta {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0.75rem 3rem;
-  background-color: #cacaca;
-  border: none;
-  font-weight: 700;
-}
-.cota02__form__footer__cta:focus, .serv12__cta:focus, .blog01-show__article__share:focus, .blog01-page__articles__highlighted__item__information__cta:focus, .blog01__cta:focus, .cont06v2__cta:focus, .topi13__item__information__cta:focus, .cont06__cta:focus, .slid01__item__header__cta:focus {
-  /* uso do !important para resetar o valor do fancybox */
-  outline: none !important;
-}
-.serv12-page__categories__item, .serv12__categories__item, .blog01-page__categories__item {
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0.75rem 3rem;
-  align-items: center;
-  background-color: #efefef;
-}
-.active.serv12-page__categories__item, .active.serv12__categories__item, .active.blog01-page__categories__item {
-  background-color: #cacaca;
-}
-.serv12__services__carousel .swiper-pagination-bullets, .blog01__main__carousel .swiper-pagination-bullets, .blog01-show__related__carousel .swiper-pagination-bullets, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets {
-  margin-top: 2rem;
-  text-align: left;
-}
-.serv12__services__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .blog01__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .blog01-show__related__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
-  border-radius: 0;
-  background-color: #7c7c7c;
-}
-.serv12__services__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .blog01__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .blog01-show__related__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
-  opacity: 1;
-}
-.topi12__topics__navigation {
-  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
-  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
-  position: relative;
-}
-.topi12__topics__navigation:not(:has(> .swiper-wrapper)) {
-  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
-  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
-  margin: 3rem auto 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.topi12__topics__navigation:not(:has(> .swiper-wrapper)):has(.swiper-button-lock) {
-  display: none;
-}
 /* BEGIN STYLE */
 #HEAD03 {
   z-index: 102;
@@ -2553,6 +2573,68 @@ body .owl-dots .owl-dot.active {
   margin: 1.25rem auto 0;
 }
 
+.cont02 {
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  /* Quando não houver imagem cadastrada, o box information receberá width de 100%*/
+}
+.cont02:not(:has(.cont02__image)) .cont02__information {
+  width: 100%;
+  padding-top: unset;
+}
+@media (max-width: 991.98px) {
+  .cont02 {
+    flex-direction: column-reverse;
+  }
+}
+.cont02__image {
+  width: 32%;
+  height: 100%;
+  aspect-ratio: 430/593;
+  align-self: end;
+  margin-inline: auto;
+}
+@media (max-width: 991.98px) {
+  .cont02__image {
+    width: 100%;
+    aspect-ratio: 256/351;
+  }
+}
+.cont02__image__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.cont02__information {
+  padding: 4rem 2rem;
+  width: 50%;
+}
+@media (max-width: 991.98px) {
+  .cont02__information {
+    width: 100%;
+  }
+}
+.cont02__information__title {
+  text-align: left;
+  margin-bottom: 0.75rem;
+}
+.cont02__information__subtitle {
+  margin-bottom: 1.25rem;
+}
+.cont02__information__line {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-top: solid 1px #404040;
+}
+.cont02__information__paragraph {
+  margin-bottom: 2rem;
+}
 /* BEGIN STYLE */
 .topi13 {
   width: 100%;
@@ -2659,7 +2741,216 @@ body .owl-dots .owl-dot.active {
     text-align: center;
   }
 }
-/* BEGIN STYLE */
+.port05 {
+  overflow: hidden; /* prevenção do shift da animação */
+}
+.port05__header {
+  margin-bottom: 3.25rem;
+}
+.port05__header__subtitle {
+  text-align: center;
+}
+.port05__categories {
+  margin-bottom: 2.25rem;
+}
+.port05__list, .port05-page__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+}
+.port05__list__item, .port05-show__related__carousel__item, .port05-page__list__item {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: calc(33.33% - 11px);
+  aspect-ratio: 415/375;
+}
+@media (max-width: 991.98px) {
+  .port05__list__item, .port05-show__related__carousel__item, .port05-page__list__item {
+    width: calc(50% - 0.5rem);
+  }
+}
+@media (max-width: 575.98px) {
+  .port05__list__item, .port05-show__related__carousel__item, .port05-page__list__item {
+    width: 100%;
+  }
+}
+.port05__list__item:hover .port05__list__item__description, .port05__list__item:hover .port05-show__related__carousel__item__description, .port05-show__related__carousel__item:hover .port05__list__item__description, .port05-show__related__carousel__item:hover .port05-show__related__carousel__item__description, .port05__list__item:hover .port05-page__list__item__description, .port05-show__related__carousel__item:hover .port05-page__list__item__description, .port05-page__list__item:hover .port05__list__item__description, .port05-page__list__item:hover .port05-show__related__carousel__item__description, .port05-page__list__item:hover .port05-page__list__item__description {
+  translate: -50% 0;
+  opacity: 1;
+}
+.port05__list__item__image, .port05-show__related__carousel__item__image, .port05-page__list__item__image {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.port05__list__item__description, .port05-show__related__carousel__item__description, .port05-page__list__item__description {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 100%;
+  padding: 0.5rem 2rem;
+  background-color: #efefef;
+  opacity: 0;
+  transition: translate ease 0.3s, opacity ease 0.3s;
+}
+@media (max-width: 991.98px) {
+  .port05__list__item__description, .port05-show__related__carousel__item__description, .port05-page__list__item__description {
+    translate: -50% 0;
+    opacity: 1;
+  }
+}
+.port05-page__content, .port05-show__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.port05-page__content__categories, .port05-show__content__categories {
+  width: 100%;
+}
+.port05-page__content__categories__swiper-wrapper, .port05-show__content__categories__swiper-wrapper {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.port05-page__list {
+  padding-top: 0;
+}
+.port05-show__content__paragraph {
+  text-align: center;
+  max-width: 1122px;
+}
+.port05-show__gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.5rem;
+}
+.port05-show__gallery__item, .port05-show__gallery__item--highlighted {
+  width: calc(33.33% - 0.3333333333rem);
+  height: auto;
+  aspect-ratio: 411/350;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+}
+@media (max-width: 991.98px) {
+  .port05-show__gallery__item, .port05-show__gallery__item--highlighted {
+    width: calc(50% - 0.5rem);
+  }
+}
+@media (max-width: 767.98px) {
+  .port05-show__gallery__item, .port05-show__gallery__item--highlighted {
+    width: 100%;
+  }
+}
+.port05-show__gallery__item--highlighted {
+  width: 100%;
+  aspect-ratio: 1294/424;
+}
+.port05-show__gallery__item--highlighted .port05-show__gallery__item__button {
+  width: 120px;
+}
+.port05-show__gallery__item__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 100%;
+  width: 100%;
+}
+.port05-show__feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+.port05-show__feedback__title {
+  text-align: center;
+}
+.port05-show__feedback__carousel {
+  width: 100%;
+  max-width: 915px;
+  overflow: hidden;
+}
+.port05-show__feedback__carousel__item {
+  width: 100%;
+}
+.port05-show__feedback__carousel__item__image {
+  width: 25%;
+  height: auto;
+  aspect-ratio: 411/350;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.port05-show__feedback__carousel__item__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  width: 75%;
+  padding: 54px 24px 54px 54px;
+  background-color: #b3b3b3;
+}
+.port05-show__feedback__carousel__item__information__name {
+  margin-bottom: 0.5rem;
+}
+.port05-show__related {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0;
+  width: 100%;
+}
+.port05-show__related__title {
+  text-align: center;
+}
+.port05-show__related__carousel {
+  overflow: hidden;
+  padding-bottom: 25px;
+  height: 400px;
+  width: 100%;
+}
+.port05-show__related__carousel .swiper-wrapper {
+  flex-direction: row;
+  gap: 8px;
+}
+@media (max-width: 767.98px) {
+  .port05-show__related__carousel .swiper-wrapper {
+    flex-direction: column;
+  }
+}
+.port05-show__related__carousel__item {
+  width: calc(33.33% - 0.3333rem);
+}
+@media (max-width: 991.98px) {
+  .port05-show__related__carousel__item {
+    width: calc(50% - 0.5rem);
+  }
+}
+@media (max-width: 767.98px) {
+  .port05-show__related__carousel__item {
+    width: 100%;
+  }
+}
 /* BEGIN STYLE */
 .cont06v2 {
   overflow: hidden; /* prevenção do shift da animação*/
@@ -2805,6 +3096,100 @@ body .owl-dots .owl-dot.active {
   max-width: 100%;
   padding: 0.5rem 1.5rem;
 }
+/* BEGIN STYLE */
+.topi01 {
+  overflow: hidden; /* prevenção do shift da animação*/
+}
+.topi01__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.topi01__header__title {
+  margin-bottom: 0.25rem;
+}
+.topi01__header__subtitle {
+  margin-bottom: 2rem;
+}
+.topi01__header__paragraph {
+  width: 100%;
+  max-width: 938px;
+  text-align: center;
+}
+.topi01__topics {
+  height: auto;
+}
+.topi01__topics__carousel {
+  height: auto;
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .topi01__topics__carousel {
+    overflow: visible;
+  }
+}
+.topi01__topics__item {
+  position: relative;
+  /* Qtde de gaps * tamanho do gap / qtde de elementos */
+  width: calc(20% - 7px);
+  height: auto;
+  padding: 1rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+@media (max-width: 1199.98px) {
+  .topi01__topics__item {
+    width: calc(25% - 6px);
+  }
+}
+@media (max-width: 991.98px) {
+  .topi01__topics__item {
+    width: calc(33.33% - 5px);
+  }
+}
+@media (max-width: 767.98px) {
+  .topi01__topics__item {
+    width: calc(50% - 4px);
+  }
+}
+@media (max-width: 575.98px) {
+  .topi01__topics__item {
+    width: 100%;
+  }
+}
+.topi01__topics__item__bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1; /* envia para o fundo o bg do topico */
+}
+.topi01__topics__item__icon {
+  width: 3rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  margin-bottom: 1.5rem;
+}
+.topi01__topics__item__title {
+  margin-bottom: 0.75rem;
+}
+.topi01__topics__item__paragraph {
+  text-align: center;
+}
+
 /* BEGIN STYLE */
 /* BEGIN STYLE */
 .bran04 {
