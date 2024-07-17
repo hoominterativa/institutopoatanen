@@ -300,6 +300,14 @@ return [
     ],
 
     'ModelsForm' => (object)[
+        'FORM01' => (object) [
+            'model' => 'FORM01.jpg',
+            'config' => (object) [
+                'title' => (object) ['name' => 'Título Seção', 'type' => 'text'],
+                'description' => (object) ['name' => 'Descrição Seção',  'type' => 'textarea'],
+                'path_image_content' => (object) ['name' => 'Imagem',  'type' => 'image'],
+            ],
+        ],
         'FORM02' => (object) [
             'model' => 'FORM02.jpg',
             'config' => (object) [
