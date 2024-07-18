@@ -12425,7 +12425,7 @@ if (filtrinhos) {
   \**********************************************************************/
 /***/ (() => {
 
-var buttonsPlay = document.querySelectorAll('.cont06v1__video__button');
+var buttonsPlay = document.querySelectorAll('#video_play');
 if (buttonsPlay) {
   buttonsPlay.forEach(function (el) {
     el.addEventListener('click', function () {
@@ -12439,7 +12439,17 @@ if (buttonsPlay) {
     });
   });
 }
-/* CONT06 */
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  freeMode: true,
+  pagination: {
+    el: ".swiper-pagination",
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    clickable: true
+  }
+});
 
 /***/ }),
 
@@ -25182,7 +25192,7 @@ __webpack_require__.r(__webpack_exports__);
   \*********************************/
 /***/ (() => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n  ╷\n1 │ @import 'variables';\r\n  │         ^^^^^^^^^^^\n  ╵\n  resources\\views\\Client\\pages\\ContentPages\\COPA04\\src\\_main.scss 1:9  @import\n  resources\\views\\Client\\assets\\scss\\base.scss 10:9                    @import\n  resources\\sass\\app.scss 2:9                                          root stylesheet\n    at processResult (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:841:19)\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:964:5\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\sass-loader\\dist\\index.js:69:5)");
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n  ╷\n6 │ @import 'variables';\r\n  │                    ^\n  ╵\n  resources\\views\\Client\\pages\\ContentPages\\COPA04\\src\\_main.scss 6:20  @import\n  resources\\views\\Client\\assets\\scss\\base.scss 10:9                     @import\n  resources\\sass\\app.scss 2:9                                           root stylesheet\n    at processResult (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:841:19)\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:964:5\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\sass-loader\\dist\\index.js:69:5)");
 
 /***/ }),
 

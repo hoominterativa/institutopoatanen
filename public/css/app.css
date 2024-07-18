@@ -167,18 +167,27 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
+<<<<<<< Updated upstream
 .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
+=======
+.swiper, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
+>>>>>>> Stashed changes
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
+<<<<<<< Updated upstream
 .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+=======
+.copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+>>>>>>> Stashed changes
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
+<<<<<<< Updated upstream
   .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
     font-size: 1.875rem;
   }
@@ -200,16 +209,34 @@ details .details-content {
   color: #000;
 }
 .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+=======
+  .copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+    font-size: 1.875rem;
+  }
+}
+.copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+  color: #000;
+}
+.copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+>>>>>>> Stashed changes
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
+<<<<<<< Updated upstream
   .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
 .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+=======
+  .copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+    font-size: 1.125rem;
+  }
+}
+.copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+>>>>>>> Stashed changes
   color: #000;
 }
 .side03__navigation__item__link, .side03__navigation__item__btn {
@@ -225,12 +252,20 @@ details .details-content {
 .side03__navigation__item__link, .side03__navigation__item__btn {
   color: #000;
 }
+<<<<<<< Updated upstream
 .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__topics__container__topic__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+=======
+.copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+>>>>>>> Stashed changes
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
+<<<<<<< Updated upstream
 .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__topics__container__topic__paragraph p, .copa04-page__topics__information__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video__header__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side03__navigation__cta p {
+=======
+.copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__topics-carousel__information__paragraph p, .copa04-page__topics__information__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video__header__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side03__navigation__cta p {
+>>>>>>> Stashed changes
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -238,14 +273,22 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
+<<<<<<< Updated upstream
   .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__topics__container__topic__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+=======
+  .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+>>>>>>> Stashed changes
     font-size: 0.938rem;
   }
 }
 .side03__navigation__cta {
   color: #fff;
 }
+<<<<<<< Updated upstream
 .copa04-page__topics__container__topic__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+=======
+.copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+>>>>>>> Stashed changes
   color: #000;
 }
 .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta {
@@ -2327,9 +2370,15 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
+<<<<<<< Updated upstream
 /* BEGIN STYLE */
 .copa04-page__hero {
   /* background-color: var(--color-bgcolor); */
+=======
+.copa04-page__hero {
+  /* background-color: var(--color-bgcolor); */
+  background-color: gray;
+>>>>>>> Stashed changes
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2350,12 +2399,26 @@ body .owl-dots .owl-dot.active {
 }
 .copa04-page__hero__information__cta {
   margin: 10px;
+<<<<<<< Updated upstream
 }
 .copa04-page__hero__image {
   padding-top: 0.625rem;
   max-width: 538px;
   max-height: 481px;
 }
+=======
+}
+.copa04-page__hero__image {
+  padding-top: 0.625rem;
+  max-width: 538px;
+  max-height: 481px;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .copa04-page__hero {
+    display: inline-flex;
+  }
+}
+>>>>>>> Stashed changes
 .copa04-page__video {
   text-align: center;
 }
@@ -2410,6 +2473,7 @@ body .owl-dots .owl-dot.active {
 .copa04-page__topics__information__paragraph {
   margin-bottom: 20px;
 }
+<<<<<<< Updated upstream
 .copa04-page__topics__container {
   display: flex;
   flex-direction: row;
@@ -2423,6 +2487,54 @@ body .owl-dots .owl-dot.active {
 .copa04-page__topics__container__topic__icon {
   height: 100%;
 }
+=======
+.copa04-page__topics__group-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.copa04-page__topics__group-cards__card {
+  width: 593px;
+  height: 284px;
+  margin: 10px;
+  background-color: gray;
+  padding: 5px;
+  text-align: center;
+}
+.copa04-page__topics-carousel__information {
+  text-align: center;
+}
+.copa04-page__topics-carousel__information__subtitle {
+  text-align: center;
+}
+.copa04-page__topics-carousel__information__paragraph {
+  margin-bottom: 20px;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  background: #7c7c7c;
+  justify-content: center;
+  align-items: center;
+  width: 298.29px;
+  height: 270.21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 57.02px;
+  height: 57.02px;
+}
+
+>>>>>>> Stashed changes
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

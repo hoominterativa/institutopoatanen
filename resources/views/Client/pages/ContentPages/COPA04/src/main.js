@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 const buttonsPlay = document.querySelectorAll('.cont06v1__video__button');
+=======
+const buttonsPlay = document.querySelectorAll('#video_play');
+>>>>>>> Stashed changes
 
 if(buttonsPlay) {
     buttonsPlay.forEach(el =>{
@@ -17,4 +21,18 @@ if(buttonsPlay) {
         })
     })
 }
+<<<<<<< Updated upstream
 /* CONT06 */
+=======
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    freeMode: true,
+    pagination: {
+      el: ".swiper-pagination",
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+      clickable: true,
+    },
+  });
+>>>>>>> Stashed changes

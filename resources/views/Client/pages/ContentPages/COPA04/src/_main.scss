@@ -1,13 +1,21 @@
+/* BEGIN STYLE */
 @import 'variables';
 
+<<<<<<< Updated upstream
 /* BEGIN STYLE */
 @import 'variables';
 
 /* BEGIN STYLE */
+=======
+>>>>>>> Stashed changes
 .copa04-page{
     &__hero{
         @extend %theme__padding;
         /* background-color: var(--color-bgcolor); */
+<<<<<<< Updated upstream
+=======
+        background-color: gray;
+>>>>>>> Stashed changes
         @include disFlex(row, space-between, center);
         &__information{
             max-width: 608px;
@@ -36,6 +44,12 @@
             max-width: 538px;
             max-height: 481px;
         }
+<<<<<<< Updated upstream
+=======
+        @include small-device{
+            display:inline-flex;
+        }
+>>>>>>> Stashed changes
     }
     &__video{
         @extend %theme__padding;
@@ -109,6 +123,7 @@
                 margin-bottom: 20px;
             }
         }
+<<<<<<< Updated upstream
         &__container{
             @include disFlex(row, space-between, center);
             &__topic{
@@ -127,3 +142,57 @@
         }
     }
 }
+=======
+        &__group-cards{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            
+            &__card{
+                width: 593px;
+                height: 284px;
+                margin: 10px;
+                background-color: gray;
+                padding: 5px;
+                text-align: center;
+            }
+        }
+    }
+    &__topics-carousel{
+        &__information{
+            text-align: center;
+            &__title{
+                @extend %theme__t2-cb;
+            }
+            &__subtitle{
+                text-align: center;
+                @extend %theme__t4-cb;
+            }
+            &__paragraph{
+                @extend %theme__p1-cb;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+    .swiper {
+    @extend %theme__padding;
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      font-size: 18px;
+      background: #7c7c7c;
+      justify-content: center;
+      align-items: center;
+      width: 298.29px;
+      height: 270.21px;
+      @include disFlex(column, center, center);
+    }
+    .swiper-slide img{
+        width: 57.02px;
+        height: 57.02px;
+    }
+
+>>>>>>> Stashed changes
