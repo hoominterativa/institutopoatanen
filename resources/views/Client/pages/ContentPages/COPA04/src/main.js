@@ -1,9 +1,5 @@
-<<<<<<< Updated upstream
-const buttonsPlay = document.querySelectorAll('.cont06v1__video__button');
-=======
-const buttonsPlay = document.querySelectorAll('#video_play');
->>>>>>> Stashed changes
 
+const buttonsPlay = document.querySelectorAll('#video_play');
 if(buttonsPlay) {
     buttonsPlay.forEach(el =>{
         el.addEventListener('click', () =>{
@@ -21,18 +17,16 @@ if(buttonsPlay) {
         })
     })
 }
-<<<<<<< Updated upstream
-/* CONT06 */
-=======
+
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
+    slidesPerView: "auto",
     spaceBetween: 30,
-    freeMode: true,
+    navigation: {
+        prevEl: ".copa04-page__topics-carousel__butons-down__right",
+        nextEl: ".copa04-page__topics-carousel__butons-down__left",
+    },
     pagination: {
       el: ".swiper-pagination",
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
       clickable: true,
     },
   });
->>>>>>> Stashed changes

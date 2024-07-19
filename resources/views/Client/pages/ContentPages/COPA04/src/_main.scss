@@ -1,198 +1,286 @@
 /* BEGIN STYLE */
 @import 'variables';
 
-<<<<<<< Updated upstream
-/* BEGIN STYLE */
-@import 'variables';
-
-/* BEGIN STYLE */
-=======
->>>>>>> Stashed changes
-.copa04-page{
-    &__hero{
+.copa04-page {
+    &__hero {
+        position: relative;
+        z-index: 0;
         @extend %theme__padding;
         /* background-color: var(--color-bgcolor); */
-<<<<<<< Updated upstream
-=======
         background-color: gray;
->>>>>>> Stashed changes
-        @include disFlex(row, space-between, center);
-        &__information{
-            max-width: 608px;
-            height: auto;
-            &__header{
-                @include disFlex;
-                &__title{
-                    @extend %theme__t2-cb;
-                }
-                &__icon{
-                    height: 100%;
-                }
-            }
-            &__paragraph{
-                @extend %theme__p1-cb;
+        @include disFlex(row, space-between, start);
+        flex-wrap: wrap;
+        gap: 4rem 4.5rem;
+
+        &::after {
+            position: absolute;
+            display: block;
+            content: '';
+            width: calc(100% + 10vw);
+            height: calc(5rem + 3%);
+            z-index: -1;
+            left: -5vw;
+            background-color: $color-white;
+            bottom: 0;
+        }
+
+        @include large-device-down {
+            flex-direction: column;
+
+        }
+
+        &__aside {
+            width: 100%;
+            @include disFlex(row, space-between, start);
+
+            &__logo {
+                width: 9rem;
+                height: auto;
+                aspect-ratio: 144/58;
+                object-fit: cover;
+                object-position: center;
             }
 
-            &__cta{
-                margin: 10px;
+            &__cta {
+                @extend %theme__cta;
+            }
+
+        }
+
+        &__information {
+            width: calc(100% - 44% - 4.5rem);
+            height: auto;
+            @include disFlex(column, start, start);
+
+            @include large-device-down {
+                width: 100%
+            }
+
+            &__header {
+                @include disFlex;
+                gap: 2rem;
+
+                &__title {
+                    @extend %theme__t2-cb;
+                }
+
+                &__icon {
+                    width: 4rem;
+                    height: auto;
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 3rem;
+            }
+
+            &__cta {
+                margin-top: 2rem;
                 @extend %theme__cta;
             }
         }
 
-        &__image{
+        &__image {
             padding-top: 0.625rem;
-            max-width: 538px;
-            max-height: 481px;
+            width: 44%;
+            height: auto;
+            aspect-ratio: 538/481;
+            object-fit: cover;
+            object-position: center;
+
+            @include large-device-down {
+                width: 100%
+            }
         }
-<<<<<<< Updated upstream
-=======
-        @include small-device{
-            display:inline-flex;
-        }
->>>>>>> Stashed changes
+
     }
-    &__video{
+
+    &__video {
         @extend %theme__padding;
         text-align: center;
-        &__header{
+
+        &__header {
             @include disFlex;
-            &__title{
+
+            &__title {
                 @extend %theme__t2-cb;
             }
-            &__subtitle{
+
+            &__subtitle {
                 @extend %theme__t4-cb;
             }
-            &__paragraph{
+
+            &__paragraph {
                 @extend %theme__p1-cb;
                 margin-bottom: 20px;
             }
         }
-        &__container{
-            &__video{
-                width: 100%;
-                height: 28rem;
+
+        &__container {
+            &__video {
+                width: 883px;
+                height: auto;
+
+                @include medium-device-down {
+                    width: 100%;
+                }
             }
         }
     }
-    &__highlighted{
+
+    &__highlighted {
         background-color: $color-six;
+        flex-wrap: wrap;
         @extend %theme__padding;
         @include disFlex(row, space-between, center);
-        &__information{
+
+        &__information {
             max-width: 608px;
             height: auto;
-            &__header{
+
+            &__header {
                 @include disFlex;
-                &__title{
+
+                &__title {
                     @extend %theme__t2-cb;
                 }
-                &__icon{
+
+                &__icon {
                     height: 100%;
                 }
             }
-            &__paragraph{
+
+            &__paragraph {
                 @extend %theme__p1-cb;
             }
 
-            &__cta{
+            &__cta {
                 width: 100%;
                 text-align: center;
                 @extend %theme__cta;
             }
         }
 
-        &__image{
+        &__image {
             padding-top: 0.625rem;
             max-width: 538px;
             max-height: 481px;
         }
-    }
-    &__topics{
-        @extend %theme__padding;
-        &__information{
+
+        @include medium-device-down {
+            justify-content: center;
             text-align: center;
-            &__title{
+        }
+    }
+
+    &__topics {
+        @extend %theme__padding;
+
+        &__information {
+            text-align: center;
+
+            &__title {
                 @extend %theme__t2-cb;
             }
-            &__subtitle{
+
+            &__subtitle {
                 text-align: center;
                 @extend %theme__t4-cb;
             }
-            &__paragraph{
+
+            &__paragraph {
                 @extend %theme__p1-cb;
                 margin-bottom: 20px;
             }
         }
-<<<<<<< Updated upstream
-        &__container{
-            @include disFlex(row, space-between, center);
-            &__topic{
-                max-width: 300px;
-                height: auto;
-                &__icon{
-                    height: 100%;
-                }
-                &__title{
-                    @extend %theme__t3-cb;
-                }
-                &__paragraph{
-                    @extend %theme__p1-cb;
-                }
-            }
-        }
-    }
-}
-=======
-        &__group-cards{
+
+        &__group-cards {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            
-            &__card{
-                width: 593px;
+
+            &__card {
+                width: 100%;
+                max-width: 593px;
                 height: 284px;
                 margin: 10px;
                 background-color: gray;
                 padding: 5px;
                 text-align: center;
+                box-sizing: border-box;
+
+                @include medium-device-down {
+                    margin-top: 2px;
+                }
             }
         }
+
+        &__cta {
+            margin: 0 auto;
+            @extend %theme__cta;
+
+        }
     }
-    &__topics-carousel{
-        &__information{
+
+    &__topics-carousel {
+        &__information {
             text-align: center;
-            &__title{
+
+            &__title {
                 @extend %theme__t2-cb;
             }
-            &__subtitle{
+
+            &__subtitle {
                 text-align: center;
                 @extend %theme__t4-cb;
             }
-            &__paragraph{
+
+            &__paragraph {
                 @extend %theme__p1-cb;
                 margin-bottom: 20px;
             }
         }
+
+        &__butons-down {
+            @include disFlex(row, center, center);
+
+            &__right {
+                transform: rotate(90deg);
+            }
+
+            &__left {
+                transform: rotate(270deg);
+            }
+        }
+
+        &__cta {
+            margin: 0 auto;
+            @extend %theme__cta;
+
+        }
     }
 }
-    .swiper {
+
+.swiper {
     @extend %theme__padding;
-      width: 100%;
-      height: 100%;
-    }
+    width: 100%;
+    height: 100%;
+}
 
-    .swiper-slide {
-      font-size: 18px;
-      background: #7c7c7c;
-      justify-content: center;
-      align-items: center;
-      width: 298.29px;
-      height: 270.21px;
-      @include disFlex(column, center, center);
-    }
-    .swiper-slide img{
-        width: 57.02px;
-        height: 57.02px;
-    }
+.swiper-slide {
+    font-size: 18px;
+    background: #7c7c7c;
+    justify-content: center;
+    align-items: center;
+    width: 298.29px;
+    height: 270.21px;
+    @include disFlex(column, center, center);
+}
 
->>>>>>> Stashed changes
+.swiper-slide img {
+    width: 57.02px;
+    height: 57.02px;
+}

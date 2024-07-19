@@ -12440,13 +12440,14 @@ if (buttonsPlay) {
   });
 }
 var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 4,
+  slidesPerView: "auto",
   spaceBetween: 30,
-  freeMode: true,
+  navigation: {
+    prevEl: ".copa04-page__topics-carousel__butons-down__right",
+    nextEl: ".copa04-page__topics-carousel__butons-down__left"
+  },
   pagination: {
     el: ".swiper-pagination",
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
     clickable: true
   }
 });
@@ -25190,9 +25191,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n  ╷\n6 │ @import 'variables';\r\n  │                    ^\n  ╵\n  resources\\views\\Client\\pages\\ContentPages\\COPA04\\src\\_main.scss 6:20  @import\n  resources\\views\\Client\\assets\\scss\\base.scss 10:9                     @import\n  resources\\sass\\app.scss 2:9                                           root stylesheet\n    at processResult (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:841:19)\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\webpack\\lib\\NormalModule.js:964:5\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (D:\\Codigos\\WebsiteConstructorSystem\\node_modules\\sass-loader\\dist\\index.js:69:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -25390,6 +25394,7 @@ Parsley.setLocale('pt-br');
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/libraries": 0,
+/******/ 			"css/app": 0,
 /******/ 			"css/icons": 0
 /******/ 		};
 /******/ 		
@@ -25440,10 +25445,10 @@ Parsley.setLocale('pt-br');
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/icons.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/libraries.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/libraries","css/app","css/icons"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
