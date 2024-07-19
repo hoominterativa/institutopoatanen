@@ -26,55 +26,66 @@
       --}}
         <section class="copa04-page__hero">
             <aside class="copa04-page__hero__aside">
-                <img 
-                class="copa04-page__hero__aside__logo"
-                src="{{ asset('images/gray.png') }}" alt="icone referente a seção {{-- title  --}}">
+                <img class="copa04-page__hero__aside__logo" src="{{ asset('images/gray.png') }}"
+                    alt="icone referente a seção {{-- title  --}}">
                 <a class="copa04-page__hero__aside__cta" href="#">CTA</a>
             </aside>
 
             <div class="copa04-page__hero__information">
                 <header class="copa04-page__hero__information__header">
-                    <img class="copa04-page__hero__information__header__icon"
-                        src="{{asset('images/icon.png')}}" alt="ícone do {{-- title --}}">
+                    <img class="copa04-page__hero__information__header__icon" src="{{ asset('images/icon.png') }}"
+                        alt="ícone do {{-- title --}}">
                     <h1 class="copa04-page__hero__information__header__title">Title</h1>
                 </header>
-                <p class="copa04-page__hero__information__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                <p class="copa04-page__hero__information__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
+                    tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit.
 
                 </p>
 
                 <a href="#" class="copa04-page__hero__information__cta">CTA</a>
             </div>
-            <img class="copa04-page__hero__image" src="{{ asset('images/bg-colorido.svg') }}" alt="Imagem ilustrativa da seção {{-- title --}}">
+            <img class="copa04-page__hero__image" src="{{ asset('images/bg-colorido.svg') }}"
+                alt="Imagem ilustrativa da seção {{-- title --}}">
         </section>
         {{-- Seção Video --}}
         <section class="copa04-page__video-section">
             <h2 class="copa04-page__video-section__title">Title</h2>
             <h3 class="copa04-page__video-section__subtitle">Subtitlo</h3>
-            <p class="copa04-page__video-section__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+            <p class="copa04-page__video-section__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Architecto
                 voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum quia aut! Quibusdam nobis
                 qui laudantium commodi aut minus reiciendis.</p>
-                <div data-src="https://www.youtube.com/embed/EDnIEWyVIlE" class="copa04-page__video-section__video" style="background-image: url({{  asset('images/bg-colorido.svg')}})">
-                    <button  id="video_play" class="copa04-page__video-section__video__button">
-                        <img class="copa04-page__video-section__video__button__icon" src="{{ asset('storage/uploads/tmp/play.png') }}"
-                        alt="Play Vídeo">
-                    </button>
-                </div>
+            <div data-src="https://www.youtube.com/embed/EDnIEWyVIlE" class="copa04-page__video-section__video"
+                style="background-image: url({{ asset('images/bg-colorido.svg') }})">
+                <button id="video_play" class="copa04-page__video-section__video__button">
+                    <img class="copa04-page__video-section__video__button__icon"
+                        src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
+                </button>
+            </div>
             {{-- <img class="copa04-page__video__container__video" id="video_play"
                 src="{{ asset('storage/uploads/tmp/box-port02.png') }}" alt=""> --}}
         </section>
+        
         {{-- Seção Highlighted --}}
         <section class="copa04-page__highlighted">
             <div class="copa04-page__highlighted__information">
-                <h1 class="copa04-page__highlighted__information__title">Title</h1>
-                <p class="copa04-page__highlighted__information__paragraph">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore
-                    rerum quia aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
+                <h2 class="copa04-page__highlighted__information__title">Title</h2>
+                <h3 class="copa04-page__highlighted__information__subtitle">Subtitle</h3>
+                <div class="copa04-page__highlighted__information__paragraph">
+                    <p>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti
+                        tempore
+                        rerum quia aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis
+                    </p>
+                </div>
+                <a href="#" class="copa04-page__highlighted__information__cta">CTA</a>
             </div>
-            <div>
-                <img class="copa04-page__highlighted__image" src="{{ asset('storage/uploads/tmp/box-port02.png') }}"
-                    height="" alt="">
-                <a href="#" class="copa04-page__highlighted__information__cta">Olá</a>
-            </div>
+
+            <img class="copa04-page__highlighted__image" src="{{ asset('images/bg-colorido.svg') }}"
+                alt="Imagem referente a seção {{-- TITLE --}}">
+
         </section>
         {{-- Seção Topics --}}
         <section class="copa04-page__topics">

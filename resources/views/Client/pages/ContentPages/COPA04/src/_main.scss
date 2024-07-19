@@ -104,28 +104,28 @@
         &__title {
             @extend %theme__t2-cb;
             text-align: center;
-            max-width:888px;
+            max-width: 888px;
             margin-inline: auto;
         }
 
         &__subtitle {
             @extend %theme__t4-c2;
             text-align: center;
-            max-width:888px;
-            margin: 0.75rem auto 0;    
+            max-width: 888px;
+            margin: 0.75rem auto 0;
         }
 
         &__paragraph {
             @extend %theme__p1-cb;
             text-align: center;
-            max-width:888px;
-            margin: 0.75rem auto 0;      
+            max-width: 888px;
+            margin: 0.75rem auto 0;
 
         }
 
-        &__video{
+        &__video {
             @include disFlex(row, center, center);
-            max-width:60%;
+            max-width: 60%;
             height: auto;
             aspect-ratio: 883/439;
             margin: 1.25rem auto 0;
@@ -133,15 +133,15 @@
             @include large-device-down {
                 max-width: 100%;
             }
-    
-            
-            &__button{
+
+
+            &__button {
                 outline: none;
                 border: none;
                 background-color: transparent;
             }
 
-            &__iframe{
+            &__iframe {
                 width: 100%;
                 height: 100%;
             }
@@ -151,48 +151,65 @@
 
     &__highlighted {
         background-color: $color-six;
-        flex-wrap: wrap;
         @extend %theme__padding;
         @include disFlex(row, space-between, center);
+        gap: 14.5rem;
+
+        @include large-device-down {
+            flex-direction: column;
+            align-items: start;
+            gap: 5rem;
+        }
 
         &__information {
-            max-width: 608px;
+            width: calc(100% - 33.33% - 14.5rem);
             height: auto;
 
-            &__header {
-                @include disFlex;
+            @include large-device-down {
+                width: 100%;
+            }
 
-                &__title {
-                    @extend %theme__t2-cb;
-                }
 
-                &__icon {
-                    height: 100%;
-                }
+            &__title {
+                @extend %theme__t2-cb;
+                text-align: left;
+
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: left;
+                margin-top: 0.75rem;
             }
 
             &__paragraph {
                 @extend %theme__p1-cb;
+                margin-top: 1.5rem;
             }
 
             &__cta {
-                width: 100%;
-                text-align: center;
                 @extend %theme__cta;
+                margin-top: 0.75rem;
             }
         }
 
         &__image {
-            padding-top: 0.625rem;
-            max-width: 538px;
-            max-height: 481px;
+            width: 33.33%;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            object-position: center;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
         }
 
-        @include medium-device-down {
-            justify-content: center;
-            text-align: center;
-        }
     }
+
+
+
 
     &__topics {
         @extend %theme__padding;
@@ -281,6 +298,7 @@
         }
     }
 }
+
 
 .swiper {
     @extend %theme__padding;
