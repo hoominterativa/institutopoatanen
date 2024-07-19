@@ -21,8 +21,11 @@ class COPA04Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $teste = COPA04ContentPages::paginate(30);
+        return view('Admin.cruds.ContentPages.COPA04.index', [
+            'teste' => $teste
+        ]);
     }
 
     /**
