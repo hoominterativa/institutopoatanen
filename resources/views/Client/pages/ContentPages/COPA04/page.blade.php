@@ -47,14 +47,20 @@
             <img class="copa04-page__hero__image" src="{{ asset('images/bg-colorido.svg') }}" alt="Imagem ilustrativa da seção {{-- title --}}">
         </section>
         {{-- Seção Video --}}
-        <section class="copa04-page__video">
-            <h1 class="copa04-page__video__title">Title</h1>
-            <h4 class="copa04-page__video__subtitle">Olá mundo</h4>
-            <p class="copa04-page__video__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        <section class="copa04-page__video-section">
+            <h2 class="copa04-page__video-section__title">Title</h2>
+            <h3 class="copa04-page__video-section__subtitle">Subtitlo</h3>
+            <p class="copa04-page__video-section__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
                 voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum quia aut! Quibusdam nobis
                 qui laudantium commodi aut minus reiciendis.</p>
-            <img class="copa04-page__video__container__video" id="video_play"
-                src="{{ asset('storage/uploads/tmp/box-port02.png') }}" alt="">
+                <div data-src="https://www.youtube.com/embed/EDnIEWyVIlE" class="copa04-page__video-section__video" style="background-image: url({{  asset('images/bg-colorido.svg')}})">
+                    <button  id="video_play" class="copa04-page__video-section__video__button">
+                        <img class="copa04-page__video-section__video__button__icon" src="{{ asset('storage/uploads/tmp/play.png') }}"
+                        alt="Play Vídeo">
+                    </button>
+                </div>
+            {{-- <img class="copa04-page__video__container__video" id="video_play"
+                src="{{ asset('storage/uploads/tmp/box-port02.png') }}" alt=""> --}}
         </section>
         {{-- Seção Highlighted --}}
         <section class="copa04-page__highlighted">

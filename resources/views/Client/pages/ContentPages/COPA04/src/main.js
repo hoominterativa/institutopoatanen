@@ -7,7 +7,7 @@ if(buttonsPlay) {
             const iframe = document.createElement('iframe');
 
             iframe.setAttribute('src', src+'?autoplay=1');
-            iframe.classList.add('cont06v1__video__iframe');
+            iframe.classList.add('copa04-page__video-section__video__iframe');
             iframe.setAttribute('id', 'urlYoutube');
 
             el.style.display = 'none';

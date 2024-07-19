@@ -167,37 +167,40 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.swiper, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
+.swiper, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+.copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+  .copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
     font-size: 1.875rem;
   }
 }
-.copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+.copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
   color: #000;
 }
-.copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.copa04-page__video-section__subtitle, .copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .copa04-page__video-section__subtitle, .copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
-.copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
+}
+.copa04-page__video-section__subtitle {
+  color: #7c7c7c;
 }
 .side03__navigation__item__link, .side03__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
@@ -212,12 +215,12 @@ details .details-content {
 .side03__navigation__item__link, .side03__navigation__item__btn {
   color: #000;
 }
-.copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+.copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__topics-carousel__information__paragraph p, .copa04-page__topics__information__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video__header__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side03__navigation__cta p {
+.copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__topics-carousel__information__paragraph p, .copa04-page__topics__information__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side03__navigation__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -225,14 +228,14 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+  .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
     font-size: 0.938rem;
   }
 }
 .side03__navigation__cta {
   color: #fff;
 }
-.copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
   color: #000;
 }
 .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
@@ -2407,26 +2410,44 @@ body .owl-dots .owl-dot.active {
     width: 100%;
   }
 }
-.copa04-page__video {
+.copa04-page__video-section__title {
   text-align: center;
+  max-width: 888px;
+  margin-inline: auto;
 }
-.copa04-page__video__header {
+.copa04-page__video-section__subtitle {
+  text-align: center;
+  max-width: 888px;
+  margin: 0.75rem auto 0;
+}
+.copa04-page__video-section__paragraph {
+  text-align: center;
+  max-width: 888px;
+  margin: 0.75rem auto 0;
+}
+.copa04-page__video-section__video {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-}
-.copa04-page__video__header__paragraph {
-  margin-bottom: 20px;
-}
-.copa04-page__video__container__video {
-  width: 883px;
+  justify-content: center;
+  align-items: center;
+  max-width: 60%;
   height: auto;
+  aspect-ratio: 883/439;
+  margin: 1.25rem auto 0;
 }
-@media (max-width: 767.98px) {
-  .copa04-page__video__container__video {
-    width: 100%;
+@media (max-width: 991.98px) {
+  .copa04-page__video-section__video {
+    max-width: 100%;
   }
+}
+.copa04-page__video-section__video__button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.copa04-page__video-section__video__iframe {
+  width: 100%;
+  height: 100%;
 }
 .copa04-page__highlighted {
   background-color: #e6e6e6;
