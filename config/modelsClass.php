@@ -118,6 +118,16 @@ return [
                 'model' => App\Models\Contents\CONT06Contents::class,
                 'seedQty' => 1,
             ],
+            'CONT06V1' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT06V1Controller::class,
+                'model' => App\Models\Contents\CONT06V1Contents::class,
+                'seedQty' => 1,
+            ],
+            'CONT06V2' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT06V2Controller::class,
+                'model' => App\Models\Contents\CONT06V2Contents::class,
+                'seedQty' => 1,
+            ],
             'CONT07' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT07Controller::class,
                 'model' => App\Models\Contents\CONT07Contents::class,

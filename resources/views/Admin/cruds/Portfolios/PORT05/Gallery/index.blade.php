@@ -10,6 +10,9 @@
                         <a href="javascript:void(0)"  data-bs-target="#modal-gallery-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar galeria <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
+                <div class="alert alert-warning mb-3">
+                    <p class="mb-0">Caso deseje cadastrar um link de vídeo, será necessário primeiro cadastrar pelo menos uma imagem e depois clicar no botão de editar da imagem.</p>
+                </div>
                 <table class="table table-bordered table-sortable">
                     <thead class="table-light">
                         <tr>
@@ -42,10 +45,8 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">
-                                    @if ($gallery->active)
-                                        <span class="badge bg-success">Ativo</span>
-                                    @else
-                                        <span class="badge bg-danger">Inativo</span>
+                                    @if ($gallery->featured)
+                                        <span class="badge bg-primary text-white">Destaque</span>
                                     @endif
                                 </td>
                                 <td class="align-middle">
@@ -67,7 +68,7 @@
                                                     </div>
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
-                                                        @include('Admin.cruds.Portfolios.PORT05.Gallery.form',[
+                                                        @include('Admin.cruds.Portfolios.PORT05.Gallery.formEdit',[
                                                             'gallery' => $gallery
                                                         ])
                                                     </div>

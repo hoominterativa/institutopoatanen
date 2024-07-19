@@ -18,6 +18,7 @@ class PORT05PortfoliosSection extends Model
     protected $table = "port05_portfolios_sections";
     protected $fillable = [
         'title_section',
+        'title_page',
         'subtitle_section',
         'active_section',
         'title_banner',

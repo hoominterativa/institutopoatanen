@@ -25,13 +25,13 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 {!! Form::label('background_color_banner', 'Cor do background', ['class' => 'form-label']) !!}
                 {!! Form::text('background_color_banner', null, [
                     'class' => 'form-control colorpicker-default',
                     'id' => 'background_color_banner',
                 ]) !!}
-            </div>
+            </div> --}}
         </div>
         <div class="mb-3 form-check">
             {!! Form::checkbox('active_banner', '1', null, ['class' => 'form-check-input', 'id' => 'active_banner']) !!}

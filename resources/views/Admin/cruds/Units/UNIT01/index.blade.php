@@ -21,7 +21,7 @@
                 <!-- end row -->
 
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
-                    <li class="nav-item">
+                    <li class="nav-item h-100">
                         <a href="#units" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Units', 'UNIT01') }}
                         </a>
