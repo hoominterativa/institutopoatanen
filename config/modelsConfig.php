@@ -31,7 +31,7 @@ return [
                 ]
             ],
         ],
-        'Topics.1' => (object) [
+        'Topics' => (object) [
             'TOPI09' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
@@ -122,7 +122,9 @@ return [
                     'titlePanel' => 'Blog',
                     'iconPanel' => 'mdi-blogger'
                 ],
-                'IncludeSections' => (object) []
+                'IncludeSections' => (object) [
+                    "Topics.2" => 'TOPI05'
+                ]
             ],
         ],
         'Contents.1' => (object) [
@@ -183,9 +185,30 @@ return [
                     'titlePanel' => 'Sobre Nós',
                     'iconPanel' => 'mdi-information'
                 ],
-                'IncludeSections' => (object) [],
+                'IncludeSections' => (object) [
+                    "Contents.2" => 'CONT06V1',
+                    "Topics.2" => 'TOPI05'
+                ],
             ],
         ],
+        'Contents.2' => (object) [
+            'CONT06V1' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' => false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Vídeo de Sobre',
+                    'iconPanel' => 'mdi-text-box'
+                ]
+            ],
+        ],
+
         'Units' => (object) [
             'UNIT03' => (object)[
                 'ViewHome' => false,
@@ -208,16 +231,76 @@ return [
                     ],
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Unidades',
+                    'titleMenu' => 'Nossas Lojas',
                     'anchor' =>  false,
                     'linkMenu' => 'unit03.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Unidades',
+                    'titlePanel' => 'Nossas Lojas',
                     'iconPanel' => 'mdi-warehouse'
                 ],
-                'IncludeSections' => (object) []
+                'IncludeSections' => (object) [
+                    "Topics.2" => 'TOPI05'
+                ]
             ],
         ],
+
+        'BlankPages' => (object) [
+            'BAPA01' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => false,
+                'ViewListPanel' => false,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Pagina em branco',
+                    'anchor' => false,
+                    'linkMenu' => 'bapa01.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Pagina em branco',
+                    'iconPanel' => 'mdi-contacts'
+                ],
+                'IncludeSections' => (object) [
+                    'Topics.3' => 'TOPI10V1',
+                    'Galleries' => 'GALL01',
+                    "Topics.2" => 'TOPI05'
+                ]
+            ],
+        ],
+        'Topics.3' => (object) [
+            'TOPI10V1' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Ofertas',
+                    'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
+        'Galleries' => (object) [
+            'GALL01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Cardes Promocionais',
+                    'iconPanel' => 'mdi-folder-multiple-image'
+                ]
+            ],
+        ],
+
         'Contacts' => (object) [
             'COTA02' => (object)[
                 'ViewHome' => false,
@@ -241,27 +324,8 @@ return [
                     'titlePanel' => 'Contato',
                     'iconPanel' => 'mdi-contacts'
                 ],
-                'IncludeSections' => (object) []
-            ],
-        ],
-        'BlankPages' => (object) [
-            'BAPA01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => false,
-                'ViewListPanel' => false,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Pagina em branco',
-                    'anchor' => false,
-                    'linkMenu' => 'bapa01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Pagina em branco',
-                    'iconPanel' => 'mdi-contacts'
-                ],
                 'IncludeSections' => (object) [
-                    'Topics' => ['TOPI10V1'],
-                    'Galleries' => ['GALL01'],
+                    "Topics.2" => 'TOPI05'
                 ]
             ],
         ],
