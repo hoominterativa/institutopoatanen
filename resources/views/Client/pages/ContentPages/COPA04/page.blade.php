@@ -67,7 +67,7 @@
             {{-- <img class="copa04-page__video__container__video" id="video_play"
                 src="{{ asset('storage/uploads/tmp/box-port02.png') }}" alt=""> --}}
         </section>
-        
+
         {{-- Seção Highlighted --}}
         <section class="copa04-page__highlighted">
             <div class="copa04-page__highlighted__information">
@@ -89,45 +89,26 @@
         </section>
         {{-- Seção Topics --}}
         <section class="copa04-page__topics">
-            <div class="copa04-page__topics__information">
-                <h1 class="copa04-page__topics__information__title">Title</h1>
-                <h4 class="copa04-page__topics__information__subtitle">Olá mundo</h4>
-                <p class="copa04-page__topics__information__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum quia
-                    aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
-            </div>
-            <div class="copa04-page__topics__group-cards">
-                <div>
-                    <div class="copa04-page__topics__group-cards__card">
-                        <h2>Olá Mundo</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas nihil
-                            maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita vel neque
-                            molestias eum iusto.</p>
-                    </div>
-                    <div class="copa04-page__topics__group-cards__card">
-                        <h2>Olá Mundo</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas nihil
-                            maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita vel neque
-                            molestias eum iusto.</p>
-                    </div>
+            <header class="copa04-page__topics__header">
+                <h2 class="copa04-page__topics__header__title">Title</h2>
+                <h3 class="copa04-page__topics__header__subtitle">Olá mundo</h3>
+                <div class="copa04-page__topics__header__paragraph">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum
+                        quia
+                        aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
                 </div>
-                <div>
-                    <div class="copa04-page__topics__group-cards__card">
-                        <h2>Olá Mundo</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas nihil
-                            maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita vel neque
-                            molestias eum iusto.</p>
-                    </div>
-                    <div class="copa04-page__topics__group-cards__card">
-                        <h2>Olá Mundo</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas nihil
-                            maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita vel neque
-                            molestias eum iusto.</p>
-                    </div>
-                </div>
+            </header>
 
+            <div class="copa04-page__topics__item">
+                <img src="" alt="">
+                <h2>Olá Mundo</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas nihil
+                    maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita vel neque
+                    molestias eum iusto.</p>
             </div>
-            <a href="#" class="copa04-page__topics__cta mt-5">Olá</a>
+
+            <a href="#" class="copa04-page__topics__cta">CTA</a>
         </section>
         {{-- Seção Topics - Carousel --}}
         <section class="copa04-page__topics-carousel">

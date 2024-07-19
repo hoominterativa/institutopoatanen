@@ -208,13 +208,10 @@
 
     }
 
-
-
-
     &__topics {
         @extend %theme__padding;
 
-        &__information {
+        &__header {
             text-align: center;
 
             &__title {
