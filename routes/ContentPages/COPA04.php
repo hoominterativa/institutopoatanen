@@ -3,6 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentPages\COPA04Controller;
+use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 
 /**
  * Uncomment the code below
@@ -28,6 +29,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/copa04', COPA04Controller::class)->names('admin.'.$routeName.'.index')->parameters(['copa04' => 'COPA04ContentPages']);
     Route::post($route.'/categoria/delete', [COPA04Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
     Route::post($route.'/categoria/sorting', [COPA04Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+    
+    Route::resource($route.'/copa04', COPA04ContentPagesSectionHero::class)->names('admin.'.$routeName.'.index')->parameters(['copa04' => 'COPA04ContentPages']);
+    Route::post($route.'/categoria/delete', [COPA04ContentPagesSectionHero::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [COPA04ContentPagesSectionHero::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');
