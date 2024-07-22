@@ -6,24 +6,6 @@
         {{-- --color-bgcolor: #CACACA; --}}
     </style>
     <main id="root" class="copa04-page">
-
-        {{-- 
-      1 - section-hero
-      2 - section-video
-      3 - section-highlighted
-      ---
-      4 - topics 
-      5 - topics - carousel
-      6 - gallery topics
-
-      ---
-      7 - additional content
-      8 - additional topics carousel
-      9 - faq
-      --
-      10 - section products
-      
-      --}}
         <section class="copa04-page__hero">
             <aside class="copa04-page__hero__aside">
                 <img class="copa04-page__hero__aside__logo" src="{{ asset('images/gray.png') }}"
@@ -49,6 +31,7 @@
             <img class="copa04-page__hero__image" src="{{ asset('images/bg-colorido.svg') }}"
                 alt="Imagem ilustrativa da seção {{-- title --}}">
         </section>
+
         {{-- Seção Video --}}
         <section class="copa04-page__video-section">
             <h2 class="copa04-page__video-section__title">Title</h2>
@@ -87,11 +70,12 @@
                 alt="Imagem referente a seção {{-- TITLE --}}">
 
         </section>
+
         {{-- Seção Topics --}}
         <section class="copa04-page__topics">
             <header class="copa04-page__topics__header">
                 <h2 class="copa04-page__topics__header__title">Title</h2>
-                <h3 class="copa04-page__topics__header__subtitle">Olá mundo</h3>
+                <h3 class="copa04-page__topics__header__subtitle">Subtitle</h3>
                 <div class="copa04-page__topics__header__paragraph">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum
@@ -100,16 +84,25 @@
                 </div>
             </header>
 
-            <div class="copa04-page__topics__item">
-                <img src="" alt="">
-                <h2>Olá Mundo</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas nihil
-                    maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita vel neque
-                    molestias eum iusto.</p>
-            </div>
 
+            <div class="copa04-page__topics__main">
+                @for ($i = 0; $i < 4; $i++)
+                    <div class="copa04-page__topics__main__item">
+                        <img class="copa04-page__topics__main__item__icon" src="{{ asset('images/icon.svg') }}"
+                            alt="ícone do tópico {{-- title --}}">
+                        <h4 class="copa04-page__topics__main__item__title">Title {{ $i }}</h4>
+                        <div class="copa04-page__topics__main__item__paragraph">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas nihil
+                                maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita vel
+                                neque
+                                molestias eum iusto.</p>
+                        </div>
+                    </div>
+                @endfor
+            </div>
             <a href="#" class="copa04-page__topics__cta">CTA</a>
         </section>
+
         {{-- Seção Topics - Carousel --}}
         <section class="copa04-page__topics-carousel">
             <div class="copa04-page__topics-carousel__information">
@@ -168,15 +161,19 @@
             </div>
 
         </section>
+
         {{-- Seção Gallery Topics --}}
         <section class="copa04-page__gallery-topics">
         </section>
+
         {{-- Seção Additional Content --}}
         <section class="copa04-page__additional-content">
         </section>
+
         {{-- Seção Additional Topics Carousel --}}
         <section class="copa04-page__additional-topics-carousel">
         </section>
+        
         {{-- Seção FAQ --}}
         <section class="copa04-page__faq">
         </section>
