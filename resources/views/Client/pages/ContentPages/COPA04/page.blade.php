@@ -105,50 +105,34 @@
 
         {{-- Seção Topics - Carousel --}}
         <section class="copa04-page__topics-carousel">
-            <div class="copa04-page__topics-carousel__information">
-                <h2 class="copa04-page__topics-carousel__information__title">Title</h2>
-                <h4 class="copa04-page__topics-carousel__information__subtitle">Subtitle</h4>
-                <p class="copa04-page__topics-carousel__information__paragraph">Olá Mundos</p>
-            </div>
-            <div>
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img class="swiper-slide__icon"src="{{ asset('storage/uploads/tmp/cta.png') }}" alt="">
-                            <h5>Slide 01</h5>
-                            <p>Olá Mundo</p>
-                        </div>
-                        <div class="swiper-slide"> <img
-                                class="swiper-slide__icon"src="{{ asset('storage/uploads/tmp/cta.png') }}" alt="">
-                            <h5>Slide 01</h5>
-                            <p>Olá Mundo</p>
-                        </div>
-                        <div class="swiper-slide"> <img
-                                class="swiper-slide__icon"src="{{ asset('storage/uploads/tmp/cta.png') }}" alt="">
-                            <h5>Slide 01</h5>
-                            <p>Olá Mundo</p>
-                        </div>
-                        <div class="swiper-slide"> <img
-                                class="swiper-slide__icon"src="{{ asset('storage/uploads/tmp/cta.png') }}" alt="">
-                            <h5>Slide 01</h5>
-                            <p>Olá Mundo</p>
-                        </div>
-                        <div class="swiper-slide"> <img
-                                class="swiper-slide__icon"src="{{ asset('storage/uploads/tmp/cta.png') }}" alt="">
-                            <h5>Slide 01</h5>
-                            <p>Olá Mundo</p>
-                        </div>
-                        <div class="swiper-slide"> <img
-                                class="swiper-slide__icon"src="{{ asset('storage/uploads/tmp/cta.png') }}" alt="">
-                            <h5>Slide 01</h5>
-                            <p>Olá Mundo</p>
-                        </div>
-                        <div class="swiper-slide">Slide 7</div>
-                        <div class="swiper-slide">Slide 8</div>
-                        <div class="swiper-slide">Slide 9</div>
-                    </div>
+            <header class="copa04-page__topics-carousel__header">
+                <h2 class="copa04-page__topics-carousel__header__title">Title</h2>
+                <h3 class="copa04-page__topics-carousel__header__subtitle">Subtitle</h3>
+                <div class="copa04-page__topics-carousel__header__paragraph">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae pariatur distinctio unde
+                        similique. Animi itaque minima eius dolor voluptatem nulla, laboriosam porro officiis, ducimus
+                        necessitatibus iure sequi tenetur quaerat? Temporibus.</p>
                 </div>
-                <div class="copa04-page__topics-carousel__butons-down">
+            </header>
+            <div class="copa04-page__topics-carousel__carousel">
+                <div class="copa04-page__topics-carousel__swiper-wrapper swiper-wrapper">
+                    @for ($i = 0; $i < 4; $i++)
+                        <div class="copa04-page__topics-carousel__carousel__item swiper-slide">
+                            <img class="copa04-page__topics-carousel__carousel__item__icon"
+                                src="{{ asset('images/icon.svg') }}" alt="ícone do tópico {{-- title --}}">
+                            <h4 class="copa04-page__topics-carousel__carousel__item__title">Title {{ $i }}</h4>
+                            <div class="copa04-page__topics-carousel__carousel__item__paragraph">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas
+                                    nihil
+                                    maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita
+                                    vel
+                                    neque
+                                    molestias eum iusto.</p>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
+                {{-- <div class="copa04-page__topics-carousel__butons-down">
                     <div>
                         <img class="copa04-page__topics-carousel__butons-down__right"
                             src="{{ asset('storage/uploads/tmp/arrow.png') }}" alt="">
@@ -157,7 +141,7 @@
                         <img class="copa04-page__topics-carousel__butons-down__left"
                             src="{{ asset('storage/uploads/tmp/arrow.png') }}" alt="">
                     </div>
-                </div>
+                </div> --}}
             </div>
 
         </section>
@@ -173,10 +157,11 @@
         {{-- Seção Additional Topics Carousel --}}
         <section class="copa04-page__additional-topics-carousel">
         </section>
-        
+
         {{-- Seção FAQ --}}
         <section class="copa04-page__faq">
         </section>
+
         {{-- Seção Section Products --}}
         <section class="copa04-page__section-products">
         </section>

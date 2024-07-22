@@ -225,7 +225,7 @@
                 text-align: center;
                 margin-top: 0.75rem;
             }
-            
+
             &__paragraph {
                 @extend %theme__p1-cb;
                 margin-top: 0.75rem;
@@ -233,13 +233,13 @@
             }
         }
 
-        &__main{
+        &__main {
             margin-top: 1.25rem;
             @include disFlex(row, start, start);
             flex-wrap: wrap;
             gap: 3.5rem 2.5rem;
 
-            &__item{
+            &__item {
                 background-color: $color-five;
                 width: calc(50% - 1.25rem);
                 flex: 1 0 auto;
@@ -251,8 +251,8 @@
                 @include large-device-down {
                     width: 100%;
                 }
-    
-                &__icon{
+
+                &__icon {
                     width: 3.75rem;
                     height: auto;
                     aspect-ratio: 1/1;
@@ -260,10 +260,11 @@
                     object-position: center;
                 }
 
-                &__title{
+                &__title {
                     @extend %theme__t5-cb;
                 }
-                &__paragraph{
+
+                &__paragraph {
                     @extend %theme__p2-cb
                 }
             }
@@ -277,33 +278,58 @@
     }
 
     &__topics-carousel {
-        &__information {
-            text-align: center;
+        @extend %theme__padding;
+
+        &__header {
+            width: 100%;
 
             &__title {
                 @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
             }
 
             &__subtitle {
+                @extend %theme__t4-c2;
                 text-align: center;
-                @extend %theme__t4-cb;
+                margin-top: 0.75rem;
             }
 
             &__paragraph {
                 @extend %theme__p1-cb;
-                margin-bottom: 20px;
+                margin-top: 0.75rem;
+                text-align: center;
             }
         }
 
-        &__butons-down {
-            @include disFlex(row, center, center);
+        &__carousel {
+            overflow: hidden;
 
-            &__right {
-                transform: rotate(90deg);
+            @include large-device-down {
+                overflow: visible;
             }
 
-            &__left {
-                transform: rotate(270deg);
+            &__item {
+                width: calc(25% - 9px);
+
+                @include disFlex(column, start, center);
+                gap: 1.5rem;
+
+                &__icon {
+                    width: 3.75rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    object-fit: contain;
+                    object-position: center;
+                }
+
+                &__title {
+                    @extend %theme__t5-cb;
+                }
+
+                &__paragraph {
+                    @extend %theme__p2-cb
+                }
             }
         }
 

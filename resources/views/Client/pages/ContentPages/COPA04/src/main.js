@@ -18,15 +18,15 @@ if(buttonsPlay) {
     })
 }
 
-var swiper = new Swiper(".mySwiper", {
+new Swiper(".copa04-page__topics-carousel__carousel", {
     slidesPerView: "auto",
-    spaceBetween: 30,
-    navigation: {
-        prevEl: ".copa04-page__topics-carousel__butons-down__right",
-        nextEl: ".copa04-page__topics-carousel__butons-down__left",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+    spaceBetween: 12,
+    // navigation: {
+    //     prevEl: ".copa04-page__topics-carousel__butons-down__right",
+    //     nextEl: ".copa04-page__topics-carousel__butons-down__left",
+    // },
+    // pagination: {
+    //   el: ".swiper-pagination",
+    //   clickable: true,
+    // },
   });
