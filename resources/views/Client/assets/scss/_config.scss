@@ -1432,134 +1432,57 @@ body {
 //FIM FORM102
 // INICIO FORM01
 .form01 {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    @include disFlex;
+    @extend %theme__padding;
 
-    &__boxLeft {
-        padding: 0 38px;
-        @include medium-device-down {
-            margin-bottom: 25px;
-        }
-        &__content {
+    &__main {
+        @include disFlex(column);
+        width: 50%;
+
+        &__information {
+            margin-bottom: 2rem;
+
             &__title {
-                font-size: $T3;
-                color: $color-black;
-                margin-bottom: 17px;
-                font-weight: $weight-700;
-
-                @include small-device {
-                    font-size: $T3-mobile;
-                }
+                @extend %theme__t3-cb;
+                margin-bottom: 2.5rem;
             }
+
             &__paragraph {
-                max-width: 592px;
-                width: 100%;
-
-                @include small-device {
-                    width: 100%;
-                }
-
-                p {
-                    font: $paragraph;
-                    font-weight: $weight-400;
-                    color: $color-one;
-
-                    @include small-device {
-                        font: $paragraph-min;
-                    }
-                }
+                @extend %theme__p1-c1;
             }
         }
+
         &__form {
-            justify-content: space-between;
-            .input__item {
-                width: 48.5%;
-                padding: 0;
-
-                @include medium-device-down {
-                    width: 100%;
-                }
-                label {
-                    color: #000 !important;
-                }
-                .form-placeholder {
-                    background-color: #fff !important;
-                    border: none !important;
-                }
-                input {
-                    background-color: transparent !important;
-                    color: #000 !important;
-                    border-radius: 0 !important;
-                    height: 2.9375rem;
-                    padding: 0;
-
-                    &::placeholder {
-                        color: #000 !important;
-                    }
-                }
-            }
-            &__checkbox-label {
-                padding: 0;
-            }
-            button {
-                background-color: $color-white;
-                color: $color-one;
-                height: 45px;
-                width: 177px;
-                padding: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: 16px;
-                border: 0;
-                font: $paragraph;
-                font-weight: $weight-700;
-                margin-left: auto;
-                transition: 0.5s all ease;
-
-                @include small-device {
-                    height: 39px;
-                    width: 153px;
-                    margin-top: 18px;
-                }
-
-                &:hover {
-                    background-color: $color-black;
-                    color: $color-white;
-                    transition: 0.5s all ease;
-                }
-
-                img {
-                    width: 25.16px;
-                    height: 25.16px;
-                    margin-right: 16.87px;
-                    transition: 0.5s all ease;
-
-                    @include small-device {
-                        width: 21px;
-                        height: 21px;
-                        margin-right: 14.58px;
-                    }
-                }
-                &:hover img {
-                    filter: invert(1) grayscale(1);
-                    transition: 0.5s all ease;
-                }
-            }
-        }
-    }
-    &__boxRight {
-        &__image {
-            height: 434px;
-            max-width: 315px;
             width: 100%;
 
-            img {
+            &__footer {
                 width: 100%;
-                height: 100%;
-                -o-object-fit: cover;
-                object-fit: cover;
+                @include disFlex(row, space-between, center);
+                gap: 0.5rem;
+                flex-wrap: wrap;
+
+                &__compliance {
+                    @extend %theme__p2-cb;
+                    opacity: 0.4;
+
+                    &__link {
+                        @extend %theme__p2-cb;
+                        text-decoration: underline;
+                    }
+
+                    &__checkbox[type="checkbox"] {
+                        border: 1px solid $color-black;
+
+                        &:checked {
+                            accent-color: $color-one;
+                        }
+                    }
+                }
+
+                &__cta {
+                    margin-top: 56px;
+                    @extend %theme__cta;
+                }
             }
         }
     }
