@@ -1,3 +1,10 @@
+import Swiper from "swiper/bundle";
+
+new Swiper(".unit03-page__categories__carousel", {
+    slidesPerView: "auto",
+    spaceBetween: 34,
+});
+
 $(".unit03-show__top__carousel").owlCarousel({
     smartSpeed: 450,
     loop: false,
@@ -33,5 +40,3 @@ $(".unit03-show__content__carousel").owlCarousel({
     autoHeight: true,
     items: 1,
 });
-
-

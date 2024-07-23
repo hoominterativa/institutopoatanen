@@ -11853,7 +11853,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Contents_CONT06V1_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Contents/CONT06V1/src/main */ "./resources/views/Client/pages/Contents/CONT06V1/src/main.js");
 /* harmony import */ var _pages_Contents_CONT06V1_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT06V1_src_main__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _pages_Units_UNIT03_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Units/UNIT03/src/main */ "./resources/views/Client/pages/Units/UNIT03/src/main.js");
-/* harmony import */ var _pages_Units_UNIT03_src_main__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_pages_Units_UNIT03_src_main__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _pages_BlankPages_BAPA01_src_main__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../pages/BlankPages/BAPA01/src/main */ "./resources/views/Client/pages/BlankPages/BAPA01/src/main.js");
 /* harmony import */ var _pages_BlankPages_BAPA01_src_main__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_pages_BlankPages_BAPA01_src_main__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _pages_Topics_TOPI10V1_src_main__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../pages/Topics/TOPI10V1/src/main */ "./resources/views/Client/pages/Topics/TOPI10V1/src/main.js");
@@ -12723,9 +12722,17 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.topi09__topics__caro
 /*!***************************************************************!*\
   !*** ./resources/views/Client/pages/Units/UNIT03/src/main.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit03-page__categories__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 34
+});
 $(".unit03-show__top__carousel").owlCarousel({
   smartSpeed: 450,
   loop: false,
