@@ -12727,45 +12727,18 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.topi09__topics__caro
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit03-page__categories__carousel", {
   slidesPerView: "auto",
   spaceBetween: 34
 });
-$(".unit03-show__top__carousel").owlCarousel({
-  smartSpeed: 450,
-  loop: false,
-  dots: false,
-  nav: true,
-  rewind: true,
-  autoHeight: true,
-  responsive: {
-    0: {
-      items: 3,
-      margin: 10
-    },
-    // breakpoint from 0 up
-    361: {
-      items: 3,
-      margin: 10
-    },
-    // breakpoint from 361 up
-    801: {
-      items: 3,
-      margin: 20
-    }
-    // breakpoint from 801 up
-  }
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit03-show__contact__topics__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 20
 });
-$(".unit03-show__content__carousel").owlCarousel({
-  smartSpeed: 450,
-  loop: false,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  items: 1
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit03-show__content__carousel", {
+  slidesPerView: 1,
+  spaceBetween: 2
 });
 
 /***/ }),
