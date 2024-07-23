@@ -1432,12 +1432,18 @@ body {
 //FIM FORM102
 // INICIO FORM01
 .form01 {
-    @include disFlex;
+    @include disFlex(row, space-between);
+    flex-wrap: wrap;
     @extend %theme__padding;
 
     &__main {
         @include disFlex(column);
         width: 50%;
+
+        @include large-device-down {
+            width: 100%;
+            margin-bottom: 2.5rem;
+        }
 
         &__information {
             margin-bottom: 2rem;
@@ -1454,6 +1460,17 @@ body {
 
         &__form {
             width: 100%;
+            @include disFlex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            .input__item {
+                width: calc(50% - 4px);
+
+                @include large-device-down {
+                    width: 100%;
+                }
+            }
 
             &__footer {
                 width: 100%;
@@ -1480,10 +1497,25 @@ body {
                 }
 
                 &__cta {
-                    margin-top: 56px;
                     @extend %theme__cta;
                 }
             }
+        }
+    }
+
+    &__image {
+        width: 30%;
+        height: auto;
+
+        @include large-device-down {
+            width: 100%;
+        }
+
+        &__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     }
 }

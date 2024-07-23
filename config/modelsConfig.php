@@ -164,7 +164,7 @@ return [
 
         'Abouts' => (object) [
             'ABOU01' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -268,7 +268,7 @@ return [
         ],
         'Topics.3' => (object) [
             'TOPI10V1' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
@@ -285,7 +285,7 @@ return [
         ],
         'Galleries' => (object) [
             'GALL01' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,

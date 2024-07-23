@@ -33,31 +33,33 @@
                     ])
                 @endforeach
 
-                <label for="" class="form01__boxLeft__form__checkbox-label">
-                    {!! Form::checkbox('term_accept', 1, null, [
-                        'class' => 'form-check-input',
-                        'id' => 'term_accept',
-                        'required' => true,
-                    ]) !!}
-                    {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                    <a href="{{ $compliance->link ?? '#' }}" target="_blank" class="">Política de
-                        Privacidade</a>
-                </label>
+                <div class="form01__main__form__footer">
 
-                <button type="submit" class="form01__boxLeft__form__cta">
-                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícone">
-                    CTA
-                </button>
+                    <label class="form01__main__form__footer__compliance">
+                        {!! Form::checkbox('term_accept', 1, null, [
+                            'class' => 'form-check-input form01__main__form__footer__compliance__checkbox',
+                            'id' => 'term_accept',
+                            'required' => true,
+                        ]) !!}
+                        {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                        <a href="{{ $compliance->link ?? '#' }}" target="_blank"
+                            class="form01__main__form__footer__compliance__link">Política de
+                            Privacidade</a>
+                    </label>
+
+                    <button type="submit" class="form01__main__form__footer__cta">
+                        CTA
+                    </button>
+                </div>
+
 
                 {!! Form::close() !!}
 
             </div>
-            <div class="form01__boxRight col-sm-5 d-flex justify-content-center align-items-end px-0">
 
-                <div class="form01__boxRight__image">
-                    <img src="{{ asset('storage/' . $content->path_image_content->value) }}" alt="Imagem form">
-                </div>
-
+            <div class="form01__image">
+                <img class="form01__image__img" src="{{ asset('storage/' . $content->path_image_content->value) }}"
+                    alt="Imagem form">
             </div>
 
         </section>
