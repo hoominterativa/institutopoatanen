@@ -166,7 +166,7 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.cota02__form, .cota02__topics, .topi10v1, .unit03-show__gallery, .unit03-show__content, .unit03-show__contact__topics, .unit03-show__contact__socials, .unit03-page__list, .unit03-page__categories, .cont06v1, .abou01-page__topics, .abou01-page__main, .abou01-page__section, .abou01, .topi05, .cont06, .blog03-show__related, .blog03-show__article, .blog03-page__main, .blog03-page__navigation, .blog03, .topi08, .topi02, .topi03, .topi09, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .form01, .cota02__banner, .unit03-show__banner, .unit03-page__banner, .abou01-page__banner, .blog03-show__banner, .blog03-page__banner {
+.cota02__form, .cota02__topics, .topi10v1, .unit03-show__gallery, .unit03-show__content, .unit03-show__contact__topics, .unit03-show__contact__socials, .unit03-page__list, .unit03-page__categories, .cont06v1, .abou01-page__topics, .abou01-page__main, .abou01-page__section, .abou01, .topi05, .cont06, .blog03-show__related, .blog03-show__article, .blog03-page__main, .blog03-page__navigation, .blog03, .topi08, .topi02, .topi03, .topi09, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .cota02__banner, .unit03-show__banner, .unit03-page__banner, .abou01-page__banner, .blog03-show__banner, .blog03-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -206,13 +206,13 @@ details .details-content {
 .cota02__form__header__title, .topi10v1__header__title, .unit03-show__gallery__header__title, .unit03-show__content__information__title, .unit03-show__contact__form__title, .unit03-show__contact__socials__information__title, .cont06v1__header__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont06__header__title, .blog03__header__title, .topi02__header__title, .topi03__header__title {
   color: #404040;
 }
-.cota02__banner__subtitle, .unit03-show__banner__subtitle, .unit03-page__banner__subtitle, .abou01-page__banner__subtitle, .cota02__topics__item__title, .form01__main__information__title {
+.confirmation-page__title, .cota02__banner__subtitle, .unit03-show__banner__subtitle, .unit03-page__banner__subtitle, .abou01-page__banner__subtitle, .cota02__topics__item__title, .form01__main__information__title {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .cota02__banner__subtitle, .unit03-show__banner__subtitle, .unit03-page__banner__subtitle, .abou01-page__banner__subtitle, .cota02__topics__item__title, .form01__main__information__title {
+  .confirmation-page__title, .cota02__banner__subtitle, .unit03-show__banner__subtitle, .unit03-page__banner__subtitle, .abou01-page__banner__subtitle, .cota02__topics__item__title, .form01__main__information__title {
     font-size: 1.563rem;
   }
 }
@@ -224,6 +224,9 @@ details .details-content {
 }
 .cota02__banner__subtitle, .unit03-show__banner__subtitle, .unit03-page__banner__subtitle, .abou01-page__banner__subtitle {
   color: #b3b3b3;
+}
+.confirmation-page__title {
+  color: #cacaca;
 }
 .topi10v1__header__subtitle, .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .blog03__header__subtitle, .topi08__header__subtitle, .topi02__header__subtitle, .topi03__header__subtitle, .topi10v1__topics__item__header__title, .topi05__item__title, .blog03-show__article__modal__header__title, .blog03__main__item__information__title, .blog03-show__related__carousel__item__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .unit03-page__categories__carousel__item, .blog03-page__navigation__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
@@ -257,12 +260,12 @@ details .details-content {
 .unit03-show__gallery__header__subtitle, .unit03-show__content__information__subtitle, .unit03-show__contact__form__subtitle, .unit03-show__contact__topics__carousel__item__title, .unit03-show__contact__socials__information__subtitle, .abou01-page__topics__item__header__title, .blog03-show__related__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.topi10v1__header__paragraph, .unit03-show__contact__topics__carousel__item__paragraph, .cont06v1__header__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .topi05__item__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .topi08__header__paragraph, .topi02__header__paragraph, .cota02__form__header__paragraph, .unit03-show__gallery__list__item__title, .unit03-page__list__item__top__title, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .cota02__form__footer__cta, .unit03-show__content__information__cta, .unit03-show__contact__form__cta, .cont06v1__cta, .abou01-page__section__information__cta, .abou01__cta, .cont06__cta, .blog03-show__article__share, .blog03__cta, .topi08__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .unit03-show__contact__socials__information__category, .blog03-show__article__modal__main__socials__item__figure__title, .topi03__topics__item__title, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+.topi10v1__header__paragraph, .unit03-show__contact__topics__carousel__item__paragraph, .cont06v1__header__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .topi05__item__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .topi08__header__paragraph, .topi02__header__paragraph, .cota02__form__header__paragraph, .unit03-show__gallery__list__item__title, .unit03-page__list__item__top__title, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .cota02__form__footer__cta, .unit03-show__content__information__cta, .unit03-show__contact__form__cta, .cont06v1__cta, .abou01-page__section__information__cta, .abou01__cta, .cont06__cta, .blog03-show__article__share, .blog03__cta, .topi08__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .unit03-show__contact__socials__information__category, .blog03-show__article__modal__main__socials__item__figure__title, .topi03__topics__item__title, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.topi10v1__header__paragraph p, .unit03-show__contact__topics__carousel__item__paragraph p, .cont06v1__header__paragraph p, .abou01-page__main__information__paragraph p, .abou01-page__section__information__paragraph p, .abou01__paragraph p, .topi05__item__paragraph p, .cont06__header__paragraph p, .blog03-show__article__body p, .blog03-show__article__description p, .blog03__main__item__information__paragraph p, .blog03-show__related__carousel__item__information__paragraph p, .blog03__header__paragraph p, .topi08__header__paragraph p, .topi02__header__paragraph p, .cota02__form__header__paragraph p, .unit03-show__gallery__list__item__title p, .unit03-page__list__item__top__title p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .cota02__form__footer__cta p, .unit03-show__content__information__cta p, .unit03-show__contact__form__cta p, .cont06v1__cta p, .abou01-page__section__information__cta p, .abou01__cta p, .cont06__cta p, .blog03-show__article__share p, .blog03__cta p, .topi08__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .unit03-show__contact__socials__information__category p, .blog03-show__article__modal__main__socials__item__figure__title p, .topi03__topics__item__title p, .topi09__topics__item__information__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side02__cta p, .head02__navigation__item__cta p {
+.topi10v1__header__paragraph p, .unit03-show__contact__topics__carousel__item__paragraph p, .cont06v1__header__paragraph p, .abou01-page__main__information__paragraph p, .abou01-page__section__information__paragraph p, .abou01__paragraph p, .topi05__item__paragraph p, .cont06__header__paragraph p, .blog03-show__article__body p, .blog03-show__article__description p, .blog03__main__item__information__paragraph p, .blog03-show__related__carousel__item__information__paragraph p, .blog03__header__paragraph p, .topi08__header__paragraph p, .topi02__header__paragraph p, .cota02__form__header__paragraph p, .unit03-show__gallery__list__item__title p, .unit03-page__list__item__top__title p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .cota02__form__footer__cta p, .unit03-show__content__information__cta p, .unit03-show__contact__form__cta p, .cont06v1__cta p, .abou01-page__section__information__cta p, .abou01__cta p, .cont06__cta p, .blog03-show__article__share p, .blog03__cta p, .topi08__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .unit03-show__contact__socials__information__category p, .blog03-show__article__modal__main__socials__item__figure__title p, .topi03__topics__item__title p, .topi09__topics__item__information__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -270,14 +273,14 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .topi10v1__header__paragraph, .unit03-show__contact__topics__carousel__item__paragraph, .cont06v1__header__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .topi05__item__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .topi08__header__paragraph, .topi02__header__paragraph, .cota02__form__header__paragraph, .unit03-show__gallery__list__item__title, .unit03-page__list__item__top__title, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .cota02__form__footer__cta, .unit03-show__content__information__cta, .unit03-show__contact__form__cta, .cont06v1__cta, .abou01-page__section__information__cta, .abou01__cta, .cont06__cta, .blog03-show__article__share, .blog03__cta, .topi08__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .unit03-show__contact__socials__information__category, .blog03-show__article__modal__main__socials__item__figure__title, .topi03__topics__item__title, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side02__cta, .head02__navigation__item__cta {
+  .topi10v1__header__paragraph, .unit03-show__contact__topics__carousel__item__paragraph, .cont06v1__header__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .topi05__item__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .topi08__header__paragraph, .topi02__header__paragraph, .cota02__form__header__paragraph, .unit03-show__gallery__list__item__title, .unit03-page__list__item__top__title, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .cota02__form__footer__cta, .unit03-show__content__information__cta, .unit03-show__contact__form__cta, .cont06v1__cta, .abou01-page__section__information__cta, .abou01__cta, .cont06__cta, .blog03-show__article__share, .blog03__cta, .topi08__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .unit03-show__contact__socials__information__category, .blog03-show__article__modal__main__socials__item__figure__title, .topi03__topics__item__title, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .unit03-show__contact__socials__information__category, .blog03-show__article__modal__main__socials__item__figure__title, .topi03__topics__item__title, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .unit03-show__contact__socials__information__category, .blog03-show__article__modal__main__socials__item__figure__title, .topi03__topics__item__title, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph {
   color: #000;
 }
 .cota02__form__header__paragraph, .unit03-show__gallery__list__item__title, .unit03-page__list__item__top__title, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .cota02__form__footer__cta, .unit03-show__content__information__cta, .unit03-show__contact__form__cta, .cont06v1__cta, .abou01-page__section__information__cta, .abou01__cta, .cont06__cta, .blog03-show__article__share, .blog03__cta, .topi08__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
@@ -1751,47 +1754,42 @@ body .owl-dots .owl-dot.active {
   transition: ease all 0.3s;
 }
 
-.confirmation__header {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-}
-.confirmation__header__wrapper-title {
+.confirmation-page {
+  position: relative;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
-  margin-top: -197px;
-}
-.confirmation__header__title {
-  font-size: 3.75rem;
-  color: #000;
-  font-family: "Poppins", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 10px;
+  justify-content: start;
+  align-items: center;
+  display: flex !important;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 24px;
   position: relative;
 }
-@media (max-width: 767.98px) {
-  .confirmation__header__title {
-    font-size: 1.85rem;
-  }
+.confirmation-page__title {
+  padding-bottom: 0;
+  text-align: center;
 }
-.confirmation__header__subtitle {
-  font-size: 1.75rem;
-  color: #000;
-  font-family: "Poppins", sans-serif, arial;
-  font-weight: 600;
-  margin-bottom: 10px;
+.confirmation-page__title::after {
+  left: 50%;
+  translate: -50% 0;
+  content: "";
+  width: 60px;
+  height: 1px;
+  background-color: #7c7c7c;
   position: relative;
+  margin-top: 1.25rem;
+  display: block;
 }
-@media (max-width: 767.98px) {
-  .confirmation__header__subtitle {
-    font-size: 1.25rem;
-  }
+.confirmation-page__paragraph {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.confirmation-page svg {
+  width: 100%;
 }
 
 .blur-5 {
