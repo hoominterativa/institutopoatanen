@@ -5,10 +5,20 @@
     justify-content: $justify;
     align-items: $align;
 }
-@mixin bg ($size: cover, $position: center){
+@mixin bg($size: cover, $position: center) {
     background-size: $size;
     background-position: $position;
     background-repeat: no-repeat;
+}
+
+// retorna calculo mais preciso de largura de elementos levando o valor da gap
+// $nElements = número de elementos que devem ocupar a row;
+// $gapSize = tamanho da gap em px, em, rem;
+@function calcWidth($nElements, $gapSize) {
+    $percentage: 100% / $nElements;
+    $gapTotal: calc($gapSize * ($nElements - 1));
+
+    @return calc($percentage - $gapTotal / $nElements);
 }
 
 /* ------- --------- */
@@ -109,7 +119,6 @@ $grid-breakpoints: (
     }
 }
 /*__________________________________*/
-
 
 // Breakpoints down
 @mixin small-device-down {

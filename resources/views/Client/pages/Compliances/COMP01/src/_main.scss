@@ -1,120 +1,73 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
-.comp01-page{
-    &__header{
-        text-align:  center;
-        background-color: #EFEFEF;
-        padding: 87px 0;
-        margin: 0;
-        position: relative;
-        @include backG;
+.comp01-page {
+    &__banner {
+        @extend %theme__banner;
+        background-color: rgba($color-five, 0.35);
 
-        &__mask{
-            position: absolute;
-            top:0;
-            left:0;
-            width: 100%;
-            height: 100%;
-            background-color: rgb(0 0 0 / 73%);
-        }
-
-        &__container{
-            margin-bottom: 25px;
-            z-index: 100;
-            position: relative;
-        }
-        &__title{
-            font-size: $T1;
-            font-family: $font-primary;
-            color: $color-black;
-            display: block;
-
-            @include small-device{
-                font-size: $T2-mobile;
-            }
+        &__title {
+            @extend %theme__banner__title;
         }
     }
-    // END __header
 
-    &__content{
-        padding: 45px 0 120px;
-        &__icon{
-            width: 36px;
-            margin: 10px auto;
-            display: table;
-        }
-        &__container{
-            text-align: center;
-            margin-bottom: 35px;
-        }
-        &__title{
-            font-size: $T2;
-            font-family: $font-primary;
-            font-weight: $weight-700;
-            color: $color-one;
-            display: block;
+    &__content {
+        @extend %theme__padding;
+        padding-left: 10vw;
+        &__header {
+            margin-bottom: 3.5rem;
 
-            @include small-device{
-                font-size: $T2-mobile;
-            }
-        }
-        &__subtitle{
-            font-size: $T4;
-            font-family: $font-primary;
-            font-weight: $weight-700;
-            color: $color-one;
-            display: block;
-
-            @include small-device{
-                font-size: $T4-mobile;
-            }
-        }
-        &__line{
-            width: 100%;
-            background-color: $color-one;
-            margin-bottom: 35px;
-        }
-        &__paragraph{
-            font: $paragraph;
-            font-weight: $weight-500;
-            padding: 0 30px;
-            color: $color-one;
-            line-height: 25px;
-
-            @include small-device{
-                font: $paragraph-mobile;
+            &__title {
+                @extend %theme__t3-c1;
+                text-align: left;
+                margin-bottom: 0;
             }
         }
 
-    }
-    // END __content
+        &__paragraph {
+            @extend %theme__p1-cb;
+        }
 
-    &__archives{
-        margin-top: 50px;
-        &__item{
-            font: $paragraph;
-            font-weight: $weight-700;
-            color: $color-black;
-            display: table;
-            margin: 0 25px 0 0;
-            max-width: 100%;
-            padding: 10px 15px;
-            background-color: $bg-soft;
+        &__archives {
+            margin-top: 3rem;
+            list-style: none;
+            @include disFlex(row, start, center);
+            flex-wrap: wrap;
+            gap: 1rem;
 
-            @include small-device{
-                font: $paragraph-mobile;
-            }
+            &__item {
+                position: relative;
+                @include disFlex(row, center, center);
+                gap: 1.25rem;
 
-            &:hover{
-                color: $color-white;
-                background-color: $bg-black;
+                width: fit-content;
+                padding: 0.5rem 1.5rem;
+                @extend %theme__p2-c1;
 
-                .comp01__archives__item__icon{
-                    filter: invert(1) grayscale(1);
+                border: solid 1px $color-two;
+                border-radius: 1rem 0 1rem 0;
+                transition: all 0.3s ease;
+                color: $color-two;
+
+                &:hover {
+                    background-color: $color-two;
+                    border-color: $color-two;
+                    color: $color-white;
+                }
+
+                &:hover svg path {
+                    fill: $color-white;
+                    border-color: $color-white;
+                }
+
+                svg {
+                    width: 1.25rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+
+                    transition: all 0.3s ease;
                 }
             }
         }
     }
-    // END __arvhives
 }

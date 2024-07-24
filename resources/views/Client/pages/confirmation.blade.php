@@ -1,15 +1,19 @@
 @extends('Client.Core.client')
 @section('content')
-    <main id="root">
-        <header class="confirmation__header container-fluid">
-            <div class="container">
-                <h3 class="confirmation__header__wrapper-title">
-                    <span class="confirmation__header__title">Sua Mensagem foi</span>
-                    <span class="confirmation__header__subtitle"> Enviada com Sucesso!</span>
-                </h3>
-                <p class="confirmation__header__paragraph"></p>
-            </div>
-        </header>
-        {{-- {!!$section!!} --}}
+    <main id="root" class="confirmation-page">
+        <h1 class="confirmation-page__title animation fadeInLeft">Sua mensagem foi enviada com sucesso!</h1>
+        <p class="confirmation-page__paragraph animation fadeInLeft">Obrigada pela mensagem! Em breve entraremos em
+            contato.</p>
+
+        <svg class="animation fadeIn" xmlns="http://www.w3.org/2000/svg" width="238" height="238" viewBox="0 0 238 238"
+            fill="none">
+            <path
+                d="M96.1923 112.058C92.2256 108.092 86.2757 108.092 82.309 112.058C78.3423 116.025 78.3423 121.975 82.309 125.942L112.059 155.692C114.042 157.675 116.026 158.667 119.001 158.667C121.976 158.667 123.959 157.675 125.942 155.692L195.359 76.3584C198.334 71.4001 198.334 65.4501 193.376 62.4751C189.409 59.5001 183.459 59.5001 180.484 63.4668L119.001 133.875L96.1923 112.058Z"
+                fill="#89813D" />
+            <path
+                d="M208.251 109.083C202.301 109.083 198.334 113.05 198.334 119C198.334 162.633 162.634 198.333 119.001 198.333C75.3673 198.333 39.6673 162.633 39.6673 119C39.6673 98.1752 47.6007 78.3418 62.4757 63.4668C77.3507 47.6002 97.184 39.6668 119.001 39.6668C124.951 39.6668 131.892 40.6585 137.842 41.6502C142.801 43.6335 148.751 40.6585 150.734 34.7085C152.717 28.7585 148.751 24.7918 143.792 22.8085H142.801C134.867 20.8252 126.934 19.8335 119.001 19.8335C64.459 19.8335 19.834 64.4585 19.834 119.992C19.834 145.775 30.7423 171.558 48.5923 189.408C67.434 208.25 92.2257 218.167 118.009 218.167C172.551 218.167 217.176 173.542 217.176 119C218.167 113.05 213.209 109.083 208.251 109.083Z"
+                fill="#89813D" />
+        </svg>
+
     </main>
 @endsection
