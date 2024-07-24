@@ -172,45 +172,48 @@
         @endif
 
         <section class="unit03-show__gallery">
-            <div class="container">
-                @if ($sectionGallery)
-                    <header class="unit03-show__gallery__header d-flex flex-column align-items-center">
-                        @if ($sectionGallery->title || $sectionGallery->subtitle)
-                            <h4 class="unit03-show__gallery__subtitle">{{ $sectionGallery->subtitle }}</h4>
-                            <h3 class="unit03-show__gallery__title">{{ $sectionGallery->title }}</h3>
-                            <hr class="unit03-show__gallery__line">
-                        @endif
-                    </header>
-                @endif
 
-                @if ($galleries->count())
-                    <div class="unit03-show__gallery__list">
-                        @foreach ($galleries as $gallery)
-                            <div class="unit03-show__gallery__item {{ $gallery->link_video ? ' play-button' : '' }}">
-                                <a class="link-full"
-                                    href="{{ getUri($gallery->link_video != '' ? $gallery->link_video : asset('storage/' . $gallery->path_image)) }}"
-                                    data-fancybox>
-                                </a>
-                                <img src="{{ asset('storage/' . $gallery->path_image) }}" class="h-100 w-100 "
-                                    alt="">
-                                @if ($gallery->title)
-                                    <h3 class="unit03-show__gallery__item__title">{{ $gallery->title }}</h3>
-                                @endif
-                            </div>
-                        @endforeach
-                        <div class="unit03-show__gallery__item--big {{ $unit->link_video ? ' play-button' : '' }}">
-                            <a href="{{ getUri($unit->link_video != '' ? $unit->link_video : asset('storage/' . $unit->path_image_gallery)) }}"
-                                class="link-full" data-fancybox>
+            @if ($sectionGallery)
+                <header class="unit03-show__gallery__header">
+                    @if ($sectionGallery->subtitle)
+                        <h4 class="unit03-show__gallery__header__subtitle">{{ $sectionGallery->subtitle }}</h4>
+                    @endif
+                    @if ($sectionGallery->title)
+                        <h3 class="unit03-show__gallery__header__title">{{ $sectionGallery->title }}</h3>
+                    @endif
+                </header>
+            @endif
+
+            @if ($galleries->count())
+                <div class="unit03-show__gallery__list">
+
+                    @foreach ($galleries as $gallery)
+                        <div class="unit03-show__gallery__list__item {{ $gallery->link_video ? ' video' : '' }}">
+                            <a class="link-full"
+                                href="{{ getUri($gallery->link_video != '' ? $gallery->link_video : asset('storage/' . $gallery->path_image)) }}"
+                                data-fancybox>
                             </a>
-                            <img src="{{ asset('storage/' . $unit->path_image_gallery) }}" class="h-100 w-100"
-                                alt="">
-                            @if ($unit->title_gallery)
-                                <h3 class="unit03-show__gallery__item__title">{{ $unit->title_gallery }}</h3>
+                            <img src="{{ asset('storage/' . $gallery->path_image) }}"
+                                lass="unit03-show__gallery__list__item__image" alt="">
+                            @if ($gallery->title)
+                                <h3 class="unit03-show__gallery__list__item__title">{{ $gallery->title }}</h3>
                             @endif
                         </div>
+                    @endforeach
+
+                    <div class="unit03-show__gallery__list__item--big {{ $unit->link_video ? ' video' : '' }}">
+                        <a href="{{ getUri($unit->link_video != '' ? $unit->link_video : asset('storage/' . $unit->path_image_gallery)) }}"
+                            class="link-full" data-fancybox>
+                        </a>
+                        <img src="{{ asset('storage/' . $unit->path_image_gallery) }}"
+                            class="unit03-show__gallery__list__item__image" alt="{{ $unit->title_gallery }}">
+                        @if ($unit->title_gallery)
+                            <h3 class="unit03-show__gallery__list__item__title">{{ $unit->title_gallery }}</h3>
+                        @endif
                     </div>
-                @endif
-            </div>
+                </div>
+            @endif
+
         </section>
 
         @foreach ($sections as $section)

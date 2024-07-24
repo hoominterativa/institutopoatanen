@@ -300,6 +300,14 @@
         @include disFlex(row, space-between, center);
         flex-wrap: wrap;
 
+        &:nth-of-type(even) {
+            flex-direction: row-reverse;
+        }
+
+        @include large-device-down {
+            flex-direction: column;
+        }
+
         &__carousel {
             width: 49%;
             height: auto;
@@ -356,139 +364,85 @@
     }
 
     &__gallery {
-        padding: 62px 0 66px 0;
+        @extend %theme__padding;
+
         &__header {
-            margin-bottom: 61px;
-        }
+            @include disFlex(column, center, center);
+            margin-bottom: 3.75rem;
 
-        &__subtitle {
-            font-size: $T5;
-            font-weight: 700;
-            text-align: center;
-            color: $color-black;
-            margin-bottom: 0;
-
-            @include medium-device-down {
-                font-size: $T5-mobile;
-            }
-        }
-
-        &__title {
-            font-size: $T2;
-            font-weight: 700;
-            text-align: center;
-            color: $color-one;
-            margin-bottom: 10px;
-
-            @include medium-device-down {
-                font-size: $T2-mobile;
-            }
-        }
-
-        &__line {
-            width: 100%;
-            border-top: 1px solid $color-one;
-            margin: 21px 0 0 0;
-            opacity: 1;
-        }
-
-        &__list {
-            @include Flex($justify: start, $align: stretch);
-            flex-wrap: wrap;
-            gap: 30px 24px;
-
-            @include medium-device-down {
-                gap: 16px;
-            }
-        }
-
-        &__item {
-            @include Flex($align: end);
-            position: relative;
-            width: calc(25% - 18px);
-            height: auto;
-            padding: 32px;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-
-            &.play-button::before {
-                content: "";
-                background-color: $color-three;
-                width: 20%;
-                max-width: 120px;
-                height: auto;
-                aspect-ratio: 1/1;
-                -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
-                clip-path: polygon(0 0, 0% 100%, 100% 50%);
-                position: absolute;
-                z-index: 5;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                opacity: 0.8;
-            }
-
-            &--big {
-                @extend .unit03-show__gallery__item;
-                width: 100% !important;
-                aspect-ratio: 1341/488 !important;
-
-                @include medium-device-down {
-                    aspect-ratio: 1/1 !important;
-                }
-            }
-
-            @include large-device-down {
-                width: calc(33% - 14px);
-            }
-
-            @include medium-device-down {
-                width: calc(50% - 8px);
-            }
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-                position: absolute;
-                inset: 0;
-                z-index: 1;
+            &__subtitle {
+                @extend %theme__t5-cb;
             }
 
             &__title {
-                font: $paragraph;
-                font-weight: 700;
-                color: $color-one;
+                @extend %theme__t2-c1;
+            }
+        }
+
+        &__list {
+            @include disFlex;
+            flex-wrap: wrap;
+            gap: 30px 24px;
+
+            &__item {
+                @include disFlex(row, start, end);
                 position: relative;
-                padding-bottom: 4px;
-                margin-bottom: 0;
-                line-height: 170%;
-                z-index: 5;
-                width: 100%;
+                width: calcWidth(4, 24px);
+                height: auto;
+                padding: 32px;
+                aspect-ratio: 1/1;
+                overflow: hidden;
+
+                @include large-device-down {
+                    width: calcWidth(3, 24px);
+                }
 
                 @include medium-device-down {
-                    font: $paragraph-mobile;
+                    width: calcWidth(2, 24px);
                 }
 
-                &::before {
+                &.video::before {
                     content: "";
+                    background-color: $color-three;
+                    width: 20%;
+                    max-width: 120px;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
+                    clip-path: polygon(0 0, 0% 100%, 100% 50%);
                     position: absolute;
-                    background-color: $color-one;
-                    left: -34px;
-                    bottom: 0;
-                    width: 24px;
-                    height: 24px;
+                    z-index: 5;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 0.8;
                 }
 
-                &::after {
-                    content: "";
+                &--big {
+                    @extend .unit03-show__gallery__list__item;
+                    width: 100% !important;
+                    aspect-ratio: 1341/488 !important;
+
+                    @include medium-device-down {
+                        aspect-ratio: 1/1 !important;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
                     position: absolute;
-                    background-color: $color-one;
-                    height: 1px;
-                    width: 80%;
-                    left: -10px;
-                    bottom: 1px;
+                    inset: 0;
+                    z-index: 1;
+                }
+
+                &__title {
+                    @extend %theme__p1-c1;
+                    font-weight: 700;
+                    z-index: 5;
+                    width: 100%;
                 }
             }
         }
