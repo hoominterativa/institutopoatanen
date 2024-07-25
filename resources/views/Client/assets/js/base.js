@@ -1,4 +1,10 @@
-import '../../Core/Headers/HEAD02/src/main';
+import '../../Core/Headers/HEAD03/src/main';
 import '../../Components/themeMenu/SIDE03/src/main';
 import '../../Core/Footers/FOOT02/src/main';
+import '../../pages/Slides/SLID01/src/main';
+import '../../pages/Topics/TOPI01/src/main';
+import '../../pages/Topics/TOPI101/src/main';
+import '../../pages/Topics/TOPI09/src/main';
+import '../../pages/Feedbacks/FEED03/src/main';
+import '../../pages/Units/UNIT03/src/main';
 import '../../pages/Compliances/COMP01/src/main';
