@@ -1,8 +1,8 @@
+import Swiper from 'swiper/bundle';
 
-const buttonsPlay = document.querySelectorAll('#video_play');
+const buttonsPlay = document.querySelector('#video_play');
 if(buttonsPlay) {
-    buttonsPlay.forEach(el =>{
-        el.addEventListener('click', () =>{
+    buttonsPlay.addEventListener('click', () =>{
             const src = el.parentNode.dataset.src;
             const iframe = document.createElement('iframe');
 
@@ -10,23 +10,19 @@ if(buttonsPlay) {
             iframe.classList.add('copa04-page__video-section__video__iframe');
             iframe.setAttribute('id', 'urlYoutube');
 
-            el.style.display = 'none';
+            buttonsPlay.style.display = 'none';
 
-            el.parentNode.appendChild(iframe);
+            buttonsPlay.parentNode.appendChild(iframe);
 
-        })
+
     })
 }
 
-new Swiper(".copa04-page__topics-carousel__carousel", {
-    slidesPerView: "auto",
+new Swiper('.copa04-page__topics-carousel__carousel', {
+    slidesPerView: 'auto',
     spaceBetween: 12,
-    // navigation: {
-    //     prevEl: ".copa04-page__topics-carousel__butons-down__right",
-    //     nextEl: ".copa04-page__topics-carousel__butons-down__left",
-    // },
-    // pagination: {
-    //   el: ".swiper-pagination",
-    //   clickable: true,
-    // },
-  });
+    navigation: {
+        nextEl: ".copa04-page__topics-carousel__carousel__swiper-button-next",
+        prevEl: ".copa04-page__topics-carousel__carousel__swiper-button-prev",
+      },
+});

@@ -1,11 +1,17 @@
 {{-- BEGIN Page content --}}
 @extends('Client.Core.client')
 @section('content')
-    {{-- BEGIN Page content --}}
-    <style>
-        {{-- --color-bgcolor: #CACACA; --}}
-    </style>
     <main id="root" class="copa04-page">
+        {{-- BEGIN Page content --}}
+        <style>
+            :root {
+                --color-bgcolor: red;
+                --topicsCarousel: #EFEFEF;
+                --bg-topicsCarousel: rgb(159, 159, 255);
+                /* --bg-test: @php echo isset($cor) && !empyt($cor) ? $cor :'#65ff00'; @endphp
+                */
+            }
+        </style>
         <section class="copa04-page__hero">
             <aside class="copa04-page__hero__aside">
                 <img class="copa04-page__hero__aside__logo" src="{{ asset('images/gray.png') }}"
@@ -47,8 +53,6 @@
                         src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                 </button>
             </div>
-            {{-- <img class="copa04-page__video__container__video" id="video_play"
-                src="{{ asset('storage/uploads/tmp/box-port02.png') }}" alt=""> --}}
         </section>
 
         {{-- Seção Highlighted --}}
@@ -116,7 +120,7 @@
             </header>
             <div class="copa04-page__topics-carousel__carousel">
                 <div class="copa04-page__topics-carousel__swiper-wrapper swiper-wrapper">
-                    @for ($i = 0; $i < 4; $i++)
+                    @for ($i = 0; $i < 10; $i++)
                         <div class="copa04-page__topics-carousel__carousel__item swiper-slide">
                             <img class="copa04-page__topics-carousel__carousel__item__icon"
                                 src="{{ asset('images/icon.svg') }}" alt="ícone do tópico {{-- title --}}">
@@ -132,18 +136,8 @@
                         </div>
                     @endfor
                 </div>
-                {{-- <div class="copa04-page__topics-carousel__butons-down">
-                    <div>
-                        <img class="copa04-page__topics-carousel__butons-down__right"
-                            src="{{ asset('storage/uploads/tmp/arrow.png') }}" alt="">
-                    </div>
-                    <div>
-                        <img class="copa04-page__topics-carousel__butons-down__left"
-                            src="{{ asset('storage/uploads/tmp/arrow.png') }}" alt="">
-                    </div>
-                </div> --}}
             </div>
-
+            <a href="#" class="copa04-page__topics-carousel__cta">CTA</a>
         </section>
 
         {{-- Seção Gallery Topics --}}

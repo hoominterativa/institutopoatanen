@@ -89,8 +89,7 @@ details .details-content {
   aspect-ratio: 6/4;
   background-color: #7c7c7c;
   content: "";
-  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: all ease 0.4s;
 }
 .quedinha__btn * {
@@ -167,7 +166,7 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.swiper, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
+.copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -280,6 +279,21 @@ details .details-content {
 .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
+}
+.copa04-page__topics-carousel__carousel__navigation {
+  --swiper-navigation-size: 0.75rem; /* Variável que define o tamanho do botão e do after */
+  --swiper-navigation-color: $color-one; /* Variável que define a cor do after (setas) */
+  position: relative;
+  width: 5rem; /* Tamanho do botão interno * 2 + GAP */
+  height: 2rem; /* Garante que o tamanho do botão esteja dentro do box. Caso o size seja alterado, deve-se alterar o tamanho do height */
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.copa04-page__topics-carousel__carousel__navigation:has(.swiper-button-lock) {
+  display: none;
 }
 /*******************************************************************************************************************************************/
 .form-check-input {
@@ -2552,8 +2566,12 @@ body .owl-dots .owl-dot.active {
 .copa04-page__topics__cta {
   margin: 3.25rem auto 0;
 }
+.copa04-page__topics-carousel {
+  background-color: var(--bg-topicsCarousel);
+}
 .copa04-page__topics-carousel__header {
   width: 100%;
+  margin-bottom: 3.5rem;
 }
 .copa04-page__topics-carousel__header__title {
   margin-bottom: 0;
@@ -2569,6 +2587,7 @@ body .owl-dots .owl-dot.active {
 }
 .copa04-page__topics-carousel__carousel {
   overflow: hidden;
+  background-color: var(--bg-topicsCarousel);
 }
 @media (max-width: 991.98px) {
   .copa04-page__topics-carousel__carousel {
@@ -2576,12 +2595,22 @@ body .owl-dots .owl-dot.active {
   }
 }
 .copa04-page__topics-carousel__carousel__item {
+  /* Quantidade de gaps * gap (espaçamento)/ quantidade de elementos */
   width: calc(25% - 9px);
+  height: auto;
+  background-color: #efefef;
+  padding: 4rem 3rem 1.75rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   gap: 1.5rem;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__topics-carousel__carousel__item {
+    width: 18.5rem;
+    height: auto;
+  }
 }
 .copa04-page__topics-carousel__carousel__item__icon {
   width: 3.75rem;
@@ -2593,30 +2622,7 @@ body .owl-dots .owl-dot.active {
      object-position: center;
 }
 .copa04-page__topics-carousel__cta {
-  margin: 0 auto;
-}
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  font-size: 18px;
-  background: #7c7c7c;
-  justify-content: center;
-  align-items: center;
-  width: 298.29px;
-  height: 270.21px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  width: 57.02px;
-  height: 57.02px;
+  margin: 3.5rem auto 0;
 }
 
 /* BEGIN STYLE */
