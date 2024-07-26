@@ -182,6 +182,20 @@
 
         {{-- Seção Additional Content --}}
         <section class="copa04-page__additional-content">
+            <div class="copa04-page__additional-content__header">
+                <div class="copa04-page__additional-content__header__title"> title</div>
+                <div class="copa04-page__additional-content__header__subtitle"> Subtitle</div>
+                <div class="copa04-page__additional-content__header__paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Expedita eaque ducimus cumque culpa! Obcaecati expedita accusamus ratione eligendi sint,
+                    nemo sapiente soluta saepe rem alias nobis ad voluptate. Incidunt, expedita.</div>
+                <a class="copa04-page__additional-content__header__cta" href="">CTA</a>
+            </div>
+
+                <div class="copa04-page__additional-content__carousel">
+                    <img class="copa04-page__additional-content__carousel__image" src="{{ asset('images/bg-colorido.svg') }}" alt="{Image}">
+                </div>
+
         </section>
 
         {{-- Seção Additional Topics Carousel --}}

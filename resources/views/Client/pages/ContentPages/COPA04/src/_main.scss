@@ -422,4 +422,61 @@
             }
         }
     }
+
+    &__additional-content {
+        background-color: $color-six;
+        @extend %theme__padding;
+        @include disFlex(row, space-between, center);
+        gap: 6rem;
+
+        @include large-device-down {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        &__header {
+            width: calc(100% - 33.33% - 6rem);
+            height: auto;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__title {
+                @extend %theme__t2-cb;
+                text-align: left;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: left;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 1.5rem;
+            }
+
+            &__cta {
+                @extend %theme__cta;
+                margin-top: 0.75rem;
+            }
+        }
+
+        &__carousel {
+            width: 33%;
+            height: auto;
+            aspect-ratio: 538/481;
+
+            &__image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+
+            }
+        }
+    }
 }
