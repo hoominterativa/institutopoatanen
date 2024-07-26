@@ -3,7 +3,7 @@ import Swiper from 'swiper/bundle';
 const buttonsPlay = document.querySelector('#video_play');
 if(buttonsPlay) {
     buttonsPlay.addEventListener('click', () =>{
-            const src = el.parentNode.dataset.src;
+            const src = buttonsPlay.parentNode.dataset.src;
             const iframe = document.createElement('iframe');
 
             iframe.setAttribute('src', src+'?autoplay=1');
@@ -21,8 +21,9 @@ if(buttonsPlay) {
 new Swiper('.copa04-page__topics-carousel__carousel', {
     slidesPerView: 'auto',
     spaceBetween: 12,
-    navigation: {
-        nextEl: ".copa04-page__topics-carousel__carousel__swiper-button-next",
-        prevEl: ".copa04-page__topics-carousel__carousel__swiper-button-prev",
-      },
+});
+
+new Swiper('.copa04-page__gallery-topics__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 12,
 });

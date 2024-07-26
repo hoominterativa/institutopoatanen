@@ -142,6 +142,42 @@
 
         {{-- Seção Gallery Topics --}}
         <section class="copa04-page__gallery-topics">
+            <header class="copa04-page__gallery-topics__header">
+                <h2 class="copa04-page__gallery-topics__header__title">Title</h2>
+                <h3 class="copa04-page__gallery-topics__header__subtitle">Subtitle</h3>
+                <div class="copa04-page__gallery-topics__header__paragraph">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae pariatur distinctio unde
+                        similique. Animi itaque minima eius dolor voluptatem nulla, laboriosam porro officiis, ducimus
+                        necessitatibus iure sequi tenetur quaerat? Temporibus.</p>
+                </div>
+            </header>
+            <div class="copa04-page__gallery-topics__carousel">
+                <div class="copa04-page__gallery-topics__carousel__swiper-wrapper swiper-wrapper">
+                    @for ($i = 0; $i < 10; $i++)
+                        <div class="copa04-page__gallery-topics__carousel__item swiper-slide">
+                            {{-- se image usar essa estrutura --}}
+                            {{-- <img class="copa04-page__gallery-topics__carousel__item__image"
+                                src="{{ asset('images/bg-colorido.svg') }}" alt="Imagem do tópico {{-- title "> --}}
+
+                            {{-- se video --}}
+                            <div data-fancybox data-src="https://www.youtube.com/embed/EDnIEWyVIlE" class="copa04-page__gallery-topics__carousel__item__video"
+                                style="background-image: url('{{asset('images/bg-colorido.svg')}}')">
+                                <button id="video_play" class="copa04-page__gallery-topics__carousel__item__video__button">
+                                    <img class="copa04-page__gallery-topics__carousel__item__video__button__icon"
+                                        src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
+                                </button>
+                            </div>
+
+                            <div class="copa04-page__gallery-topics__carousel__item__information">
+                                <h4 class="copa04-page__gallery-topics__carousel__item__information__title">Title
+                                    {{ $i }}</h4>
+                                <p class="copa04-page__gallery-topics__carousel__item__information__paragraph">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed distinctio ullam voluptas
+                                    nihil
+                            </div>
+                        </div>
+                    @endfor
+                </div>
         </section>
 
         {{-- Seção Additional Content --}}

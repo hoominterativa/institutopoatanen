@@ -12430,7 +12430,7 @@ __webpack_require__.r(__webpack_exports__);
 var buttonsPlay = document.querySelector('#video_play');
 if (buttonsPlay) {
   buttonsPlay.addEventListener('click', function () {
-    var src = el.parentNode.dataset.src;
+    var src = buttonsPlay.parentNode.dataset.src;
     var iframe = document.createElement('iframe');
     iframe.setAttribute('src', src + '?autoplay=1');
     iframe.classList.add('copa04-page__video-section__video__iframe');
@@ -12441,11 +12441,11 @@ if (buttonsPlay) {
 }
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.copa04-page__topics-carousel__carousel', {
   slidesPerView: 'auto',
-  spaceBetween: 12,
-  navigation: {
-    nextEl: ".copa04-page__topics-carousel__carousel__swiper-button-next",
-    prevEl: ".copa04-page__topics-carousel__carousel__swiper-button-prev"
-  }
+  spaceBetween: 12
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.copa04-page__gallery-topics__carousel', {
+  slidesPerView: 'auto',
+  spaceBetween: 12
 });
 
 /***/ }),

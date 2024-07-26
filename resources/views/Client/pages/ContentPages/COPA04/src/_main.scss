@@ -1,5 +1,5 @@
 /* BEGIN STYLE */
-@import 'variables';
+@import "variables";
 
 .copa04-page {
     &__hero {
@@ -15,7 +15,7 @@
         &::after {
             position: absolute;
             display: block;
-            content: '';
+            content: "";
             width: calc(100% + 10vw);
             height: calc(5rem + 3%);
             z-index: -1;
@@ -26,7 +26,6 @@
 
         @include large-device-down {
             flex-direction: column;
-
         }
 
         &__aside {
@@ -44,7 +43,6 @@
             &__cta {
                 @extend %theme__cta;
             }
-
         }
 
         &__information {
@@ -53,7 +51,7 @@
             @include disFlex(column, start, start);
 
             @include large-device-down {
-                width: 100%
+                width: 100%;
             }
 
             &__header {
@@ -92,10 +90,9 @@
             object-position: center;
 
             @include large-device-down {
-                width: 100%
+                width: 100%;
             }
         }
-
     }
 
     &__video-section {
@@ -120,7 +117,6 @@
             text-align: center;
             max-width: 888px;
             margin: 0.75rem auto 0;
-
         }
 
         &__video {
@@ -134,7 +130,6 @@
                 max-width: 100%;
             }
 
-
             &__button {
                 outline: none;
                 border: none;
@@ -146,7 +141,6 @@
                 height: 100%;
             }
         }
-
     }
 
     &__highlighted {
@@ -169,11 +163,9 @@
                 width: 100%;
             }
 
-
             &__title {
                 @extend %theme__t2-cb;
                 text-align: left;
-
             }
 
             &__subtitle {
@@ -203,9 +195,7 @@
             @include large-device-down {
                 width: 100%;
             }
-
         }
-
     }
 
     &__topics {
@@ -265,11 +255,10 @@
                 }
 
                 &__paragraph {
-                    @extend %theme__p2-cb
+                    @extend %theme__p2-cb;
                 }
             }
         }
-
 
         &__cta {
             @extend %theme__cta;
@@ -308,10 +297,6 @@
             overflow: hidden;
             background-color: var(--bg-topicsCarousel);
 
-            &__navigation{
-                @extend %theme__nav;
-            }
-
             @include large-device-down {
                 overflow: visible;
             }
@@ -344,7 +329,7 @@
                 }
 
                 &__paragraph {
-                    @extend %theme__p2-cb
+                    @extend %theme__p2-cb;
                 }
             }
         }
@@ -352,7 +337,89 @@
         &__cta {
             margin: 3.5rem auto 0;
             @extend %theme__cta;
+        }
+    }
 
+    &__gallery-topics {
+        @extend %theme__padding;
+
+        &__header {
+            width: 100%;
+            margin-bottom: 3.5rem;
+
+            &__title {
+                @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        &__carousel {
+            overflow: hidden;
+            @include large-device-down {
+                overflow: visible;
+            }
+
+            &__item {
+                /* Quantidade de gaps * gap (espaçamento)/ quantidade de elementos */
+                width: calc(25% - 9px);
+                height: auto;
+                @include disFlex(column, start, center);
+
+                @include large-device-down {
+                    width: 18.5rem;
+                }
+
+                &__image {
+                    width: 100%;
+                    height: 16.875rem;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                &__video {
+                    width: 100%;
+                    height: 16.875rem;
+                    @include bg;
+
+                    @include disFlex(column, center, center);
+
+                    &__button {
+                        outline: none;
+                        border: none;
+                        background-color: transparent;
+                        border-radius: 50%;
+                    }
+                }
+
+                &__information {
+                    padding: 2rem 1.25rem;
+                    background-color: $color-four;
+
+                    &__title {
+                        @extend %theme__t5-cb;
+                        text-align: center;
+                    }
+
+                    &__paragraph {
+                        @extend %theme__p2-cb;
+                        text-align: center;
+                        margin-top: 1rem;
+                    }
+                }
+            }
         }
     }
 }
