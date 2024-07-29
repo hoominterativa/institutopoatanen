@@ -214,18 +214,39 @@
 
         {{-- Seção Additional Topics Carousel --}}
         <section class="copa04-page__additional-topics">
-            <div class="copa04-page__additional-topics__carousel swiper-wrapper">
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="copa04-page__additional-topics__carousel__item">
-                        <img class="copa04-page__additional-topics__carousel__item__image"
-                            src="https://media.discordapp.net/attachments/1007376649874067466/1267538183306870886/03ce7465-4a46-4fca-aa05-6682ebd661d2.png?ex=66a9266c&is=66a7d4ec&hm=d859e951fdcbae15fe49f921fbda6b943db396b76e4a594001cc8fbb73b5786e&=&format=webp&quality=lossless&width=430&height=702"
-                            alt=" {{-- title --}}">
-                        <h2 class="copa04-page__additional-topics__carousel__item__title">Title {{ $i }}</h2>
+            <div class="copa04-page__additional-topics__swiper-wrapper swiper-wrapper">
+                {{-- if image --}}
+                @for ($i = 0; $i < 2; $i++)
+                    <figure class="copa04-page__additional-topics__item swiper-slide">
+                        <img class="copa04-page__additional-topics__item__image"
+                            src="{{ asset('images/bg-colorido.svg') }}" alt=" {{-- title --}}">
+
+                        <figcaption class="copa04-page__additional-topics__item__title">Title
+                            {{ $i }}</figcaption>
+
+                        <a href="#" class="copa04-page__additional-topics__item__cta">cta</a>
+                    </figure>
+                @endfor
+
+                {{-- if video --}}
+                @for ($i = 0; $i < 6; $i++)
+                    <div class="copa04-page__additional-topics__item--video swiper-slide">
+                        <div data-fancybox data-src="https://www.youtube.com/embed/EDnIEWyVIlE"
+                            class="copa04-page__additional-topics__item--video__video"
+                            style="background-image: url('{{ asset('images/bg-colorido.svg') }}')">
+                            <button id="video_play" class="copa04-page__additional-topics__item--video__video__button">
+                                <img class="copa04-page__additional-topics__item--video__video__button__icon"
+                                    src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
+                            </button>
+                        </div>
+                        <p class="copa04-page__additional-topics__item--video__title">
+                            Título com video {{ $i }}
+                        </p>
+                        <a href="" class="copa04-page__additional-topics__item--video__cta">cta</a>
+
                     </div>
                 @endfor
             </div>
-
-
         </section>
 
         {{-- Seção FAQ --}}
@@ -235,7 +256,6 @@
         {{-- Seção Section Products --}}
         <section class="copa04-page__section-products">
         </section>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </main>
 
     @foreach ($sections as $section)

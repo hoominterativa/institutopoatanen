@@ -503,43 +503,87 @@
             }
         }
     }
+
     &__additional-topics {
+        max-width: 90vw;
+        margin-inline: auto;
         @extend %theme__padding;
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
 
         @include large-device-down {
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
+            overflow: visible;
         }
 
-        &__carousel {
-            gap: 1rem;
-            &__item {
+        &__item {
+            height: auto;
+            margin-bottom: 0;
+            width: calcWidth(4, 1rem);
+            @include disFlex(column, center, center);
+
+            @include large-device-down {
+                width: rem(298);
+            }
+
+            &__image {
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            &__title {
+                width: 100%;
                 background-color: $color-five;
-                height: auto;
+                @extend %theme__t5-cb;
+                text-align: center;
+                padding: 1.75rem;
+            }
+
+            &__cta {
+                @extend %theme__cta;
+                margin: 3.25rem auto 0;
+            }
+
+            &--video {
                 width: calcWidth(4, 1rem);
-                @include disFlex(column, center, center);
+                height: auto;
+                @include disFlex(column, center, stretch);
 
                 @include large-device-down {
-                    width: 100%;
+                    width: rem(298);
                 }
 
-                &__image {
+                &__video {
+                    @include bg;
+                    @include disFlex(column, center, center);
                     width: 100%;
-                    height: 100%;
-                    aspect-ratio: 1/1;
-                    object-fit: cover;
-                    object-position: center;
+                    height: auto;
+                    aspect-ratio: 1 / 1;
+
+                    &__button {
+                        outline: none;
+                        border: none;
+                        background-color: transparent;
+
+                        &__icon {
+                            width: 3.75rem;
+                            height: auto;
+                            aspect-ratio: 1/1;
+                            object-fit: contain;
+                            object-position: center;
+                        }
+                    }
                 }
 
                 &__title {
-                    @extend %theme__t5-cb;
-                    text-align: center;
-                    margin-top: 1.75rem;
+                    @extend .copa04-page__additional-topics__item__title;
                 }
-                &__CTA {
+                &__cta {
                     @extend %theme__cta;
-                    margin: 3.25rem auto 0;
+                    margin: auto auto 0;
                 }
             }
         }
