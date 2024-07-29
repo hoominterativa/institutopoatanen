@@ -4,8 +4,8 @@
         "dev": "npm run development --admin=true",
         "development": "mix",
         "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "client": "mix watch -- --watch-options-poll=1000",
+        "watch-poll": "mix watch -- --watch-options-poll=250",
+        "client": "mix watch -- --watch-options-poll=250",
         "hot": "mix watch --hot",
         "prod": "npm run production --admin=true",
         "production": "mix --production"

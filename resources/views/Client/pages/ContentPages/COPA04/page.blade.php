@@ -199,7 +199,19 @@
         </section>
 
         {{-- Seção Additional Topics Carousel --}}
-        <section class="copa04-page__additional-topics-carousel">
+        <section class="copa04-page__additional-topics">
+           
+            <div class="copa04-page__additional-topics__carousel swiper-wrapper">
+                @for ($i = 0; $i < 4; $i++)
+                <div class="copa04-page__additional-topics__carousel__item">
+                    <img class="copa04-page__additional-topics__carousel__item__image"  src="https://media.discordapp.net/attachments/1007376649874067466/1267538183306870886/03ce7465-4a46-4fca-aa05-6682ebd661d2.png?ex=66a9266c&is=66a7d4ec&hm=d859e951fdcbae15fe49f921fbda6b943db396b76e4a594001cc8fbb73b5786e&=&format=webp&quality=lossless&width=430&height=702"
+                        alt=" {{-- title --}}">
+                    <h2 class="copa04-page__additional-topics__carousel__item__title">Title {{ $i }}</h2>
+                </div>
+                @endfor
+            </div>
+                
+                
         </section>
 
         {{-- Seção FAQ --}}
