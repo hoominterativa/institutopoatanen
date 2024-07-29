@@ -166,39 +166,39 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
+.copa04-page__faq, .copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
+.copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
+  .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
     font-size: 1.875rem;
   }
 }
-.copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
+.copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
   color: #000;
 }
-.copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
 }
-.copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle {
+.copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle {
   color: #7c7c7c;
 }
 .copa04-page__additional-topics__item__title, .copa04-page__additional-topics__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
@@ -214,12 +214,12 @@ details .details-content {
 .copa04-page__additional-topics__item__title, .copa04-page__additional-topics__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
   color: #000;
 }
-.copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+.copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.copa04-page__additional-topics__item--video__cta p, .copa04-page__additional-topics__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side03__navigation__cta p {
+.copa04-page__additional-topics__item--video__cta p, .copa04-page__additional-topics__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .copa04-page__faq__item__title p, .side03__navigation__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -227,25 +227,25 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+  .copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
     font-size: 0.938rem;
   }
 }
 .side03__navigation__cta {
   color: #fff;
 }
-.copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title {
   color: #000;
 }
 .copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
   color: #404040;
 }
-.foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+.copa04-page__faq__item__paragraph, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.foot02__copyright__compliances__item p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p {
+.copa04-page__faq__item__paragraph p, .foot02__copyright__compliances__item p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -253,7 +253,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+  .copa04-page__faq__item__paragraph, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -263,6 +263,9 @@ details .details-content {
 }
 .foot02__copyright__compliances__item {
   color: #404040;
+}
+.copa04-page__faq__item__paragraph {
+  color: #7c7c7c;
 }
 .copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
   display: flex;
@@ -280,6 +283,32 @@ details .details-content {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
+.copa04-page__faq__item {
+  border-bottom: solid 1px rgba(64, 64, 64, 0.2);
+}
+[open].copa04-page__faq__item .copa04-page__faq__item__title::after {
+  transform: rotate(180deg);
+  transition: transform 0.2s linear;
+}
+.copa04-page__faq__item__title {
+  padding: 1rem 0.5rem;
+  font-weight: 700;
+}
+.copa04-page__faq__item__title::after {
+  position: absolute;
+  right: 0.5rem;
+  width: 1.5rem;
+  height: 1.25rem;
+  content: "";
+  background-color: #404040;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  transition: transform 0.2s ease-out;
+}
+.copa04-page__faq__item__paragraph {
+  padding: 1rem;
+  background-color: #efefef;
+}
+
 /*******************************************************************************************************************************************/
 .form-check-input {
   width: 1.2em;
@@ -2846,7 +2875,22 @@ body .owl-dots .owl-dot.active {
 .copa04-page__additional-topics__item--video__cta {
   margin: auto auto 0;
 }
-
+.copa04-page__faq__header {
+  width: 100%;
+  margin-bottom: 3.375rem;
+}
+.copa04-page__faq__header__title {
+  margin-bottom: 0;
+  text-align: center;
+}
+.copa04-page__faq__header__subtitle {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+.copa04-page__faq__header__paragraph {
+  margin-top: 0.75rem;
+  text-align: center;
+}
 /* BEGIN STYLE */
 .comp01-page__header {
   text-align: center;

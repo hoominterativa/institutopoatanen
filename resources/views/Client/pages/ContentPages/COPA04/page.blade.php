@@ -251,6 +251,27 @@
 
         {{-- Seção FAQ --}}
         <section class="copa04-page__faq">
+            <header class="copa04-page__faq__header">
+                <h2 class="copa04-page__faq__header__title">Title</h2>
+                <h3 class="copa04-page__faq__header__subtitle">Subtitle</h3>
+                <div class="copa04-page__faq__header__paragraph">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum
+                        quia
+                        aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
+                </div>
+            </header>
+            @for ($i0; $i < 10; $i++)
+                <details class="copa04-page__faq__item">
+                    <summary class="copa04-page__faq__item__title" aria-level="3" role="heading">
+                        Título
+                    </summary>
+                    <p class="copa04-page__faq__item__paragraph details-content">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, vel sunt aperiam nam dolores
+                        atque.
+                    </p>
+                </details>
+            @endfor
         </section>
 
         {{-- Seção Section Products --}}

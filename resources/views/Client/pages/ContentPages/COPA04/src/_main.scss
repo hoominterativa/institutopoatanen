@@ -588,4 +588,43 @@
             }
         }
     }
+
+    &__faq {
+        @extend %theme__padding;
+
+        &__header {
+            width: 100%;
+            margin-bottom: rem(54);
+
+            &__title {
+                @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        &__item {
+            @extend %theme__accordion__item;
+
+            &__title {
+                @extend %theme__accordion__item__title;
+            }
+
+            &__paragraph {
+                @extend %theme__accordion__item__paragraph;
+            }
+        }
+    }
 }
