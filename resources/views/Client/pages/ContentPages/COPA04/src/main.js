@@ -28,7 +28,7 @@ new Swiper('.copa04-page__gallery-topics__carousel', {
     spaceBetween: 12,
 });
 
-new Swiper('.copa04-page__additional-topics', {
-    slidesPerView: 'auto',
+new Swiper('.copa04-page__additional-content__carousel', {
+    slidesPerView: 1,
     spaceBetween: 12,
 });
