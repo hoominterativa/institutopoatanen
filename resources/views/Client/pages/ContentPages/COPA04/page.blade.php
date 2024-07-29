@@ -276,6 +276,45 @@
 
         {{-- Seção Section Products --}}
         <section class="copa04-page__section-products">
+            <header class="copa04-page__section-products__header">
+                <h2 class="copa04-page__section-products__header__title">Title</h2>
+                <h3 class="copa04-page__section-products__header__subtitle">Subtitle</h3>
+                <div class="copa04-page__section-products__header__paragraph">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum
+                        quia
+                        aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
+                </div>
+            </header>
+            <div class="copa04-page__section-products__carousel">
+                <div class="copa04-page__section-products__carousel__swiper-wrapper swiper-wrapper">
+                    @for ($i = 0; $i < 3; $i++)
+                        <div class="copa04-page__section-products__carousel__item swiper-slide">
+                            {{-- if tag --}}
+                            <span class="copa04-page__section-products__carousel__item__tag">Promoção</span>
+                            <h4 class="copa04-page__section-products__carousel__item__title">Title</h4>
+                            <h5 class="copa04-page__section-products__carousel__item__subtitle">Title</h5>
+                            <div class="copa04-page__section-products__carousel__item__paragraph">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quam esse et, debitis
+                                    magnam tempore placeat aperiam dignissimos illo, ipsam nesciunt omnis quis nam odit
+                                    nihil
+                                    animi tenetur nobis velit.
+                                </p>
+                            </div>
+                            <div class="copa04-page__section-products__carousel__item__price">
+                                <h6 class="copa04-page__section-products__carousel__item__price__title">Subtitulo</h6>
+                                <p class="copa04-page__section-products__carousel__item__price__paragraph">R$ <b>00,00</b>
+                                </p>
+
+                            </div>
+                            <a class="copa04-page__section-products__carousel__item__cta" href="#">CTA</a>
+
+
+                        </div>
+                    @endfor
+                </div>
+            </div>
+
         </section>
     </main>
 

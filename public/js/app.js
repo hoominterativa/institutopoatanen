@@ -12455,6 +12455,10 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.copa04-page__additio
   slidesPerView: 'auto',
   spaceBetween: 16
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.copa04-page__section-products__carousel', {
+  slidesPerView: 'auto',
+  spaceBetween: 16
+});
 
 /***/ }),
 

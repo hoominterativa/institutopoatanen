@@ -36,3 +36,7 @@ new Swiper('.copa04-page__additional-topics', {
     slidesPerView: 'auto',
     spaceBetween: 16,
 });
+new Swiper('.copa04-page__section-products__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+});

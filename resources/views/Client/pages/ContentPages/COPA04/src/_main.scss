@@ -627,4 +627,101 @@
             }
         }
     }
+
+    &__section-products {
+        @extend %theme__padding;
+
+        &__header {
+            width: 100%;
+            margin-bottom: 3.5rem;
+
+            &__title {
+                @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        &__carousel {
+            overflow: hidden;
+
+            @include large-device-down {
+                overflow: visible;
+            }
+            &__item {
+                background-color: $color-five;
+                position: relative;
+                width: calcWidth(3, 2.5rem);
+                height: auto;
+                flex-direction: column;
+                padding: 3rem 2.5rem 0;
+
+                &__tag {
+                    width: fit-content;
+                    display: block;
+                    background-color: $color-white;
+                    padding: 0.25rem 0.5rem;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    @extend %theme__p2-c2;
+                }
+
+                &__title {
+                    @extend %theme__t5-cb;
+                    text-align: center;
+                    margin: 0;
+                }
+                &__subtitle {
+                    @extend %theme__p2-c2;
+                    text-align: center;
+                    margin: 0;
+                }
+                &__paragraph {
+                    @extend %theme__p2-c2;
+
+                    margin-top: 3rem;
+                }
+
+                &__price {
+                    padding: 1rem 1.25rem;
+                    @include disFlex(row, center, center);
+                    background-color: $color-white;
+                    margin-top: 3rem;
+
+                    &__title {
+                        @extend %theme__p2-c2;
+                        margin-bottom: 0;
+                        padding-right: 0.5rem;
+                        border-right: solid 1px $color-black;
+                    }
+                    &__paragraph {
+                        @extend %theme__p2-c2;
+                        padding-left: 0.5rem;
+
+                        b {
+                            @extend %theme__t5-cb;
+                        }
+                    }
+                }
+
+                &__cta {
+                    @extend %theme__cta;
+                    margin: rem(12) auto 0;
+                }
+            }
+        }
+    }
 }
