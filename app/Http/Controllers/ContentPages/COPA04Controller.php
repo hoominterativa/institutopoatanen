@@ -2,201 +2,64 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPages;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 
 class COPA04Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Module/sectionHeros/images/';
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {   
-        $teste = COPA04ContentPages::paginate(30);
-        return view('Admin.cruds.ContentPages.COPA04.index', [
-            'teste' => $teste
+        $sectionHeros = COPA04ContentPagesSectionHero::paginate(30);
+
+        return view('Admin.cruds.ContentPages.COPA04.SectionHero.index', [
+            'sectionHeros' => $sectionHeros,
+            'cropSetting' => getCropImage('ContentPages', 'COPA01')
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
-
-        if(COPA04ContentPages::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
-        }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
-        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ContentPages\COPA04ContentPages  $COPA04ContentPages
-     * @return \Illuminate\Http\Response
-     */
     public function edit(COPA04ContentPages $COPA04ContentPages)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ContentPages\COPA04ContentPages  $COPA04ContentPages
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, COPA04ContentPages $COPA04ContentPages)
     {
-        $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($COPA04ContentPages, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($COPA04ContentPages, 'path_image');
-            $data['path_image'] = null;
-        }
-        */
-
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($COPA04ContentPages, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($COPA04ContentPages, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
-
-        if($COPA04ContentPages->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
-        }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
-        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ContentPages\COPA04ContentPages  $COPA04ContentPages
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(COPA04ContentPages $COPA04ContentPages)
     {
-        //storageDelete($COPA04ContentPages, 'path_image');
-        //storageDelete($COPA04ContentPages, 'path_archive');
 
-        if($COPA04ContentPages->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
-            return redirect()->back();
-        }
     }
 
-    /**
-     * Remove the selected resources from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
-        $COPA04ContentPagess = COPA04ContentPages::whereIn('id', $request->deleteAll)->get();
-        foreach($COPA04ContentPagess as $COPA04ContentPages){
-            storageDelete($COPA04ContentPages, 'path_image');
-            storageDelete($COPA04ContentPages, 'path_archive');
-        }
-        */
-
-        if($deleted = COPA04ContentPages::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
     }
-    /**
-    * Sort record by dragging and dropping
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
 
     public function sorting(Request $request)
     {
-        foreach($request->arrId as $sorting => $id){
-            COPA04ContentPages::where('id', $id)->update(['sorting' => $sorting]);
-        }
-        return Response::json(['status' => 'success']);
+
     }
 
     // METHODS CLIENT

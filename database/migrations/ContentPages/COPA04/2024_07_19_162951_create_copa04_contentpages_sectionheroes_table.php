@@ -15,7 +15,16 @@ class CreateCopa04ContentpagesSectionheroesTable extends Migration
     {
         Schema::create('copa04_contentpages_sectionheroes', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 191)->nullable();
+            $table->string('description', 255)->nullable();
+            $table->string('path_image', 191)->nullable();
+            $table->string('color_one', 100)->nullable();
+            $table->string('color_two', 100)->nullable();
+            $table->string('color_three', 100)->nullable();
+            $table->string('title_btn', 50)->nullable();
+            $table->string('link', 255)->nullable();
             $table->integer('sorting')->default(0);
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }
