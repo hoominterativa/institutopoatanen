@@ -2,27 +2,26 @@
 
 namespace App\Models\ContentPages;
 
-use Database\Factories\COPA04ContentPagesGallerytopicsFactory;
+use Database\Factories\COPA04ContentPagesAdditionalContentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class COPA04ContentPagesGallerytopics extends Model
+class COPA04ContentPagesAdditionalContent extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected static function newFactory()
     {
-        return COPA04ContentPagesGallerytopicsFactory::new();
+        return COPA04ContentPagesAdditionalContentFactory::new();
     }
 
-    protected $table = "copa04_contentpages_gallerytopics";
+    protected $table = "copa04_contentpages_additionalcontents";
     protected $fillable = [
         'title',
         'subtitle',
         'description',
-        'path_image',
-        'link_video',
-        'sorting',
+        'button_text',
+        'button_link',
         'active',
     ];
 

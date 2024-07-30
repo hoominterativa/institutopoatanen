@@ -18,7 +18,7 @@ class COPA04Topiccarousel_cardsController extends Controller
 
     public function create()
     {
-        return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.create');
+        return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.cards.create');
     }
 
 
@@ -46,7 +46,7 @@ class COPA04Topiccarousel_cardsController extends Controller
 
     public function edit(COPA04ContentPagesTopiccarousel_cards $COPA04ContentPagesTopiccarousel_cards)
     {
-       return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.edit', compact('COPA04ContentPagesTopiccarousel_cards'));
+       return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.cards.edit', compact('COPA04ContentPagesTopiccarousel_cards'));
     }
 
 

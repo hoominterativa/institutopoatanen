@@ -18,7 +18,7 @@ class CreateCopa04ContentpagesTopiccarouselsTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
-            $table->string('button_text', 20)->nullable();
+            $table->string('button_text')->nullable();
             $table->string('button_link')->nullable();
             $table->boolean('active')->default(0);
             $table->softDeletes();
