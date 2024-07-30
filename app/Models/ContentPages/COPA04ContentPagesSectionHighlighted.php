@@ -2,7 +2,7 @@
 
 namespace App\Models\ContentPages;
 
-use Database\Factories\COPA04ContentPagesSectionHighlightedFactory;
+use Database\Factories\ContentPages\COPA04ContentPagesSectionHighlightedFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,8 +15,17 @@ class COPA04ContentPagesSectionHighlighted extends Model
         return COPA04ContentPagesSectionHighlightedFactory::new();
     }
 
-    protected $table = "";
-    protected $fillable = [];
+    protected $table = "copa04_contentpages_sectionhighlighteds";
+    protected $fillable = [
+        'title',
+        'subtitle',
+        'text',
+        'link',
+        'btn_title',
+        'path_image',
+        'active',
+        'sorting'
+    ];
 
     public function scopeSorting($query)
     {

@@ -14,7 +14,7 @@
                 {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
             </div>
             <div class="basic-editor__content mb-3 col-12">
-                {!! Form::label('basic-editor', 'Basic Editor', ['class'=>'form-label']) !!}
+                {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
                 {!! Form::textarea('description', null, [
                     'class'=>'form-control basic-editor',
                     'id'=>'basic-editor',

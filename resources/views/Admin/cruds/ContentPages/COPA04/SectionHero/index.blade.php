@@ -39,9 +39,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#content" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#sectionHighlighteds" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Cadastrar Seção conteúdo
+                            Section Highlighteds
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida abaixo do conteúdo principal na página"></i>
@@ -153,6 +153,9 @@
                     </div>
                     <div class="tab-pane" id="sectionVideo">
                         @include('Admin.cruds.ContentPages.COPA04.SectionVideo.index')
+                    </div>
+                    <div class="tab-pane" id="sectionHighlighteds">
+                        @include('Admin.cruds.ContentPages.COPA04.SectionHighlighted.index')
                     </div>
                 </div>
                 <!-- end row -->

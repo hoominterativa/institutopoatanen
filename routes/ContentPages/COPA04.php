@@ -6,6 +6,7 @@ use App\Http\Controllers\ContentPages\COPA04Controller;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Http\Controllers\ContentPages\COPA04SectionHeroController;
 use App\Http\Controllers\ContentPages\COPA04SectionVideoController;
+use App\Http\Controllers\ContentPages\COPA04SectionHighlightedController;
 
 /**
  * Uncomment the code below
@@ -36,6 +37,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     
     Route::resource($route.'/sectionVideo', COPA04SectionVideoController::class)->names('admin.'.$routeName.'.sectionVideo')->parameters(['sectionVideo' => 'COPA04ContentPagesSectionVideo']);
     Route::post($route.'/sectionVideo/delete', [COPA04SectionVideoController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionVideo.destroySelected');
+    
+    Route::resource($route.'/sectionHighlighted', COPA04SectionHighlightedController::class)->names('admin.'.$routeName.'.sectionHighlighted')->parameters(['sectionHighlighted' => 'COPA04SectionHighlighted']);
+    Route::post($route.'/sectionHighlighted/delete', [COPA04SectionHighlightedController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionHighlighted.destroySelected');
+    Route::post($route.'/sectionHighlighted/sorting', [COPA04SectionHighlightedController::class, 'sorting'])->name('admin.'.$routeName.'.sectionHighlighted.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');
