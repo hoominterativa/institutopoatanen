@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class COPA04ContentPagesFaq extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected static function newFactory()
     {
