@@ -16,7 +16,7 @@ class CreateCopa04ContentpagesFaqsTable extends Migration
         Schema::create('copa04_contentpages_faqs', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->sting('subtitle')->nullable();
+            $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
             $table->boolean('active')->default(0);
             $table->softDeletes();
