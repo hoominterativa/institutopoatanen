@@ -2,7 +2,7 @@
 
 namespace App\Models\ContentPages;
 
-use Database\Factories\COPA04ContentPagesGallerytopicsFactory;
+use Database\Factories\ContentPages\COPA04ContentPagesGallerytopicsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

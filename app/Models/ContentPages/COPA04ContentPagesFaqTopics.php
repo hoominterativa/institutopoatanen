@@ -2,13 +2,13 @@
 
 namespace App\Models\ContentPages;
 
-use Database\Factories\COPA04ContentPagesFaqTopicsFactory;
+use Database\Factories\ContentPages\COPA04ContentPagesFaqTopicsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class COPA04ContentPagesFaqTopics extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected static function newFactory()
     {
