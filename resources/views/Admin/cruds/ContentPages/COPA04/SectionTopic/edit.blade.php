@@ -33,7 +33,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#topics" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link active d-flex align-items-center">
+                            class="nav-link d-flex align-items-center">
                             Tópicos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -49,11 +49,11 @@
                             <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                         {!! Form::close() !!}
                     </div>
+                    <div class="tab-pane" id="topics">
+                        @include('Admin.cruds.ContentPages.COPA04.Topics.index')
+                    </div>
                 </div>
 
-                <div class="tab-pane" id="topics">
-                    {{-- @include('Admin.cruds.ContentPages.COPA04.Topics.form') --}}
-                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>
