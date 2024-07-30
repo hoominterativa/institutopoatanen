@@ -12451,7 +12451,7 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.copa04-page__additio
   slidesPerView: 1,
   spaceBetween: 12
 });
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.copa04-page__additional-topics', {
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.copa04-page__additional-topics__carousel', {
   slidesPerView: 'auto',
   spaceBetween: 16
 });

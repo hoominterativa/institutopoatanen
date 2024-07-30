@@ -32,7 +32,7 @@ new Swiper('.copa04-page__additional-content__carousel', {
     slidesPerView: 1,
     spaceBetween: 12,
 });
-new Swiper('.copa04-page__additional-topics', {
+new Swiper('.copa04-page__additional-topics__carousel', {
     slidesPerView: 'auto',
     spaceBetween: 16,
 });

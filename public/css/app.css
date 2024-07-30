@@ -201,25 +201,25 @@ details .details-content {
 .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle {
   color: #7c7c7c;
 }
-.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__item__title, .copa04-page__additional-topics__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__item__title, .copa04-page__additional-topics__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+  .copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__item__title, .copa04-page__additional-topics__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
   color: #000;
 }
-.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
+.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__item--video__cta p, .copa04-page__additional-topics__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .copa04-page__faq__item__title p, .side03__navigation__cta p {
+.copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__carousel__item--video__cta p, .copa04-page__additional-topics__carousel__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .copa04-page__faq__item__title p, .side03__navigation__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -227,7 +227,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
+  .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
     font-size: 0.938rem;
   }
 }
@@ -237,7 +237,7 @@ details .details-content {
 .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title {
   color: #000;
 }
-.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
+.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
   color: #404040;
 }
 .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
@@ -267,7 +267,7 @@ details .details-content {
 .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph {
   color: #7c7c7c;
 }
-.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__item--video__cta, .copa04-page__additional-topics__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
+.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -279,7 +279,7 @@ details .details-content {
   border: none;
   font-weight: 700;
 }
-.copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__item--video__cta:focus, .copa04-page__additional-topics__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus {
+.copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__carousel__item--video__cta:focus, .copa04-page__additional-topics__carousel__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -2348,8 +2348,6 @@ body .owl-dots .owl-dot.active {
 .copa04-page__hero {
   position: relative;
   z-index: 0;
-  /* background-color: var(--color-bgcolor); */
-  background-color: gray;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2365,7 +2363,7 @@ body .owl-dots .owl-dot.active {
   height: calc(5rem + 3%);
   z-index: -1;
   left: -5vw;
-  background-color: #fff;
+  background-color: var(--bg-video-section, transparent);
   bottom: 0;
 }
 @media (max-width: 991.98px) {
@@ -2438,6 +2436,9 @@ body .owl-dots .owl-dot.active {
     width: 100%;
   }
 }
+.copa04-page__video-section {
+  background-color: var(--bg-video-section, transparent);
+}
 .copa04-page__video-section__title {
   text-align: center;
   max-width: 888px;
@@ -2478,7 +2479,7 @@ body .owl-dots .owl-dot.active {
   height: 100%;
 }
 .copa04-page__highlighted {
-  background-color: #e6e6e6;
+  background-color: var(--bg-higlighted, transparent);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2527,6 +2528,9 @@ body .owl-dots .owl-dot.active {
   .copa04-page__highlighted__image {
     width: 100%;
   }
+}
+.copa04-page__topics {
+  background-color: var(--bg-topics, transparent);
 }
 .copa04-page__topics__header {
   width: 100%;
@@ -2581,7 +2585,7 @@ body .owl-dots .owl-dot.active {
   margin: 3.25rem auto 0;
 }
 .copa04-page__topics-carousel {
-  background-color: var(--bg-topicsCarousel);
+  background-color: var(--bg-topics-carousel, transparent);
 }
 .copa04-page__topics-carousel__header {
   width: 100%;
@@ -2637,6 +2641,9 @@ body .owl-dots .owl-dot.active {
 }
 .copa04-page__topics-carousel__cta {
   margin: 3.5rem auto 0;
+}
+.copa04-page__gallery-topics {
+  background-color: var(--bg-gallery-topics, transparent);
 }
 .copa04-page__gallery-topics__header {
   width: 100%;
@@ -2790,18 +2797,17 @@ body .owl-dots .owl-dot.active {
      object-position: center;
 }
 .copa04-page__additional-topics {
-  max-width: 90vw;
-  margin-inline: auto;
-  padding-left: 0;
-  padding-right: 0;
+  background-color: var(--bg-additional-content, transparent);
+}
+.copa04-page__additional-topics__carousel {
   overflow: hidden;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__additional-topics {
+  .copa04-page__additional-topics__carousel {
     overflow: visible;
   }
 }
-.copa04-page__additional-topics__item {
+.copa04-page__additional-topics__carousel__item {
   height: auto;
   margin-bottom: 0;
   width: calc(25% - 0.75rem);
@@ -2811,11 +2817,11 @@ body .owl-dots .owl-dot.active {
   align-items: center;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__additional-topics__item {
+  .copa04-page__additional-topics__carousel__item {
     width: 18.625rem;
   }
 }
-.copa04-page__additional-topics__item__image {
+.copa04-page__additional-topics__carousel__item__image {
   width: 100%;
   height: 100%;
   aspect-ratio: 1/1;
@@ -2824,16 +2830,16 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.copa04-page__additional-topics__item__title, .copa04-page__additional-topics__item--video__title {
+.copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title {
   width: 100%;
   background-color: #efefef;
   text-align: center;
   padding: 1.75rem;
 }
-.copa04-page__additional-topics__item__cta {
+.copa04-page__additional-topics__carousel__item__cta {
   margin: 3.25rem auto 0;
 }
-.copa04-page__additional-topics__item--video {
+.copa04-page__additional-topics__carousel__item--video {
   width: calc(25% - 0.75rem);
   height: auto;
   display: flex;
@@ -2842,11 +2848,11 @@ body .owl-dots .owl-dot.active {
   align-items: stretch;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__additional-topics__item--video {
+  .copa04-page__additional-topics__carousel__item--video {
     width: 18.625rem;
   }
 }
-.copa04-page__additional-topics__item--video__video {
+.copa04-page__additional-topics__carousel__item--video__video {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2858,12 +2864,12 @@ body .owl-dots .owl-dot.active {
   height: auto;
   aspect-ratio: 1/1;
 }
-.copa04-page__additional-topics__item--video__video__button {
+.copa04-page__additional-topics__carousel__item--video__video__button {
   outline: none;
   border: none;
   background-color: transparent;
 }
-.copa04-page__additional-topics__item--video__video__button__icon {
+.copa04-page__additional-topics__carousel__item--video__video__button__icon {
   width: 3.75rem;
   height: auto;
   aspect-ratio: 1/1;
@@ -2872,8 +2878,11 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.copa04-page__additional-topics__item--video__cta {
+.copa04-page__additional-topics__carousel__item--video__cta {
   margin: auto auto 0;
+}
+.copa04-page__faq {
+  background-color: var(--bg-faq, trransparent);
 }
 .copa04-page__faq__header {
   width: 100%;
@@ -2890,6 +2899,9 @@ body .owl-dots .owl-dot.active {
 .copa04-page__faq__header__paragraph {
   margin-top: 0.75rem;
   text-align: center;
+}
+.copa04-page__section-products {
+  background-color: var(--bg-products, transparent);
 }
 .copa04-page__section-products__header {
   width: 100%;

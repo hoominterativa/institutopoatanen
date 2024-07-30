@@ -6,8 +6,6 @@
         position: relative;
         z-index: 0;
         @extend %theme__padding;
-        /* background-color: var(--color-bgcolor); */
-        background-color: gray;
         @include disFlex(row, space-between, start);
         flex-wrap: wrap;
         gap: 4rem 4.5rem;
@@ -20,7 +18,7 @@
             height: calc(5rem + 3%);
             z-index: -1;
             left: -5vw;
-            background-color: $color-white;
+            background-color: var(--bg-video-section, transparent);
             bottom: 0;
         }
 
@@ -96,6 +94,7 @@
     }
 
     &__video-section {
+        background-color: var(--bg-video-section, transparent);
         @extend %theme__padding;
 
         &__title {
@@ -144,7 +143,7 @@
     }
 
     &__highlighted {
-        background-color: $color-six;
+        background-color: var(--bg-higlighted, transparent);
         @extend %theme__padding;
         @include disFlex(row, space-between, center);
         gap: 14.5rem;
@@ -199,6 +198,8 @@
     }
 
     &__topics {
+        background-color: var(--bg-topics, transparent);
+
         @extend %theme__padding;
 
         &__header {
@@ -267,8 +268,8 @@
     }
 
     &__topics-carousel {
+        background-color: var(--bg-topics-carousel, transparent);
         @extend %theme__padding;
-        background-color: var(--bg-topicsCarousel);
 
         &__header {
             width: 100%;
@@ -341,6 +342,8 @@
     }
 
     &__gallery-topics {
+        background-color: var(--bg-gallery-topics, transparent);
+
         @extend %theme__padding;
 
         &__header {
@@ -505,85 +508,86 @@
     }
 
     &__additional-topics {
-        max-width: 90vw;
-        margin-inline: auto;
+        background-color: var(--bg-additional-content, transparent);
+
         @extend %theme__padding;
-        padding-left: 0;
-        padding-right: 0;
-        overflow: hidden;
 
-        @include large-device-down {
-            overflow: visible;
-        }
-
-        &__item {
-            height: auto;
-            margin-bottom: 0;
-            width: calcWidth(4, 1rem);
-            @include disFlex(column, center, center);
+        &__carousel {
+            overflow: hidden;
 
             @include large-device-down {
-                width: rem(298);
+                overflow: visible;
             }
 
-            &__image {
-                width: 100%;
-                height: 100%;
-                aspect-ratio: 1/1;
-                object-fit: cover;
-                object-position: center;
-            }
-
-            &__title {
-                width: 100%;
-                background-color: $color-five;
-                @extend %theme__t5-cb;
-                text-align: center;
-                padding: 1.75rem;
-            }
-
-            &__cta {
-                @extend %theme__cta;
-                margin: 3.25rem auto 0;
-            }
-
-            &--video {
-                width: calcWidth(4, 1rem);
+            &__item {
                 height: auto;
-                @include disFlex(column, center, stretch);
+                margin-bottom: 0;
+                width: calcWidth(4, 1rem);
+                @include disFlex(column, center, center);
 
                 @include large-device-down {
                     width: rem(298);
                 }
 
-                &__video {
-                    @include bg;
-                    @include disFlex(column, center, center);
+                &__image {
                     width: 100%;
-                    height: auto;
-                    aspect-ratio: 1 / 1;
-
-                    &__button {
-                        outline: none;
-                        border: none;
-                        background-color: transparent;
-
-                        &__icon {
-                            width: 3.75rem;
-                            height: auto;
-                            aspect-ratio: 1/1;
-                            object-fit: contain;
-                            object-position: center;
-                        }
-                    }
+                    height: 100%;
+                    aspect-ratio: 1/1;
+                    object-fit: cover;
+                    object-position: center;
                 }
 
                 &__title {
-                    @extend .copa04-page__additional-topics__item__title;
+                    width: 100%;
+                    background-color: $color-five;
+                    @extend %theme__t5-cb;
+                    text-align: center;
+                    padding: 1.75rem;
                 }
+
                 &__cta {
                     @extend %theme__cta;
-                    margin: auto auto 0;
+                    margin: 3.25rem auto 0;
+                }
+
+                &--video {
+                    width: calcWidth(4, 1rem);
+                    height: auto;
+                    @include disFlex(column, center, stretch);
+
+                    @include large-device-down {
+                        width: rem(298);
+                    }
+
+                    &__video {
+                        @include bg;
+                        @include disFlex(column, center, center);
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 1 / 1;
+
+                        &__button {
+                            outline: none;
+                            border: none;
+                            background-color: transparent;
+
+                            &__icon {
+                                width: 3.75rem;
+                                height: auto;
+                                aspect-ratio: 1/1;
+                                object-fit: contain;
+                                object-position: center;
+                            }
+                        }
+                    }
+
+                    &__title {
+                        @extend .copa04-page__additional-topics__carousel__item__title;
+                    }
+                    &__cta {
+                        @extend %theme__cta;
+                        margin: auto auto 0;
+                    }
                 }
             }
         }
@@ -591,6 +595,8 @@
 
     &__faq {
         @extend %theme__padding;
+
+        background-color: var(--bg-faq, trransparent);
 
         &__header {
             width: 100%;
@@ -629,6 +635,7 @@
     }
 
     &__section-products {
+        background-color: var(--bg-products, transparent);
         @extend %theme__padding;
 
         &__header {

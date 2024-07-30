@@ -4,15 +4,26 @@
     <main id="root" class="copa04-page">
         {{-- BEGIN Page content --}}
         <style>
+            /* BACKEND: Imprimir as variaveis de cor aqui ❤ */
             :root {
-                --color-bgcolor: red;
-                --topicsCarousel: #EFEFEF;
-                --bg-topicsCarousel: rgb(159, 159, 255);
-                /* --bg-test: @php echo isset($cor) && !empyt($cor) ? $cor :'#65ff00'; @endphp
-                */
+                --bg-hero-primary: red;
+                --bg-hero-secondary: blue;
+                --bg-hero-tertiary: green;
+                --bg-video-section: yellow;
+                --bg-higlighted: purple;
+                --bg-topics: lightblue;
+                --bg-topics-carousel: pink;
+                --bg-gallery-topics: lightgray;
+                --bg-additional-content: lightgreen;
+                --bg-faq: lightyellow;
+                --bg-products: gray;
+
+
             }
         </style>
-        <section class="copa04-page__hero">
+
+        {{-- Seção Hero --}}
+        <section class="copa04-page__hero ">
             <aside class="copa04-page__hero__aside">
                 <img class="copa04-page__hero__aside__logo" src="{{ asset('images/gray.png') }}"
                     alt="icone referente a seção {{-- title  --}}">
@@ -214,38 +225,41 @@
 
         {{-- Seção Additional Topics Carousel --}}
         <section class="copa04-page__additional-topics">
-            <div class="copa04-page__additional-topics__swiper-wrapper swiper-wrapper">
-                {{-- if image --}}
-                @for ($i = 0; $i < 2; $i++)
-                    <figure class="copa04-page__additional-topics__item swiper-slide">
-                        <img class="copa04-page__additional-topics__item__image"
-                            src="{{ asset('images/bg-colorido.svg') }}" alt=" {{-- title --}}">
+            <div class="copa04-page__additional-topics__carousel">
+                <div class="copa04-page__additional-topics__carousel__swiper-wrapper swiper-wrapper">
+                    {{-- if image --}}
+                    @for ($i = 0; $i < 2; $i++)
+                        <figure class="copa04-page__additional-topics__carousel__item swiper-slide">
+                            <img class="copa04-page__additional-topics__carousel__item__image"
+                                src="{{ asset('images/bg-colorido.svg') }}" alt=" {{-- title --}}">
 
-                        <figcaption class="copa04-page__additional-topics__item__title">Title
-                            {{ $i }}</figcaption>
+                            <figcaption class="copa04-page__additional-topics__carousel__item__title">Title
+                                {{ $i }}</figcaption>
 
-                        <a href="#" class="copa04-page__additional-topics__item__cta">cta</a>
-                    </figure>
-                @endfor
+                            <a href="#" class="copa04-page__additional-topics__carousel__item__cta">cta</a>
+                        </figure>
+                    @endfor
 
-                {{-- if video --}}
-                @for ($i = 0; $i < 6; $i++)
-                    <div class="copa04-page__additional-topics__item--video swiper-slide">
-                        <div data-fancybox data-src="https://www.youtube.com/embed/EDnIEWyVIlE"
-                            class="copa04-page__additional-topics__item--video__video"
-                            style="background-image: url('{{ asset('images/bg-colorido.svg') }}')">
-                            <button id="video_play" class="copa04-page__additional-topics__item--video__video__button">
-                                <img class="copa04-page__additional-topics__item--video__video__button__icon"
-                                    src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
-                            </button>
+                    {{-- if video --}}
+                    @for ($i = 0; $i < 6; $i++)
+                        <div class="copa04-page__additional-topics__carousel__item--video swiper-slide">
+                            <div data-fancybox data-src="https://www.youtube.com/embed/EDnIEWyVIlE"
+                                class="copa04-page__additional-topics__carousel__item--video__video"
+                                style="background-image: url('{{ asset('images/bg-colorido.svg') }}')">
+                                <button id="video_play"
+                                    class="copa04-page__additional-topics__carousel__item--video__video__button">
+                                    <img class="copa04-page__additional-topics__carousel__item--video__video__button__icon"
+                                        src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
+                                </button>
+                            </div>
+                            <p class="copa04-page__additional-topics__carousel__item--video__title">
+                                Título com video {{ $i }}
+                            </p>
+                            <a href="" class="copa04-page__additional-topics__carousel__item--video__cta">cta</a>
+
                         </div>
-                        <p class="copa04-page__additional-topics__item--video__title">
-                            Título com video {{ $i }}
-                        </p>
-                        <a href="" class="copa04-page__additional-topics__item--video__cta">cta</a>
-
-                    </div>
-                @endfor
+                    @endfor
+                </div>
             </div>
         </section>
 
@@ -293,7 +307,7 @@
                             {{-- if tag --}}
                             <span class="copa04-page__section-products__carousel__item__tag">Promoção</span>
                             <h4 class="copa04-page__section-products__carousel__item__title">Title</h4>
-                            <h5 class="copa04-page__section-products__carousel__item__subtitle">Title</h5>
+                            <h5 class="copa04-page__section-products__carousel__item__subtitle">Subtitle</h5>
                             <div class="copa04-page__section-products__carousel__item__paragraph">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quam esse et, debitis
                                     magnam tempore placeat aperiam dignissimos illo, ipsam nesciunt omnis quis nam odit
@@ -302,7 +316,7 @@
                                 </p>
                             </div>
                             <div class="copa04-page__section-products__carousel__item__price">
-                                <h6 class="copa04-page__section-products__carousel__item__price__title">Subtitulo</h6>
+                                <h6 class="copa04-page__section-products__carousel__item__price__title">Subtitle</h6>
                                 <p class="copa04-page__section-products__carousel__item__price__paragraph">R$ <b>00,00</b>
                                 </p>
 
@@ -316,12 +330,9 @@
             </div>
 
         </section>
+
+        @foreach ($sections as $section)
+            {!! $section !!}
+        @endforeach
     </main>
-
-    @foreach ($sections as $section)
-        {!! $section !!}
-    @endforeach
-    </div>
 @endsection
-
-{{-- Finish Content page Here --}}
