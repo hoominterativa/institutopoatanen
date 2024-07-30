@@ -15,31 +15,25 @@ class COPA04TopicController extends Controller
 {
     public function create()
     {
-        return view('Admin.cruds.ContentPages.COPA04.Topic.create');
+        return view('Admin.cruds.ContentPages.COPA04.SectionTopic.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $data = $request->all();
-
-        if(COPA04ContentPagesTopic::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+        $data['active'] = $request->active?:0;
+        if($sectionTopic = COPA04ContentPagesTopic::create($data)){
+            Session::flash('success', 'Item cadastrado com sucesso!');
+            return redirect()->route('admin.copa04.sectionTopic.edit', [$sectionTopic->id]);
         }else{
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar o item!');
             return redirect()->back();
         }
     }
 
     public function edit(COPA04ContentPagesTopic $COPA04ContentPagesTopic)
     {
-        return view('Admin.cruds.ContentPages.COPA04.Topic.edit', [
+        return view('Admin.cruds.ContentPages.COPA04.SectionTopic.edit', [
             'COPA04ContentPagesTopic' => $COPA04ContentPagesTopic
         ]);
     }
@@ -47,12 +41,12 @@ class COPA04TopicController extends Controller
     public function update(Request $request, COPA04ContentPagesTopic $COPA04ContentPagesTopic)
     {
         $data = $request->all();
-
+        $data['active'] = $request->active?:0;
         if($COPA04ContentPagesTopic->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            Session::flash('success', 'Item atualizado com sucesso!');
+            return redirect()->route('admin.copa04.index');
         }else{
-            Session::flash('error', 'Erro ao atualizar item');
+            Session::flash('error', 'Erro ao atualizar item!');
             return redirect()->back();
         }
     }
@@ -61,7 +55,7 @@ class COPA04TopicController extends Controller
     {
 
         if($COPA04ContentPagesTopic->delete()){
-            Session::flash('success', 'Item deletado com sucessso');
+            Session::flash('success', 'Item deletado com sucessso!');
             return redirect()->back();
         }
     }

@@ -48,7 +48,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#topics" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#sectionTopic" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Tópico
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -157,8 +157,8 @@
                     <div class="tab-pane" id="sectionHighlighteds">
                         @include('Admin.cruds.ContentPages.COPA04.SectionHighlighted.index')
                     </div>
-                    <div class="tab-pane" id="topics">
-                        @include('Admin.cruds.ContentPages.COPA04.Topic.index')
+                    <div class="tab-pane" id="sectionTopic">
+                        @include('Admin.cruds.ContentPages.COPA04.SectionTopic.index')
                     </div>
                 </div>
                 <!-- end row -->

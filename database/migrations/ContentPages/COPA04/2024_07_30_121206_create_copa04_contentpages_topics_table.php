@@ -18,6 +18,8 @@ class CreateCopa04ContentpagesTopicsTable extends Migration
             $table->string('title', 191)->nullable();
             $table->string('subtitle', 191)->nullable();
             $table->string('description', 255)->nullable();
+            $table->text('link', 200)->nullable();
+            $table->string('btn_title',191)->nullable();
             $table->boolean('active')->default(0);
             $table->timestamps();
         });

@@ -20,6 +20,8 @@ class COPA04ContentPagesTopic extends Model
         'title',
         'subtitle',
         'description',
+        'btn_title',
+        'link',
         'active'
     ];
     public function scopeActive($query)
