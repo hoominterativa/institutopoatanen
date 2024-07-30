@@ -6,6 +6,7 @@ use App\Models\ContentPages\COPA04ContentPagesTopic;
 use App\Http\Controllers\ContentPages\COPA04Controller;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Http\Controllers\ContentPages\COPA04TopicController;
+use App\Http\Controllers\ContentPages\COPA04TopicItemController;
 use App\Http\Controllers\ContentPages\COPA04SectionHeroController;
 use App\Http\Controllers\ContentPages\COPA04SectionVideoController;
 use App\Http\Controllers\ContentPages\COPA04SectionHighlightedController;
@@ -46,6 +47,11 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
     Route::resource($route.'/sectionTopic', COPA04TopicController::class)->names('admin.'.$routeName.'.sectionTopic')->parameters(['sectionTopic' => 'COPA04ContentPagesTopic']);
     Route::post($route.'/sectionTopic/delete', [COPA04TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionTopic.destroySelected');
+
+    Route::resource($route.'/topic', COPA04TopicItemController::class)->names('admin.'.$routeName.'.topic')->parameters(['topic' => 'COPA04ContentPagesTopicItem']);
+    Route::post($route.'/topic/delete', [COPA04TopicItemController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topic/sorting', [COPA04TopicItemController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');

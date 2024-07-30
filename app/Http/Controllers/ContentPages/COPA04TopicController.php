@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesTopic;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA04ContentPagesTopic;
+use App\Models\ContentPages\COPA04ContentPagesTopicItem;
 
 class COPA04TopicController extends Controller
 {
@@ -33,8 +34,11 @@ class COPA04TopicController extends Controller
 
     public function edit(COPA04ContentPagesTopic $COPA04ContentPagesTopic)
     {
+        $topics = COPA04ContentPagesTopicItem::paginate(30);
+        
         return view('Admin.cruds.ContentPages.COPA04.SectionTopic.edit', [
-            'COPA04ContentPagesTopic' => $COPA04ContentPagesTopic
+            'COPA04ContentPagesTopic' => $COPA04ContentPagesTopic,
+            'topics' => $topics
         ]);
     }
 
