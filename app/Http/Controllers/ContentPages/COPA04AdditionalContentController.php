@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesGallery;
+use App\Models\ContentPages\COPA04ContentPagesAdditionalContent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -11,12 +11,14 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
-class COPA04GalleryController extends Controller
+class COPA04AdditionalContentController extends Controller
 {
+    //protected $path = 'uploads/ContentPages/COPA04/images/additionalcontent/';
+
 
     public function create()
     {
-        return view('Admin.cruds.ContentPages.COPA04.Gallery.create');
+        return view('Admin.cruds.ContentPages.COPA04.AdditionalContent.create');
     }
 
 
@@ -26,28 +28,29 @@ class COPA04GalleryController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
 
-        if(COPA04ContentPagesGallery::create($data)){
+        if(COPA04ContentPagesAdditionalContent::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
+
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
     }
 
-    public function edit(COPA04ContentPagesGallery $COPA04ContentPagesGallery)
+    
+    public function edit(COPA04ContentPagesAdditionalContent $COPA04ContentPagesAdditionalContent)
     {
-        return view('Admin.cruds.ContentPages.COPA04.Gallery.edit', compact('COPA04ContentPagesGallery'));
+        return view('Admin.cruds.ContentPages.COPA04.AdditionalContent.edit', compact('COPA04ContentPagesAdditionalContent'));
     }
 
-
-    public function update(Request $request, COPA04ContentPagesGallery $COPA04ContentPagesGallery)
+    public function update(Request $request, COPA04ContentPagesAdditionalContent $COPA04ContentPagesAdditionalContent)
     {
         $data = $request->all();
 
         $data['active'] = $request->active ? 1 : 0;
 
-        if($COPA04ContentPagesGallery->fill($data)->save()){
+        if($COPA04ContentPagesAdditionalContent->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
@@ -57,10 +60,11 @@ class COPA04GalleryController extends Controller
     }
 
 
-    public function destroy(COPA04ContentPagesGallery $COPA04ContentPagesGallery)
+    public function destroy(COPA04ContentPagesAdditionalContent $COPA04ContentPagesAdditionalContent)
     {
 
-        if($COPA04ContentPagesGallery->delete()){
+
+        if($COPA04ContentPagesAdditionalContent->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -73,10 +77,10 @@ class COPA04GalleryController extends Controller
      * Display the specified resource.
      * Content method
      *
-     * @param  \App\Models\ContentPages\COPA04ContentPagesGallery  $COPA04ContentPagesGallery
+     * @param  \App\Models\ContentPages\COPA04ContentPagesAdditionalContent  $COPA04ContentPagesAdditionalContent
      * @return \Illuminate\Http\Response
      */
-    //public function show(COPA04ContentPagesgallery $COPA04ContentPagesGallery)
+    //public function show(COPA04ContentPagesAdditionalContent $COPA04ContentPagesAdditionalContent)
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
