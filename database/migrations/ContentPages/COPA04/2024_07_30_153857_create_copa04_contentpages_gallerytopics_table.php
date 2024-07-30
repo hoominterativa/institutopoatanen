@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCopa04ContentpagesGalleriesTable extends Migration
+class CreateCopa04ContentpagesGallerytopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateCopa04ContentpagesGalleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('copa04_contentpages_galleries', function (Blueprint $table) {
+        Schema::create('copa04_contentpages_gallerytopics', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
+            $table->string('path_image')->nullable();
+            $table->integer('sorting')->default(0);
             $table->boolean('active')->default(0);
             $table->softDeletes();
             $table->timestamps();
@@ -31,6 +33,6 @@ class CreateCopa04ContentpagesGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('copa04_contentpages_galleries');
+        Schema::dropIfExists('copa04_contentpages_gallerytopics');
     }
 }

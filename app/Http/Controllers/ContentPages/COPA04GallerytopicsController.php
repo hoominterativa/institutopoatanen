@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
+use App\Models\ContentPages\COPA04ContentPagesGallerytopics;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -11,16 +11,14 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
-class COPA04Topiccarousel_cardsController extends Controller
+class COPA04GallerytopicsController extends Controller
 {
-    protected $path = 'uploads/ContentPages/COPA04/images/topiccarousel/';
-
+    protected $path = 'uploads/ContentPages/COPA04/images/gallery/';
 
     public function create()
     {
-        return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.create');
+       return view('Admin.cruds.ContentPages.COPA04.Gallerytopics.create');
     }
-
 
     public function store(Request $request)
     {
@@ -30,81 +28,89 @@ class COPA04Topiccarousel_cardsController extends Controller
 
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+
         if($path_image) $data['path_image'] = $path_image;
 
-        if(COPA04ContentPagesTopiccarousel_cards::create($data)){
-            Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+        if(COPA04ContentPagesGallerytopics::create($data)){
+
+            Session::flash('success', 'Item cadastrado com sucesso');
+            return redirect()->route('admin.code.index');
         }else{
-            Session::flash('error', 'Erro ao cadastradar o item!');
+
+            Storage::delete($path_image);
+            Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
-
-    
     }
 
 
-    public function edit(COPA04ContentPagesTopiccarousel_cards $COPA04ContentPagesTopiccarousel_cards)
+    public function edit(COPA04ContentPagesGallerytopics $COPA04ContentPagesGallerytopics)
     {
-       return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.edit', compact('COPA04ContentPagesTopiccarousel_cards'));
+        return view('Admin.cruds.ContentPages.COPA04.Gallerytopics.edit', compact('COPA04ContentPagesGallerytopics'));
     }
 
 
-    public function update(Request $request, COPA04ContentPagesTopiccarousel_cards $COPA04ContentPagesTopiccarousel_cards)
+    public function update(Request $request, COPA04ContentPagesGallerytopics $COPA04ContentPagesGallerytopics)
     {
-
         $data = $request->all();
 
         $data['active'] = $request->active ? 1 : 0;
-        
+
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+
         if($path_image){
-            storageDelete($COPA04ContentPagesTopiccarousel_cards, 'path_image');
+
+            storageDelete($COPA04ContentPagesGallerytopics, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($COPA04ContentPagesTopiccarousel_cards, 'path_image');
+
+            storageDelete($COPA04ContentPagesGallerytopics, 'path_image');
             $data['path_image'] = null;
         }
+   
 
-        if($COPA04ContentPagesTopiccarousel_cards->fill($data)->save()){
-            Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+        if($COPA04ContentPagesGallerytopics->fill($data)->save()){
+
+            Session::flash('success', 'Item atualizado com sucesso');
+            return redirect()->route('admin.code.index');
         }else{
-            Session::flash('error', 'Erro ao atualizar item!');
+            Storage::delete($path_image);
+
+            Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
     }
 
-    public function destroy(COPA04ContentPagesTopiccarousel_cards $COPA04ContentPagesTopiccarousel_cards)
-    {
-        storageDelete($COPA04ContentPagesTopiccarousel_cards, 'path_image');
 
-        if($COPA04ContentPagesTopiccarousel_cards->delete()){
+    public function destroy(COPA04ContentPagesGallerytopics $COPA04ContentPagesGallerytopics)
+    {
+        storageDelete($COPA04ContentPagesGallerytopics, 'path_image');
+
+        if($COPA04ContentPagesGallerytopics->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
     }
 
+
     public function destroySelected(Request $request)
     {
-
-        $COPA04ContentPagesTopiccarousel_cardss = COPA04ContentPagesTopiccarousel_cards::whereIn('id', $request->deleteAll)->get();
-        foreach($COPA04ContentPagesTopiccarousel_cardss as $COPA04ContentPagesTopiccarousel_cards){
-            storageDelete($COPA04ContentPagesTopiccarousel_cards, 'path_image');
+        $COPA04ContentPagesGallerytopicss = COPA04ContentPagesGallerytopics::whereIn('id', $request->deleteAll)->get();
+        foreach($COPA04ContentPagesGallerytopicss as $COPA04ContentPagesGallerytopics){
+            storageDelete($COPA04ContentPagesGallerytopics, 'path_image');
         }
-
-
-        if($deleted = COPA04ContentPagesTopiccarousel_cards::whereIn('id', $request->deleteAll)->delete()){
+        if($deleted = COPA04ContentPagesGallerytopics::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
 
+
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            COPA04ContentPagesTopiccarousel_cards::where('id', $id)->update(['sorting' => $sorting]);
+            COPA04ContentPagesGallerytopics::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
@@ -115,10 +121,10 @@ class COPA04Topiccarousel_cardsController extends Controller
      * Display the specified resource.
      * Content method
      *
-     * @param  \App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards  $COPA04ContentPagesTopiccarousel_cards
+     * @param  \App\Models\ContentPages\COPA04ContentPagesGallerytopics  $COPA04ContentPagesGallerytopics
      * @return \Illuminate\Http\Response
      */
-    //public function show(COPA04ContentPagesTopiccarousel_cards $COPA04ContentPagesTopiccarousel_cards)
+    //public function show(COPA04ContentPagesGallerytopics $COPA04ContentPagesGallerytopics)
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
