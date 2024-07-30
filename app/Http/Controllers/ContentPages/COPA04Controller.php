@@ -11,6 +11,7 @@ use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
+use App\Models\ContentPages\COPA04ContentPagesSectionVideo;
 
 class COPA04Controller extends Controller
 {
@@ -19,10 +20,12 @@ class COPA04Controller extends Controller
     public function index()
     {   
         $sectionHeros = COPA04ContentPagesSectionHero::paginate(30);
+        $sectionVideo = COPA04ContentPagesSectionVideo::first();
 
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.index', [
             'sectionHeros' => $sectionHeros,
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'sectionVideo' => $sectionVideo
         ]);
     }
 

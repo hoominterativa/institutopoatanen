@@ -2,28 +2,21 @@
 
 namespace App\Models\ContentPages;
 
-use Database\Factories\ContentPages\COPA04ContentPagesSectionVideoFactory;
+use Database\Factories\COPA04ContentPagesSectionHighlightedFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class COPA04ContentPagesSectionVideo extends Model
+class COPA04ContentPagesSectionHighlighted extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return COPA04ContentPagesSectionVideoFactory::new();
+        return COPA04ContentPagesSectionHighlightedFactory::new();
     }
 
-    protected $table = "copa04_contentpages_sectionvideos";
-    protected $fillable = [
-        'title',
-        'subtitle',
-        'text',
-        'link',
-        'active',
-        'sorting'
-    ];
+    protected $table = "";
+    protected $fillable = [];
 
     public function scopeSorting($query)
     {

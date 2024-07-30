@@ -15,6 +15,11 @@ class CreateCopa04ContentpagesSectionvideosTable extends Migration
     {
         Schema::create('copa04_contentpages_sectionvideos', function (Blueprint $table) {
             $table->id();
+            $table->string('title',191)->nullable();
+            $table->string('subtitle',191)->nullable();
+            $table->text('text', 255)->nullable();
+            $table->text('link', 200)->nullable();
+            $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentPages\COPA04Controller;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Http\Controllers\ContentPages\COPA04SectionHeroController;
+use App\Http\Controllers\ContentPages\COPA04SectionVideoController;
 
 /**
  * Uncomment the code below
@@ -32,6 +33,9 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/sectionHero', COPA04SectionHeroController::class)->names('admin.'.$routeName.'.sectionHero')->parameters(['sectionHero' => 'COPA04ContentPagesSectionHero']);
     Route::post($route.'/sectionHero/delete', [COPA04SectionHeroController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionHero.destroySelected');
     Route::post($route.'/sectionHero/sorting', [COPA04SectionHeroController::class, 'sorting'])->name('admin.'.$routeName.'.sectionHero.sorting');
+    
+    Route::resource($route.'/sectionVideo', COPA04SectionVideoController::class)->names('admin.'.$routeName.'.sectionVideo')->parameters(['sectionVideo' => 'COPA04ContentPagesSectionVideo']);
+    Route::post($route.'/sectionVideo/delete', [COPA04SectionVideoController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionVideo.destroySelected');
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');
