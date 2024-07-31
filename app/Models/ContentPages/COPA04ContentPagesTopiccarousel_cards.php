@@ -2,9 +2,10 @@
 
 namespace App\Models\ContentPages;
 
-use Database\Factories\ContentPages\COPA04ContentPagesTopiccarousel_cardsFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Database\Factories\ContentPages\COPA04ContentPagesTopiccarousel_cardsFactory;
 
 class COPA04ContentPagesTopiccarousel_cards extends Model
 {

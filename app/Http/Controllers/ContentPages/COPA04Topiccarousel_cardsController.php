@@ -2,23 +2,25 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
+use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
 
 class COPA04Topiccarousel_cardsController extends Controller
 {
     protected $path = 'uploads/ContentPages/COPA04/images/topiccarousel/';
 
-
     public function create()
     {
-        return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.cards.create');
+        return view('Admin.cruds.ContentPages.COPA04.TopicCarouselCards.create', [
+            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+        ]);
     }
 
 
@@ -33,8 +35,9 @@ class COPA04Topiccarousel_cardsController extends Controller
         if($path_image) $data['path_image'] = $path_image;
 
         if(COPA04ContentPagesTopiccarousel_cards::create($data)){
+            $sectionTopicCarousel = COPA04ContentPagesTopiccarousel::active()->first();
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->route('admin.copa04.topicCaroussel.edit', [$sectionTopicCarousel->id]);
         }else{
             Session::flash('error', 'Erro ao cadastradar o item!');
             return redirect()->back();
@@ -44,13 +47,16 @@ class COPA04Topiccarousel_cardsController extends Controller
     }
 
 
-    public function edit(COPA04ContentPagesTopiccarousel_cards $COPA04ContentPagesTopiccarousel_cards)
+    public function edit(COPA04ContentPagesTopiccarousel_cards $TopiccarouselCards)
     {
-       return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.cards.edit', compact('COPA04ContentPagesTopiccarousel_cards'));
+       return view('Admin.cruds.ContentPages.COPA04.TopicCarouselCards.edit', [
+        'TopiccarouselCards' => $TopiccarouselCards,
+        'cropSetting' => getCropImage('ContentPages', 'COPA01')
+       ]);
     }
 
 
-    public function update(Request $request, COPA04ContentPagesTopiccarousel_cards $COPA04ContentPagesTopiccarousel_cards)
+    public function update(Request $request, COPA04ContentPagesTopiccarousel_cards $TopiccarouselCards)
     {
 
         $data = $request->all();
@@ -60,28 +66,29 @@ class COPA04Topiccarousel_cardsController extends Controller
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
-            storageDelete($COPA04ContentPagesTopiccarousel_cards, 'path_image');
+            storageDelete($TopiccarouselCards, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($COPA04ContentPagesTopiccarousel_cards, 'path_image');
+            storageDelete($TopiccarouselCards, 'path_image');
             $data['path_image'] = null;
         }
 
-        if($COPA04ContentPagesTopiccarousel_cards->fill($data)->save()){
+        if($TopiccarouselCards->fill($data)->save()){
+            $sectionTopicCarousel = COPA04ContentPagesTopiccarousel::active()->first();
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->route('admin.copa04.topicCaroussel.edit', [$sectionTopicCarousel->id]);
         }else{
             Session::flash('error', 'Erro ao atualizar item!');
             return redirect()->back();
         }
     }
 
-    public function destroy(COPA04ContentPagesTopiccarousel_cards $COPA04ContentPagesTopiccarousel_cards)
+    public function destroy(COPA04ContentPagesTopiccarousel_cards $TopiccarouselCards)
     {
-        storageDelete($COPA04ContentPagesTopiccarousel_cards, 'path_image');
+        storageDelete($TopiccarouselCards, 'path_image');
 
-        if($COPA04ContentPagesTopiccarousel_cards->delete()){
+        if($TopiccarouselCards->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -90,9 +97,9 @@ class COPA04Topiccarousel_cardsController extends Controller
     public function destroySelected(Request $request)
     {
 
-        $COPA04ContentPagesTopiccarousel_cardss = COPA04ContentPagesTopiccarousel_cards::whereIn('id', $request->deleteAll)->get();
-        foreach($COPA04ContentPagesTopiccarousel_cardss as $COPA04ContentPagesTopiccarousel_cards){
-            storageDelete($COPA04ContentPagesTopiccarousel_cards, 'path_image');
+        $TopiccarouselCards = COPA04ContentPagesTopiccarousel_cards::whereIn('id', $request->deleteAll)->get();
+        foreach($TopiccarouselCards as $TopiccarouselCard){
+            storageDelete($TopiccarouselCard, 'path_image');
         }
 
 

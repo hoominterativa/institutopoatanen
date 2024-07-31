@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA04ContentPagesTopic;
+use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
+use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
 
 class COPA04TopiccarouselController extends Controller
 {
-
     public function create()
     {
         return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.create');
@@ -34,8 +35,13 @@ class COPA04TopiccarouselController extends Controller
 
     public function edit(COPA04ContentPagesTopiccarousel $COPA04ContentPagesTopiccarousel)
     {
+        $sectionTopic = COPA04ContentPagesTopic::first();
+        $topicCarouselCards = COPA04ContentPagesTopiccarousel_cards::paginate(30);
+
         return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.edit', [
-            'COPA04ContentPagesTopiccarousel' => $COPA04ContentPagesTopiccarousel
+            'COPA04ContentPagesTopiccarousel' => $COPA04ContentPagesTopiccarousel,
+            'sectionTopic' => $sectionTopic,
+            'topicCarouselCards' => $topicCarouselCards
         ]);
     }
 
