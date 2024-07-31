@@ -19,6 +19,7 @@ class CreateCopa04ContentpagesSectionhighlightedsTable extends Migration
             $table->string('subtitle',191)->nullable();
             $table->text('text', 255)->nullable();
             $table->text('link', 200)->nullable();
+            $table->string('color_one')->nullable();
             $table->string('btn_title',191)->nullable();
             $table->string('path_image', 191)->nullable();
             $table->boolean('active')->default(0);

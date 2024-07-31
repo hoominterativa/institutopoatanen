@@ -6,11 +6,20 @@
         <style>
             /* BACKEND: Imprimir as variaveis de cor aqui ❤ */
             :root {
+
+                @if($sectionHeros)
                 --bg-hero-primary: {{ $sectionHeros ? $sectionHeros->color_one : 'lightgray' }};
                 --bg-hero-secondary: {{ $sectionHeros ? $sectionHeros->color_two : 'lightblue' }};
                 --bg-hero-tertiary: {{ $sectionHeros ? $sectionHeros->color_three : 'white' }};
-                --bg-video-section: green;
-                --bg-higlighted: purple;
+                @endif
+
+                @if($sectionVideo)
+                --bg-video-section: {{ $sectionVideo ? $sectionVideo->color_one : 'purple' }};
+                @endif
+
+                @if($sectionHighlighted)
+                --bg-higlighted: {{ $sectionHighlighted ? $sectionHighlighted->color_one : 'white' }};
+                @endif
                 --bg-topics: lightblue;
                 --bg-topics-carousel: pink;
                 --bg-gallery-topics: lightgray;
@@ -36,18 +45,25 @@
                 <header class="copa04-page__hero__information__header">
                     <img class="copa04-page__hero__information__header__icon" src="{{ asset('images/icon.png') }}"
                         alt="ícone do {{-- title --}}">
+                        @if($sectionHeros->title)
                     <h1 class="copa04-page__hero__information__header__title">{{ $sectionHeros->title }}</h1>
+                    @endif
                 </header>
+                @if($sectionHeros->description)
                 <p class="copa04-page__hero__information__paragraph">
                     
                     {!! $sectionHeros->description  !!}
 
                 </p>
-
+                @endif
+                @if($sectionHeros->link)
                 <a href="{{ $sectionHeros->link }}" class="copa04-page__hero__information__cta">{{ $sectionHeros->title_btn }}</a>
+                @endif
             </div>
+            @if($sectionHeros->path_image)
             <img class="copa04-page__hero__image" src="{{ asset('storage/'.$sectionHeros->path_image) }}"
                 alt="Imagem ilustrativa da seção {{-- title --}}">
+            @endif
         </section>
         @endif
         {{-- Seção Video --}}
@@ -80,19 +96,30 @@
         @if($sectionHighlighted)
         <section class="copa04-page__highlighted">
             <div class="copa04-page__highlighted__information">
+                @if($sectionHighlighted->title)
                 <h2 class="copa04-page__highlighted__information__title">{{ $sectionHighlighted->title }}</h2>
+                @endif
+
+                @if($sectionHighlighted->subtitle)
                 <h3 class="copa04-page__highlighted__information__subtitle">{{ $sectionHighlighted->subtitle }}</h3>
+                @endif
+
+                @if($sectionHighlighted->text)
                 <div class="copa04-page__highlighted__information__paragraph">
 
                         {!! $sectionHighlighted->text !!}
 
                 </div>
-                <a href="#" class="copa04-page__highlighted__information__cta">{{ $sectionHighlighted->btn_title }}</a>
-            </div>
+                @endif
 
+                @if($sectionHighlighted->link)
+                <a href="{{ $sectionHighlighted->link }}" target="_blank" class="copa04-page__highlighted__information__cta">{{ $sectionHighlighted->btn_title }}</a>
+                @endif
+            </div>
+            @if($sectionHighlighted->path_image)
             <img class="copa04-page__highlighted__image" src="{{ asset('storage/'.$sectionHighlighted->path_image) }}"
                 alt="Imagem referente a seção {{-- TITLE --}}">
-
+            @endif
         </section>
         @endif
 
