@@ -4,18 +4,15 @@ namespace App\Http\Controllers\ContentPages;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Response;
-use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA04ContentPagesTopic;
+use App\Models\ContentPages\COPA04ContentPagesGallery;
+use App\Models\ContentPages\COPA04ContentPagesTopicItem;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Models\ContentPages\COPA04ContentPagesSectionVideo;
 use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
 use App\Models\ContentPages\COPA04ContentPagesSectionHighlighted;
-use App\Models\ContentPages\COPA04ContentPagesTopicItem;
 use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
 
 class COPA04Controller extends Controller
@@ -29,6 +26,7 @@ class COPA04Controller extends Controller
         $sectionHighlighteds = COPA04ContentPagesSectionHighlighted::paginate(30);
         $sectionTopic = COPA04ContentPagesTopic::first();
         $topicCaroussel = COPA04ContentPagesTopiccarousel::first();
+        $gallery = COPA04ContentPagesGallery::first();
 
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.index', [
             'sectionHeros' => $sectionHeros,
@@ -36,7 +34,8 @@ class COPA04Controller extends Controller
             'sectionVideo' => $sectionVideo,
             'sectionHighlighteds' => $sectionHighlighteds,
             'sectionTopic' => $sectionTopic,
-            'topicCaroussel' => $topicCaroussel
+            'topicCaroussel' => $topicCaroussel,
+            'gallery' => $gallery,
         ]);
     }
 

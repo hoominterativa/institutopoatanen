@@ -23,6 +23,7 @@ class COPA04SectionVideoController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['active'] = $request->active ? 1 : 0;
 
         if(COPA04ContentPagesSectionVideo::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
@@ -43,6 +44,7 @@ class COPA04SectionVideoController extends Controller
     public function update(Request $request, COPA04ContentPagesSectionVideo $COPA04ContentPagesSectionVideo)
     {
         $data = $request->all();
+        $data['active'] = $request->active ? 1 : 0;
 
         if($COPA04ContentPagesSectionVideo->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso!');

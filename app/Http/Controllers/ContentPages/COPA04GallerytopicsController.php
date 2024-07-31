@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA04ContentPagesGallery;
 
 class COPA04GallerytopicsController extends Controller
 {
@@ -17,7 +18,9 @@ class COPA04GallerytopicsController extends Controller
 
     public function create()
     {
-       return view('Admin.cruds.ContentPages.COPA04.Gallery.topics.create');
+        return view('Admin.cruds.ContentPages.COPA04.GalleryTopics.create',[
+            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+        ]);
     }
 
     public function store(Request $request)
@@ -32,9 +35,9 @@ class COPA04GallerytopicsController extends Controller
         if($path_image) $data['path_image'] = $path_image;
 
         if(COPA04ContentPagesGallerytopics::create($data)){
-
+            $gallery = COPA04ContentPagesGallery::first();
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.gallery.edit', [$gallery->id]);
         }else{
 
             Storage::delete($path_image);
@@ -46,7 +49,10 @@ class COPA04GallerytopicsController extends Controller
 
     public function edit(COPA04ContentPagesGallerytopics $COPA04ContentPagesGallerytopics)
     {
-        return view('Admin.cruds.ContentPages.COPA04.Gallery.topics.edit', compact('COPA04ContentPagesGallerytopics'));
+        return view('Admin.cruds.ContentPages.COPA04.GalleryTopics.edit', [
+            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'COPA04ContentPagesGallerytopics' => $COPA04ContentPagesGallerytopics
+        ]);
     }
 
 
@@ -72,9 +78,9 @@ class COPA04GallerytopicsController extends Controller
    
 
         if($COPA04ContentPagesGallerytopics->fill($data)->save()){
-
+            $gallery = COPA04ContentPagesGallery::first();
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.gallery.edit', [$gallery->id]);
         }else{
             Storage::delete($path_image);
 

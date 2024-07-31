@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesGallery;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA04ContentPagesGallery;
+use App\Models\ContentPages\COPA04ContentPagesGallerytopics;
 
 class COPA04GalleryController extends Controller
 {
@@ -28,7 +26,7 @@ class COPA04GalleryController extends Controller
 
         if(COPA04ContentPagesGallery::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.index');
         }else{
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
@@ -37,7 +35,12 @@ class COPA04GalleryController extends Controller
 
     public function edit(COPA04ContentPagesGallery $COPA04ContentPagesGallery)
     {
-        return view('Admin.cruds.ContentPages.COPA04.Gallery.edit', compact('COPA04ContentPagesGallery'));
+        $galleryTopics = COPA04ContentPagesGallerytopics::paginate(30);
+        
+        return view('Admin.cruds.ContentPages.COPA04.Gallery.edit', [
+            'COPA04ContentPagesGallery' => $COPA04ContentPagesGallery,
+            'galleryTopics' => $galleryTopics
+        ]);
     }
 
 
@@ -49,13 +52,12 @@ class COPA04GalleryController extends Controller
 
         if($COPA04ContentPagesGallery->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.index');
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
     }
-
 
     public function destroy(COPA04ContentPagesGallery $COPA04ContentPagesGallery)
     {

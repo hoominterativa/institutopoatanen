@@ -26,7 +26,7 @@ class COPA04TopicItemController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        $data['active'] = $request->active ? 1 : 0;
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;        
@@ -53,7 +53,7 @@ class COPA04TopicItemController extends Controller
     public function update(Request $request, COPA04ContentPagesTopicItem $COPA04ContentPagesTopicItem)
     {
         $data = $request->all();
-
+        $data['active'] = $request->active ? 1 : 0;
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);

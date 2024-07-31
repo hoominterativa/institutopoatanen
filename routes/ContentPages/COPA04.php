@@ -4,6 +4,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Models\ContentPages\COPA04ContentPagesTopic;
 use App\Http\Controllers\ContentPages\COPA04Controller;
+use App\Http\Controllers\ContentPages\COPA04GalleryController;
+use App\Http\Controllers\ContentPages\COPA04GallerytopicsController;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Http\Controllers\ContentPages\COPA04TopicController;
 use App\Http\Controllers\ContentPages\COPA04TopicItemController;
@@ -61,6 +63,13 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/topicCarousselCards', COPA04Topiccarousel_cardsController::class)->names('admin.'.$routeName.'.topicCarousselCards')->parameters(['topicCarousselCards' => 'TopiccarouselCards']);
     Route::post($route.'/topicCarousselCards/delete', [COPA04Topiccarousel_cardsController::class, 'destroySelected'])->name('admin.'.$routeName.'.topicCarousselCards.destroySelected');
     Route::post($route.'/topicCarousselCards/sorting', [COPA04Topiccarousel_cardsController::class, 'sorting'])->name('admin.'.$routeName.'.topicCarousselCards.sorting');
+
+    Route::resource($route.'/gallery', COPA04GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['gallery' => 'COPA04ContentPagesGallery']);
+    Route::post($route.'/gallery/delete', [COPA04GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+
+    Route::resource($route.'/galleryTopic', COPA04GallerytopicsController::class)->names('admin.'.$routeName.'.galleryTopic')->parameters(['galleryTopic' => 'COPA04ContentPagesGallerytopics']);
+    Route::post($route.'/galleryTopic/delete', [COPA04GallerytopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.galleryTopic.destroySelected');
+    Route::post($route.'/galleryTopic/sorting', [COPA04GallerytopicsController::class, 'sorting'])->name('admin.'.$routeName.'.galleryTopic.sorting');
 
 });
 // // CLIENT

@@ -25,7 +25,7 @@ class COPA04SectionHighlightedController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        $data['active'] = $request->active ? 1 : 0;
 
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -56,6 +56,7 @@ class COPA04SectionHighlightedController extends Controller
     {
         $data = $request->all();
         $helper = new HelperArchive();
+        $data['active'] = $request->active ? 1 : 0;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
