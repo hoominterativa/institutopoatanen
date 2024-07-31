@@ -1,32 +1,42 @@
+import Swiper from 'swiper/bundle';
 
-const buttonsPlay = document.querySelectorAll('#video_play');
+const buttonsPlay = document.querySelector('#video_play');
 if(buttonsPlay) {
-    buttonsPlay.forEach(el =>{
-        el.addEventListener('click', () =>{
-            const src = el.parentNode.dataset.src;
+    buttonsPlay.addEventListener('click', () =>{
+            const src = buttonsPlay.parentNode.dataset.src;
             const iframe = document.createElement('iframe');
 
             iframe.setAttribute('src', src+'?autoplay=1');
-            iframe.classList.add('cont06v1__video__iframe');
+            iframe.classList.add('copa04-page__video-section__video__iframe');
             iframe.setAttribute('id', 'urlYoutube');
 
-            el.style.display = 'none';
+            buttonsPlay.style.display = 'none';
 
-            el.parentNode.appendChild(iframe);
+            buttonsPlay.parentNode.appendChild(iframe);
 
-        })
+
     })
 }
 
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: "auto",
-    spaceBetween: 30,
-    navigation: {
-        prevEl: ".copa04-page__topics-carousel__butons-down__right",
-        nextEl: ".copa04-page__topics-carousel__butons-down__left",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+new Swiper('.copa04-page__topics-carousel__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 12,
+});
+
+new Swiper('.copa04-page__gallery-topics__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 12,
+});
+
+new Swiper('.copa04-page__additional-content__carousel', {
+    slidesPerView: 1,
+    spaceBetween: 12,
+});
+new Swiper('.copa04-page__additional-topics__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+});
+new Swiper('.copa04-page__section-products__carousel', {
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+});

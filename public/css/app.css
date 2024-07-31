@@ -89,8 +89,7 @@ details .details-content {
   aspect-ratio: 6/4;
   background-color: #7c7c7c;
   content: "";
-  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: all ease 0.4s;
 }
 .quedinha__btn * {
@@ -167,57 +166,60 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.swiper, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
+.copa04-page__section-products, .copa04-page__faq, .copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+.copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+  .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
     font-size: 1.875rem;
   }
 }
-.copa04-page__topics-carousel__information__title, .copa04-page__topics__information__title, .copa04-page__highlighted__information__header__title, .copa04-page__video__header__title, .copa04-page__hero__information__header__title {
+.copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
   color: #000;
 }
-.copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
-.copa04-page__topics-carousel__information__subtitle, .copa04-page__topics__information__subtitle, .copa04-page__video__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
 }
-.side03__navigation__item__link, .side03__navigation__item__btn {
+.copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle {
+  color: #7c7c7c;
+}
+.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .side03__navigation__item__link, .side03__navigation__item__btn {
+  .copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.side03__navigation__item__link, .side03__navigation__item__btn {
+.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
   color: #000;
 }
-.copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__topics-carousel__information__paragraph p, .copa04-page__topics__information__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video__header__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .side03__navigation__cta p {
+.copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__carousel__item--video__cta p, .copa04-page__additional-topics__carousel__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .copa04-page__faq__item__title p, .side03__navigation__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -225,25 +227,25 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .side03__navigation__cta {
+  .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
     font-size: 0.938rem;
   }
 }
 .side03__navigation__cta {
   color: #fff;
 }
-.copa04-page__topics-carousel__information__paragraph, .copa04-page__topics__information__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video__header__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item {
+.copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title {
   color: #000;
 }
-.copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
+.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
   color: #404040;
 }
-.foot02__copyright__compliances__item, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+.copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.foot02__copyright__compliances__item p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p {
+.copa04-page__section-products__carousel__item__price__paragraph p, .copa04-page__section-products__carousel__item__price__title p, .copa04-page__section-products__carousel__item__paragraph p, .copa04-page__section-products__carousel__item__subtitle p, .copa04-page__section-products__carousel__item__tag p, .copa04-page__faq__item__paragraph p, .foot02__copyright__compliances__item p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -251,18 +253,21 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .foot02__copyright__compliances__item, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+  .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
-.side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+.copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
   color: #000;
 }
 .foot02__copyright__compliances__item {
   color: #404040;
 }
-.copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
+.copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph {
+  color: #7c7c7c;
+}
+.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -274,10 +279,36 @@ details .details-content {
   border: none;
   font-weight: 700;
 }
-.copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus {
+.copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__carousel__item--video__cta:focus, .copa04-page__additional-topics__carousel__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
+.copa04-page__faq__item {
+  border-bottom: solid 1px rgba(64, 64, 64, 0.2);
+}
+[open].copa04-page__faq__item .copa04-page__faq__item__title::after {
+  transform: rotate(180deg);
+  transition: transform 0.2s linear;
+}
+.copa04-page__faq__item__title {
+  padding: 1rem 0.5rem;
+  font-weight: 700;
+}
+.copa04-page__faq__item__title::after {
+  position: absolute;
+  right: 0.5rem;
+  width: 1.5rem;
+  height: 1.25rem;
+  content: "";
+  background-color: #404040;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  transition: transform 0.2s ease-out;
+}
+.copa04-page__faq__item__paragraph {
+  padding: 1rem;
+  background-color: #efefef;
+}
+
 /*******************************************************************************************************************************************/
 .form-check-input {
   width: 1.2em;
@@ -2317,8 +2348,6 @@ body .owl-dots .owl-dot.active {
 .copa04-page__hero {
   position: relative;
   z-index: 0;
-  /* background-color: var(--color-bgcolor); */
-  background-color: gray;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2334,7 +2363,7 @@ body .owl-dots .owl-dot.active {
   height: calc(5rem + 3%);
   z-index: -1;
   left: -5vw;
-  background-color: #fff;
+  background-color: var(--bg-video-section, transparent);
   bottom: 0;
 }
 @media (max-width: 991.98px) {
@@ -2407,141 +2436,545 @@ body .owl-dots .owl-dot.active {
     width: 100%;
   }
 }
-.copa04-page__video {
-  text-align: center;
+.copa04-page__video-section {
+  background-color: var(--bg-video-section, transparent);
 }
-.copa04-page__video__header {
+.copa04-page__video-section__title {
+  text-align: center;
+  max-width: 888px;
+  margin-inline: auto;
+}
+.copa04-page__video-section__subtitle {
+  text-align: center;
+  max-width: 888px;
+  margin: 0.75rem auto 0;
+}
+.copa04-page__video-section__paragraph {
+  text-align: center;
+  max-width: 888px;
+  margin: 0.75rem auto 0;
+}
+.copa04-page__video-section__video {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-}
-.copa04-page__video__header__paragraph {
-  margin-bottom: 20px;
-}
-.copa04-page__video__container__video {
-  width: 883px;
+  justify-content: center;
+  align-items: center;
+  max-width: 60%;
   height: auto;
+  aspect-ratio: 883/439;
+  margin: 1.25rem auto 0;
 }
-@media (max-width: 767.98px) {
-  .copa04-page__video__container__video {
-    width: 100%;
+@media (max-width: 991.98px) {
+  .copa04-page__video-section__video {
+    max-width: 100%;
   }
 }
+.copa04-page__video-section__video__button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.copa04-page__video-section__video__iframe {
+  width: 100%;
+  height: 100%;
+}
 .copa04-page__highlighted {
-  background-color: #e6e6e6;
-  flex-wrap: wrap;
+  background-color: var(--bg-higlighted, transparent);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 14.5rem;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__highlighted {
+    flex-direction: column;
+    align-items: start;
+    gap: 5rem;
+  }
 }
 .copa04-page__highlighted__information {
-  max-width: 608px;
+  width: calc(66.67% - 14.5rem);
   height: auto;
 }
-.copa04-page__highlighted__information__header {
+@media (max-width: 991.98px) {
+  .copa04-page__highlighted__information {
+    width: 100%;
+  }
+}
+.copa04-page__highlighted__information__title {
+  text-align: left;
+}
+.copa04-page__highlighted__information__subtitle {
+  text-align: left;
+  margin-top: 0.75rem;
+}
+.copa04-page__highlighted__information__paragraph {
+  margin-top: 1.5rem;
+}
+.copa04-page__highlighted__information__cta {
+  margin-top: 0.75rem;
+}
+.copa04-page__highlighted__image {
+  width: 33.33%;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__highlighted__image {
+    width: 100%;
+  }
+}
+.copa04-page__topics {
+  background-color: var(--bg-topics, transparent);
+}
+.copa04-page__topics__header {
+  width: 100%;
+}
+.copa04-page__topics__header__title {
+  margin-bottom: 0;
+  text-align: center;
+}
+.copa04-page__topics__header__subtitle {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+.copa04-page__topics__header__paragraph {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.copa04-page__topics__main {
+  margin-top: 1.25rem;
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: stretch;
-}
-.copa04-page__highlighted__information__header__icon {
-  height: 100%;
-}
-.copa04-page__highlighted__information__cta {
-  width: 100%;
-  text-align: center;
-}
-.copa04-page__highlighted__image {
-  padding-top: 0.625rem;
-  max-width: 538px;
-  max-height: 481px;
-}
-@media (max-width: 767.98px) {
-  .copa04-page__highlighted {
-    justify-content: center;
-    text-align: center;
-  }
-}
-.copa04-page__topics__information {
-  text-align: center;
-}
-.copa04-page__topics__information__subtitle {
-  text-align: center;
-}
-.copa04-page__topics__information__paragraph {
-  margin-bottom: 20px;
-}
-.copa04-page__topics__group-cards {
-  display: flex;
+  align-items: start;
   flex-wrap: wrap;
-  justify-content: space-around;
+  gap: 3.5rem 2.5rem;
 }
-.copa04-page__topics__group-cards__card {
-  width: 100%;
-  max-width: 593px;
-  height: 284px;
-  margin: 10px;
-  background-color: gray;
-  padding: 5px;
-  text-align: center;
-  box-sizing: border-box;
+.copa04-page__topics__main__item {
+  background-color: #efefef;
+  width: calc(50% - 1.25rem);
+  flex: 1 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5rem;
 }
-@media (max-width: 767.98px) {
-  .copa04-page__topics__group-cards__card {
-    margin-top: 2px;
+@media (max-width: 991.98px) {
+  .copa04-page__topics__main__item {
+    width: 100%;
   }
+}
+.copa04-page__topics__main__item__icon {
+  width: 3.75rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 .copa04-page__topics__cta {
-  margin: 0 auto;
+  margin: 3.25rem auto 0;
 }
-.copa04-page__topics-carousel__information {
+.copa04-page__topics-carousel {
+  background-color: var(--bg-topics-carousel, transparent);
+}
+.copa04-page__topics-carousel__header {
+  width: 100%;
+  margin-bottom: 3.5rem;
+}
+.copa04-page__topics-carousel__header__title {
+  margin-bottom: 0;
   text-align: center;
 }
-.copa04-page__topics-carousel__information__subtitle {
+.copa04-page__topics-carousel__header__subtitle {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+.copa04-page__topics-carousel__header__paragraph {
+  margin-top: 0.75rem;
   text-align: center;
 }
-.copa04-page__topics-carousel__information__paragraph {
-  margin-bottom: 20px;
+.copa04-page__topics-carousel__carousel {
+  overflow: hidden;
+  background-color: var(--bg-topicsCarousel);
 }
-.copa04-page__topics-carousel__butons-down {
+@media (max-width: 991.98px) {
+  .copa04-page__topics-carousel__carousel {
+    overflow: visible;
+  }
+}
+.copa04-page__topics-carousel__carousel__item {
+  /* Quantidade de gaps * gap (espaçamento)/ quantidade de elementos */
+  width: calc(25% - 9px);
+  height: auto;
+  background-color: #efefef;
+  padding: 4rem 3rem 1.75rem;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
   align-items: center;
+  gap: 1.5rem;
 }
-.copa04-page__topics-carousel__butons-down__right {
-  transform: rotate(90deg);
+@media (max-width: 991.98px) {
+  .copa04-page__topics-carousel__carousel__item {
+    width: 18.5rem;
+    height: auto;
+  }
 }
-.copa04-page__topics-carousel__butons-down__left {
-  transform: rotate(270deg);
+.copa04-page__topics-carousel__carousel__item__icon {
+  width: 3.75rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 .copa04-page__topics-carousel__cta {
-  margin: 0 auto;
+  margin: 3.5rem auto 0;
 }
-
-.swiper {
+.copa04-page__gallery-topics {
+  background-color: var(--bg-gallery-topics, transparent);
+}
+.copa04-page__gallery-topics__header {
   width: 100%;
-  height: 100%;
+  margin-bottom: 3.5rem;
 }
-
-.swiper-slide {
-  font-size: 18px;
-  background: #7c7c7c;
-  justify-content: center;
+.copa04-page__gallery-topics__header__title {
+  margin-bottom: 0;
+  text-align: center;
+}
+.copa04-page__gallery-topics__header__subtitle {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+.copa04-page__gallery-topics__header__paragraph {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.copa04-page__gallery-topics__carousel {
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__gallery-topics__carousel {
+    overflow: visible;
+  }
+}
+.copa04-page__gallery-topics__carousel__item {
+  /* Quantidade de gaps * gap (espaçamento)/ quantidade de elementos */
+  width: calc(25% - 9px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
   align-items: center;
-  width: 298.29px;
-  height: 270.21px;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__gallery-topics__carousel__item {
+    width: 18.5rem;
+  }
+}
+.copa04-page__gallery-topics__carousel__item__image {
+  width: 100%;
+  height: 16.875rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa04-page__gallery-topics__carousel__item__video {
+  width: 100%;
+  height: 16.875rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-.swiper-slide img {
-  width: 57.02px;
-  height: 57.02px;
+.copa04-page__gallery-topics__carousel__item__video__button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.copa04-page__gallery-topics__carousel__item__information {
+  padding: 2rem 1.25rem;
+  background-color: #cacaca;
+}
+.copa04-page__gallery-topics__carousel__item__information__title {
+  text-align: center;
+}
+.copa04-page__gallery-topics__carousel__item__information__paragraph {
+  text-align: center;
+  margin-top: 1rem;
+}
+.copa04-page__additional-content {
+  background-color: #e6e6e6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__additional-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 3.75rem;
+  }
+}
+.copa04-page__additional-content__header {
+  width: calc(66.67% - 6rem);
+  height: auto;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__additional-content__header {
+    width: 100%;
+  }
+}
+.copa04-page__additional-content__header__title {
+  text-align: left;
+}
+.copa04-page__additional-content__header__subtitle {
+  text-align: left;
+  margin-top: 0.75rem;
+}
+.copa04-page__additional-content__header__paragraph {
+  margin-top: 1.5rem;
+}
+.copa04-page__additional-content__header__cta {
+  margin-top: 0.75rem;
+}
+.copa04-page__additional-content__carousel {
+  width: 33.33%;
+  height: auto;
+  aspect-ratio: 538/481;
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__additional-content__carousel {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+}
+.copa04-page__additional-content__carousel__item {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa04-page__additional-content__carousel__item--video {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.copa04-page__additional-content__carousel__item--video__button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.copa04-page__additional-content__carousel__item--video__button__icon {
+  width: 3.75rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa04-page__additional-topics {
+  background-color: var(--bg-additional-content, transparent);
+}
+.copa04-page__additional-topics__carousel {
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__additional-topics__carousel {
+    overflow: visible;
+  }
+}
+.copa04-page__additional-topics__carousel__item {
+  height: auto;
+  margin-bottom: 0;
+  width: calc(25% - 0.75rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__additional-topics__carousel__item {
+    width: 18.625rem;
+  }
+}
+.copa04-page__additional-topics__carousel__item__image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title {
+  width: 100%;
+  background-color: #efefef;
+  text-align: center;
+  padding: 1.75rem;
+}
+.copa04-page__additional-topics__carousel__item__cta {
+  margin: 3.25rem auto 0;
+}
+.copa04-page__additional-topics__carousel__item--video {
+  width: calc(25% - 0.75rem);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__additional-topics__carousel__item--video {
+    width: 18.625rem;
+  }
+}
+.copa04-page__additional-topics__carousel__item--video__video {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.copa04-page__additional-topics__carousel__item--video__video__button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.copa04-page__additional-topics__carousel__item--video__video__button__icon {
+  width: 3.75rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.copa04-page__additional-topics__carousel__item--video__cta {
+  margin: auto auto 0;
+}
+.copa04-page__faq {
+  background-color: var(--bg-faq, trransparent);
+}
+.copa04-page__faq__header {
+  width: 100%;
+  margin-bottom: 3.375rem;
+}
+.copa04-page__faq__header__title {
+  margin-bottom: 0;
+  text-align: center;
+}
+.copa04-page__faq__header__subtitle {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+.copa04-page__faq__header__paragraph {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.copa04-page__section-products {
+  background-color: var(--bg-products, transparent);
+}
+.copa04-page__section-products__header {
+  width: 100%;
+  margin-bottom: 3.5rem;
+}
+.copa04-page__section-products__header__title {
+  margin-bottom: 0;
+  text-align: center;
+}
+.copa04-page__section-products__header__subtitle {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+.copa04-page__section-products__header__paragraph {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.copa04-page__section-products__carousel {
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .copa04-page__section-products__carousel {
+    overflow: visible;
+  }
+}
+.copa04-page__section-products__carousel__item {
+  background-color: #efefef;
+  position: relative;
+  width: calc(33.3333333333% - 1.6666666667rem);
+  height: auto;
+  flex-direction: column;
+  padding: 3rem 2.5rem 0;
+}
+.copa04-page__section-products__carousel__item__tag {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+  background-color: #fff;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.copa04-page__section-products__carousel__item__title {
+  text-align: center;
+  margin: 0;
+}
+.copa04-page__section-products__carousel__item__subtitle {
+  text-align: center;
+  margin: 0;
+}
+.copa04-page__section-products__carousel__item__paragraph {
+  margin-top: 3rem;
+}
+.copa04-page__section-products__carousel__item__price {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin-top: 3rem;
+}
+.copa04-page__section-products__carousel__item__price__title {
+  margin-bottom: 0;
+  padding-right: 0.5rem;
+  border-right: solid 1px #000;
+}
+.copa04-page__section-products__carousel__item__price__paragraph {
+  padding-left: 0.5rem;
+}
+.copa04-page__section-products__carousel__item__cta {
+  margin: 0.75rem auto 0;
 }
 
 /* BEGIN STYLE */
