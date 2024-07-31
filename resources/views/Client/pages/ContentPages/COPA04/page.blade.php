@@ -20,8 +20,12 @@
                 @if($sectionHighlighted)
                 --bg-higlighted: {{ $sectionHighlighted ? $sectionHighlighted->color_one : 'white' }};
                 @endif
-                --bg-topics: lightblue;
-                --bg-topics-carousel: pink;
+                @if($sectionTopic)
+                --bg-topics: {{ $sectionTopic ? $sectionTopic->color_one : 'white' }};
+                @endif
+                @if($sectionTopicCarousel)
+                --bg-topics-carousel: {{ $sectionTopicCarousel ? $sectionTopicCarousel->color_one : 'white' }};
+                @endif
                 --bg-gallery-topics: lightgray;
                 --bg-additional-content: lightgreen;
                 --bg-faq: lightyellow;
@@ -124,70 +128,86 @@
         @endif
 
         {{-- Seção Topics --}}
+        @if($sectionTopic)
         <section class="copa04-page__topics">
             <header class="copa04-page__topics__header">
-                <h2 class="copa04-page__topics__header__title">Title</h2>
-                <h3 class="copa04-page__topics__header__subtitle">Subtitle</h3>
+                @if($sectionTopic->title)
+                <h2 class="copa04-page__topics__header__title">{{ $sectionTopic->title }}</h2>
+                @endif
+
+                @if($sectionTopic->subtitle)
+                <h3 class="copa04-page__topics__header__subtitle">{{ $sectionTopic->subtitle }}</h3>
+                @endif
+
+                @if($sectionTopic->description )
                 <div class="copa04-page__topics__header__paragraph">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum
-                        quia
-                        aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
+                    {!! $sectionTopic->description !!}
                 </div>
+                @endif
             </header>
-
-
+            
             <div class="copa04-page__topics__main">
-                @for ($i = 0; $i < 4; $i++)
+                @foreach ($topicItems as $topic)
                     <div class="copa04-page__topics__main__item">
-                        <img class="copa04-page__topics__main__item__icon" src="{{ asset('images/icon.svg') }}"
+                        <img class="copa04-page__topics__main__item__icon" src="{{ asset('storage/'.$topic->path_image) }}"
                             alt="ícone do tópico {{-- title --}}">
-                        <h4 class="copa04-page__topics__main__item__title">Title {{ $i }}</h4>
+                        <h4 class="copa04-page__topics__main__item__title">{{ $topic->title }}</h4>
                         <div class="copa04-page__topics__main__item__paragraph">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas nihil
-                                maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita vel
-                                neque
-                                molestias eum iusto.</p>
+                            <p>{!! $topic->text !!}</p>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
-            <a href="#" class="copa04-page__topics__cta">CTA</a>
+            @if($sectionTopic->btn_title)
+            <a href="#" class="copa04-page__topics__cta">{{ $sectionTopic->btn_title  }}</a>
+            @endif
         </section>
+        @endif
 
         {{-- Seção Topics - Carousel --}}
+        @if($sectionTopicCarousel)
         <section class="copa04-page__topics-carousel">
             <header class="copa04-page__topics-carousel__header">
-                <h2 class="copa04-page__topics-carousel__header__title">Title</h2>
-                <h3 class="copa04-page__topics-carousel__header__subtitle">Subtitle</h3>
+                @if($sectionTopicCarousel->title)
+                <h2 class="copa04-page__topics-carousel__header__title">{{ $sectionTopicCarousel->title }}</h2>
+                @endif
+                <h3 class="copa04-page__topics-carousel__header__subtitle">{{ $sectionTopicCarousel->subtitle }}</h3>
                 <div class="copa04-page__topics-carousel__header__paragraph">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae pariatur distinctio unde
-                        similique. Animi itaque minima eius dolor voluptatem nulla, laboriosam porro officiis, ducimus
-                        necessitatibus iure sequi tenetur quaerat? Temporibus.</p>
+                        {!! $sectionTopicCarousel->description !!}
                 </div>
             </header>
+            @if($carouselItems)
+
             <div class="copa04-page__topics-carousel__carousel">
                 <div class="copa04-page__topics-carousel__swiper-wrapper swiper-wrapper">
-                    @for ($i = 0; $i < 10; $i++)
+                    @foreach($carouselItems as $item)
                         <div class="copa04-page__topics-carousel__carousel__item swiper-slide">
+
+                            @if($item->path_image)
                             <img class="copa04-page__topics-carousel__carousel__item__icon"
-                                src="{{ asset('images/icon.svg') }}" alt="ícone do tópico {{-- title --}}">
-                            <h4 class="copa04-page__topics-carousel__carousel__item__title">Title {{ $i }}</h4>
+                                src="{{ asset('storage/'.$item->path_image) }}" alt="ícone do tópico {{-- title --}}">
+                            @endif
+
+                            @if($item->title)
+                            <h4 class="copa04-page__topics-carousel__carousel__item__title">{{$item->title}}</h4>
+                            @endif
+
+                            @if($item->description)
                             <div class="copa04-page__topics-carousel__carousel__item__paragraph">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio ullam voluptas
-                                    nihil
-                                    maiores est labore fuga minima dolore vitae eaque inventore, corrupti laborum expedita
-                                    vel
-                                    neque
-                                    molestias eum iusto.</p>
+                                {!! $item->description !!}
                             </div>
+                            @endif
+
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
-            <a href="#" class="copa04-page__topics-carousel__cta">CTA</a>
+            @endif
+            @if($sectionTopicCarousel->btn_title || $sectionTopicCarousel->link)
+            <a href="{{ $sectionTopicCarousel->button_link }}" class="copa04-page__topics-carousel__cta">{{ $sectionTopicCarousel->btn_title }}</a>
+            @endif
         </section>
-
+        @endif
         {{-- Seção Gallery Topics --}}
         <section class="copa04-page__gallery-topics">
             <header class="copa04-page__gallery-topics__header">

@@ -15,6 +15,8 @@ use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Models\ContentPages\COPA04ContentPagesSectionVideo;
 use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
 use App\Models\ContentPages\COPA04ContentPagesSectionHighlighted;
+use App\Models\ContentPages\COPA04ContentPagesTopicItem;
+use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
 
 class COPA04Controller extends Controller
 {
@@ -104,10 +106,13 @@ class COPA04Controller extends Controller
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA04', 'page');
-        $sectionHeros = COPA04ContentPagesSectionHero::where('active', 1)->first();
-        $sectionVideo = COPA04ContentPagesSectionVideo::where('active', 1)->first();
-        $sectionHighlighteds = COPA04ContentPagesSectionHighlighted::where('active', 1)->first();
-        $sectionTopic = COPA04ContentPagesTopic::first();
+        $sectionHeros = COPA04ContentPagesSectionHero::active()->first();
+        $sectionVideo = COPA04ContentPagesSectionVideo::active()->first();
+        $sectionHighlighteds = COPA04ContentPagesSectionHighlighted::active()->first();
+        $sectionTopic = COPA04ContentPagesTopic::active()->first();
+        $TopicItems = COPA04ContentPagesTopicItem::active()->sorting()->get();
+        $sectiontopicCaroussel = COPA04ContentPagesTopiccarousel::active()->first();
+        $CarousselItems = COPA04ContentPagesTopiccarousel_cards::active()->sorting()->get();
 
         return view('Client.pages.ContentPages.COPA04.page',[
             'sections' => $sections,
@@ -115,6 +120,10 @@ class COPA04Controller extends Controller
             'sectionVideo' => $sectionVideo,
             'sectionHighlighted' => $sectionHighlighteds,
             'sectionTopic' => $sectionTopic,
+            'topicItems' => $TopicItems,
+            'sectionTopicCarousel' => $sectiontopicCaroussel,
+            'carouselItems' => $CarousselItems,
+            
         ]);
     }
 
