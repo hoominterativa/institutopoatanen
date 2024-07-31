@@ -19,6 +19,7 @@ class CreateCopa04ContentpagesSectionvideosTable extends Migration
             $table->string('subtitle',191)->nullable();
             $table->text('text', 255)->nullable();
             $table->text('link', 200)->nullable();
+            $table->string('color_one')->nullable();
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();

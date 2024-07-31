@@ -20,6 +20,7 @@ class COPA04ContentPagesSectionVideo extends Model
         'title',
         'subtitle',
         'text',
+        'color_one',
         'link',
         'active',
         'sorting'

@@ -21,6 +21,7 @@ class COPA04ContentPagesSectionHighlighted extends Model
         'subtitle',
         'text',
         'link',
+        'color_one',
         'btn_title',
         'path_image',
         'active',
