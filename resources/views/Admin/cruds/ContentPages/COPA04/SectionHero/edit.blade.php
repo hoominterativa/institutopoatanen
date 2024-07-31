@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.copa04.sectionHero.index')}}">{{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.copa04.index')}}">{{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</a></li>
                                     <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</li>
                                 </ol>
                             </div>
@@ -23,7 +23,7 @@
                 {!! Form::model($COPA04ContentPagesSectionHero, ['route' => ['admin.copa04.sectionHero.update', $COPA04ContentPagesSectionHero->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
                     @include('Admin.cruds.ContentPages.COPA04.SectionHero.form')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.copa04.sectionHero.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

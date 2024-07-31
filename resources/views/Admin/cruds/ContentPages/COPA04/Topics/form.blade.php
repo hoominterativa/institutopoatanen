@@ -5,7 +5,14 @@
                 {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
                 {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
             </div>
-
+            <div class="mb-3 col-12">
+                {!! Form::label('colorpicker-default', 'Cor primária', ['class'=>'form-label']) !!}
+                {!! Form::text('color_one', null, [
+                        'class'=>'form-control colorpicker-default',
+                        'id'=>'colorpicker-default',
+                        'required'=>'required',
+                    ])!!}
+            </div>
             <div class="basic-editor__content mb-3 col-12">
                 {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
                 {!! Form::textarea('text', null, [

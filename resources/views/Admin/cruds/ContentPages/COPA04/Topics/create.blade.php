@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.copa04.topic.index')}}">{{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.copa04.index')}}">{{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</a></li>
                                     <li class="breadcrumb-item active">Cadastro {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</li>
                                 </ol>
                             </div>

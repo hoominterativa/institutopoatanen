@@ -5,16 +5,26 @@
                 {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
                 {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
             </div>
-            <div class="mb-3 col-12">
-                {!! Form::label('validationCustom02', 'Subtitulo', ['class'=>'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
-            </div>
             <div class="row">
-                <div class="mb-3 col-8">
+                <div class="mb-3 col-6">
+                    {!! Form::label('validationCustom02', 'Subtitulo', ['class'=>'form-label']) !!}
+                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
+                </div>
+                <div class="mb-3 col-6">
                     {!! Form::label('validationCustom03', 'Link', ['class'=>'form-label']) !!}
                     {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
                 </div>
-                <div class="mb-3 col-4">
+            </div>
+            <div class="row">
+                <div class="mb-3 col-6">
+                    {!! Form::label('colorpicker-default', 'Cor primária', ['class'=>'form-label']) !!}
+                    {!! Form::text('color_one', null, [
+                            'class'=>'form-control colorpicker-default',
+                            'id'=>'colorpicker-default',
+                            'required'=>'required',
+                        ])!!}
+                </div>
+                <div class="mb-3 col-6">
                     {!! Form::label('validationCustom04', 'Título do botão', ['class'=>'form-label']) !!}
                     {!! Form::text('btn_title', null, ['class'=>'form-control', 'id'=>'validationCustom04', 'placeholder'=>'Título do botão', 'required'=>'required']) !!}
                 </div>
