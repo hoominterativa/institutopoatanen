@@ -50,7 +50,7 @@
                     <li class="nav-item">
                         <a href="#sectionTopic" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Tópico
+                            Section Tópico
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Aqui você pode cadastrar um ou mais tópicos"></i>
