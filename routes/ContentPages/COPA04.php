@@ -4,16 +4,18 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Models\ContentPages\COPA04ContentPagesTopic;
 use App\Http\Controllers\ContentPages\COPA04Controller;
-use App\Http\Controllers\ContentPages\COPA04GalleryController;
-use App\Http\Controllers\ContentPages\COPA04GallerytopicsController;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Http\Controllers\ContentPages\COPA04TopicController;
+use App\Http\Controllers\ContentPages\COPA04GalleryController;
 use App\Http\Controllers\ContentPages\COPA04TopicItemController;
 use App\Http\Controllers\ContentPages\COPA04SectionHeroController;
 use App\Http\Controllers\ContentPages\COPA04SectionVideoController;
+use App\Http\Controllers\ContentPages\COPA04GallerytopicsController;
 use App\Http\Controllers\ContentPages\COPA04TopiccarouselController;
+use App\Http\Controllers\ContentPages\COPA04AdditionalContentController;
 use App\Http\Controllers\ContentPages\COPA04SectionHighlightedController;
 use App\Http\Controllers\ContentPages\COPA04Topiccarousel_cardsController;
+use App\Http\Controllers\ContentPages\COPA04AdditionalContentImagesController;
 
 /**
  * Uncomment the code below
@@ -71,6 +73,12 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/galleryTopic/delete', [COPA04GallerytopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.galleryTopic.destroySelected');
     Route::post($route.'/galleryTopic/sorting', [COPA04GallerytopicsController::class, 'sorting'])->name('admin.'.$routeName.'.galleryTopic.sorting');
 
+    Route::resource($route.'/additionalContent', COPA04AdditionalContentController::class)->names('admin.'.$routeName.'.additionalContent')->parameters(['additionalContent' => 'AdditionalContent']);
+    Route::post($route.'/additionalContent/delete', [COPA04AdditionalContentController::class, 'destroySelected'])->name('admin.'.$routeName.'.additionalContent.destroySelected');
+
+    Route::resource($route.'/additionalContentImages', COPA04AdditionalContentImagesController::class)->names('admin.'.$routeName.'.additionalContentImages')->parameters(['additionalContentImages' => 'AdditionalContentImages']);
+    Route::post($route.'/additionalContentImages/delete', [COPA04AdditionalContentImagesController::class, 'destroySelected'])->name('admin.'.$routeName.'.additionalContentImages.destroySelected');
+    Route::post($route.'/additionalContentImages/sorting', [COPA04AdditionalContentImagesController::class, 'sorting'])->name('admin.'.$routeName.'.additionalContentImages.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');
