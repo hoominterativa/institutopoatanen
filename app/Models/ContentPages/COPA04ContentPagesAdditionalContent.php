@@ -20,6 +20,7 @@ class COPA04ContentPagesAdditionalContent extends Model
         'title',
         'subtitle',
         'description',
+        'color_one',
         'button_text',
         'button_link',
         'active',

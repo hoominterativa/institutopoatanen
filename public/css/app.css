@@ -89,7 +89,8 @@ details .details-content {
   aspect-ratio: 6/4;
   background-color: #7c7c7c;
   content: "";
-  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: all ease 0.4s;
 }
 .quedinha__btn * {
@@ -301,7 +302,8 @@ details .details-content {
   height: 1.25rem;
   content: "";
   background-color: #404040;
-  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: transform 0.2s ease-out;
 }
 .copa04-page__faq__item__paragraph {
@@ -2354,6 +2356,7 @@ body .owl-dots .owl-dot.active {
   align-items: start;
   flex-wrap: wrap;
   gap: 4rem 4.5rem;
+  background-color: var(--bg-hero-primary);
 }
 .copa04-page__hero::after {
   position: absolute;

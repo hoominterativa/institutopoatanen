@@ -101,9 +101,17 @@ class COPA04Controller extends Controller
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('ContentPages', 'COPA04', 'page');
+        $sectionHeros = COPA04ContentPagesSectionHero::where('active', 1)->first();
+        $sectionVideo = COPA04ContentPagesSectionVideo::where('active', 1)->first();
+        $sectionHighlighteds = COPA04ContentPagesSectionHighlighted::where('active', 1)->first();
+        $sectionTopic = COPA04ContentPagesTopic::first();
 
         return view('Client.pages.ContentPages.COPA04.page',[
-            'sections' => $sections
+            'sections' => $sections,
+            'sectionHeros' => $sectionHeros,
+            'sectionVideo' => $sectionVideo,
+            'sectionHighlighted' => $sectionHighlighteds,
+            'sectionTopic' => $sectionTopic,
         ]);
     }
 

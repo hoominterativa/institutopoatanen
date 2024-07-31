@@ -20,6 +20,7 @@ class COPA04ContentPagesTopiccarousel extends Model
     protected $fillable = [
         'title',
         'subtitle',
+        'color_one',
         'description',
         'button_text',
         'button_link',

@@ -18,6 +18,7 @@ class CreateCopa04ContentpagesAdditionalcontentsTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
+            $table->string('color_one')->nullable();
             $table->string('button_text')->nullable();
             $table->string('button_link')->nullable();
             $table->boolean('active')->default(0);

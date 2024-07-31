@@ -6,10 +6,10 @@
         <style>
             /* BACKEND: Imprimir as variaveis de cor aqui ❤ */
             :root {
-                --bg-hero-primary: red;
-                --bg-hero-secondary: blue;
-                --bg-hero-tertiary: green;
-                --bg-video-section: yellow;
+                --bg-hero-primary: {{ $sectionHeros ? $sectionHeros->color_one : 'lightgray' }};
+                --bg-hero-secondary: {{ $sectionHeros ? $sectionHeros->color_two : 'lightblue' }};
+                --bg-hero-tertiary: {{ $sectionHeros ? $sectionHeros->color_three : 'white' }};
+                --bg-video-section: green;
                 --bg-higlighted: purple;
                 --bg-topics: lightblue;
                 --bg-topics-carousel: pink;
@@ -19,10 +19,12 @@
                 --bg-products: gray;
 
 
-            }
+            }/
         </style>
-
         {{-- Seção Hero --}}
+        {{-- {{ $sectionHeros ? $sectionHeros->color_one : 'default_primary_value' }}; --}}
+        @if ($sectionHeros)
+        
         <section class="copa04-page__hero ">
             <aside class="copa04-page__hero__aside">
                 <img class="copa04-page__hero__aside__logo" src="{{ asset('images/gray.png') }}"
@@ -34,57 +36,65 @@
                 <header class="copa04-page__hero__information__header">
                     <img class="copa04-page__hero__information__header__icon" src="{{ asset('images/icon.png') }}"
                         alt="ícone do {{-- title --}}">
-                    <h1 class="copa04-page__hero__information__header__title">Title</h1>
+                    <h1 class="copa04-page__hero__information__header__title">{{ $sectionHeros->title }}</h1>
                 </header>
-                <p class="copa04-page__hero__information__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Cras vel tortor eu purus gravida sollicitudin vel non libero. Vivamus commodo porta velit, vel
-                    tempus mi pretium sed. In et arcu eget purus mattis posuere. Donec tincidunt dignissim faucibus. Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit.
+                <p class="copa04-page__hero__information__paragraph">
+                    
+                    {!! $sectionHeros->description  !!}
 
                 </p>
 
-                <a href="#" class="copa04-page__hero__information__cta">CTA</a>
+                <a href="{{ $sectionHeros->link }}" class="copa04-page__hero__information__cta">{{ $sectionHeros->title_btn }}</a>
             </div>
-            <img class="copa04-page__hero__image" src="{{ asset('images/bg-colorido.svg') }}"
+            <img class="copa04-page__hero__image" src="{{ asset('storage/'.$sectionHeros->path_image) }}"
                 alt="Imagem ilustrativa da seção {{-- title --}}">
         </section>
-
+        @endif
         {{-- Seção Video --}}
+        @if($sectionVideo)
         <section class="copa04-page__video-section">
-            <h2 class="copa04-page__video-section__title">Title</h2>
-            <h3 class="copa04-page__video-section__subtitle">Subtitlo</h3>
-            <p class="copa04-page__video-section__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto
-                voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum quia aut! Quibusdam nobis
-                qui laudantium commodi aut minus reiciendis.</p>
-            <div data-src="https://www.youtube.com/embed/EDnIEWyVIlE" class="copa04-page__video-section__video"
+            @if($sectionVideo->title)
+            <h2 class="copa04-page__video-section__title">{{ $sectionVideo->title }}</h2>
+            @endif
+
+            @if($sectionVideo->subtitle)
+            <h3 class="copa04-page__video-section__subtitle">{{ $sectionVideo->subtitle }}</h3>
+            @endif
+            @if($sectionVideo->text)
+            <div class="copa04-page__video-section__paragraph">
+                {!! $sectionVideo->text !!}
+            </div>
+            @endif
+            @if($sectionVideo->link)
+            <div data-src="{{ $sectionVideo->link ?? "Error" }}" class="copa04-page__video-section__video"
                 style="background-image: url({{ asset('images/bg-colorido.svg') }})">
                 <button id="video_play" class="copa04-page__video-section__video__button">
                     <img class="copa04-page__video-section__video__button__icon"
                         src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                 </button>
             </div>
+            @endif
         </section>
-
+        @endif
         {{-- Seção Highlighted --}}
+        @if($sectionHighlighted)
         <section class="copa04-page__highlighted">
             <div class="copa04-page__highlighted__information">
-                <h2 class="copa04-page__highlighted__information__title">Title</h2>
-                <h3 class="copa04-page__highlighted__information__subtitle">Subtitle</h3>
+                <h2 class="copa04-page__highlighted__information__title">{{ $sectionHighlighted->title }}</h2>
+                <h3 class="copa04-page__highlighted__information__subtitle">{{ $sectionHighlighted->subtitle }}</h3>
                 <div class="copa04-page__highlighted__information__paragraph">
-                    <p>Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti
-                        tempore
-                        rerum quia aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis
-                    </p>
+
+                        {!! $sectionHighlighted->text !!}
+
                 </div>
-                <a href="#" class="copa04-page__highlighted__information__cta">CTA</a>
+                <a href="#" class="copa04-page__highlighted__information__cta">{{ $sectionHighlighted->btn_title }}</a>
             </div>
 
-            <img class="copa04-page__highlighted__image" src="{{ asset('images/bg-colorido.svg') }}"
+            <img class="copa04-page__highlighted__image" src="{{ asset('storage/'.$sectionHighlighted->path_image) }}"
                 alt="Imagem referente a seção {{-- TITLE --}}">
 
         </section>
+        @endif
 
         {{-- Seção Topics --}}
         <section class="copa04-page__topics">

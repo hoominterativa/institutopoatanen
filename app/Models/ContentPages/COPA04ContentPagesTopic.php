@@ -19,6 +19,7 @@ class COPA04ContentPagesTopic extends Model
     protected $fillable = [
         'title',
         'subtitle',
+        'color_one',
         'description',
         'btn_title',
         'link',

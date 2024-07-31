@@ -33,7 +33,7 @@ class COPA04SectionHeroController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        $data['active'] = $request->active ? 1 : 0;
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
@@ -59,7 +59,7 @@ class COPA04SectionHeroController extends Controller
     public function update(Request $request, COPA04ContentPagesSectionHero $COPA04ContentPagesSectionHero)
     {
         $data = $request->all();
-
+        $data['active'] = $request->active ? 1 : 0;
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){

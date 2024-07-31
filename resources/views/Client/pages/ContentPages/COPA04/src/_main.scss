@@ -9,6 +9,7 @@
         @include disFlex(row, space-between, start);
         flex-wrap: wrap;
         gap: 4rem 4.5rem;
+        background-color: var(--bg-hero-primary);
 
         &::after {
             position: absolute;

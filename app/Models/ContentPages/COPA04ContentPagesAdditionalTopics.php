@@ -22,6 +22,7 @@ class COPA04ContentPagesAdditionalTopics extends Model
         'path_image',
         'button_text',
         'button_link',
+        'color_one',
         'active',
         'sorting',
     ];

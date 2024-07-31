@@ -18,6 +18,7 @@ class CreateCopa04ContentpagesGalleriesTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
+            $table->string('color_one')->nullable();
             $table->boolean('active')->default(0);
             $table->softDeletes();
             $table->timestamps();

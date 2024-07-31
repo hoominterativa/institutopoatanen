@@ -18,6 +18,7 @@ class CreateCopa04ContentpagesFaqsTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
+            $table->string('color_one', 100)->nullable();
             $table->boolean('active')->default(0);
             $table->softDeletes();
             $table->timestamps();

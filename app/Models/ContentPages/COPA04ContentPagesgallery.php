@@ -20,6 +20,7 @@ class COPA04ContentPagesgallery extends Model
         'title',
         'subtitle',
         'description',
+        'color_one',
         'active',
     ];
 

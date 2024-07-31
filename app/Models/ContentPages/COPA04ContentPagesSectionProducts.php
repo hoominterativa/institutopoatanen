@@ -19,6 +19,7 @@ class COPA04ContentPagesSectionProducts extends Model
     protected $fillable = [
         'title',
         'subtitle',
+        'color_one',
         'description',
         'active',
     ];

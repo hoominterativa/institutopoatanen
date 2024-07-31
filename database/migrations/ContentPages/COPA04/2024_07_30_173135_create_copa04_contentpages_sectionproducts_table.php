@@ -17,6 +17,7 @@ class CreateCopa04ContentpagesSectionproductsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('subtitle');
+            $table->string('color_one')->nullable();
             $table->string('description');
             $table->boolean('active')->default(0);
             $table->softDeletes();

@@ -15,7 +15,7 @@
             </div>
             <div class="basic-editor__content mb-3 col-12">
                 {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
-                {!! Form::textarea('description', null, [
+                {!! Form::textarea('text', null, [
                     'class'=>'form-control basic-editor',
                     'id'=>'basic-editor',
                 ]) !!}
