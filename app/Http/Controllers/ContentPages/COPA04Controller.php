@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
-use App\Models\ContentPages\COPA04ContentPagesSectionHero;
-use App\Models\ContentPages\COPA04ContentPagesSectionHighlighted;
-use App\Models\ContentPages\COPA04ContentPagesSectionVideo;
 use App\Models\ContentPages\COPA04ContentPagesTopic;
+use App\Models\ContentPages\COPA04ContentPagesSectionHero;
+use App\Models\ContentPages\COPA04ContentPagesSectionVideo;
+use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
+use App\Models\ContentPages\COPA04ContentPagesSectionHighlighted;
 
 class COPA04Controller extends Controller
 {
@@ -25,13 +26,15 @@ class COPA04Controller extends Controller
         $sectionVideo = COPA04ContentPagesSectionVideo::first();
         $sectionHighlighteds = COPA04ContentPagesSectionHighlighted::paginate(30);
         $sectionTopic = COPA04ContentPagesTopic::first();
+        $topicCaroussel = COPA04ContentPagesTopiccarousel::first();
 
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.index', [
             'sectionHeros' => $sectionHeros,
             'cropSetting' => getCropImage('ContentPages', 'COPA01'),
             'sectionVideo' => $sectionVideo,
             'sectionHighlighteds' => $sectionHighlighteds,
-            'sectionTopic' => $sectionTopic
+            'sectionTopic' => $sectionTopic,
+            'topicCaroussel' => $topicCaroussel
         ]);
     }
 

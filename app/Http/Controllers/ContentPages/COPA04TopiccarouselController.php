@@ -6,9 +6,6 @@ use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
 class COPA04TopiccarouselController extends Controller
@@ -25,7 +22,7 @@ class COPA04TopiccarouselController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
 
-        if(COPA04TopiccarouselController::create($data)){
+        if(COPA04ContentPagesTopiccarousel::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
             return redirect()->route('admin.copa04.index');
         }else{
@@ -37,7 +34,9 @@ class COPA04TopiccarouselController extends Controller
 
     public function edit(COPA04ContentPagesTopiccarousel $COPA04ContentPagesTopiccarousel)
     {
-        return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.edit');
+        return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.edit', [
+            'COPA04ContentPagesTopiccarousel' => $COPA04ContentPagesTopiccarousel
+        ]);
     }
 
     public function update(Request $request, COPA04ContentPagesTopiccarousel $COPA04ContentPagesTopiccarousel)
