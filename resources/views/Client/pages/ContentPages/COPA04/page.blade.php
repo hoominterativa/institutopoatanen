@@ -35,12 +35,13 @@
                 @if ($sectionFaq)
                     --bg-faq: {{ $sectionFaq ? $sectionFaq->color_one : 'white' }};
                 @endif
-                --bg-products: gray;
+                @if ($sectionProducts)
+                    --bg-products: {{ $sectionProducts ? $sectionProducts->color_one : 'white' }};
+                @endif
+                --bg-productsss: gray;
 
 
-            }
-
-            /
+            }/
         </style>
         {{-- Seção Hero --}}
         {{-- {{ $sectionHeros ? $sectionHeros->color_one : 'default_primary_value' }}; --}}
@@ -95,7 +96,7 @@
                 @endif
                 @if ($sectionVideo->link)
                     <div data-src="{{ $sectionVideo->link ?? 'Error' }}" class="copa04-page__video-section__video"
-                        style="background-image: url({{ asset('images/bg-colorido.svg') }})">
+                        style="background-image: url({{ asset('storage/' . $sectionVideo->path_image) }})">
                         <button id="video_play" class="copa04-page__video-section__video__button">
                             <img class="copa04-page__video-section__video__button__icon"
                                 src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
@@ -411,48 +412,55 @@
         @endif
 
         {{-- Seção Section Products --}}
+        @if($sectionProducts)  
         <section class="copa04-page__section-products">
             <header class="copa04-page__section-products__header">
-                <h2 class="copa04-page__section-products__header__title">Title</h2>
-                <h3 class="copa04-page__section-products__header__subtitle">Subtitle</h3>
+
+                @if($sectionProducts->title)
+                <h2 class="copa04-page__section-products__header__title">{{ $sectionProducts->title }}</h2>
+                @endif
+
+                @if($sectionProducts->subtitle)
+                <h3 class="copa04-page__section-products__header__subtitle">{{ $sectionProducts->subtitle }}</h3>
+                @endif
+
+                @if($sectionProducts->description)
                 <div class="copa04-page__section-products__header__paragraph">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum
-                        quia
-                        aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
+                    {!! $sectionProducts->description !!}
                 </div>
+                @endif
+
             </header>
             <div class="copa04-page__section-products__carousel">
                 <div class="copa04-page__section-products__carousel__swiper-wrapper swiper-wrapper">
-                    @for ($i = 0; $i < 3; $i++)
+                    @foreach($productItem as $item)
                         <div class="copa04-page__section-products__carousel__item swiper-slide">
                             {{-- if tag --}}
+                            @if($item->promotion == 1)
                             <span class="copa04-page__section-products__carousel__item__tag">Promoção</span>
-                            <h4 class="copa04-page__section-products__carousel__item__title">Title</h4>
-                            <h5 class="copa04-page__section-products__carousel__item__subtitle">Subtitle</h5>
+                            @endif
+                            <h4 class="copa04-page__section-products__carousel__item__title">{{ $item->title }}</h4>
+                            <h5 class="copa04-page__section-products__carousel__item__subtitle">{{ $item->subtitle }}</h5>
                             <div class="copa04-page__section-products__carousel__item__paragraph">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quam esse et, debitis
-                                    magnam tempore placeat aperiam dignissimos illo, ipsam nesciunt omnis quis nam odit
-                                    nihil
-                                    animi tenetur nobis velit.
-                                </p>
+                                {!! $item->description !!}
                             </div>
                             <div class="copa04-page__section-products__carousel__item__price">
-                                <h6 class="copa04-page__section-products__carousel__item__price__title">Subtitle</h6>
-                                <p class="copa04-page__section-products__carousel__item__price__paragraph">R$ <b>00,00</b>
+                                <h6 class="copa04-page__section-products__carousel__item__price__title">{{ $item->subtitle }}</h6>
+                                <p class="copa04-page__section-products__carousel__item__price__paragraph">R$ <b>{{ $item->value }}</b>
                                 </p>
 
                             </div>
-                            <a class="copa04-page__section-products__carousel__item__cta" href="#">CTA</a>
+                            <a class="copa04-page__section-products__carousel__item__cta" href="{{ $item->button_link }}">{{ $item->button_text }}</a>
 
 
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
 
         </section>
-
+        @endif
+        
         @foreach ($sections as $section)
             {!! $section !!}
         @endforeach

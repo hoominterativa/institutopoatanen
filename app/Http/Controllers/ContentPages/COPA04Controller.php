@@ -21,6 +21,7 @@ use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
 use App\Models\ContentPages\COPA04ContentPagesGallerytopics;
 use App\Models\ContentPages\COPA04ContentPagesAdditionalContentImages;
 use App\Models\ContentPages\COPA04ContentPagesFaqTopics;
+use App\Models\ContentPages\COPA04ContentPagesSectionProducts_Product;
 
 class COPA04Controller extends Controller
 {
@@ -134,7 +135,8 @@ class COPA04Controller extends Controller
         $additionalTopics = COPA04ContentPagesAdditionalTopics::active()->get();
         $faq = COPA04ContentPagesFaq::active()->first();
         $faqTopics = COPA04ContentPagesFaqTopics::active()->sorting()->get();
-
+        $sectionProduct = COPA04ContentPagesSectionProducts::active()->first();
+        $productItem = COPA04ContentPagesSectionProducts_Product::active()->sorting()->get();
         return view('Client.pages.ContentPages.COPA04.page',[
             'sections' => $sections,
             'sectionHeros' => $sectionHeros,
@@ -150,7 +152,9 @@ class COPA04Controller extends Controller
             "additionalItemImages" => $additionalContentImages,
             "additionalTopics" => $additionalTopics,
             "sectionFaq" => $faq,
-            "faqTopics" => $faqTopics
+            "faqTopics" => $faqTopics,
+            'sectionProducts' => $sectionProduct,
+            'productItem' => $productItem
             
         ]);
     }
