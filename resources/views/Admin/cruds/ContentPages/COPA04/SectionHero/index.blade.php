@@ -83,6 +83,15 @@
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#additionalTopics" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Cadastrar Seção AddicionalTopics
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será exibida no final da página."></i>
+                        </a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane show active" id="sectionHero">
@@ -177,6 +186,9 @@
                     </div>
                     <div class="tab-pane" id="additionalContents">
                         @include('Admin.cruds.ContentPages.COPA04.AdditionalContent.index')
+                    </div>
+                    <div class="tab-pane" id="additionalTopics">
+                        @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.index')
                     </div>
                 </div>
                 <!-- end row -->

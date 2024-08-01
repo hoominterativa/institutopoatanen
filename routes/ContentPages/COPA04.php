@@ -12,6 +12,7 @@ use App\Http\Controllers\ContentPages\COPA04SectionHeroController;
 use App\Http\Controllers\ContentPages\COPA04SectionVideoController;
 use App\Http\Controllers\ContentPages\COPA04GallerytopicsController;
 use App\Http\Controllers\ContentPages\COPA04TopiccarouselController;
+use App\Http\Controllers\ContentPages\COPA04AdditionalTopicsController;
 use App\Http\Controllers\ContentPages\COPA04AdditionalContentController;
 use App\Http\Controllers\ContentPages\COPA04SectionHighlightedController;
 use App\Http\Controllers\ContentPages\COPA04Topiccarousel_cardsController;
@@ -79,6 +80,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/additionalContentImages', COPA04AdditionalContentImagesController::class)->names('admin.'.$routeName.'.additionalContentImages')->parameters(['additionalContentImages' => 'AdditionalContentImages']);
     Route::post($route.'/additionalContentImages/delete', [COPA04AdditionalContentImagesController::class, 'destroySelected'])->name('admin.'.$routeName.'.additionalContentImages.destroySelected');
     Route::post($route.'/additionalContentImages/sorting', [COPA04AdditionalContentImagesController::class, 'sorting'])->name('admin.'.$routeName.'.additionalContentImages.sorting');
+    
+    Route::resource($route.'/additionalTopics', COPA04AdditionalTopicsController::class)->names('admin.'.$routeName.'.additionalTopics')->parameters(['additionalTopics' => 'AdditionalTopics']);
+    Route::post($route.'/additionalTopics/delete', [COPA04AdditionalTopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.additionalTopics.destroySelected');
+    Route::post($route.'/additionalTopics/sorting', [COPA04AdditionalTopicsController::class, 'sorting'])->name('admin.'.$routeName.'.additionalTopics.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');

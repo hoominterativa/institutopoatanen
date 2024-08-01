@@ -17,7 +17,9 @@ class COPA04AdditionalTopicsController extends Controller
 
     public function create()
     {
-        return view('Admin.cruds.ContentPages.COPA04.AdditionalTopics.create');
+        return view('Admin.cruds.ContentPages.COPA04.AdditionalTopics.create', [
+            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+        ]);
     }
 
     public function store(Request $request)
@@ -33,7 +35,7 @@ class COPA04AdditionalTopicsController extends Controller
 
         if(COPA04ContentPagesAdditionalTopics::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.index');
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -41,13 +43,16 @@ class COPA04AdditionalTopicsController extends Controller
         }
     }
 
-    public function edit(COPA04ContentPagesAdditionalTopics $COPA04ContentPagesAdditionalTopics)
+    public function edit(COPA04ContentPagesAdditionalTopics $AdditionalTopics)
     {
-        return view('Admin.cruds.ContentPages.COPA04.AdditionalTopics.edit', compact('COPA04ContentPagesAdditionalTopics'));
+        return view('Admin.cruds.ContentPages.COPA04.AdditionalTopics.edit', [
+            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'AdditionalTopics' => $AdditionalTopics
+        ]);
     }
 
 
-    public function update(Request $request, COPA04ContentPagesAdditionalTopics $COPA04ContentPagesAdditionalTopics)
+    public function update(Request $request, COPA04ContentPagesAdditionalTopics $AdditionalTopics)
     {
         $data = $request->all();
 
@@ -57,18 +62,18 @@ class COPA04AdditionalTopicsController extends Controller
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
-            storageDelete($COPA04ContentPagesAdditionalTopics, 'path_image');
+            storageDelete($AdditionalTopics, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($COPA04ContentPagesAdditionalTopics, 'path_image');
+            storageDelete($AdditionalTopics, 'path_image');
             $data['path_image'] = null;
         }
 
 
-        if($COPA04ContentPagesAdditionalTopics->fill($data)->save()){
+        if($AdditionalTopics->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.index');
         }else{
 
             Storage::delete($path_image);
@@ -79,11 +84,11 @@ class COPA04AdditionalTopicsController extends Controller
     }
 
 
-    public function destroy(COPA04ContentPagesAdditionalTopics $COPA04ContentPagesAdditionalTopics)
+    public function destroy(COPA04ContentPagesAdditionalTopics $AdditionalTopics)
     {
-        storageDelete($COPA04ContentPagesAdditionalTopics, 'path_image');
+        storageDelete($AdditionalTopics, 'path_image');
 
-        if($COPA04ContentPagesAdditionalTopics->delete()){
+        if($AdditionalTopics->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -93,9 +98,9 @@ class COPA04AdditionalTopicsController extends Controller
     public function destroySelected(Request $request)
     {
 
-        $COPA04ContentPagesAdditionalTopicss = COPA04ContentPagesAdditionalTopics::whereIn('id', $request->deleteAll)->get();
-        foreach($COPA04ContentPagesAdditionalTopicss as $COPA04ContentPagesAdditionalTopics){
-            storageDelete($COPA04ContentPagesAdditionalTopics, 'path_image');
+        $AdditionalTopics = COPA04ContentPagesAdditionalTopics::whereIn('id', $request->deleteAll)->get();
+        foreach($AdditionalTopics as $AdditionalTopic){
+            storageDelete($AdditionalTopic, 'path_image');
         }
 
         if($deleted = COPA04ContentPagesAdditionalTopics::whereIn('id', $request->deleteAll)->delete()){
