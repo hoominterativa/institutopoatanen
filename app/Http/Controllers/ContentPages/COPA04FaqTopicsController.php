@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesFaqTopics;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA04ContentPagesFaq;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA04ContentPagesFaqTopics;
 
 class COPA04FaqTopicsController extends Controller
 {
 
     public function create()
     {
-        return view('Admin.cruds.ContentPages.COPA04.Faq.Topics.create');
+        return view('Admin.cruds.ContentPages.COPA04.FaqTopics.create');
     }
 
 
@@ -27,8 +28,9 @@ class COPA04FaqTopicsController extends Controller
         $data['active'] = $request->active ? 1 : 0;
 
         if(COPA04ContentPagesFaqTopics::create($data)){
+            $faq = COPA04ContentPagesFaq::first();
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.faq.edit', [$faq->id]);
         }else{
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
@@ -38,7 +40,7 @@ class COPA04FaqTopicsController extends Controller
 
     public function edit(COPA04ContentPagesFaqTopics $COPA04ContentPagesFaqTopics)
     {
-        return view('Admin.cruds.ContentPages.COPA04.Faq.Topics.edit', compact('COPA04ContentPagesFaqTopics'));
+        return view('Admin.cruds.ContentPages.COPA04.FaqTopics.edit', compact('COPA04ContentPagesFaqTopics'));
     }
 
     public function update(Request $request, COPA04ContentPagesFaqTopics $COPA04ContentPagesFaqTopics)
@@ -48,8 +50,9 @@ class COPA04FaqTopicsController extends Controller
         $data['active'] = $request->active ? 1 : 0;
 
         if($COPA04ContentPagesFaqTopics->fill($data)->save()){
+            $faq = COPA04ContentPagesFaq::first();
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.faq.edit', [$faq->id]);
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();

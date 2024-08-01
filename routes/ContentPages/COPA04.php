@@ -4,9 +4,11 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Models\ContentPages\COPA04ContentPagesTopic;
 use App\Http\Controllers\ContentPages\COPA04Controller;
+use App\Http\Controllers\ContentPages\COPA04FaqController;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Http\Controllers\ContentPages\COPA04TopicController;
 use App\Http\Controllers\ContentPages\COPA04GalleryController;
+use App\Http\Controllers\ContentPages\COPA04FaqTopicsController;
 use App\Http\Controllers\ContentPages\COPA04TopicItemController;
 use App\Http\Controllers\ContentPages\COPA04SectionHeroController;
 use App\Http\Controllers\ContentPages\COPA04SectionVideoController;
@@ -84,6 +86,13 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/additionalTopics', COPA04AdditionalTopicsController::class)->names('admin.'.$routeName.'.additionalTopics')->parameters(['additionalTopics' => 'AdditionalTopics']);
     Route::post($route.'/additionalTopics/delete', [COPA04AdditionalTopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.additionalTopics.destroySelected');
     Route::post($route.'/additionalTopics/sorting', [COPA04AdditionalTopicsController::class, 'sorting'])->name('admin.'.$routeName.'.additionalTopics.sorting');
+
+    Route::resource($route.'/faq', COPA04FaqController::class)->names('admin.'.$routeName.'.faq')->parameters(['faq' => 'COPA04ContentPagesFaq']);
+    Route::post($route.'/faq/delete', [COPA04FaqController::class, 'destroySelected'])->name('admin.'.$routeName.'.faq.destroySelected');
+
+    Route::resource($route.'/faq/topicos', COPA04FaqTopicsController::class)->names('admin.'.$routeName.'.faqTopics')->parameters(['topicos' => 'COPA04ContentPagesFaqTopics']);
+    Route::post($route.'/faq/topicos/delete', [COPA04FaqTopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.faqTopics.destroySelected');
+    Route::post($route.'/faq/topicos/sorting', [COPA04FaqTopicsController::class, 'sorting'])->name('admin.'.$routeName.'.faqTopics.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');

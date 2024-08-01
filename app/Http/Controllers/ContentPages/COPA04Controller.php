@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ContentPages;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ContentPages\COPA04ContentPages;
+use App\Models\ContentPages\COPA04ContentPagesFaq;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA04ContentPagesTopic;
 use App\Models\ContentPages\COPA04ContentPagesGallery;
@@ -31,6 +32,7 @@ class COPA04Controller extends Controller
         $gallery = COPA04ContentPagesGallery::first();
         $additionalContent = COPA04ContentPagesAdditionalContent::first();
         $additionalTopics = COPA04ContentPagesAdditionalTopics::paginate(30);
+        $faq = COPA04ContentPagesFaq::first();
 
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.index', [
             'sectionHeros' => $sectionHeros,
@@ -41,7 +43,8 @@ class COPA04Controller extends Controller
             'topicCaroussel' => $topicCaroussel,
             'gallery' => $gallery,
             'additionalContent' => $additionalContent,
-            'additionalTopics' => $additionalTopics
+            'additionalTopics' => $additionalTopics,
+            'faq' => $faq
         ]);
     }
 

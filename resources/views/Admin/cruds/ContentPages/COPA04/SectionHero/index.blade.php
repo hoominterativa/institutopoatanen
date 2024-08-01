@@ -92,6 +92,15 @@
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#faq" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Cadastrar Seção FAQ
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será exibida no final da página."></i>
+                        </a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane show active" id="sectionHero">
@@ -189,6 +198,9 @@
                     </div>
                     <div class="tab-pane" id="additionalTopics">
                         @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.index')
+                    </div>
+                    <div class="tab-pane" id="faq">
+                        @include('Admin.cruds.ContentPages.COPA04.Faq.index')
                     </div>
                 </div>
                 <!-- end row -->
