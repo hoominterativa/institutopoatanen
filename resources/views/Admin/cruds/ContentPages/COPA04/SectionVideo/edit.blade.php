@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.copa04.index')}}">{{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</li>
+                                    <li class="breadcrumb-item active">Editar Seção Vídeo</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</h4>
+                            <h4 class="page-title">Editar Seção Vídeo</h4>
                         </div>
                     </div>
                 </div>

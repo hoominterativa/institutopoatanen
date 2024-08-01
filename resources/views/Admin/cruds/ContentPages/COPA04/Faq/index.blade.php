@@ -7,7 +7,9 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.copa04.faq.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="{{route('admin.copa04.faq.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @if (!$faq)                            
+                            <a href="{{route('admin.copa04.faq.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @endif
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">

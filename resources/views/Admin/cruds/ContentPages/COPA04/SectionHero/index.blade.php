@@ -122,17 +122,14 @@
                                                 <button id="btSubmitDelete" data-route="{{route('admin.copa04.sectionHero.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                                             </div>
                                             <div class="col-6">
-                                                <a href="{{route('admin.copa04.sectionHero.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                                @if ($sectionHeros->count() < 0)
+                                                    <a href="{{route('admin.copa04.sectionHero.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                                @endif
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">
                                             <thead class="table-light">
                                                 <tr>
-                                                    <th width="50px"></th>
-                                                    <th width="30px" class="bs-checkbox">
-                                                        {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                                        <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
-                                                    </th>
                                                     <th>Título</th>
                                                     <th>Imagem</th>
                                                     <th width="100px">Status</th>
@@ -140,13 +137,9 @@
                                                 </tr>
                                             </thead>
         
-                                            <tbody data-route="{{route('admin.copa04.sectionHero.sorting')}}">
+                                            <tbody>
                                                 @foreach ($sectionHeros as $sectionHero)
-                                                    <tr data-code="{{$sectionHero->id}}">
-                                                        <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                                        <td class="bs-checkbox align-middle">
-                                                            <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$sectionHero->id}}"></label>
-                                                        </td>
+                                                    <tr>
                                                         <td class="align-middle">{{$sectionHero->title}}</td>
                                                         <td class="align-middle avatar-group">
                                                             <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$sectionHero->path_image)}})"></div>

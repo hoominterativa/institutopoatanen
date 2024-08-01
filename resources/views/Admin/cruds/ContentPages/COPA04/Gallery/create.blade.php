@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.copa04.topicCaroussel.index')}}">{{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</a></li>
-                                    <li class="breadcrumb-item active">Cadastro {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</li>
+                                    <li class="breadcrumb-item active">Cadastro Seção Galeria</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastro {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</h4>
+                            <h4 class="page-title">Cadastro Seção Galeria</h4>
                         </div>
                     </div>
                 </div>

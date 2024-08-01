@@ -30,12 +30,12 @@ class COPA04Controller extends Controller
     {   
         $sectionHeros = COPA04ContentPagesSectionHero::paginate(30);
         $sectionVideo = COPA04ContentPagesSectionVideo::first();
-        $sectionHighlighteds = COPA04ContentPagesSectionHighlighted::paginate(30);
+        $sectionHighlighted = COPA04ContentPagesSectionHighlighted::first();
         $sectionTopic = COPA04ContentPagesTopic::first();
         $topicCaroussel = COPA04ContentPagesTopiccarousel::first();
         $gallery = COPA04ContentPagesGallery::first();
         $additionalContent = COPA04ContentPagesAdditionalContent::first();
-        $additionalTopics = COPA04ContentPagesAdditionalTopics::paginate(30);
+        $additionalTopics = COPA04ContentPagesAdditionalTopics::sorting()->paginate(30);
         $faq = COPA04ContentPagesFaq::first();
         $sectionProduct = COPA04ContentPagesSectionProducts::first();
 
@@ -43,7 +43,7 @@ class COPA04Controller extends Controller
             'sectionHeros' => $sectionHeros,
             'cropSetting' => getCropImage('ContentPages', 'COPA04'),
             'sectionVideo' => $sectionVideo,
-            'sectionHighlighteds' => $sectionHighlighteds,
+            'sectionHighlighted' => $sectionHighlighted,
             'sectionTopic' => $sectionTopic,
             'topicCaroussel' => $topicCaroussel,
             'gallery' => $gallery,

@@ -7,13 +7,14 @@
                         {{-- <button id="btSubmitDelete" data-route="{{route('admin.copa04.gallery.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button> --}}
                     </div>
                     <div class="col-6">
-                        <a href="{{route('admin.copa04.gallery.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @if (!$gallery)                            
+                            <a href="{{route('admin.copa04.gallery.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @endif
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
                     <thead class="table-light">
                         <tr>
-                            <th width="50px"></th>
                             <th>Título</th>
                             <th>subtitulo</th>
                             <th width="100px">Status</th>
@@ -23,7 +24,6 @@
                     <tbody>
                         @if($gallery)
                             <tr>
-                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="align-middle">{{$gallery->title}}</td>
                                 <td class="align-middle">{{$gallery->subtitle}}</td>
                                 <td class="align-middle">

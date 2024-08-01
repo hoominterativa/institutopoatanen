@@ -15,7 +15,7 @@
                                     <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</h4>
+                            <h4 class="page-title">Editar Seção tópico</h4>
                         </div>
                     </div>
                 </div>

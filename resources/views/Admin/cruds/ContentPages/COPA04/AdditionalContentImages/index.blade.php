@@ -31,8 +31,9 @@
                                     <td class="bs-checkbox align-middle">
                                         <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$additionalContentImage->id}}"></label>
                                     </td>
-                                    <td class="align-middle">{{$additionalContentImage->title}}</td>
-                                    <td class="align-middle">{{$additionalContentImage->subtitle}}</td>
+                                    <td class="align-middle avatar-group">
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$additionalContentImage->path_image)}})"></div>
+                                    </td>
                                     <td class="align-middle">
                                         @switch($additionalContentImage->active)
                                             @case(1)

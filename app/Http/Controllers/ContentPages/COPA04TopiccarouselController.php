@@ -23,9 +23,9 @@ class COPA04TopiccarouselController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
 
-        if(COPA04ContentPagesTopiccarousel::create($data)){
+        if($carousel = COPA04ContentPagesTopiccarousel::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->route('admin.copa04.topicCaroussel.edit', [$carousel->id]);
         }else{
             Session::flash('error', 'Erro ao cadastradar o item!');
             return redirect()->back();
@@ -36,7 +36,7 @@ class COPA04TopiccarouselController extends Controller
     public function edit(COPA04ContentPagesTopiccarousel $COPA04ContentPagesTopiccarousel)
     {
         $sectionTopic = COPA04ContentPagesTopic::first();
-        $topicCarouselCards = COPA04ContentPagesTopiccarousel_cards::paginate(30);
+        $topicCarouselCards = COPA04ContentPagesTopiccarousel_cards::sorting()->paginate(30);
 
         return view('Admin.cruds.ContentPages.COPA04.TopicCarousel.edit', [
             'COPA04ContentPagesTopiccarousel' => $COPA04ContentPagesTopiccarousel,
@@ -52,7 +52,7 @@ class COPA04TopiccarouselController extends Controller
 
         if($COPA04ContentPagesTopiccarousel->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->route('admin.copa04.topicCaroussel.edit', [$COPA04ContentPagesTopiccarousel->id]);
         }else{
             Session::flash('error', 'Erro ao atualizar item!');
             return redirect()->back();

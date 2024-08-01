@@ -6,6 +6,16 @@
                 {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
             </div>
             <div class="row">
+                <div class="mb-3 col-4">
+                    {!! Form::label('validationCustom01', 'Título do botão', ['class'=>'form-label']) !!}
+                    {!! Form::text('button_text', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título do botão', 'required'=>'required']) !!}
+                </div>
+                <div class="mb-3 col-8">
+                    {!! Form::label('validationCustom01', 'Link', ['class'=>'form-label']) !!}
+                    {!! Form::text('button_link', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Link', 'required'=>'required']) !!}
+                </div>
+            </div>
+            <div class="row">
                 <div class="mb-3 col-8">
                     {!! Form::label('validationCustom02', 'Subtitulo', ['class'=>'form-label']) !!}
                     {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}

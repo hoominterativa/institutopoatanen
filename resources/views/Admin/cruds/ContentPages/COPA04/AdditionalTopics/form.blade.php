@@ -14,6 +14,10 @@
                 {!! Form::label('validationCustom03', 'Link', ['class'=>'form-label']) !!}
                 {!! Form::text('button_link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
             </div>
+            <div class="mb-3 col-12">
+                {!! Form::label('validationCustom03', 'Vídeo', ['class'=>'form-label']) !!}
+                {!! Form::text('link_video', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
+            </div>
 
             <div class="mb-3">
                 <div class="container-image-crop">

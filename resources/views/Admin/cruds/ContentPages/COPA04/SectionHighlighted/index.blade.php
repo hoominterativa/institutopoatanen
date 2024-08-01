@@ -7,30 +7,23 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.copa04.sectionHighlighted.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="{{route('admin.copa04.sectionHighlighted.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @if (!$sectionHighlighted)                            
+                            <a href="{{route('admin.copa04.sectionHighlighted.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @endif
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
                     <thead class="table-light">
                         <tr>
-                            <th width="50px"></th>
-                            <th width="30px" class="bs-checkbox">
-                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
-                            </th>
                             <th>Título</th>
                             <th>subtitulo</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
-                    <tbody data-route="{{route('admin.copa04.sectionHighlighted.sorting')}}">
-                        @foreach ($sectionHighlighteds as $sectionHighlighted)
-                            <tr data-code="{{$sectionHighlighted->id}}">
-                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                <td class="bs-checkbox align-middle">
-                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$sectionHighlighted->id}}"></label>
-                                </td>
+                    <tbody>
+                        @if ($sectionHighlighted)
+                            <tr>
                                 <td class="align-middle">{{$sectionHighlighted->title}}</td>
                                 <td class="align-middle">{{$sectionHighlighted->subtitle}}</td>
                                 <td class="align-middle">
@@ -56,7 +49,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>

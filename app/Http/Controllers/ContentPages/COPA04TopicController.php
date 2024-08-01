@@ -34,7 +34,7 @@ class COPA04TopicController extends Controller
 
     public function edit(COPA04ContentPagesTopic $COPA04ContentPagesTopic)
     {
-        $topics = COPA04ContentPagesTopicItem::paginate(30);
+        $topics = COPA04ContentPagesTopicItem::sorting()->paginate(30);
         
         return view('Admin.cruds.ContentPages.COPA04.SectionTopic.edit', [
             'COPA04ContentPagesTopic' => $COPA04ContentPagesTopic,

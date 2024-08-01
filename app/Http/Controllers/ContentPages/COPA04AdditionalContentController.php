@@ -29,9 +29,9 @@ class COPA04AdditionalContentController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
 
-        if(COPA04ContentPagesAdditionalContent::create($data)){
+        if($AdditionalContent = COPA04ContentPagesAdditionalContent::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->route('admin.copa04.additionalContent.edit', [$AdditionalContent->id]);
         }else{
 
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -42,7 +42,7 @@ class COPA04AdditionalContentController extends Controller
     
     public function edit(COPA04ContentPagesAdditionalContent $AdditionalContent)
     {
-        $AdditionalContentImages = COPA04ContentPagesAdditionalContentImages::paginate(30);
+        $AdditionalContentImages = COPA04ContentPagesAdditionalContentImages::sorting()->paginate(30);
         return view('Admin.cruds.ContentPages.COPA04.AdditionalContent.edit',[
             'AdditionalContent' => $AdditionalContent,
             'AdditionalContentImages' => $AdditionalContentImages
@@ -57,7 +57,7 @@ class COPA04AdditionalContentController extends Controller
 
         if($AdditionalContent->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->route('admin.copa04.additionalContent.edit', [$AdditionalContent->id]);
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();

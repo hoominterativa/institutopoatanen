@@ -19,7 +19,6 @@
                                 <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
                             </th>
                             <th>Título</th>
-                            <th>subtitulo</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -32,7 +31,6 @@
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                 </td>
                                 <td class="align-middle">{{$topic->title}}</td>
-                                <td class="align-middle">{{$topic->subtitle}}</td>
                                 <td class="align-middle">
                                     @switch($topic->active)
                                         @case(1)

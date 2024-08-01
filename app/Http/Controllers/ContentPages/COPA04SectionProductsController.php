@@ -39,7 +39,7 @@ class COPA04SectionProductsController extends Controller
 
     public function edit(COPA04ContentPagesSectionProducts $SectionProducts)
     {  
-        $sectionProductItems = COPA04ContentPagesSectionProducts_Product::paginate(30);
+        $sectionProductItems = COPA04ContentPagesSectionProducts_Product::sorting()->paginate(30);
 
         return view('Admin.cruds.ContentPages.COPA04.SectionProducts.edit', [
             'SectionProducts' => $SectionProducts,

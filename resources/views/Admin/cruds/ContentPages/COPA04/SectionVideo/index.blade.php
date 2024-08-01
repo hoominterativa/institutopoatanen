@@ -7,17 +7,14 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.copa04.sectionVideo.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="{{route('admin.copa04.sectionVideo.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @if (!$sectionVideo)            
+                            <a href="{{route('admin.copa04.sectionVideo.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @endif
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
                     <thead class="table-light">
                         <tr>
-                            <th width="50px"></th>
-                            <th width="30px" class="bs-checkbox">
-                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
-                            </th>
                             <th>Título</th>
                             <th>subtitulo</th>
                             <th width="100px">Status</th>
@@ -27,10 +24,6 @@
                     @if ($sectionVideo)
                         <tbody>
                             <tr>
-                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                <td class="bs-checkbox align-middle">
-                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value=""></label>
-                                </td>
                                 <td class="align-middle">{{$sectionVideo->title}}</td>
                                 <td class="align-middle">{{$sectionVideo->subtitle}}</td>
                                 <td class="align-middle">

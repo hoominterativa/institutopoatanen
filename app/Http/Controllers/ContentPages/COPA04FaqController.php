@@ -37,7 +37,7 @@ class COPA04FaqController extends Controller
 
     public function edit(COPA04ContentPagesFaq $COPA04ContentPagesFaq)
     {   
-        $faqs = COPA04ContentPagesFaqTopics::paginate(30);
+        $faqs = COPA04ContentPagesFaqTopics::sorting()->paginate(30);
         return view('Admin.cruds.ContentPages.COPA04.Faq.edit', [
             'COPA04ContentPagesFaq' => $COPA04ContentPagesFaq,
             'faqs' => $faqs

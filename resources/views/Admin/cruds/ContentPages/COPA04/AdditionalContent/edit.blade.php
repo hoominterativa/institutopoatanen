@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.copa04.index')}}">{{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</li>
+                                    <li class="breadcrumb-item active">Editar Conteúdo adicional</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'ContentPages', 'COPA04')}}</h4>
+                            <h4 class="page-title">Editar Conteúdo adicional</h4>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     <li class="nav-item">
                         <a href="#addicionalContent" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
-                            Seção AddicionalContent
+                            Seção Conteúdo adicional
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro do conteúdo principal"></i>
