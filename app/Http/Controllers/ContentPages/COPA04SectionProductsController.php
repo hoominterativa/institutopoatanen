@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesSectionProducts;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+use App\Models\ContentPages\COPA04ContentPagesSectionProducts;
+use App\Models\ContentPages\COPA04ContentPagesSectionProducts_Product;
 
 class COPA04SectionProductsController extends Controller
 {
@@ -37,8 +38,13 @@ class COPA04SectionProductsController extends Controller
 
 
     public function edit(COPA04ContentPagesSectionProducts $SectionProducts)
-    {
-       return view('Admin.cruds.ContentPages.COPA04.SectionProducts.edit', compact('SectionProducts'));
+    {  
+        $sectionProductItems = COPA04ContentPagesSectionProducts_Product::paginate(30);
+
+        return view('Admin.cruds.ContentPages.COPA04.SectionProducts.edit', [
+            'SectionProducts' => $SectionProducts,
+            'sectionProductItems' => $sectionProductItems
+        ]);
     }
 
 
