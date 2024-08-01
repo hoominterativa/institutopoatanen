@@ -26,8 +26,12 @@
                 @if ($sectionTopicCarousel)
                     --bg-topics-carousel: {{ $sectionTopicCarousel ? $sectionTopicCarousel->color_one : 'white' }};
                 @endif
-                --bg-gallery-topics: lightgray;
-                --bg-additional-content: lightgreen;
+                @if ($sectionGallery)
+                    --bg-gallery-topics: {{ $sectionGallery ? $sectionGallery->color_one : 'white' }};
+                @endif
+                @if ($sectionAdditionalContent)
+                    --bg-additional-content: {{ $sectionAdditionalContent ? $sectionAdditionalContent->color_one : 'white' }};
+                @endif
                 --bg-faq: lightyellow;
                 --bg-products: gray;
 
@@ -231,7 +235,7 @@
 
                     @if ($sectionGallery->description)
                         <div class="copa04-page__gallery-topics__header__paragraph">
-                            <p>{!! $sectionGallery->description !!}</p>
+                            {!! $sectionGallery->description !!}
                         </div>
                     @endif
 
@@ -249,8 +253,7 @@
                                     <div data-fancybox data-src="{{ $galleryItem->link_video }}"
                                         class="copa04-page__gallery-topics__carousel__item__video"
                                         style="background-image: url('{{ asset('storage/' . $galleryItem->path_image) }}')">
-                                        <button id="video_play"
-                                            class="copa04-page__gallery-topics__carousel__item__video__button">
+                                        <button class="copa04-page__gallery-topics__carousel__item__video__button">
                                             <img class="copa04-page__gallery-topics__carousel__item__video__button__icon"
                                                 src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                                         </button>
@@ -269,9 +272,9 @@
                                     @endif
 
                                     @if ($galleryItem->description)
-                                        <p class="copa04-page__gallery-topics__carousel__item__information__paragraph">
+                                        <div class="copa04-page__gallery-topics__carousel__item__information__paragraph">
                                             {!! $galleryItem->description !!}
-                                        </p>
+                                        </div>
                                     @endif
 
                                 </div>
@@ -283,29 +286,43 @@
 
         {{-- Seção Additional Content --}}
         <section class="copa04-page__additional-content">
+
             <div class="copa04-page__additional-content__header">
-                <div class="copa04-page__additional-content__header__title"> title</div>
-                <div class="copa04-page__additional-content__header__subtitle"> Subtitle</div>
-                <div class="copa04-page__additional-content__header__paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Expedita eaque ducimus cumque culpa! Obcaecati expedita accusamus ratione eligendi sint,
-                    nemo sapiente soluta saepe rem alias nobis ad voluptate. Incidunt, expedita.</div>
-                <a class="copa04-page__additional-content__header__cta" href="">CTA</a>
+                @if ($sectionAdditionalContent->title)
+                    <div class="copa04-page__additional-content__header__title"> {{ $sectionAdditionalContent->title }}
+                    </div>
+                @endif
+                @if ($sectionAdditionalContent->subtitle)
+                    <div class="copa04-page__additional-content__header__subtitle">
+                        {{ $sectionAdditionalContent->subtitle }}</div>
+                @endif
+                @if ($sectionAdditionalContent->description)
+                    <div class="copa04-page__additional-content__header__paragraph">
+                        {!! $sectionAdditionalContent->description !!}
+                    </div>
+                @endif
+                <a class="copa04-page__additional-content__header__cta"
+                    href="{{ $sectionAdditionalContent->button_link }}">{{ $sectionAdditionalContent->button_text }}</a>
             </div>
             <div class="copa04-page__additional-content__carousel">
                 <div class="copa04-page__additional-content__carousel__swiper-wrapper swiper-wrapper">
-                    {{-- if image --}}
-                    <img class="copa04-page__additional-content__carousel__item swiper-slide"
-                        src="{{ asset('images/bg-colorido.svg') }}" alt="{Image}">
-                    {{-- if video --}}
-                    <div data-fancybox data-src="https://www.youtube.com/embed/EDnIEWyVIlE"
-                        class="copa04-page__additional-content__carousel__item--video swiper-slide"
-                        style="background-image: url('{{ asset('images/bg-colorido.svg') }}')">
-                        <button id="video_play" class="copa04-page__additional-content__carousel__item--video__button">
-                            <img class="copa04-page__additional-content__carousel__item--video__button__icon"
-                                src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
-                        </button>
-                    </div>
+                    @foreach ($additionalItemImages as $item)
+                        @if ($item->link_video)
+                            {{-- Se tiver video --}}
+                            <div data-fancybox data-src="{{ $item->link_video }}"
+                                class="copa04-page__additional-content__carousel__item--video swiper-slide"
+                                style="background-image: url('{{ asset('storage/' . $item->path_image) }}')">
+                                <button class="copa04-page__additional-content__carousel__item--video__button">
+                                    <img class="copa04-page__additional-content__carousel__item--video__button__icon"
+                                        src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
+                                </button>
+                            </div>
+                        @else
+                            {{-- Se tiver somente imagem --}}
+                            <img class="copa04-page__additional-content__carousel__item swiper-slide"
+                                src="{{ asset('storage/' . $item->path_image) }}" alt="{Image}">
+                        @endif
+                    @endforeach
                 </div>
 
             </div>
@@ -335,8 +352,7 @@
                             <div data-fancybox data-src="https://www.youtube.com/embed/EDnIEWyVIlE"
                                 class="copa04-page__additional-topics__carousel__item--video__video"
                                 style="background-image: url('{{ asset('images/bg-colorido.svg') }}')">
-                                <button id="video_play"
-                                    class="copa04-page__additional-topics__carousel__item--video__video__button">
+                                <button class="copa04-page__additional-topics__carousel__item--video__video__button">
                                     <img class="copa04-page__additional-topics__carousel__item--video__video__button__icon"
                                         src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                                 </button>

@@ -2714,6 +2714,7 @@ body .owl-dots .owl-dot.active {
 .copa04-page__gallery-topics__carousel__item__information {
   padding: 2rem 1.25rem;
   background-color: #cacaca;
+  width: 100%;
 }
 .copa04-page__gallery-topics__carousel__item__information__title {
   text-align: center;
