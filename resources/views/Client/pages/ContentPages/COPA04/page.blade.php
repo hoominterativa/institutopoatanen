@@ -18,7 +18,7 @@
                 @endif
 
                 @if ($sectionHighlighted)
-                    --bg-higlighted: {{ $sectionHighlighted ? $sectionHighlighted->color_one : 'white' }};
+                    --bg-higlighted: {{ $sectionHighlighted ? $sectionHighlighted->color_one : 'red' }};
                 @endif
                 @if ($sectionTopic)
                     --bg-topics: {{ $sectionTopic ? $sectionTopic->color_one : 'white' }};
@@ -32,7 +32,9 @@
                 @if ($sectionAdditionalContent)
                     --bg-additional-content: {{ $sectionAdditionalContent ? $sectionAdditionalContent->color_one : 'white' }};
                 @endif
-                --bg-faq: lightyellow;
+                @if ($sectionFaq)
+                    --bg-faq: {{ $sectionFaq ? $sectionFaq->color_one : 'white' }};
+                @endif
                 --bg-products: gray;
 
 
@@ -332,7 +334,7 @@
         @endif
 
         {{-- Seção Additional Topics Carousel --}}
-        @if($additionalTopics)
+        @if($additionalTopics->count() >0)
         <section class="copa04-page__additional-topics">
             <div class="copa04-page__additional-topics__carousel">
                 <div class="copa04-page__additional-topics__carousel__swiper-wrapper swiper-wrapper">
@@ -376,29 +378,37 @@
         @endif
 
         {{-- Seção FAQ --}}
+        @if($sectionFaq)
         <section class="copa04-page__faq">
             <header class="copa04-page__faq__header">
-                <h2 class="copa04-page__faq__header__title">Title</h2>
-                <h3 class="copa04-page__faq__header__subtitle">Subtitle</h3>
+                @if($sectionFaq->title)
+                <h2 class="copa04-page__faq__header__title">{{ $sectionFaq->title }}</h2>
+                @endif
+
+                @if($sectionFaq->subtitle)
+                <h3 class="copa04-page__faq__header__subtitle">{{ $sectionFaq->subtitle }}</h3>
+                @endif
+
+                @if($sectionFaq->description)
                 <div class="copa04-page__faq__header__paragraph">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Architecto voluptatum cumque a doloribus, deleniti totam quod omnis, corrupti tempore rerum
-                        quia
-                        aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
+                    <p>{!! $sectionFaq->description !!}</p>
                 </div>
+                @endif
             </header>
-            @for ($i=0; $i < 10; $i++)
+            @foreach($faqTopics as $topic)
+            @if($topic->title || $topic->description)
                 <details class="copa04-page__faq__item">
                     <summary class="copa04-page__faq__item__title" aria-level="3" role="heading">
-                        Título
+                        {{ $topic->title }}
                     </summary>
-                    <p class="copa04-page__faq__item__paragraph details-content">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, vel sunt aperiam nam dolores
-                        atque.
-                    </p>
+                    <div class="copa04-page__faq__item__paragraph details-content">
+                        {!! $topic->description !!}.
+                    </div>
                 </details>
-            @endfor
+                @endif
+            @endforeach
         </section>
+        @endif
 
         {{-- Seção Section Products --}}
         <section class="copa04-page__section-products">
