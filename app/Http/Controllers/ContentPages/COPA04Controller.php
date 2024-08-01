@@ -130,6 +130,7 @@ class COPA04Controller extends Controller
         $galleryItems = COPA04ContentPagesGallerytopics::active()->get();
         $additionalContent = COPA04ContentPagesAdditionalContent::active()->first();
         $additionalContentImages = COPA04ContentPagesAdditionalContentImages::active()->get();
+        $additionalTopics = COPA04ContentPagesAdditionalTopics::active()->get();
 
         return view('Client.pages.ContentPages.COPA04.page',[
             'sections' => $sections,
@@ -144,6 +145,7 @@ class COPA04Controller extends Controller
             'galleryItems' => $galleryItems,
             "sectionAdditionalContent" => $additionalContent,
             "additionalItemImages" => $additionalContentImages,
+            "additionalTopics" => $additionalTopics,
             
         ]);
     }

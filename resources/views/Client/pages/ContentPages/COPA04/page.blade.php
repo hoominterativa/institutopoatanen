@@ -285,6 +285,7 @@
         @endif
 
         {{-- Seção Additional Content --}}
+        @if($sectionAdditionalContent)
         <section class="copa04-page__additional-content">
 
             <div class="copa04-page__additional-content__header">
@@ -328,45 +329,51 @@
             </div>
 
         </section>
+        @endif
 
         {{-- Seção Additional Topics Carousel --}}
+        @if($additionalTopics)
         <section class="copa04-page__additional-topics">
             <div class="copa04-page__additional-topics__carousel">
                 <div class="copa04-page__additional-topics__carousel__swiper-wrapper swiper-wrapper">
                     {{-- if image --}}
-                    @for ($i = 0; $i < 2; $i++)
-                        <figure class="copa04-page__additional-topics__carousel__item swiper-slide">
-                            <img class="copa04-page__additional-topics__carousel__item__image"
-                                src="{{ asset('images/bg-colorido.svg') }}" alt=" {{-- title --}}">
+                    @foreach($additionalTopics as $topic)
 
-                            <figcaption class="copa04-page__additional-topics__carousel__item__title">Title
-                                {{ $i }}</figcaption>
+                    @if($topic->link_video)
 
-                            <a href="#" class="copa04-page__additional-topics__carousel__item__cta">cta</a>
-                        </figure>
-                    @endfor
 
                     {{-- if video --}}
-                    @for ($i = 0; $i < 6; $i++)
                         <div class="copa04-page__additional-topics__carousel__item--video swiper-slide">
                             <div data-fancybox data-src="https://www.youtube.com/embed/EDnIEWyVIlE"
                                 class="copa04-page__additional-topics__carousel__item--video__video"
-                                style="background-image: url('{{ asset('images/bg-colorido.svg') }}')">
+                                style="background-image: url('{{ asset('storage/' . $topic->path_image) }}')">
                                 <button class="copa04-page__additional-topics__carousel__item--video__video__button">
                                     <img class="copa04-page__additional-topics__carousel__item--video__video__button__icon"
                                         src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                                 </button>
                             </div>
                             <p class="copa04-page__additional-topics__carousel__item--video__title">
-                                Título com video {{ $i }}
+                                {{ $topic->title }}
                             </p>
                             <a href="" class="copa04-page__additional-topics__carousel__item--video__cta">cta</a>
 
                         </div>
-                    @endfor
+                    @else
+                    <figure class="copa04-page__additional-topics__carousel__item swiper-slide">
+                        <img class="copa04-page__additional-topics__carousel__item__image"
+                            src="{{ asset('storage/' . $topic->path_image) }}" alt=" {{ $topic->title }}">
+
+                        <figcaption class="copa04-page__additional-topics__carousel__item__title">Title
+                            {{ $topic->title }}</figcaption>
+
+                        <a href="{{ $topic->button_link }}" class="copa04-page__additional-topics__carousel__item__cta">{{ $topic->button_text }}</a>
+                    </figure>
+                @endif
+                    @endforeach
                 </div>
             </div>
         </section>
+        @endif
 
         {{-- Seção FAQ --}}
         <section class="copa04-page__faq">
@@ -380,7 +387,7 @@
                         aut! Quibusdam nobis qui laudantium commodi aut minus reiciendis.</p>
                 </div>
             </header>
-            @for ($i0; $i < 10; $i++)
+            @for ($i=0; $i < 10; $i++)
                 <details class="copa04-page__faq__item">
                     <summary class="copa04-page__faq__item__title" aria-level="3" role="heading">
                         Título
