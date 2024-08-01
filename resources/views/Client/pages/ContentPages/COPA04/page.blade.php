@@ -48,14 +48,14 @@
         @if ($sectionHeros)
             <section class="copa04-page__hero ">
                 <aside class="copa04-page__hero__aside">
-                    <img class="copa04-page__hero__aside__logo" src="{{ asset('images/gray.png') }}"
+                    <img class="copa04-page__hero__aside__logo" src="{{ asset('storage/' . $sectionHeros->path_logo) }}"
                         alt="icone referente a seção {{-- title  --}}">
-                    <a class="copa04-page__hero__aside__cta" href="#">CTA</a>
+                    <a class="copa04-page__hero__aside__cta" href="{{$sectionHeros->button_link}}">{{$sectionHeros->button_text}}</a>
                 </aside>
 
                 <div class="copa04-page__hero__information">
                     <header class="copa04-page__hero__information__header">
-                        <img class="copa04-page__hero__information__header__icon" src="{{ asset('images/icon.png') }}"
+                        <img class="copa04-page__hero__information__header__icon" src="{{ asset('storage/' . $sectionHeros->path_icon) }}"
                             alt="ícone do {{-- title --}}">
                         @if ($sectionHeros->title)
                             <h1 class="copa04-page__hero__information__header__title">{{ $sectionHeros->title }}</h1>
