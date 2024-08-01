@@ -21,6 +21,7 @@ use App\Http\Controllers\ContentPages\COPA04AdditionalContentController;
 use App\Http\Controllers\ContentPages\COPA04SectionHighlightedController;
 use App\Http\Controllers\ContentPages\COPA04Topiccarousel_cardsController;
 use App\Http\Controllers\ContentPages\COPA04AdditionalContentImagesController;
+use App\Http\Controllers\ContentPages\COPA04SectionProducts_ProductController;
 
 /**
  * Uncomment the code below
@@ -99,6 +100,9 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/secao-produtos', COPA04SectionProductsController::class)->names('admin.'.$routeName.'.sectionProduct')->parameters(['secao-produtos' => 'SectionProducts']);
     Route::post($route.'/secao-produtos/delete', [COPA04SectionProductsController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionProduct.destroySelected');
 
+    Route::resource($route.'/produtos', COPA04SectionProducts_ProductController::class)->names('admin.'.$routeName.'.product')->parameters(['produtos' => 'Products']);
+    Route::post($route.'/produtos/delete', [COPA04SectionProducts_ProductController::class, 'destroySelected'])->name('admin.'.$routeName.'.product.destroySelected');
+    Route::post($route.'/produtos/sorting', [COPA04SectionProducts_ProductController::class, 'sorting'])->name('admin.'.$routeName.'.product.sorting');
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');

@@ -50,7 +50,7 @@
                         {!! Form::close() !!}
                     </div>
                     <div class="tab-pane" id="topics">
-                        {{-- @include('Admin.cruds.ContentPages.COPA04.SectionProductsTopics.index') --}}
+                        @include('Admin.cruds.ContentPages.COPA04.SectionProductItem.index')
                     </div>
                 </div>
 

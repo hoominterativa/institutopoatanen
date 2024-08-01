@@ -9,20 +9,12 @@
                 {!! Form::label('validationCustom02', 'Título do botão', ['class'=>'form-label']) !!}
                 {!! Form::text('button_text', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Título do botão', 'required'=>'required']) !!}
             </div>
-            <div class="row">
-                <div class="mb-3 col-8">
-                    {!! Form::label('validationCustom03', 'Link', ['class'=>'form-label']) !!}
-                    {!! Form::text('button_link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
-                </div>
-                <div class="mb-3 col-4">
-                    {!! Form::label('colorpicker-default', 'Cor primária', ['class'=>'form-label']) !!}
-                    {!! Form::text('color_one', null, [
-                            'class'=>'form-control colorpicker-default',
-                            'id'=>'colorpicker-default',
-                            'required'=>'required',
-                        ])!!}
-                </div>
+
+            <div class="mb-3 col-12">
+                {!! Form::label('validationCustom03', 'Link', ['class'=>'form-label']) !!}
+                {!! Form::text('button_link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
             </div>
+
             <div class="mb-3">
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
