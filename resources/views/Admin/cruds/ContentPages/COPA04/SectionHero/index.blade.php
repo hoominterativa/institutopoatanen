@@ -23,7 +23,7 @@
                     <li class="nav-item">
                         <a href="#sectionHero" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
-                            Section Hero
+                            Seção Banner
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro do conteúdo principal"></i>
@@ -32,7 +32,7 @@
                     <li class="nav-item">
                         <a href="#sectionVideo" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Section Vídeo
+                            Seção Vídeo
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro do banner da página"></i>
@@ -41,7 +41,7 @@
                     <li class="nav-item">
                         <a href="#sectionHighlighteds" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Section Highlighteds
+                            Seção Destaque
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida abaixo do conteúdo principal na página"></i>
@@ -50,7 +50,7 @@
                     <li class="nav-item">
                         <a href="#sectionTopic" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Section Tópico
+                            Seção Tópico
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Aqui você pode cadastrar um ou mais tópicos"></i>
@@ -59,7 +59,7 @@
                     <li class="nav-item">
                         <a href="#topicCarousel" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Section Carousel
+                            Seção Carossel
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida como complemento dos tópicos"></i>
@@ -68,7 +68,7 @@
                     <li class="nav-item">
                         <a href="#sectionGallery" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Cadastrar Seção Gallery
+                            Seção Galeria
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
@@ -77,7 +77,7 @@
                     <li class="nav-item">
                         <a href="#additionalContents" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Cadastrar Seção AddicionalContents
+                            Seção Conteúdo adicional
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
@@ -86,7 +86,7 @@
                     <li class="nav-item">
                         <a href="#additionalTopics" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Cadastrar Seção AddicionalTopics
+                            Seção Tópico adicional
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
@@ -95,7 +95,7 @@
                     <li class="nav-item">
                         <a href="#faq" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Cadastrar Seção FAQ
+                            Seção FAQ
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
@@ -104,7 +104,7 @@
                     <li class="nav-item">
                         <a href="#sectionProduct" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Cadastrar Seção Produtos
+                            Seção Produtos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>

@@ -18,6 +18,8 @@ class CreateCopa04ContentpagesSectionheroesTable extends Migration
             $table->string('title', 191)->nullable();
             $table->string('description', 255)->nullable();
             $table->string('path_image', 191)->nullable();
+            $table->string('path_logo', 191)->nullable();
+            $table->string('path_icon', 191)->nullable();
             $table->string('color_one', 100)->nullable();
             $table->string('color_two', 100)->nullable();
             $table->string('color_three', 100)->nullable();

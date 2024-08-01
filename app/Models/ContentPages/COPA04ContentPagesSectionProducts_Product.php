@@ -21,7 +21,6 @@ class COPA04ContentPagesSectionProducts_Product extends Model
         'title',
         'subtitle',
         'description',
-        'value_text',
         'value',
         'button_text',
         'button_link',

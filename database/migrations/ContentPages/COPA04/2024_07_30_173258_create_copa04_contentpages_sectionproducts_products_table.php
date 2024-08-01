@@ -18,7 +18,6 @@ class CreateCopa04ContentpagesSectionproductsProductsTable extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->string('description');
-            $table->string('value_text');
             $table->string('value');
             $table->string('button_text');
             $table->string('button_link');

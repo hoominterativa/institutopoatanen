@@ -20,6 +20,8 @@ class COPA04ContentPagesSectionHero extends Model
         'title',
         'description',
         'path_image',
+        'path_logo',
+        'path_icon',
         'color_one',
         'color_two',
         'color_three',

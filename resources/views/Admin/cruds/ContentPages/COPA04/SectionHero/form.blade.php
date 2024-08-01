@@ -46,8 +46,8 @@
                 {!! Form::label('validationCustom03', 'Link', ['class'=>'form-label']) !!}
                 {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
             </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
+            <div class="row mb-3">
+                <div class="container-image-crop col-lg-4">
                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
                     <label class="area-input-image-crop" for="inputImage">
@@ -60,6 +60,38 @@
                             'data-box-height'=>'225', // Input height in the form
                             'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
                             'data-default-file'=> isset($COPA04ContentPagesSectionHero)?($COPA04ContentPagesSectionHero->path_image<>''?url('storage/'.$COPA04ContentPagesSectionHero->path_image):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+                <div class="container-image-crop col-lg-4">
+                    {!! Form::label('inputImage', 'Imagem Logo', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_logo->width}}x{{$cropSetting->path_logo->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_logo', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_logo->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_logo->width, // px
+                            'data-min-height'=>$cropSetting->path_logo->height, // px
+                            'data-box-height'=>'225', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                            'data-default-file'=> isset($COPA04ContentPagesSectionHero)?($COPA04ContentPagesSectionHero->path_logo<>''?url('storage/'.$COPA04ContentPagesSectionHero->path_logo):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+                <div class="container-image-crop col-lg-4">
+                    {!! Form::label('inputImage', 'Imagem icone', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_icon->width}}x{{$cropSetting->path_icon->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_icon', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->path_icon->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_icon->width, // px
+                            'data-min-height'=>$cropSetting->path_icon->height, // px
+                            'data-box-height'=>'225', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                            'data-default-file'=> isset($COPA04ContentPagesSectionHero)?($COPA04ContentPagesSectionHero->path_icon<>''?url('storage/'.$COPA04ContentPagesSectionHero->path_icon):''):'',
                         ]) !!}
                     </label>
                 </div><!-- END container image crop -->

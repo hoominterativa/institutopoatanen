@@ -40,7 +40,7 @@ class COPA04Controller extends Controller
 
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.index', [
             'sectionHeros' => $sectionHeros,
-            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
             'sectionVideo' => $sectionVideo,
             'sectionHighlighteds' => $sectionHighlighteds,
             'sectionTopic' => $sectionTopic,

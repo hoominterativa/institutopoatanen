@@ -25,7 +25,7 @@ class COPA04SectionHeroController extends Controller
     public function create()
     {
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.create', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA04')
         ]);
     }
 
@@ -38,11 +38,19 @@ class COPA04SectionHeroController extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
+        $path_logo = $helper->optimizeImage($request, 'path_logo', $this->path, null,100);
+        if($path_logo) $data['path_logo'] = $path_logo;
+
+        $path_icon = $helper->optimizeImage($request, 'path_icon', $this->path, null,100);
+        if($path_icon) $data['path_icon'] = $path_icon;
+
         if(COPA04ContentPagesSectionHero::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
             return redirect()->route('admin.copa04.index');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_logo);
+            Storage::delete($path_icon);
             Session::flash('error', 'Erro ao cadastradar o item!');
             return redirect()->back();
         }
@@ -52,7 +60,7 @@ class COPA04SectionHeroController extends Controller
     {
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.edit', [
             'COPA04ContentPagesSectionHero' => $COPA04ContentPagesSectionHero,
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA04')
         ]);
     }
 
@@ -62,13 +70,33 @@ class COPA04SectionHeroController extends Controller
         $data['active'] = $request->active ? 1 : 0;
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $path_logo = $helper->optimizeImage($request, 'path_logo', $this->path, null,100);
+        $path_icon = $helper->optimizeImage($request, 'path_icon', $this->path, null,100);
+
         if($path_image){
             storageDelete($COPA04ContentPagesSectionHero, 'path_image');
             $data['path_image'] = $path_image;
         }
+        if($path_logo){
+            storageDelete($COPA04ContentPagesSectionHero, 'path_logo');
+            $data['path_logo'] = $path_logo;
+        }
+        if($path_icon){
+            storageDelete($COPA04ContentPagesSectionHero, 'path_icon');
+            $data['path_icon'] = $path_icon;
+        }
+
         if($request->delete_path_image && !$path_image){
             storageDelete($COPA04ContentPagesSectionHero, 'path_image');
             $data['path_image'] = null;
+        }
+        if($request->delete_path_logo && !$path_logo){
+            storageDelete($COPA04ContentPagesSectionHero, 'path_logo');
+            $data['path_logo'] = null;
+        }
+        if($request->delete_path_icon && !$path_icon){
+            storageDelete($COPA04ContentPagesSectionHero, 'path_icon');
+            $data['path_icon'] = null;
         }
 
         if($COPA04ContentPagesSectionHero->fill($data)->save()){
@@ -76,6 +104,8 @@ class COPA04SectionHeroController extends Controller
             return redirect()->route('admin.copa04.index');
         }else{
             Storage::delete($path_image);
+            Storage::delete($path_logo);
+            Storage::delete($path_icon);
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
@@ -97,6 +127,8 @@ class COPA04SectionHeroController extends Controller
         $COPA04ContentPagesSectionHeros = COPA04ContentPagesSectionHero::whereIn('id', $request->deleteAll)->get();
         foreach($COPA04ContentPagesSectionHeros as $COPA04ContentPagesSectionHero){
             storageDelete($COPA04ContentPagesSectionHero, 'path_image');
+            storageDelete($COPA04ContentPagesSectionHero, 'path_logo');
+            storageDelete($COPA04ContentPagesSectionHero, 'path_icon');
         }
         
 

@@ -18,7 +18,7 @@ class COPA04AdditionalTopicsController extends Controller
     public function create()
     {
         return view('Admin.cruds.ContentPages.COPA04.AdditionalTopics.create', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
         ]);
     }
 
@@ -46,7 +46,7 @@ class COPA04AdditionalTopicsController extends Controller
     public function edit(COPA04ContentPagesAdditionalTopics $AdditionalTopics)
     {
         return view('Admin.cruds.ContentPages.COPA04.AdditionalTopics.edit', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
             'AdditionalTopics' => $AdditionalTopics
         ]);
     }

@@ -32,8 +32,8 @@
                 </div>
             </div>
             <div class="basic-editor__content mb-3 col-12">
-                {!! Form::label('basic-editor', 'Texto', ['class'=>'form-label']) !!}
-                {!! Form::textarea('value_text', null, [
+                {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
+                {!! Form::textarea('description', null, [
                     'class'=>'form-control basic-editor',
                     'id'=>'basic-editor',
                 ]) !!}

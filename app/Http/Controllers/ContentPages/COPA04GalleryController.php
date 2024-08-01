@@ -35,7 +35,7 @@ class COPA04GalleryController extends Controller
 
     public function edit(COPA04ContentPagesGallery $COPA04ContentPagesGallery)
     {
-        $galleryTopics = COPA04ContentPagesGallerytopics::paginate(30);
+        $galleryTopics = COPA04ContentPagesGallerytopics::sorting()->paginate(30);
         
         return view('Admin.cruds.ContentPages.COPA04.Gallery.edit', [
             'COPA04ContentPagesGallery' => $COPA04ContentPagesGallery,
