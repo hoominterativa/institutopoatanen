@@ -16,10 +16,16 @@ class CreateCopa04ContentpagesSectionproductsProductsTable extends Migration
         Schema::create('copa04_contentpages_sectionproducts_products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('subtitle');
             $table->string('description');
+            $table->string('value_text');
+            $table->string('value');
+            $table->string('button_text');
+            $table->string('button_link');
+            $table->boolean('promotion')->default(0);
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
-            $table->softDeletes();
+            $table->softDeletes();  
             $table->timestamps();
         });
     }
