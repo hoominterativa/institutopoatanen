@@ -14,6 +14,8 @@ use App\Http\Controllers\ContentPages\COPA04SectionHeroController;
 use App\Http\Controllers\ContentPages\COPA04SectionVideoController;
 use App\Http\Controllers\ContentPages\COPA04GallerytopicsController;
 use App\Http\Controllers\ContentPages\COPA04TopiccarouselController;
+use App\Http\Controllers\ContentPages\COPA04SectionProductsController;
+use App\Models\ContentPages\COPA04ContentPagesSectionProducts_Product;
 use App\Http\Controllers\ContentPages\COPA04AdditionalTopicsController;
 use App\Http\Controllers\ContentPages\COPA04AdditionalContentController;
 use App\Http\Controllers\ContentPages\COPA04SectionHighlightedController;
@@ -93,6 +95,10 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::resource($route.'/faq/topicos', COPA04FaqTopicsController::class)->names('admin.'.$routeName.'.faqTopics')->parameters(['topicos' => 'COPA04ContentPagesFaqTopics']);
     Route::post($route.'/faq/topicos/delete', [COPA04FaqTopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.faqTopics.destroySelected');
     Route::post($route.'/faq/topicos/sorting', [COPA04FaqTopicsController::class, 'sorting'])->name('admin.'.$routeName.'.faqTopics.sorting');
+
+    Route::resource($route.'/secao-produtos', COPA04SectionProductsController::class)->names('admin.'.$routeName.'.sectionProduct')->parameters(['secao-produtos' => 'SectionProducts']);
+    Route::post($route.'/secao-produtos/delete', [COPA04SectionProductsController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionProduct.destroySelected');
+
 });
 // // CLIENT
 // Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');

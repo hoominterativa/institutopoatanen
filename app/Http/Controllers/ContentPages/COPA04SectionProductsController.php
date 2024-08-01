@@ -26,9 +26,9 @@ class COPA04SectionProductsController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
 
-        if(COPA04ContentPagesSectionProducts::create($data)){
+        if($SectionProducts = COPA04ContentPagesSectionProducts::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.sectionProduct.edit', [$SectionProducts->id]);
         }else{
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
@@ -36,30 +36,30 @@ class COPA04SectionProductsController extends Controller
     }
 
 
-    public function edit(COPA04ContentPagesSectionProducts $COPA04ContentPagesSectionProducts)
+    public function edit(COPA04ContentPagesSectionProducts $SectionProducts)
     {
-       return view('Admin.cruds.ContentPages.COPA04.SectionProducts.edit', compact('COPA04ContentPagesSectionProducts'));
+       return view('Admin.cruds.ContentPages.COPA04.SectionProducts.edit', compact('SectionProducts'));
     }
 
 
-    public function update(Request $request, COPA04ContentPagesSectionProducts $COPA04ContentPagesSectionProducts)
+    public function update(Request $request, COPA04ContentPagesSectionProducts $SectionProducts)
     {
         $data = $request->all();
 
         $data['active'] = $request->active ? 1 : 0;
         
-        if($COPA04ContentPagesSectionProducts->fill($data)->save()){
+        if($SectionProducts->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.copa04.sectionProduct.edit', [$SectionProducts->id]);
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
     }
 
-    public function destroy(COPA04ContentPagesSectionProducts $COPA04ContentPagesSectionProducts)
+    public function destroy(COPA04ContentPagesSectionProducts $SectionProducts)
     {
-        if($COPA04ContentPagesSectionProducts->delete()){
+        if($SectionProducts->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }

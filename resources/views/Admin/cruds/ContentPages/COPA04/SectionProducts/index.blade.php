@@ -4,37 +4,28 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="{{route('admin.copa04.topicCaroussel.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
+                        <button id="btSubmitDelete" data-route="{{route('admin.copa04.sectionProduct.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="{{route('admin.copa04.topicCaroussel.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        <a href="{{route('admin.copa04.sectionProduct.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
                     <thead class="table-light">
                         <tr>
-                            <th width="50px"></th>
-                            <th width="30px" class="bs-checkbox">
-                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
-                                <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
-                            </th>
                             <th>Título</th>
                             <th>subtitulo</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
-                    <tbody data-route="">
-                        @if($topicCaroussel)
-                            <tr data-code="">
-                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                <td class="bs-checkbox align-middle">
-                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value=""></label>
-                                </td>
-                                <td class="align-middle">{{$topicCaroussel->title}}</td>
-                                <td class="align-middle">{{$topicCaroussel->subtitle}}</td>
+                    @if ($sectionProduct)
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">{{$sectionProduct->title}}</td>
+                                <td class="align-middle">{{$sectionProduct->subtitle}}</td>
                                 <td class="align-middle">
-                                    @switch($topicCaroussel->active)
+                                    @switch($sectionProduct->active)
                                         @case(1)
                                             <span class="badge bg-success">Ativo</span>
                                             @break
@@ -47,17 +38,17 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="{{route('admin.copa04.topicCaroussel.edit',['COPA04ContentPagesTopiccarousel' => $topicCaroussel->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                            <a href="{{route('admin.copa04.sectionProduct.edit',['SectionProducts' => $sectionProduct->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{route('admin.copa04.topicCaroussel.destroy',['COPA04ContentPagesTopiccarousel' => $topicCaroussel->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.copa04.sectionProduct.destroy',['SectionProducts' => $sectionProduct->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
                                     </div>
                                 </td>
                             </tr>
-                        @endif
-                    </tbody>
+                        </tbody>
+                    @endif
                 </table>
             </div>
         </div> <!-- end card-->

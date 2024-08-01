@@ -13,6 +13,7 @@ use App\Models\ContentPages\COPA04ContentPagesTopicItem;
 use App\Models\ContentPages\COPA04ContentPagesSectionHero;
 use App\Models\ContentPages\COPA04ContentPagesSectionVideo;
 use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
+use App\Models\ContentPages\COPA04ContentPagesSectionProducts;
 use App\Models\ContentPages\COPA04ContentPagesAdditionalTopics;
 use App\Models\ContentPages\COPA04ContentPagesAdditionalContent;
 use App\Models\ContentPages\COPA04ContentPagesSectionHighlighted;
@@ -33,6 +34,7 @@ class COPA04Controller extends Controller
         $additionalContent = COPA04ContentPagesAdditionalContent::first();
         $additionalTopics = COPA04ContentPagesAdditionalTopics::paginate(30);
         $faq = COPA04ContentPagesFaq::first();
+        $sectionProduct = COPA04ContentPagesSectionProducts::first();
 
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.index', [
             'sectionHeros' => $sectionHeros,
@@ -44,7 +46,8 @@ class COPA04Controller extends Controller
             'gallery' => $gallery,
             'additionalContent' => $additionalContent,
             'additionalTopics' => $additionalTopics,
-            'faq' => $faq
+            'faq' => $faq,
+            'sectionProduct' => $sectionProduct
         ]);
     }
 

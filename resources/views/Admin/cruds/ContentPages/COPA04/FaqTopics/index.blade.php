@@ -13,14 +13,23 @@
                 <table class="table table-bordered table-sortable">
                     <thead class="table-light">
                         <tr>
+                            <th width="50px"></th>
+                            <th width="30px" class="bs-checkbox">
+                                {{-- INSERIR UMA CLASSE ÙNICA NO "#btSubmitDelete" E NO VALUE DO INPUT ABAIXO --}}
+                                <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
+                            </th>
                             <th>Título</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
-                    @foreach($faqs as $faq)
-                        <tbody>
-                            <tr>
+                    <tbody data-route="{{route('admin.copa04.faqTopics.sorting')}}">
+                        @foreach($faqs as $faq)
+                            <tr data-code="{{$faq->id}}">
+                                <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
+                                <td class="bs-checkbox align-middle">
+                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$faq->id}}"></label>
+                                </td>
                                 <td class="align-middle">{{$faq->title}}</td>
                                 <td class="align-middle">
                                     @switch($faq->active)
@@ -45,8 +54,8 @@
                                     </div>
                                 </td>
                             </tr>
-                        </tbody>
-                    @endforeach
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div> <!-- end card-->

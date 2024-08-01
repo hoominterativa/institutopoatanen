@@ -2,9 +2,10 @@
 
 namespace App\Models\ContentPages;
 
-use Database\Factories\ContentPages\COPA04ContentPagesSectionProducts_ProductFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Database\Factories\ContentPages\COPA04ContentPagesSectionProducts_ProductFactory;
 
 class COPA04ContentPagesSectionProducts_Product extends Model
 {
