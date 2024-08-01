@@ -46,7 +46,6 @@
         {{-- Seção Hero --}}
         {{-- {{ $sectionHeros ? $sectionHeros->color_one : 'default_primary_value' }}; --}}
         @if ($sectionHeros)
-        @dd($sectionHeros)
             <section class="copa04-page__hero ">
                 <aside class="copa04-page__hero__aside">
                     <img class="copa04-page__hero__aside__logo" src="{{ asset('images/gray.png') }}"
