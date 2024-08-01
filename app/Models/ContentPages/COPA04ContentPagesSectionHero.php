@@ -28,6 +28,8 @@ class COPA04ContentPagesSectionHero extends Model
         'title_btn',
         'link',
         'active',
+        'button_text',
+        'button_link',
         'sorting',
     ];
 

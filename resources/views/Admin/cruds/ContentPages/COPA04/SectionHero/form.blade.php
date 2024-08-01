@@ -46,6 +46,14 @@
                 {!! Form::label('validationCustom03', 'Link', ['class'=>'form-label']) !!}
                 {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
             </div>
+            <div class="mb-3 col-12">
+                {!! Form::label('validationCustom02', 'Título do botão superior', ['class'=>'form-label']) !!}
+                {!! Form::text('button_text', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Título do botão', 'required'=>'required']) !!}
+            </div>
+            <div class="mb-3 col-12">
+                {!! Form::label('validationCustom03', 'Link superios', ['class'=>'form-label']) !!}
+                {!! Form::text('button_link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
+            </div>
             <div class="row mb-3">
                 <div class="container-image-crop col-lg-4">
                     {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}

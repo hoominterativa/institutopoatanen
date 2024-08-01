@@ -25,6 +25,8 @@ class CreateCopa04ContentpagesSectionheroesTable extends Migration
             $table->string('color_three', 100)->nullable();
             $table->string('title_btn', 50)->nullable();
             $table->string('link', 255)->nullable();
+            $table->string('button_text', 50)->nullable();
+            $table->string('button_link', 255)->nullable();
             $table->integer('sorting')->default(0);
             $table->boolean('active')->default(0);
             $table->timestamps();

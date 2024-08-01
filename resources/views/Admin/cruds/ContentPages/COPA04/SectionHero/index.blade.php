@@ -122,7 +122,7 @@
                                                 <button id="btSubmitDelete" data-route="{{route('admin.copa04.sectionHero.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                                             </div>
                                             <div class="col-6">
-                                                @if ($sectionHeros->count() < 0)
+                                                @if (!$sectionHero)
                                                     <a href="{{route('admin.copa04.sectionHero.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                                 @endif
                                             </div>
@@ -138,7 +138,7 @@
                                             </thead>
         
                                             <tbody>
-                                                @foreach ($sectionHeros as $sectionHero)
+                                                @if ($sectionHero)
                                                     <tr>
                                                         <td class="align-middle">{{$sectionHero->title}}</td>
                                                         <td class="align-middle avatar-group">
@@ -167,14 +167,9 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                @endforeach
+                                                @endif
                                             </tbody>
                                         </table>
-        
-                                        {{-- PAGINATION --}}
-                                        <div class="mt-3 float-end">
-                                            {{$sectionHeros->links()}}
-                                        </div>
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col-->

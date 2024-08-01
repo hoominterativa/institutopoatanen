@@ -29,7 +29,7 @@ class COPA04Controller extends Controller
 
     public function index()
     {   
-        $sectionHeros = COPA04ContentPagesSectionHero::paginate(30);
+        $sectionHero = COPA04ContentPagesSectionHero::first();
         $sectionVideo = COPA04ContentPagesSectionVideo::first();
         $sectionHighlighted = COPA04ContentPagesSectionHighlighted::first();
         $sectionTopic = COPA04ContentPagesTopic::first();
@@ -41,7 +41,7 @@ class COPA04Controller extends Controller
         $sectionProduct = COPA04ContentPagesSectionProducts::first();
 
         return view('Admin.cruds.ContentPages.COPA04.SectionHero.index', [
-            'sectionHeros' => $sectionHeros,
+            'sectionHero' => $sectionHero,
             'cropSetting' => getCropImage('ContentPages', 'COPA04'),
             'sectionVideo' => $sectionVideo,
             'sectionHighlighted' => $sectionHighlighted,
