@@ -17,6 +17,7 @@ use App\Models\ContentPages\COPA04ContentPagesAdditionalTopics;
 use App\Models\ContentPages\COPA04ContentPagesAdditionalContent;
 use App\Models\ContentPages\COPA04ContentPagesSectionHighlighted;
 use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
+use App\Models\ContentPages\COPA04ContentPagesGallerytopics;
 
 class COPA04Controller extends Controller
 {
@@ -121,6 +122,10 @@ class COPA04Controller extends Controller
         $TopicItems = COPA04ContentPagesTopicItem::active()->sorting()->get();
         $sectiontopicCaroussel = COPA04ContentPagesTopiccarousel::active()->first();
         $CarousselItems = COPA04ContentPagesTopiccarousel_cards::active()->sorting()->get();
+        $sectionGallery = COPA04ContentPagesGallery::active()->first();
+        $galleryItems = COPA04ContentPagesGallerytopics::active()->get();
+        $additionalContent = COPA04ContentPagesAdditionalContent::active()->first();
+        $additionalTopics = COPA04ContentPagesAdditionalTopics::active()->get();
 
         return view('Client.pages.ContentPages.COPA04.page',[
             'sections' => $sections,
@@ -131,6 +136,10 @@ class COPA04Controller extends Controller
             'topicItems' => $TopicItems,
             'sectionTopicCarousel' => $sectiontopicCaroussel,
             'carouselItems' => $CarousselItems,
+            'sectionGallery' => $sectionGallery,
+            'galleryItems' => $galleryItems,
+            "sectionAdditionalContent" => $additionalContent,
+            "additionalItems" => $additionalTopics,
             
         ]);
     }
