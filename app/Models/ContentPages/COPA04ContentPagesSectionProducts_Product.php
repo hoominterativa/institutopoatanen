@@ -19,7 +19,13 @@ class COPA04ContentPagesSectionProducts_Product extends Model
     protected $table = "copa04_contentpages_sectionproducts_products";
     protected $fillable = [
         'title',
+        'subtitle',
         'description',
+        'value_text',
+        'value',
+        'button_text',
+        'button_link',
+        'promotion',
         'active',
         'sorting',
     ];
