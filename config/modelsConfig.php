@@ -14,123 +14,22 @@ return [
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Slides' => (object) [
-            'SLID01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Slide',
-                    'iconPanel' => 'mdi-projector-screen'
-                ]
-            ],
-        ],
-       'Topics' => (object) [
-            'TOPI01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Tópicos01',
-                    'iconPanel' => 'mdi-book-multiple-outline'
-                ]
-            ],
-        ],
-        'Topics.1' => (object)[
-            'TOPI101' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' => false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Topicos101',
-                    'iconPanel' => 'mdi-apps'
-                ]
-            ],
-        ],
-        'Topics.2' => (object) [
-            'TOPI09' => (object)[
-            'ViewHome' => true,
-            'ViewListMenu' => false,
-            'ViewListPanel' => true,
-            'ViewListFooter' => false,
-            'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                'titleMenu' => '',
-                'anchor' => false,
-                'linkMenu' => '',
-                'iconMenu' => '',
-                'titlePanel' => 'Tópicos09',
-                'iconPanel' => 'mdi-apps'
-                ]
-            ],
-        ],
-        'Feedbacks' => (object) [
-            'FEED03' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Depoimentos',
-                    'iconPanel' => 'mdi-android-messages'
-                ]
-            ],
-        ],
-        'Units' => (object) [
-            'UNIT03' => (object)[
+        'ContentPages' => (object) [
+            'COPA04' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'Unidades',
+                    'titleMenu' => 'copa04',
                     'anchor' =>  false,
-                    'linkMenu' => 'unit03.page',
+                    'linkMenu' => 'copa04.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Unidades',
-                    'iconPanel' => 'mdi-warehouse'
+                    'titlePanel' => 'copa04',
+                    'iconPanel' => 'mdi-book-open-page-variant'
                 ],
-                'IncludeSections' => (object) [
-                    'Feedbacks' => ['FEED03']
-                ]
+                'IncludeSections' => (object) []
             ],
         ],
     ],

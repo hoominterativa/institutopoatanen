@@ -1,24 +1,33 @@
 //novos mixins
+@use "sass:math";
+
 @mixin disFlex($direction: row, $justify: start, $align: stretch) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
     align-items: $align;
 }
-@mixin bg($size: cover, $position: center) {
+@mixin bg ($size: cover, $position: center){
     background-size: $size;
     background-position: $position;
     background-repeat: no-repeat;
 }
 
-// retorna calculo mais preciso de largura de elementos levando o valor da gap
-// $nElements = número de elementos que devem ocupar a row;
-// $gapSize = tamanho da gap em px, em, rem;
+//Iago
 @function calcWidth($nElements, $gapSize) {
     $percentage: 100% / $nElements;
     $gapTotal: calc($gapSize * ($nElements - 1));
 
     @return calc($percentage - $gapTotal / $nElements);
+}
+
+//Wiliam
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Não use unidades usando a função rem(), apenas numeros';
+  }
 }
 
 /* ------- --------- */
@@ -119,6 +128,7 @@ $grid-breakpoints: (
     }
 }
 /*__________________________________*/
+
 
 // Breakpoints down
 @mixin small-device-down {

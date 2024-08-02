@@ -1276,6 +1276,23 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "COPA04": {
+            "path_image": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_logo": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "path_icon": {
+                "width": "300",
+                "height": "300",
+                "activeCrop": "false"
+            }
         }
     },
     "Contacts": {

@@ -1,0 +1,108 @@
+<?php
+
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
+use App\Models\ContentPages\COPA04ContentPagesTopic;
+use App\Http\Controllers\ContentPages\COPA04Controller;
+use App\Http\Controllers\ContentPages\COPA04FaqController;
+use App\Models\ContentPages\COPA04ContentPagesSectionHero;
+use App\Http\Controllers\ContentPages\COPA04TopicController;
+use App\Http\Controllers\ContentPages\COPA04GalleryController;
+use App\Http\Controllers\ContentPages\COPA04FaqTopicsController;
+use App\Http\Controllers\ContentPages\COPA04TopicItemController;
+use App\Http\Controllers\ContentPages\COPA04SectionHeroController;
+use App\Http\Controllers\ContentPages\COPA04SectionVideoController;
+use App\Http\Controllers\ContentPages\COPA04GallerytopicsController;
+use App\Http\Controllers\ContentPages\COPA04TopiccarouselController;
+use App\Http\Controllers\ContentPages\COPA04SectionProductsController;
+use App\Models\ContentPages\COPA04ContentPagesSectionProducts_Product;
+use App\Http\Controllers\ContentPages\COPA04AdditionalTopicsController;
+use App\Http\Controllers\ContentPages\COPA04AdditionalContentController;
+use App\Http\Controllers\ContentPages\COPA04SectionHighlightedController;
+use App\Http\Controllers\ContentPages\COPA04Topiccarousel_cardsController;
+use App\Http\Controllers\ContentPages\COPA04AdditionalContentImagesController;
+use App\Http\Controllers\ContentPages\COPA04SectionProducts_ProductController;
+
+/**
+ * Uncomment the code below
+ *
+ * Create new routes to admin or client according to the model below
+ * Define the variables ​​$module, $model and import the controller class
+ *
+ */
+
+$module = 'ContentPages';
+$model = 'COPA04';
+
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$module = getNameModule($modelConfig, $module, $model);
+$modelConfig = $modelConfig->$module->$model->config;
+
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
+
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/copa04', COPA04Controller::class)->names('admin.'.$routeName.'.index')->parameters(['copa04' => 'COPA04ContentPages']);
+
+    Route::resource($route.'/sectionHero', COPA04SectionHeroController::class)->names('admin.'.$routeName.'.sectionHero')->parameters(['sectionHero' => 'COPA04ContentPagesSectionHero']);
+    Route::post($route.'/sectionHero/delete', [COPA04SectionHeroController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionHero.destroySelected');
+    Route::post($route.'/sectionHero/sorting', [COPA04SectionHeroController::class, 'sorting'])->name('admin.'.$routeName.'.sectionHero.sorting');
+    
+    Route::resource($route.'/sectionVideo', COPA04SectionVideoController::class)->names('admin.'.$routeName.'.sectionVideo')->parameters(['sectionVideo' => 'COPA04ContentPagesSectionVideo']);
+    Route::post($route.'/sectionVideo/delete', [COPA04SectionVideoController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionVideo.destroySelected');
+    
+    Route::resource($route.'/sectionHighlighted', COPA04SectionHighlightedController::class)->names('admin.'.$routeName.'.sectionHighlighted')->parameters(['sectionHighlighted' => 'COPA04SectionHighlighted']);
+    Route::post($route.'/sectionHighlighted/delete', [COPA04SectionHighlightedController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionHighlighted.destroySelected');
+    Route::post($route.'/sectionHighlighted/sorting', [COPA04SectionHighlightedController::class, 'sorting'])->name('admin.'.$routeName.'.sectionHighlighted.sorting');
+
+    Route::resource($route.'/sectionTopic', COPA04TopicController::class)->names('admin.'.$routeName.'.sectionTopic')->parameters(['sectionTopic' => 'COPA04ContentPagesTopic']);
+    Route::post($route.'/sectionTopic/delete', [COPA04TopicController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionTopic.destroySelected');
+
+    Route::resource($route.'/topic', COPA04TopicItemController::class)->names('admin.'.$routeName.'.topic')->parameters(['topic' => 'COPA04ContentPagesTopicItem']);
+    Route::post($route.'/topic/delete', [COPA04TopicItemController::class, 'destroySelected'])->name('admin.'.$routeName.'.topic.destroySelected');
+    Route::post($route.'/topic/sorting', [COPA04TopicItemController::class, 'sorting'])->name('admin.'.$routeName.'.topic.sorting');
+    
+    Route::resource($route.'/topicCaroussel', COPA04TopiccarouselController::class)->names('admin.'.$routeName.'.topicCaroussel')->parameters(['topicCaroussel' => 'COPA04ContentPagesTopiccarousel']);
+    Route::post($route.'/topicCaroussel/delete', [COPA04TopiccarouselController::class, 'destroySelected'])->name('admin.'.$routeName.'.topicCaroussel.destroySelected');
+    Route::post($route.'/topicCaroussel/sorting', [COPA04TopiccarouselController::class, 'sorting'])->name('admin.'.$routeName.'.topicCaroussel.sorting');
+    
+    Route::resource($route.'/topicCarousselCards', COPA04Topiccarousel_cardsController::class)->names('admin.'.$routeName.'.topicCarousselCards')->parameters(['topicCarousselCards' => 'TopiccarouselCards']);
+    Route::post($route.'/topicCarousselCards/delete', [COPA04Topiccarousel_cardsController::class, 'destroySelected'])->name('admin.'.$routeName.'.topicCarousselCards.destroySelected');
+    Route::post($route.'/topicCarousselCards/sorting', [COPA04Topiccarousel_cardsController::class, 'sorting'])->name('admin.'.$routeName.'.topicCarousselCards.sorting');
+
+    Route::resource($route.'/gallery', COPA04GalleryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['gallery' => 'COPA04ContentPagesGallery']);
+    Route::post($route.'/gallery/delete', [COPA04GalleryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+
+    Route::resource($route.'/galleryTopic', COPA04GallerytopicsController::class)->names('admin.'.$routeName.'.galleryTopic')->parameters(['galleryTopic' => 'COPA04ContentPagesGallerytopics']);
+    Route::post($route.'/galleryTopic/delete', [COPA04GallerytopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.galleryTopic.destroySelected');
+    Route::post($route.'/galleryTopic/sorting', [COPA04GallerytopicsController::class, 'sorting'])->name('admin.'.$routeName.'.galleryTopic.sorting');
+
+    Route::resource($route.'/additionalContent', COPA04AdditionalContentController::class)->names('admin.'.$routeName.'.additionalContent')->parameters(['additionalContent' => 'AdditionalContent']);
+    Route::post($route.'/additionalContent/delete', [COPA04AdditionalContentController::class, 'destroySelected'])->name('admin.'.$routeName.'.additionalContent.destroySelected');
+
+    Route::resource($route.'/additionalContentImages', COPA04AdditionalContentImagesController::class)->names('admin.'.$routeName.'.additionalContentImages')->parameters(['additionalContentImages' => 'AdditionalContentImages']);
+    Route::post($route.'/additionalContentImages/delete', [COPA04AdditionalContentImagesController::class, 'destroySelected'])->name('admin.'.$routeName.'.additionalContentImages.destroySelected');
+    Route::post($route.'/additionalContentImages/sorting', [COPA04AdditionalContentImagesController::class, 'sorting'])->name('admin.'.$routeName.'.additionalContentImages.sorting');
+    
+    Route::resource($route.'/additionalTopics', COPA04AdditionalTopicsController::class)->names('admin.'.$routeName.'.additionalTopics')->parameters(['additionalTopics' => 'AdditionalTopics']);
+    Route::post($route.'/additionalTopics/delete', [COPA04AdditionalTopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.additionalTopics.destroySelected');
+    Route::post($route.'/additionalTopics/sorting', [COPA04AdditionalTopicsController::class, 'sorting'])->name('admin.'.$routeName.'.additionalTopics.sorting');
+
+    Route::resource($route.'/faq', COPA04FaqController::class)->names('admin.'.$routeName.'.faq')->parameters(['faq' => 'COPA04ContentPagesFaq']);
+    Route::post($route.'/faq/delete', [COPA04FaqController::class, 'destroySelected'])->name('admin.'.$routeName.'.faq.destroySelected');
+
+    Route::resource($route.'/faq/topicos', COPA04FaqTopicsController::class)->names('admin.'.$routeName.'.faqTopics')->parameters(['topicos' => 'COPA04ContentPagesFaqTopics']);
+    Route::post($route.'/faq/topicos/delete', [COPA04FaqTopicsController::class, 'destroySelected'])->name('admin.'.$routeName.'.faqTopics.destroySelected');
+    Route::post($route.'/faq/topicos/sorting', [COPA04FaqTopicsController::class, 'sorting'])->name('admin.'.$routeName.'.faqTopics.sorting');
+
+    Route::resource($route.'/secao-produtos', COPA04SectionProductsController::class)->names('admin.'.$routeName.'.sectionProduct')->parameters(['secao-produtos' => 'SectionProducts']);
+    Route::post($route.'/secao-produtos/delete', [COPA04SectionProductsController::class, 'destroySelected'])->name('admin.'.$routeName.'.sectionProduct.destroySelected');
+
+    Route::resource($route.'/produtos', COPA04SectionProducts_ProductController::class)->names('admin.'.$routeName.'.product')->parameters(['produtos' => 'Products']);
+    Route::post($route.'/produtos/delete', [COPA04SectionProducts_ProductController::class, 'destroySelected'])->name('admin.'.$routeName.'.product.destroySelected');
+    Route::post($route.'/produtos/sorting', [COPA04SectionProducts_ProductController::class, 'sorting'])->name('admin.'.$routeName.'.product.sorting');
+});
+// // CLIENT
+// Route::get($route.'/teste', [COPA04Controller::class, 'page'])->name($routeName.'.page');
