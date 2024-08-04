@@ -21,12 +21,20 @@ return [
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title_page',
+                    'relation' => '',
+                ],
                 'config' => (object) [
-                    'titleMenu' => 'copa04',
+                    'titleMenu' => 'Página de Conteúdo',
                     'anchor' =>  false,
                     'linkMenu' => 'copa04.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'copa04',
+                    'titlePanel' => 'Página de Conteúdo',
                     'iconPanel' => 'mdi-book-open-page-variant'
                 ],
                 'IncludeSections' => (object) []

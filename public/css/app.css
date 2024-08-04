@@ -89,8 +89,7 @@ details .details-content {
   aspect-ratio: 6/4;
   background-color: #7c7c7c;
   content: "";
-  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: all ease 0.4s;
 }
 .quedinha__btn * {
@@ -167,11 +166,26 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.copa04-page__section-products, .copa04-page__faq, .copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation {
+.comp01-page__content, .copa04-page__section-products, .copa04-page__faq, .copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .foot02__copyright, .foot02__navigation, .side03__navigation, .confirmation-page__title, .form01, .comp01-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
+}
+.comp01-page__banner__title {
+  font: 700 3.125rem "Ubuntu", sans-serif, arial;
+  line-height: 140%;
+  letter-spacing: 0.0125rem;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .comp01-page__banner__title {
+    font-size: 2.5rem;
+    line-height: 90%;
+  }
+}
+.comp01-page__banner__title {
+  color: #404040;
 }
 .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
@@ -185,6 +199,25 @@ details .details-content {
 }
 .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title {
   color: #000;
+}
+.confirmation-page__title, .comp01-page__content__header__title, .form01__main__information__title {
+  font: 700 1.875rem "Ubuntu", sans-serif, arial;
+  line-height: normal;
+  text-align: left;
+}
+@media (max-width: 991.98px) {
+  .confirmation-page__title, .comp01-page__content__header__title, .form01__main__information__title {
+    font-size: 1.563rem;
+  }
+}
+.form01__main__information__title {
+  color: #000;
+}
+.comp01-page__content__header__title {
+  color: #404040;
+}
+.confirmation-page__title {
+  color: #cacaca;
 }
 .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
@@ -215,12 +248,12 @@ details .details-content {
 .copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
   color: #000;
 }
-.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
+.form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .form01__main__form__footer__cta, .comp01-page__content__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .side03__navigation__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__carousel__item--video__cta p, .copa04-page__additional-topics__carousel__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .copa04-page__faq__item__title p, .side03__navigation__cta p {
+.form01__main__information__paragraph p, .copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__carousel__item--video__cta p, .copa04-page__additional-topics__carousel__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .form01__main__form__footer__cta p, .comp01-page__content__paragraph p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .copa04-page__faq__item__title p, .side03__navigation__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -228,25 +261,25 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title, .side03__navigation__cta {
+  .form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .form01__main__form__footer__cta, .comp01-page__content__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .side03__navigation__cta {
     font-size: 0.938rem;
   }
 }
 .side03__navigation__cta {
   color: #fff;
 }
-.copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .copa04-page__faq__item__title {
+.comp01-page__content__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title {
   color: #000;
 }
-.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
+.form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .form01__main__form__footer__cta {
   color: #404040;
 }
-.copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+.copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.copa04-page__section-products__carousel__item__price__paragraph p, .copa04-page__section-products__carousel__item__price__title p, .copa04-page__section-products__carousel__item__paragraph p, .copa04-page__section-products__carousel__item__subtitle p, .copa04-page__section-products__carousel__item__tag p, .copa04-page__faq__item__paragraph p, .foot02__copyright__compliances__item p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p {
+.copa04-page__section-products__carousel__item__price__paragraph p, .copa04-page__section-products__carousel__item__price__title p, .copa04-page__section-products__carousel__item__paragraph p, .copa04-page__section-products__carousel__item__subtitle p, .copa04-page__section-products__carousel__item__tag p, .copa04-page__faq__item__paragraph p, .comp01-page__content__archives__item p, .foot02__copyright__compliances__item p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -254,21 +287,34 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+  .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
     font-size: 0.813rem;
     line-height: 170%;
   }
 }
-.copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item {
+.copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
   color: #000;
 }
-.foot02__copyright__compliances__item {
+.comp01-page__content__archives__item, .foot02__copyright__compliances__item {
   color: #404040;
 }
 .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .copa04-page__faq__item__paragraph {
   color: #7c7c7c;
 }
-.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta {
+.comp01-page__banner {
+  width: 100%;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #cacaca;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .form01__main__form__footer__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -280,7 +326,7 @@ details .details-content {
   border: none;
   font-weight: 700;
 }
-.copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__carousel__item--video__cta:focus, .copa04-page__additional-topics__carousel__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus {
+.copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__carousel__item--video__cta:focus, .copa04-page__additional-topics__carousel__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus, .form01__main__form__footer__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -302,8 +348,7 @@ details .details-content {
   height: 1.25rem;
   content: "";
   background-color: #404040;
-  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: transform 0.2s ease-out;
 }
 .copa04-page__faq__item__paragraph {
@@ -1018,138 +1063,85 @@ body .owl-dots .owl-dot.active {
 }
 
 .form01 {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.form01__boxLeft {
-  padding: 0 38px;
-}
-@media (max-width: 767.98px) {
-  .form01__boxLeft {
-    margin-bottom: 25px;
-  }
-}
-.form01__boxLeft__content__title {
-  font-size: 1.875rem;
-  color: #000;
-  margin-bottom: 17px;
-  font-weight: 700;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .form01__boxLeft__content__title {
-    font-size: 1.563rem;
-  }
-}
-.form01__boxLeft__content__paragraph {
-  max-width: 592px;
-  width: 100%;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .form01__boxLeft__content__paragraph {
-    width: 100%;
-  }
-}
-.form01__boxLeft__content__paragraph p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #404040;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .form01__boxLeft__content__paragraph p {
-    font: 400 0.875rem "Montserrat", sans-serif, arial;
-  }
-}
-.form01__boxLeft__form {
-  justify-content: space-between;
-}
-.form01__boxLeft__form .input__item {
-  width: 48.5%;
-  padding: 0;
-}
-@media (max-width: 767.98px) {
-  .form01__boxLeft__form .input__item {
-    width: 100%;
-  }
-}
-.form01__boxLeft__form .input__item label {
-  color: #000 !important;
-}
-.form01__boxLeft__form .input__item .form-placeholder {
-  background-color: #fff !important;
-  border: none !important;
-}
-.form01__boxLeft__form .input__item input {
-  background-color: transparent !important;
-  color: #000 !important;
-  border-radius: 0 !important;
-  height: 2.9375rem;
-  padding: 0;
-}
-.form01__boxLeft__form .input__item input::-moz-placeholder {
-  color: #000 !important;
-}
-.form01__boxLeft__form .input__item input::placeholder {
-  color: #000 !important;
-}
-.form01__boxLeft__form__checkbox-label {
-  padding: 0;
-}
-.form01__boxLeft__form button {
-  background-color: #fff;
-  color: #404040;
-  height: 45px;
-  width: 177px;
-  padding: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 16px;
-  border: 0;
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  margin-left: auto;
-  transition: 0.5s all ease;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .form01__boxLeft__form button {
-    height: 39px;
-    width: 153px;
-    margin-top: 18px;
+.form01__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  width: 50%;
+}
+@media (max-width: 991.98px) {
+  .form01__main {
+    width: 100%;
+    margin-bottom: 2.5rem;
   }
 }
-.form01__boxLeft__form button:hover {
-  background-color: #000;
-  color: #fff;
-  transition: 0.5s all ease;
+.form01__main__information {
+  margin-bottom: 2rem;
 }
-.form01__boxLeft__form button img {
-  width: 25.16px;
-  height: 25.16px;
-  margin-right: 16.87px;
-  transition: 0.5s all ease;
+.form01__main__information__title {
+  margin-bottom: 2.5rem;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .form01__boxLeft__form button img {
-    width: 21px;
-    height: 21px;
-    margin-right: 14.58px;
-  }
-}
-.form01__boxLeft__form button:hover img {
-  filter: invert(1) grayscale(1);
-  transition: 0.5s all ease;
-}
-.form01__boxRight__image {
-  height: 434px;
-  max-width: 315px;
+.form01__main__form {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.form01__boxRight__image img {
+.form01__main__form .input__item {
+  width: calc(50% - 4px);
+}
+@media (max-width: 991.98px) {
+  .form01__main__form .input__item {
+    width: 100%;
+  }
+}
+.form01__main__form__footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.form01__main__form__footer__compliance {
+  opacity: 0.4;
+}
+.form01__main__form__footer__compliance__link {
+  text-decoration: underline;
+}
+.form01__main__form__footer__compliance__checkbox[type=checkbox] {
+  border: 1px solid #000;
+}
+.form01__main__form__footer__compliance__checkbox[type=checkbox]:checked {
+  accent-color: #404040;
+}
+.form01__image {
+  width: 30%;
+  height: auto;
+}
+@media (max-width: 991.98px) {
+  .form01__image {
+    width: 100%;
+  }
+}
+.form01__image__img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .form02 {
@@ -1734,47 +1726,42 @@ body .owl-dots .owl-dot.active {
   transition: ease all 0.3s;
 }
 
-.confirmation__header {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-}
-.confirmation__header__wrapper-title {
+.confirmation-page {
+  position: relative;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
-  margin-top: -197px;
-}
-.confirmation__header__title {
-  font-size: 3.75rem;
-  color: #000;
-  font-family: "Poppins", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 10px;
+  justify-content: start;
+  align-items: center;
+  display: flex !important;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 24px;
   position: relative;
 }
-@media (max-width: 767.98px) {
-  .confirmation__header__title {
-    font-size: 1.85rem;
-  }
+.confirmation-page__title {
+  padding-bottom: 0;
+  text-align: center;
 }
-.confirmation__header__subtitle {
-  font-size: 1.75rem;
-  color: #000;
-  font-family: "Poppins", sans-serif, arial;
-  font-weight: 600;
-  margin-bottom: 10px;
+.confirmation-page__title::after {
+  left: 50%;
+  translate: -50% 0;
+  content: "";
+  width: 60px;
+  height: 1px;
+  background-color: #7c7c7c;
   position: relative;
+  margin-top: 1.25rem;
+  display: block;
 }
-@media (max-width: 767.98px) {
-  .confirmation__header__subtitle {
-    font-size: 1.25rem;
-  }
+.confirmation-page__paragraph {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.confirmation-page svg {
+  width: 100%;
 }
 
 .blur-5 {
@@ -2982,115 +2969,56 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.comp01-page__header {
-  text-align: center;
-  background-color: #EFEFEF;
-  padding: 87px 0;
-  margin: 0;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.comp01-page__header__mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
-}
-.comp01-page__header__container {
-  margin-bottom: 25px;
-  z-index: 100;
-  position: relative;
-}
-.comp01-page__header__title {
-  font-size: 3.125rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  color: #000;
-  display: block;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__header__title {
-    font-size: 1.875rem;
-  }
+.comp01-page__banner {
+  background-color: rgba(239, 239, 239, 0.35);
 }
 .comp01-page__content {
-  padding: 45px 0 120px;
+  padding-left: 10vw;
 }
-.comp01-page__content__icon {
-  width: 36px;
-  margin: 10px auto;
-  display: table;
+.comp01-page__content__header {
+  margin-bottom: 3.5rem;
 }
-.comp01-page__content__container {
-  text-align: center;
-  margin-bottom: 35px;
+.comp01-page__content__header__title {
+  text-align: left;
+  margin-bottom: 0;
 }
-.comp01-page__content__title {
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-  display: block;
+.comp01-page__content__archives {
+  margin-top: 3rem;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__content__title {
-    font-size: 1.875rem;
-  }
+.comp01-page__content__archives__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  border: solid 1px #7c7c7c;
+  border-radius: 1rem 0 1rem 0;
+  transition: all 0.3s ease;
+  color: #7c7c7c;
 }
-.comp01-page__content__subtitle {
-  font-size: 1.25rem;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-  display: block;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__content__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.comp01-page__content__line {
-  width: 100%;
-  background-color: #404040;
-  margin-bottom: 35px;
-}
-.comp01-page__content__paragraph {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 500;
-  padding: 0 30px;
-  color: #404040;
-  line-height: 25px;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__content__paragraph {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.comp01-page__archives {
-  margin-top: 50px;
-}
-.comp01-page__archives__item {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #000;
-  display: table;
-  margin: 0 25px 0 0;
-  max-width: 100%;
-  padding: 10px 15px;
-  background-color: #cacaca;
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .comp01-page__archives__item {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.comp01-page__archives__item:hover {
+.comp01-page__content__archives__item:hover {
+  background-color: #7c7c7c;
+  border-color: #7c7c7c;
   color: #fff;
-  background-color: #000;
 }
-.comp01-page__archives__item:hover .comp01__archives__item__icon {
-  filter: invert(1) grayscale(1);
+.comp01-page__content__archives__item:hover svg path {
+  fill: #fff;
+  border-color: #fff;
+}
+.comp01-page__content__archives__item svg {
+  width: 1.25rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  transition: all 0.3s ease;
 }

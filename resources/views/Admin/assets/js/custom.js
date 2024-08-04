@@ -554,16 +554,16 @@ $(function () {
         window.history.pushState({}, tab, url);
     }
 
-    $("[data-bs-toggle=tab]:not(.wrapper-links [data-bs-toggle=tab])").on(
-        "click",
-        function () {
-            changePushState($(this));
-        }
-    );
+    $("[data-bs-toggle=tab]:not(.wrapper-links [data-bs-toggle=tab])").on("click", function () {
+
+        changePushState($(this));
+    });
 
     $(window).on("load", function () {
         if (localStorage.getItem("tab")) {
             var hash = localStorage.getItem("tab");
+
+            alert(hash);
             if ($(`[data-bs-toggle=tab][href=\\${hash}]`).length) {
                 $(
                     `[data-bs-toggle=tab]:not(.wrapper-links [data-bs-toggle=tab])`

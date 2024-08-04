@@ -31,6 +31,7 @@ class COPA04ContentPagesSectionHero extends Model
         'button_text',
         'button_link',
         'sorting',
+        'contentpage_id',
     ];
 
     public function scopeSorting($query)

@@ -15,6 +15,8 @@ class CreateCopa04ContentpagesTopiccarouselCardsTable extends Migration
     {
         Schema::create('copa04_contentpages_topiccarousel_cards', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_cards_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_cards_idx');
             $table->String('title')->nullable();
             $table->String('subtitle')->nullable();
             $table->String('description')->nullable();

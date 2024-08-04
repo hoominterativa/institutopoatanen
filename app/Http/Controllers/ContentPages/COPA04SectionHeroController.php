@@ -35,6 +35,7 @@ class COPA04SectionHeroController extends Controller
         $data = $request->all();
         $data['active'] = $request->active ? 1 : 0;
         $helper = new HelperArchive();
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
@@ -46,14 +47,14 @@ class COPA04SectionHeroController extends Controller
 
         if(COPA04ContentPagesSectionHero::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.index');
         }else{
             Storage::delete($path_image);
             Storage::delete($path_logo);
             Storage::delete($path_icon);
             Session::flash('error', 'Erro ao cadastradar o item!');
-            return redirect()->back();
         }
+
+        return redirect()->back();
     }
 
     public function edit(COPA04ContentPagesSectionHero $COPA04ContentPagesSectionHero)
@@ -130,7 +131,7 @@ class COPA04SectionHeroController extends Controller
             storageDelete($COPA04ContentPagesSectionHero, 'path_logo');
             storageDelete($COPA04ContentPagesSectionHero, 'path_icon');
         }
-        
+
 
         if($deleted = COPA04ContentPagesSectionHero::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);

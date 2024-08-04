@@ -5,10 +5,11 @@ namespace App\Models\ContentPages;
 use Database\Factories\ContentPages\COPA04ContentPagesFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class COPA04ContentPages extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected static function newFactory()
     {
@@ -16,7 +17,12 @@ class COPA04ContentPages extends Model
     }
 
     protected $table = "copa04_contentpages";
-    protected $fillable = [];
+    protected $fillable = [
+        'title_page',
+        'sorting',
+        'active',
+        'slug'
+    ];
 
     public function scopeSorting($query)
     {

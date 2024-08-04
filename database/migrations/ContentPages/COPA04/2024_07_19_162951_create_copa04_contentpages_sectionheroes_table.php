@@ -15,6 +15,8 @@ class CreateCopa04ContentpagesSectionheroesTable extends Migration
     {
         Schema::create('copa04_contentpages_sectionheroes', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_sectionheroes_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_sectionheroes_idx');
             $table->string('title', 191)->nullable();
             $table->string('description', 255)->nullable();
             $table->string('path_image', 191)->nullable();
