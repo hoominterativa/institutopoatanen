@@ -23,9 +23,9 @@ class COPA04TopicController extends Controller
     {
         $data = $request->all();
         $data['active'] = $request->active?:0;
-        if($sectionTopic = COPA04ContentPagesTopic::create($data)){
+        if(COPA04ContentPagesTopic::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.sectionTopic.edit', [$sectionTopic->id]);
+            return redirect()->route('admin.copa04.index');
         }else{
             Session::flash('error', 'Erro ao cadastradar o item!');
             return redirect()->back();

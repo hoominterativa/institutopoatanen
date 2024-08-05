@@ -1,13 +1,22 @@
+@if ($sectionTopic)
+    {!! Form::model($sectionTopic, ['route' => ['admin.copa04.sectionTopic.update', $sectionTopic->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
+    @method('PUT')
+@else
+    {!! Form::model(null, ['route' => 'admin.copa04.sectionTopic.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('contentpage_id', $contentPage->id) !!}
+@endif
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
-            <div class="mb-3 col-12">
-                {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
-            </div>
-            <div class="mb-3 col-12">
-                {!! Form::label('validationCustom02', 'Subtitulo', ['class'=>'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
+            <div class="row">
+                <div class="mb-3 col-6">
+                    {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
+                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
+                </div>
+                <div class="mb-3 col-6">
+                    {!! Form::label('validationCustom02', 'Subtitulo', ['class'=>'form-label']) !!}
+                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
+                </div>
             </div>
             <div class="basic-editor__content mb-3 col-12">
                 {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
@@ -20,9 +29,12 @@
                 {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
                 {!! Form::label('active', 'Ativo?', ['class' => 'form-check-label']) !!}
             </div>
+            <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+                {!! Form::button('Salvar', ['class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0','type' => 'submit',]) !!}
+            </div>
         </div>
         {{-- end card-body --}}
     </div>
 </div>
 {{-- end row --}}
-
+{!! Form::close() !!}

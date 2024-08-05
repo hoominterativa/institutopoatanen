@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA04ContentPagesTopic;
 use App\Models\ContentPages\COPA04ContentPagesTopicItem;
@@ -32,9 +33,9 @@ class COPA04TopicItemController extends Controller
         if($path_image) $data['path_image'] = $path_image;        
 
         if(COPA04ContentPagesTopicItem::create($data)){
-            $topic = COPA04ContentPagesTopic::first();
+            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.sectionTopic.edit', [$topic->id]);
+            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item1');
@@ -67,9 +68,9 @@ class COPA04TopicItemController extends Controller
         }
 
         if($COPA04ContentPagesTopicItem->fill($data)->save()){
-            $topic = COPA04ContentPagesTopic::first();
+            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.sectionTopic.edit', [$topic->id]);
+            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar item!');

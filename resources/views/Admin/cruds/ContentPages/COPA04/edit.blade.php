@@ -68,6 +68,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#topicItems" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Tópicos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Aqui você pode cadastrar um ou mais tópicos"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#topicCarousel" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Seção Carossel
@@ -141,7 +150,10 @@
                         @include('Admin.cruds.ContentPages.COPA04.SectionHighlighted.form', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="sectionTopic">
-                        @include('Admin.cruds.ContentPages.COPA04.SectionTopic.index')
+                        @include('Admin.cruds.ContentPages.COPA04.SectionTopic.form', ['contentPage' => $contentPage])
+                    </div>
+                    <div class="tab-pane" id="topicItems">
+                        @include('Admin.cruds.ContentPages.COPA04.Topics.index', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="topicCarousel">
                         @include('Admin.cruds.ContentPages.COPA04.TopicCarousel.index')
