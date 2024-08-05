@@ -1,66 +1,81 @@
+@if ($sectionHighlighted)
+    {!! Form::model($sectionHighlighted, ['route' => ['admin.copa04.sectionHighlighted.update', $sectionHighlighted->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
+    @method('PUT')
+@else
+    {!! Form::model(null, ['route' => 'admin.copa04.sectionHighlighted.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('contentpage_id', $contentPage->id) !!}
+@endif
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
-            <div class="mb-3 col-12">
-                {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
-            </div>
             <div class="row">
-                <div class="mb-3 col-6">
-                    {!! Form::label('validationCustom02', 'Subtitulo', ['class'=>'form-label']) !!}
-                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
-                </div>
-                <div class="mb-3 col-6">
-                    {!! Form::label('validationCustom03', 'Link', ['class'=>'form-label']) !!}
-                    {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
-                </div>
-            </div>
-            <div class="row">
-                <div class="mb-3 col-6">
-                    {!! Form::label('colorpicker-default', 'Cor primária', ['class'=>'form-label']) !!}
-                    {!! Form::text('color_one', null, [
-                            'class'=>'form-control colorpicker-default',
-                            'id'=>'colorpicker-default',
-                            'required'=>'required',
-                        ])!!}
-                </div>
-                <div class="mb-3 col-6">
-                    {!! Form::label('validationCustom04', 'Título do botão', ['class'=>'form-label']) !!}
-                    {!! Form::text('btn_title', null, ['class'=>'form-control', 'id'=>'validationCustom04', 'placeholder'=>'Título do botão', 'required'=>'required']) !!}
-                </div>
-            </div>
-            <div class="basic-editor__content mb-3 col-12">
-                {!! Form::label('basic-editor', 'Texto', ['class'=>'form-label']) !!}
-                {!! Form::textarea('text', null, [
-                    'class'=>'form-control basic-editor',
-                    'id'=>'basic-editor',
-                ]) !!}
-            </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-status'=>$cropSetting->path_image->activeCrop, // px
-                            'data-min-width'=>$cropSetting->path_image->width, // px
-                            'data-min-height'=>$cropSetting->path_image->height, // px
-                            'data-box-height'=>'225', // Input height in the form
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
-                            'data-default-file'=> isset($COPA04ContentPagesSectionHero)?($COPA04ContentPagesSectionHero->path_image<>''?url('storage/'.$COPA04ContentPagesSectionHero->path_image):''):'',
+                <div class="col-lg-6">
+                    <div class="mb-3 col-12">
+                        {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
+                        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-6">
+                            {!! Form::label('validationCustom02', 'Subtitulo', ['class'=>'form-label']) !!}
+                            {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
+                        </div>
+                        <div class="mb-3 col-6">
+                            {!! Form::label('validationCustom03', 'Link', ['class'=>'form-label']) !!}
+                            {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom03', 'placeholder'=>'Link', 'required'=>'required']) !!}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-6">
+                            {!! Form::label('colorpicker-default', 'Cor primária', ['class'=>'form-label']) !!}
+                            {!! Form::text('color_one', null, [
+                                    'class'=>'form-control colorpicker-default',
+                                    'id'=>'colorpicker-default',
+                                    'required'=>'required',
+                                ])!!}
+                        </div>
+                        <div class="mb-3 col-6">
+                            {!! Form::label('validationCustom04', 'Título do botão', ['class'=>'form-label']) !!}
+                            {!! Form::text('btn_title', null, ['class'=>'form-control', 'id'=>'validationCustom04', 'placeholder'=>'Título do botão', 'required'=>'required']) !!}
+                        </div>
+                    </div>
+                    <div class="basic-editor__content mb-3 col-12">
+                        {!! Form::label('basic-editor', 'Texto', ['class'=>'form-label']) !!}
+                        {!! Form::textarea('text', null, [
+                            'class'=>'form-control basic-editor',
+                            'id'=>'basic-editor',
                         ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
-            <div class="mb-3 form-check me-3">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativo?', ['class' => 'form-check-label']) !!}
+                    </div>
+                </div>
+                <div class="mb-3 col-lg-6">
+                    <div class="container-image-crop">
+                        {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
+                        <label class="area-input-image-crop" for="inputImage">
+                            {!! Form::file('path_image', [
+                                'id'=>'inputImage',
+                                'class'=>'inputImage',
+                                'data-status'=>$cropSetting->path_image->activeCrop, // px
+                                'data-min-width'=>$cropSetting->path_image->width, // px
+                                'data-min-height'=>$cropSetting->path_image->height, // px
+                                'data-box-height'=>'225', // Input height in the form
+                                'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                                'data-default-file'=> isset($sectionHighlighted)?($sectionHighlighted->path_image<>''?url('storage/'.$sectionHighlighted->path_image):''):'',
+                            ]) !!}
+                        </label>
+                    </div><!-- END container image crop -->
+                </div>
+                <div class="mb-3 form-check me-3">
+                    {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                    {!! Form::label('active', 'Ativo?', ['class' => 'form-check-label']) !!}
+                </div>
             </div>
         </div>
         {{-- end card-body --}}
+        <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+            {!! Form::button('Salvar', ['class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0','type' => 'submit',]) !!}
+        </div>
     </div>
 </div>
 {{-- end row --}}
+{!! Form::close() !!}
 

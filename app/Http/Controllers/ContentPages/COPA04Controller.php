@@ -96,7 +96,6 @@ class COPA04Controller extends Controller
         return view('Admin.cruds.ContentPages.COPA04.edit', [
             'contentPage' => $COPA04ContentPages,
             'sectionHero' => $sectionHero,
-            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
             'sectionVideo' => $sectionVideo,
             'sectionHighlighted' => $sectionHighlighted,
             'sectionTopic' => $sectionTopic,
@@ -105,7 +104,8 @@ class COPA04Controller extends Controller
             'additionalContent' => $additionalContent,
             'additionalTopics' => $additionalTopics,
             'faq' => $faq,
-            'sectionProduct' => $sectionProduct
+            'sectionProduct' => $sectionProduct,
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
         ]);
     }
 
