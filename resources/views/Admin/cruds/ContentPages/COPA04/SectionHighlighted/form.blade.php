@@ -49,14 +49,14 @@
                 <div class="mb-3 col-lg-6">
                     <div class="container-image-crop">
                         {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
+                        <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Highlighted->path_image->width}}x{{$cropSetting->Highlighted->path_image->height}}px!</small>
                         <label class="area-input-image-crop" for="inputImage">
                             {!! Form::file('path_image', [
                                 'id'=>'inputImage',
                                 'class'=>'inputImage',
-                                'data-status'=>$cropSetting->path_image->activeCrop, // px
-                                'data-min-width'=>$cropSetting->path_image->width, // px
-                                'data-min-height'=>$cropSetting->path_image->height, // px
+                                'data-status'=>$cropSetting->Highlighted->path_image->activeCrop, // px
+                                'data-min-width'=>$cropSetting->Highlighted->path_image->width, // px
+                                'data-min-height'=>$cropSetting->Highlighted->path_image->height, // px
                                 'data-box-height'=>'225', // Input height in the form
                                 'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
                                 'data-default-file'=> isset($sectionHighlighted)?($sectionHighlighted->path_image<>''?url('storage/'.$sectionHighlighted->path_image):''):'',
