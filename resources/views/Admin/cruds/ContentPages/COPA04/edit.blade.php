@@ -135,7 +135,7 @@
                         @include('Admin.cruds.ContentPages.COPA04.SectionHero.form',['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="sectionVideo">
-                        @include('Admin.cruds.ContentPages.COPA04.SectionVideo.index')
+                        @include('Admin.cruds.ContentPages.COPA04.SectionVideo.form', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="sectionHighlighteds">
                         @include('Admin.cruds.ContentPages.COPA04.SectionHighlighted.index')

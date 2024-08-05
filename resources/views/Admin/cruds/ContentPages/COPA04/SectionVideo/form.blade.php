@@ -1,3 +1,10 @@
+@if ($sectionVideo)
+    {!! Form::model($sectionVideo, ['route' => ['admin.copa04.sectionVideo.update', $sectionVideo->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
+    @method('PUT')
+@else
+    {!! Form::model(null, ['route' => 'admin.copa04.sectionVideo.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('contentpage_id', $contentPage->id) !!}
+@endif
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
@@ -36,7 +43,10 @@
             </div>
         </div>
         {{-- end card-body --}}
+        <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
+            {!! Form::button('Salvar', ['class' => 'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-0','type' => 'submit',]) !!}
+        </div>
     </div>
 </div>
 {{-- end row --}}
-
+{!! Form::close() !!}
