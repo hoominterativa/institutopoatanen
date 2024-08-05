@@ -1278,20 +1278,83 @@
             }
         },
         "COPA04": {
-            "path_image": {
-                "width": "300",
-                "height": "300",
-                "activeCrop": "false"
+            "Hero":{
+                "path_image_bg": {
+                    "width": "1366",
+                    "height": "597",
+                    "activeCrop": "false"
+                },
+                "path_image": {
+                    "width": "538",
+                    "height": "481",
+                    "activeCrop": "false"
+                },
+                "path_logo": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                },
+                "path_icon": {
+                    "width": "300",
+                    "height": "300",
+                    "activeCrop": "false"
+                }
             },
-            "path_logo": {
-                "width": "300",
-                "height": "300",
-                "activeCrop": "false"
+            "Video":{
+                "path_image": {
+                    "width": "883",
+                    "height": "439",
+                    "activeCrop": "false"
+                }
             },
-            "path_icon": {
-                "width": "300",
-                "height": "300",
-                "activeCrop": "false"
+            "highlighted":{
+                "path_image": {
+                    "width": "404",
+                    "height": "402",
+                    "activeCrop": "false"
+                }
+            },
+            "Topics":{
+                "path_image_icons": {
+                    "width": "65",
+                    "height": "65",
+                    "activeCrop": "false"
+                }
+            },
+            "TopicCar":{
+                "path_image_icon": {
+                    "width": "58",
+                    "height": "27588",
+                    "activeCrop": "false"
+                }
+            },
+            "Gallery":{
+                "path_image": {
+                    "width": "297",
+                    "height": "278",
+                    "activeCrop": "false"
+                }
+            },
+            "AdditionalContent":{
+                "path_image": {
+                    "width": "538",
+                    "height": "481",
+                    "activeCrop": "false"
+                }
+            },
+            "AdditionalTopics":{
+                "path_image": {
+                    "width": "297",
+                    "height": "278",
+                    "activeCrop": "false"
+                }
+            },
+            "SectionProducts":{
+                "path_image": {
+                    "width": "330",
+                    "height": "422",
+                    "activeCrop": "false"
+                }
             }
         }
     },
