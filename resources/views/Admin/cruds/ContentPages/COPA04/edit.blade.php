@@ -86,6 +86,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#topicsCarousel" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Tópicos Carossel
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será exibida como complemento dos tópicos"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#sectionGallery" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Seção Galeria
@@ -156,7 +165,10 @@
                         @include('Admin.cruds.ContentPages.COPA04.Topics.index', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="topicCarousel">
-                        @include('Admin.cruds.ContentPages.COPA04.TopicCarousel.index')
+                        @include('Admin.cruds.ContentPages.COPA04.TopicCarousel.form', ['contentPage' => $contentPage])
+                    </div>
+                    <div class="tab-pane" id="topicsCarousel">
+                        @include('Admin.cruds.ContentPages.COPA04.TopicCarouselCards.index')
                     </div>
                     <div class="tab-pane" id="sectionGallery">
                         @include('Admin.cruds.ContentPages.COPA04.Gallery.index')
