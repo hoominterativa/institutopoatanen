@@ -206,14 +206,14 @@
         <div class="col-12 col-lg-6">
             <div class="container-image-crop mb-3">
                 {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
+                <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Hero->path_image->width}}x{{$cropSetting->Hero->path_image->height}}px!</small>
                 <label class="area-input-image-crop" for="inputImage">
                     {!! Form::file('path_image', [
                         'id'=>'inputImage',
                         'class'=>'inputImage',
-                        'data-status'=>$cropSetting->path_image->activeCrop, // px
-                        'data-min-width'=>$cropSetting->path_image->width, // px
-                        'data-min-height'=>$cropSetting->path_image->height, // px
+                        'data-status'=>$cropSetting->Hero->path_image->activeCrop, // px
+                        'data-min-width'=>$cropSetting->Hero->path_image->width, // px
+                        'data-min-height'=>$cropSetting->Hero->path_image->height, // px
                         'data-box-height'=>'285', // Input height in the form
                         'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
                         'data-default-file'=> isset($sectionHero)?($sectionHero->path_image<>''?url('storage/'.$sectionHero->path_image):''):'',
@@ -222,14 +222,14 @@
             </div><!-- END container image crop -->
             <div class="container-image-crop mb-3">
                 {!! Form::label('inputImage', 'Imagem Logo', ['class'=>'form-label']) !!}
-                <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_logo->width}}x{{$cropSetting->path_logo->height}}px!</small>
+                <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Hero->path_logo->width}}x{{$cropSetting->Hero->path_logo->height}}px!</small>
                 <label class="area-input-image-crop" for="inputImage">
                     {!! Form::file('path_logo', [
                         'id'=>'inputImage',
                         'class'=>'inputImage',
-                        'data-status'=>$cropSetting->path_logo->activeCrop, // px
-                        'data-min-width'=>$cropSetting->path_logo->width, // px
-                        'data-min-height'=>$cropSetting->path_logo->height, // px
+                        'data-status'=>$cropSetting->Hero->path_logo->activeCrop, // px
+                        'data-min-width'=>$cropSetting->Hero->path_logo->width, // px
+                        'data-min-height'=>$cropSetting->Hero->path_logo->height, // px
                         'data-box-height'=>'285', // Input height in the form
                         'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
                         'data-default-file'=> isset($sectionHero)?($sectionHero->path_logo<>''?url('storage/'.$sectionHero->path_logo):''):'',
@@ -238,14 +238,14 @@
             </div><!-- END container image crop -->
             <div class="container-image-crop mb-3">
                 {!! Form::label('inputImage', 'Imagem icone', ['class'=>'form-label']) !!}
-                <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_icon->width}}x{{$cropSetting->path_icon->height}}px!</small>
+                <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Hero->path_icon->width}}x{{$cropSetting->Hero->path_icon->height}}px!</small>
                 <label class="area-input-image-crop" for="inputImage">
                     {!! Form::file('path_icon', [
                         'id'=>'inputImage',
                         'class'=>'inputImage',
-                        'data-status'=>$cropSetting->path_icon->activeCrop, // px
-                        'data-min-width'=>$cropSetting->path_icon->width, // px
-                        'data-min-height'=>$cropSetting->path_icon->height, // px
+                        'data-status'=>$cropSetting->Hero->path_icon->activeCrop, // px
+                        'data-min-width'=>$cropSetting->Hero->path_icon->width, // px
+                        'data-min-height'=>$cropSetting->Hero->path_icon->height, // px
                         'data-box-height'=>'285', // Input height in the form
                         'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
                         'data-default-file'=> isset($sectionHero)?($sectionHero->path_icon<>''?url('storage/'.$sectionHero->path_icon):''):'',
