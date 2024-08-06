@@ -23,6 +23,7 @@ class CreateCopa04ContentpagesTopicsTable extends Migration
             $table->string('color_one', 100)->nullable();
             $table->text('link', 200)->nullable();
             $table->string('btn_title',191)->nullable();
+            $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
             $table->boolean('active')->default(0);
             $table->timestamps();
         });

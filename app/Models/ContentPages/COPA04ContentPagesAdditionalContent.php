@@ -24,6 +24,7 @@ class COPA04ContentPagesAdditionalContent extends Model
         'color_one',
         'button_text',
         'button_link',
+        'target_link_one',
         'active',
     ];
 

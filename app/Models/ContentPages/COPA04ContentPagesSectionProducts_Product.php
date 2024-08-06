@@ -24,6 +24,7 @@ class COPA04ContentPagesSectionProducts_Product extends Model
         'value',
         'button_text',
         'button_link',
+        'target_link_one',
         'promotion',
         'active',
         'sorting',

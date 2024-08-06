@@ -24,6 +24,7 @@ class COPA04ContentPagesTopiccarousel extends Model
         'description',
         'button_text',
         'button_link',
+        'target_link_one',
         'active',
     ];
 

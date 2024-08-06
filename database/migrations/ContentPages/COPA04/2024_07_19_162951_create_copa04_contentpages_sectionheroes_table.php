@@ -18,6 +18,8 @@ class CreateCopa04ContentpagesSectionheroesTable extends Migration
             $table->index('contentpage_id', 'fk_contentpage_sectionheroes_idx');
             $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_sectionheroes_idx');
             $table->string('title', 191)->nullable();
+            $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
+            $table->enum('target_link_two', ['_self', '_blank'])->default('_self');
             $table->string('description', 255)->nullable();
             $table->string('path_image', 191)->nullable();
             $table->string('path_logo', 191)->nullable();

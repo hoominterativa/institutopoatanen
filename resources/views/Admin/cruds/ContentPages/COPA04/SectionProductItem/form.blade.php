@@ -93,8 +93,8 @@
                             {!! Form::url('button_link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl1']) !!}
                         </div>
                         <div class="col-12 col-sm-4">
-                            {!! Form::label('target_link', 'Redirecionar para', ['class'=>'form-label']) !!}
-                            {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_bank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_button']) !!}
+                            {!! Form::label('target_link_one', 'Redirecionar para', ['class'=>'form-label']) !!}
+                            {!! Form::select('target_link_one', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_one']) !!}
                         </div>
                     </div>
                 </div> {{-- END .wrapper-links --}}

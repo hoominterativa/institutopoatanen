@@ -23,6 +23,7 @@ class CreateCopa04ContentpagesSectionproductsProductsTable extends Migration
             $table->string('value');
             $table->string('button_text');
             $table->string('button_link');
+            $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
             $table->boolean('promotion')->default(0);
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);

@@ -22,6 +22,7 @@ class CreateCopa04ContentpagesAdditionaltopicsTable extends Migration
             $table->string('path_image')->nullable();
             $table->string('button_text')->nullable();
             $table->string('button_link')->nullable();
+            $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->softDeletes();

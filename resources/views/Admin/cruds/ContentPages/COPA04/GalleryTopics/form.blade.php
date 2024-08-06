@@ -22,23 +22,25 @@
         {{-- end card-body --}}
     </div>
     <div class="col-6">
-        <div class="mb-3">
-            <div class="container-image-crop">
-                {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Gallery->path_image->width}}x{{$cropSetting->Gallery->path_image->height}}px!</small>
-                <label class="area-input-image-crop" for="inputImage">
-                    {!! Form::file('path_image', [
-                        'id'=>'inputImage',
-                        'class'=>'inputImage',
-                        'data-status'=>$cropSetting->Gallery->path_image->activeCrop, // px
-                        'data-min-width'=>$cropSetting->Gallery->path_image->width, // px
-                        'data-min-height'=>$cropSetting->Gallery->path_image->height, // px
-                        'data-box-height'=>'225', // Input height in the form
-                        'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
-                        'data-default-file'=> isset($galleryTopic)?($galleryTopic->path_image<>''?url('storage/'.$galleryTopic->path_image):''):'',
-                    ]) !!}
-                </label>
-            </div><!-- END container image crop -->
+        <div class="card card-body">
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Gallery->path_image->width}}x{{$cropSetting->Gallery->path_image->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->Gallery->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->Gallery->path_image->width, // px
+                            'data-min-height'=>$cropSetting->Gallery->path_image->height, // px
+                            'data-box-height'=>'225', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                            'data-default-file'=> isset($galleryTopic)?($galleryTopic->path_image<>''?url('storage/'.$galleryTopic->path_image):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
         </div>
     </div>
 </div>
