@@ -203,7 +203,7 @@
                     <div class="tab-pane" id="topicCarousel">
                         @include('Admin.cruds.ContentPages.COPA04.TopicCarousel.form', ['contentPage' => $contentPage])
                     </div>
-                    <div class="tab-pane" id="topicsCarousel">
+                    <div class="tab-pane" id="topicsCarouselItem">
                         @include('Admin.cruds.ContentPages.COPA04.TopicCarouselCards.index')
                     </div>
                     <div class="tab-pane" id="sectionGallery">

@@ -26,7 +26,8 @@ class COPA04ContentPagesSectionHighlighted extends Model
         'target_link_one',
         'path_image',
         'active',
-        'sorting'
+        'sorting',
+        'contentpage_id'
     ];
 
     public function scopeSorting($query)

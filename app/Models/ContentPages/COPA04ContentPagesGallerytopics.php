@@ -25,6 +25,7 @@ class COPA04ContentPagesGallerytopics extends Model
         'link_video',
         'sorting',
         'active',
+        'contentpage_id'
     ];
 
     public function scopeSorting($query)

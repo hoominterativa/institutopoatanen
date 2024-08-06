@@ -28,6 +28,7 @@ class COPA04ContentPagesSectionProducts_Product extends Model
         'promotion',
         'active',
         'sorting',
+        'contentpage_id'
     ];
 
     public function scopeSorting($query)

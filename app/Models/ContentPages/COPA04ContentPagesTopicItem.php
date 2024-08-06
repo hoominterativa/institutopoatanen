@@ -21,7 +21,8 @@ class COPA04ContentPagesTopicItem extends Model
         'text',
         'path_image',
         'active',
-        'sorting'
+        'sorting',
+        'contentpage_id'
     ];
 
     public function scopeSorting($query)

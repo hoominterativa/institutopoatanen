@@ -26,6 +26,7 @@ class COPA04ContentPagesAdditionalTopics extends Model
         'target_link_one',
         'active',
         'sorting',
+        'contentpage_id'
     ];
 
     public function scopeSorting($query)

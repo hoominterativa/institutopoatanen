@@ -82,22 +82,22 @@ class COPA04Controller extends Controller
      */
     public function edit(COPA04ContentPages $COPA04ContentPages)
     {
-        $sectionHero = COPA04ContentPagesSectionHero::first();
-        $sectionVideo = COPA04ContentPagesSectionVideo::first();
-        $sectionHighlighted = COPA04ContentPagesSectionHighlighted::first();
-        $sectionTopic = COPA04ContentPagesTopic::first();
-        $topicCaroussel = COPA04ContentPagesTopiccarousel::first();
-        $gallery = COPA04ContentPagesGallery::first();
-        $additionalContent = COPA04ContentPagesAdditionalContent::first();
-        $AdditionalContentImages = COPA04ContentPagesAdditionalContentImages::sorting()->paginate(30);
-        $additionalTopics = COPA04ContentPagesAdditionalTopics::sorting()->paginate(30);
-        $faq = COPA04ContentPagesFaq::first();
-        $sectionProduct = COPA04ContentPagesSectionProducts::first();
-        $topics = COPA04ContentPagesTopicItem::sorting()->paginate(30);
-        $topicCarouselCards = COPA04ContentPagesTopiccarousel_cards::sorting()->paginate(30);
-        $galleryTopics  = COPA04ContentPagesGallerytopics::sorting()->paginate(30);
-        $faqs = COPA04ContentPagesFaqTopics::sorting()->paginate(30);
-        $sectionProductItems = COPA04ContentPagesSectionProducts_Product::sorting()->paginate(30);
+        $sectionHero = COPA04ContentPagesSectionHero::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $sectionVideo = COPA04ContentPagesSectionVideo::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $sectionHighlighted = COPA04ContentPagesSectionHighlighted::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $sectionTopic = COPA04ContentPagesTopic::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $topicCaroussel = COPA04ContentPagesTopiccarousel::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $gallery = COPA04ContentPagesGallery::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $additionalContent = COPA04ContentPagesAdditionalContent::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $AdditionalContentImages = COPA04ContentPagesAdditionalContentImages::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
+        $additionalTopics = COPA04ContentPagesAdditionalTopics::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
+        $faq = COPA04ContentPagesFaq::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $sectionProduct = COPA04ContentPagesSectionProducts::where('contentpage_id', $COPA04ContentPages->id)->first();
+        $topics = COPA04ContentPagesTopicItem::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
+        $topicCarouselCards = COPA04ContentPagesTopiccarousel_cards::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
+        $galleryTopics  = COPA04ContentPagesGallerytopics::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
+        $faqs = COPA04ContentPagesFaqTopics::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
+        $sectionProductItems = COPA04ContentPagesSectionProducts_Product::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
 
         return view('Admin.cruds.ContentPages.COPA04.edit', [
             'contentPage' => $COPA04ContentPages,
