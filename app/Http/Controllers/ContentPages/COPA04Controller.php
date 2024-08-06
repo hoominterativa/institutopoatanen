@@ -96,6 +96,8 @@ class COPA04Controller extends Controller
         $topics = COPA04ContentPagesTopicItem::sorting()->paginate(30);
         $topicCarouselCards = COPA04ContentPagesTopiccarousel_cards::sorting()->paginate(30);
         $galleryTopics  = COPA04ContentPagesGallerytopics::sorting()->paginate(30);
+        $faqs = COPA04ContentPagesFaqTopics::sorting()->paginate(30);
+        $sectionProductItems = COPA04ContentPagesSectionProducts_Product::sorting()->paginate(30);
 
         return view('Admin.cruds.ContentPages.COPA04.edit', [
             'contentPage' => $COPA04ContentPages,
@@ -113,6 +115,8 @@ class COPA04Controller extends Controller
             'topicCarouselCards' => $topicCarouselCards,
             'galleryTopics' => $galleryTopics,
             'AdditionalContentImages' => $AdditionalContentImages,
+            'faqs' => $faqs,
+            'sectionProductItems' => $sectionProductItems,
             'cropSetting' => getCropImage('ContentPages', 'COPA04'),
         ]);
     }

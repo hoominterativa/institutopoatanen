@@ -133,7 +133,7 @@
                     <li class="nav-item">
                         <a href="#additionalTopics" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Seção tópico adicional
+                            Tópico adicional
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
@@ -149,9 +149,27 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#faqTopics" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Tópicos Faqs
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será exibida no final da página."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#sectionProduct" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Seção Produtos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será exibida no final da página."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sectionProductItems" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Tópicos Produtos
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
@@ -204,10 +222,16 @@
                         @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.index')
                     </div>
                     <div class="tab-pane" id="faq">
-                        @include('Admin.cruds.ContentPages.COPA04.Faq.index')
+                        @include('Admin.cruds.ContentPages.COPA04.Faq.form', ['contentPage' => $contentPage])
+                    </div>
+                    <div class="tab-pane" id="faqTopics">
+                        @include('Admin.cruds.ContentPages.COPA04.FaqTopics.index')
                     </div>
                     <div class="tab-pane" id="sectionProduct">
-                        @include('Admin.cruds.ContentPages.COPA04.SectionProducts.index')
+                        @include('Admin.cruds.ContentPages.COPA04.SectionProducts.form', ['contentPage' => $contentPage])
+                    </div>
+                    <div class="tab-pane" id="sectionProductItems">
+                        @include('Admin.cruds.ContentPages.COPA04.SectionProductItem.index')
                     </div>
                 </div> <!-- tab-content -->
 

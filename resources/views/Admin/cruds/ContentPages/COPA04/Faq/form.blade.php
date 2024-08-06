@@ -1,3 +1,10 @@
+@if ($faq)
+    {!! Form::model($faq, ['route' => ['admin.copa04.faq.update', $faq->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
+    @method('PUT')
+@else
+    {!! Form::model(null, ['route' => 'admin.copa04.faq.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+    {!! Form::hidden('contentpage_id', $contentPage->id) !!}
+@endif
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
@@ -35,4 +42,4 @@
     </div>
 </div>
 {{-- end row --}}
-
+{!! Form::close() !!}
