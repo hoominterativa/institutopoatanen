@@ -563,7 +563,7 @@ $(function () {
         if (localStorage.getItem("tab")) {
             var hash = localStorage.getItem("tab");
 
-            alert(hash);
+            // alert(hash);
             if ($(`[data-bs-toggle=tab][href=\\${hash}]`).length) {
                 $(
                     `[data-bs-toggle=tab]:not(.wrapper-links [data-bs-toggle=tab])`

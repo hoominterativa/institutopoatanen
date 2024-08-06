@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA04ContentPagesAdditionalContent;
 use App\Models\ContentPages\COPA04ContentPagesAdditionalContentImages;
@@ -29,9 +30,10 @@ class COPA04AdditionalContentController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
 
-        if($AdditionalContent = COPA04ContentPagesAdditionalContent::create($data)){
+        if(COPA04ContentPagesAdditionalContent::create($data)){
+            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.copa04.additionalContent.edit', [$AdditionalContent->id]);
+            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
         }else{
 
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -56,8 +58,9 @@ class COPA04AdditionalContentController extends Controller
         $data['active'] = $request->active ? 1 : 0;
 
         if($AdditionalContent->fill($data)->save()){
+            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.additionalContent.edit', [$AdditionalContent->id]);
+            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();

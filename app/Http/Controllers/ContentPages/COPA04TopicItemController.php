@@ -20,7 +20,7 @@ class COPA04TopicItemController extends Controller
     public function create()
     {
         return view('Admin.cruds.ContentPages.COPA04.Topics.create', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA04')
         ]);
     }
 
@@ -47,7 +47,7 @@ class COPA04TopicItemController extends Controller
     {
         return view('Admin.cruds.ContentPages.COPA04.Topics.edit', [
             'COPA04ContentPagesTopicItem' => $COPA04ContentPagesTopicItem,
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA04')
         ]);
     }
 

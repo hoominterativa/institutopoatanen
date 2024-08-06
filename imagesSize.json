@@ -1315,16 +1315,16 @@
                 }
             },
             "Topics":{
-                "path_image_icons": {
+                "path_image": {
                     "width": "65",
                     "height": "65",
                     "activeCrop": "false"
                 }
             },
             "TopicCar":{
-                "path_image_icon": {
+                "path_image": {
                     "width": "58",
-                    "height": "27588",
+                    "height": "58",
                     "activeCrop": "false"
                 }
             },

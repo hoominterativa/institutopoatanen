@@ -104,6 +104,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#galleryTopics" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Galeria de imagens
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será exibida no final da página."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#additionalContents" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Seção Conteúdo adicional
@@ -113,9 +122,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#additionalContentsImage" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Imagens Tópico adicional
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Esta seção será exibida no final da página."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#additionalTopics" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Seção Tópico adicional
+                            Seção tópico adicional
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Esta seção será exibida no final da página."></i>
@@ -171,10 +189,16 @@
                         @include('Admin.cruds.ContentPages.COPA04.TopicCarouselCards.index')
                     </div>
                     <div class="tab-pane" id="sectionGallery">
-                        @include('Admin.cruds.ContentPages.COPA04.Gallery.index')
+                        @include('Admin.cruds.ContentPages.COPA04.Gallery.form', ['contentPage' => $contentPage])
+                    </div>
+                    <div class="tab-pane" id="galleryTopics">
+                        @include('Admin.cruds.ContentPages.COPA04.GalleryTopics.index')
                     </div>
                     <div class="tab-pane" id="additionalContents">
-                        @include('Admin.cruds.ContentPages.COPA04.AdditionalContent.index')
+                        @include('Admin.cruds.ContentPages.COPA04.AdditionalContent.form', ['contentPage' => $contentPage])
+                    </div>
+                    <div class="tab-pane" id="additionalContentsImage">
+                        @include('Admin.cruds.ContentPages.COPA04.AdditionalContentImages.index')
                     </div>
                     <div class="tab-pane" id="additionalTopics">
                         @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.index')
