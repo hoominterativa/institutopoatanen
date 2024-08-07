@@ -18,10 +18,6 @@
                         <h3 class="cont02__information__subtitle">{{ $content->subtitle }}</h3>
                     @endif
 
-                    @if ($content->title || $content->subtitle)
-                        <hr class="cont02__information__line">
-                    @endif
-
                     @if ($content->description)
                         <div class="cont02__information__paragraph">
                             <p>
@@ -42,6 +38,5 @@
                 </div>
             @endif
         </section>
-
     @endforeach
 @endif
