@@ -1,118 +1,132 @@
 @extends('Client.Core.client')
 @section('content')
-    {{-- BEGIN Page content --}}
-    <div class="abou04-page" id="abou04-page">
+    <main class="abou04-page" id="root">
+
         @if ($about->active_banner == 1)
-            <section class="abou04-page__banner w-100"
+            <section class="abou04-page__banner"
                 style="background-image: url({{ asset('storage/' . $about->path_image_desktop_banner) }}); background-color: {{ $about->background_color_banner }};">
-                <header
-                    class="abou04-page__banner__content container d-flex flex-column align-items-center justify-content-center">
-                    @if ($about->title_banner || $about->subtitle_banner)
-                        <h1 class="abou04-page__banner__title">{{ $about->title_banner }}</h1>
-                        <div class="abou04-page__banner__subtitle">{{ $about->subtitle_banner }}</div>
-                        <hr class="abou04-page__banner__line">
-                    @endif
-                </header>
+                @if ($about->title_banner)
+                    <h1 class="abou04-page__banner__title">{{ $about->title_banner }}</h1>
+                @endif
+                @if ($about->subtitle_banner)
+                    <h2 class="abou04-page__banner__subtitle">{{ $about->subtitle_banner }}</h2>
+                @endif
             </section>
         @endif
+
         @if ($about)
-            <section class="abou04-page__cont w-100">
-                <main class="abou04-page__cont__main container">
-                    @if ($about->path_image)
-                        <img src="{{ asset('storage/' . $about->path_image) }}" alt="{{ $about->title }}" class="abou04-page__cont__image">
+            <section class="abou04-page__content ">
+                @if ($about->path_image)
+                    <img src="{{ asset('storage/' . $about->path_image) }}" alt="{{ $about->title }}"
+                        class="abou04-page__content__image">
+                @endif
+
+                <div class="abou04-page__content__information">
+                    @if ($about->title)
+                        <h2 class="abou04-page__content__information__title">{{ $about->title }}</h2>
                     @endif
-                    <div class="abou04-page__cont__content d-flex flex-column align-items-start">
-                        @if ($about->title || $about->subtitle)
-                            <h2 class="abou04-page__cont__title">{{ $about->title }}</h2>
-                            <h3 class="abou04-page__cont__subtitle">{{ $about->subtitle }}</h3>
-                            <hr class="abou04-page__cont__line">
-                        @endif
-                        <div class="abou04-page__cont__desc">
-                            @if ($about->text)
-                                <p>
-                                    {!! $about->text !!}
-                                </p>
-                            @endif
+
+                    @if ($about->subtitle)
+                        <h3 class="abou04-page__content__information__subtitle">{{ $about->subtitle }}</h3>
+                    @endif
+
+                    @if ($about->text)
+                        <div class="abou04-page__content__information__paragraph">
+                            {!! $about->text !!}
                         </div>
-                    </div>
-                </main>
+                    @endif
+                </div>
+
             </section>
         @endif
+
         @if ($categories->count())
-            <section class="abou04-page__gallery w-100 d-flex flex-column align-items-center">
+            <section class="abou04-page__gallery">
                 @if ($about->active_galleries)
-                    <header class="abou04-page__gallery__header container d-flex flex-column align-items-center">
+                    <header class="abou04-page__gallery__header">
                         @if ($about->title_galleries || $about->description_galleries)
-                            <h2 class="abou04-page__gallery__header__title text-center">{{ $about->title_galleries }}</h2>
-                            <p class="abou04-page__gallery__header__description text-center">{!! $about->description_galleries !!}</p>
-                            <hr class="abou04-page__gallery__header__line">
+                            <h2 class="abou04-page__gallery__header__title">{{ $about->title_galleries }}</h2>
+                        @endif
+                        @if ($about->description_galleries)
+                            <div class="abou04-page__gallery__header__paragraph">{!! $about->description_galleries !!}</div>
                         @endif
                     </header>
                 @endif
-                <main class="abou04-page__gallery__main container d-flex flex-column align-items-center">
-                    @foreach ($categories as $category)
-                        <h4>{{ $category->title }}</h4>
-                        <p>{!! $category->description !!}</p>
-                        <hr class="abou04-page__gallery__header__line">
+
+                @foreach ($categories as $category)
+                    <div class="abou04-page__gallery__item">
+                        <h3 class="abou04-page__gallery__item__title">{{ $category->title }}</h3>
+
+                        @if ($category->description)
+                            <p class="abou04-page__gallery__item__paragraph">{!! $category->description !!}</p>
+                        @endif
+
                         @if ($category->galleries->count())
                             {{-- NOTE: A SEÇÃO DA GALERIA PRECISA SER ATIVADA NO PAINEL PARA MOSTRAR IMGS MSM QUE NÃO HAJA TITULO OU BTN --}}
-                            <div class="abou04-page__gallery__list w-100 d-flex justify-content-start align-items-stretch flex-wrap">
+                            <div class="abou04-page__gallery__item__list">
                                 @foreach ($category->galleries as $gallery)
-                                    <div class="abou04-page__gallery__list__item">
-                                        @if ($gallery->path_image)
-                                            <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="{{ $gallery->title }}" class="abou04-page__gallery__list__item__image">
-                                            <a href="{{ asset('storage/' . $gallery->path_image) }}" data-fancybox class="link-full"></a>
-                                        @endif
+                                    <div data-src="{{ asset('storage/' . $gallery->path_image) }}"
+                                        data-fancybox="{{ $category->title }}"
+                                        class="abou04-page__gallery__item__list__item">
+
+                                        <img src="{{ asset('storage/' . $gallery->path_image) }}"
+                                            alt="{{ $gallery->title }}"
+                                            class="abou04-page__gallery__item__list__item__image">
+
                                         @if ($gallery->title)
-                                            <h4 class="abou04-page__gallery__list__item__title">{{ $gallery->title }}</h4>
+                                            <h4 class="abou04-page__gallery__item__list__item__title">{{ $gallery->title }}
+                                            </h4>
                                         @endif
                                     </div>
                                 @endforeach
                             </div>
                         @endif
-                    @endforeach
-                    @if ($about->link_button_galleries && $about->active_galleries)
-                        <a href="{{ getUri($about->link_button_galleries) }}" target="{{ $about->target_link_button_galleries }}" class="abou04-page__gallery__cta">
-                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Ícone" class="abou04-page__gallery__cta__icon">
-                            @if ($about->title_button_galleries)
-                                {{ $about->title_button_galleries }}
-                            @endif
-                        </a>
-                    @endif
-                </main>
+                    </div>
+                @endforeach
+                @if ($about->link_button_galleries && $about->active_galleries)
+                    <a href="{{ getUri($about->link_button_galleries) }}"
+                        target="{{ $about->target_link_button_galleries }}" class="abou04-page__gallery__cta">
+                        @if ($about->title_button_galleries)
+                            {{ $about->title_button_galleries }}
+                        @endif
+                    </a>
+                @endif
+
             </section>
         @endif
+
         @if ($topics->count())
-            <section class="abou04-page__topics w-100"
-                style="background-image: url({{ asset('storage/' . $about->path_image_desktop_topics) }}); background-color: {{ $about->background_color_topics }};">
-                <div class="abou04-page__topics__list container d-flex flex-wrap justify-content-start align-items-stretch ">
-                    @foreach ($topics as $topic)
-                        <article
-                            class="abou04-page__topics__item d-flex flex-column justify-content-start align-items-stretch">
-                            <header class="abou04-page__topics__item__header">
-                                @if ($topic->path_image_icon)
-                                    <img src="{{ asset('storage/' . $topic->path_image_icon) }}" alt=""
-                                        class="abou04-page__topics__item__icon">
-                                @endif
-                                @if ($topic->title)
-                                    <h3 class="abou04-page__topics__item__title">{{ $topic->title }}</h3>
-                                @endif
-                            </header>
-                            <main class="abou04-page__topics__item__desc">
+            <section class="abou04-page__topics">
+
+                <div class="abou04-page__topics__carousel">
+                    <div class="abou04-page__topics__carousel__swiper-wrapper swiper-wrapper">
+                        @foreach ($topics as $topic)
+                            <article class="abou04-page__topics__item swiper-slide">
+                                <header class="abou04-page__topics__item__header">
+                                    @if ($topic->path_image_icon)
+                                        <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
+                                            alt="Icone do tópico {{ $topic->title }}"
+                                            class="abou04-page__topics__item__header__icon">
+                                    @endif
+                                    @if ($topic->title)
+                                        <h3 class="abou04-page__topics__item__header__title">{{ $topic->title }}</h3>
+                                    @endif
+                                </header>
                                 @if ($topic->description)
-                                    <p>
+                                    <div class="abou04-page__topics__item__paragraph">
                                         {!! $topic->description !!}
-                                    </p>
+
+                                    </div>
                                 @endif
-                            </main>
-                        </article>
-                    @endforeach
+                            </article>
+                        @endforeach
+                    </div>
                 </div>
             </section>
         @endif
-    </div>
-    {{-- Finish Content page Here --}}
-    @foreach ($sections as $section)
-        {!! $section !!}
-    @endforeach
+
+        @foreach ($sections as $section)
+            {!! $section !!}
+        @endforeach
+    </main>
 @endsection
