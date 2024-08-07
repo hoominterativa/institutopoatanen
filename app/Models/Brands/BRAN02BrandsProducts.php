@@ -2,32 +2,27 @@
 
 namespace App\Models\Brands;
 
-use Database\Factories\Brands\BRAN02BrandsFactory;
+use Database\Factories\Brands\BRAN02BrandsproductsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BRAN02Brands extends Model
+class BRAN02Brandsproducts extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return BRAN02BrandsFactory::new();
+        return BRAN02BrandsproductsFactory::new();
     }
 
-    protected $table = "bran02_brands";
+    protected $table = "bran02_brands_products";
     protected $fillable = [
-        'title_home',
-        'subtitle_home',
-        'title_banner',
-        'subtitle_banner',
-        'description',
-        'button_link',
+        'path_image',
         'button_text',
+        'button_link',
         'target_link',
         'active',
         'sorting',
-        'path_image',
     ];
 
     public function scopeSorting($query)
