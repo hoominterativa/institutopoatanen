@@ -4,11 +4,8 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD02',
-            'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT02',
         ]
     ],
 
@@ -22,11 +19,11 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => 'Marcas',
+                    'titleMenu' => 'Marcas02',
                     'anchor' =>  false,
-                    'linkMenu' => 'bran01.page',
+                    'linkMenu' => 'bran02.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Marcas',
+                    'titlePanel' => 'Marcas02',
                     'iconPanel' => 'mdi-google-my-business'
                 ],
                 'IncludeSections' => (object) [

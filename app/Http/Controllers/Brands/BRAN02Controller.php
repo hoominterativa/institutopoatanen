@@ -22,7 +22,8 @@ class BRAN02Controller extends Controller
      */
     public function index()
     {
-        //
+        $teste = '';
+        return view('Admin.cruds.Brands.BRAN02.index', compact('teste'));
     }
 
     /**

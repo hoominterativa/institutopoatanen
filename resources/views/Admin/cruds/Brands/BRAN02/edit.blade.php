@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.code.index')}}">{{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</a></li>
-                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</li>
+                                    <li class="breadcrumb-item active">Editar {{ getTitleModel($configModelsMain, 'Brands', 'BRAN02')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Module', 'CODE')}}</h4>
+                            <h4 class="page-title">Editar {{ getTitleModel($configModelsMain, 'Brands', 'BRAN02')}}</h4>
                         </div>
                     </div>
                 </div>
