@@ -55,11 +55,6 @@
             margin-bottom: 1.25rem;
         }
 
-        &__line {
-            width: 100%;
-            margin-bottom: 1rem;
-            border-top: solid 1px $color-one;
-        }
 
         &__paragraph {
             @extend %theme__p2-c2;

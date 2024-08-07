@@ -1,54 +1,42 @@
-@if ($contents->count())
+@if ($contents)
     @foreach ($contents as $content)
-        <section id="CONT02V2" class="cont02v2 position-relative container-fluid px-0"
-            style="background-image: url({{ asset('storage/' . $content->path_image_background_desktop) }});">
-            @if ($content->path_image_background_desktop)
-                <div class="cont02v2__mark"></div>
+        <section id="CONT02V2" class="cont02v2">
+            @if ($content->path_image)
+                <div class="cont02v2__image">
+                    <img src="{{ asset('storage/' . $content->path_image) }}" class="cont02v2__image__img"
+                        alt="Imagem do conteúdo {{ $content->title }}" loading="lazy" />
+                </div>
             @endif
-            <div class="container container--cont02v2 px-0 mx-auto">
-                <div class="row px-0 mx-auto d-flex justify-content-between">
-                    @if ($content->path_image)
-                        <div class="cont02v2__left d-flex col-auto px-0">
-                            <div class="cont02v2__image px-0">
-                                <img src="{{ asset('storage/' . $content->path_image) }}" alt="Imagem flutuante"
-                                    rel="" loading="lazy" />
-                            </div>
+
+            @if ($content->title || $content->subtitle || $content->description)
+                <div class="cont02v2__information">
+                    @if ($content->title)
+                        <h2 class="cont02v2__information__title">{{ $content->title }}</h2>
+                    @endif
+
+                    @if ($content->subtitle)
+                        <h3 class="cont02v2__information__subtitle">{{ $content->subtitle }}</h3>
+                    @endif
+
+                    @if ($content->description)
+                        <div class="cont02v2__information__paragraph">
+                            <p>
+                                {!! $content->description !!}
+                            </p>
                         </div>
                     @endif
-                    {{-- END .cont02__left --}}
-                    <div class="cont02v2__right col d-flex align-items-center">
-                        <div class="cont02v2__description">
-                            @if ($content->title || $content->subtitle)
-                                <h3 class="cont02v2__title">{{ $content->title }}</h3>
-                                <h2 class="cont02v2__subtitle">{{ $content->subtitle }}</h2>
-                                <hr class="cont02v2__line">
+
+                    @if ($content->link_button)
+                        <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}"
+                            class="cont02v2__information__cta">
+                            @if ($content->title_button)
+                                {{ $content->title_button }}
                             @endif
-                            @if ($content->description)
-                                <div class="cont02v2__paragraph">
-                                    <p>
-                                        {!! $content->description !!}
-                                    </p>
-                                </div>
-                            @endif
-                            @if ($content->link_button)
-                                <a href="{{ getUri($content->link_button) }}"
-                                    target="{{ $content->target_link_button }}"
-                                    class="cont02v2__cta transition d-flex justify-content-center align-items-center">
-                                    <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="ìcone"
-                                        class="cont02v2__cta__icon me-3 transition">
-                                    @if ($content->title_button)
-                                        {{ $content->title_button }}
-                                    @endif
-                                </a>
-                            @endif
-                        </div>
-                    </div>
-                    {{-- END .cont02__right --}}
+                        </a>
+                    @endif
+
                 </div>
-                {{-- END .row --}}
-            </div>
-            {{-- END .container --}}
+            @endif
         </section>
-        {{-- END #CONT02 --}}
     @endforeach
 @endif
