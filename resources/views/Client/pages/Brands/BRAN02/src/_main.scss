@@ -1,3 +1,35 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+.bran02{
+    @extend %theme__padding;
+    &__header{
+        
+        &__title{
+            @extend  %theme__t2-cb;
+        }
+        &__subtitle{
+            @extend %theme__t4-c2;
+            text-align: center;
+        }
+        &__description{
+            @extend %theme__p1-cb;
+            text-align: center;
+        }
+    }
+    &__categories{
+        overflow: hidden;
+        @include large-device-down{
+            overflow: visible
+        }
+        
+        &__item{
+            @extend %theme__category;
+        }
+    }
+    &__products{
+        margin: auto rem(73);
+        @include disFlex(row, flex-start, center);
+        background-color: $color-five;
+    }
+}

@@ -4,13 +4,17 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
+            'Code' => 'HEAD02',
+            'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
+            'Code' => 'FOOT02',
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
+
         'Brands' => (object) [
             'BRAN02' => (object)[
                 'ViewHome' => true,
@@ -19,17 +23,18 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => 'Marcas02',
+                    'titleMenu' => 'Marcas',
                     'anchor' =>  false,
-                    'linkMenu' => 'bran02.page',
+                    'linkMenu' => 'bran01.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Marcas02',
+                    'titlePanel' => 'Marcas',
                     'iconPanel' => 'mdi-google-my-business'
                 ],
                 'IncludeSections' => (object) [
                 ]
             ],
         ],
+        
     ],
 
     'ModelsForm' => (object)[
