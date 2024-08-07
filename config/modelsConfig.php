@@ -15,7 +15,7 @@ return [
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
         'Contents' => (object) [
-            'CONT02V1' => (object)[
+            'CONT14' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -26,30 +26,11 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo v1',
-                    'iconPanel' => 'mdi-content-copy'
+                    'titlePanel' => 'Conteúdo',
+                    'iconPanel' => 'mdi-text-box'
                 ]
             ],
         ],
-
-        'Contents.2' => (object) [
-            'CONT02V2' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo v2',
-                    'iconPanel' => 'mdi-content-copy'
-                ]
-            ],
-        ],
-
     ],
 
     'ModelsForm' => (object)[
