@@ -33,7 +33,9 @@ class BRAN02Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.cruds.Brands.BRAN02.create', [
+            'cropSetting' => getCropImage('Brands', 'BRAN01')
+        ]);
     }
 
     /**

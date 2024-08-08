@@ -10,19 +10,19 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">
-                                        {{ getTitleModel($configModelsMain, 'Brands', 'BRAN02') }}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">{{getTitleModel($configModelsMain, 'Brands', 'BRAN02')}}</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">{{ getTitleModel($configModelsMain, 'Brands', 'BRAN02') }}</h4>
+                            <h4 class="page-title">{{getTitleModel($configModelsMain, 'Brands', 'BRAN02')}}</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end row -->
+
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#brands" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#brand" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
                             {{ getTitleModel($configModelsMain, 'Brands', 'BRAN02') }}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -31,45 +31,28 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#content" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Informações para seção adicional
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações que serão exibidas acima da lista de marcas na página interna."></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Informações para home
+                            Informações para seção
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações que serão exibidas na home, caso esteja ativa."></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Banner da página
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esse banner será exibido na página."></i>
+                                data-bs-original-title="Informações que serão exibidas acima da lista de marcas na página."></i>
                         </a>
                     </li>
                 </ul>
+
                 <div class="tab-content">
-                    <div class="tab-pane show active" id="brands">
+                    <div class="tab-pane show active" id="brand">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row mb-3">
                                             <div class="col-6">
-                                                <button id="btSubmitDelete" data-route="{{ route('admin.bran02.destroySelected') }}" type="button" class="btn btn-danger btnDeleteBrands" style="display: none;">Deletar selecionados</button>
+                                                <button id="btSubmitDelete" data-route="{{route('admin.bran02.destroySelected')}}" type="button" class="btn btn-danger btnDeleteBrands" style="display: none;">Deletar selecionados</button>
                                             </div>
                                             <div class="col-6">
-                                                <a href="{{ route('admin.bran02.create') }}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                                <a href="{{route('admin.bran02.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">
@@ -79,78 +62,28 @@
                                                     <th width="30px" class="bs-checkbox">
                                                         <label><input name="btnSelectAll" value="btnDeleteBrands" type="checkbox"></label>
                                                     </th>
-                                                    <th>Imagens</th>
-                                                    <th>Links</th>
+                                                    <th>Imagem</th>
+                                                    <th>Link</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
                                             </thead>
 
-                                            <tbody data-route="{{ route('admin.bran02.sorting') }}">
-                                                @if($teste)
-                                                @foreach ($brands as $brand)
-                                                    <tr data-code="{{ $brand->id }}">
-                                                        <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                                        <td class="bs-checkbox align-middle">
-                                                            <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{ $brand->id }}"></label>
-                                                        </td>
-                                                        <td class="align-middle avatar-group">
-                                                            @if ($brand->path_image_icon || $brand->path_image_box)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $brand->path_image_icon) }})"></div>
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{ asset('storage/' . $brand->path_image_box) }})"></div>
-                                                            @endif
-                                                        </td>
-                                                        <td class="align-middle"><a href="{{ $brand->link }}" target="_blank" class="mdi mdi-link-box-variant mdi-24px"></a></td>
-                                                        <td class="align-middle">
-                                                            @switch($brand->active)
-                                                                @case(1)
-                                                                    <span class="badge bg-success">Ativo</span>
-                                                                @break
+                                            <tbody data-route="{{route('admin.bran02.sorting')}}">
 
-                                                                @case(0)
-                                                                    <span class="badge bg-danger">Inativo</span>
-                                                                @break
-                                                            @endswitch
-                                                            @if ($brand->featured)
-                                                                <span class="badge bg-primary text-white">Em destaque</span>
-                                                            @endif
-                                                        </td>
-                                                        <td class="align-middle">
-                                                            <div class="row">
-                                                                <div class="col-4">
-                                                                    <a href="{{ route('admin.bran02.edit', ['bran02Brands' => $brand->id]) }}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                                                </div>
-                                                                <form action="{{ route('admin.bran02.destroy', ['bran02Brands' => $brand->id]) }}" class="col-4" method="POST">
-                                                                    @method('DELETE') @csrf
-                                                                    <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                                </form>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
                                             </tbody>
                                         </table>
                                         {{-- PAGINATION --}}
                                         <div class="mt-3 float-end">
-                                            {{ $brands->links() }}
+
                                         </div>
-                                        @endif
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
-                        <!-- end row -->
                     </div>
                     <div class="tab-pane" id="section">
-                        <div class="row">
-                        <h2>Olá</h2>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="banner">
-                        <h2>22</h2>
-                    </div>
-                    <div class="tab-pane" id="content">
-                        <h2>Nanana</h2>
+                        @include('Admin.cruds.Brands.BRAN02.form')
                     </div>
                 </div>
                 <!-- end row -->
