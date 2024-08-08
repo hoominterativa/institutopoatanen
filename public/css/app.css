@@ -166,47 +166,47 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .bran02, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner {
+.comp01-page__content, .bran02-page__products, .bran02-page__categories, .bran02-page__header, .bran02, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .bran02-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.comp01-page__banner__title {
+.comp01-page__banner__title, .bran02-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .comp01-page__banner__title {
+  .comp01-page__banner__title, .bran02-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.comp01-page__banner__title {
+.comp01-page__banner__title, .bran02-page__banner__title {
   color: #404040;
 }
-.bran02__header__title {
+.bran02__header__title, .bran02-page__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .bran02__header__title {
+  .bran02__header__title, .bran02-page__header__title {
     font-size: 1.875rem;
   }
 }
-.bran02__header__title {
+.bran02__header__title, .bran02-page__header__title {
   color: #000;
 }
-.confirmation-page__title, .comp01-page__content__header__title, .form01__main__information__title {
+.confirmation-page__title, .bran02-page__banner__subtitle, .comp01-page__content__header__title, .form01__main__information__title {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .confirmation-page__title, .comp01-page__content__header__title, .form01__main__information__title {
+  .confirmation-page__title, .bran02-page__banner__subtitle, .comp01-page__content__header__title, .form01__main__information__title {
     font-size: 1.563rem;
   }
 }
@@ -216,23 +216,26 @@ details .details-content {
 .comp01-page__content__header__title {
   color: #404040;
 }
+.bran02-page__banner__subtitle {
+  color: #b3b3b3;
+}
 .confirmation-page__title {
   color: #cacaca;
 }
-.bran02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .bran02__categories__item {
+.bran02__header__subtitle, .bran02-page__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .bran02-page__categories__item, .bran02__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .bran02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .bran02__categories__item {
+  .bran02__header__subtitle, .bran02-page__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .bran02-page__categories__item, .bran02__categories__item {
     font-size: 1.125rem;
   }
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .bran02__categories__item {
+.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .bran02-page__categories__item, .bran02__categories__item {
   color: #000;
 }
-.bran02__header__subtitle {
+.bran02__header__subtitle, .bran02-page__header__subtitle {
   color: #7c7c7c;
 }
 .side02__navigation__item__link, .side02__navigation__item__btn {
@@ -248,12 +251,12 @@ details .details-content {
 .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .bran02__header__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
+.head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .bran02-page__cta, .bran02__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .bran02__header__description, .bran02-page__header__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .bran02__header__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .side02__cta p, .head02__navigation__item__cta p {
+.head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .bran02-page__cta p, .bran02__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .bran02__header__description p, .bran02-page__header__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -261,17 +264,17 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .bran02__header__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
+  .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .bran02-page__cta, .bran02__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .bran02__header__description, .bran02-page__header__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.comp01-page__content__paragraph, .bran02__header__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph {
+.comp01-page__content__paragraph, .bran02__header__description, .bran02-page__header__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
+.head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .bran02-page__cta, .bran02__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
 .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
@@ -305,7 +308,7 @@ details .details-content {
   width: 2rem;
   height: 2rem;
 }
-.comp01-page__banner {
+.comp01-page__banner, .bran02-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -318,7 +321,7 @@ details .details-content {
   justify-content: center;
   align-items: start;
 }
-.form01__main__form__footer__cta {
+.bran02-page__cta, .bran02__cta, .form01__main__form__footer__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -330,11 +333,11 @@ details .details-content {
   border: none;
   font-weight: 700;
 }
-.form01__main__form__footer__cta:focus {
+.bran02-page__cta:focus, .bran02__cta:focus, .form01__main__form__footer__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
-.bran02__categories__item {
+.bran02-page__categories__item, .bran02__categories__item {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -347,7 +350,7 @@ details .details-content {
   border: none;
   background-color: #efefef;
 }
-.active.bran02__categories__item {
+.active.bran02-page__categories__item, .active.bran02__categories__item {
   background-color: #cacaca;
 }
 /*******************************************************************************************************************************************/
@@ -2231,27 +2234,88 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.bran02__header__subtitle {
+.bran02__header__subtitle, .bran02-page__header__subtitle {
   text-align: center;
 }
-.bran02__header__description {
+.bran02__header__description, .bran02-page__header__description {
   text-align: center;
 }
-.bran02__categories {
+.bran02__categories, .bran02-page__categories {
+  margin-top: 2.5rem;
   overflow: hidden;
 }
 @media (max-width: 991.98px) {
-  .bran02__categories {
+  .bran02__categories, .bran02-page__categories {
     overflow: visible;
   }
 }
 .bran02__products {
-  margin: auto 4.5625rem;
+  margin-top: 1.9375rem;
+  overflow: hidden;
+}
+@media (max-width: 991.98px) {
+  .bran02__products {
+    overflow: visible;
+  }
+}
+.bran02__products__item, .bran02-page__products__item {
+  width: calc(25% - 15.75px);
+  aspect-ratio: 321/136;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 991.98px) {
+  .bran02__products__item, .bran02-page__products__item {
+    width: 20.0625rem;
+  }
+}
+.bran02__cta {
+  margin: 1.5625rem auto 0;
+}
+
+.bran02-page__banner__title {
+  text-align: center;
+}
+.bran02-page__banner__subtitle {
+  text-align: center;
+}
+.bran02-page__header {
+  padding-bottom: 0;
+}
+.bran02-page__categories {
+  padding-block: 0;
+}
+.bran02-page__products {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: #efefef;
+  gap: 1.5625rem 1.3125rem;
+  flex-wrap: wrap;
+}
+.bran02-page__products__item {
+  width: calc(25% - 1.3125rem * 3 / 4);
+}
+@media (max-width: 991.98px) {
+  .bran02-page__products__item {
+    width: calc(33.3333333333% - 1.3125rem * 2 / 3);
+  }
+}
+@media (max-width: 767.98px) {
+  .bran02-page__products__item {
+    width: calc(50% - 1.3125rem * 1 / 2);
+  }
+}
+@media (max-width: 575.98px) {
+  .bran02-page__products__item {
+    width: calc(100% - 1.3125rem * 0 / 1);
+  }
+}
+.bran02-page__cta {
+  margin: 1.5625rem auto 0;
 }
 
 /* BEGIN STYLE */

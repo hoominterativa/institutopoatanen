@@ -210,9 +210,9 @@ class BRAN02Controller extends Controller
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'show');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'show');
 
-        return view('Client.pages.Module.Model.show',[
+        return view('Client.pages.Brands.BRAN02.page',[
             'sections' => $sections
         ]);
     }
@@ -226,9 +226,9 @@ class BRAN02Controller extends Controller
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
-        $sections = $IncludeSectionsController->IncludeSectionsPage('Module', 'Model', 'page');
+        $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'page');
 
-        return view('Client.pages.Module.Model.page',[
+        return view('Client.pages.Brands.BRAN02.page',[
             'sections' => $sections
         ]);
     }

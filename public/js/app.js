@@ -12393,6 +12393,14 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.bran02__categories',
   slidesPerView: 'auto',
   spaceBetween: 12
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.bran02__products', {
+  slidesPerView: 'auto',
+  spaceBetween: 21
+});
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.bran02-page__categories', {
+  slidesPerView: 'auto',
+  spaceBetween: 12
+});
 
 /***/ }),
 

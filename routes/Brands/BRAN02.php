@@ -23,7 +23,6 @@ $modelConfig = $modelConfig->$module->$model->config;
 $route = Str::slug($modelConfig->titlePanel);
 $routeName = Str::lower($model);
 
-
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
  Route::resource($route.'/categorias', BRAN02Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
    Route::post($route.'/categoria/delete', [BRAN02Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
