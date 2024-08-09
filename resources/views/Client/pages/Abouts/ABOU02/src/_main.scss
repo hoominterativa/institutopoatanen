@@ -1,608 +1,86 @@
 @import 'variables';
+
 /* BEGIN STYLE */
+.abou02 {
+    position: relative;
+    z-index: 0;
+    @extend %theme__padding;
+    padding-right: 0;
+    @include disFlex(row, space-between, start);
 
-.abou02{
-    @include bgpadrao;
-
-    &__container{
-        padding: 99px 0 40px 0 !important;
-
+    @include large-device-down {
+        flex-direction: column;
+        gap: 2.5rem;
     }
 
-    &__boxLeft{
-        padding: 0 68px;
-        min-height: 447px;
+    &__header {
+        width: 30%;
+
+        @include large-device-down {
+            width: 100%;
+        }
+
+        &__title{
+            @extend %theme__t2-cb;
+            text-align: left;
+        }
 
         &__subtitle{
-            padding: 6px 15px;
-            max-width: 200px;
-            background-color: $color-four;
-            font-size: $T4;
-            font-family: $font-paragraph;
-            color: $color-one;
-            font-weight: $weight-700;
-            margin-bottom: 22.03px;
-        }
-        &__title{
-            font-size: $T2;
-            color: $color-black;
-            font-family: $font-paragraph;
-            font-weight: $weight-700;
-        }
-        &__line{
-            margin: 27px 0 39px 0;
+            margin-bottom: 1.25rem;
+            @extend %theme__t4-c1;
+
         }
         &__paragraph{
-            color: $color-one;
-            font-weight: $weight-400;
-            font: $paragraph;
+            @extend %theme__p1-cb;
+            margin-top: 2.5rem;
         }
-        &__paragraph p{
-            color: $color-one;
-            font-weight: $weight-400;
-            font: $paragraph;
-            margin-bottom: 0;
+        &__cta {
+            margin-top: rem(36);
+            @extend %theme__cta;
         }
-        &__cta{
-            font: $paragraph-min;
-            font-weight: $weight-700;
-            color: $color-one;
-            display: flex;
-            margin-top: 37px;
-            max-width: 177px;
-            padding: 10px 15px;
-            background-color: $bg-soft;
-
-            &:hover{
-                color: $color-white;
-                background-color: $bg-black;
-
-                .abou02__boxLeft__cta__icon{
-                    filter: invert(1) grayscale(1);
-                }
-            }
-        }
-        @include medium-device-down{
-            padding: 0 45px;
-            min-height: auto;
-
-            &__subtitle{
-                font-size:$T4-mobile;
-                margin-bottom: 18px;
-                max-width: 174px;
-            }
-            &__title{
-                font-size:$T2-mobile;
-            }
-            &__line{
-                margin-top: 27px;
-                margin-bottom: 49px;
-            }
-            &__paragraph{
-                font: $paragraph-mobile;
-            }
-            &__paragraph p{
-                font: $paragraph-mobile;
-            }
-        }
-
-
     }
 
-    &__boxRight{
+    &__topics {
+        width: 65%;
+        overflow: hidden;
+
+        @include large-device-down {
+            width: 100%;
+        }
 
         &__item{
+            padding: 1.5rem 4.5rem;
+            width: rem(327);
+            height: auto;
+            aspect-ratio: 327/447;
             position: relative;
-            min-height: 447px;;
-            height: 447px;;
-        }
-        &__description{
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 48.66px 53px;
-        }
-        &__title{
-            font-size: $T5;
-            color: $color-black;
-            font-family: $font-paragraph;
-            font-weight: $weight-700;
-        }
-        &__paragraph{
-            color: $color-two;
-            font: $paragraph-min;
-            font-weight: $weight-400;
-        }
-        &__paragraph p{
-            color: $color-two;
-            font: $paragraph-min;
-            font-weight: $weight-400;
-            margin-bottom: 0;
-        }
-        &__item a{
-            color:$color-black;
-        }
 
-        .carousel_abou02 .owl-dots{
-            display:none !important;
-        }
-        .carousel_abou02 .owl-nav{
-            display: flex;
-            margin-top: 30px;
-            gap: 0 18px;
-            justify-content: flex-start;
+            @include disFlex(column, end, center);
 
-
-            @include medium-device-down{
-                width: 61%;
-                justify-content: flex-start;
+            &__image{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+                object-position: center;
             }
-        }
-        .carousel_abou02 .owl-nav .owl-prev,
-        .carousel_abou02 .owl-nav .owl-next{
-            height: 29px;
-            width: 29px;
-            border-radius: 100%;
-            background-color: $color-one;
-            @include dflex;
-        }
-        .carousel_abou02 .owl-nav .owl-prev span,
-        .carousel_abou02 .owl-nav .owl-next span{
-            color:#fff;
-            font-size: 32px;
-            height: 30px;
-        }
 
-        @include medium-device-down{
-            padding: 0 44px !important;
-            margin-top: 43px;
-
-            &__item{
-                min-height: 414px;
-                height: 414px;
-            }
             &__title{
-                font-size: $T5-mobile;
+                @extend %theme__t5-cb;
+                text-align: center;
             }
             &__paragraph{
-                font: $paragraph-min-mobile;
-            }
-            &__paragraph p{
-                font: $paragraph-min-mobile;
-            }
-        }
+                @extend %theme__p2-c2;
+                text-align: center;
 
-    }
-
-    @include medium-device-down{
-        &__container{
-            padding:61px 0 36px 0 !important;
+            }
         }
     }
 }
 
-// END .abou02
-
-.abou02-page{
-    &__header{
-        @include bgpadrao;
-        height: 352px;
-        position: relative;
-
-        .container--abou02-header{
-            padding: 112px 0 92px 0 !important;
-            z-index:100;
-            position: relative;
-        }
-        &__mask{
-            position: absolute;
-            top:0;
-            left:0;
-            width: 100%;
-            height: 100%;
-            background-color: rgb(0 0 0 / 73%);
-        }
-        &__title{
-            font-size: $T1;
-            font-family: $font-paragraph;
-            color: $color-black;
-            margin-bottom: 25px;
-            font-weight: $weight-700;
-        }
-        &__subtitle{
-            font-size: $T4;
-            color: $color-two;
-            font-family: $font-paragraph;
-            font-weight: $weight-700;
-        }
-        &__line{
-            width: 100%;
-            margin-top: 28.81px;
-        }
-        @include medium-device-down{
-            &__title{
-                font-size: $T2-mobile;
-                margin-bottom: 0;
-            }
-            &__subtitle{
-                font-size: $T4-mobile;
-            }
-            &__line{
-                margin-top: 25px;
-                margin-bottom: 21px;
-            }
-            &__content{
-                padding: 46px 0 81px !important;
-            }
-        }
-    }
-    &__content{
-        padding:51px 0 118px !important;
-    }
-    &__content__subtitle{
-        font-size: $T4;
-        color:$color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-        margin-bottom: 1px;
-    }
-    &__content__title{
-        font-size: $T2;
-        color:$color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-    }
-    &__content__line{
-        width: 100%;
-        margin-top: 20.99px;
-        margin-bottom: 30.01px;
-    }
-    &__content__paragraph{
-        font:$paragraph;
-        color:$color-one;
-        font-weight: $weight-400;
-    }
-    &__content__paragraph p{
-        font:$paragraph;
-        color:$color-one;
-        font-weight: $weight-400;
-        margin-bottom: 0;
-    }
-    &__content__paragraph ul{
-        display:flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        margin: 0;
-        padding: 0;
-        margin-top: 20px;
-        gap: 20px 0;
-
-        li{
-            display:flex;
-            width: 50%;
-            min-width: 300px;
-            text-align: left;
-            align-items: flex-start;
-
-            &:before{
-                content: "";
-                width: 7px;
-                height: 7px;
-                display: flex;
-                background: $color-one;
-                border-radius: 100%;
-                margin-right: 8px;
-                flex: none;
-                margin-top: 5px;
-            }
-        }
-    }
-    @include medium-device-down{
-        &__content{
-            padding:0 !important;
-        }
-        .container--abou02-page{
-            padding: 46px 0 81px 0!important;
-        }
-        &__content_container{
-           margin-bottom: 0;
-        }
-        &__content__subtitle{
-            font-size: $T4-mobile;
-        }
-        &__content__title{
-            font-size: $T2-mobile;
-        }
-        &__content__line{
-            margin-top: 25px;
-            margin-bottom: 21px;
-        }
-        &__content__paragraph{
-            font:$paragraph-min;
-            padding: 0 30px;
-        }
-        &__content__paragraph p{
-            font:$paragraph-min;
-        }
-    }
-
-}
-
-
-.abou02-page__topic{
-    .container--abou02-page__topic{
-        padding:52px 0  32px 0 !important;
-        max-width: inherit !important;
-    }
-    &__content{
-        margin-left: 75px;
-    }
-    &__encompass__title{
-        font-size: $T2;
-        color: $color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-        margin-bottom: 23.97px;
-    }
-    &__encompass__subtitle{
-        font-size: $T4;
-        color: $color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-    }
-    &__encompass__line{
-        margin-top: 26.02px;
-        margin-bottom: 0;
-    }
-    &__item{
-        position: relative;
-        min-height: 487px;
-        height: 487px;
-    }
-    &__description{
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 48.66px 53px;
-    }
-    &__title{
-        font-size: $T5;
-        color: $color-black;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-    }
-    &__paragraph{
-        color: $color-two;
-        font: $paragraph-min;
-        font-weight: $weight-400;
-    }
-    &__paragraph p{
-        color: $color-two;
-        font: $paragraph-min;
-        font-weight: $weight-400;
-        margin-bottom: 0;
-    }
-    &__item a{
-        color:$color-black;
-    }
-
-    .carousel-abou02-topic{
-        margin-top: 59.02px;
-    }
-    .carousel-abou02-topic .owl-nav{
-        display: flex;
-        margin-top: 35px;
-        gap: 0 20.5px;
-        width: calc(90vw);
-        margin-right: auto;
-    }
-    .carousel-abou02-topic .owl-nav .owl-prev,
-    .carousel-abou02-topic .owl-nav .owl-next{
-        height: 29px;
-        width: 29px;
-        border-radius: 100%;
-        background-color: $color-one;
-        @include dflex;
-    }
-    .carousel-abou02-topic .owl-nav .owl-prev span,
-    .carousel-abou02-topic .owl-nav .owl-next span{
-        color:#fff;
-        font-size: 32px;
-        height: 30px;
-    }
-
-    @include medium-device-down{
-        overflow: hidden;
-        &__encompass__title{
-            font-size: $T2-mobile;
-        }
-        &__encompass__subtitle{
-            font-size: $T4-mobile;
-        }
-        &__encompass__line{
-            margin-top: 15px;
-            margin-bottom: 28px;
-        }
-        .container--abou02-page__section{
-            padding-top: 78px;
-        }
-        &__content{
-            width: 413px;
-            display: block;
-            margin: 0 auto;
-        }
-        &__item_content{
-            padding-left:0px !important;
-        }
-        &__description{
-            padding: 48.66px 53px;
-        }
-        &__title{
-            font-size: $T5-mobile;
-        }
-        &__paragraph{
-            color: $color-two;
-            font: $paragraph-min;
-        }
-        &__paragraph p{
-            font: $paragraph-min-mobile;
-        }
-        .abou02-page__topic .carousel-abou02-topic .owl-nav{
-            margin-left: 38%;
-        }
-    }
-
-    @include medium-device-down{
-        .carousel-abou02-topic .owl-nav {
-            margin-left: 17%;
-        }
-    }
-
-
-}
-// END .abou02-page
-
-.abou02-page__section{
-    .container--abou02-page__section{
-        padding-top: 68.54px !important;
-    }
-    &__image{
-        height: 592px;
-        width: 429px;
-        border-radius: 0px;
-    }
-    &__description{
-        padding-left: 170.46px;
-        padding-right:0;
-    }
-    &__title{
-        font-size: $T2;
-        color: $color-black;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-    }
-    &__subtitle{
-        font-size: $T4;
-        color: $color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-    }
-    &__line{
-        margin-top: 28.91px;
-        margin-bottom: 39px;
-    }
-    &__paragraph{
-        color: $color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-400;
-    }
-    &__paragraph p{
-        color: $color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-400;
-        margin-bottom: 0;
-    }
-    &__cta{
-        font: $paragraph-min;
-        font-weight: $weight-700;
-        color: $color-one;
-        display: flex;
-        margin-top: 37px;
-        max-width: 177px;
-        padding: 10px 15px;
-        background-color: $bg-soft;
-
-
-        &:hover{
-            color: $color-white;
-            background-color: $bg-black;
-
-            .abou02-page__section__cta__icon{
-                filter: invert(1) grayscale(1);
-            }
-        }
-    }
-    @include medium-device-down{
-        &__image{
-            order: 1;
-            width: 100%;
-            padding: 0 41.33px;
-            height: 468.14px;
-        }
-        &__description{
-            order: 0;
-            padding: 0 41.33px;
-            margin-bottom: 49.43px;
-        }
-        &__title{
-            font-size: $T2-mobile;
-            margin-bottom: 0;
-        }
-        &__subtitle{
-            font-size: $T4-mobile;
-        }
-        &__line{
-            margin-top: 29px;
-        }
-        &__paragraph{
-            font-family: $font-paragraph;
-        }
-        &__paragraph p{
-            font-family: $font-paragraph;
-        }
-    }
-}
-
-// END .abou02-page__section
-
-
-
-.lightbox-abou02{
-    width: 100%;
+.abou02-show {
     display: none;
-    padding: 0;
-
-    &__subtitle{
-        font-size: $T4;
-        color: $color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-    }
-    &__title{
-        font-size: $T2;
-        color: $color-one;
-        font-family: $font-paragraph;
-        font-weight: $weight-700;
-    }
-    &__line{
-        margin-top: 22px;
-        margin-bottom: 61px;
-    }
-    &__paragraph{
-        font: $paragraph;
-        color: $color-one;
-        font-weight: $weight-400;
-    }
-    .carousel__button.is-close{
-        right: 17px;
-        top: 17px;
-        left: inherit;
-        width: 31px;
-        height: 31px;
-        background: #000000;
-        border-radius: 5px;
-        color: $color-white;
-        font-size:11px;
-    }
-    .fancybox__backdrop{
-        background: $color-one !important;
-    }
-
-    @include medium-device-down{
-        text-align: center;
-    }
 }
-
-// END .lightbox
-
-
