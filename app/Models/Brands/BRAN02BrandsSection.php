@@ -33,7 +33,7 @@ class BRAN02BrandsSection extends Model
     }
     public function BrandsProducts()
     {
-        return $this->hasMany(BRAN02BrandsProducts::class, 'category_id', 'id');
+        return $this->hasMany(BRAN02BrandsProducts::class, 'category_id')->exists()->active()->sorting();;
     }
     // public function getRelationCore()
     // {

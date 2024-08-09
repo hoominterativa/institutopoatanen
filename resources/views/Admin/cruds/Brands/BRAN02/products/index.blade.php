@@ -7,7 +7,7 @@
                         <button id="btSubmitDelete" data-route="" type="button" class="btn btn-danger btnDeleteTopic" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        <a href="ss" class="btn btn-success float-end">Adicionar <i class="mdi mdi-plus"></i></a>
                     </div>
 
                 </div>
@@ -18,13 +18,14 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteTopic" type="checkbox"></label>
                             </th>
-                            <th>Imagem</th>
+                            <th>Imagems</th>
                             <th>Título</th>
+                            <th>Link</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
-
+                    
                     <tbody data-route="">
                         {{--  
                         @foreach ($topics as $topic)

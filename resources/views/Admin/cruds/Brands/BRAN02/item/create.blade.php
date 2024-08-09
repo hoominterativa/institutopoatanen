@@ -12,16 +12,16 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.bran02.index')}}">{{ getTitleModel($configModelsMain, 'Brands', 'BRAN02')}}</a></li>
-                                    <li class="breadcrumb-item active">Cadastro {{ getTitleModel($configModelsMain, 'Brands', 'BRAN02')}}</li>
+                                    <li class="breadcrumb-item active">Cadastro Ca</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastro {{ getTitleModel($configModelsMain, 'Brands', 'BRAN02')}}</h4>
+                            <h4 class="page-title">Cadastro Produtos</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.bran02.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
-                    @include('Admin.cruds.Brands.BRAN02.form')
+                    @include('Admin.cruds.Brands.BRAN02.item.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.bran02.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

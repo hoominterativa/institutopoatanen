@@ -7,7 +7,7 @@
                         <button id="btSubmitDelete" data-route="" type="button" class="btn btn-danger btnDeleteTopic" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        <a href="{{route('admin.bran02.item.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                     </div>
 
                 </div>
@@ -20,7 +20,6 @@
                             </th>
                             <th>Imagem</th>
                             <th>Título</th>
-                            <th>Link</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>

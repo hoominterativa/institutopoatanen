@@ -13,7 +13,7 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class BRAN02Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/brands/BRAN02/images/';
 
     /**
      * Display a listing of the resource.
@@ -48,8 +48,6 @@ class BRAN02Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
 
         $helper = new HelperArchive();
 
@@ -57,22 +55,13 @@ class BRAN02Controller extends Controller
 
         if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
+ 
 
         if(BRAN02Brands::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
@@ -100,9 +89,6 @@ class BRAN02Controller extends Controller
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
-
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
@@ -114,26 +100,9 @@ class BRAN02Controller extends Controller
             storageDelete($BRAN02Brands, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
 
-        $helper = new HelperArchive();
 
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($BRAN02Brands, 'path_archive');
-            $data['path_archive'] = $path_archive;
-        }
-
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($BRAN02Brands, 'path_archive');
-            $data['path_archive'] = null;
-        }
-
-        */
 
         if($BRAN02Brands->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
@@ -154,8 +123,8 @@ class BRAN02Controller extends Controller
      */
     public function destroy(BRAN02Brands $BRAN02Brands)
     {
-        //storageDelete($BRAN02Brands, 'path_image');
-        //storageDelete($BRAN02Brands, 'path_archive');
+        storageDelete($BRAN02Brands, 'path_image');
+
 
         if($BRAN02Brands->delete()){
             Session::flash('success', 'Item deletado com sucessso');
@@ -171,14 +140,13 @@ class BRAN02Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
+
 
         $BRAN02Brandss = BRAN02Brands::whereIn('id', $request->deleteAll)->get();
         foreach($BRAN02Brandss as $BRAN02Brands){
             storageDelete($BRAN02Brands, 'path_image');
-            storageDelete($BRAN02Brands, 'path_archive');
         }
-        */
+        
 
         if($deleted = BRAN02Brands::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
