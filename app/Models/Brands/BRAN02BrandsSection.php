@@ -18,10 +18,8 @@ class BRAN02BrandsSection extends Model
     protected $table = "bran02_brands_sections";
     protected $fillable = [
         'category',
-        'title_page',
-        'description',
-        'subtitle_page',
         'sorting',
+        'active',
     ];
 
     public function scopeSorting($query)

@@ -19,6 +19,8 @@ class CreateBran02BrandsTable extends Migration
             $table->string('subtitle_home')->nullable();
             $table->string('title_banner')->nullable();
             $table->string('subtitle_banner')->nullable();
+            $table->string('title_page')->nullable();
+            $table->string('subtitle_page')->nullable();
             $table->text('description')->nullable();
             $table->string('button_link')->nullable();
             $table->string('button_text')->nullable();

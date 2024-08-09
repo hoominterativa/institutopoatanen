@@ -16,9 +16,6 @@ class CreateBran02BrandsSectionsTable extends Migration
         Schema::create('bran02_brands_sections', function (Blueprint $table) {
             $table->id();
             $table->string('category')->nullable();
-            $table->string('title_page')->nullable();
-            $table->string('subtitle_page')->nullable();
-            $table->text('description')->nullable();
             $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->softDeletes();

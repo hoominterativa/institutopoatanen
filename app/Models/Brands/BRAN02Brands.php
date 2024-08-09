@@ -21,6 +21,8 @@ class BRAN02Brands extends Model
         'subtitle_home',
         'title_banner',
         'subtitle_banner',
+        'title_page',
+        'subtitle_page',
         'description',
         'button_link',
         'button_text',
