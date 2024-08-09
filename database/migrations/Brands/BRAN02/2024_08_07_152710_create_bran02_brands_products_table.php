@@ -15,6 +15,7 @@ class CreateBran02BrandsProductsTable extends Migration
     {
         Schema::create('bran02_brands_products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('bran02_brands_sections');
             $table->string('path_image')->nullable();
             $table->string('button_text')->nullable();
             $table->string('button_link')->nullable();

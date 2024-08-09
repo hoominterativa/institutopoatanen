@@ -31,12 +31,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#section" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#category" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Informações para seção
+                            Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Informações que serão exibidas acima da lista de marcas na página."></i>
+                                data-bs-original-title="Permite a adição e edição das categorias."></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#itens" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Produtos
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Permite a adição e edição das categorias."></i>
                         </a>
                     </li>
                 </ul>
@@ -52,7 +61,7 @@
                                                 <button id="btSubmitDelete" data-route="{{route('admin.bran02.destroySelected')}}" type="button" class="btn btn-danger btnDeleteBrands" style="display: none;">Deletar selecionados</button>
                                             </div>
                                             <div class="col-6">
-                                                <a href="{{route('admin.bran02.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                                <a href="{{route('admin.bran02.create')}}" class="btn btn-success float-end">novo <i class="mdi mdi-plus"></i></a>
                                             </div>
                                         </div>
                                         <table class="table table-bordered table-sortable">
@@ -82,8 +91,11 @@
                             </div> <!-- end col-->
                         </div>
                     </div>
-                    <div class="tab-pane" id="section">
-                        @include('Admin.cruds.Brands.BRAN02.form')
+                    <div class="tab-pane" id="category">
+                        @include('Admin.cruds.Brands.BRAN02.categories.index')
+                    </div>
+                    <div class="tab-pane" id="itens">
+                        @include('Admin.cruds.Brands.BRAN02.page.index')
                     </div>
                 </div>
                 <!-- end row -->

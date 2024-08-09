@@ -17,6 +17,7 @@ class BRAN02Brandsproducts extends Model
 
     protected $table = "bran02_brands_products";
     protected $fillable = [
+        'category_id',
         'path_image',
         'button_text',
         'button_link',
@@ -34,6 +35,12 @@ class BRAN02Brandsproducts extends Model
     {
         return $query->where('active', 1);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(BRAN02BrandsSection::class, 'category_id');
+    }
+
 
     // public function getRelationCore()
     // {
