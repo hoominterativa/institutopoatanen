@@ -166,47 +166,50 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .abou02, .foot02__copyright, .foot02__navigation, .side03__navigation, .confirmation-page__title, .form01, .comp01-page__banner {
+.comp01-page__content, .abou02-page__additional-content, .abou02-page__topics, .abou02-page__main, .abou02, .foot02__copyright, .foot02__navigation, .side03__navigation, .confirmation-page__title, .form01, .comp01-page__banner, .abou02-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.comp01-page__banner__title {
+.comp01-page__banner__title, .abou02-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .comp01-page__banner__title {
+  .comp01-page__banner__title, .abou02-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.comp01-page__banner__title {
+.comp01-page__banner__title, .abou02-page__banner__title {
   color: #404040;
 }
-.abou02__header__title {
+.abou02-page__additional-content__information__title, .abou02-page__topics__header__title, .abou02-page__main__title, .abou02__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .abou02__header__title {
+  .abou02-page__additional-content__information__title, .abou02-page__topics__header__title, .abou02-page__main__title, .abou02__header__title {
     font-size: 1.875rem;
   }
 }
 .abou02__header__title {
   color: #000;
 }
-.confirmation-page__title, .comp01-page__content__header__title, .form01__main__information__title {
+.abou02-page__additional-content__information__title, .abou02-page__topics__header__title, .abou02-page__main__title {
+  color: #404040;
+}
+.confirmation-page__title, .abou02-page__banner__subtitle, .comp01-page__content__header__title, .form01__main__information__title {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .confirmation-page__title, .comp01-page__content__header__title, .form01__main__information__title {
+  .confirmation-page__title, .abou02-page__banner__subtitle, .comp01-page__content__header__title, .form01__main__information__title {
     font-size: 1.563rem;
   }
 }
@@ -216,44 +219,47 @@ details .details-content {
 .comp01-page__content__header__title {
   color: #404040;
 }
+.abou02-page__banner__subtitle {
+  color: #b3b3b3;
+}
 .confirmation-page__title {
   color: #cacaca;
 }
-.abou02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .abou02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
 }
-.abou02__header__subtitle {
+.abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle {
   color: #404040;
 }
-.abou02__topics__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+.abou02__topics__item__title, .abou02-page__topics__carousel__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .abou02__topics__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+  .abou02__topics__item__title, .abou02-page__topics__carousel__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
     font-size: 1.063rem;
   }
 }
-.abou02__topics__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
+.abou02__topics__item__title, .abou02-page__topics__carousel__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .abou02__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .abou02__header__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side03__navigation__cta, .head02__navigation__item__cta {
+.abou02-page__additional-content__information__paragraph, .abou02-page__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .abou02-page__additional-content__information__cta, .abou02__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .abou02__header__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side03__navigation__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .abou02__header__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .abou02__header__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .side03__navigation__cta p, .head02__navigation__item__cta p {
+.abou02-page__additional-content__information__paragraph p, .abou02-page__main__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .abou02-page__additional-content__information__cta p, .abou02__header__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .abou02__header__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .side03__navigation__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -261,7 +267,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .abou02__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .abou02__header__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side03__navigation__cta, .head02__navigation__item__cta {
+  .abou02-page__additional-content__information__paragraph, .abou02-page__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .abou02-page__additional-content__information__cta, .abou02__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .abou02__header__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side03__navigation__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
@@ -271,15 +277,15 @@ details .details-content {
 .comp01-page__content__paragraph, .abou02__header__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .abou02__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
+.abou02-page__additional-content__information__paragraph, .abou02-page__main__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .abou02-page__additional-content__information__cta, .abou02__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.abou02__topics__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
+.abou02__topics__item__paragraph, .abou02-page__topics__carousel__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.abou02__topics__item__paragraph p, .comp01-page__content__archives__item p, .foot02__copyright__compliances__item p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p {
+.abou02__topics__item__paragraph p, .abou02-page__topics__carousel__item__paragraph p, .comp01-page__content__archives__item p, .foot02__copyright__compliances__item p, .side03__navigation__footer__item p, .side03__navigation__cta__content__item p, .side03__navigation__item__content--sub-menu__item__link p, .side03__navigation__item__content--sub-menu__item p, .side03__navigation__item__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -287,7 +293,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .abou02__topics__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
+  .abou02__topics__item__paragraph, .abou02-page__topics__carousel__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .side03__navigation__footer__item, .side03__navigation__cta__content__item, .side03__navigation__item__content--sub-menu__item__link, .side03__navigation__item__content--sub-menu__item, .side03__navigation__item__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -298,7 +304,7 @@ details .details-content {
 .comp01-page__content__archives__item, .foot02__copyright__compliances__item {
   color: #404040;
 }
-.abou02__topics__item__paragraph {
+.abou02__topics__item__paragraph, .abou02-page__topics__carousel__item__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -308,7 +314,7 @@ details .details-content {
   width: 2rem;
   height: 2rem;
 }
-.comp01-page__banner {
+.comp01-page__banner, .abou02-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -321,7 +327,7 @@ details .details-content {
   justify-content: center;
   align-items: start;
 }
-.abou02__header__cta, .form01__main__form__footer__cta {
+.abou02-page__additional-content__information__cta, .abou02__header__cta, .form01__main__form__footer__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -333,7 +339,7 @@ details .details-content {
   border: none;
   font-weight: 700;
 }
-.abou02__header__cta:focus, .form01__main__form__footer__cta:focus {
+.abou02-page__additional-content__information__cta:focus, .abou02__header__cta:focus, .form01__main__form__footer__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -2263,7 +2269,7 @@ body .owl-dots .owl-dot.active {
     width: 100%;
   }
 }
-.abou02__topics__item {
+.abou02__topics__item, .abou02-page__topics__carousel__item {
   padding: 1.5rem 4.5rem;
   width: 20.4375rem;
   height: auto;
@@ -2274,7 +2280,7 @@ body .owl-dots .owl-dot.active {
   justify-content: end;
   align-items: center;
 }
-.abou02__topics__item__image {
+.abou02__topics__item__image, .abou02-page__topics__carousel__item__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -2286,11 +2292,90 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.abou02__topics__item__title {
+.abou02__topics__item__title, .abou02-page__topics__carousel__item__title {
   text-align: center;
 }
-.abou02__topics__item__paragraph {
+.abou02__topics__item__paragraph, .abou02-page__topics__carousel__item__paragraph {
   text-align: center;
+}
+
+.abou02-page {
+  position: relative;
+  z-index: 0;
+}
+.abou02-page__main__title {
+  text-align: center;
+}
+.abou02-page__main__subtitle {
+  text-align: center;
+}
+.abou02-page__main__paragraph {
+  text-align: center;
+}
+.abou02-page__topics {
+  padding-top: 0;
+}
+.abou02-page__topics__header {
+  margin-bottom: 5.5rem;
+}
+.abou02-page__topics__header__title {
+  text-align: center;
+}
+.abou02-page__topics__header__subtitle {
+  text-align: center;
+}
+.abou02-page__additional-content {
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10.6875rem;
+}
+.abou02-page__additional-content:not(:has(.abou02-page__additional-content__image)) .abou02-page__additional-content__information {
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  .abou02-page__additional-content {
+    flex-direction: column-reverse;
+    gap: 3rem;
+  }
+}
+.abou02-page__additional-content__image {
+  width: 30%;
+  height: auto;
+  aspect-ratio: 430/593;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  align-self: flex-end;
+}
+@media (max-width: 991.98px) {
+  .abou02-page__additional-content__image {
+    width: 100%;
+  }
+}
+.abou02-page__additional-content__information {
+  width: calc(100% - 10.6875rem - 30%);
+  padding-bottom: 2rem;
+}
+@media (max-width: 991.98px) {
+  .abou02-page__additional-content__information {
+    width: 100%;
+  }
+}
+.abou02-page__additional-content__information__title {
+  text-align: left;
+}
+.abou02-page__additional-content__information__subtitle {
+  margin-top: 0.75rem;
+}
+.abou02-page__additional-content__information__paragraph {
+  margin-top: 4.1875rem;
+}
+.abou02-page__additional-content__information__cta {
+  margin-top: 3.9375rem;
 }
 
 .abou02-show {

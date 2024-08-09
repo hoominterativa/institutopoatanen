@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 /* BEGIN STYLE */
 .abou02 {
@@ -20,20 +20,21 @@
             width: 100%;
         }
 
-        &__title{
+        &__title {
             @extend %theme__t2-cb;
             text-align: left;
         }
 
-        &__subtitle{
+        &__subtitle {
             margin-bottom: 1.25rem;
             @extend %theme__t4-c1;
-
         }
-        &__paragraph{
+
+        &__paragraph {
             @extend %theme__p1-cb;
             margin-top: 2.5rem;
         }
+
         &__cta {
             margin-top: rem(36);
             @extend %theme__cta;
@@ -48,7 +49,7 @@
             width: 100%;
         }
 
-        &__item{
+        &__item {
             padding: 1.5rem 4.5rem;
             width: rem(327);
             height: auto;
@@ -57,7 +58,7 @@
 
             @include disFlex(column, end, center);
 
-            &__image{
+            &__image {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -68,14 +69,147 @@
                 object-position: center;
             }
 
-            &__title{
+            &__title {
                 @extend %theme__t5-cb;
                 text-align: center;
             }
-            &__paragraph{
+
+            &__paragraph {
                 @extend %theme__p2-c2;
                 text-align: center;
+            }
+        }
+    }
+}
 
+.abou02-page {
+    position: relative;
+    z-index: 0;
+
+    &__banner {
+        @extend %theme__banner;
+
+        &__title {
+            @extend %theme__banner__title;
+        }
+
+        &__subtitle {
+            @extend %theme__banner__subtitle;
+        }
+    }
+
+    &__main {
+        @extend %theme__padding;
+
+        &__title {
+            @extend %theme__t2-c1;
+            text-align: center;
+        }
+
+        &__subtitle {
+            @extend %theme__t4-c1;
+            text-align: center;
+        }
+
+        &__paragraph {
+            @extend %theme__p1-c1;
+            text-align: center;
+        }
+    }
+
+    &__topics {
+        padding-top: 0;
+        @extend %theme__padding;
+
+        &__header {
+            margin-bottom: 5.5rem;
+
+            &__title {
+                @extend %theme__t2-c1;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c1;
+                text-align: center;
+            }
+        }
+
+        &__carousel {
+
+            &__item {
+                @extend .abou02__topics__item;
+
+                &__image {
+                    @extend .abou02__topics__item__image;
+                }
+
+                &__title {
+                    @extend .abou02__topics__item__title;
+                }
+
+                &__paragraph {
+                    @extend .abou02__topics__item__paragraph;
+                }
+            }
+        }
+    }
+
+    &__additional-content {
+        @extend %theme__padding;
+        padding-bottom: 0;
+        @include disFlex(row, space-between, start);
+        gap: rem(171);
+
+        &:not(:has(&__image)) &__information {
+            width: 100%;
+        }
+
+        @include large-device-down {
+            flex-direction: column-reverse;
+            gap: 3rem;
+        }
+
+        &__image {
+            width: 30%;
+            height: auto;
+            aspect-ratio: 430/593;
+            object-fit: contain;
+            object-position: center;
+            align-self: flex-end;
+
+            @include large-device-down {
+                width: 100%;
+
+            }
+        }
+
+        &__information {
+            width: calc(100% - rem(171) - 30%);
+            padding-bottom: 2rem;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__title {
+                @extend %theme__t2-c1;
+                text-align: left
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c1;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-c1;
+                margin-top: rem(67);
+            }
+
+            &__cta {
+                @extend %theme__cta;
+                margin-top: rem(63);
             }
         }
     }

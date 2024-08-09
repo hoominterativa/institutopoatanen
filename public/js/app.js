@@ -12417,6 +12417,10 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".abou02__topics", {
   slidesPerView: "auto",
   spaceBetween: 24
 });
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".abou02-page__topics__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 24
+});
 
 /***/ }),
 
