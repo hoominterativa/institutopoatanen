@@ -166,7 +166,7 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .abou02-page__additional-content, .abou02-page__topics, .abou02-page__main, .abou02, .foot02__copyright, .foot02__navigation, .side03__navigation, .confirmation-page__title, .form01, .comp01-page__banner, .abou02-page__banner {
+.comp01-page__content, .abou02-show__information, .abou02-page__additional-content, .abou02-page__topics, .abou02-page__main, .abou02, .foot02__copyright, .foot02__navigation, .side03__navigation, .confirmation-page__title, .form01, .comp01-page__banner, .abou02-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -225,20 +225,20 @@ details .details-content {
 .confirmation-page__title {
   color: #cacaca;
 }
-.abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.abou02-show__information__subtitle, .abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle, .abou02-show__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+  .abou02-show__information__subtitle, .abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle, .abou02-show__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
     font-size: 1.125rem;
   }
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
+.abou02-show__information__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header {
   color: #000;
 }
-.abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle {
+.abou02-show__information__subtitle, .abou02-page__additional-content__information__subtitle, .abou02-page__topics__header__subtitle, .abou02-page__main__subtitle, .abou02__header__subtitle {
   color: #404040;
 }
 .abou02__topics__item__title, .abou02-page__topics__carousel__item__title, .side03__navigation__item__link, .side03__navigation__item__btn {
@@ -2379,7 +2379,50 @@ body .owl-dots .owl-dot.active {
 }
 
 .abou02-show {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
   display: none;
+  padding: 0;
+}
+@media (max-width: 991.98px) {
+  .abou02-show {
+    flex-direction: column;
+  }
+}
+.abou02-show__image {
+  width: 50%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 991.98px) {
+  .abou02-show__image {
+    width: 100%;
+    height: auto;
+  }
+}
+.abou02-show__information {
+  width: 50%;
+}
+.abou02-show__information__title {
+  margin-top: 0.75rem;
+}
+@media (max-width: 991.98px) {
+  .abou02-show__information {
+    width: 100%;
+  }
+}
+.abou02-show .carousel__button.is-close {
+  top: 2rem;
+  right: 2rem;
+}
+.abou02-show .carousel__button.is-close svg {
+  filter: none;
+  stroke: #000;
 }
 
 /* BEGIN STYLE */

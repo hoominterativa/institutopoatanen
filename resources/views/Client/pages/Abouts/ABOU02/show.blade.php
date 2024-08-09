@@ -1,24 +1,24 @@
-<div id="lightbox-abou02-{{ $topic->id }}" class="lightbox-abou02 abou02-show">
-    <div class="row px-0 px-0 mx-0">
-        @if ($topic->path_image)
-            <div class="lightbox-abou02__image px-0 col-md-6">
-                <img src="{{ asset('storage/' . $topic->path_image) }}" class="h-100 w-100" alt="Subtitulo">
-            </div>
-        @endif
-        {{-- END .lightbox-abou02__image --}}
-        <div class="lightbox-abou02__description p-5 col-md-6 d-block">
-            @if ($topic->title || $topic->subtitle)
-                <h3 class="lightbox-abou02__subtitle">{{ $topic->subtitle }}</h3>
-                <h2 class="lightbox-abou02__title mb-0">{{ $topic->title }}</h2>
-                <hr class="lightbox-abou02__line">
+<div id="lightbox-abou02-{{ $topic->id }}" class="abou02-show">
+
+    @if ($topic->path_image)
+        <img src="{{ asset('storage/' . $topic->path_image) }}" class="abou02-show__image"
+            alt="Imagem que está relacionado ao assunto {{ $topic->title }}">
+    @endif
+    @if ($topic->title || $topic->subtitle || $topic->text)
+        <div class="abou02-show__information">
+            @if ($topic->subtitle)
+                <h3 class="abou02-show__information__subtitle">{{ $topic->subtitle }}</h3>
+            @endif
+            @if ($topic->title)
+                <h2 class="abou02-show__information__title">{{ $topic->title }}</h2>
             @endif
             @if ($topic->text)
-                <div class="lightbox-abou02__paragraph">
+                <div class="abou02-show__information__paragraph">
                     <p>{!! $topic->text !!}</p>
                 </div>
             @endif
         </div>
-        {{-- END .lightbox-abou02__description --}}
-    </div>
+    @endif
+
+
 </div>
-{{-- END .lightbox-abou02 --}}

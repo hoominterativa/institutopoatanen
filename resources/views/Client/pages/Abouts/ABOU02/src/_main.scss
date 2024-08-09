@@ -216,5 +216,53 @@
 }
 
 .abou02-show {
+    @include disFlex(row, space-between, start);
     display: none;
+    padding: 0;
+
+    @include large-device-down {
+        flex-direction: column;
+    }
+
+    &__image {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+
+        @include large-device-down {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__information {
+        width: 50%;
+        @extend %theme__padding;
+
+        &__title {
+            @extend %theme__t4-cb;
+            margin-top: 0.75rem;
+        }
+
+        &__subtitle {
+            @extend %theme__t4-c1;
+        }
+
+        @include large-device-down {
+            width: 100%;
+        }
+    }
+
+    .carousel__button.is-close {
+        outline: none;
+        top: 2rem;
+        right: 2rem;
+
+        svg {
+            filter: none;
+            fill: $color-black;
+        }
+    }
+
 }
