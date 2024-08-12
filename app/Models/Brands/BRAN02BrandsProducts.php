@@ -18,6 +18,7 @@ class BRAN02Brandsproducts extends Model
     protected $table = "bran02_brands_products";
     protected $fillable = [
         'category_id',
+        'name',
         'path_image',
         'button_text',
         'button_link',

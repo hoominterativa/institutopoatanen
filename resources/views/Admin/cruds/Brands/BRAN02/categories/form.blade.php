@@ -15,8 +15,12 @@
 <div class="row col-12">
     <div class="col-12">
         <div class="card card-body" id="tooltip-container">
-            {{-- INSERI OS INPUTS DOS FORMULARIOS AQUI --}}
-            Olá Mundo
+            <div class="row">
+                <div class="mb-3">
+                    {!! Form::label('title', 'Nome da Categoria', ['class'=>'form-label']) !!}
+                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'title', 'required'=>'required']) !!}
+                </div>
+            </div>
         </div>
         {{-- end card-body --}}
     </div>

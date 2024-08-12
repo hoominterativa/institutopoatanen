@@ -20,8 +20,8 @@ class BRAN02productsController extends Controller
 
     public function create()
     {
-        return view('Admin.cruds.Brands.BRAN02.products.index', [
-            'cropSetting' => getCropImage('Brands', 'BRAN01')
+        return view('Admin.cruds.Brands.BRAN02.products.create', [
+            'cropSetting' => getCropImage('Brands', 'BRAN02')
         ]);
     }
 
@@ -34,7 +34,8 @@ class BRAN02productsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        @dd($data);
+        $data['active'] = $request->active ? 1 : 0;
 
         $helper = new HelperArchive();
 
@@ -46,7 +47,7 @@ class BRAN02productsController extends Controller
 
         if(BRAN02BrandsProducts::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.bran02.index');
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -60,9 +61,13 @@ class BRAN02productsController extends Controller
      * @param  \App\Models\Brands\BRAN02Brands  $BRAN02Brands
      * @return \Illuminate\Http\Response
      */
-    public function edit(BRAN02BrandsProducts $BRAN02Brands)
+    public function edit(BRAN02BrandsProducts $BRAN02BrandsProducts)
     {
-        //
+        return view('Admin.cruds.Brands.BRAN02.products.edit', [
+            'cropSetting' => getCropImage('Brands', 'BRAN02'),
+            'BrandsProducts' => $BRAN02BrandsProducts,
+
+        ]);
     }
 
     /**
@@ -72,28 +77,31 @@ class BRAN02productsController extends Controller
      * @param  \App\Models\Brands\BRAN02Brands  $BRAN02Brands
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BRAN02BrandsProducts $BRAN02Brands)
+    public function update(Request $request, BRAN02BrandsProducts $BRAN02productsController)
     {
+
         $data = $request->all();
+
+        $data['active'] = $request->active ? 1 : 0;
 
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
-            storageDelete($BRAN02Brands, 'path_image');
+            storageDelete($BRAN02productsController, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($BRAN02Brands, 'path_image');
+            storageDelete($BRAN02productsController, 'path_image');
             $data['path_image'] = null;
         }
 
 
 
 
-        if($BRAN02Brands->fill($data)->save()){
+        if($BRAN02productsController->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.bran02.index');
         }else{
             //Storage::delete($path_image);
             //Storage::delete($path_archive);
@@ -108,12 +116,12 @@ class BRAN02productsController extends Controller
      * @param  \App\Models\Brands\BRAN02Brands  $BRAN02Brands
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BRAN02BrandsProducts $BRAN02Brands)
+    public function destroy(BRAN02BrandsProducts $BRAN02productsController)
     {
-        storageDelete($BRAN02Brands, 'path_image');
+        storageDelete($BRAN02productsController, 'path_image');
 
 
-        if($BRAN02Brands->delete()){
+        if($BRAN02productsController->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
@@ -129,8 +137,8 @@ class BRAN02productsController extends Controller
     {
 
 
-        $BRAN02Brandss = BRAN02BrandsProducts::whereIn('id', $request->deleteAll)->get();
-        foreach($BRAN02Brandss as $BRAN02Brands){
+        $BRAN02productsController = BRAN02BrandsProducts::whereIn('id', $request->deleteAll)->get();
+        foreach($BRAN02productsController as $BRAN02Brands){
             storageDelete($BRAN02Brands, 'path_image');
         }
         

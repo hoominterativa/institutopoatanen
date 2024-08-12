@@ -26,19 +26,19 @@ $route = Str::slug($modelConfig->titlePanel);
 $routeName = Str::lower($model);
 
 Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
- Route::resource($route.'/secao', BRAN02Controller::class)->names('admin.'.$routeName.'.category')->parameters(['secao' => 'BRAN02BrandsSection']);
+ Route::resource($route.'/secao', BRAN02Controller::class)->names('admin.'.$routeName.'.category')->parameters(['secao' => 'BRAN02Brands']);
   Route::post($route.'/secao/delete', [BRAN02Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.secao.destroySelected');
   Route::post($route.'/secao/sorting', [BRAN02Controller::class, 'sorting'])->name('admin.'.$routeName.'.secao.sorting');
 
   //Produtos
-  Route::resource($route.'/categorie', BRAN02productsController::class)->names('admin.'.$routeName.'.categorie')->parameters(['categorie' => 'BRAN02BrandsSection']);
-  Route::post($route.'/categorie/delete', [BRAN02productsController::class, 'destroySelected'])->name('admin.'.$routeName.'.products.destroySelected');
-  Route::post($route.'/categorie/sorting', [BRAN02productsController::class, 'sorting'])->name('admin.'.$routeName.'.products.sorting');
+  Route::resource($route.'/products', BRAN02productsController::class)->names('admin.'.$routeName.'.products')->parameters(['BRAN02productsController' => 'BRAN02BrandsProducts']);
+  Route::post($route.'/products/delete', [BRAN02productsController::class, 'destroySelected'])->name('admin.'.$routeName.'.products.destroySelected');
+  Route::post($route.'/products/sorting', [BRAN02productsController::class, 'sorting'])->name('admin.'.$routeName.'.products.sorting');
 
   //Categoria
-  Route::resource($route.'/item', BRAN02SectionController::class)->names('admin.'.$routeName.'.item')->parameters(['secao' => 'BRAN02BrandsSection']);
-  Route::post($route.'/item/delete', [BRAN02SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.item.destroySelected');
-  Route::post($route.'/item/sorting', [BRAN02SectionController::class, 'sorting'])->name('admin.'.$routeName.'.item.sorting');
+  Route::resource($route.'/categorie', BRAN02SectionController::class)->names('admin.'.$routeName.'.categorie')->parameters(['BRAN02BrandsSection' => 'BRAN02BrandsSection']);
+  Route::post($route.'/categorie/delete', [BRAN02SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.categorie.destroySelected');
+  Route::post($route.'/categorie/sorting', [BRAN02SectionController::class, 'sorting'])->name('admin.'.$routeName.'.categorie.sorting');
 
  });
 //  CLIENT

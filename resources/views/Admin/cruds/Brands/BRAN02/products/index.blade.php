@@ -7,7 +7,7 @@
                         <button id="btSubmitDelete" data-route="" type="button" class="btn btn-danger btnDeleteTopic" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="ss" class="btn btn-success float-end">Adicionar <i class="mdi mdi-plus"></i></a>
+                        <a href="{{route('admin.bran02.products.create')}}" class="btn btn-success float-end">Adicionar <i class="mdi mdi-plus"></i></a>
                     </div>
 
                 </div>
@@ -18,31 +18,29 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteTopic" type="checkbox"></label>
                             </th>
-                            <th>Imagems</th>
                             <th>Título</th>
+                            <th>Imagems</th>
                             <th>Link</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
-                    
                     <tbody data-route="">
-                        {{--  
-                        @foreach ($topics as $topic)
-                            <tr data-code="{{$topic->id}}">
+                        @foreach ($bran02products as $produtos)
+                            <tr data-code="{{$produtos->id}}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox align-middle">
-                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
+                                    <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$produtos->id}}"></label>
                                 </td>
+                                <td>{{ $produtos->name }}</td>
                                 <td class="align-middle avatar-group">
-                                    @if ($topic->path_image_box)
-                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image_box)}})"></div>
+                                    @if ($produtos->path_image_box)
+                                        <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $produtos->path_image)}})"></div>
                                     @endif
                                 </td>
-                                <td class="align-middle">{{$topic->title}} <b>/</b> {{$topic->subtitle}}</td>
-                                <td class="align-middle">{!! substr($topic->description,0,25) !!}</td>
+                                <td class="align-middle">{{$produtos->button_text}}</td>
                                 <td class="align-middle">
-                                    @if ($topic->active)
+                                    @if ($produtos->active)
                                         <span class="badge bg-success">Ativo</span>
                                     @else
                                         <span class="badge bg-danger">Inativo</span>
@@ -51,16 +49,16 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="{{route('admin.copa02.topic.edit',['COPA02ContentPagesTopic' => $topic->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                            <a href="{{route('admin.bran02.products.edit',['product' => $produtos->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
-                                        <form action="{{route('admin.copa02.topic.destroy',['COPA02ContentPagesTopic' => $topic->id])}}" class="col-4" method="POST">
+                                        <form action="{{route('admin.bran02.products.destroy',['product' => $produtos->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                         </form>
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach--}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>

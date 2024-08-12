@@ -15,6 +15,7 @@ use App\Models\Brands\BRAN02BrandsSection;
 
 class BRAN02SectionController extends Controller
 {
+    protected $path = 'uploads/Brands/BRAN02/images/';
 /**
      * Show the form for creating a new resource.
      *
@@ -22,7 +23,7 @@ class BRAN02SectionController extends Controller
      */
     public function create()
     {
-        return view('Admin.cruds.Brands.BRAN02.item.create', [
+        return view('Admin.cruds.Brands.BRAN02.categories.create', [
             'cropSetting' => getCropImage('Brands', 'BRAN01')
         ]);
     }
@@ -37,21 +38,11 @@ class BRAN02SectionController extends Controller
     {
         $data = $request->all();
 
-
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-
-        if($path_image) $data['path_image'] = $path_image;
-
- 
-
         if(BRAN02BrandsSection::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.bran02.index');
         }else{
-            Storage::delete($path_image);
-            Session::flash('error', 'Erro ao cadastradar o item');
+            Session::flash('error', 'Erro ao cadastradar o categories');
             return redirect()->back();
         }
     }
@@ -78,28 +69,11 @@ class BRAN02SectionController extends Controller
     {
         $data = $request->all();
 
-        $helper = new HelperArchive();
-
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
-            storageDelete($BRAN02Brands, 'path_image');
-            $data['path_image'] = $path_image;
-        }
-        if($request->delete_path_image && !$path_image){
-            storageDelete($BRAN02Brands, 'path_image');
-            $data['path_image'] = null;
-        }
-
-
-
-
         if($BRAN02Brands->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.bran02.index');
         }else{
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
-            Session::flash('error', 'Erro ao atualizar item');
+            Session::flash('error', 'Erro ao atualizar categories');
             return redirect()->back();
         }
     }

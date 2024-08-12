@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Brands;
 
 use App\Models\Brands\BRAN02Brands;
+use App\Models\Brands\BRAN02BrandsProducts;
+use App\Models\Brands\BRAN02BrandsSection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -21,9 +23,12 @@ class BRAN02Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $teste = '';
-        return view('Admin.cruds.Brands.BRAN02.index', compact('teste'));
+    {  
+        $bran02 = BRAN02Brands::first();
+        $bran02section = BRAN02BrandsSection::all();
+        $bran02products = BRAN02BrandsProducts::all();
+        //dd($bran02products, $bran02section, $bran02);
+        return view('Admin.cruds.Brands.BRAN02.index', compact('bran02','bran02section', 'bran02products'));
     }
 
     /**
@@ -59,7 +64,7 @@ class BRAN02Controller extends Controller
 
         if(BRAN02Brands::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->route('admin.bran02.index');
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item');

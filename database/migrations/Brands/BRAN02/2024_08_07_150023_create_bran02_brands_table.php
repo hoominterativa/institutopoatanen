@@ -25,7 +25,7 @@ class CreateBran02BrandsTable extends Migration
             $table->string('button_link')->nullable();
             $table->string('button_text')->nullable();
             $table->enum('target_link', ['_self','_blank'])->default('_self');
-            $table->integer('active')->default(0);
+            $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->string('path_image')->nullable();
             $table->softDeletes();

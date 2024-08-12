@@ -16,12 +16,13 @@ class CreateBran02BrandsProductsTable extends Migration
         Schema::create('bran02_brands_products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
+            $table->string('name');
             $table->string('path_image')->nullable();
             $table->string('button_text')->nullable();
             $table->string('button_link')->nullable();
             $table->enum('target_link', ['_self','_blank'])->default('_self');
-            $table->integer('active')->default(0);
             $table->integer('sorting')->default(0);
+            $table->boolean('active')->default(0);         
             $table->softDeletes();
             $table->timestamps();
         });

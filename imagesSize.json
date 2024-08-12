@@ -278,6 +278,13 @@
                 }
             }
         },
+        "BRAN02": {
+            "path_image": {
+                "width": "321",
+                "height": "136",
+                "activeCrop": "false"
+            }
+        },
         "BRAN04": {
             "path_image": {
                 "width": "322",

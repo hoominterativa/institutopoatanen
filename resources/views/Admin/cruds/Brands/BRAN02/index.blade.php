@@ -50,19 +50,17 @@
                         </a>
                     </li>
                 </ul>
-
+                
                 <div class="tab-content">
                     <div class="tab-pane show active" id="brand">
                         <div class="col-12">
-                            <form action="">
-                            @include('Admin.cruds.Brands.BRAN02.form')
-                            </form>
+                            @include('Admin.cruds.Brands.BRAN02.form')       
                             {{-- end card-body --}}
                         </div>
 
                     </div>
                     <div class="tab-pane" id="category">
-                        @include('Admin.cruds.Brands.BRAN02.item.index')
+                        @include('Admin.cruds.Brands.BRAN02.categories.index')
                     </div>
                     <div class="tab-pane" id="itens">
                         @include('Admin.cruds.Brands.BRAN02.products.index')
