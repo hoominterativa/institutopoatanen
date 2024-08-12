@@ -2276,11 +2276,8 @@ body .owl-dots .owl-dot.active {
   margin: 1.5625rem auto 0;
 }
 
-.bran02-page__banner__title {
-  text-align: center;
-}
-.bran02-page__banner__subtitle {
-  text-align: center;
+.bran02-page__banner {
+  align-items: center;
 }
 .bran02-page__header {
   padding-bottom: 0;
@@ -2293,11 +2290,19 @@ body .owl-dots .owl-dot.active {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.5625rem 1.3125rem;
+  gap: 1.5rem 1.3125rem;
   flex-wrap: wrap;
 }
 .bran02-page__products__item {
   width: calc(25% - 1.3125rem * 3 / 4);
+}
+.bran02-page__products__item__image {
+  width: 100%;
+  height: -webkit-fill-available;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 @media (max-width: 991.98px) {
   .bran02-page__products__item {

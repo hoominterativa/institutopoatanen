@@ -1,11 +1,6 @@
-@if ($bran02)
+
     {!! Form::model($bran02, ['route' => ['admin.bran02.category.update', $bran02->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
-@else
-    {!! Form::model(null, ['route' => 'admin.copa04.category.store', 'class' => 'parsley-validate', 'files' => true]) !!}
-    {!! Form::hidden('secao', $bran02->id) !!}
-@endif
-
 <div class="row">
     <div class="col-6">
         <div class="card card-body ">
@@ -74,6 +69,25 @@
                     'required' => 'required',
                 ]) !!}
             </div>
+                            {{-- Editor de Imagem --}}
+                            <div class="mb-3">
+                                <div class="container-image-crop">
+                                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image_banner->width}}x{{$cropSetting->path_image_banner->height}}px!</small>
+                                    <label class="area-input-image-crop" for="inputImage">
+                                        {!! Form::file('path_image', [
+                                            'id'=>'inputImage',
+                                            'class'=>'inputImage',
+                                            'data-status'=>$cropSetting->path_image_banner->activeCrop, // px
+                                            'data-min-width'=>$cropSetting->path_image_banner->width, // px
+                                            'data-min-height'=>$cropSetting->path_image_banner->height, // px
+                                            'data-box-height'=>'225', // Input height in the form
+                                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                                            'data-default-file'=> isset($bran02)?($bran02->path_image<>''?url('storage/'.$bran02->path_image):''):'',
+                                        ]) !!}
+                                    </label>
+                                </div><!-- END container image crop -->
+                            </div>
             {{-- 
             Fim do Editor da seção de Pagina
 
@@ -139,13 +153,17 @@
                     <div class="tab-pane show active" id="linkExternal"></div>
                 </div> {{-- END .tab-content --}}
                 <div class="row">
+                    <div class="col-12">
+                        {!! Form::label('button_text', 'Escrita Botão', ['class'=>'form-label']) !!}
+                        {!! Form::text('button_text', null, ['class'=>'form-control', 'id'=>'title', 'required'=>'required']) !!}    
+                    </div>
                     <div class="col-12 col-sm-8">
-                        {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                        {!! Form::url('link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
+                        {!! Form::label(null, 'button_link', ['class'=>'form-label']) !!}
+                        {!! Form::url('button_link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link', 'Redirecionar para', ['class'=>'form-label']) !!}
-                        {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_bank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_button']) !!}
+                        {!! Form::select('target_link', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'target_link_button']) !!}
                     </div>
                 </div>
             </div> 

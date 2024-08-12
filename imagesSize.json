@@ -283,6 +283,11 @@
                 "width": "321",
                 "height": "136",
                 "activeCrop": "false"
+            },
+            "path_image_banner": {
+                "width": "1498",
+                "height": "218",
+                "activeCrop": "false"
             }
         },
         "BRAN04": {

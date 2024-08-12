@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Brands\BRAN02BrandsSection;
+use Illuminate\Support\Str;
 
 class BRAN02SectionController extends Controller
 {
@@ -38,6 +39,12 @@ class BRAN02SectionController extends Controller
     {
         $data = $request->all();
 
+        $data['active'] = $request->active ? 1 : 0;
+        $data['highlighted'] = $request->highlighted ? 1 : 0;
+
+        
+        $data['slug'] = Str::slug($request->category);
+        //dd($data);
         if(BRAN02BrandsSection::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.bran02.index');
@@ -53,9 +60,13 @@ class BRAN02SectionController extends Controller
      * @param  \App\Models\Brands\BRAN02Brands  $BRAN02Brands
      * @return \Illuminate\Http\Response
      */
-    public function edit(BRAN02BrandsSection $BRAN02Brands)
+    public function edit(BRAN02BrandsSection $BRAN02BrandsSection)
     {
-        //
+       // @dd($BRAN02BrandsSection);
+        return view('Admin.cruds.Brands.BRAN02.categories.edit', [
+            'cropSetting' => getCropImage('Brands', 'BRAN01'),
+            'BRAN02BrandsSection' => $BRAN02BrandsSection,
+        ]);
     }
 
     /**
@@ -65,11 +76,16 @@ class BRAN02SectionController extends Controller
      * @param  \App\Models\Brands\BRAN02Brands  $BRAN02Brands
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BRAN02BrandsSection $BRAN02Brands)
+    public function update(Request $request, BRAN02BrandsSection $BRAN02BrandsSection)
     {
         $data = $request->all();
 
-        if($BRAN02Brands->fill($data)->save()){
+        $data['active'] = $request->active ? 1 : 0;
+
+        $data['highlighted'] = $request->highlighted ? 1 : 0;
+
+        //@dd($data, $BRAN02BrandsSection);
+        if($BRAN02BrandsSection->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.bran02.index');
         }else{
@@ -84,12 +100,12 @@ class BRAN02SectionController extends Controller
      * @param  \App\Models\Brands\BRAN02Brands  $BRAN02Brands
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BRAN02Brands $BRAN02Brands)
+    public function destroy(BRAN02BrandsSection $BRAN02BrandsSection)
     {
-        storageDelete($BRAN02Brands, 'path_image');
+        storageDelete($BRAN02BrandsSection, 'path_image');
 
 
-        if($BRAN02Brands->delete()){
+        if($BRAN02BrandsSection->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }

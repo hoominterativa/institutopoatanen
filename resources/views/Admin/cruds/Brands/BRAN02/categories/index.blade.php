@@ -8,7 +8,7 @@
                             style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="{{ route('admin.bran02.categorie.create') }}"
+                        <a href="{{ route('admin.bran02.categories.create') }}"
                             class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                     </div>
 
@@ -21,12 +21,13 @@
                                 <label><input name="btnSelectAll" value="btnDeleteTopic" type="checkbox"></label>
                             </th>
                             <th>Título</th>
+                            <th width="100px">Foco</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
 
-                    <tbody data-route="">
+                    <tbody data-route="{{ route('admin.bran02.categorie.sorting') }}">
 
                         @foreach ($bran02section as $section)
                             <tr data-code="{{ $section->id }}">
@@ -38,20 +39,31 @@
                                 </td>
                                 <td class="align-middle">{{ $section->category }}</td>
                                 <td class="align-middle">
+                                    @if ($section->highlighted == '1')
+                                        <span class="badge bg-success">Destacado</span>
+                                    @else
+                                        <span class="badge bg-danger">Normal</span>
+                                    @endif
+                                </td>
+                                <td class="align-middle">
                                     @if ($section->active)
                                         <span class="badge bg-success">Ativo</span>
                                     @else
                                         <span class="badge bg-danger">Inativo</span>
                                     @endif
                                 </td>
-                                 <td class="align-middle">
+                                <td class="align-middle">
                                     <div class="row">
-                                    <div class="col-4">
-                                            <a href="{{ route('admin.bran02.categorie.edit', ['categorie' => $section->id]) }}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                      </div>
-                                       <form action="{{ route('admin.bran02.categorie.destroy', ['categorie' => $section->id]) }}" class="col-4" method="POST">
-                                           @method('DELETE') @csrf
-                                          <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                        <div class="col-4">
+                                            <a href="{{ route('admin.bran02.categories.edit', ['BRAN02BrandsSection' => $section->id]) }}"
+                                                class="btn-icon mdi mdi-square-edit-outline"></a>
+                                        </div>
+                                        <form
+                                            action="{{ route('admin.bran02.categories.destroy', ['BRAN02BrandsSection' => $section->id]) }}"
+                                            class="col-4" method="POST">
+                                            @method('DELETE') @csrf
+                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i
+                                                    class="mdi mdi-trash-can"></i></button>
                                         </form>
                                     </div>
                                 </td>

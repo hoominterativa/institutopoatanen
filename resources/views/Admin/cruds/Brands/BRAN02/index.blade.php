@@ -50,11 +50,11 @@
                         </a>
                     </li>
                 </ul>
-                
+
                 <div class="tab-content">
                     <div class="tab-pane show active" id="brand">
                         <div class="col-12">
-                            @include('Admin.cruds.Brands.BRAN02.form')       
+                            @include('Admin.cruds.Brands.BRAN02.form')
                             {{-- end card-body --}}
                         </div>
 

@@ -20,6 +20,7 @@ class BRAN02Brandsproducts extends Model
         'category_id',
         'name',
         'path_image',
+        'highlighted',
         'button_text',
         'button_link',
         'target_link',
@@ -36,7 +37,10 @@ class BRAN02Brandsproducts extends Model
     {
         return $query->where('active', 1);
     }
-
+    public function scopeHighlighted($query)
+    {
+        return $query->where('highlighted', 1);
+    }
     public function category()
     {
         return $this->belongsTo(BRAN02BrandsSection::class, 'category_id');

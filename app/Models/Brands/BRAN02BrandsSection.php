@@ -18,6 +18,8 @@ class BRAN02BrandsSection extends Model
     protected $table = "bran02_brands_sections";
     protected $fillable = [
         'category',
+        'slug',
+        'highlighted',
         'sorting',
         'active',
     ];
@@ -31,6 +33,16 @@ class BRAN02BrandsSection extends Model
     {
         return $query->where('active', 1);
     }
+
+    public function scopeHighlighted($query)
+    {
+        return $query->where('highlighted', 1);
+    }
+    public function scopeNoHighlighted($query)
+    {
+        return $query->where('highlighted', 0);
+    }
+
     public function BrandsProducts()
     {
         return $this->hasMany(BRAN02BrandsProducts::class, 'category_id')->exists()->active()->sorting();;

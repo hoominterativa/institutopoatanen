@@ -22,6 +22,7 @@ class CreateBran02BrandsProductsTable extends Migration
             $table->string('button_link')->nullable();
             $table->enum('target_link', ['_self','_blank'])->default('_self');
             $table->integer('sorting')->default(0);
+            $table->boolean('highlighted')->default(0);
             $table->boolean('active')->default(0);         
             $table->softDeletes();
             $table->timestamps();
