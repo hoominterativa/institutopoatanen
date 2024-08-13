@@ -25,7 +25,7 @@ return [
                 'config' => (object) [
                     'titleMenu' => 'Marcas',
                     'anchor' =>  false,
-                    'linkMenu' => 'bran01.page',
+                    'linkMenu' => 'bran02.page',
                     'iconMenu' => '',
                     'titlePanel' => 'Marcas',
                     'iconPanel' => 'mdi-google-my-business'

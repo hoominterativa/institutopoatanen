@@ -1,30 +1,13 @@
-{{--
-    Para uma boa organização dos inputs, em caso de uma tela de cadastro com muitos campos, recomendamos dividir em dua colunas
-    o "div class=col-12 dentro de .row" adicionando a classe 'col-lg-6' e duplicando toda a div e distribuir os inputs nessas colunas.
 
-    Lista de Inputs se encontra no arquivo 'resources/views/Admin/components/forms/inputs.blade.php' é só copiar a estrutura do blase desejada e colar
-    na área indicada abaixo. Veja abaixo um exemplo da estrutura do input.
-
-    <div class="mb-3">
-        {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'First name', 'required'=>'required']) !!}
-    </div>
-
-    PS.: Excluir esse comentário e todos relacioado a instruções.
---}}
-<div class="col-12">
-    <div class="mb-3 card-body card">
+<div class="row">
+    <div class="col-6">
+    <div class="mb-3 card-body card ">
+        
         {!! Form::label('name', 'Nome da Categoria', ['class' => 'form-label']) !!}
         {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'title', 'required' => 'required']) !!}
         <div class="mt-3">
             {!! Form::label('category_id	', 'Selecione a Categoria do Produto', ['class' => 'form-label']) !!}
-            {!! Form::select(
-                'options',
-                [
-                    '1' => 'Option 1',
-                    '2' => 'Option 2',
-                    '3' => 'Option 2',
-                ],
+            {!! Form::select('category_id',$options,
                 null,
                 [
                     'class' => 'form-select',
@@ -35,9 +18,10 @@
             ) !!}
         </div>
     </div>
+    </div>
 
+    <div class="col-6">
     <div class="card card-body" id="tooltip-container">
-        <div class="row">
             {{-- Editor de Link --}}
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
@@ -77,7 +61,7 @@
                                     Páginas <i class="mdi mdi-chevron-down float-end"></i>
                                 </button>
                                 <ul class="dropdown-menu multi-level col-12" aria-labelledby="dropdownPages">
-                                    {{-- @foreach (listPage() as $page)
+                                    @foreach (listPage() as $page)
                                             <li class="dropdown {{$page->dropdown?'dropdown-submenu':''}}">
                                                 <a href="{{$page->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl" data-bs-toggle="dropdown">{{$page->title}}</a>
                                                 @if ($page->dropdown)
@@ -88,7 +72,7 @@
                                                     </ul>
                                                 @endif
                                             </li>
-                                        @endforeach --}}
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -151,13 +135,3 @@
     </div>
     {{-- end card-body --}}
 </div>
-
-{{-- end row --}}
-
-{{-- Essa estrutura pode ser usada junto ao label do input para aparecer o ícone de duvida do lado do mesmo. pode usar a estutura abaixo substituindo o "Form::label" --}}
-{{-- <div class="d-flex align-items-center mb-1">
-    {!! Form::label('validationCustom01', 'First name', ['class'=>'form-label']) !!}
-    <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-        data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-original-title="Coloque a mensagem desejado aqui"></i>
-</div> --}}

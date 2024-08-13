@@ -29,6 +29,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
  Route::resource($route.'/secao', BRAN02Controller::class)->names('admin.'.$routeName.'.category')->parameters(['secao' => 'BRAN02Brands']);
   Route::post($route.'/secao/delete', [BRAN02Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.secao.destroySelected');
   Route::post($route.'/secao/sorting', [BRAN02Controller::class, 'sorting'])->name('admin.'.$routeName.'.secao.sorting');
+  Route::post($route.'/marcas/{BRAN02Brands}', [BRAN02Controller::class, 'show'])->name('admin.'.$routeName.'.  ');
 
   //Produtos
   Route::resource($route.'/products', BRAN02productsController::class)->names('admin.'.$routeName.'.products')->parameters(['products' => 'BRAN02BrandsProducts']);
@@ -42,4 +43,4 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
  });
 //  CLIENT
- Route::get($route.'/{id}', [BRAN02Controller::class, 'page'])->name($routeName.'.page');
+ Route::get($route.'/{id}', [BRAN02Controller::class, 'show'])->name($routeName.'.show');

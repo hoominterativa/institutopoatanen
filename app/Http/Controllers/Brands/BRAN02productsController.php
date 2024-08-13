@@ -21,11 +21,17 @@ class BRAN02productsController extends Controller
 
 
     public function create()
+    
     {
+        $categories = BRAN02BrandsSection::active()->sorting()->get();
+        
+        $options = $this->options($categories);
+
         $sections = BRAN02BrandsSection::active()->sorting()->get();
         return view('Admin.cruds.Brands.BRAN02.products.create', [
             'cropSetting' => getCropImage('Brands', 'BRAN02'),
             'sections' => $sections,
+            'options' => $options
         ]);
     }
 
@@ -66,9 +72,15 @@ class BRAN02productsController extends Controller
      */
     public function edit(BRAN02BrandsProducts $BRAN02BrandsProducts)
     {
+
+        $categories = BRAN02BrandsSection::active()->sorting()->get();
+        
+        $options = $this->options($categories);
+        
         return view('Admin.cruds.Brands.BRAN02.products.edit', [
             'cropSetting' => getCropImage('Brands', 'BRAN02'),
             'BrandsProducts' => $BRAN02BrandsProducts,
+            'options' => $options,
 
         ]);
     }
@@ -163,5 +175,16 @@ class BRAN02productsController extends Controller
             BRAN02BrandsProducts::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
+    }
+
+    public function options($categories){
+
+        $options = [];
+
+        foreach ($categories as $category) {
+            $options[$category['id']] = $category['category'];
+        }
+
+        return $options;
     }
 }

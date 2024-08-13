@@ -134,7 +134,7 @@
                                     Páginas <i class="mdi mdi-chevron-down float-end"></i>
                                 </button>
                                 <ul class="dropdown-menu multi-level col-12" aria-labelledby="dropdownPages">
-                                    {{-- @foreach (listPage() as $page)
+                                     @foreach (listPage() as $page)
                                         <li class="dropdown {{$page->dropdown?'dropdown-submenu':''}}">
                                             <a href="{{$page->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl" data-bs-toggle="dropdown">{{$page->title}}</a>
                                             @if ($page->dropdown)
@@ -145,7 +145,7 @@
                                                 </ul>
                                             @endif
                                         </li>
-                                    @endforeach--}}
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

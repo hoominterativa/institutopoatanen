@@ -166,7 +166,7 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .bran02-page__products, .bran02-page__categories, .bran02-page__header, .bran02, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .bran02-page__banner {
+.comp01-page__content, .bran02-page__pagination, .bran02-page__products, .bran02-page__categories, .bran02-page__header, .bran02, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .bran02-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -2318,6 +2318,12 @@ body .owl-dots .owl-dot.active {
   .bran02-page__products__item {
     width: calc(100% - 1.3125rem * 0 / 1);
   }
+}
+.bran02-page__pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .bran02-page__cta {
   margin: 1.5625rem auto 0;
