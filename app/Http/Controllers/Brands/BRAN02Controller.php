@@ -78,17 +78,6 @@ class BRAN02Controller extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Brands\BRAN02Brands  $BRAN02Brands
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BRAN02Brands $BRAN02Brands)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

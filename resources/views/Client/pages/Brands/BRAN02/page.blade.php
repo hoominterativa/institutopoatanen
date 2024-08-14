@@ -32,7 +32,9 @@
             <menu class="bran02-page__categories__swiper-wrapper swiper-wrapper">
                 @foreach ($bran02sections as $category)
                     <a href="{{ route('bran02.show', $category->id) }}"
-                        class="bran02-page__categories__item swiper-slide  {{ $category->highlighted == '1' ? 'active' : '' }}">{{ $category->category }}</a>
+                        class="bran02-page__categories__item swiper-slide  
+                        {{ $category->highlighted == '1' ? 'active' : '' }}
+                        {{ $category->id == $show ? 'active' : '' }}"> {{ $category->category }} </a>
                 @endforeach
             </menu>
         </aside>
