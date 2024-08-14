@@ -9,7 +9,7 @@
                 <ul class="foot02__navigation__client-info__socials">
                     @foreach ($socials as $social)
                         <li class="foot02__navigation__client-info__socials__item" title="{{ $social->title }}">
-                            <a href="{{ $social->link }}" class="link-full" title="{{ $social->title }}"></a>
+                            <a href="{{ $social->link }}" class="link-full" target="_blank" title="{{ $social->title }}"></a>
                             <img class="foot02__navigation__client-info__socials__item__icon"
                                 src="{{ asset('storage/' . $social->path_image_icon) }}" alt="{{ $social->title }}"
                                 loading= 'lazy'>

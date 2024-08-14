@@ -1,0 +1,63 @@
+@import "variables";
+
+/* BEGIN STYLE */
+
+.cont06v2 {
+    overflow: hidden; /* prevenção do shift da animação*/
+    @extend %theme__padding;
+
+    &__header {
+        width: 100%;
+        @include disFlex(column, center, center);
+
+        margin-bottom: 2rem;
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.75rem;
+        }
+
+        &__paragraph {
+            width: 100%;
+            max-width: 680px;
+
+            @extend %theme__p1-c2;
+            text-align: center;
+        }
+    }
+
+    &__video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        @include disFlex(row, center, center);
+        @include bg;
+
+        &__button {
+            width: 5.5rem;
+            height: auto;
+            aspect-ratio: 1/1;
+
+            background-color: transparent;
+            border: none;
+
+            &__icon {
+                width: 100%;
+                height: 100%;
+
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+
+        &__iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__cta {
+        @extend %theme__cta;
+        margin: 1.25rem auto 0;
+    }
+}

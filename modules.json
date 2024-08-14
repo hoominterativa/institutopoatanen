@@ -34,13 +34,17 @@
         "CONT10V1",
         "CONT13",
         "CONT08",
-        "CONT14"
+        "CONT14",
+        "CONT02V2",
+        "CONT06V1",
+        "CONT06V2"
     ],
     "Portfolios": [
         "PORT01",
         "PORT02",
         "PORT04",
-        "PORT03"
+        "PORT03",
+        "PORT05"
     ],
     "Topics": [
         "TOPI01",
@@ -54,7 +58,10 @@
         "TOPI10",
         "TOPI08",
         "TOPI09",
-        "TOPI11"
+        "TOPI11",
+        "TOPI10V1",
+        "TOPI12",
+        "TOPI13"
     ],
     "Services": [
         "SERV01",
@@ -62,9 +69,12 @@
         "SERV05",
         "SERV06",
         "SERV07",
+        "SERV08",
         "SERV09",
         "SERV02",
-        "SERV10"
+        "SERV10",
+        "SERV11",
+        "SERV12"
     ],
     "Abouts": [
         "ABOU01",
@@ -79,7 +89,8 @@
     ],
     "Units": [
         "UNIT01",
-        "UNIT03"
+        "UNIT03",
+        "UNIT05"
     ],
     "Blogs": [
         "BLOG01",
@@ -101,7 +112,8 @@
     "ContentPages": [
         "COPA01",
         "COPA02",
-        "COPA03"
+        "COPA03",
+        "COPA04"
     ],
     "Brands": [
         "BRAN01",

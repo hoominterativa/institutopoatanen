@@ -116,7 +116,7 @@
         <li class="head02__navigation__item--menu-mobile">
             <button title="menu mobile" class="head02__navigation__item--menu-mobile__item burguer">
                 {{-- Menu --}}
-                <div class="head02__navigation__item--menu-mobile__item__icon burguer__icon dots">
+                <div class="head02__navigation__item--menu-mobile__item__icon burguer__icon">
                 </div>
             </button>
         </li>

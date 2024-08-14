@@ -2,39 +2,53 @@
     <div class="row px-0 mx-0 lightbox-serv08__content">
         <div class="lightbox-serv08__content__left">
             <article class="lightbox-serv08__content__left__article" style="background-image: url({{ asset('images/gray.png') }}); background-color: #ffffff;">
-                @if ($service->featured_service == 1)
+                @if ($service->featured_service)
                     <div class="lightbox-serv08__promotion" style="background-color: {{$service->color_featured_service}}; border-color: {{$service->color_featured_service}};">
                         <h4 class="lightbox-serv08__promotion__titulo">{{$service->title_featured_service}}</h4>
                     </div>
                 @endif
                 <div class="lightbox-serv08__content w-100 d-flex flex-column align-items-stretch">
                     <div class="lightbox-serv08__top w-100 d-flex align-items-center justify-content-between">
-                        <div class="lightbox-serv08__top__left d-flex flex-column align-items-start justify-content-start ">
-                            <h3 class="lightbox-serv08__top__title">{{$service->title}}</h3>
-                            <h4 class="lightbox-serv08__top__subtitle">{{$service->subtitle}}</h4>
-                            <hr class="lightbox-serv08__top__line">
-                        </div>
-                        <div class="lightbox-serv08__top__center d-flex flex-column align-items-start justify-content-start ">
-                            <div class="lightbox-serv08__top__center__list">
-                                <p class="lightbox-serv08__top__center__list__item">{!! $service->text !!}</p>
+                        @if ($service->title || $service->subtitle)
+                            <div class="lightbox-serv08__top__left d-flex flex-column align-items-start justify-content-start ">
+                                <h3 class="lightbox-serv08__top__title">{{$service->title}}</h3>
+                                <h4 class="lightbox-serv08__top__subtitle">{{$service->subtitle}}</h4>
+                                <hr class="lightbox-serv08__top__line">
                             </div>
+                        @endif
+                        @if ($service->text)
+                            <div class="lightbox-serv08__top__center d-flex flex-column align-items-start justify-content-start ">
+                                <div class="lightbox-serv08__top__center__list">
+                                    <p class="lightbox-serv08__top__center__list__item">{!! $service->text !!}</p>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    @if ($service->title_price || $service->price)
+                        <div style="background-color: {{ $service->featured_service ? $service->color_featured_service : null}}; border-color: {{$service->featured_service ? $service->color_featured_service : null}};" class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
+                            @if ($service->title_price)
+                                <h4 class="lightbox-serv08__top__right__subtitle">{{$service->title_price}}</h4>
+                            @endif
+                            @if ($service->price)
+                                <h3 class="lightbox-serv08__top__right__title"><span>R$ </span>{{$service->price}}</h3>
+                            @endif
                         </div>
-                    </div>
-                    <div style="background-color: {{ $service->featured_service == 1 ? $service->color_featured_service : ''}}; border-color: {{$service->featured_service == 1 ? $service->color_featured_service : ''}};" class="lightbox-serv08__top__right d-flex flex-column align-items-end justify-content-start ">
-                        <h4 class="lightbox-serv08__top__right__subtitle">{{$service->title_price}}</h4>
-                        <h3 class="lightbox-serv08__top__right__title"><span>R$</span>{{number_format($service->price, 2, ',', '.')}}</h3>
-                    </div>
+                    @endif
                 </div>
             </article>
         </div>
         @if ($contact)
             <div class="lightbox-serv08__content__right">
-                <h2 class="lightbox-serv08__content__right__titulo">{{$contact->title}}</h2>
-                <div class="lightbox-serv08__content__right__descricao">
-                    <p>
-                        {!! $contact->description !!}
-                    </p>
-                </div>
+                @if ($contact->title)
+                    <h2 class="lightbox-serv08__content__right__titulo">{{$contact->title}}</h2>
+                @endif
+                @if ($contact->description)
+                    <div class="lightbox-serv08__content__right__descricao">
+                        <p>
+                            {!! $contact->description !!}
+                        </p>
+                    </div>
+                @endif
                 {!! Form::open([
                     'route' => 'lead.store',
                     'method' => 'post',

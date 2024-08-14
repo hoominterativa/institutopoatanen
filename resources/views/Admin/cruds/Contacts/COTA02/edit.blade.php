@@ -61,15 +61,6 @@
                                 data-bs-original-title="Cadastro dos tópicos que aparecem na seção acima do formulário"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#infoTopic" data-bs-toggle="tab" aria-expanded="true"
-                            class="nav-link d-flex align-items-center">
-                            Informações da seção Tópico
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Aqui você pode editar as informações do tópico"></i>
-                        </a>
-                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -88,11 +79,6 @@
                     <div class="tab-pane" id="infoForm">
                         {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id],'class' => 'parsley-validate', 'method' => 'PUT', 'files' => true, ]) !!}
                         @include('Admin.cruds.Contacts.COTA02.InfoForm.form')
-                        {!! Form::close() !!}
-                    </div>
-                    <div class="tab-pane" id="infoTopic">
-                        {!! Form::model($contact, ['route' => ['admin.cota02.update', $contact->id], 'class' => 'parsley-validate', 'method' => 'PUT', 'files' => true,]) !!}
-                        @include('Admin.cruds.Contacts.COTA02.InfoTopic.form')
                         {!! Form::close() !!}
                     </div>
                     <div class="tab-pane" id="topicSection">

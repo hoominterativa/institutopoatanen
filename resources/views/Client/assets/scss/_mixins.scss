@@ -1,4 +1,6 @@
 //novos mixins
+@use "sass:math";
+
 @mixin disFlex($direction: row, $justify: start, $align: stretch) {
     display: flex;
     flex-direction: $direction;
@@ -9,6 +11,23 @@
     background-size: $size;
     background-position: $position;
     background-repeat: no-repeat;
+}
+
+//Iago
+@function calcWidth($nElements, $gapSize) {
+    $percentage: 100% / $nElements;
+    $gapTotal: calc($gapSize * ($nElements - 1));
+
+    @return calc($percentage - $gapTotal / $nElements);
+}
+
+//Wiliam
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Não use unidades usando a função rem(), apenas numeros';
+  }
 }
 
 /* ------- --------- */

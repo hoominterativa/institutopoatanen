@@ -16,19 +16,7 @@ class SLID01Slides extends Model
     }
 
     protected $table = "slid01_slides";
-    protected $fillable = [
-        "title",
-        "subtitle",
-        "description",
-        "title_button",
-        "link_button",
-        "path_image_desktop",
-        "path_image_png",
-        "target_link_button",
-        "position_content",
-        "active",
-        "path_image_mobile",
-        "sorting",
+    protected $fillable = [ "title", "subtitle", "description", "title_button", "link_button", "path_image_desktop", "path_image", "target_link_button", "active", "path_image_mobile", "sorting"
     ];
 
     public function scopeSorting($query)

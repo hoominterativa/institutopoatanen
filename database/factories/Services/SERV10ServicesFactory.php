@@ -41,7 +41,6 @@ class SERV10ServicesFactory extends Factory
             'title_banner' => $this->faker->text(10),
             'path_image_desktop_banner' => 'uploads/tmp/image-box.jpg',
             'path_image_mobile_banner' => 'uploads/tmp/gall01_image1.png',
-            'background_color_banner' => '#FFFFFF',
             'active_banner' => 1,
 
             'title_content' => $this->faker->text(10),

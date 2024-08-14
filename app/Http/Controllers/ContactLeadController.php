@@ -23,12 +23,12 @@ class ContactLeadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $contactLeadsUpcoming = ContactLead::where('status_process', 'upcoming')->orderBy('created_at', 'DESC')->get();
-        $contactLeadsInProcess = ContactLead::where('status_process', 'in_process')->orderBy('created_at', 'DESC')->get();
-        $contactLeadsCompleted = ContactLead::where('status_process', 'completed')->orderBy('created_at', 'DESC')->get();
-        $contactLeadsLost = ContactLead::where('status_process', 'lost')->orderBy('created_at', 'DESC')->get();
+        $contactLeadsUpcoming = self::filterLeads($request, 'upcoming');
+        $contactLeadsInProcess = self::filterLeads($request, 'in_process');
+        $contactLeadsCompleted = self::filterLeads($request, 'completed');
+        $contactLeadsLost = self::filterLeads($request, 'lost');
 
         $contactLeadsFilter = ContactLead::orderBy('target_lead', 'ASC')->groupBy('target_lead')->get();
 
@@ -60,16 +60,20 @@ class ContactLeadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Database\Eloquent\Collection
      */
-    public function filterLeads($request)
+    public function filterLeads($request, $status = null)
     {
-        $contactLeads = ContactLead::whereNotNull('json');
+        $contactLeads = ContactLead::query();
+
+        if ($status) {
+            $contactLeads = $contactLeads->where('status_process', $status);
+        }
 
         if($request->date_start<>'' && $request->date_end==''){
-            $contactLeads = $contactLeads->where('created_at', '>', $request->date_start);
+            $contactLeads = $contactLeads->where('created_at', '>=', $request->date_start);
         }
 
         if($request->date_start=='' && $request->date_end<>''){
-            $contactLeads = $contactLeads->where('created_at', '>', $request->date_end);
+            $contactLeads = $contactLeads->where('created_at', '<=', $request->date_end);
         }
 
         if($request->date_start<>'' && $request->date_end<>''){
@@ -87,16 +91,32 @@ class ContactLeadController extends Controller
 
     public function filter(Request $request)
     {
-        $contactLeads = self::filterLeads($request);
+        $contactLeadsUpcoming = self::filterLeads($request, 'upcoming');
+        $contactLeadsInProcess = self::filterLeads($request, 'in_process');
+        $contactLeadsCompleted = self::filterLeads($request, 'completed');
+        $contactLeadsLost = self::filterLeads($request, 'lost');
+
         $contactLeadsFilter = ContactLead::orderBy('target_lead', 'ASC')->groupBy('target_lead')->get();
 
-        foreach ($contactLeads as $contactLead) {
-            $contactLead->json = json_decode($contactLead->json);
+        foreach ($contactLeadsUpcoming as $contactLeadUpcoming) {
+            $contactLeadUpcoming->json = json_decode($contactLeadUpcoming->json);
+        }
+        foreach ($contactLeadsInProcess as $contactLeadInProcess) {
+            $contactLeadInProcess->json = json_decode($contactLeadInProcess->json);
+        }
+        foreach ($contactLeadsCompleted as $contactLeadCompleted) {
+            $contactLeadCompleted->json = json_decode($contactLeadCompleted->json);
+        }
+        foreach ($contactLeadsLost as $contactLeadLost) {
+            $contactLeadLost->json = json_decode($contactLeadLost->json);
         }
 
         return view('Admin.cruds.contactLead.index', [
-            'contactLeads' => $contactLeads,
             'contactLeadsFilter' => $contactLeadsFilter,
+            'contactLeadsUpcoming' => $contactLeadsUpcoming,
+            'contactLeadsInProcess' => $contactLeadsInProcess,
+            'contactLeadsCompleted' => $contactLeadsCompleted,
+            'contactLeadsLost' => $contactLeadsLost,
             'request' => $request
         ]);
     }

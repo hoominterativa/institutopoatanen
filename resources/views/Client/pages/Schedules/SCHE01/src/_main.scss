@@ -1,302 +1,256 @@
 @import "variables";
 
 /* BEGIN STYLE */
+.sche01 {
+    overflow: hidden; /* prevenção do shift da animação*/
+    width: 100%;
+    @include disFlex(column);
+    @extend %theme__padding;
+
+    &__header {
+        width: 100%;
+        @include disFlex(column, center, center);
+
+        margin-bottom: 3rem;
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
+        }
+
+        &__subtitle {
+            @extend %theme__t4-c3;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__carousel {
+        position: relative;
+        width: 100%;
+
+        &__nav {
+            @extend %theme__nav;
+        }
+
+        &__item {
+            width: 301px;
+            height: auto;
+            position: relative;
+
+            @include disFlex(column);
+
+            &__image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 301/197;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            &__information {
+                background-color: $color-three;
+                padding: 1.75rem 0.75rem;
+                @include disFlex;
+                gap: 0.75rem;
+
+                &__date {
+                    @include disFlex(column, center, center);
+
+                    &__day {
+                        @extend %theme__t3-c1;
+                        margin-bottom: 2px;
+                    }
+
+                    &__month {
+                        @extend %theme__t4-c1;
+                    }
+
+                    &__year {
+                        @extend %theme__t5-c1;
+                    }
+                }
+
+                &__header {
+                    @include disFlex(column, center, start);
+
+                    &__title {
+                        @extend %theme__t5-cb;
+                        text-align: center;
+                    }
+
+                    &__subtitle {
+                        @extend %theme__p2-cb;
+                        text-align: center;
+                        margin-bottom: 0.75rem;
+                    }
+
+                    &__paragraph {
+                        @extend %theme__p2-c2;
+                        text-align: center;
+                        margin-bottom: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__cta {
+        @extend %theme__cta;
+        align-self: end;
+    }
+}
+
 .sche01-page {
     width: 100%;
 
     &__banner {
-        @include backG;
-        padding: 87px 0 54px 0;
-
+        @extend %theme__banner;
         &__title {
-            font-family: $font-primary;
-            font-size: $T1;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-black;
-            text-align: center;
-
-            @include medium-device-down {
-                font-size: $T1-mobile;
-            }
+            @extend %theme__banner__title;
         }
 
         &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            line-height: $font-22;
-            color: $color-two;
-            text-align: center;
-            margin-bottom: 28px;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-
-        &__line {
-            width: 95%;
-            max-width: 610px;
-            border-top: 1px solid $color-black;
-            margin: 0 auto;
-            opacity: 1;
+            @extend %theme__banner__subtitle;
         }
     }
 
-    &__cont {
-        padding: 48px 0 118px 0;
+    &__content {
+        @extend %theme__padding;
 
-        &__body {
-            @include Flex($align: start, $justify: space-between);
-
-            @include medium-device-down {
-                flex-direction: column;
-            }
-        }
+        @include disFlex(row, space-between, start);
+        flex-wrap: wrap;
+        width: 100%;
 
         &__main {
             width: 60%;
 
-            @include medium-device-down {
+            @include large-device-down {
                 width: 100%;
-                margin-bottom: 40px;
-            }
-        }
-
-        &__top {
-            margin-bottom: 39px;
-        }
-
-        &__title {
-            font-family: $font-primary;
-            font-size: $T2;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-black;
-            text-align: left;
-
-            @include medium-device-down {
-                font-size: $T2-mobile;
-            }
-        }
-
-        &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            line-height: $font-22;
-            color: $color-two;
-            text-align: left;
-            margin-bottom: 28px;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-
-        &__line {
-            width: 100%;
-            border-top: 1px solid $color-black;
-            margin: 0 auto;
-            opacity: 1;
-        }
-
-        &__list {
-            gap: 35px;
-        }
-
-        &__item {
-            width: 100%;
-
-            & + & {
-                padding-top: 80px;
-                border-top: solid 1px $color-one;
+                margin-bottom: 2.5rem;
             }
 
-            &__header {
-                gap: 30px;
+            &__top {
+                @include disFlex(column, start, start);
+                margin-bottom: 2.5rem;
+                border-bottom: solid 1px $color-black;
 
-                &__topics {
-                    @include Flex($justify: start);
-                    flex-wrap: wrap;
-                    gap: 22px;
+                &__title {
+                    @extend %theme__t2-cb;
+                }
+
+                &__subtitle {
+                    @extend %theme__t4-c2;
+                }
+            }
+
+            &__list {
+                @include disFlex(column);
+                gap: 35px;
+
+                &__item {
                     width: 100%;
-                    padding: 0;
 
-                    &__item {
-                        @include Flex($justify: start);
-                        gap: 10px;
-                        font-size: $T4;
-                        font-family: $font-primary;
-                        font-weight: 700;
-                        color: $color-one;
+                    & + & {
+                        padding-top: 80px;
+                        border-top: solid 1px $color-one;
+                    }
 
-                        @include medium-device-down {
-                            font-size: $T4-mobile;
+                    &__header {
+                        @include disFlex(row, start, start);
+                        gap: 1.75rem;
+
+                        &__date {
+                            @include disFlex(column, center, center);
+                            width: 120px;
+                            height: 120px;
+                            background-color: $color-nine;
+
+                            &__day {
+                                @extend %theme__t3-c1;
+                                margin-bottom: 2px;
+                            }
+
+                            &__month {
+                                @extend %theme__t4-c1;
+                            }
+
+                            &__year {
+                                @extend %theme__t5-c1;
+                            }
+                        }
+
+                        &__information {
+                            width: calc(100% - 150px);
+                            margin-bottom: 1.75rem;
+
+                            &__title {
+                                @extend %theme__t2-cb;
+                                text-align: left;
+                            }
+
+                            &__topics {
+                                @include disFlex(row, start, center);
+                                flex-wrap: wrap;
+                                gap: 1.25rem;
+                                width: 100%;
+                                padding: 0;
+
+                                &__item {
+                                    @include disFlex(row, start, center);
+                                    gap: 10px;
+
+                                    @extend %theme__t4-c1;
+
+                                    &__icon {
+                                        width: 1.25rem;
+                                        height: auot;
+                                        aspect-ratio: 1/1;
+                                        object-fit: contain;
+                                        object-position: center;
+                                    }
+                                }
+                            }
                         }
                     }
-                }
-            }
 
-            &__date {
-                width: 120px;
-                height: 120px;
-                background-color: $color-nine;
-            }
+                    &__img {
+                        width: 100%;
+                        height: auto;
+                        margin-bottom: 1.75rem;
+                    }
 
-            &__day {
-                font-size: $T3;
-                font-family: $font-primary;
-                font-weight: 700;
-                color: $color-one;
-                line-height: $T3;
-                margin-bottom: 2px;
+                    &__paragraph {
+                        @extend %theme__p1-c1;
+                    }
 
-                @include medium-device-down {
-                    font-size: $T3-mobile;
-                }
-            }
-
-            &__month {
-                font-size: $T4;
-                font-family: $font-primary;
-                font-weight: 700;
-                line-height: 120%;
-                color: $color-one;
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                }
-            }
-
-            &__year {
-                font-size: $T5;
-                font-family: $font-primary;
-                font-weight: 700;
-                line-height: 120%;
-                color: $color-one;
-
-                @include medium-device-down {
-                    font-size: $T5-mobile;
-                }
-            }
-
-            &__right {
-                width: calc(100% - 150px);
-                margin-bottom: 28px;
-            }
-
-            &__title {
-                font-family: $font-primary;
-                font-size: $T2;
-                font-weight: 700;
-                line-height: $font-46;
-                color: $color-black;
-                text-align: left;
-
-                @include medium-device-down {
-                    font-size: $T2-mobile;
-                }
-            }
-
-            &__line {
-                opacity: 1;
-                width: 100%;
-                border-top: 1px solid $color-one;
-                margin: 21px 0;
-            }
-
-            &__img {
-                width: 100%;
-                height: auto;
-                margin-bottom: 28px;
-            }
-
-            &__desc {
-                width: 100%;
-
-                font: $paragraph;
-                font-weight: 400;
-                color: $color-one;
-
-                @include medium-device-down {
-                    font: $paragraph-mobile;
-                }
-
-                p {
-                    font: inherit;
-                    color: inherit;
-                    font-weight: inherit;
-                    margin-bottom: 0;
-                }
-            }
-
-            &__cta {
-                @include Flex();
-                gap: 16px;
-                align-self: end;
-                white-space: nowrap;
-                background-color: $color-four;
-                padding: 10px 40px;
-                margin-top: 28px;
-
-                font: $paragraph-min;
-                font-weight: 700;
-                color: $color-one;
-
-                &:hover {
-                    background-color: $color-one;
-                    color: $color-four;
-                }
-
-                &__icon {
-                    height: 19px;
-                    width: 19px;
-                    object-fit: contain;
-                    object-position: center;
-                    @include trans($transition: 0.5s);
-                }
-
-                &:hover &__icon {
-                    filter: brightness(1) contrast(1) invert(1) grayscale(1);
+                    &__cta {
+                        @extend %theme__cta;
+                    }
                 }
             }
         }
 
         .pagination {
-            @include Flex();
+            @include disFlex(row, center, center);
             width: 100%;
-            gap: 9px;
-            margin-top: 58px;
+            gap: 0.5rem;
+            margin-top: 3.5rem;
             list-style-type: none;
 
             .page-item {
-                .page-link {
-                    @include Flex();
-                    border: none;
-                }
-            }
-
-            .page-item {
-                height: 38px;
-                width: 38px;
+                height: 2rem;
+                width: 2rem;
 
                 .page-link {
-                    @include Flex();
+                    @include disFlex(row, center, center);
                     border: none;
                     width: 100%;
                     height: 100%;
-                    border-radius: 50%;
                     vertical-align: center;
-                    font: $paragraph-min;
-                    color: $color-one;
-                    background-color: $color-nine;
-                    font-weight: 500;
 
-                    @include medium-device-down {
-                        font: $paragraph-min-mobile;
-                    }
+                    @extend %theme__p2-c1;
+                    font-weight: 500;
+                    background-color: $color-nine;
 
                     &:hover {
                         background-color: $color-one;
@@ -326,163 +280,104 @@
             width: 33%;
             gap: 60px;
 
-            @include medium-device-down {
+            @include large-device-down {
                 width: 100%;
             }
-        }
-    }
-}
 
-.sche01-form {
-    background-color: $color-four;
-    padding: 24px 28px 32px 28px;
+            &__form {
+                @include disFlex(column);
+                background-color: $color-four;
+                padding: 1.5rem 1.75rem 2rem;
 
-    &__subtitle {
-        font-family: $font-primary;
-        font-size: $T4;
-        font-weight: 700;
-        line-height: $font-22;
-        color: $color-two;
-        text-align: center;
-        margin-bottom: 4px;
-        text-transform: uppercase;
+                &__header {
+                    @include disFlex(column);
 
-        @include medium-device-down {
-            font-size: $T4-mobile;
-        }
-    }
+                    &__subtitle {
+                        @extend %theme__t4-c2;
+                        margin-bottom: 0.25rem;
+                    }
 
-    &__title {
-        font-family: $font-primary;
-        font-size: $T2;
-        font-weight: 700;
-        line-height: $font-46;
-        color: $color-one;
-        text-align: center;
+                    &__title {
+                        @extend %theme__t2-c1;
+                        text-align: left;
+                    }
 
-        @include medium-device-down {
-            font-size: $T2-mobile;
-        }
-    }
+                    &__paragraph {
+                        @extend %theme__p2-c1;
+                    }
+                }
 
-    &__desc {
-        font: $paragraph-min;
-        color: $color-one;
-        line-height: 140%;
+                &__inputs {
+                    @include disFlex(column);
 
-        @include medium-device-down {
-            font: $paragraph-min-mobile;
-        }
+                    &__compliance {
+                        width: fit-content;
 
-        p {
-            color: inherit;
-            font: inherit;
-            line-height: inherit;
-        }
-    }
+                        &__link,
+                        .form-check-label {
+                            @extend %theme__p1-cb;
+                        }
 
-    &__inputs {
-        width: 100%;
+                        .form-check-input {
+                            box-shadow: none;
+                            margin-top: 0.25em;
+                        }
+                    }
 
-        label {
-            font: $paragraph-min !important;
-            color: $color-one !important;
-            line-height: 140%;
-
-            @include medium-device-down {
-                font: $paragraph-min-mobile;
+                    &__cta {
+                        @extend %theme__cta;
+                        margin: 0 0 0 auto;
+                    }
+                }
             }
-        }
-    }
 
-    &__cta {
-        @include Flex();
-        border: none;
-        gap: 16px;
-        align-self: end;
-        white-space: nowrap;
-        background-color: $color-white;
-        padding: 10px 40px;
-        margin-top: 28px;
+            &__month-categories {
+                list-style-type: none;
+                @include disFlex(column);
 
-        font: $paragraph-min;
-        font-weight: 700;
-        color: $color-one;
+                &__item {
+                    @include disFlex(row, space-between, center);
+                    position: relative;
+                    padding: 0.75rem 0 1rem 1.5rem;
+                    border-bottom: solid 1px #0000004d;
 
-        &:hover {
-            background-color: $color-one;
-            color: $color-white;
-        }
+                    &::before {
+                        content: "";
+                        width: 3px;
+                        height: 28px;
+                        background-color: $color-one;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
 
-        &__icon {
-            height: 19px;
-            width: 19px;
-            object-fit: contain;
-            object-position: center;
-            @include trans($transition: 0.5s);
-        }
+                    &__title {
+                        @extend %theme__t4-cb;
+                        text-align: left;
+                        vertical-align: middle;
+                        margin-bottom: 0;
+                    }
 
-        &:hover &__icon {
-            filter: brightness(1) contrast(1) invert(1) grayscale(1);
-        }
-    }
-}
+                    &__subtitle {
+                        @include disFlex(row, center, center);
+                        @extend %theme__p2-c2;
+                        text-align: center;
+                        margin-bottom: 0;
 
-.sche01-month-categories {
-    list-style-type: none;
-    &__item {
-        padding: 12px 0 14px 22px;
-        border-bottom: solid 1px #0000004d;
-
-        &::before {
-            content: "";
-            width: 3px;
-            height: 28px;
-            background-color: $color-one;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        &__title {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            color: $color-black;
-            text-align: center;
-            vertical-align: middle;
-            margin-bottom: 0;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
+                        &__counter {
+                            @extend %theme__p2-cw;
+                            @include disFlex(row, center, center);
+                            margin-left: 0.75rem;
+                            vertical-align: middle;
+                            height: 1.75rem;
+                            width: 1.75rem;
+                            border-radius: 50%;
+                            background-color: $color-one;
+                        }
+                    }
+                }
             }
-        }
-
-        &__subtitle {
-            @include Flex();
-            font: $paragraph-min;
-            color: $color-two;
-            text-align: center;
-            margin-bottom: 0;
-
-            @include medium-device-down {
-                font: $paragraph-min-mobile;
-            }
-        }
-
-        &__counter {
-            @include Flex();
-            margin-left: 12px;
-            vertical-align: middle;
-            height: 28px;
-            width: 28px;
-            border-radius: 50%;
-            background-color: $color-one;
-            color: $color-white;
-            font-family: $font-secondary;
-            font-size: $font-12;
-            font-weight: 400;
         }
     }
 }
@@ -491,268 +386,143 @@
     width: 100%;
 
     &__banner {
-        @include backG;
-        padding: 87px 0 54px 0;
-
+        @extend %theme__banner;
         &__title {
-            font-family: $font-primary;
-            font-size: $T1;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-black;
-            text-align: center;
-
-            @include medium-device-down {
-                font-size: $T1-mobile;
-            }
+            @extend %theme__banner__title;
         }
 
         &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            line-height: $font-22;
-            color: $color-two;
-            text-align: center;
-            margin-bottom: 28px;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-
-        &__line {
-            width: 95%;
-            max-width: 610px;
-            border-top: 1px solid $color-black;
-            margin: 0 auto;
-            opacity: 1;
-        }
-    }
-
-    &__cont {
-        padding: 48px 0 118px 0;
-
-        &__body {
-            @include Flex($align: start, $justify: space-between);
-
-            @include medium-device-down {
-                flex-direction: column;
-            }
-        }
-
-        &__title {
-            font-family: $font-primary;
-            font-size: $T2;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-black;
-            text-align: left;
-
-            @include medium-device-down {
-                font-size: $T2-mobile;
-            }
-        }
-
-        &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            line-height: $font-22;
-            color: $color-two;
-            text-align: left;
-            margin-bottom: 28px;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-
-        &__line {
-            width: 100%;
-            border-top: 1px solid $color-black;
-            margin: 0 auto;
-            opacity: 1;
-        }
-
-        &__aside {
-            width: 33%;
-            gap: 60px;
-
-            @include medium-device-down {
-                width: 100%;
-            }
+            @extend %theme__banner__subtitle;
         }
     }
 
     &__content {
-        width: 60%;
+        @extend .sche01-page__content;
 
-        @include medium-device-down {
-            width: 100%;
-            margin-bottom: 40px;
-        }
+        &__main {
+            @extend .sche01-page__content__main__list__item;
+            width: 60%;
 
-        &__header {
-            gap: 30px;
-
-            &__topics {
-                @include Flex($justify: start);
-                flex-wrap: wrap;
-                gap: 22px;
+            @include large-device-down {
                 width: 100%;
-                padding: 0;
+                margin-bottom: 2.5rem;
+            }
 
-                &__item {
-                    @include Flex($justify: start);
-                    gap: 10px;
-                    font-size: $T4;
-                    font-family: $font-primary;
-                    font-weight: 700;
-                    color: $color-one;
+            &__header {
+                @extend .sche01-page__content__main__list__item__header;
 
-                    @include medium-device-down {
-                        font-size: $T4-mobile;
+                &__date {
+                    @extend .sche01-page__content__main__list__item__header__date;
+
+                    &__day {
+                        @extend .sche01-page__content__main__list__item__header__date__day;
+                    }
+
+                    &__month {
+                        @extend .sche01-page__content__main__list__item__header__date__month;
+                    }
+
+                    &__year {
+                        @extend .sche01-page__content__main__list__item__header__date__year;
+                    }
+                }
+
+                &__information {
+                    @extend .sche01-page__content__main__list__item__header__information;
+
+                    &__title {
+                        @extend .sche01-page__content__main__list__item__header__information__title;
+                    }
+
+                    &__topics {
+                        @extend .sche01-page__content__main__list__item__header__information__topics;
+
+                        &__item {
+                            @extend .sche01-page__content__main__list__item__header__information__topics__item;
+
+                            &__icon {
+                                @extend .sche01-page__content__main__list__item__header__information__topics__item__icon;
+                            }
+                        }
                     }
                 }
             }
-        }
 
-        &__date {
-            width: 120px;
-            height: 120px;
-            background-color: $color-nine;
-        }
+            &__img {
+                @extend .sche01-page__content__main__list__item__img;
+            }
 
-        &__day {
-            font-size: $T3;
-            font-family: $font-primary;
-            font-weight: 700;
-            color: $color-one;
-            line-height: $T3;
-            margin-bottom: 2px;
+            &__subtitle {
+                @extend %theme__t3-c1;
+                margin: 2rem 0;
+            }
 
-            @include medium-device-down {
-                font-size: $T3-mobile;
+            &__paragraph {
+                @extend .sche01-page__content__main__list__item__paragraph;
+            }
+
+            &__cta {
+                @extend .sche01-page__content__main__list__item__cta;
             }
         }
 
-        &__month {
-            font-size: $T4;
-            font-family: $font-primary;
-            font-weight: 700;
-            line-height: 120%;
-            color: $color-one;
+        &__aside {
+            @extend .sche01-page__content__aside;
 
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
+            &__form {
+                @extend .sche01-page__content__aside__form;
 
-        &__year {
-            font-size: $T5;
-            font-family: $font-primary;
-            font-weight: 700;
-            line-height: 120%;
-            color: $color-one;
+                &__header {
+                    @extend .sche01-page__content__aside__form__header;
 
-            @include medium-device-down {
-                font-size: $T5-mobile;
-            }
-        }
+                    &__subtitle {
+                        @extend .sche01-page__content__aside__form__header__subtitle;
+                    }
 
-        &__right {
-            width: calc(100% - 150px);
-            margin-bottom: 28px;
-        }
+                    &__title {
+                        @extend .sche01-page__content__aside__form__header__title;
+                    }
 
-        &__title {
-            font-family: $font-primary;
-            font-size: $T2;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-black;
-            text-align: left;
+                    &__paragraph {
+                        @extend .sche01-page__content__aside__form__header__paragraph;
+                    }
+                }
 
-            @include medium-device-down {
-                font-size: $T2-mobile;
-            }
-        }
+                &__inputs {
+                    @extend .sche01-page__content__aside__form__inputs;
 
-        &__line {
-            opacity: 1;
-            width: 100%;
-            border-top: 1px solid $color-one;
-            margin: 21px 0;
-        }
+                    &__compliance {
+                        @extend .sche01-page__content__aside__form__inputs__compliance;
 
-        &__img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 12px;
-        }
+                        &__link {
+                            @extend .sche01-page__content__aside__form__inputs__compliance__link;
+                        }
+                    }
 
-        &__subtitle {
-            font-family: $font-primary;
-            font-size: $T3;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-one;
-            text-align: left;
-            margin: 32px 0;
-
-            @include medium-device-down {
-                font-size: $T3-mobile;
-            }
-        }
-
-        &__desc {
-            width: 100%;
-
-            font: $paragraph;
-            font-weight: 400;
-            color: $color-one;
-
-            @include medium-device-down {
-                font: $paragraph-mobile;
+                    &__cta {
+                        @extend .sche01-page__content__aside__form__inputs__cta;
+                    }
+                }
             }
 
-            p {
-                font: inherit;
-                color: inherit;
-                font-weight: inherit;
-                margin-bottom: 0;
-            }
-        }
+            &__month-categories {
+                @extend .sche01-page__content__aside__month-categories;
 
-        &__cta {
-            @include Flex();
-            gap: 16px;
-            align-self: start;
-            white-space: nowrap;
-            background-color: $color-four;
-            padding: 10px 40px;
-            margin-top: 42px;
+                &__item {
+                    @extend .sche01-page__content__aside__month-categories__item;
 
-            font: $paragraph-min;
-            font-weight: 700;
-            color: $color-one;
+                    &__title {
+                        @extend .sche01-page__content__aside__month-categories__item__title;
+                    }
 
-            &:hover {
-                background-color: $color-one;
-                color: $color-four;
-            }
+                    &__subtitle {
+                        @extend .sche01-page__content__aside__month-categories__item__subtitle;
 
-            &__icon {
-                height: 19px;
-                width: 19px;
-                object-fit: contain;
-                object-position: center;
-                @include trans($transition: 0.5s);
-            }
-
-            &:hover &__icon {
-                filter: brightness(1) contrast(1) invert(1) grayscale(1);
+                        &__counter {
+                            @extend .sche01-page__content__aside__month-categories__item__subtitle__counter;
+                        }
+                    }
+                }
             }
         }
     }

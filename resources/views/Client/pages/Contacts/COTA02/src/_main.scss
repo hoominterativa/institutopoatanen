@@ -1,305 +1,114 @@
 @import "variables";
 
 /* BEGIN STYLE */
-.cota02{
-    &__header {
-        @include backG;
-        position: relative;
+.cota02 {
+    &__banner {
+        @extend %theme__banner;
 
-        .container-cont02-page__header {
-            padding: 108px 0;
-            position: relative;
-            z-index: 100;
-            @include Flex($direction: column);
-
-            @include small-device-down {
-                padding: 44px 20px;
-            }
-        }
-        &__mask {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgb(0 0 0 / 73%);
-        }
         &__title {
-            font-size: $T1;
-            color: $color-one;
-            font-family: $font-primary;
-            font-weight: $weight-700;
-            margin-bottom: 0;
-            text-align: center;
-
-            @include small-device-down {
-                font-size: $T2-mobile;
-            }
+            @extend %theme__banner__title;
         }
+
         &__subtitle {
-            font-size: $T3;
-            font-family: $font-paragraph;
-            color: $color-two;
-            font-weight: $weight-700;
-            text-align: center;
-
-            @include small-device-down {
-                font-size: $T3-mobile;
-            }
-        }
-        &__line {
-            margin-top: 1.25rem;
-            color: $color-two;
-            width: 100%;
+            @extend %theme__banner__subtitle;
         }
     }
-    &__boxForm {
-        .justify-content-center{
-            gap: 25px 0;
-        }
-        @include backG;
 
-        .container--boxForm {
-            padding: 68px 0 59px 0 !important;
-
-            .row {
-                @include small-device-down {
-                    margin: 0 auto;
-                }
-            }
-        }
+    &__topics {
+        @extend %theme__padding;
+        @include disFlex(row, start, center);
+        flex-wrap: wrap;
+        gap: 3rem;
         &__item {
-            &:last-of-type &__content::after {
-                display: none;
+            @include disFlex(column, start, center);
+            flex: 1 0 auto;
+            gap: 0.75rem;
+
+            width: fit-content;
+
+            &__icon {
+                width: 3.25rem;
+                height: auto;
+                aspect-ratio: 1/1;
+                object-fit: contain;
+                object-position: center;
             }
 
-            @include medium-device-down {
-                margin: 0 auto;
-                padding: 0;
-                width: 94%;
+            &__title {
+                @extend %theme__t3-c1;
             }
 
-            &__content {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                padding: 0 36px;
-
-                &::after {
-                    content: "";
-                    width: 1px;
-                    height: 88%;
-                    background: rgb(64 64 64 / 18%);
-                    display: flex;
-                    position: absolute;
-                    right: -10px;
-                    top: 0;
-                }
-                &__image {
-                    width: 55px;
-                    height: 55px;
-                    margin-bottom: 14.04px;
-
-                    @include large-device-down {
-                        width: 50px;
-                        height: 50px;
-                    }
-
-                    img {
-                        width: 100%;
-                        object-fit: contain;
-                    }
-                }
-
-                &__description {
-                    &__title {
-                        font-size: $T4;
-                        font-weight: $weight-500;
-                        color: $color-one;
-                        font-family: $font-primary;
-                        margin-bottom: 5px;
-
-                        @include large-device-down {
-                            font-size: $T4-mobile;
-                        }
-                    }
-                    &__paragraph {
-                        font: $paragraph;
-                        font-family: $font-primary;
-                        font-weight: $weight-400;
-                        color: $color-one;
-
-                        p {
-                            font: $paragraph;
-                            font-family: $font-primary;
-                            font-weight: $weight-400;
-                            color: $color-one;
-                            margin-bottom: 0;
-
-                            @include large-device-down {
-                                font: $paragraph-mobile;
-                            }
-                        }
-                    }
-                }
+            &__paragraph {
+                @extend %theme__p1-cb;
+                text-align: center;
+                max-width: 292px;
             }
         }
     }
 
     &__form {
-        padding: 78px 0 154.45px 0;
+        @extend %theme__padding;
+        @include disFlex(row, start, start);
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 0 1.5rem;
+
         &__header {
-            margin-bottom: 50px;
+            width: 100%;
+            margin-bottom: 3rem;
 
             &__title {
-                font-size: $T2;
-                color: $color-one;
-                font-family: $font-primary;
-                font-weight: $weight-700;
-                background: linear-gradient(
-                    to right,
-                    $color-one 14.8%,
-                    $color-two 25px
-                );
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-
-                @include small-device-down {
-                    font-size: $T2-mobile;
-                    background: linear-gradient(
-                        to right,
-                        #132229 39.8%,
-                        #b34423 25px
-                    );
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                }
-            }
-            &__line {
-                background: $color-one;
-                display: flex;
-                margin-top: 15px;
-                margin-bottom: 18px;
-                display: block;
+                @extend %theme__t2-c1;
             }
             &__paragraph {
-                p {
-                    font: $paragraph;
-                    font-weight: $weight-400;
-                    color: $color-black;
-
-                    @include large-device-down {
-                        font: $paragraph-mobile;
-                    }
-                }
+                @extend %theme__p1-c1;
+                text-align: center;
             }
         }
+        // CONFIGURAÇÕES GERAIS
         .input__item {
-            width: 100%;
-        }
-        .input__item--select .form-select {
-            margin-bottom: 0 !important;
-            height: 52px;
-            border-radius: 0 !important;
-        }
-        &__inputs {
-            &__formIput {
+            width: calc(50% - 0.75rem);
+
+            @include large-device-down {
                 width: 100%;
-                justify-content: space-between;
-                display: flex;
-
-                .input__item {
-                    width: 100%;
-                    font: $paragraph;
-                    font-weight: $weight-400;
-                    color: $color-one;
-
-                    .form-control {
-                        height: 52px;
-                        border-radius: 0 !important;
-                    }
-                }
-                // .input-submit{
-                //     height: 45px;
-                //     width: 177px;
-                //     background-color: $color-white;
-                //     display: flex;
-                //     justify-content: center;
-                //     align-items: center;
-                //     border: 2px solid $color-white;
-                //     margin-right: 45px;
-                //     font: $paragraph;
-                //     font-weight: $weight-400;
-                //     color:$color-one;
-
-                //     &:hover{
-                //         background-color: $color-black;
-
-                //     }
-                //     &:hover img{
-
-                //     }
-                // }
             }
+
+            // CONFIGURAÇÕES PONTUAIS
+            &--textarea {
+                width: 100%;
+                .form-control {
+                    padding-top: 1.5rem;
+                }
+            }
+        }
+
+        &__footer {
+            width: 100%;
+            @include disFlex(row, space-between, center);
+            gap: 0.5rem;
+            flex-wrap: wrap;
 
             &__compliance {
-                display: flex;
+                display: inline;
+                @extend %theme__p1-cb;
 
-                input {
-                    border: 1px solid #393939;
-                    font: $paragraph-min;
+                &__link {
+                    @extend %theme__p1-cb;
+                    text-decoration: underline;
                 }
-                label {
-                    color: #393939;
-                    font: $paragraph-min;
 
-                    a {
-                        color: #7c7c7c;
-                        font: $paragraph-min;
+                &__checkbox[type="checkbox"] {
+                    border: 1px solid $color-black;
+
+                    &:checked {
+                        accent-color: $color-three;
                     }
                 }
             }
+
+            &__cta {
+                @extend %theme__cta;
+            }
         }
     }
-}
-
-.cota02-show__form__item__input:nth-of-type(5) {
-    width: 100% !important;
-}
-.cota02-show__form__item__input .input__item--textarea textarea {
-    height: 136px !important;
-}
-.cota02-show__form__inputs__formIput__input-submit {
-    height: 31px;
-    width: 165px;
-    background-color: $color-two;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid $color-two;
-    font: $paragraph;
-    font-weight: $weight-400;
-    color: $color-white;
-
-    &:hover {
-        background-color: transparent;
-        color: $color-two;
-    }
-}
-.cota02-show__form__compliance {
-    font: $paragraph-min;
-    font-weight: $weight-400;
-    color: #393939;
-
-    a {
-        color: #7c7c7c;
-        text-decoration: underline;
-    }
-}
-.form-check-input:checked[type="checkbox"] {
-    border: 1px solid #393939;
-}
-.form-check-input:checked {
-    background-color: #b34423;
-    border-color: #b34423;
 }

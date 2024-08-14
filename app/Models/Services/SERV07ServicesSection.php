@@ -20,7 +20,7 @@ class SERV07ServicesSection extends Model
         //Section
         'title', 'description', 'subtitle', 'active',
         //Banner
-        'title_banner', 'path_image_desktop', 'path_image_mobile', 'background_color', 'active_banner'
+        'title_banner', 'path_image_desktop', 'path_image_mobile', 'active_banner'
     ];
 
     public function scopeActive($query)

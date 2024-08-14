@@ -1,106 +1,96 @@
 @extends('Client.Core.client')
 @section('content')
-    {{-- BEGIN Page content --}}
     @if ($contact)
-        <section id="COTA02" class="cota02">
-            <div class="container-fluid px-0">
-                <header class="cota02__header"
-                    style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }}); background-color: {{ $contact->background_color_banner }};">
-                    @if ($contact->path_image_banner_desktop)
-                        <div class="cota02__header__mask"></div>
-                    @endif
-                    {{-- <div class="cota02__header__mask"></div> --}}
-                    <div class="container container-cota02__header">
-                        @if ($contact->title_banner || $contact->subtitle_banner)
-                            <h2 class="cota02__header__title d-block">{{ $contact->title_banner }}</h2>
-                            <h3 class="cota02__header__subtitle d-block">{{ $contact->subtitle_banner }}
-                            </h3>
+        <main id="root" class="cota02">
+            <section class="cota02__banner"
+                style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }})">
+                @if ($contact->title_banner)
+                    <h1 class="cota02__banner__title">{{ $contact->title_banner }}</h1>
+                @endif
+                @if ($contact->subtitle_banner)
+                    <h2 class="cota02__banner__subtitle">{{ $contact->subtitle_banner }}
+                    </h2>
+                @endif
+            </section>
+
+            <section class="cota02__topics">
+                @foreach ($topics as $topic)
+                    <div class="cota02__topics__item">
+                        @if ($topic->path_image_icon)
+                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="cota02__topics__item__icon"
+                                alt="Ícone do tópico  {{ $topic->title }}">
                         @endif
-                        <hr class="cota02__header__line mb-0">
+
+                        @if ($topic->title)
+                            <h2 class="cota02__topics__item__title">
+                                {{ $topic->title }}</h2>
+                        @endif
+
+                        @if ($topic->description)
+                            <div class="cota02__topics__item__paragraph">
+                                <p>
+                                    {!! $topic->description !!}
+                                </p>
+                            </div>
+                        @endif
                     </div>
-                </header>
-                <div class="cota02__boxForm"
-                    style="background-image: url({{ asset('storage/' . $contact->path_image_topic_desktop) }}); background-color: {{ $contact->background_color_topic }};">
-                    <div class="container container--boxForm">
-                        <div class="row justify-content-center">
-                            @foreach ($topics as $topic)
-                                <div class="cota02__boxForm__item col-sm-4">
-                                    <div class="cota02__boxForm__item__content">
-                                        <div class="cota02__boxForm__item__content__image mx-auto">
-                                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="w-100 h-100"
-                                                alt="Imagem Perfil">
-                                        </div>
-                                        <div class="cota02__boxForm__item__content__description text-center">
-                                            @if ($topic->title)
-                                                <h2 class="cota02__boxForm__item__content__description__title">
-                                                    {{ $topic->title }}</h2>
-                                            @endif
-                                            @if ($topic->description)
-                                                <div class="cota02__boxForm__item__content__description__paragraph">
-                                                    <p>
-                                                        {!! $topic->description !!}
-                                                    </p>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
+                @endforeach
+            </section>
+
+            {!! Form::open([
+                'route' => 'lead.store',
+                'method' => 'post',
+                'files' => true,
+                'class' => 'send_form_ajax parsley-validate cota02__form',
+            ]) !!}
+
+            <header class="cota02__form__header">
+                @if ($contact->title_form)
+                    <h2 class="cota02__form__header__title">{{ $contact->title_form }}</h2>
+                @endif
+
+                @if ($contact->description_form)
+                    <div class="cota02__form__header__paragraph">
+                        <p>
+                            {!! $contact->description_form !!}
+                        </p>
                     </div>
+                @endif
+            </header>
+
+            <input type="hidden" name="target_lead" value="{{ $contact->title_page }}">
+            <input type="hidden" name="target_send" value="{{ base64_encode($contact->email_form) }}">
+
+            @foreach ($inputs as $name => $input)
+                @include('Client.Components.inputs', [
+                    'name' => $name,
+                    'options' => $input->option,
+                    'placeholder' => $input->placeholder,
+                    'type' => $input->type,
+                    'required' => isset($input->required) ? $input->required : false,
+                ])
+            @endforeach
+
+            <div class="cota02__form__footer">
+                <div class="cota02__form__footer__compliance">
+                    {!! Form::checkbox('term_accept', 1, null, [
+                        'class' => 'cota02__form__footer__compliance__checkbox',
+                        'id' => 'term_accept',
+                        'required' => true,
+                    ]) !!}
+                    {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'cota02__form__footer__compliance']) !!}
+                    <a href="{{ $compliance->link ?? '#' }}" target="_blank"
+                        class="cota02__form__footer__compliance__link">Política de Privacidade</a>
                 </div>
-                <div class="cota02__form"
-                    style="background-image: url({{ asset('storage/' . $contact->path_image_form_desktop) }}); background-color: {{ $contact->background_color_form }};">
-                    <div class="container">
-                        <div class="cota02__form__header">
-                            @if ($contact->title_form)
-                                <h2 class="cota02__form__header__title">{{ $contact->title_form }}</h2>
-                            @endif
-                            @if ($contact->description_form)
-                                <div class="cota02__form__header__paragraph">
-                                    <p>
-                                        {!! $contact->description_form !!}
-                                    </p>
-                                </div>
-                            @endif
-                        </div>
-                        <div class="cota02__form__inputs">
-                            {!! Form::open(['route' => 'lead.store', 'method' => 'post', 'files' => true, 'class'=>'send_form_ajax cota01-show__form__item parsley-validate d-table w-100']) !!}
-                                <input type="hidden" name="target_lead" value="{{ $contact->title_page }}">
-                                <input type="hidden" name="target_send" value="{{ base64_encode($contact->email_form) }}">
-                                <div class="row">
-                                    @foreach ($inputs as $name => $input)
-                                        <div class="cota02-show__form__item__input col-12 {{ $input->type != 'textarea' ? 'col-sm-6' : '' }}">
-                                            @include('Client.Components.inputs', [
-                                                'name' => $name,
-                                                'options' => $input->option,
-                                                'placeholder' => $input->placeholder,
-                                                'type' => $input->type,
-                                                'required' => isset($input->required) ? $input->required : false,
-                                            ])
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <div class="cota02-show__form__footer d-flex align-items-center">
-                                    <div class="cota02-show__form__compliance form-check d-flex align-items-center">
-                                        {!! Form::checkbox('term_accept', 1, null, ['class' => 'form-check-input me-1', 'id' => 'term_accept', 'required' => true]) !!}
-                                        {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
-                                        <a href="{{ $compliance->link ?? '#' }}" target="_blank"
-                                            class="cota02-show__form__compliance__link ms-1">Política de Privacidade</a>
-                                    </div>
-                                    <button type="submit" class="cota02-show__form__inputs__formIput__input-submit ms-auto">
-                                        {{ $contact->title_button_form }}
-                                    </button>
-                                </div>
-                            {!! Form::close() !!}
-                        </div>
-                    </div>
-                </div>
+
+                <button type="submit" class="cota02__form__footer__cta">
+                    {{ $contact->title_button_form }}
+                </button>
             </div>
-        </section>
-        {{-- Finish Content page Here --}}
-        @foreach ($sections as $section)
-            {!! $section !!}
-        @endforeach
+            {!! Form::close() !!}
+            @foreach ($sections as $section)
+                {!! $section !!}
+            @endforeach
+        </main>
     @endif
 @endsection

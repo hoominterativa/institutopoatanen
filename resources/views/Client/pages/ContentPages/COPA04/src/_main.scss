@@ -1,0 +1,736 @@
+/* BEGIN STYLE */
+@import "variables";
+
+.copa04-page {
+    &__hero {
+        position: relative;
+        z-index: 0;
+        @extend %theme__padding;
+        @include disFlex(row, space-between, start);
+        flex-wrap: wrap;
+        gap: 4rem 4.5rem;
+        background-color: var(--bg-hero-primary);
+
+        &::after {
+            position: absolute;
+            display: block;
+            content: "";
+            width: calc(100% + 10vw);
+            height: calc(5rem + 3%);
+            z-index: -1;
+            left: -5vw;
+            background-color: var(--bg-video-section, transparent);
+            bottom: 0;
+        }
+
+        @include large-device-down {
+            flex-direction: column;
+        }
+
+        &__aside {
+            width: 100%;
+            @include disFlex(row, space-between, start);
+
+            &__logo {
+                width: 9rem;
+                height: auto;
+                aspect-ratio: 144/58;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            &__cta {
+                @extend %theme__cta;
+            }
+        }
+
+        &__information {
+            width: calc(100% - 44% - 4.5rem);
+            height: auto;
+            @include disFlex(column, start, start);
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__header {
+                @include disFlex;
+                gap: 2rem;
+
+                &__title {
+                    @extend %theme__t2-cb;
+                }
+
+                &__icon {
+                    width: 4rem;
+                    height: auto;
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 3rem;
+            }
+
+            &__cta {
+                margin-top: 2rem;
+                @extend %theme__cta;
+            }
+        }
+
+        &__image {
+            padding-top: 0.625rem;
+            width: 44%;
+            height: auto;
+            aspect-ratio: 538/481;
+            object-fit: cover;
+            object-position: center;
+
+            @include large-device-down {
+                width: 100%;
+            }
+        }
+    }
+
+    &__video-section {
+        background-color: var(--bg-video-section, transparent);
+        @extend %theme__padding;
+
+        &__title {
+            @extend %theme__t2-cb;
+            text-align: center;
+            max-width: 888px;
+            margin-inline: auto;
+        }
+
+        &__subtitle {
+            @extend %theme__t4-c2;
+            text-align: center;
+            max-width: 888px;
+            margin: 0.75rem auto 0;
+        }
+
+        &__paragraph {
+            @extend %theme__p1-cb;
+            text-align: center;
+            max-width: 888px;
+            margin: 0.75rem auto 0;
+        }
+
+        &__video {
+            @include disFlex(row, center, center);
+            max-width: 60%;
+            height: auto;
+            aspect-ratio: 883/439;
+            margin: 1.25rem auto 0;
+
+            @include large-device-down {
+                max-width: 100%;
+            }
+
+            &__button {
+                outline: none;
+                border: none;
+                background-color: transparent;
+            }
+
+            &__iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &__highlighted {
+        background-color: var(--bg-higlighted, transparent);
+        @extend %theme__padding;
+        @include disFlex(row, space-between, center);
+        gap: 14.5rem;
+
+        @include large-device-down {
+            flex-direction: column;
+            align-items: start;
+            gap: 5rem;
+        }
+
+        &__information {
+            width: calc(100% - 33.33% - 14.5rem);
+            height: auto;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__title {
+                @extend %theme__t2-cb;
+                text-align: left;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: left;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 1.5rem;
+            }
+
+            &__cta {
+                @extend %theme__cta;
+                margin-top: 0.75rem;
+            }
+        }
+
+        &__image {
+            width: 33.33%;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            object-position: center;
+
+            @include large-device-down {
+                width: 100%;
+            }
+        }
+    }
+
+    &__topics {
+        background-color: var(--bg-topics, transparent);
+
+        @extend %theme__padding;
+
+        &__header {
+            width: 100%;
+
+            &__title {
+                @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        &__main {
+            margin-top: 1.25rem;
+            @include disFlex(row, start, start);
+            flex-wrap: wrap;
+            gap: 3.5rem 2.5rem;
+
+            &__item {
+                background-color: $color-five;
+                width: calc(50% - 1.25rem);
+                flex: 1 0 auto;
+                padding: 2rem;
+
+                @include disFlex(column, start, center);
+                gap: 1.5rem;
+
+                @include large-device-down {
+                    width: 100%;
+                }
+
+                &__icon {
+                    width: 3.75rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    object-fit: contain;
+                    object-position: center;
+                }
+
+                &__title {
+                    @extend %theme__t5-cb;
+                }
+
+                &__paragraph {
+                    @extend %theme__p2-cb;
+                }
+            }
+        }
+
+        &__cta {
+            @extend %theme__cta;
+            margin: 3.25rem auto 0;
+        }
+    }
+
+    &__topics-carousel {
+        background-color: var(--bg-topics-carousel, transparent);
+        @extend %theme__padding;
+
+        &__header {
+            width: 100%;
+            margin-bottom: 3.5rem;
+
+            &__title {
+                @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        &__carousel {
+            overflow: hidden;
+            background-color: var(--bg-topicsCarousel);
+
+            @include large-device-down {
+                overflow: visible;
+            }
+
+            &__item {
+                /* Quantidade de gaps * gap (espaçamento)/ quantidade de elementos */
+                width: calc(25% - 9px);
+                height: auto;
+                background-color: $color-five;
+                padding: 4rem 3rem 1.75rem;
+
+                @include disFlex(column, start, center);
+                gap: 1.5rem;
+
+                @include large-device-down {
+                    width: 18.5rem;
+                    height: auto;
+                }
+
+                &__icon {
+                    width: 3.75rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    object-fit: contain;
+                    object-position: center;
+                }
+
+                &__title {
+                    @extend %theme__t5-cb;
+                }
+
+                &__paragraph {
+                    @extend %theme__p2-cb;
+                }
+            }
+        }
+
+        &__cta {
+            margin: 3.5rem auto 0;
+            @extend %theme__cta;
+        }
+    }
+
+    &__gallery-topics {
+        background-color: var(--bg-gallery-topics, transparent);
+
+        @extend %theme__padding;
+
+        &__header {
+            width: 100%;
+            margin-bottom: 3.5rem;
+
+            &__title {
+                @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        &__carousel {
+            overflow: hidden;
+
+            @include large-device-down {
+                overflow: visible;
+            }
+
+            &__item {
+                /* Quantidade de gaps * gap (espaçamento)/ quantidade de elementos */
+                width: calc(25% - 9px);
+                height: auto;
+                @include disFlex(column, start, center);
+
+                @include large-device-down {
+                    width: 18.5rem;
+                }
+
+                &__image {
+                    width: 100%;
+                    height: 16.875rem;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                &__video {
+                    width: 100%;
+                    height: 16.875rem;
+                    @include bg;
+
+                    @include disFlex(column, center, center);
+
+                    &__button {
+                        outline: none;
+                        border: none;
+                        background-color: transparent;
+                        border-radius: 50%;
+                    }
+                }
+
+                &__information {
+                    padding: 2rem 1.25rem;
+                    background-color: $color-four;
+                    width: 100%;
+
+                    &__title {
+                        @extend %theme__t5-cb;
+                        text-align: center;
+                    }
+
+                    &__paragraph {
+                        @extend %theme__p2-cb;
+                        text-align: center;
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__additional-content {
+        background-color: $color-six;
+        @extend %theme__padding;
+        @include disFlex(row, space-between, center);
+        gap: 6rem;
+
+        @include large-device-down {
+            flex-direction: column;
+            align-items: center;
+            gap: rem(60);
+        }
+
+        &__header {
+            width: calc(100% - 33.33% - 6rem);
+            height: auto;
+
+            @include large-device-down {
+                width: 100%;
+            }
+
+            &__title {
+                @extend %theme__t2-cb;
+                text-align: left;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: left;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 1.5rem;
+            }
+
+            &__cta {
+                @extend %theme__cta;
+                margin-top: 0.75rem;
+            }
+        }
+
+        &__carousel {
+            width: 33.33%;
+            height: auto;
+            aspect-ratio: 538/481;
+            overflow: hidden;
+
+            @include large-device-down {
+                width: 100%;
+                aspect-ratio: 1/1;
+            }
+
+            &__item {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+
+                &--video {
+                    @include disFlex(row, center, center);
+
+                    &__button {
+                        outline: none;
+                        border: none;
+                        background-color: transparent;
+
+                        &__icon {
+                            width: 3.75rem;
+                            height: auto;
+                            aspect-ratio: 1/1;
+                            object-fit: contain;
+                            object-position: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__additional-topics {
+        background-color: var(--bg-additional-content, transparent);
+
+        @extend %theme__padding;
+
+        &__carousel {
+            overflow: hidden;
+
+            @include large-device-down {
+                overflow: visible;
+            }
+
+            &__item {
+                height: auto;
+                margin-bottom: 0;
+                width: calcWidth(4, 1rem);
+                @include disFlex(column, center, center);
+
+                @include large-device-down {
+                    width: rem(298);
+                }
+
+                &__image {
+                    width: 100%;
+                    height: 100%;
+                    aspect-ratio: 1/1;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                &__title {
+                    width: 100%;
+                    background-color: $color-five;
+                    @extend %theme__t5-cb;
+                    text-align: center;
+                    padding: 1.75rem;
+                }
+
+                &__cta {
+                    @extend %theme__cta;
+                    margin: 3.25rem auto 0;
+                }
+
+                &--video {
+                    width: calcWidth(4, 1rem);
+                    height: auto;
+                    @include disFlex(column, center, stretch);
+
+                    @include large-device-down {
+                        width: rem(298);
+                    }
+
+                    &__video {
+                        @include bg;
+                        @include disFlex(column, center, center);
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 1 / 1;
+
+                        &__button {
+                            outline: none;
+                            border: none;
+                            background-color: transparent;
+
+                            &__icon {
+                                width: 3.75rem;
+                                height: auto;
+                                aspect-ratio: 1/1;
+                                object-fit: contain;
+                                object-position: center;
+                            }
+                        }
+                    }
+
+                    &__title {
+                        @extend .copa04-page__additional-topics__carousel__item__title;
+                    }
+                    &__cta {
+                        @extend %theme__cta;
+                        margin: auto auto 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &__faq {
+        @extend %theme__padding;
+
+        background-color: var(--bg-faq, trransparent);
+
+        &__header {
+            width: 100%;
+            margin-bottom: rem(54);
+
+            &__title {
+                @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        &__item {
+            @extend %theme__accordion__item;
+
+            &__title {
+                @extend %theme__accordion__item__title;
+            }
+
+            &__paragraph {
+                @extend %theme__accordion__item__paragraph;
+            }
+        }
+    }
+
+    &__section-products {
+        background-color: var(--bg-products, transparent);
+        @extend %theme__padding;
+
+        &__header {
+            width: 100%;
+            margin-bottom: 3.5rem;
+
+            &__title {
+                @extend %theme__t2-cb;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            &__subtitle {
+                @extend %theme__t4-c2;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+
+            &__paragraph {
+                @extend %theme__p1-cb;
+                margin-top: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        &__carousel {
+            overflow: hidden;
+
+            @include large-device-down {
+                overflow: visible;
+            }
+            &__item {
+                background-color: $color-five;
+                position: relative;
+                width: calcWidth(3, 2.5rem);
+                height: auto;
+                flex-direction: column;
+                padding: 3rem 2.5rem 0;
+
+                &__tag {
+                    width: fit-content;
+                    display: block;
+                    background-color: $color-white;
+                    padding: 0.25rem 0.5rem;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    @extend %theme__p2-c2;
+                }
+
+                &__title {
+                    @extend %theme__t5-cb;
+                    text-align: center;
+                    margin: 0;
+                }
+                &__subtitle {
+                    @extend %theme__p2-c2;
+                    text-align: center;
+                    margin: 0;
+                }
+                &__paragraph {
+                    @extend %theme__p2-c2;
+
+                    margin-top: 3rem;
+                }
+
+                &__price {
+                    padding: 1rem 1.25rem;
+                    @include disFlex(row, center, center);
+                    background-color: $color-white;
+                    margin-top: 3rem;
+
+                    &__title {
+                        @extend %theme__p2-c2;
+                        margin-bottom: 0;
+                        padding-right: 0.5rem;
+                        border-right: solid 1px $color-black;
+                    }
+                    &__paragraph {
+                        @extend %theme__p2-c2;
+                        padding-left: 0.5rem;
+
+                        b {
+                            @extend %theme__t5-cb;
+                        }
+                    }
+                }
+
+                &__cta {
+                    @extend %theme__cta;
+                    margin: rem(12) auto 0;
+                }
+            }
+        }
+    }
+}

@@ -86,10 +86,10 @@
                             {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
                             {!! Form::url('link', (isset($topic) ? getUri($topic->link) : null), ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                         </div>
-                        <div class="col-12 col-sm-4">
+                        {{-- <div class="col-12 col-sm-4">
                             {!! Form::label('target_link', 'Redirecionar para', ['class'=>'form-label']) !!}
                             {!! Form::select('target_link', ['_blank' => 'Em nova aba', '_lightbox' => 'Abrir no lightbox'], null, ['class'=>'form-select', 'id'=>'target_link']) !!}
-                        </div>
+                        </div> --}}
                     </div>
                 </div> {{-- END .wrapper-links --}}
             </div>

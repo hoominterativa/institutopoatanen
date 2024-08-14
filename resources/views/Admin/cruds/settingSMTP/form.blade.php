@@ -79,6 +79,13 @@
                 ]) !!}
             </div>
             <div class="mb-3">
+                {!! Form::label('heard', 'Selecione a criptografia', ['class'=>'form-label']) !!}
+                {!! Form::select('encryption', ['ssl' => 'SSL', 'tls' => 'TLS'], null, [
+                    'class'=>'form-select',
+                    'id'=>'heard'
+                ]) !!}
+            </div>
+            <div class="mb-3">
                 {!! Form::label(null, 'Senha', ['class'=>'form-label']) !!}
                 <small class="text-danger ms-2">Sua senha não ficará visível por questões de segurança</small>
                 {!! Form::password('password', [

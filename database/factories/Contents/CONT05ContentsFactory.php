@@ -28,10 +28,7 @@ class CONT05ContentsFactory extends Factory
             'title_button' => $this->faker->text(8),
             'link_button' => 'https://www.lipsum.com/',
             'target_link_button' => '_blank',
-            'path_image_desktop' => 'uploads/tmp/image-box.jpg',
-            'path_image_mobile' => 'uploads/tmp/image-box-white.jpg',
             'active' => 1,
-            'background_color' => '#CACACA'
         ];
     }
 }

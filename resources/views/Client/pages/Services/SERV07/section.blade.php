@@ -6,8 +6,8 @@
                 @if ($section->title || $section->subtitle)
                     <span class="title">{{ $section->title }}</span>
                     <span class="subtitle">{{ $section->subtitle }}</span>
+                    <hr class="line">
                 @endif
-                <hr class="line">
             </h3>
             @if ($section->description)
                 <p class="paragraph">{!! $section->description !!}</p>

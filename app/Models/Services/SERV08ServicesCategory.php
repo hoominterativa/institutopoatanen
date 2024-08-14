@@ -38,4 +38,13 @@ class SERV08ServicesCategory extends Model
             $query->select('id')->from('serv08_services')->whereColumn('serv08_services.category_id', 'serv08_services_categories.id');
         });
     }
+
+    // DROPDOW MENU
+
+    public function scopeExistsRegister($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('serv08_services')->whereColumn('serv08_services.category_id', 'serv08_services_categories.id');
+        });
+    }
 }

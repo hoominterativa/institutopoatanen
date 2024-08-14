@@ -21,19 +21,19 @@
                 <!-- end row -->
                 <ul class="mb-0 nav nav-tabs" id="tooltip-container">
                     <li class="nav-item">
-                        <a href="#services" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
-                            {{ getTitleModel($configModelsMain, 'Services', 'SERV10') }}
-                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
-                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Cadastro do conteúdo principal"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#categories" data-bs-toggle="tab" aria-expanded="true" class="nav-link d-flex align-items-center">
                             Categorias
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro das categorias para os serviços"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" data-bs-toggle="tab" aria-expanded="true" class="nav-link active d-flex align-items-center">
+                            {{ getTitleModel($configModelsMain, 'Services', 'SERV10') }}
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastro do conteúdo principal"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -78,7 +78,6 @@
                                                     <th>Imagem</th>
                                                     <th>Categoria</th>
                                                     <th>Título</th>
-                                                    <th>Texto</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -98,17 +97,12 @@
                                                             @if ($service->path_image_box)
                                                                 <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$service->path_image_box)}})"></div>
                                                             @endif
-                                                            @if ($service->path_image_icon)
-                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$service->path_image_icon)}})"></div>
+                                                            @if ($service->path_image_icon_box)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/'.$service->path_image_icon_box)}})"></div>
                                                             @endif
                                                         </td>
                                                         <td class="align-middle">{{$service->categories->title}}</td>
                                                         <td class="align-middle">{{$service->title}}</td>
-                                                        <td class="align-middle">
-                                                            @if ($service->text)
-                                                                {!! substr($service->text, 0, 25) !!}<b>...</b>
-                                                            @endif
-                                                        </td>
                                                         <td class="align-middle">
                                                             @if ($service->active)
                                                                 <span class="badge bg-success">Ativo</span>
@@ -147,7 +141,7 @@
                     </div>
                     <div class="tab-pane" id="categories">
                         @include('Admin.cruds.Services.SERV10.Categories.index',[
-                            'categories' => $serviceCategories,
+                            'categories' => $categories,
                         ])
                     </div>
                 </div>

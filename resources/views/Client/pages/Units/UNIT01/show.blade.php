@@ -1,30 +1,31 @@
-<div id="lightbox-unit01-1-{{$topic->id}}" class="lightbox-unit01 row px-0">
-    <div class="row px-0 px-0 mx-0">
-        <div class="lightbox-unit01__left px-0 col-md-6">
-            <div class="unit01-show-carousel owl-carousel">
+<section id="unit01-show-{{$topic->id}}" class="unit01-show">
+        <div class="unit01-show__carousel">
+            <div class="unit01-show__carousel__swiper-wrapper swiper-wrapper">
                 @foreach ($galleries as $gallery)
-                <div class="lightbox-unit01__image">
-                    <img src="{{asset('storage/' . $gallery->path_image)}}" class="h-100 w-100" alt="Subtitulo">
-                </div>
+                    <img src="{{asset('storage/' . $gallery->path_image)}}" class="unit01-show__carousel__item swiper-slide" alt="Imagem da galeria de {{$topic->title}}">
+
                  @endforeach
             </div>
+
+            <div class="unit01-show__carousel__nav__swiper-button-prev swiper-button-prev"></div>
+            <div class="unit01-show__carousel__nav__swiper-button-next swiper-button-next"></div>
         </div>
-        
-        {{-- END .lightbox-unit01__image --}}
-        <div class="lightbox-unit01__description p-5 col-md-6 d-block">
-            <h3 class="lightbox-unit01__subtitle">{{$topic->subtitle}}</h3>
-            <h2 class="lightbox-unit01__title mb-0"><img src="{{asset('storage/' . $topic->path_image_icon)}}" alt="Logo">{{$topic->title}}</h2>
-            <hr class="lightbox-unit01__line">
-            <div class="lightbox-unit01__paragraph">
-                @if ($topic->description)
-                    <p>
+
+        <div class="unit01-show__information">
+            <header class="unit01-show__information__header">
+                <h3 class="unit01-show__information__header__subtitle">{{$topic->subtitle}}</h3>
+                <h2 class="unit01-show__information__header__title">
+                    {{$topic->title}}
+                </h2>
+                <img src="{{asset('storage/' . $topic->path_image_icon)}}" class="unit01-show__information__header__icon" alt="{{$topic->title}}">
+            </header>
+            @if ($topic->description)
+                <div class="unit01-show__information__paragraph">
                         {!! $topic->description !!}
-                    </p>
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
-        {{-- END .lightbox-unit01__description --}}
-    </div>
-</div>
-{{-- END .lightbox-unit01 --}}
+
+</section>
+
 

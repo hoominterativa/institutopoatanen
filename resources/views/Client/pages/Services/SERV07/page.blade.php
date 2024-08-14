@@ -2,11 +2,11 @@
 @section('content')
 {{-- BEGIN Page content --}}
 
-@if ($section)
-    <header class="serv07-page__header"style="background-image: url({{ asset('storage/' . $section->path_image_desktop) }}); background-color: {{$section->background_color}};">
+@if ($banner)
+    <header class="serv07-page__header"style="background-image: url({{ asset('storage/' . $banner->path_image_desktop) }});">
         <div class="container d-flex flex-column align-items-center">
-            @if ($section->title_banner)
-                <h1 class="serv07-page__title">{{$section->title_banner}}</h1>
+            @if ($banner->title_banner)
+                <h1 class="serv07-page__title">{{$banner->title_banner}}</h1>
             @endif
         </div>
     </header>

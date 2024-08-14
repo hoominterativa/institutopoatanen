@@ -93,6 +93,11 @@ return [
                 'model' => App\Models\Contents\CONT02V1Contents::class,
                 'seedQty' => 1,
             ],
+            'CONT02V2' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT02V2Controller::class,
+                'model' => App\Models\Contents\CONT02V2Contents::class,
+                'seedQty' => 2,
+            ],
             'CONT03' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT03Controller::class,
                 'model' => App\Models\Contents\CONT03Contents::class,
@@ -111,6 +116,16 @@ return [
             'CONT06' => (object)[
                 'controller' => App\Http\Controllers\Contents\CONT06Controller::class,
                 'model' => App\Models\Contents\CONT06Contents::class,
+                'seedQty' => 1,
+            ],
+            'CONT06V1' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT06V1Controller::class,
+                'model' => App\Models\Contents\CONT06V1Contents::class,
+                'seedQty' => 1,
+            ],
+            'CONT06V2' => (object)[
+                'controller' => App\Http\Controllers\Contents\CONT06V2Controller::class,
+                'model' => App\Models\Contents\CONT06V2Contents::class,
                 'seedQty' => 1,
             ],
             'CONT07' => (object)[
@@ -190,6 +205,11 @@ return [
                 'model' => App\Models\ContentPages\COPA03ContentPages::class,
                 'seedQty' => 2,
                 'routeName' => 'copa03.category.page',
+            ],
+            'COPA04' => (object)[
+                'controller' => App\Http\Controllers\ContentPages\COPA04Controller::class,
+                'model' => App\Models\ContentPages\COPA04ContentPages::class,
+                'seedQty' => 2,
             ],
         ],
         // END CONTENT PAGES
@@ -315,6 +335,19 @@ return [
                         'class' => App\Models\Portfolios\PORT04PortfoliosCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 5,
+                    ]
+                ]
+            ],
+            'PORT05' => (object)[
+                'controller' => App\Http\Controllers\Portfolios\PORT05Controller::class,
+                'model' => App\Models\Portfolios\PORT05Portfolios::class,
+                'seedQty' => 9,
+                'routeName' => 'port05.show',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Portfolios\PORT05PortfoliosCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 4,
                     ]
                 ]
             ],
@@ -488,6 +521,32 @@ return [
                     ]
                 ]
             ],
+            'SERV11' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV11Controller::class,
+                'model' => App\Models\Services\SERV11Services::class,
+                'seedQty' => 16,
+                'routeName' => 'serv11.session.page',
+                'relationship' => [
+                    'session' => [
+                        'class' => App\Models\Services\SERV11ServicesSession::class,
+                        'column' => 'session_id',
+                        'seedQty' => 2,
+                    ]
+                ]
+            ],
+            'SERV12' => (object)[
+                'controller' => App\Http\Controllers\Services\SERV12Controller::class,
+                'model' => App\Models\Services\SERV12Services::class,
+                'seedQty' => 12,
+                'routeName' => 'serv12.show',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Services\SERV12ServicesCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ]
+                ]
+            ],
         ],
         // END SERVICES
 
@@ -495,7 +554,7 @@ return [
             'SCHE01' => (object)[
                 'controller' => App\Http\Controllers\Schedules\SCHE01Controller::class,
                 'model' => App\Models\Schedules\SCHE01Schedules::class,
-                'seedQty' => 2,
+                'seedQty' => 6,
             ],
             'SCHE02' => (object)[
                 'controller' => App\Http\Controllers\Schedules\SCHE02Controller::class,
@@ -570,9 +629,24 @@ return [
                 'model' => App\Models\Topics\TOPI10Topics::class,
                 'seedQty' => 6,
             ],
+            'TOPI10V1' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI10V1Controller::class,
+                'model' => App\Models\Topics\TOPI10V1Topics::class,
+                'seedQty' => 6,
+            ],
             'TOPI11' => (object)[
                 'controller' => App\Http\Controllers\Topics\TOPI11Controller::class,
                 'model' => App\Models\Topics\TOPI11Topics::class,
+                'seedQty' => 6,
+            ],
+            'TOPI12' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI12Controller::class,
+                'model' => App\Models\Topics\TOPI12Topics::class,
+                'seedQty' => 6,
+            ],
+            'TOPI13' => (object)[
+                'controller' => App\Http\Controllers\Topics\TOPI13Controller::class,
+                'model' => App\Models\Topics\TOPI13Topics::class,
                 'seedQty' => 6,
             ],
             'TOPI101' => (object)[
@@ -654,6 +728,24 @@ return [
                         'class' => App\Models\Units\UNIT03UnitsCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 6,
+                    ]
+                ]
+            ],
+            'UNIT05' => (object)[
+                'controller' => App\Http\Controllers\Units\UNIT05Controller::class,
+                'model' => App\Models\Units\UNIT05Units::class,
+                'seedQty' => 8,
+                'routeName' => 'unit05.category.page',
+                'relationship' => [
+                    'category' => [
+                        'class' => App\Models\Units\UNIT05UnitsCategory::class,
+                        'column' => 'category_id',
+                        'seedQty' => 5,
+                    ],
+                    'subcategory' => [
+                        'class' => App\Models\Units\UNIT05UnitsSubcategory::class,
+                        'column' => 'subcategory_id',
+                        'seedQty' => 5,
                     ]
                 ]
             ],

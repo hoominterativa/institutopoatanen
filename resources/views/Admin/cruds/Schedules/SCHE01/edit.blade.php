@@ -52,7 +52,6 @@
                     </div>
                     <div class="tab-pane"  id="bannerShow">
                         @include('Admin.cruds.Schedules.SCHE01.BannerShow.form', [
-                            'bannerShow' => $bannerShow,
                             'schedule' => $schedule
                         ])
                     </div>

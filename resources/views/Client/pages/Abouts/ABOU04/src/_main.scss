@@ -101,58 +101,24 @@
 }
 
 .abou04-page {
-    width: 100%;
-
     &__banner {
-        @include backG;
-        padding: 112px 0 92px 0;
+        @extend %theme__banner;
 
         &__title {
-            font-family: $font-primary;
-            font-size: $T1;
-            font-weight: 700;
-            line-height: $font-46;
-            color: $color-black;
-            text-align: center;
-
-            @include medium-device-down {
-                font-size: $T1-mobile;
-            }
+            @extend %theme__banner__title;
         }
 
         &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            line-height: $font-22;
-            color: $color-two;
-            text-align: center;
-            margin-bottom: 28px;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-            }
-        }
-
-        &__line {
-            width: 95%;
-            max-width: 610px;
-            border-top: 1px solid $color-black;
-            margin: 0 auto;
-            opacity: 1;
+            @extend %theme__banner__subtitle;
         }
     }
 
-    &__cont {
-        padding-top: 48px;
+    &__content {
+        @extend %theme__padding;
+        @include disFlex(row, space-between);
 
-        &__main {
-            @include Flex($justify: space-between, $align: start);
-            @include small-device-down {
-                flex-direction: column-reverse;
-                align-items: center;
-                justify-content: end;
-            }
+        @include large-device-down {
+            flex-direction: column-reverse;
         }
 
         &__image {
@@ -161,259 +127,157 @@
             object-fit: contain;
             object-position: center bottom;
 
-            @include small-device-down {
+            @include large-device-down {
                 width: 100%;
                 margin-top: 59px;
             }
         }
 
-        &__content {
+        &__information {
             width: 52%;
 
-            @include small-device-down {
+            @include large-device-down {
                 width: 100%;
             }
-        }
 
-        &__title {
-            font-family: $font-primary;
-            font-size: $T2;
-            font-weight: 700;
-            color: $color-black;
-            text-align: left;
-
-            @include medium-device-down {
-                font-size: $T2-mobile;
-                text-align: center;
+            &__title {
+                @extend %theme__t2-c1;
+                text-align: left;
             }
-        }
 
-        &__subtitle {
-            font-family: $font-primary;
-            font-size: $T4;
-            font-weight: 700;
-            color: $color-one;
-            text-align: left;
-            margin-bottom: 39px;
-
-            @include medium-device-down {
-                font-size: $T4-mobile;
-                text-align: center;
+            &__subtitle {
+                @extend %theme__t4-c1;
+                text-align: left;
+                margin-bottom: rem(26);
             }
-        }
 
-        &__line {
-            width: 100%;
-            border-top: 1px solid $color-two;
-            margin: 0 0 34px 0;
-            opacity: 1;
+            &__paragraph {
+                @extend %theme__p1-c1;
+            }
         }
     }
 
     &__gallery {
-        padding: 70px 0;
-        background-color: $color-four;
+        @extend %theme__padding;
+        @include disFlex(column, start, center);
 
         &__header {
-            margin-bottom: 70px;
+            @include disFlex(column, start, center);
+            margin-bottom: rem(22);
 
             &__title {
-                font-family: $font-primary;
-                font-size: $T2;
-                font-weight: 700;
-                color: $color-one;
-
-                @include medium-device-down {
-                    font-size: $T2-mobile;
-                }
+                @extend %theme__t2-c1;
+                text-align: center;
             }
 
-            &__subtitle {
-                font-family: $font-primary;
-                font-size: $T4;
-                font-weight: 700;
-                color: $color-one;
-                margin-bottom: 39px;
-
-                @include medium-device-down {
-                    font-size: $T4-mobile;
-                }
-            }
-
-            &__line {
-                width: 100%;
-                border-top: 1px solid $color-two;
-                margin: 0 auto;
-                opacity: 1;
+            &__paragraph {
+                @extend %theme__t4-c1;
+                text-align: center;
             }
         }
 
-        &__list {
-            gap: 15px 11px;
+        &__item {
+            width: 100%;
 
-            &__item {
-                @include Flex($align: end, $justify: start);
-                width: calc(25% - 9px);
-                height: auto;
-                aspect-ratio: 319/288;
-                position: relative;
-                padding: 33px;
-                overflow: hidden;
+            & + & {
+                margin-top: rem(60);
+            }
 
-                @include large-device-down() {
-                    width: calc(33% - 5px);
-                }
+            &__title {
+                @extend %theme__t4-c1;
+                text-align: left;
+            }
 
-                @include medium-device-down() {
-                    width: calc(50% - 5.5px);
-                }
+            &__paragraph {
+                @extend %theme__p2-c1;
+                margin-bottom: rem(22);
+            }
 
-                @include small-device-down() {
-                    width: 100%;
-                }
+            &__list {
+                @include disFlex();
+                flex-wrap: wrap;
+                gap: 0.75rem;
 
-                &__image {
-                    position: absolute;
-                    z-index: 1;
-                    inset: 0;
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                }
-
-                &__title {
-                    font-family: $font-primary;
-                    font-size: $T4;
-                    font-weight: 700;
-                    color: $color-one;
+                &__item {
+                    @include disFlex(row, start, end);
+                    width: calcWidth(4, 0.75rem);
+                    height: auto;
+                    aspect-ratio: 319/288;
                     position: relative;
-                    z-index: 5;
+                    padding: 2rem;
+                    overflow: hidden;
+                    cursor: pointer;
 
-                    @include medium-device-down {
-                        font-size: $T4-mobile;
+                    @include large-device-down() {
+                        width: calcWidth(3, 0.75rem);
                     }
 
-                    &::before {
-                        content: "";
-                        height: 25px;
-                        width: 27px;
-                        position: absolute;
-                        left: -33px;
-                        top: 0;
-                        background-color: $color-one;
+                    @include medium-device-down() {
+                        width: calcWidth(2, 0.75rem);
                     }
 
-                    &::after {
-                        content: "";
-                        height: 1px;
-                        width: 95px;
+                    @include small-device-down() {
+                        width: 100%;
+                    }
+
+                    &__image {
                         position: absolute;
-                        left: -7px;
-                        top: 24px;
-                        background-color: $color-one;
+                        z-index: 0;
+                        inset: 0;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+
+                    &__title {
+                        @extend %theme__t4-c1;
+                        text-align: left;
+                        position: relative;
+                        z-index: 5;
                     }
                 }
             }
         }
 
         &__cta {
-            @include Flex();
-            gap: 16px;
-            white-space: nowrap;
-            background-color: $color-three;
-            padding: 10px 40px;
-            margin-top: 55px;
-
-            font: $paragraph;
-            font-weight: 700;
-            color: $color-one;
-
-            &:hover {
-                background-color: $color-one;
-                color: $color-three;
-            }
-
-            &__icon {
-                height: 25px;
-                width: 25px;
-                object-fit: contain;
-                object-position: center;
-                @include trans($transition: 0.5s);
-            }
-
-            &:hover &__icon {
-                filter: brightness(1) contrast(1) invert(1) grayscale(1);
-            }
+            @extend %theme__cta;
+            margin-top: rem(118);
         }
     }
 
     &__topics {
-        @include backG;
-        padding: 125px 0;
-
-        &__list {
-            gap: 27px;
-        }
+        @extend %theme__padding;
 
         &__item {
-            gap: 27px;
-            width: calc(33% - 15px);
-            padding: 55px 30px 45px 30px;
+            @include disFlex(column);
+
+            padding: rem(55) rem(30) rem(45);
             background-color: $color-four;
 
-            @include large-device-down {
-                width: calc(50% - 15px);
-            }
-
-            @include large-device-down {
-                width: 100%;
-            }
-
             &__header {
-                @include Flex($justify: start);
+                @include disFlex(row, start, center);
                 width: 100%;
-                gap: 19px;
-            }
+                gap: rem(19);
+                margin-bottom: rem(27);
 
-            &__icon {
-                width: 32px;
-                height: auto;
-                aspect-ratio: 1/1;
-                object-fit: contain;
-                object-fit: center;
-            }
+                &__icon {
+                    width: 2rem;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    object-fit: contain;
+                    object-fit: center;
+                }
 
-            &__title {
-                font-family: $font-primary;
-                font-size: $T3;
-                font-weight: 700;
-                color: $color-black;
-                text-align: left;
-
-                @include medium-device-down {
-                    font-size: $T3-mobile;
+                &__title {
+                    @extend %theme__t3-cb;
+                    text-align: left;
                 }
             }
 
-            &__desc {
+            &__paragraph {
                 width: 100%;
-                font: $paragraph;
-                color: $color-two;
-
-                @include medium-device-down {
-                    font: $paragraph-mobile;
-                }
-
-                p {
-                    width: 100%;
-                    font: $paragraph;
-                    color: $color-two;
-
-                    @include medium-device-down {
-                        font: $paragraph-mobile;
-                    }
-                }
+                @extend %theme__p1-c2;
             }
         }
     }

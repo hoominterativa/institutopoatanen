@@ -144,12 +144,8 @@
                     width: 100%;
                 }
 
-                &__image {
-                    @extend .bran01__content__item__image;
-
-                    &__img {
-                        @extend .bran01__content__item__image__img;
-                    }
+                &__icon {
+                    @extend .bran01__content__item__icon;
                 }
             }
         }

@@ -90,7 +90,7 @@
                     </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('link_target', 'Redirecionar para', ['class'=>'form-label']) !!}
-                        {!! Form::select('link_target', ['_self' => 'Na mesma aba', '_target' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'link_target']) !!}
+                        {!! Form::select('link_target', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, ['class'=>'form-select', 'id'=>'link_target']) !!}
                     </div>
                 </div>
             </div> {{-- END .wrapper-links --}}

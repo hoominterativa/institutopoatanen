@@ -17,6 +17,7 @@ class SettingSmtp extends Model
         "port",
         "user",
         "password",
-        "report"
+        "report",
+        "encryption"
     ];
 }

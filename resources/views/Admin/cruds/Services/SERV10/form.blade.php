@@ -18,27 +18,23 @@
                 ]) !!}
             </div>
             <div class="mb-3">
-                <div class="row">
-                    <div class="col-sm-6">
-                        {!! Form::label('title', 'Título interno', ['class' => 'form-label']) !!}
-                        {!! Form::text('title', null, ['class' => 'form-control', 'required'=>'required', 'id' => 'title']) !!}
-                    </div>
-                    <div class="col-sm-6">
-                        {!! Form::label('title_box', 'Título do box', ['class' => 'form-label']) !!}
-                        {!! Form::text('title_box', null, ['class' => 'form-control', 'id' => 'title_box']) !!}
-                    </div>
-                </div>
+                {!! Form::label('title_box', 'Título do box', ['class' => 'form-label']) !!}
+                {!! Form::text('title_box', null, ['class' => 'form-control', 'id' => 'title_box']) !!}
             </div>
             <div class="mb-3">
-                {!! Form::label('description_box', 'Descrição', ['class' => 'form-label']) !!}
+                {!! Form::label('description_box', 'Descrição do box', ['class' => 'form-label']) !!}
                 {!! Form::textarea('description_box', null, [
                     'class' => 'form-control',
                     'id' => 'description_box',
                     'data-parsley-trigger' => 'keyup',
-                    'data-parsley-maxlength' => '250',
+                    'data-parsley-maxlength' => '500',
                     'data-parsley-minlength-message' => 'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold' => '10',
                 ]) !!}
+            </div>
+            <div class="mb-3">
+                {!! Form::label('title', 'Título interno', ['class' => 'form-label']) !!}
+                {!! Form::text('title', null, ['class' => 'form-control', 'required'=>'required', 'id' => 'title']) !!}
             </div>
             <div class="normal-editor__content mb-3">
                 {!! Form::label('text', 'Texto interno', ['class' => 'form-label']) !!}
@@ -52,11 +48,11 @@
         <div class="d-flex">
             <div class="mb-3 form-check me-3">
                 {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar exibição ?', ['class' => 'form-check-label']) !!}
+                {!! Form::label('active', 'Ativar exibição?', ['class' => 'form-check-label']) !!}
             </div>
             <div class="mb-3 form-check me-3">
                 {!! Form::checkbox('featured', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
-                {!! Form::label('featured', 'Destacar na home ?', ['class' => 'form-check-label']) !!}
+                {!! Form::label('featured', 'Destacar na home?', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         {{-- end card-body --}}

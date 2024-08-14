@@ -45,7 +45,7 @@
             @endif
 
             @if ($brands->count() > 0)
-                <main class="bran01-page__main__content">
+                <div class="bran01-page__main__content">
                     @foreach ($brands as $brand)
                         <div class="bran01-page__main__content__item"
                             style="background-image:url({{ asset('storage/' . $brand->path_image_box) }});">
@@ -56,15 +56,13 @@
                             @endif
 
                             @if ($brand->path_image_icon)
-                                <div class="bran01-page__main__content__item__image">
-                                    <img src="{{ asset('storage/' . $brand->path_image_icon) }}"
-                                        class="bran01-page__main__content__item__image__img" alt="Logo" loading="lazy">
-                                </div>
+                                <img src="{{ asset('storage/' . $brand->path_image_icon) }}"
+                                    class="bran01-page__main__content__item__icon" alt="Logo" loading="lazy">
                             @endif
 
                         </div>
                     @endforeach
-                </main>
+                </div>
             @endif
         </section>
 

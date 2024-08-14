@@ -10,8 +10,8 @@
     <link rel="shortcut icon" href="{{url('storage/'.$generalSetting->path_favicon)}}">
 
     <!-- App css -->
-    <link href="{{url(mix('Admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet"/>
-    <link href="{{url(mix('Admin/assets/css/config/app.min.css'))}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"/>
+    <link href="{{url(('Admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet"/>
+    <link href="{{url(('Admin/assets/css/config/app.min.css'))}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"/>
 </head>
 <body>
     <main class="container-fluid">

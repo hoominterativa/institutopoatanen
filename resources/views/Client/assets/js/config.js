@@ -518,3 +518,51 @@ if (sideLinks.length > 0) {
         });
     });
 }
+
+// FILTRINHO //
+function updateActiveFiltrinho(filtrinho) {
+    const activeFiltrinho = filtrinho.parentElement.querySelector(".active");
+
+    if (activeFiltrinho) {
+        activeFiltrinho.classList.remove("active");
+    }
+    filtrinho.classList.add("active");
+}
+
+function filterItems(elements, filtrinho) {
+    elements.forEach((el) => {
+        const elCategoryArray = el.dataset.filtrinhoTarget.split(",");
+
+        if (elCategoryArray.includes(filtrinho)) {
+            el.removeAttribute("hidden");
+        } else {
+            el.setAttribute("hidden", "");
+        }
+    });
+}
+
+const filtrinhos = document.querySelectorAll("[data-filtrinho]");
+
+if (filtrinhos) {
+    const items = document.querySelectorAll("[data-filtrinho-target]");
+    let itemIndex = 0;
+    items.forEach((item) => {
+        item.style.viewTransitionName = `itemIndex-${++itemIndex}`;
+    });
+
+    filtrinhos.forEach((filtrinho) => {
+        filtrinho.addEventListener("click", (ev) => {
+            const filtrinho = ev.target.dataset.filtrinho;
+
+            if (!document.startViewTransition) {
+                updateActiveFiltrinho(ev.target);
+                filterItems(items, filtrinho);
+            } else {
+                document.startViewTransition(() => {
+                    updateActiveFiltrinho(ev.target);
+                    filterItems(items, filtrinho);
+                });
+            }
+        });
+    });
+}

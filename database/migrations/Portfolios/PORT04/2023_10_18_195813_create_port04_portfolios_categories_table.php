@@ -18,7 +18,7 @@ class CreatePort04PortfoliosCategoriesTable extends Migration
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->string('path_image')->nullable();
-            $table->integer('active')->default(0);
+            $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
