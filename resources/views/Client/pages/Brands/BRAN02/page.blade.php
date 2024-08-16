@@ -31,14 +31,14 @@
         <aside class="bran02-page__categories">
             <menu class="bran02-page__categories__swiper-wrapper swiper-wrapper">
                 @foreach ($bran02sections as $category)
-                    <a href="{{ route('bran02.show', $category->id) }}"
-                        class="bran02-page__categories__item swiper-slide  
-                        {{ $category->highlighted == '1' ? 'active' : '' }}
-                        {{ $category->id == $show ? 'active' : '' }}"> {{ $category->category }} </a>
+                    <a href="{{ route('bran02.show', $category->slug) }}"
+                        class="bran02-page__categories__item swiper-slide {{ $category->id == $show ? 'active' : '' }}"> {{ $category->category }} </a>
                 @endforeach
             </menu>
         </aside>
+        
         <div class="bran02-page__products">
+            
             @foreach ($bran02products as $products)
                 <a class="bran02-page__products__item" href="{{ $products->button_link }}"
                     target="{{ $products->target_link }}">
@@ -46,6 +46,7 @@
                         alt="Imagem referente a seção {{-- TITLE --}}">
                 </a>
             @endforeach
+            
         </div>
         <div class="bran02-page__pagination">
             {{ $bran02products->links() }}

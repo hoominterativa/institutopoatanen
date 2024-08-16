@@ -43,4 +43,5 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
 
  });
 //  CLIENT
+Route::get($route.'', [BRAN02Controller::class, 'page'])->name('bran02.page');
  Route::get($route.'/{id}', [BRAN02Controller::class, 'show'])->name($routeName.'.show');

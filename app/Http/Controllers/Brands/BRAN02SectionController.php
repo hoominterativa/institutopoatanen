@@ -41,7 +41,6 @@ class BRAN02SectionController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
         $data['highlighted'] = $request->highlighted ? 1 : 0;
-
         
         $data['slug'] = Str::slug($request->category);
         //dd($data);
@@ -81,8 +80,8 @@ class BRAN02SectionController extends Controller
         $data = $request->all();
 
         $data['active'] = $request->active ? 1 : 0;
-
         $data['highlighted'] = $request->highlighted ? 1 : 0;
+        $data['slug'] = Str::slug($request->category);
 
         //@dd($data, $BRAN02BrandsSection);
         if($BRAN02BrandsSection->fill($data)->save()){

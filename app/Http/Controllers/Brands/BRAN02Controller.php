@@ -174,23 +174,20 @@ class BRAN02Controller extends Controller
      * */
     public function show($BRAN02Brands)
     {
-        //dd($BRAN02Brands);
+        
+        $Bran02active = BRAN02BrandsSection::where('slug', $BRAN02Brands)->first();
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'show');
         $bran02 = BRAN02Brands::first();
-        $bran02products = BRAN02BrandsProducts::where('category_id', $BRAN02Brands)->active()->sorting()->paginate(16);
-        if($bran02products->isEmpty()){
-            $bran02products = BRAN02BrandsProducts::active()->sorting()->paginate(16);
+        $perPage = (deviceDetect() === 'desktop') ? 16 : 10;
+        if (!$Bran02active || BRAN02BrandsProducts::where('category_id', $Bran02active->id)->active()->doesntExist()) {
+            return redirect()->route('bran02.page');
+        } else {
+            $bran02products = BRAN02BrandsProducts::where('category_id', $Bran02active->id)->active()->sorting()->paginate($perPage);
+            
         }
-        $bran02sections = BRAN02BrandsSection::active()->orderByRaw("id = ? DESC", [$BRAN02Brands])->orderByRaw('highlighted DESC')->sorting()->get();
+        $bran02sections = BRAN02BrandsSection::active()->orderByRaw("id = ? DESC", [$Bran02active->id ?? 0])->orderByRaw('highlighted DESC')->sorting()->get();
         
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $bran02products = BRAN02BrandsProducts::where('category_id', $BRAN02Brands)->active()->sorting()->paginate(10);
-            break;
-        }
-
         return view('Client.pages.Brands.BRAN02.page', [
             'sections' => $sections,
             'content' => $bran02,
@@ -198,6 +195,8 @@ class BRAN02Controller extends Controller
             'bran02sections' => $bran02sections,
             'bran02products' => $bran02products
         ]);
+        
+        
     }
 
     /**
@@ -207,18 +206,14 @@ class BRAN02Controller extends Controller
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'page');
-        $bran02products = BRAN02BrandsProducts::active()->sorting()->paginate(16);
+        $perPage = (deviceDetect() === 'desktop') ? 16 : 10;
+        $bran02products = BRAN02BrandsProducts::active()->sorting()->paginate($perPage);
         $bran02sections = BRAN02BrandsSection::active()->orderByRaw('highlighted DESC')->sorting()->get();
         $content = BRAN02Brands::first();
-        switch(deviceDetect()) {
-            case 'mobile':
-            case 'tablet':
-                $bran02products = BRAN02BrandsProducts::active()->sorting()->paginate(10);
-            break;
-        }
 
         return view('Client.pages.Brands.BRAN02.page', [
             'sections' => $sections,
+            'show' => 'all',
             'bran02products' => $bran02products,
             'bran02sections' => $bran02sections,
             'content' => $content

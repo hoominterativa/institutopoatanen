@@ -18,8 +18,7 @@
         <aside class="bran02__categories">
             <menu class="bran02__categories__swiper-wrapper swiper-wrapper">
                 @foreach ($bran02sections as $category)
-                    <a href="{{ route('bran02.show', $category->id) }}"
-                        class="bran02__categories__item swiper-slide {{ $category->highlighted == '1' ? 'active' : '' }}">{{ $category->category }}</a>
+                    <a href="{{ route('bran02.show', $category->slug) }}" class="bran02__categories__item swiper-slide">{{ $category->category }}</a>
                 @endforeach
             </menu>
 
