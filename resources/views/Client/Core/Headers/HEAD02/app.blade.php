@@ -18,10 +18,10 @@
 
                 @if (!$menu->dropdown)
                     <a
-                    title="  {{ $menu->title }}"
-                    href="{{ $menu->anchor ? route('home') . $menu->link : route($menu->link) }}"
+                    title="{{ $menu->title }}"
+                    href="{{ $menu->anchor ? route('home') . $menu->link : $menu->link }}"
                         target="{{ $menu->target_link ?? '_self' }}"
-                        class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link) : '' }}">
+                        class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link).'sadsad' : 'rollAnimate' }}">
                         {{ $menu->title }}
                     </a>
                 @else

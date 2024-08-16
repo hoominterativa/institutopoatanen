@@ -104,6 +104,8 @@ class SettingHeaderController extends Controller
         if(!$SettingHeader->limit){
             $SettingHeader->limit = 'all';
         }
+
+        $SettingHeader->page = $SettingHeader->module.'|'.$SettingHeader->model;
         return view('Admin.cruds.settingHeader.edit',[
             'header' => $SettingHeader
         ]);
@@ -122,7 +124,6 @@ class SettingHeaderController extends Controller
 
         $data['active'] = $request->active?1:0;
         $data['exists'] = $request->exists?1:0;
-
         if($request->limit=='all'){
             $data['limit'] = null;
         }

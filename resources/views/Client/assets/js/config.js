@@ -566,3 +566,28 @@ if (filtrinhos) {
         });
     });
 }
+
+// ANIMATE SCROLL MENU //
+
+const menuLinks = document.querySelectorAll(".rollAnimate");
+
+if (menuLinks.length > 0) {
+
+    let urlCurrent = window.location.href;
+    urlCurrent = new URL(urlCurrent);
+
+    menuLinks.forEach((el) => {
+        el.addEventListener("click", (ev) => {
+            const href  = el.getAttribute("href");
+            const url = new URL(href);
+            const pathname = url.pathname;
+
+            if(pathname == urlCurrent.pathname) {
+                ev.preventDefault();
+                const id = url.hash;
+                const target = document.querySelector(id);
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+}

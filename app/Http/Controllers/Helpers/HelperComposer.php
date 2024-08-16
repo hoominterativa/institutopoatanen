@@ -8,15 +8,14 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\CoreController;
 
-if(!function_exists('isActive'))
-{
-    function isActive($href, $class = 'active'){
-        return $class = (strpos(Route::currentRouteName(),$href) !== false ? $class : '');
+if (!function_exists('isActive')) {
+    function isActive($href, $class = 'active')
+    {
+        return $class = (strpos(Route::currentRouteName(), $href) !== false ? $class : '');
     }
 }
 
-if(!function_exists('dateFormat'))
-{
+if (!function_exists('dateFormat')) {
     /**
      * Returns the date formatted according to the specified format.
      *
@@ -28,27 +27,29 @@ if(!function_exists('dateFormat'))
      *
      * @return string
      */
-    function dateFormat($date, $day = 'd', $month = 'm', $year = 'Y', $split = '/'){
+    function dateFormat($date, $day = 'd', $month = 'm', $year = 'Y', $split = '/')
+    {
         $dayWeek = date("N", strtotime($date));
         $arrayDay = ['1' => 'Segunda-Feira', '2' => 'Terça-Feira', '3' => 'Quarta-Feira', '4' => 'Quinta-Feira', '5' => 'Sexta-Feira', '6' => 'Sábado', '7' => 'Domingo'];
         $arrayMonth = ['01' => 'Janeiro', '02' => 'Fevereiro', '03' => 'Março', '04' => 'Abril', '05' => 'Maio', '06' => 'Junho', '07' => 'Julho', '08' => 'Agosto', '09' => 'Setembro', '10' => 'Outubro', '11' => 'Novembro', '12' => 'Dezembro'];
 
-        $dayN = ($day === 'D'?$arrayDay[$dayWeek]:Carbon::parse($date)->format('d'));
-        $monthN = ($month === 'M'?$arrayMonth[Carbon::parse($date)->format('m')]:Carbon::parse($date)->format('m'));
+        $dayN = ($day === 'D' ? $arrayDay[$dayWeek] : Carbon::parse($date)->format('d'));
+        $monthN = ($month === 'M' ? $arrayMonth[Carbon::parse($date)->format('m')] : Carbon::parse($date)->format('m'));
         $yearN = Carbon::parse($date)->format($year);
 
-        if($split <> ''){
-            $dateFormatted = $dayN.$split.$monthN.$split.$yearN;
-        }else{
-            $dateFormatted = $dayN.' de '.$monthN.' de '.$yearN;
+        if ($split <> '') {
+            $dateFormatted = $dayN . $split . $monthN . $split . $yearN;
+        } else {
+            $dateFormatted = $dayN . ' de ' . $monthN . ' de ' . $yearN;
         }
 
         return $dateFormatted;
     }
 }
 
-if(!function_exists('dayFull')) {
-    function dayFull($date) {
+if (!function_exists('dayFull')) {
+    function dayFull($date)
+    {
         $diasDaSemana = [
             'Sun' => 'Domingo',
             'Mon' => 'Segunda-feira',
@@ -69,8 +70,9 @@ if(!function_exists('dayFull')) {
     }
 }
 
-if(!function_exists('monthFull')) {
-    function monthFull($date) {
+if (!function_exists('monthFull')) {
+    function monthFull($date)
+    {
         $mesDoAno = [
             'Jan' => 'Janeiro',
             'Feb' => 'Fevereiro',
@@ -97,8 +99,7 @@ if(!function_exists('monthFull')) {
     }
 }
 
-if(!function_exists('storageDelete'))
-{
+if (!function_exists('storageDelete')) {
     /**
      * Delete files the storage
      *
@@ -107,17 +108,18 @@ if(!function_exists('storageDelete'))
      *
      * @return \Illuminate\Http\Response
      */
-    function storageDelete($query, $column){
-        if(mb_strpos($query->$column, 'tmp') === false){
+    function storageDelete($query, $column)
+    {
+        if (mb_strpos($query->$column, 'tmp') === false) {
             return Storage::delete($query->$column);
         }
         return null;
     }
 }
 
-if(!function_exists('conveterOembedCKeditor'))
-{
-   function conveterOembedCKeditor($text){
+if (!function_exists('conveterOembedCKeditor')) {
+    function conveterOembedCKeditor($text)
+    {
         $oembeds = explode('<oembed url="', $text);
         unset($oembeds[0]);
         foreach ($oembeds as $oembed) {
@@ -133,13 +135,13 @@ if(!function_exists('conveterOembedCKeditor'))
             ]);
 
             $getHtml = $embed->getHtml();
-            $iframe = '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;">'.$getHtml.'</div>';
-            $text = str_replace('<oembed url="'.$urlOembed.'"></oembed>',$iframe, $text);
+            $iframe = '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;">' . $getHtml . '</div>';
+            $text = str_replace('<oembed url="' . $urlOembed . '"></oembed>', $iframe, $text);
         }
         return $text;
-   }
+    }
 }
-if(!function_exists('getCompliance')){
+if (!function_exists('getCompliance')) {
 
     /**
      * Delete files the storage
@@ -150,30 +152,30 @@ if(!function_exists('getCompliance')){
      *
      * @return \Illuminate\Http\Response
      */
-    function getCompliance($id=null, $idR=null, $title=null)
+    function getCompliance($id = null, $idR = null, $title = null)
     {
         $ModelsCompliances = config('modelsConfig.ModelsCompliances');
         $class = config('modelsClass.Class');
         $complianceModel = null;
 
-        if(isset($ModelsCompliances->Code)){
-            if($ModelsCompliances->Code <> ''){
+        if (isset($ModelsCompliances->Code)) {
+            if ($ModelsCompliances->Code <> '') {
                 $code = $ModelsCompliances->Code;
                 $name = Str::slug($code);
-                $param = $code.'Compliances';
+                $param = $code . 'Compliances';
 
-                if($id<>null){
+                if ($id <> null) {
                     $complianceModel = $class->Compliances->$code->model::find($id);
-                    if($complianceModel){
-                        $complianceModel->link = route($name.'.show', [$param => $complianceModel->slug]);
+                    if ($complianceModel) {
+                        $complianceModel->link = route($name . '.show', [$param => $complianceModel->slug]);
                     }
-                }else{
-                    if($idR || $title){
+                } else {
+                    if ($idR || $title) {
                         $complianceModel = $class->Compliances->$code->model::sorting()->pluck($title, $idR);
-                    }else{
+                    } else {
                         $complianceModel = $class->Compliances->$code->model::sorting()->get();
                         foreach ($complianceModel as $compliance) {
-                            $compliance->link = route($name.'.show', [$param => $compliance->slug]);
+                            $compliance->link = route($name . '.show', [$param => $compliance->slug]);
                         }
                     }
                 }
@@ -184,7 +186,7 @@ if(!function_exists('getCompliance')){
     }
 }
 
-if(!function_exists('clearVersionNameModule')){
+if (!function_exists('clearVersionNameModule')) {
 
     /**
      * clear a number the name module
@@ -193,13 +195,14 @@ if(!function_exists('clearVersionNameModule')){
      *
      * @return string
      */
-    function clearVersionNameModule($module){
+    function clearVersionNameModule($module)
+    {
         $arrayName = explode('.', $module);
         return $arrayName[0];
     }
 }
 
-if(!function_exists('getNameModule')){
+if (!function_exists('getNameModule')) {
 
     /**
      * Get module name when this is a versioned array
@@ -210,12 +213,13 @@ if(!function_exists('getNameModule')){
      *
      * @return string
      */
-    function getNameModule($modelConfig, $module, $model){
+    function getNameModule($modelConfig, $module, $model)
+    {
         foreach ($modelConfig as $name => $value) {
             $arrayName = explode('.', $name);
-            if(count($arrayName)>1){
-                if($arrayName[0]==$module){
-                    if(isset($modelConfig->$name->$model)){
+            if (count($arrayName) > 1) {
+                if ($arrayName[0] == $module) {
+                    if (isset($modelConfig->$name->$model)) {
                         return $name;
                     }
                 }
@@ -225,7 +229,7 @@ if(!function_exists('getNameModule')){
     }
 }
 
-if(!function_exists('getTitleModel')){
+if (!function_exists('getTitleModel')) {
 
     /**
      * Get model name
@@ -236,12 +240,13 @@ if(!function_exists('getTitleModel')){
      *
      * @return string
      */
-    function getTitleModel($modelConfig, $module, $model){
+    function getTitleModel($modelConfig, $module, $model)
+    {
         foreach ($modelConfig as $name => $value) {
             $arrayName = explode('.', $name);
-            if(count($arrayName)>1){
-                if($arrayName[0]==$module){
-                    if(isset($modelConfig->$name->$model)){
+            if (count($arrayName) > 1) {
+                if ($arrayName[0] == $module) {
+                    if (isset($modelConfig->$name->$model)) {
                         return $modelConfig->$name->$model->config->titlePanel;
                     }
                 }
@@ -251,7 +256,7 @@ if(!function_exists('getTitleModel')){
     }
 }
 
-if(!function_exists('getCropImage')){
+if (!function_exists('getCropImage')) {
 
     /**
      * Get image cropping dimensions
@@ -263,25 +268,26 @@ if(!function_exists('getCropImage')){
      *
      * @return array
      */
-    function getCropImage($module, $model, $column=null, $submodel=null){
+    function getCropImage($module, $model, $column = null, $submodel = null)
+    {
         $settingCropImages = json_decode(file_get_contents("../imagesSize.json"), true);
         $getModule = $settingCropImages[$module];
         $getModel = $getModule[$model];
 
-        if(!$column) {
+        if (!$column) {
             $response = json_encode($getModel);
             return json_decode($response);
         }
 
         $getColumn = $getModel[$column];
-        if($submodel) $getColumn = $getModel[$submodel][$column];
+        if ($submodel) $getColumn = $getModel[$submodel][$column];
 
         $response = json_encode($getColumn);
         return json_decode($response);
     }
 }
 
-if(!function_exists('getUri')){
+if (!function_exists('getUri')) {
 
     /**
      * Get uri
@@ -290,40 +296,40 @@ if(!function_exists('getUri')){
      * @return array
      */
 
-     function getUri($url)
-     {
-         if($url){
-             if (filter_var($url, FILTER_VALIDATE_URL)) {
-                 $parseUrl = parse_url($url);
-                 $parseUrlCurrent = parse_url(url()->current());
+    function getUri($url)
+    {
+        if ($url) {
+            if (filter_var($url, FILTER_VALIDATE_URL)) {
+                $parseUrl = parse_url($url);
+                $parseUrlCurrent = parse_url(url()->current());
 
-                 if($parseUrl['host'] === $parseUrlCurrent['host']){
-                     $fragment = isset($parseUrl['fragment']) ? '#'.$parseUrl['fragment'] : '';
-                     $query = isset($parseUrl['query']) ? '?'.$parseUrl['query'] : '';
+                if ($parseUrl['host'] === $parseUrlCurrent['host']) {
+                    $fragment = isset($parseUrl['fragment']) ? '#' . $parseUrl['fragment'] : '';
+                    $query = isset($parseUrl['query']) ? '?' . $parseUrl['query'] : '';
 
-                     $urlPath = $parseUrl['path'] ?? '';
-                     $arrayUrlPath = explode('/', $urlPath);
+                    $urlPath = $parseUrl['path'] ?? '';
+                    $arrayUrlPath = explode('/', $urlPath);
 
-                     if(strpos($urlPath, '_website') !== false){
-                         $firstPathRemove = $arrayUrlPath[array_search('_website', $arrayUrlPath)];
-                         $lastPathRemove = $arrayUrlPath[(array_search('_website', $arrayUrlPath))+1];
-                         $urlPath = str_replace([$firstPathRemove.'/', $lastPathRemove.'/'], '', $urlPath);
-                     }
+                    if (strpos($urlPath, '_website') !== false) {
+                        $firstPathRemove = $arrayUrlPath[array_search('_website', $arrayUrlPath)];
+                        $lastPathRemove = $arrayUrlPath[(array_search('_website', $arrayUrlPath)) + 1];
+                        $urlPath = str_replace([$firstPathRemove . '/', $lastPathRemove . '/'], '', $urlPath);
+                    }
 
-                     return $urlPath.$query.$fragment;
-                 }else{
-                     return $url;
-                 }
-             } else {
-                 return url($url);
-             }
-         }else{
-             return null;
-         }
-     }
+                    return $urlPath . $query . $fragment;
+                } else {
+                    return $url.'aa';
+                }
+            } else {
+                return url($url);
+            }
+        } else {
+            return null;
+        }
+    }
 }
 
-if(!function_exists('listPage')){
+if (!function_exists('listPage')) {
 
     /**
      * List pages website inner
@@ -331,31 +337,31 @@ if(!function_exists('listPage')){
      * @param string $return [registers, relations, pages]
      * @return object
      */
-    function listPage($return='registers')
+    function listPage($return = 'registers')
     {
         $core = new CoreController();
-        $pages=[];
+        $pages = [];
         $modelsMain = config('modelsConfig.InsertModelsMain');
         switch ($return) {
             case 'registers':
-                foreach($modelsMain as $module => $models){
-                    foreach($models as $code => $config){
-                        if($config->ViewListMenu){
+                foreach ($modelsMain as $module => $models) {
+                    foreach ($models as $code => $config) {
+                        if ($config->ViewListMenu) {
                             $registers = $core->getRelations($module, $code, $config);
                             $merge = [
                                 'title' => $config->config->titleMenu,
-                                'route' => $config->config->anchor?$config->config->linkMenu:route($config->config->linkMenu),
+                                'route' => $config->config->anchor ? url('/').'/'.$config->config->linkMenu : route($config->config->linkMenu),
                                 'dropdown' => $registers
                             ];
                             array_push($pages, $merge);
                         }
                     }
                 }
-            break;
+                break;
             case 'relations':
-                foreach($modelsMain as $module => $models){
-                    foreach($models as $code => $config){
-                        if($config->ViewListMenu){
+                foreach ($modelsMain as $module => $models) {
+                    foreach ($models as $code => $config) {
+                        if ($config->ViewListMenu) {
                             $registers = $core->getRelations($module, $code, $config, $return);
 
                             $merge = [
@@ -368,24 +374,24 @@ if(!function_exists('listPage')){
                         }
                     }
                 }
-            break;
+                break;
             case 'pages':
-                foreach($modelsMain as $module => $models){
-                    foreach($models as $code => $config){
+                foreach ($modelsMain as $module => $models) {
+                    foreach ($models as $code => $config) {
 
-                        if($config->ViewListMenu){
+                        if ($config->ViewListMenu) {
                             $merge = [
-                                $module.'|'.$code => $config->config->titleMenu,
+                                $module . '|' . $code => $config->config->titleMenu,
                             ];
                             $pages = array_merge($pages, $merge);
                         }
 
-                        if(isset($config->pages)){
-                            if(count(get_object_vars($config->pages))){
+                        if (isset($config->pages)) {
+                            if (count(get_object_vars($config->pages))) {
                                 foreach ($config->pages as $key => $page) {
 
                                     $merge = [
-                                        $module.'|'.$code.'|'.$key => $page->name,
+                                        $module . '|' . $code . '|' . $key => $page->name,
                                     ];
                                     $pages = array_merge($pages, $merge);
                                 }
@@ -394,7 +400,7 @@ if(!function_exists('listPage')){
                     }
                 }
                 return $pages;
-            break;
+                break;
         }
 
         $pages = json_encode($pages);
@@ -402,7 +408,7 @@ if(!function_exists('listPage')){
     }
 }
 
-if(!function_exists('deviceDetect')){
+if (!function_exists('deviceDetect')) {
 
     /**
      * Device detect
@@ -412,14 +418,14 @@ if(!function_exists('deviceDetect')){
     function deviceDetect()
     {
         $detect = new MobileDetect();
-        if($detect->isMobile()) return 'mobile';
-        if($detect->isTablet()) return 'tablet';
+        if ($detect->isMobile()) return 'mobile';
+        if ($detect->isTablet()) return 'tablet';
         return 'desktop';
     }
 }
 
 
-if(!function_exists('getCondition')){
+if (!function_exists('getCondition')) {
 
     /**
      * Get Conditions for build header
@@ -430,21 +436,21 @@ if(!function_exists('getCondition')){
      * @param string $relation
      * @return void|string
      */
-    function getCondition($module, $code, $condition=null, $relation=null)
+    function getCondition($module, $code, $condition = null, $relation = null)
     {
         $modelsMain = config('modelsConfig.InsertModelsMain');
-        if(isset($modelsMain->$module->$code->IncludeCore->condition)){
-            if($condition!==null){
+        if (isset($modelsMain->$module->$code->IncludeCore->condition)) {
+            if ($condition !== null) {
                 $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->condition);
-                $splitCondition = str_replace('}','',explode('{', $arrCondition[$condition]));
+                $splitCondition = str_replace('}', '', explode('{', $arrCondition[$condition]));
                 return $splitCondition[1];
-            }else{
+            } else {
                 $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->condition);
-                if($relation) $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->relation->$relation->condition);
+                if ($relation) $arrCondition = explode(',', $modelsMain->$module->$code->IncludeCore->relation->$relation->condition);
 
                 $conditions = [];
                 foreach ($arrCondition as $value) {
-                    $splitCondition = str_replace('}','',explode('{', $value));
+                    $splitCondition = str_replace('}', '', explode('{', $value));
                     $conditions = array_merge($conditions, [$splitCondition[1]]);
                 }
                 return $conditions;
@@ -454,7 +460,7 @@ if(!function_exists('getCondition')){
     }
 }
 
-if(!function_exists('getNameRelation')){
+if (!function_exists('getNameRelation')) {
 
     /**
      * Get name relationship for cuild header
@@ -464,23 +470,23 @@ if(!function_exists('getNameRelation')){
      * @param string $relation
      * @return void|string
      */
-    function getNameRelation($module, $code, $relation, $page='')
+    function getNameRelation($module, $code, $relation, $page = '')
     {
         $modelsMain = config('modelsConfig.InsertModelsMain');
-        if(isset($modelsMain->$module->$code->IncludeCore->relation)){
+        if (isset($modelsMain->$module->$code->IncludeCore->relation)) {
             $name = $page;
             $splitRelation = explode(',', $relation);
 
-            if($splitRelation[0]<>'this'){
+            if ($splitRelation[0] <> 'this') {
                 $arrRelation = $modelsMain->$module->$code->IncludeCore->relation;
 
-                if($arrRelation <> ''){
+                if ($arrRelation <> '') {
                     $refName = $splitRelation[0];
                     $name = $arrRelation->$refName->name;
 
-                    if(count($splitRelation)>1){
+                    if (count($splitRelation) > 1) {
                         $refName = $splitRelation[1];
-                        $name .= ' / '.$arrRelation->$refName->name;
+                        $name .= ' / ' . $arrRelation->$refName->name;
                     }
                 }
             }
@@ -490,7 +496,7 @@ if(!function_exists('getNameRelation')){
     }
 }
 
-if(!function_exists('listRelations')){
+if (!function_exists('listRelations')) {
 
     /**
      * Get relationship
@@ -499,13 +505,13 @@ if(!function_exists('listRelations')){
      * @param string $code
      * @return array
      */
-    function getRelationsModel($module, $code, $page=null)
+    function getRelationsModel($module, $code, $page = null)
     {
         $modelsMain = config('modelsConfig.InsertModelsMain');
-        if(!$page){
-            if(isset($modelsMain->$module->$code->IncludeCore->relation)){
-                $arrRelations[$modelsMain->$module->$code->config->titleMenu]=[];
-                if($modelsMain->$module->$code->IncludeCore->relation){
+        if (!$page) {
+            if (isset($modelsMain->$module->$code->IncludeCore->relation)) {
+                $arrRelations[$modelsMain->$module->$code->config->titleMenu] = [];
+                if ($modelsMain->$module->$code->IncludeCore->relation) {
                     foreach ($modelsMain->$module->$code->IncludeCore->relation as $relation => $configRelation) {
                         $merge = [
                             $relation => $configRelation->name

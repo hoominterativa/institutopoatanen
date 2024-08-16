@@ -10,8 +10,8 @@
                                 Nessa função, o primeiro parâmetro representa o índice de início do elemento desejado, enquanto o segundo parâmetro indica a extensão (ou quantidade) de itens que você deseja extrair. --}}
                         @foreach (array_slice($listMenu, 0, 4) as $module => $menu)
                             <li class="nav-item dropdown" {{$menu->dropdown ? 'dropdown' : ''}}>
-                                <a href="{{$menu->anchor?$menu->link:route($menu->link)}}" target="{{$menu->target_link ?? '_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown' : ''}} {{$menu->anchor ? 'data-bs-toggle=jqueryanchor' : ''}}
-                                    class=" nav-link {{!$menu->anchor ? isActive($menu->link) : ''}}">
+                                <a href="{{$menu->anchor?route('home').$menu->link:$menu->link}}" target="{{$menu->target_link ?? '_self'}}" {{$menu->dropdown?'data-bs-toggle=dropdown' : ''}} {{$menu->anchor ? 'data-bs-toggle=jqueryanchor' : ''}}
+                                    class=" nav-link {{!$menu->anchor ? isActive($menu->link) : 'rollAnimate'}}">
                                     {{$menu->title}}
                                     @if ($menu->dropdown)
                                         <i class="menu-arrow"></i>

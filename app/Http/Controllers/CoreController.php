@@ -278,12 +278,13 @@ class CoreController extends Controller
             }
 
             if($page->page){
+
                 $pageCurrent = $page->page;
                 $menu = (object) [
                     "title" => $page->title,
                     "slug" => Str::slug($config->pages->$pageCurrent->name),
                     "anchor" => false,
-                    "link" => $config->pages->$pageCurrent->route,
+                    "link" => route($config->pages->$pageCurrent->route),
                     "dropdown" => $listDropdown,
                     "target_link" => $page->target_link,
                 ];
@@ -293,7 +294,7 @@ class CoreController extends Controller
                 $menu = (object) [
                     "title" => $page->title,
                     "slug" => Str::slug($page->title),
-                    "anchor" => true,
+                    "anchor" => false,
                     "link" => $page->link,
                     "target_link" => $page->target_link,
                     "dropdown" => $listDropdown,
@@ -302,11 +303,14 @@ class CoreController extends Controller
             }
 
             if(!$page->page && !$page->link){
+                $anchor = $config?$config->config->anchor:true;
+                $link = !$anchor?route($config->config->linkMenu):$config->config->linkMenu;
+
                 $menu = (object) [
                     "title" => $page->title,
                     "slug" => $config?Str::slug($config->config->titleMenu):'',
-                    "anchor" => $config?$config->config->anchor:true,
-                    "link" => $config?$config->config->linkMenu:'',
+                    "anchor" => $anchor,
+                    "link" => $link,
                     "dropdown" => $listDropdown,
                     "target_link" => $config?$page->target_link:'',
                 ];

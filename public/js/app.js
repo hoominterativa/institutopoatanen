@@ -12402,6 +12402,29 @@ if (filtrinhos) {
   });
 }
 
+// ANIMATE SCROLL MENU //
+
+var menuLinks = document.querySelectorAll(".rollAnimate");
+if (menuLinks.length > 0) {
+  var urlCurrent = window.location.href;
+  urlCurrent = new URL(urlCurrent);
+  menuLinks.forEach(function (el) {
+    el.addEventListener("click", function (ev) {
+      var href = el.getAttribute("href");
+      var url = new URL(href);
+      var pathname = url.pathname;
+      if (pathname == urlCurrent.pathname) {
+        ev.preventDefault();
+        var id = url.hash;
+        var target = document.querySelector(id);
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+}
+
 /***/ }),
 
 /***/ "./resources/views/Client/pages/Blogs/BLOG03/src/main.js":
