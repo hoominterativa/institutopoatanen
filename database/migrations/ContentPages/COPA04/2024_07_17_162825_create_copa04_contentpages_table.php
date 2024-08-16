@@ -15,6 +15,11 @@ class CreateCopa04ContentpagesTable extends Migration
     {
         Schema::create('copa04_contentpages', function (Blueprint $table) {
             $table->id();
+            $table->string('title_page', 191)->nullable();
+            $table->integer('sorting')->default(0);
+            $table->string('slug')->nullable();
+            $table->boolean('active')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

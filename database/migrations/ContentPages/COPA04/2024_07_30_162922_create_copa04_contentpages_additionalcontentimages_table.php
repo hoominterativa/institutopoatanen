@@ -15,6 +15,8 @@ class CreateCopa04ContentpagesAdditionalcontentimagesTable extends Migration
     {
         Schema::create('copa04_contentpages_additionalcontentimages', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_dditionalcontentimages_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_dditionalcontentimages_idx');
             $table->string('link_video')->nullable();
             $table->string('path_image')->nullable();
             $table->boolean('active')->default(0);

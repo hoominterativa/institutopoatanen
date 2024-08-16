@@ -15,6 +15,8 @@ class CreateCopa04ContentpagesSectionproductsTable extends Migration
     {
         Schema::create('copa04_contentpages_sectionproducts', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_sectionproducts_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_sectionproducts_idx');
             $table->string('title');
             $table->string('subtitle');
             $table->string('color_one')->nullable();

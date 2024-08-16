@@ -23,7 +23,8 @@ class COPA04ContentPagesSectionVideo extends Model
         'color_one',
         'link',
         'active',
-        'sorting'
+        'sorting',
+        'contentpage_id',
     ];
 
     public function scopeSorting($query)

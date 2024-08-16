@@ -18,7 +18,7 @@ class COPA04SectionHighlightedController extends Controller
     public function create()
     {
         return view('Admin.cruds.ContentPages.COPA04.SectionHighlighted.create', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA04')
         ]);
     }
 
@@ -47,7 +47,7 @@ class COPA04SectionHighlightedController extends Controller
 
         return view('Admin.cruds.ContentPages.COPA04.SectionHighlighted.edit', [
             'COPA04SectionHighlighted' => $COPA04SectionHighlighted,
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA04')
         ]);
     }
 

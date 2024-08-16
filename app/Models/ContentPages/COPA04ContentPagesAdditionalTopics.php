@@ -23,8 +23,10 @@ class COPA04ContentPagesAdditionalTopics extends Model
         'path_image',
         'button_text',
         'button_link',
+        'target_link_one',
         'active',
         'sorting',
+        'contentpage_id'
     ];
 
     public function scopeSorting($query)

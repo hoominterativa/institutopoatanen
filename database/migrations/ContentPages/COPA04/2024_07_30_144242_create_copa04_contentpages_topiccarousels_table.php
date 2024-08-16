@@ -15,12 +15,15 @@ class CreateCopa04ContentpagesTopiccarouselsTable extends Migration
     {
         Schema::create('copa04_contentpages_topiccarousels', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_topiccarousels_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_topiccarousels_idx');
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
             $table->string('color_one')->nullable();
             $table->string('button_text')->nullable();
             $table->string('button_link')->nullable();
+            $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
             $table->boolean('active')->default(0);
             $table->softDeletes();
             $table->timestamps();

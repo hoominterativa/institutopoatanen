@@ -15,6 +15,8 @@ class CreateCopa04ContentpagesFaqtopicsTable extends Migration
     {
         Schema::create('copa04_contentpages_faqtopics', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_faqtopics_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_faqtopics_idx');
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->boolean('active')->default(0);

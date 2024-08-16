@@ -4,6 +4,9 @@
     <main id="root" class="copa04-page">
         {{-- BEGIN Page content --}}
         <style>
+            #mainHeader{
+                display: none;
+            }
             /* BACKEND: Imprimir as variaveis de cor aqui ❤ */
             :root {
 
@@ -412,7 +415,7 @@
         @endif
 
         {{-- Seção Section Products --}}
-        @if($sectionProducts)  
+        @if($sectionProducts)
         <section class="copa04-page__section-products">
             <header class="copa04-page__section-products__header">
 
@@ -460,7 +463,7 @@
 
         </section>
         @endif
-        
+
         @foreach ($sections as $section)
             {!! $section !!}
         @endforeach

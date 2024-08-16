@@ -24,6 +24,7 @@ class COPA04ContentPagesTopiccarousel_cards extends Model
         'path_image',
         'sorting',
         'active',
+        'contentpage_id'
     ];
 
     public function scopeSorting($query)

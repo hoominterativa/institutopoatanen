@@ -15,8 +15,11 @@ class CreateCopa04ContentpagesSectionhighlightedsTable extends Migration
     {
         Schema::create('copa04_contentpages_sectionhighlighteds', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_sectionhighlighteds_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_sectionhighlighteds_idx');
             $table->string('title',191)->nullable();
             $table->string('subtitle',191)->nullable();
+            $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
             $table->text('text', 255)->nullable();
             $table->text('link', 200)->nullable();
             $table->string('color_one')->nullable();

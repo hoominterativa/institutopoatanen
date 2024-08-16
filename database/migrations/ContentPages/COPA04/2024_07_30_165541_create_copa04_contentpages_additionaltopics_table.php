@@ -15,11 +15,14 @@ class CreateCopa04ContentpagesAdditionaltopicsTable extends Migration
     {
         Schema::create('copa04_contentpages_additionaltopics', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_additionaltopics_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_additionaltopics_idx');
             $table->string('title')->nullable();
             $table->string('link_video')->nullable();
             $table->string('path_image')->nullable();
             $table->string('button_text')->nullable();
             $table->string('button_link')->nullable();
+            $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->softDeletes();
