@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Brands;
 
 use App\Models\Brands\BRAN02Brands;
-use App\Models\Brands\BRAN02BrandsProducts;
+use App\Models\Brands\BRAN02BrandsMarcas;
 use App\Models\Brands\BRAN02BrandsCategories;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class BRAN02Controller extends Controller
     {
         $bran02 = BRAN02Brands::first();
         $bran02section = BRAN02BrandsCategories::sorting()->get();
-        $bran02products = BRAN02BrandsProducts::sorting()->get();
+        $bran02products = BRAN02BrandsMarcas::sorting()->get();
         //dd($bran02products, $bran02section, $bran02);
         return view('Admin.cruds.Brands.BRAN02.index', [
             'bran02' => $bran02,
@@ -180,10 +180,10 @@ class BRAN02Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'show');
         $bran02 = BRAN02Brands::first();
         $perPage = (deviceDetect() === 'desktop') ? 16 : 10;
-        if (!$Bran02active || BRAN02BrandsProducts::where('category_id', $Bran02active->id)->active()->doesntExist()) {
+        if (!$Bran02active || BRAN02BrandsMarcas::where('category_id', $Bran02active->id)->active()->doesntExist()) {
             return redirect()->route('bran02.page');
         } else {
-            $bran02products = BRAN02BrandsProducts::where('category_id', $Bran02active->id)->active()->sorting()->paginate($perPage);
+            $bran02products = BRAN02BrandsMarcas::where('category_id', $Bran02active->id)->active()->sorting()->paginate($perPage);
             
         }
         $bran02sections = BRAN02BrandsCategories::active()->orderByRaw("id = ? DESC", [$Bran02active->id ?? 0])->orderByRaw('highlighted DESC')->sorting()->get();
@@ -207,7 +207,7 @@ class BRAN02Controller extends Controller
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'page');
         $perPage = (deviceDetect() === 'desktop') ? 16 : 10;
-        $bran02products = BRAN02BrandsProducts::active()->sorting()->paginate($perPage);
+        $bran02products = BRAN02BrandsMarcas::active()->sorting()->paginate($perPage);
         $bran02sections = BRAN02BrandsCategories::active()->orderByRaw('highlighted DESC')->sorting()->get();
         $content = BRAN02Brands::first();
 
@@ -229,7 +229,7 @@ class BRAN02Controller extends Controller
     {
         $content = BRAN02Brands::first();
         $bran02sections = BRAN02BrandsCategories::active()->highlighted()->sorting()->get();
-        $bran02products = BRAN02BrandsProducts::active()->highlighted()->sorting()->get();
+        $bran02products = BRAN02BrandsMarcas::active()->highlighted()->sorting()->get();
 
         return view('Client.pages.Brands.BRAN02.section', compact('content', 'bran02sections', 'bran02products'));
     }

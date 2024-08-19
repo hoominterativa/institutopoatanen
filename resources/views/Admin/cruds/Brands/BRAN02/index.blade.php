@@ -63,7 +63,7 @@
                         @include('Admin.cruds.Brands.BRAN02.categories.index')
                     </div>
                     <div class="tab-pane" id="marcas">
-                        @include('Admin.cruds.Brands.BRAN02.products.index')
+                        @include('Admin.cruds.Brands.BRAN02.marcas.index')
                     </div>
                 </div>
                 <!-- end row -->

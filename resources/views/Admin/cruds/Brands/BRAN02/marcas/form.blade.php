@@ -89,12 +89,12 @@
             </div>
             
         </div>
-        <div class="d-flex justify-content-start">
-            <div class="form-check col-3">
+        <div class="d-flex mt-3">
+            <div class="form-check me-3">
                 {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
                 {!! Form::label('active', 'Ativar Exibição?', ['class' => 'form-check-label']) !!}
             </div>
-            <div class="form-check col-3">
+            <div class="form-check me-3">
                 {!! Form::checkbox('highlighted', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
                 {!! Form::label('highlighted', 'Destacar na home?', ['class' => 'form-check-label']) !!}
             </div>
@@ -118,9 +118,9 @@
                             'data-min-height' => $cropSetting->path_image->height, // px
                             'data-box-height' => '225', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff',
-                            'data-default-file' => isset($BrandsProducts)
-                                ? ($BrandsProducts->path_image != ''
-                                    ? url('storage/' . $BrandsProducts->path_image)
+                            'data-default-file' => isset($BrandsMarcas)
+                                ? ($BrandsMarcas->path_image != ''
+                                    ? url('storage/' . $BrandsMarcas->path_image)
                                     : '')
                                 : '',
                         ]) !!}

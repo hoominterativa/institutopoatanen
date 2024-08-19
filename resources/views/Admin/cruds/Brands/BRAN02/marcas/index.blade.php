@@ -4,11 +4,11 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="" type="button" class="btn btn-danger btnDeleteTopic"
+                        <button id="btSubmitDelete" data-route="{{ route('admin.bran02.marcas.destroySelected') }}" type="button" class="btn btn-danger btnDeleteTopic"
                             style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="{{ route('admin.bran02.products.create') }}"
+                        <a href="{{ route('admin.bran02.marcas.create') }}"
                             class="btn btn-success float-end">Adicionar <i class="mdi mdi-plus"></i></a>
                     </div>
 
@@ -27,7 +27,7 @@
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
-                    <tbody data-route="{{ route('admin.bran02.products.sorting') }}">
+                    <tbody data-route="{{ route('admin.bran02.marcas.sorting') }}">
                         @foreach ($bran02products as $produtos)
                             <tr data-code="{{ $produtos->id }}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span>
@@ -61,11 +61,11 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="{{ route('admin.bran02.products.edit', ['BRAN02BrandsProducts' => $produtos->id]) }}"
+                                            <a href="{{ route('admin.bran02.marcas.edit', ['BRAN02BrandsMarcas' => $produtos->id]) }}"
                                                 class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
                                         <form
-                                            action="{{ route('admin.bran02.products.destroy', ['BRAN02BrandsProducts' => $produtos->id]) }}"
+                                            action="{{ route('admin.bran02.marcas.destroy', ['BRAN02BrandsMarcas' => $produtos->id]) }}"
                                             class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i

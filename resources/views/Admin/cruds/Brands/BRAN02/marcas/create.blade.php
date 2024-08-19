@@ -14,23 +14,21 @@
                                     <li class="breadcrumb-item"><a
                                             href="{{ route('admin.bran02.index') }}">{{ getTitleModel($configModelsMain, 'Brands', 'BRAN02') }}</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Cadastro Produtos</li>
+                                    <li class="breadcrumb-item active">Cadastro Marcas</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastro Produtos</h4>
+                            <h4 class="page-title">Cadastro Marcas</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-
-                {!! Form::model($BrandsProducts, [
-                    'route' => ['admin.bran02.products.update', $BrandsProducts->id],
+                {!! Form::model(null, [
+                    'route' => 'admin.bran02.marcas.store',
                     'class' => 'parsley-validate',
-                    'method' => 'PUT',
                     'files' => true,
                 ]) !!}
-                @include('Admin.cruds.Brands.BRAN02.products.form')
-                {!! Form::button('Atualizar', [
+                @include('Admin.cruds.Brands.BRAN02.marcas.form')
+                {!! Form::button('Cadastrar', [
                     'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
                     'type' => 'submit',
                 ]) !!}

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBran02BrandsSectionsTable extends Migration
+class CreateBran02BrandsCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBran02BrandsSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bran02_brands_sections', function (Blueprint $table) {
+        Schema::create('bran02_brands_categories', function (Blueprint $table) {
             $table->id();
             $table->string('category');
             $table->string('slug');
@@ -32,6 +32,6 @@ class CreateBran02BrandsSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bran02_brands_sections');
+        Schema::dropIfExists('bran02_brands_categories');
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class BRAN02BrandsCategories extends Model
 {
 
-    protected $table = "bran02_brands_sections";
+    protected $table = "bran02_brands_categories";
     protected $fillable = [
         'category',
         'slug',
@@ -39,7 +39,7 @@ class BRAN02BrandsCategories extends Model
 
     public function BrandsProducts()
     {
-        return $this->hasMany(BRAN02BrandsProducts::class, 'category_id')->exists()->active()->sorting();;
+        return $this->hasMany(BRAN02BrandsMarcas::class, 'category_id')->exists()->active()->sorting();;
     }
     // public function getRelationCore()
     // {
