@@ -70,6 +70,11 @@ return [
                 'model' => App\Models\Brands\BRAN01Brands::class,
                 'seedQty' => 4,
             ],
+            'BRAN02' => (object)[
+                'controller' => App\Http\Controllers\Brands\BRAN02Controller::class,
+                'model' => App\Models\Brands\BRAN02Brands::class,
+                'seedQty' => 1,
+            ],
             'BRAN04' => (object)[
                 'controller' => App\Http\Controllers\Brands\BRAN04Controller::class,
                 'model' => App\Models\Brands\BRAN04Brands::class,
