@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody data-route="{{ route('admin.bran02.marcas.sorting') }}">
-                        @foreach ($bran02products as $produtos)
+                        @foreach ($bran02marcas as $produtos)
                             <tr data-code="{{ $produtos->id }}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span>
                                 </td>

@@ -24,14 +24,15 @@ class BRAN02Controller extends Controller
      */
     public function index()
     {
+
         $bran02 = BRAN02Brands::first();
-        $bran02section = BRAN02BrandsCategories::sorting()->get();
-        $bran02products = BRAN02BrandsMarcas::sorting()->get();
-        //dd($bran02products, $bran02section, $bran02);
+        $bran02categories = BRAN02BrandsCategories::sorting()->get();
+        $bran02marcas = BRAN02BrandsMarcas::sorting()->get();
+
         return view('Admin.cruds.Brands.BRAN02.index', [
             'bran02' => $bran02,
-            'bran02section' => $bran02section,
-            'bran02products' => $bran02products,
+            'bran02categories' => $bran02categories,
+            'bran02marcas' => $bran02marcas,
             'cropSetting' => getCropImage('Brands', 'BRAN02')
         ]);
     }
@@ -183,17 +184,17 @@ class BRAN02Controller extends Controller
         if (!$Bran02active || BRAN02BrandsMarcas::where('category_id', $Bran02active->id)->active()->doesntExist()) {
             return redirect()->route('bran02.page');
         } else {
-            $bran02products = BRAN02BrandsMarcas::where('category_id', $Bran02active->id)->active()->sorting()->paginate($perPage);
+            $bran02marcas = BRAN02BrandsMarcas::where('category_id', $Bran02active->id)->active()->sorting()->paginate($perPage);
             
         }
-        $bran02sections = BRAN02BrandsCategories::active()->orderByRaw("id = ? DESC", [$Bran02active->id ?? 0])->orderByRaw('highlighted DESC')->sorting()->get();
+        $bran02categories = BRAN02BrandsCategories::active()->orderByRaw("id = ? DESC", [$Bran02active->id ?? 0])->orderByRaw('highlighted DESC')->sorting()->get();
         
         return view('Client.pages.Brands.BRAN02.page', [
             'sections' => $sections,
             'content' => $bran02,
             'show' => $BRAN02Brands,
-            'bran02sections' => $bran02sections,
-            'bran02products' => $bran02products
+            'bran02categories' => $bran02categories,
+            'bran02marcas' => $bran02marcas
         ]);
         
         
@@ -202,20 +203,20 @@ class BRAN02Controller extends Controller
     /**
      * Exibir a página de categoria Geral
      */
-    public function page(Request $request)
+    public function page()
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'page');
         $perPage = (deviceDetect() === 'desktop') ? 16 : 10;
-        $bran02products = BRAN02BrandsMarcas::active()->sorting()->paginate($perPage);
-        $bran02sections = BRAN02BrandsCategories::active()->orderByRaw('highlighted DESC')->sorting()->get();
+        $bran02marcas = BRAN02BrandsMarcas::active()->sorting()->paginate($perPage);
+        $bran02categories = BRAN02BrandsCategories::active()->orderByRaw('highlighted DESC')->sorting()->get();
         $content = BRAN02Brands::first();
 
         return view('Client.pages.Brands.BRAN02.page', [
             'sections' => $sections,
             'show' => 'all',
-            'bran02products' => $bran02products,
-            'bran02sections' => $bran02sections,
+            'bran02marcas' => $bran02marcas,
+            'bran02categories' => $bran02categories,
             'content' => $content
         ]);
     }
@@ -228,9 +229,9 @@ class BRAN02Controller extends Controller
     public static function section()
     {
         $content = BRAN02Brands::first();
-        $bran02sections = BRAN02BrandsCategories::active()->highlighted()->sorting()->get();
-        $bran02products = BRAN02BrandsMarcas::active()->highlighted()->sorting()->get();
+        $bran02categories = BRAN02BrandsCategories::active()->highlighted()->sorting()->get();
+        $bran02marcas = BRAN02BrandsMarcas::active()->highlighted()->sorting()->get();
 
-        return view('Client.pages.Brands.BRAN02.section', compact('content', 'bran02sections', 'bran02products'));
+        return view('Client.pages.Brands.BRAN02.section', compact('content', 'bran02categories', 'bran02marcas'));
     }
 }

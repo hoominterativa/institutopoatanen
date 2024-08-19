@@ -29,7 +29,7 @@
 
                     <tbody data-route="{{ route('admin.bran02.categories.sorting') }}">
 
-                        @foreach ($bran02section as $section)
+                        @foreach ($bran02categories as $section)
                             <tr data-code="{{ $section->id }}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span>
                                 </td>

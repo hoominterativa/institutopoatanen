@@ -17,7 +17,7 @@
         </header>
         <aside class="bran02__categories">
             <menu class="bran02__categories__swiper-wrapper swiper-wrapper">
-                @foreach ($bran02sections as $category)
+                @foreach ($bran02categories as $category)
                     <a href="{{ route('bran02.show', $category->slug) }}" class="bran02__categories__item swiper-slide">{{ $category->category }}</a>
                 @endforeach
             </menu>
@@ -25,10 +25,12 @@
         </aside>
         <div class="bran02__products">
             <div class="bran02__products__swiper-wrapper swiper-wrapper">
-                @foreach ($bran02products as $products)
+                @foreach ($bran02marcas as $marcas)
+                <a href="{{ $marcas->button_link }}" target="{{ $marcas->target_link }}">
                     <img class="bran02__products__item swiper-slide"
-                        src="{{ asset('storage/' . $products->path_image) }}"
+                        src="{{ asset('storage/' . $marcas->path_image) }}"
                         alt="Imagem referente a seção {{-- TITLE --}}">
+                    </a>
                 @endforeach
             </div>
         </div>
