@@ -153,12 +153,12 @@
                     <div class="tab-pane show active" id="linkExternal"></div>
                 </div> {{-- END .tab-content --}}
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mb-2">
                         {!! Form::label('button_text', 'Escrita Botão', ['class'=>'form-label']) !!}
                         {!! Form::text('button_text', null, ['class'=>'form-control', 'id'=>'title', 'required'=>'required']) !!}    
                     </div>
                     <div class="col-12 col-sm-8">
-                        {!! Form::label(null, 'button_link', ['class'=>'form-label']) !!}
+                        {!! Form::label(null, 'Link do Botão', ['class'=>'form-label']) !!}
                         {!! Form::url('button_link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">

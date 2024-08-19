@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Brands\BRAN02Controller;
-use App\Http\Controllers\Brands\BRAN02SectionController;
+use App\Http\Controllers\Brands\BRAN02CategoriesController; 
 use App\Http\Controllers\Brands\BRAN02productsController;
 
 /**
@@ -37,9 +37,9 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
   Route::post($route.'/products/sorting', [BRAN02productsController::class, 'sorting'])->name('admin.'.$routeName.'.products.sorting');
 
   //Categoria
-  Route::resource($route.'/categorie', BRAN02SectionController::class)->names('admin.'.$routeName.'.categories')->parameters(['categorie' => 'BRAN02BrandsSection']);
-  Route::post($route.'/categorie/delete', [BRAN02SectionController::class, 'destroySelected'])->name('admin.'.$routeName.'.categorie.destroySelected');
-  Route::post($route.'/categorie/sorting', [BRAN02SectionController::class, 'sorting'])->name('admin.'.$routeName.'.categorie.sorting');
+  Route::resource($route.'/categorie', BRAN02CategoriesController::class)->names('admin.'.$routeName.'.categories')->parameters(['categorie' => 'BRAN02BrandsCategories']);
+  Route::post($route.'/categorie/delete', [BRAN02CategoriesController::class, 'destroySelected'])->name('admin.'.$routeName.'.categories.destroySelected');
+  Route::post($route.'/categorie/sorting', [BRAN02CategoriesController::class, 'sorting'])->name('admin.'.$routeName.'.categories.sorting');
 
  });
 //  CLIENT

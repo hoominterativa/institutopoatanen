@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="" type="button" class="btn btn-danger btnDeleteTopic"
+                        <button id="btSubmitDelete" data-route="{{ route('admin.bran02.categories.destroySelected') }}" type="button" class="btn btn-danger btnDeleteTopic"
                             style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
@@ -21,13 +21,13 @@
                                 <label><input name="btnSelectAll" value="btnDeleteTopic" type="checkbox"></label>
                             </th>
                             <th>Título</th>
-                            <th width="100px">Foco</th>
+                            <th width="100px">Destaque</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{ route('admin.bran02.categorie.sorting') }}">
+                    <tbody data-route="{{ route('admin.bran02.categories.sorting') }}">
 
                         @foreach ($bran02section as $section)
                             <tr data-code="{{ $section->id }}">
@@ -55,11 +55,11 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="{{ route('admin.bran02.categories.edit', ['BRAN02BrandsSection' => $section->id]) }}"
+                                            <a href="{{ route('admin.bran02.categories.edit', ['BRAN02BrandsCategories' => $section->id]) }}"
                                                 class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
                                         <form
-                                            action="{{ route('admin.bran02.categories.destroy', ['BRAN02BrandsSection' => $section->id]) }}"
+                                            action="{{ route('admin.bran02.categories.destroy', ['BRAN02BrandsCategories' => $section->id]) }}"
                                             class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i

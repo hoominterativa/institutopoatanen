@@ -25,7 +25,7 @@
                     <li class="nav-item">
                         <a href="#brand" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link active d-flex align-items-center">
-                            {{ getTitleModel($configModelsMain, 'Brands', 'BRAN02') }}
+                            Informações	
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Cadastro do conteúdo principal."></i>
@@ -41,9 +41,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#itens" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#marcas" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Produtos
+                            Marcas
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Permite a adição e edição das Produtos."></i>
@@ -62,7 +62,7 @@
                     <div class="tab-pane" id="category">
                         @include('Admin.cruds.Brands.BRAN02.categories.index')
                     </div>
-                    <div class="tab-pane" id="itens">
+                    <div class="tab-pane" id="marcas">
                         @include('Admin.cruds.Brands.BRAN02.products.index')
                     </div>
                 </div>

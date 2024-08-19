@@ -1,27 +1,15 @@
-
 <div class="row">
     <div class="col-6">
-    <div class="mb-3 card-body card ">
-        
-        {!! Form::label('name', 'Nome da Categoria', ['class' => 'form-label']) !!}
-        {!! Form::text('name', null, ['class' => 'form-control', 'id' => 'title', 'required' => 'required']) !!}
-        <div class="mt-3">
-            {!! Form::label('category_id	', 'Selecione a Categoria do Produto', ['class' => 'form-label']) !!}
-            {!! Form::select('category_id',$options,
-                null,
-                [
+        <div class="mb-3 card-body card ">
+            <div class="">
+                {!! Form::label('category_id	', 'Categoria', ['class' => 'form-label']) !!}
+                {!! Form::select('category_id', $categories, null, [
                     'class' => 'form-select',
                     'id' => 'category_id	',
                     'required' => 'required',
                     'placeholder' => 'Escolha a categoria...',
-                ],
-            ) !!}
-        </div>
-    </div>
-    </div>
-
-    <div class="col-6">
-    <div class="card card-body" id="tooltip-container">
+                ]) !!}
+            </div>
             {{-- Editor de Link --}}
             <div class="wrapper-links my-2 border px-2 py-3">
                 <ul class="nav nav-pills navtab-bg nav-justified">
@@ -62,16 +50,21 @@
                                 </button>
                                 <ul class="dropdown-menu multi-level col-12" aria-labelledby="dropdownPages">
                                     @foreach (listPage() as $page)
-                                            <li class="dropdown {{$page->dropdown?'dropdown-submenu':''}}">
-                                                <a href="{{$page->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl" data-bs-toggle="dropdown">{{$page->title}}</a>
-                                                @if ($page->dropdown)
-                                                    <ul class="dropdown-menu">
-                                                        @foreach ($page->dropdown as $itens)
-                                                            <li><a href="{{$itens->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl">{{$itens->name}}</a></li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                            </li>
+                                        <li class="dropdown {{ $page->dropdown ? 'dropdown-submenu' : '' }}">
+                                            <a href="{{ $page->route }}" class="dropdown-item" data-bs-toggle="setUrl"
+                                                data-target-url="#targetUrl"
+                                                data-bs-toggle="dropdown">{{ $page->title }}</a>
+                                            @if ($page->dropdown)
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($page->dropdown as $itens)
+                                                        <li><a href="{{ $itens->route }}" class="dropdown-item"
+                                                                data-bs-toggle="setUrl"
+                                                                data-target-url="#targetUrl">{{ $itens->name }}</a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -81,7 +74,7 @@
                 </div> {{-- END .tab-content --}}
                 <div class="row">
                     <div class="col-12 col-sm-8">
-                        {!! Form::label(null, 'button_link', ['class' => 'form-label']) !!}
+                        {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
                         {!! Form::url('button_link', null, ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
                     </div>
                     <div class="col-12 col-sm-4">
@@ -94,8 +87,22 @@
                 </div>
 
             </div>
-            {{-- END .wrapper-links --}}
-
+            
+        </div>
+        <div class="d-flex justify-content-start">
+            <div class="form-check col-3">
+                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
+                {!! Form::label('active', 'Ativar Exibição?', ['class' => 'form-check-label']) !!}
+            </div>
+            <div class="form-check col-3">
+                {!! Form::checkbox('highlighted', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
+                {!! Form::label('highlighted', 'Destacar na home?', ['class' => 'form-check-label']) !!}
+            </div>
+        </div>
+    </div>
+    {{-- Colocar um em cima do outro (categoria) e preencher o link e deixar a imagem do lado, ativar exibição e destacar home esquerda --}}
+    <div class="col-6">
+        <div class="card card-body" id="tooltip-container">
             {{-- Editor de Imagem --}}
             <div class="mb-3">
                 <div class="container-image-crop">
@@ -122,16 +129,7 @@
             </div>
             {{-- Editor de Texto --}}
         </div>
-        <div class="mt-1 row">
-            <div class="form-check me-3">
-                {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
-                {!! Form::label('active', 'Ativar Exibição?', ['class' => 'form-check-label']) !!}
-            </div>
-            <div class="form-check me-3">
-                {!! Form::checkbox('highlighted', '1', null, ['class' => 'form-check-input', 'id' => 'featured']) !!}
-                {!! Form::label('highlighted', 'Destacar na home?', ['class' => 'form-check-label']) !!}
-            </div>
-        </div>
     </div>
+
     {{-- end card-body --}}
 </div>

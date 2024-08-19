@@ -24,8 +24,8 @@
                 </div>
                 <!-- end page title -->
 
-                {!! Form::model($BRAN02BrandsSection, [
-                    'route' => ['admin.bran02.categories.update', $BRAN02BrandsSection->id],
+                {!! Form::model($BRAN02BrandsCategories, [
+                    'route' => ['admin.bran02.categories.update', $BRAN02BrandsCategories->id],
                     'class' => 'parsley-validate',
                     'method' => 'PUT',
                     'files' => true,

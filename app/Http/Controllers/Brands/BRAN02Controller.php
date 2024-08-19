@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Brands;
 
 use App\Models\Brands\BRAN02Brands;
 use App\Models\Brands\BRAN02BrandsProducts;
-use App\Models\Brands\BRAN02BrandsSection;
+use App\Models\Brands\BRAN02BrandsCategories;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -25,7 +25,7 @@ class BRAN02Controller extends Controller
     public function index()
     {
         $bran02 = BRAN02Brands::first();
-        $bran02section = BRAN02BrandsSection::sorting()->get();
+        $bran02section = BRAN02BrandsCategories::sorting()->get();
         $bran02products = BRAN02BrandsProducts::sorting()->get();
         //dd($bran02products, $bran02section, $bran02);
         return view('Admin.cruds.Brands.BRAN02.index', [
@@ -175,7 +175,7 @@ class BRAN02Controller extends Controller
     public function show($BRAN02Brands)
     {
         
-        $Bran02active = BRAN02BrandsSection::where('slug', $BRAN02Brands)->first();
+        $Bran02active = BRAN02BrandsCategories::where('slug', $BRAN02Brands)->first();
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'show');
         $bran02 = BRAN02Brands::first();
@@ -186,7 +186,7 @@ class BRAN02Controller extends Controller
             $bran02products = BRAN02BrandsProducts::where('category_id', $Bran02active->id)->active()->sorting()->paginate($perPage);
             
         }
-        $bran02sections = BRAN02BrandsSection::active()->orderByRaw("id = ? DESC", [$Bran02active->id ?? 0])->orderByRaw('highlighted DESC')->sorting()->get();
+        $bran02sections = BRAN02BrandsCategories::active()->orderByRaw("id = ? DESC", [$Bran02active->id ?? 0])->orderByRaw('highlighted DESC')->sorting()->get();
         
         return view('Client.pages.Brands.BRAN02.page', [
             'sections' => $sections,
@@ -208,7 +208,7 @@ class BRAN02Controller extends Controller
         $sections = $IncludeSectionsController->IncludeSectionsPage('Brands', 'BRAN02', 'page');
         $perPage = (deviceDetect() === 'desktop') ? 16 : 10;
         $bran02products = BRAN02BrandsProducts::active()->sorting()->paginate($perPage);
-        $bran02sections = BRAN02BrandsSection::active()->orderByRaw('highlighted DESC')->sorting()->get();
+        $bran02sections = BRAN02BrandsCategories::active()->orderByRaw('highlighted DESC')->sorting()->get();
         $content = BRAN02Brands::first();
 
         return view('Client.pages.Brands.BRAN02.page', [
@@ -228,7 +228,7 @@ class BRAN02Controller extends Controller
     public static function section()
     {
         $content = BRAN02Brands::first();
-        $bran02sections = BRAN02BrandsSection::active()->highlighted()->sorting()->get();
+        $bran02sections = BRAN02BrandsCategories::active()->highlighted()->sorting()->get();
         $bran02products = BRAN02BrandsProducts::active()->highlighted()->sorting()->get();
 
         return view('Client.pages.Brands.BRAN02.section', compact('content', 'bran02sections', 'bran02products'));

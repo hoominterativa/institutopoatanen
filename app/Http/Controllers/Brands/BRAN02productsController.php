@@ -13,7 +13,7 @@ use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\Brands\BRAN02BrandsProducts;
 use App\Http\Controllers\Brands\BRAN02SectionController;
-use App\Models\Brands\BRAN02BrandsSection;
+use App\Models\Brands\BRAN02BrandsCategories;
 
 class BRAN02productsController extends Controller
 {
@@ -23,15 +23,13 @@ class BRAN02productsController extends Controller
     public function create()
     
     {
-        $categories = BRAN02BrandsSection::active()->sorting()->get();
-        
-        $options = $this->options($categories);
+        $categories = BRAN02BrandsCategories::active()->sorting()->pluck('category', 'id');
 
-        $sections = BRAN02BrandsSection::active()->sorting()->get();
+        $sections = BRAN02BrandsCategories::active()->sorting()->get();
         return view('Admin.cruds.Brands.BRAN02.products.create', [
             'cropSetting' => getCropImage('Brands', 'BRAN02'),
             'sections' => $sections,
-            'options' => $options
+            'categories' => $categories
         ]);
     }
 
@@ -46,6 +44,7 @@ class BRAN02productsController extends Controller
         $data = $request->all();
 
         $data['active'] = $request->active ? 1 : 0;
+        $data['highlighted'] = $request->highlighted ? 1 : 0;
 
         $helper = new HelperArchive();
 
@@ -73,14 +72,12 @@ class BRAN02productsController extends Controller
     public function edit(BRAN02BrandsProducts $BRAN02BrandsProducts)
     {
 
-        $categories = BRAN02BrandsSection::active()->sorting()->get();
-        
-        $options = $this->options($categories);
+        $categories = BRAN02BrandsCategories::active()->sorting()->pluck('category', 'id');
         
         return view('Admin.cruds.Brands.BRAN02.products.edit', [
             'cropSetting' => getCropImage('Brands', 'BRAN02'),
             'BrandsProducts' => $BRAN02BrandsProducts,
-            'options' => $options,
+            'categories' => $categories,
 
         ]);
     }
@@ -98,6 +95,7 @@ class BRAN02productsController extends Controller
         $data = $request->all();
 
         $data['active'] = $request->active ? 1 : 0;
+        $data['highlighted'] = $request->highlighted ? 1 : 0;
 
         $helper = new HelperArchive();
 
@@ -157,12 +155,12 @@ class BRAN02productsController extends Controller
             storageDelete($BRAN02Brands, 'path_image');
         }
         
-
-        if($deleted = BRAN02BrandsProducts::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
-        }
-    }
-    /**
+                        
+        if($deleted = BRAN02BrandsProducts::whereIn('id', $request->deleteAll)->delete()){                  
+            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);                  
+        }                   
+    }                   
+    /**                 
     * Sort record by dragging and dropping
     *
     * @param  \Illuminate\Http\Request  $request

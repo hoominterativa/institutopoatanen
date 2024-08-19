@@ -20,10 +20,9 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteTopic" type="checkbox"></label>
                             </th>
-                            <th>Título</th>
                             <th>Imagems</th>
                             <th>Link</th>
-                            <th width="100px">Foco</th>
+                            <th width="100px">Destaque</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -37,7 +36,6 @@
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox"
                                             value="{{ $produtos->id }}"></label>
                                 </td>
-                                <td>{{ $produtos->name }}</td>
                                 <td class="align-middle avatar-group">
                                     @if ($produtos->path_image)
                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
@@ -45,7 +43,7 @@
                                         </div>
                                     @endif
                                 </td>
-                                <td class="align-middle">{{ $produtos->button_link }}</td>
+                                <td class="align-middle"><a href="{{ $produtos->button_link }}">{{ $produtos->button_link }}</a></td>
                                 <td class="align-middle">
                                     @if ($produtos->highlighted)
                                         <span class="badge bg-success">Destacado</span>
