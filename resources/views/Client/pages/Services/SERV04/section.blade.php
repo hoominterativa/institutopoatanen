@@ -1,75 +1,70 @@
 @if ($section)
-    <section id="SERV04" class="serv04 container-fluid position-relative"
-        style="background-image: url({{ asset('storage/' . $section->path_image_section_desktop) }});">
-        @if ($section->path_image_section_desktop)
-            <div class="serv04__mask"></div>
-        @endif
-        <header class="serv04__header">
-            @if ($section->title_section || $section->subtitle_section)
-                <h2 class="container container--serv04 d-block text-center">
-                    <span class="serv04__header__title d-block">{{ $section->title_section }}</span>
-                    <span class="serv04__header__subtitle d-block">{{ $section->subtitle_section }}</span>
-                    <hr class="serv04__header__line mb-0">
-                </h2>
-            @endif
-            <div class="serv04__header__paragraph mx-auto text-center">
-                @if ($section->description_section)
-                    <p>
-                        {!! $section->description_section !!}
-                    </p>
+    <section id="SERV04" class="serv04" {{-- BACKEND: Ocultar do painel style="background-image: url({{ asset('storage/' . $section->path_image_section_desktop) }});"
+         --}}>
+        @if ($section->title_section || $section->subtitle_section || $section->description_section)
+            <header class="serv04__header">
+                @if ($section->title_section)
+                    <h2 class="serv04__header__title">{{ $section->title_section }}</h2>
                 @endif
-            </div>
-        </header>
-        @if ($services->count())
-            <main class="serv04__content">
-                <div class="container">
-                    <div class="carousel-serv04 owl-carousel">
-                        @foreach ($services as $service)
-                            <div class="serv04__box w-100">
-                                <div class="serv04__box__content">
-                                    <a href="{{ route('serv04.show', ['SERV04ServicesCategory' => $service->category->slug, 'SERV04Services' => $service->slug]) }}"
-                                        rel="next" class="link-full"></a>
-                                    <div class="serv04__box__bg">
-                                        @if ($service->path_image_box)
-                                            <img src="{{ asset('storage/' . $service->path_image_box) }}" alt="Logo" loading="lazy">
-                                        @endif
-                                    </div>
-                                    <div class="serv04__box__description">
-                                        <div class="serv04__box__image">
-                                            @if ($service->path_image_icon)
-                                                <img src="{{ asset('storage/' . $service->path_image_icon) }}" alt="Logo" loading="lazy">
-                                            @endif
-                                        </div>
-                                        @if ($service->title)
-                                            <h4 class="serv04__box__title">{{ $service->title }}</h4>
-                                        @endif
-                                        <div class="serv04__box__paragraph">
-                                            @if ($service->description)
-                                                <p>
-                                                    {!! $service->description !!}
-                                                </p>
-                                            @endif
-                                        </div>
-                                        <a rel="next" href="{{ route('serv04.show', ['SERV04ServicesCategory' => $service->category->slug, 'SERV04Services' => $service->slug]) }}"
-                                            class="serv04__box__cta transition justify-content-center align-items-center">
-                                            <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA"
-                                                class="serv04__box__cta__icon me-3 transition">
-                                            CTA
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        {{-- END .serv04__box --}}
+                @if ($section->subtitle_section)
+                    <h3 class="serv04__header__subtitle">{{ $section->subtitle_section }}</h3>
+                @endif
+
+
+                @if ($section->description_section)
+                    <div class="serv04__header__paragraph">
+                        <p>
+                            {!! $section->description_section !!}
+                        </p>
                     </div>
-                    <a rel="next" href="{{route('serv04.category.page', ['SERV04ServicesCategory' => $category->slug])}}"
-                        class="serv04__cta transition justify-content-center align-items-center">
-                        <img src="{{ asset('storage/uploads/tmp/icon-general.svg') }}" alt="Icone CTA"
-                            class="serv04__cta__icon me-3 transition">
-                        CTA
-                    </a>
-                </div>
-            </main>
+                @endif
+
+            </header>
         @endif
+        @if ($services->count())
+            <div class="serv04__services">
+                <div class="serv04__services__swiper-wrapper swiper-wrapper">
+                    @foreach ($services as $service)
+                        <div class="serv04__services__item swiper-slide">
+                            <a title="{{ $service->title }}"
+                                href="{{ route('serv04.show', ['SERV04ServicesCategory' => $service->category->slug, 'SERV04Services' => $service->slug]) }}"
+                                class="link-full"></a>
+
+                            @if ($service->path_image_box)
+                                <img class="serv04__services__item__bg"
+                                    src="{{ asset('storage/' . $service->path_image_box) }}"
+                                    alt="Imagem de fundo do serviço {{ $service->title }}" loading="lazy">
+                            @endif
+
+                            @if ($service->path_image_icon)
+                                <img class="serv04__services__item__icon"
+                                    src="{{ asset('storage/' . $service->path_image_icon) }}" alt="Logo"
+                                    loading="lazy">
+                            @endif
+
+                            @if ($service->title)
+                                <h4 class="serv04__services__item__title">{{ $service->title }}</h4>
+                            @endif
+
+                            @if ($service->description)
+                                <div class="serv04__services__item__paragraph">
+                                    <p>
+                                        {!! $service->description !!}
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+
+                </div>
+
+
+            </div>
+        @endif
+        <a class="serv04__cta" title="Ver todos"
+            href="{{ route('serv04.category.page', ['SERV04ServicesCategory' => $category->slug]) }}"
+            class="serv04__cta transition justify-content-center align-items-center">
+            CTA
+        </a>
     </section>
 @endif
