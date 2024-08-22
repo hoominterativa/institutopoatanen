@@ -166,7 +166,7 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .serv04-page__services-section, .serv04-page__category-information, .serv04-page__categories, .serv04, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .serv04-page__banner {
+.comp01-page__content, .serv04-page__services-section, .serv04-page__category-information, .serv04-page__categories, .serv04, .foot04__copyright, .foot04__logo, .foot04__contacts, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .serv04-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -222,17 +222,17 @@ details .details-content {
 .confirmation-page__title {
   color: #cacaca;
 }
-.serv04__header__subtitle, .serv04-page__services-section__information__description__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv04-page__categories__item {
+.serv04__header__subtitle, .serv04-page__services-section__information__description__subtitle, .foot04__contacts__item__title, .serv04-page__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .serv04__header__subtitle, .serv04-page__services-section__information__description__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv04-page__categories__item {
+  .serv04__header__subtitle, .serv04-page__services-section__information__description__subtitle, .foot04__contacts__item__title, .serv04-page__categories__item {
     font-size: 1.125rem;
   }
 }
-.foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv04-page__categories__item {
+.foot04__contacts__item__title, .serv04-page__categories__item {
   color: #000;
 }
 .serv04-page__services-section__information__description__subtitle {
@@ -254,12 +254,12 @@ details .details-content {
 .serv04__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .serv04-page__banner__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .serv04__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .serv04-page__services-section__information__description__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .serv04-page__services-section__accordion__item__title, .side02__cta, .head02__navigation__item__cta {
+.serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .serv04-page__banner__paragraph, .foot04__contacts__item__link, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .serv04__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .serv04-page__services-section__information__description__paragraph, .confirmation-page__paragraph, .serv04-page__services-section__accordion__item__title, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.serv04-page__category-information__description__paragraph p, .serv04__header__paragraph p, .serv04-page__banner__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .serv04__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .serv04-page__services-section__information__description__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .serv04-page__services-section__accordion__item__title p, .side02__cta p, .head02__navigation__item__cta p {
+.serv04-page__category-information__description__paragraph p, .serv04__header__paragraph p, .serv04-page__banner__paragraph p, .foot04__contacts__item__link p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .serv04__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .serv04-page__services-section__information__description__paragraph p, .confirmation-page__paragraph p, .serv04-page__services-section__accordion__item__title p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -267,28 +267,28 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .serv04-page__banner__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .serv04__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .serv04-page__services-section__information__description__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .serv04-page__services-section__accordion__item__title, .side02__cta, .head02__navigation__item__cta {
+  .serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .serv04-page__banner__paragraph, .foot04__contacts__item__link, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .serv04__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .serv04-page__services-section__information__description__paragraph, .confirmation-page__paragraph, .serv04-page__services-section__accordion__item__title, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.comp01-page__content__paragraph, .serv04-page__services-section__information__description__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .serv04-page__services-section__accordion__item__title {
+.comp01-page__content__paragraph, .serv04-page__services-section__information__description__paragraph, .confirmation-page__paragraph, .serv04-page__services-section__accordion__item__title {
   color: #000;
 }
-.head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .serv04__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
+.foot04__contacts__item__link, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .serv04__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
 .serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .serv04-page__banner__paragraph {
   color: #7c7c7c;
 }
-.serv04__services__item__paragraph, .serv04-page__services-section__accordion__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
+.serv04__services__item__paragraph, .serv04-page__services-section__accordion__item__paragraph, .comp01-page__content__archives__item, .foot04__copyright__list__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.serv04__services__item__paragraph p, .serv04-page__services-section__accordion__item__paragraph p, .comp01-page__content__archives__item p, .foot02__copyright__compliances__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p {
+.serv04__services__item__paragraph p, .serv04-page__services-section__accordion__item__paragraph p, .comp01-page__content__archives__item p, .foot04__copyright__list__item p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -296,7 +296,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .serv04__services__item__paragraph, .serv04-page__services-section__accordion__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
+  .serv04__services__item__paragraph, .serv04-page__services-section__accordion__item__paragraph, .comp01-page__content__archives__item, .foot04__copyright__list__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -304,7 +304,7 @@ details .details-content {
 .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
   color: #000;
 }
-.comp01-page__content__archives__item, .foot02__copyright__compliances__item {
+.comp01-page__content__archives__item, .foot04__copyright__list__item {
   color: #404040;
 }
 .serv04__services__item__paragraph, .serv04-page__services-section__accordion__item__paragraph {
@@ -2136,57 +2136,47 @@ body .owl-dots .owl-dot.active {
   align-items: center;
   gap: 0.5rem;
 }
-.foot02 {
-  background-color: #b3b3b3;
+/* BEGIN STYLE */
+.foot04 {
+  background-color: #efefef;
 }
-.foot02__navigation {
-  position: relative;
+.foot04__contacts {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.foot02__navigation__client-info {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   gap: 3rem;
-  margin-right: 2rem;
+  padding-bottom: 0;
 }
 @media (max-width: 991.98px) {
-  .foot02__navigation__client-info {
-    width: 100%;
-    margin-bottom: 2rem;
-    margin-right: unset;
+  .foot04__contacts {
+    flex-direction: column;
+    align-items: center;
   }
 }
-.foot02__navigation__client-info__logo {
-  width: 12.5rem;
+@media (max-width: 991.98px) {
+  .foot04__contacts__item__title {
+    text-align: center;
+  }
+}
+.foot04__contacts__item__link {
+  display: block;
+  text-decoration: none;
+}
+@media (max-width: 991.98px) {
+  .foot04__contacts__item__link {
+    text-align: center;
+  }
+}
+.foot04__logo {
+  display: block;
+  width: 25.625rem;
   height: auto;
-  aspect-ratio: 200/96;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  aspect-ratio: 410/191;
+  margin: 8.75rem auto 9.8125rem;
+  padding-block: 0;
 }
-.foot02__navigation__client-info__socials {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-  list-style: none;
-}
-.foot02__navigation__client-info__socials__item {
-  position: relative;
-  width: 1.75rem;
-  height: auto;
-  aspect-ratio: 1/1;
-}
-.foot02__navigation__client-info__socials__item__icon {
+.foot04__logo__img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -2194,72 +2184,51 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.foot02__navigation__pages {
-  list-style: none;
-  flex: 1 0 auto;
-}
-.foot02__navigation__pages__header__link {
-  font: inherit;
-  line-height: inherit;
-  color: inherit;
-  text-align: inherit;
-}
-.foot02__navigation__pages__item__link, .foot02__navigation__client-contact__item__link {
-  font: inherit;
-  line-height: inherit;
-  color: inherit;
-  text-align: inherit;
-}
-.foot02__navigation__client-contact {
-  list-style: none;
-  flex: 1 0 auto;
-}
-.foot02__navigation__button {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: stretch;
-  position: absolute;
-  bottom: 0;
-  right: 5%;
-  height: 5rem;
-  width: 3.5rem;
-  border: none;
-  outline: none;
-  background-color: #b3b3b3;
-}
-.foot02__navigation__button img {
-  height: 23px;
-}
-.foot02__copyright {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.foot04__copyright {
+  position: relative;
+  background-color: #7c7c7c;
+  padding-block: 2.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 @media (max-width: 991.98px) {
-  .foot02__copyright {
+  .foot04__copyright {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 }
-.foot02__copyright__compliances {
+.foot04__copyright__list {
+  width: calc(100% - 9.1875rem);
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 5.25rem;
+  flex-wrap: wrap;
 }
-.foot02__copyright__compliances__item__list {
-  font: inherit;
-  line-height: inherit;
-  color: inherit;
-  text-align: inherit;
+.foot04__copyright__list__item {
+  position: relative;
+  font-weight: 700;
 }
-.foot02__copyright__hoom {
-  width: 9.25rem;
+.foot04__copyright__list__item + .foot04__copyright__list__item::before {
+  width: 1px;
+  background-color: #000;
+  height: 100%;
+  position: absolute;
+  left: -2.625rem;
+  top: 0;
+  content: "";
+}
+.foot04__copyright__hoom {
+  width: 9.1875rem;
   height: auto;
-  aspect-ratio: 148/72;
+  aspect-ratio: 147/42;
+  position: relative;
 }
-.foot02__copyright__hoom__img {
+.foot04__copyright__hoom__img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
