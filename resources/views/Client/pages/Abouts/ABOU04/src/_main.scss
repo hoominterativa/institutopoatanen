@@ -2,100 +2,58 @@
 
 /* BEGIN STYLE */
 .abou04 {
-    @include backG;
-    padding-top: 68px;
+    overflow: hidden;
+    @extend %theme__padding;
+    @include disFlex(row, space-between, center);
 
-    &__main {
-        @include Flex($justify: space-between, $align: start);
-        @include small-device-down {
-            flex-direction: column-reverse;
-            align-items: center;
-            justify-content: end;
-        }
+    @include large-device-down {
+        flex-direction: column;
+        justify-content: start;
+        gap: 2rem;
     }
 
     &__image {
-        width: 34%;
-        height: auto;
-        object-fit: contain;
-        object-position: center bottom;
+        width: calc(50% - 120px);
 
-        @include small-device-down {
-            width: 100%;
-            margin-top: 59px;
-        }
-    }
-
-    &__content {
-        width: 52%;
-
-        @include small-device-down {
+        @include large-device-down {
             width: 100%;
         }
-    }
 
-    &__title {
-        font-family: $font-primary;
-        font-size: $T2;
-        font-weight: 700;
-        color: $color-black;
-        text-align: left;
-
-        @include medium-device-down {
-            font-size: $T2-mobile;
-            text-align: center;
-        }
-    }
-
-    &__subtitle {
-        font-family: $font-primary;
-        font-size: $T4;
-        font-weight: 700;
-        color: $color-one;
-        text-align: left;
-        margin-bottom: 39px;
-
-        @include medium-device-down {
-            font-size: $T4-mobile;
-            text-align: center;
-        }
-    }
-
-    &__line {
-        width: 100%;
-        border-top: 1px solid $color-two;
-        margin: 0 0 34px 0;
-        opacity: 1;
-    }
-
-    &__cta {
-        @include Flex();
-        gap: 16px;
-        align-self: end;
-        white-space: nowrap;
-        background-color: $color-white;
-        padding: 10px 40px;
-        margin-top: 25px;
-
-        font: $paragraph;
-        font-weight: 700;
-        color: $color-one;
-
-        &:hover {
-            background-color: $color-one;
-            color: $color-white;
-        }
-
-        &__icon {
-            height: 25px;
-            width: 25px;
+        &__img {
+            width: 100%;
+            height: auto;
             object-fit: contain;
             object-position: center;
-            @include trans($transition: 0.5s);
+        }
+    }
+
+    &__header {
+        width: 50%;
+        @include disFlex(column);
+
+        @include large-device-down {
+            width: 100%;
         }
 
-        &:hover &__icon {
-            filter: brightness(1) contrast(1) invert(1) grayscale(1);
+        &__title {
+            @extend %theme__t2-cb;
+            text-align: left;
+        }
+
+        &__subtitle {
+            @extend %theme__t4-cb;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        &__paragraph {
+            width: 100%;
+            @extend %theme__p1-cb;
+            text-align: left;
+        }
+
+        &__cta {
+            @extend %theme__cta;
         }
     }
 }
