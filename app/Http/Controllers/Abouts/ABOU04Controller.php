@@ -377,4 +377,14 @@ class ABOU04Controller extends Controller
 
         ]);
     }
+
+    /**
+     * Section index resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function section()
+    {
+        return view('Client.pages.Abouts.ABOU04.section');
+    }
 }
