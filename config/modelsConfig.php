@@ -8,45 +8,72 @@ return [
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
-            'Code' => 'FOOT04',
+            'Code' => 'FOOT02',
         ]
     ],
 
     // Configure existing modules and templates site-wide/system
     'InsertModelsMain' => (object) [
-        'Services' => (object) [
-            'SERV04' => (object)[
+        'Slides' => (object) [
+            'SLID01' => (object)[
                 'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Slide',
+                    'iconPanel' => 'mdi-projector-screen'
+                ]
+            ],
+        ],
+        'Topics.1' => (object) [
+            'TOPI09' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' => false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos',
+                    'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
+        'Abouts' => (object) [
+            'ABOU04' => (object)[
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => true,
+                'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
                     'sorting' => true,
                     'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
+                    'condition' => 'active=1{Ativos}',
                     'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' => (object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
+                    'relation' => '',
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Serviços',
-                    'anchor' =>  false,
-                    'linkMenu' => 'serv04.page',
+                    'titleMenu' => 'Sobre',
+                    'anchor' => false,
+                    'linkMenu' => 'abou04.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
-                    'iconPanel' => 'mdi-alpha-s-box-outline'
+                    'titlePanel' => 'Sobre',
+                    'iconPanel' => 'mdi-information'
                 ],
-                'IncludeSections' => (object) []
+                'IncludeSections' => (object) [],
             ],
         ],
-
     ],
 
     'ModelsForm' => (object)[
