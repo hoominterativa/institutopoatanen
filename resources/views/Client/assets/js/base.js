@@ -15,5 +15,6 @@ import '../../pages/Brands/BRAN01/src/main';
 import '../../pages/Topics/TOPI11/src/main';
 import '../../pages/ContentPages/COPA04/src/main';
 import '../../pages/Contacts/COTA03/src/main';
+import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Blogs/BLOG01/src/main';
 import '../../pages/Compliances/COMP01/src/main';

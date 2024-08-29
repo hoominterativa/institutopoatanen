@@ -11859,16 +11859,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Contents/CONT02/src/main */ "./resources/views/Client/pages/Contents/CONT02/src/main.js");
 /* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _pages_Feedbacks_FEED06_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Feedbacks/FEED06/src/main */ "./resources/views/Client/pages/Feedbacks/FEED06/src/main.js");
-/* harmony import */ var _pages_Feedbacks_FEED06_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Feedbacks_FEED06_src_main__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _pages_Brands_BRAN01_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Brands/BRAN01/src/main */ "./resources/views/Client/pages/Brands/BRAN01/src/main.js");
 /* harmony import */ var _pages_Topics_TOPI11_src_main__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../pages/Topics/TOPI11/src/main */ "./resources/views/Client/pages/Topics/TOPI11/src/main.js");
 /* harmony import */ var _pages_Topics_TOPI11_src_main__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI11_src_main__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _pages_ContentPages_COPA04_src_main__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../pages/ContentPages/COPA04/src/main */ "./resources/views/Client/pages/ContentPages/COPA04/src/main.js");
 /* harmony import */ var _pages_Contacts_COTA03_src_main__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../pages/Contacts/COTA03/src/main */ "./resources/views/Client/pages/Contacts/COTA03/src/main.js");
 /* harmony import */ var _pages_Contacts_COTA03_src_main__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA03_src_main__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_19__);
+
 
 
 
@@ -12604,6 +12606,16 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.bran01__content', {
 
 /***/ }),
 
+/***/ "./resources/views/Client/pages/Contacts/COTA02/src/main.js":
+/*!******************************************************************!*\
+  !*** ./resources/views/Client/pages/Contacts/COTA02/src/main.js ***!
+  \******************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./resources/views/Client/pages/Contacts/COTA03/src/main.js":
 /*!******************************************************************!*\
   !*** ./resources/views/Client/pages/Contacts/COTA03/src/main.js ***!
@@ -12690,38 +12702,15 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.cont08__information_
 /*!*******************************************************************!*\
   !*** ./resources/views/Client/pages/Feedbacks/FEED06/src/main.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(".feed06__carousel").owlCarousel({
-  smartSpeed: 450,
-  loop: true,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  margin: -60,
-  responsive: {
-    0: {
-      items: 1,
-      margin: 17
-    },
-    // breakpoint from 0 up
-    400: {
-      items: 1,
-      margin: 17
-    },
-    // breakpoint from 361 up
-    768: {
-      items: 1,
-      margin: 17
-    },
-    // breakpoint from 500 up
-    801: {
-      items: 2
-    }
-    // breakpoint from 801 up
-  }
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
+
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".feed06__carousel", {
+  slidesPerView: "auto",
+  spaceBetween: 17
 });
 
 /***/ }),

@@ -166,20 +166,20 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .blog01-show__related, .blog01-show__article, .blog01-page__articles, .blog01-page__categories, .blog01, .copa04-page__section-products, .copa04-page__faq, .copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .topi11, .bran01-page__main, .bran01, .cont02, .cont08, .topi02, .topi01, .topi08, .topi03, .abou04-page__topics, .abou04-page__gallery, .abou04-page__content, .abou04, .topi09, .slid01__item, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .blog01-show__banner, .blog01-page__banner, .bran01-page__banner, .abou04-page__banner {
+.comp01-page__content, .blog01-show__related, .blog01-show__article, .blog01-page__articles, .blog01-page__categories, .blog01, .cota02__form, .cota02__topics, .cota03__form, .cota03__content, .copa04-page__section-products, .copa04-page__faq, .copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .topi11, .bran01-page__main, .bran01, .feed06, .cont02, .cont08, .topi02, .topi01, .topi08, .topi03, .abou04-page__topics, .abou04-page__gallery, .abou04-page__content, .abou04, .topi09, .slid01__item, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .blog01-show__banner, .blog01-page__banner, .cota02__banner, .cota03__banner, .bran01-page__banner, .abou04-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.topi08__header__title, .comp01-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .bran01-page__banner__title, .abou04-page__banner__title, .slid01__item__header__title {
+.topi08__header__title, .comp01-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .cota02__banner__title, .cota03__banner__title, .bran01-page__banner__title, .abou04-page__banner__title, .slid01__item__header__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .topi08__header__title, .comp01-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .bran01-page__banner__title, .abou04-page__banner__title, .slid01__item__header__title {
+  .topi08__header__title, .comp01-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .cota02__banner__title, .cota03__banner__title, .bran01-page__banner__title, .abou04-page__banner__title, .slid01__item__header__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
@@ -187,61 +187,61 @@ details .details-content {
 .slid01__item__header__title {
   color: #000;
 }
-.topi08__header__title, .comp01-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .bran01-page__banner__title, .abou04-page__banner__title {
+.topi08__header__title, .comp01-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .cota02__banner__title, .cota03__banner__title, .bran01-page__banner__title, .abou04-page__banner__title {
   color: #404040;
 }
-.blog01__header__title, .topi11__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont08__information__header__title, .topi02__header__title, .topi01__header__title, .topi03__header__title, .abou04-page__gallery__header__title, .abou04-page__content__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .abou04__header__title {
+.blog01__header__title, .cota02__form__header__title, .cota03__form__header__title, .topi11__header__title, .bran01__header__title, .bran01-page__main__header__title, .feed06__header__title, .cont02__information__title, .cont08__information__header__title, .topi02__header__title, .topi01__header__title, .topi03__header__title, .abou04-page__gallery__header__title, .abou04-page__content__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .cota03__content__header__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .abou04__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .blog01__header__title, .topi11__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont08__information__header__title, .topi02__header__title, .topi01__header__title, .topi03__header__title, .abou04-page__gallery__header__title, .abou04-page__content__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .abou04__header__title {
+  .blog01__header__title, .cota02__form__header__title, .cota03__form__header__title, .topi11__header__title, .bran01__header__title, .bran01-page__main__header__title, .feed06__header__title, .cont02__information__title, .cont08__information__header__title, .topi02__header__title, .topi01__header__title, .topi03__header__title, .abou04-page__gallery__header__title, .abou04-page__content__information__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .cota03__content__header__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .abou04__header__title {
     font-size: 1.875rem;
   }
 }
-.blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .abou04__header__title {
+.blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .cota03__content__header__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .abou04__header__title {
   color: #000;
 }
-.blog01__header__title, .topi11__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont08__information__header__title, .topi02__header__title, .topi01__header__title, .topi03__header__title, .abou04-page__gallery__header__title, .abou04-page__content__information__title {
+.blog01__header__title, .cota02__form__header__title, .cota03__form__header__title, .topi11__header__title, .bran01__header__title, .bran01-page__main__header__title, .feed06__header__title, .cont02__information__title, .cont08__information__header__title, .topi02__header__title, .topi01__header__title, .topi03__header__title, .abou04-page__gallery__header__title, .abou04-page__content__information__title {
   color: #404040;
 }
-.confirmation-page__title, .bran01-page__banner__subtitle, .abou04-page__banner__subtitle, .slid01__item__header__subtitle, .comp01-page__content__header__title, .abou04-page__topics__item__header__title, .form01__main__information__title {
+.confirmation-page__title, .cota02__banner__subtitle, .cota03__banner__subtitle, .bran01-page__banner__subtitle, .abou04-page__banner__subtitle, .slid01__item__header__subtitle, .comp01-page__content__header__title, .cota02__topics__item__title, .abou04-page__topics__item__header__title, .form01__main__information__title {
   font: 700 1.875rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .confirmation-page__title, .bran01-page__banner__subtitle, .abou04-page__banner__subtitle, .slid01__item__header__subtitle, .comp01-page__content__header__title, .abou04-page__topics__item__header__title, .form01__main__information__title {
+  .confirmation-page__title, .cota02__banner__subtitle, .cota03__banner__subtitle, .bran01-page__banner__subtitle, .abou04-page__banner__subtitle, .slid01__item__header__subtitle, .comp01-page__content__header__title, .cota02__topics__item__title, .abou04-page__topics__item__header__title, .form01__main__information__title {
     font-size: 1.563rem;
   }
 }
 .abou04-page__topics__item__header__title, .form01__main__information__title {
   color: #000;
 }
-.comp01-page__content__header__title {
+.comp01-page__content__header__title, .cota02__topics__item__title {
   color: #404040;
 }
 .slid01__item__header__subtitle {
   color: #7c7c7c;
 }
-.bran01-page__banner__subtitle, .abou04-page__banner__subtitle {
+.cota02__banner__subtitle, .cota03__banner__subtitle, .bran01-page__banner__subtitle, .abou04-page__banner__subtitle {
   color: #b3b3b3;
 }
 .confirmation-page__title {
   color: #cacaca;
 }
-.blog01__header__subtitle, .topi11__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont08__information__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .topi08__header__subtitle, .topi03__header__subtitle, .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .abou04-page__gallery__item__list__item__title, .abou04-page__gallery__item__title, .abou04-page__gallery__header__paragraph, .abou04-page__content__information__subtitle, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .abou04__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item {
+.blog01__header__subtitle, .topi11__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont08__information__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .topi08__header__subtitle, .topi03__header__subtitle, .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .abou04-page__gallery__item__list__item__title, .abou04-page__gallery__item__title, .abou04-page__gallery__header__paragraph, .abou04-page__content__information__subtitle, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .cota03__content__header__subtitle, .abou04__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .blog01__header__subtitle, .topi11__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont08__information__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .topi08__header__subtitle, .topi03__header__subtitle, .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .abou04-page__gallery__item__list__item__title, .abou04-page__gallery__item__title, .abou04-page__gallery__header__paragraph, .abou04-page__content__information__subtitle, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .abou04__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item {
+  .blog01__header__subtitle, .topi11__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont08__information__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .topi08__header__subtitle, .topi03__header__subtitle, .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .abou04-page__gallery__item__list__item__title, .abou04-page__gallery__item__title, .abou04-page__gallery__header__paragraph, .abou04-page__content__information__subtitle, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .cota03__content__header__subtitle, .abou04__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item {
     font-size: 1.125rem;
   }
 }
-.blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .abou04__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item {
+.blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .cota03__content__header__subtitle, .abou04__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item {
   color: #000;
 }
 .abou04-page__gallery__item__list__item__title, .abou04-page__gallery__item__title, .abou04-page__gallery__header__paragraph, .abou04-page__content__information__subtitle {
@@ -269,12 +269,12 @@ details .details-content {
 .blog01-show__related__title, .copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .topi01__topics__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi08__header__paragraph, .abou04-page__topics__item__paragraph, .slid01__item__header__description, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cont08__information__topics__item__description, .abou04-page__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .bran01__cta, .cont02__information__cta, .cont08__information__cta, .topi08__cta, .abou04-page__gallery__cta, .abou04__header__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .topi11__header__paragraph, .cont08__information__description, .topi03__topics__item__title, .abou04__header__paragraph, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .topi11__main__topics__item__title, .side02__cta, .head02__navigation__item__cta {
+.blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .feed06__carousel__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi08__header__paragraph, .abou04-page__topics__item__paragraph, .slid01__item__header__description, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cota02__form__header__paragraph, .cota03__form__header__paragraph, .cont08__information__topics__item__description, .abou04-page__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cota02__form__footer__cta, .cota03__form__footer__cta, .cota03__content__header__cta, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .bran01__cta, .feed06__cta, .cont02__information__cta, .cont08__information__cta, .topi08__cta, .abou04-page__gallery__cta, .abou04__header__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .cota03__form__footer__compliance__link, .cota03__form__footer__compliance, .cota03__content__header__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .topi11__header__paragraph, .cont08__information__description, .topi03__topics__item__title, .abou04__header__paragraph, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .topi11__main__topics__item__title, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.blog01-show__article__body p, .blog01-show__article__description p, .blog01-page__articles__highlighted__item__information__paragraph p, .blog01__header__paragraph p, .bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .topi08__header__paragraph p, .abou04-page__topics__item__paragraph p, .slid01__item__header__description p, .blog01__main__item__description__paragraph p, .blog01-show__related__item__description__paragraph p, .blog01-page__articles__list__item__description__paragraph p, .cont08__information__topics__item__description p, .abou04-page__content__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .blog01-show__article__share p, .blog01-page__articles__highlighted__item__information__cta p, .blog01__cta p, .copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__carousel__item--video__cta p, .copa04-page__additional-topics__carousel__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .bran01__cta p, .cont02__information__cta p, .cont08__information__cta p, .topi08__cta p, .abou04-page__gallery__cta p, .abou04__header__cta p, .slid01__item__header__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .blog01-show__article__modal__main__socials__item__figure__title p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .topi11__header__paragraph p, .cont08__information__description p, .topi03__topics__item__title p, .abou04__header__paragraph p, .topi09__topics__item__information__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .copa04-page__faq__item__title p, .topi11__main__topics__item__title p, .side02__cta p, .head02__navigation__item__cta p {
+.blog01-show__article__body p, .blog01-show__article__description p, .blog01-page__articles__highlighted__item__information__paragraph p, .blog01__header__paragraph p, .bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .feed06__carousel__item__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .topi08__header__paragraph p, .abou04-page__topics__item__paragraph p, .slid01__item__header__description p, .blog01__main__item__description__paragraph p, .blog01-show__related__item__description__paragraph p, .blog01-page__articles__list__item__description__paragraph p, .cota02__form__header__paragraph p, .cota03__form__header__paragraph p, .cont08__information__topics__item__description p, .abou04-page__content__information__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .blog01-show__article__share p, .blog01-page__articles__highlighted__item__information__cta p, .blog01__cta p, .cota02__form__footer__cta p, .cota03__form__footer__cta p, .cota03__content__header__cta p, .copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__carousel__item--video__cta p, .copa04-page__additional-topics__carousel__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .bran01__cta p, .feed06__cta p, .cont02__information__cta p, .cont08__information__cta p, .topi08__cta p, .abou04-page__gallery__cta p, .abou04__header__cta p, .slid01__item__header__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .blog01-show__article__modal__main__socials__item__figure__title p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .cota03__form__footer__compliance__link p, .cota03__form__footer__compliance p, .cota03__content__header__paragraph p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .topi11__header__paragraph p, .cont08__information__description p, .topi03__topics__item__title p, .abou04__header__paragraph p, .topi09__topics__item__information__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .copa04-page__faq__item__title p, .topi11__main__topics__item__title p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -282,28 +282,28 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi08__header__paragraph, .abou04-page__topics__item__paragraph, .slid01__item__header__description, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cont08__information__topics__item__description, .abou04-page__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .bran01__cta, .cont02__information__cta, .cont08__information__cta, .topi08__cta, .abou04-page__gallery__cta, .abou04__header__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .topi11__header__paragraph, .cont08__information__description, .topi03__topics__item__title, .abou04__header__paragraph, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .topi11__main__topics__item__title, .side02__cta, .head02__navigation__item__cta {
+  .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .feed06__carousel__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi08__header__paragraph, .abou04-page__topics__item__paragraph, .slid01__item__header__description, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cota02__form__header__paragraph, .cota03__form__header__paragraph, .cont08__information__topics__item__description, .abou04-page__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cota02__form__footer__cta, .cota03__form__footer__cta, .cota03__content__header__cta, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .bran01__cta, .feed06__cta, .cont02__information__cta, .cont08__information__cta, .topi08__cta, .abou04-page__gallery__cta, .abou04__header__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .cota03__form__footer__compliance__link, .cota03__form__footer__compliance, .cota03__content__header__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .topi11__header__paragraph, .cont08__information__description, .topi03__topics__item__title, .abou04__header__paragraph, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .topi11__main__topics__item__title, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
 .side02__cta, .head02__navigation__item__cta {
   color: #fff;
 }
-.comp01-page__content__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .topi11__header__paragraph, .cont08__information__description, .topi03__topics__item__title, .abou04__header__paragraph, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .topi11__main__topics__item__title {
+.comp01-page__content__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .cota03__form__footer__compliance__link, .cota03__form__footer__compliance, .cota03__content__header__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .topi11__header__paragraph, .cont08__information__description, .topi03__topics__item__title, .abou04__header__paragraph, .topi09__topics__item__information__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .topi11__main__topics__item__title {
   color: #000;
 }
-.blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cont08__information__topics__item__description, .abou04-page__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .bran01__cta, .cont02__information__cta, .cont08__information__cta, .topi08__cta, .abou04-page__gallery__cta, .abou04__header__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
+.blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cota02__form__header__paragraph, .cota03__form__header__paragraph, .cont08__information__topics__item__description, .abou04-page__content__information__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cota02__form__footer__cta, .cota03__form__footer__cta, .cota03__content__header__cta, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .bran01__cta, .feed06__cta, .cont02__information__cta, .cont08__information__cta, .topi08__cta, .abou04-page__gallery__cta, .abou04__header__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi08__header__paragraph, .abou04-page__topics__item__paragraph, .slid01__item__header__description {
+.blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .feed06__carousel__item__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .topi08__header__paragraph, .abou04-page__topics__item__paragraph, .slid01__item__header__description {
   color: #7c7c7c;
 }
-.blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi09__topics__item__information__paragraph, .copa04-page__faq__item__paragraph, .topi11__main__topics__item__paragraph, .comp01-page__content__archives__item, .abou04-page__gallery__item__paragraph, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .blog01-show__article__modal__main__copy__link, .topi08__topics__item__content__information {
+.blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .feed06__carousel__item__header__title, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi09__topics__item__information__paragraph, .copa04-page__faq__item__paragraph, .topi11__main__topics__item__paragraph, .comp01-page__content__archives__item, .abou04-page__gallery__item__paragraph, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .blog01-show__article__modal__main__copy__link, .topi08__topics__item__content__information {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.blog01__main__item__description__time p, .blog01-show__related__item__description__time p, .blog01-show__article__time p, .blog01-page__articles__list__item__description__time p, .blog01-page__articles__highlighted__item__information__time p, .copa04-page__section-products__carousel__item__price__paragraph p, .copa04-page__section-products__carousel__item__price__title p, .copa04-page__section-products__carousel__item__paragraph p, .copa04-page__section-products__carousel__item__subtitle p, .copa04-page__section-products__carousel__item__tag p, .cont02__information__paragraph p, .topi02__topics__item__paragraph p, .topi01__topics__item__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .topi09__topics__item__information__paragraph p, .copa04-page__faq__item__paragraph p, .topi11__main__topics__item__paragraph p, .comp01-page__content__archives__item p, .abou04-page__gallery__item__paragraph p, .foot02__copyright__compliances__item p, .blog01-show__article__modal__main__copy__button p, .blog01-page__articles__highlighted__item__information__category p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p, .blog01-show__article__modal__main__copy__link p, .topi08__topics__item__content__information p {
+.blog01__main__item__description__time p, .blog01-show__related__item__description__time p, .blog01-show__article__time p, .blog01-page__articles__list__item__description__time p, .blog01-page__articles__highlighted__item__information__time p, .copa04-page__section-products__carousel__item__price__paragraph p, .copa04-page__section-products__carousel__item__price__title p, .copa04-page__section-products__carousel__item__paragraph p, .copa04-page__section-products__carousel__item__subtitle p, .copa04-page__section-products__carousel__item__tag p, .feed06__carousel__item__header__title p, .cont02__information__paragraph p, .topi02__topics__item__paragraph p, .topi01__topics__item__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .topi09__topics__item__information__paragraph p, .copa04-page__faq__item__paragraph p, .topi11__main__topics__item__paragraph p, .comp01-page__content__archives__item p, .abou04-page__gallery__item__paragraph p, .foot02__copyright__compliances__item p, .blog01-show__article__modal__main__copy__button p, .blog01-page__articles__highlighted__item__information__category p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p, .blog01-show__article__modal__main__copy__link p, .topi08__topics__item__content__information p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -311,7 +311,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi09__topics__item__information__paragraph, .copa04-page__faq__item__paragraph, .topi11__main__topics__item__paragraph, .comp01-page__content__archives__item, .abou04-page__gallery__item__paragraph, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .blog01-show__article__modal__main__copy__link, .topi08__topics__item__content__information {
+  .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .feed06__carousel__item__header__title, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi09__topics__item__information__paragraph, .copa04-page__faq__item__paragraph, .topi11__main__topics__item__paragraph, .comp01-page__content__archives__item, .abou04-page__gallery__item__paragraph, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .blog01-show__article__modal__main__copy__link, .topi08__topics__item__content__information {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -325,7 +325,7 @@ details .details-content {
 .comp01-page__content__archives__item, .abou04-page__gallery__item__paragraph, .foot02__copyright__compliances__item {
   color: #404040;
 }
-.blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi09__topics__item__information__paragraph, .copa04-page__faq__item__paragraph, .topi11__main__topics__item__paragraph {
+.blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .feed06__carousel__item__header__title, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi01__topics__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .topi09__topics__item__information__paragraph, .copa04-page__faq__item__paragraph, .topi11__main__topics__item__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -335,7 +335,7 @@ details .details-content {
   width: 2rem;
   height: 2rem;
 }
-.comp01-page__banner, .blog01-show__banner, .blog01-page__banner, .bran01-page__banner, .abou04-page__banner {
+.comp01-page__banner, .blog01-show__banner, .blog01-page__banner, .cota02__banner, .cota03__banner, .bran01-page__banner, .abou04-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -348,7 +348,7 @@ details .details-content {
   justify-content: center;
   align-items: start;
 }
-.blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .bran01__cta, .cont02__information__cta, .cont08__information__cta, .topi08__cta, .abou04-page__gallery__cta, .abou04__header__cta, .slid01__item__header__cta, .form01__main__form__footer__cta {
+.blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cota02__form__footer__cta, .cota03__form__footer__cta, .cota03__content__header__cta, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .bran01__cta, .feed06__cta, .cont02__information__cta, .cont08__information__cta, .topi08__cta, .abou04-page__gallery__cta, .abou04__header__cta, .slid01__item__header__cta, .form01__main__form__footer__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -360,7 +360,7 @@ details .details-content {
   border: none;
   font-weight: 700;
 }
-.blog01-show__article__share:focus, .blog01-page__articles__highlighted__item__information__cta:focus, .blog01__cta:focus, .copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__carousel__item--video__cta:focus, .copa04-page__additional-topics__carousel__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus, .bran01__cta:focus, .cont02__information__cta:focus, .cont08__information__cta:focus, .topi08__cta:focus, .abou04-page__gallery__cta:focus, .abou04__header__cta:focus, .slid01__item__header__cta:focus, .form01__main__form__footer__cta:focus {
+.blog01-show__article__share:focus, .blog01-page__articles__highlighted__item__information__cta:focus, .blog01__cta:focus, .cota02__form__footer__cta:focus, .cota03__form__footer__cta:focus, .cota03__content__header__cta:focus, .copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__carousel__item--video__cta:focus, .copa04-page__additional-topics__carousel__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus, .bran01__cta:focus, .feed06__cta:focus, .cont02__information__cta:focus, .cont08__information__cta:focus, .topi08__cta:focus, .abou04-page__gallery__cta:focus, .abou04__header__cta:focus, .slid01__item__header__cta:focus, .form01__main__form__footer__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
@@ -3230,78 +3230,64 @@ body .owl-dots .owl-dot.active {
 }
 /* BEGIN STYLE */
 .feed06 {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 26px 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
-.feed06__title {
-  font-family: "Ubuntu", sans-serif, arial;
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 2.875rem;
-  margin-bottom: 20px;
-  color: #404040;
+.feed06__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.8125rem;
+}
+.feed06__header__title {
   text-align: center;
-}
-@media (max-width: 767.98px) {
-  .feed06__title {
-    font-size: 1.875rem;
-  }
-}
-.feed06__line {
-  width: 100%;
-  border-top: 1px solid #000;
-  margin: 20px auto 30px auto;
-  opacity: 1;
 }
 .feed06__carousel {
   width: 100%;
   overflow: visible;
 }
-.feed06__carousel .owl-stage-outer {
-  overflow: visible;
-}
-.feed06__carousel .owl-dots {
-  justify-content: start;
-}
-.feed06__carousel .owl-dots .owl-dot {
-  border-radius: 0;
-}
-.feed06__item {
-  width: 85%;
-  padding: 27px;
+.feed06__carousel__item {
   background-color: #efefef;
+  padding: 1.625rem;
+  width: 32.1875rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
 }
 @media (max-width: 767.98px) {
-  .feed06__item {
+  .feed06__carousel__item {
     width: 100%;
   }
 }
-.feed06__item__title {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #7c7c7c;
-  text-align: start;
-  margin-bottom: 9px;
+.feed06__carousel__item__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  margin-bottom: 1.125rem;
 }
-@media (max-width: 767.98px) {
-  .feed06__item__title {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 700;
-  }
+.feed06__carousel__item__header__title {
+  margin-bottom: 0.5rem;
 }
-.feed06__item__stars {
+.feed06__carousel__item__header__stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
   padding-left: 0;
   gap: 4px;
-  margin-bottom: 18px;
   list-style-type: none;
 }
-.feed06__item__stars__item {
+.feed06__carousel__item__header__stars__item {
   height: 16px;
   width: 16px;
 }
-.feed06__item__stars__item img {
+.feed06__carousel__item__header__stars__item img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -3309,54 +3295,8 @@ body .owl-dots .owl-dot.active {
   -o-object-position: center;
      object-position: center;
 }
-.feed06__item__text {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #7c7c7c;
-  text-align: start;
-}
-@media (max-width: 767.98px) {
-  .feed06__item__text {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-    font-weight: 400;
-  }
-}
-.feed06__item__text p {
-  font: inherit;
-  font-weight: inherit;
-  color: inherit;
-  text-align: inherit;
-}
 .feed06__cta {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  align-self: end;
-  white-space: nowrap;
-  background-color: #fff;
-  padding: 6px 40px;
-  margin-top: 0px;
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-}
-.feed06__cta:hover {
-  background-color: #404040;
-  color: #fff;
-}
-.feed06__cta__icon {
-  height: 19px;
-  width: 19px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-  transition: all 0.5s ease;
-}
-.feed06__cta:hover .feed06__cta__icon {
-  filter: brightness(1) contrast(1) invert(1) grayscale(1);
+  margin-top: 1rem;
 }
 
 /* BEGIN STYLE */
@@ -4174,392 +4114,193 @@ body .owl-dots .owl-dot.active {
 }
 
 /* BEGIN STYLE */
-.cota03__header {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  height: 320px;
-}
-.cota03__header .container--cota03-page-header {
-  height: 100%;
-  position: relative;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-@media (max-width: 575.98px) {
-  .cota03__header .container--cota03-page-header {
-    padding: 44px 20px;
-    max-width: 90% !important;
-  }
-}
-.cota03__header__mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
-}
-.cota03__header__title {
-  font-size: 3.125rem;
-  color: #000;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-  margin-bottom: 0;
-  text-align: center;
-}
-@media (max-width: 575.98px) {
-  .cota03__header__title {
-    font-size: 1.875rem;
-  }
-}
-.cota03__header__subtitle {
-  font-size: 1.875rem;
-  font-family: "Montserrat", sans-serif, arial;
-  color: #7c7c7c;
-  font-weight: 700;
-  text-align: center;
-}
-@media (max-width: 575.98px) {
-  .cota03__header__subtitle {
-    font-size: 1.563rem;
-  }
-}
-.cota03__header__line {
-  margin-top: 1.25rem;
-  color: #7c7c7c;
-  width: 100%;
-}
-.cota03__boxForm {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.cota03__boxForm .justify-content-center {
-  gap: 25px 0;
-}
-.cota03__boxForm .container--boxForm {
-  padding: 4.28rem 0 0 0 !important;
-}
-@media (max-width: 575.98px) {
-  .cota03__boxForm .container--boxForm .row {
-    margin: 0 auto;
-  }
-}
-.cota03__boxForm__item:last-of-type .cota03__boxForm__item__content::after {
-  display: none;
-}
-@media (max-width: 767.98px) {
-  .cota03__boxForm__item {
-    margin: 0 auto;
-    padding: 0;
-    width: 90%;
-  }
-}
-.cota03__boxForm__item__content {
-  position: relative;
+.cota03__content {
+  overflow: hidden;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  width: 80%;
-  margin: 0 auto;
-}
-@media (max-width: 767.98px) {
-  .cota03__boxForm__item__content {
-    flex-direction: column-reverse;
-    width: 100%;
-  }
-}
-.cota03__boxForm__item__content__image {
-  width: 26.81788rem;
-  height: 32.99488rem;
-}
-@media (max-width: 767.98px) {
-  .cota03__boxForm__item__content__image {
-    margin-top: 3.71rem;
-  }
-}
-@media (max-width: 575.98px) {
-  .cota03__boxForm__item__content__image {
-    width: 15.966rem;
-    height: 21.89744rem;
-  }
-}
-.cota03__boxForm__item__content__image img {
-  width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-.cota03__boxForm__item__content__description {
-  padding-left: 10.65rem;
-  width: 65%;
-  padding-top: 56px;
-}
-@media (max-width: 991.98px) {
-  .cota03__boxForm__item__content__description {
-    padding-left: 2.65rem;
-  }
-}
-@media (max-width: 767.98px) {
-  .cota03__boxForm__item__content__description {
-    width: 100%;
-    padding-left: 0;
-    padding-top: 0;
-  }
-}
-.cota03__boxForm__item__content__description__title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #000;
-  font-family: "Ubuntu", sans-serif, arial;
-  margin-bottom: 0.4rem;
-}
-@media (max-width: 991.98px) {
-  .cota03__boxForm__item__content__description__title {
-    font-size: 1.875rem;
-  }
-}
-.cota03__boxForm__item__content__description__subtitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #404040;
-  font-family: "Ubuntu", sans-serif, arial;
-  margin-bottom: 0;
-}
-@media (max-width: 991.98px) {
-  .cota03__boxForm__item__content__description__subtitle {
-    font-size: 1.125rem;
-  }
-}
-.cota03__boxForm__item__content__description__line {
-  margin: 1.44rem 0;
-}
-.cota03__boxForm__item__content__description__paragraph {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 400;
-  color: #404040;
-}
-.cota03__boxForm__item__content__description__paragraph p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 400;
-  color: #404040;
-  margin-bottom: 0;
-}
-@media (max-width: 991.98px) {
-  .cota03__boxForm__item__content__description__paragraph p {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.cota03__boxForm__item__content__description__cta {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #b3b3b3;
-  max-width: 11.0625rem;
-  height: 2.8125rem;
-  padding: 4px 50px;
-  background-color: #efefef;
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-top: 29.56px;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cota03__boxForm__item__content__description__cta {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-    max-width: 146px;
+@media (max-width: 991.98px) {
+  .cota03__content {
+    flex-direction: column;
+    justify-content: start;
+    gap: 2rem;
   }
 }
-.cota03__boxForm__item__content__description__cta img {
-  width: 18.03px !important;
-  height: auto !important;
+.cota03__content__image {
+  width: calc(50% - 120px);
+}
+@media (max-width: 991.98px) {
+  .cota03__content__image {
+    width: 100%;
+  }
+}
+.cota03__content__image__img {
+  width: 100%;
+  height: auto;
   -o-object-fit: contain;
      object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
-.cota03__boxForm__item__content__description__cta:hover {
-  color: #fff;
-  background-color: #000;
+.cota03__content__header {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
 }
-.cota03__boxForm__item__content__description__cta:hover .cota03__boxForm__item__content__description__cta__icon {
-  filter: invert(1) grayscale(1);
+@media (max-width: 991.98px) {
+  .cota03__content__header {
+    width: 100%;
+  }
+}
+.cota03__content__header__title {
+  text-align: left;
+}
+.cota03__content__header__subtitle {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.cota03__content__header__paragraph {
+  width: 100%;
+  text-align: left;
 }
 .cota03__form {
-  padding: 4.5rem 0 7.5rem 0;
-  background-color: #b3b3b3;
-}
-@media (max-width: 767.98px) {
-  .cota03__form {
-    padding: 4.19rem 0 4.13rem 0;
-  }
-}
-@media (max-width: 767.98px) {
-  .cota03__form__footer {
-    flex-direction: column;
-    align-items: flex-start !important;
-  }
-}
-@media (max-width: 767.98px) {
-  .cota03__form > .container {
-    max-width: 90% !important;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 0 1.5rem;
 }
 .cota03__form__header {
-  margin-bottom: 50px;
-}
-.cota03__form__header__title {
-  font-size: 2.5rem;
-  color: #404040;
-  font-family: "Ubuntu", sans-serif, arial;
-  font-weight: 700;
-}
-.cota03__form__header__line {
-  background: #404040;
-  display: flex;
-  margin-top: 15px;
-  margin-bottom: 18px;
-  display: block;
+  width: 100%;
+  margin-bottom: 3rem;
 }
 .cota03__form__header__paragraph {
-  width: 100%;
-  max-width: 50.1875rem;
+  text-align: center;
 }
-.cota03__form__header__paragraph p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #000;
+.cota03__form .input__item {
+  width: calc(50% - 0.75rem);
 }
 @media (max-width: 991.98px) {
-  .cota03__form__header__paragraph p {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.cota03__form__inputs {
-  width: 80%;
-  margin: 0 auto;
-}
-@media (max-width: 767.98px) {
-  .cota03__form__inputs {
+  .cota03__form .input__item {
     width: 100%;
   }
 }
-.cota03__form__inputs > .row {
-  margin: 0 auto;
+.cota03__form .input__item--textarea {
+  width: 100%;
 }
-.cota03__form__inputs__input {
+.cota03__form .input__item--textarea .form-control {
+  padding-top: 1.5rem;
+}
+.cota03__form__footer {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
-}
-.cota03__form__inputs__input .input__item {
-  width: 100%;
-}
-.cota03__form__inputs__input .input__item label {
-  color: #000 !important;
-  background: transparent;
-  z-index: 100;
-}
-.cota03__form__inputs__input .input__item input {
-  width: 100%;
-  transition: ease all 0.3s;
-  background-color: #fff !important;
-  height: 40px;
-  position: relative;
-  z-index: 2;
-  border-radius: 0 !important;
-}
-.cota03__form__inputs__compliance {
-  display: flex;
-}
-.cota03__form__inputs__compliance input {
-  border: 1px solid #393939;
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-}
-.cota03__form__inputs__compliance label {
-  color: #393939;
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-}
-.cota03__form__inputs__compliance label a {
-  color: #7c7c7c;
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-}
-
-.cota03__form__item__input:nth-of-type(5) {
-  width: 100% !important;
-}
-
-.cota03__form__item__input .input__item--textarea textarea {
-  height: 136px !important;
-}
-
-.cota03__form__inputs__formIput__input-submit {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #b3b3b3;
-  max-width: 11.0625rem;
-  height: 2.8125rem;
-  padding: 4px 50px;
-  background-color: #efefef;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-top: 29.56px;
-  border: 1px solid #efefef;
-  color: #7c7c7c;
-  gap: 0 1.05rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .cota03__form__inputs__formIput__input-submit {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-    max-width: 146px;
-  }
+.cota03__form__footer__compliance {
+  display: inline;
 }
-.cota03__form__inputs__formIput__input-submit img {
-  width: 18.03px !important;
-  height: auto !important;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-.cota03__form__inputs__formIput__input-submit:hover {
-  color: #fff;
-  background-color: #000;
-  border-color: #000;
-}
-.cota03__form__inputs__formIput__input-submit:hover img {
-  filter: invert(1) grayscale(1);
-}
-
-.cota03__form__compliance {
-  font: 400 0.875rem "Montserrat", sans-serif, arial;
-  font-weight: 400;
-  color: #393939;
-}
-@media (max-width: 767.98px) {
-  .cota03__form__compliance {
-    font: 0.675rem "Montserrat", sans-serif, arial;
-    text-align: left !important;
-  }
-}
-.cota03__form__compliance a {
-  color: #7c7c7c;
+.cota03__form__footer__compliance__link {
   text-decoration: underline;
 }
-
-.form-check-input:checked[type=checkbox] {
-  border: 1px solid #393939;
+.cota03__form__footer__compliance__checkbox[type=checkbox] {
+  border: 1px solid #000;
 }
-
-.form-check-input:checked {
-  background-color: #000;
-  border-color: #000;
+.cota03__form__footer__compliance__checkbox[type=checkbox]:checked {
+  accent-color: #b3b3b3;
 }
-
+/* BEGIN STYLE */
+.cota02__topics {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.cota02__topics__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex: 1 0 auto;
+  gap: 0.75rem;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.cota02__topics__item__icon {
+  width: 3.25rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.cota02__topics__item__paragraph {
+  text-align: center;
+  max-width: 292px;
+}
+.cota02__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 0 1.5rem;
+}
+.cota02__form__header {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+.cota02__form__header__paragraph {
+  text-align: center;
+}
+.cota02__form .input__item {
+  width: calc(50% - 0.75rem);
+}
+@media (max-width: 991.98px) {
+  .cota02__form .input__item {
+    width: 100%;
+  }
+}
+.cota02__form .input__item--textarea {
+  width: 100%;
+}
+.cota02__form .input__item--textarea .form-control {
+  padding-top: 1.5rem;
+}
+.cota02__form__footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.cota02__form__footer__compliance {
+  display: inline;
+}
+.cota02__form__footer__compliance__link {
+  text-decoration: underline;
+}
+.cota02__form__footer__compliance__checkbox[type=checkbox] {
+  border: 1px solid #000;
+}
+.cota02__form__footer__compliance__checkbox[type=checkbox]:checked {
+  accent-color: #b3b3b3;
+}
 /* BEGIN STYLE */
 .blog01 {
   overflow: hidden; /* prevenção do shift da animação*/

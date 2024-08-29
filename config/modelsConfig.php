@@ -259,6 +259,30 @@ return [
         ],
 
         'Contacts' => (object) [
+            'COTA03' => (object)[
+                'ViewHome' => false,
+                'ViewListMenu' => true,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'IncludeCore' => (object) [
+                    'include' => true,
+                    'sorting' => true,
+                    'limit' => 'all',
+                    'condition' => 'active=1{Ativos}',
+                    'titleList' => 'title_page',
+                    'relation' => '',
+                ],
+                'config' => (object) [
+                    'titleMenu' => 'Seja um franqueado',
+                    'anchor' =>  false,
+                    'linkMenu' => 'cota03.page',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Seja um franqueado',
+                    'iconPanel' => 'mdi-contacts'
+                ],
+                'IncludeSections' => (object) []
+            ],
             'COTA02' => (object)[
                 'ViewHome' => false,
                 'ViewListMenu' => true,
@@ -284,33 +308,6 @@ return [
                 'IncludeSections' => (object) [
                     'Topics.6' => 'TOPI11'
                 ]
-            ],
-        ],
-
-        'Contacts' => (object) [
-            'COTA03' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title_page',
-                    'relation' => '',
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Seja um franqueado',
-                    'anchor' =>  false,
-                    'linkMenu' => 'cota03.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Seja um franqueado',
-                    'iconPanel' => 'mdi-contacts'
-                ],
-                'IncludeSections' => (object) []
             ],
         ],
 
@@ -346,7 +343,6 @@ return [
                 'IncludeSections' => (object) []
             ],
         ],
-
     ],
 
     'ModelsForm' => (object)[
