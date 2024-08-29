@@ -3488,7 +3488,7 @@ body .owl-dots .owl-dot.active {
   align-items: start;
   flex-wrap: wrap;
   gap: 4rem 4.5rem;
-  background-color: var(--bg-hero-primary);
+  background-color: var(--bg-hero-primary, transparent);
 }
 .copa04-page__hero::after {
   position: absolute;
@@ -3856,7 +3856,7 @@ body .owl-dots .owl-dot.active {
   margin-top: 1rem;
 }
 .copa04-page__additional-content {
-  background-color: #e6e6e6;
+  background-color: var(--bg-additional-content, transparent);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -3931,9 +3931,6 @@ body .owl-dots .owl-dot.active {
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
-}
-.copa04-page__additional-topics {
-  background-color: var(--bg-additional-content, transparent);
 }
 .copa04-page__additional-topics__carousel {
   overflow: hidden;
@@ -4018,7 +4015,7 @@ body .owl-dots .owl-dot.active {
   margin: auto auto 0;
 }
 .copa04-page__faq {
-  background-color: var(--bg-faq, trransparent);
+  background-color: var(--bg-faq, transparent);
 }
 .copa04-page__faq__header {
   width: 100%;

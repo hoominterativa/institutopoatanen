@@ -9,7 +9,7 @@
         @include disFlex(row, space-between, start);
         flex-wrap: wrap;
         gap: 4rem 4.5rem;
-        background-color: var(--bg-hero-primary);
+        background-color: var(--bg-hero-primary, transparent);
 
         &::after {
             position: absolute;
@@ -430,7 +430,7 @@
     }
 
     &__additional-content {
-        background-color: $color-six;
+        background-color: var(--bg-additional-content, transparent);
         @extend %theme__padding;
         @include disFlex(row, space-between, center);
         gap: 6rem;
@@ -510,8 +510,6 @@
     }
 
     &__additional-topics {
-        background-color: var(--bg-additional-content, transparent);
-
         @extend %theme__padding;
 
         &__carousel {
@@ -598,7 +596,7 @@
     &__faq {
         @extend %theme__padding;
 
-        background-color: var(--bg-faq, trransparent);
+        background-color: var(--bg-faq, transparent);
 
         &__header {
             width: 100%;

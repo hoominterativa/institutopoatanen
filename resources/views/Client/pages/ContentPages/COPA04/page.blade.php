@@ -40,18 +40,16 @@
                 @endif
                 --bg-productsss: gray;
 
-
             }
-
-            /
         </style>
         {{-- Seção Hero --}}
         {{-- {{ $sectionHeros ? $sectionHeros->color_one : 'default_primary_value' }}; --}}
         @if ($sectionHeros)
             <section class="copa04-page__hero ">
                 <aside class="copa04-page__hero__aside">
+                    {{-- BACKEND está faltando verificação do conteúdo desses elementos --}}
                     <img class="copa04-page__hero__aside__logo" src="{{ asset('storage/' . $sectionHeros->path_logo) }}"
-                        alt="icone referente a seção {{-- title  --}}">
+                        alt="icone referente a seção {{ $sectionHeros->title }}">
                     <a class="copa04-page__hero__aside__cta"
                         href="{{ $sectionHeros->button_link }}">{{ $sectionHeros->button_text }}</a>
                 </aside>
@@ -59,16 +57,15 @@
                 <div class="copa04-page__hero__information">
                     <header class="copa04-page__hero__information__header">
                         <img class="copa04-page__hero__information__header__icon"
-                            src="{{ asset('storage/' . $sectionHeros->path_icon) }}" alt="ícone do {{-- title --}}">
+                            src="{{ asset('storage/' . $sectionHeros->path_icon) }}"
+                            alt="ícone do {{ $sectionHeros->title }}">
                         @if ($sectionHeros->title)
                             <h1 class="copa04-page__hero__information__header__title">{{ $sectionHeros->title }}</h1>
                         @endif
                     </header>
                     @if ($sectionHeros->description)
                         <p class="copa04-page__hero__information__paragraph">
-
                             {!! $sectionHeros->description !!}
-
                         </p>
                     @endif
                     @if ($sectionHeros->link)
@@ -78,7 +75,7 @@
                 </div>
                 @if ($sectionHeros->path_image)
                     <img class="copa04-page__hero__image" src="{{ asset('storage/' . $sectionHeros->path_image) }}"
-                        alt="Imagem ilustrativa da seção {{-- title --}}">
+                        alt="Imagem ilustrativa da seção {{ $sectionHeros->title }}">
                 @endif
             </section>
         @endif
@@ -137,7 +134,7 @@
                 @if ($sectionHighlighted->path_image)
                     <img class="copa04-page__highlighted__image"
                         src="{{ asset('storage/' . $sectionHighlighted->path_image) }}"
-                        alt="Imagem referente a seção {{-- TITLE --}}">
+                        alt="Imagem referente a seção {{ $sectionHighlighted->title }}">
                 @endif
             </section>
         @endif
@@ -166,7 +163,7 @@
                         <div class="copa04-page__topics__main__item">
                             <img class="copa04-page__topics__main__item__icon"
                                 src="{{ asset('storage/' . $topic->path_image) }}"
-                                alt="ícone do tópico {{-- title --}}">
+                                alt="ícone do tópico {{ $topic->title }}">
                             <h4 class="copa04-page__topics__main__item__title">{{ $topic->title }}</h4>
                             <div class="copa04-page__topics__main__item__paragraph">
                                 <p>{!! $topic->text !!}</p>
@@ -201,7 +198,7 @@
                                     @if ($item->path_image)
                                         <img class="copa04-page__topics-carousel__carousel__item__icon"
                                             src="{{ asset('storage/' . $item->path_image) }}"
-                                            alt="ícone do tópico {{-- title --}}">
+                                            alt="ícone do tópico {{ $item->title }}">
                                     @endif
 
                                     @if ($item->title)
