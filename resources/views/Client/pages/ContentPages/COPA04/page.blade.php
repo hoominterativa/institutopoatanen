@@ -7,10 +7,10 @@
             /* BACKEND: Imprimir as variaveis de cor aqui ❤ */
             :root {
 
-                @if ($sectionHeros)
-                    --bg-hero-primary: {{ $sectionHeros ? $sectionHeros->color_one : 'lightgray' }};
-                    --bg-hero-secondary: {{ $sectionHeros ? $sectionHeros->color_two : 'lightblue' }};
-                    --bg-hero-tertiary: {{ $sectionHeros ? $sectionHeros->color_three : 'white' }};
+                @if (isset($sectionHeros->color_one) || isset($sectionHeros->color_one) || isset($sectionHeros->color_one))
+                    --bg-hero-primary: {{ $sectionHeros->color_one }};
+                    --bg-hero-secondary: {{ $sectionHeros->color_two }};
+                    --bg-hero-tertiary: {{ sectionHeros->color_three }};
                 @endif
 
                 @if ($sectionVideo)
@@ -172,7 +172,7 @@
                     @endforeach
                 </div>
                 @if ($sectionTopic->btn_title)
-                    <a href="#" class="copa04-page__topics__cta">{{ $sectionTopic->btn_title }}</a>
+                    <a href="{{$sectionTopic->link}}" class="copa04-page__topics__cta">{{ $sectionTopic->btn_title }}</a>
                 @endif
             </section>
         @endif
@@ -184,10 +184,14 @@
                     @if ($sectionTopicCarousel->title)
                         <h2 class="copa04-page__topics-carousel__header__title">{{ $sectionTopicCarousel->title }}</h2>
                     @endif
-                    <h3 class="copa04-page__topics-carousel__header__subtitle">{{ $sectionTopicCarousel->subtitle }}</h3>
-                    <div class="copa04-page__topics-carousel__header__paragraph">
-                        {!! $sectionTopicCarousel->description !!}
-                    </div>
+                    @if ($sectionTopicCarousel->subtitle)                        
+                        <h3 class="copa04-page__topics-carousel__header__subtitle">{{ $sectionTopicCarousel->subtitle }}</h3>
+                    @endif
+                    @if ($sectionTopicCarousel->description)
+                        <div class="copa04-page__topics-carousel__header__paragraph">
+                            {!! $sectionTopicCarousel->description !!}
+                        </div>
+                    @endif
                 </header>
                 @if ($carouselItems)
                     <div class="copa04-page__topics-carousel__carousel">
@@ -308,28 +312,30 @@
                     <a class="copa04-page__additional-content__header__cta"
                         href="{{ $sectionAdditionalContent->button_link }}">{{ $sectionAdditionalContent->button_text }}</a>
                 </div>
-                <div class="copa04-page__additional-content__carousel">
-                    <div class="copa04-page__additional-content__carousel__swiper-wrapper swiper-wrapper">
-                        @foreach ($additionalItemImages as $item)
-                            @if ($item->link_video)
-                                {{-- Se tiver video --}}
-                                <div data-fancybox data-src="{{ $item->link_video }}"
-                                    class="copa04-page__additional-content__carousel__item--video swiper-slide"
-                                    style="background-image: url('{{ asset('storage/' . $item->path_image) }}')">
-                                    <button class="copa04-page__additional-content__carousel__item--video__button">
-                                        <img class="copa04-page__additional-content__carousel__item--video__button__icon"
-                                            src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
-                                    </button>
-                                </div>
-                            @else
-                                {{-- Se tiver somente imagem --}}
-                                <img class="copa04-page__additional-content__carousel__item swiper-slide"
-                                    src="{{ asset('storage/' . $item->path_image) }}" alt="{Image}">
-                            @endif
-                        @endforeach
-                    </div>
+                @if ($additionalItemImages->count() > 0)
+                    <div class="copa04-page__additional-content__carousel">
+                        <div class="copa04-page__additional-content__carousel__swiper-wrapper swiper-wrapper">
+                            @foreach ($additionalItemImages as $item)
+                                @if ($item->link_video)
+                                    {{-- Se tiver video --}}
+                                    <div data-fancybox data-src="{{ $item->link_video }}"
+                                        class="copa04-page__additional-content__carousel__item--video swiper-slide"
+                                        style="background-image: url('{{ asset('storage/' . $item->path_image) }}')">
+                                        <button class="copa04-page__additional-content__carousel__item--video__button">
+                                            <img class="copa04-page__additional-content__carousel__item--video__button__icon"
+                                                src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
+                                        </button>
+                                    </div>
+                                @else
+                                    {{-- Se tiver somente imagem --}}
+                                    <img class="copa04-page__additional-content__carousel__item swiper-slide"
+                                        src="{{ asset('storage/' . $item->path_image) }}" alt="{Image}">
+                                @endif
+                            @endforeach
+                        </div>
 
-                </div>
+                    </div>
+                @endif
 
             </section>
         @endif
@@ -439,24 +445,31 @@
                                 @if ($item->promotion == 1)
                                     <span class="copa04-page__section-products__carousel__item__tag">Promoção</span>
                                 @endif
-                                <h4 class="copa04-page__section-products__carousel__item__title">{{ $item->title }}</h4>
-                                <h5 class="copa04-page__section-products__carousel__item__subtitle">{{ $item->subtitle }}
-                                </h5>
-                                <div class="copa04-page__section-products__carousel__item__paragraph">
-                                    {!! $item->description !!}
-                                </div>
-                                <div class="copa04-page__section-products__carousel__item__price">
-                                    <h6 class="copa04-page__section-products__carousel__item__price__title">
-                                        {{ $item->subtitle }}</h6>
-                                    <p class="copa04-page__section-products__carousel__item__price__paragraph">R$
-                                        <b>{{ $item->value }}</b>
-                                    </p>
+                                @if ($item->title)                                    
+                                    <h4 class="copa04-page__section-products__carousel__item__title">{{ $item->title }}</h4>
+                                @endif
+                                @if ($item->subtitle)                                    
+                                    <h5 class="copa04-page__section-products__carousel__item__subtitle">{{ $item->subtitle }}</h5>
+                                @endif
+                                @if ($item->description)                                    
+                                    <div class="copa04-page__section-products__carousel__item__paragraph">
+                                        {!! $item->description !!}
+                                    </div>
+                                @endif
+                                @if ($item->subtitle || $item->value)                                    
+                                    <div class="copa04-page__section-products__carousel__item__price">
+                                        <h6 class="copa04-page__section-products__carousel__item__price__title">
+                                            {{ $item->subtitle }}</h6>
+                                        <p class="copa04-page__section-products__carousel__item__price__paragraph">R$
+                                            <b>{{ $item->value }}</b>
+                                        </p>
 
-                                </div>
-                                <a class="copa04-page__section-products__carousel__item__cta"
-                                    href="{{ $item->button_link }}">{{ $item->button_text }}</a>
-
-
+                                    </div>
+                                @endif
+                                @if ($item->button_link)                                    
+                                    <a class="copa04-page__section-products__carousel__item__cta"
+                                        href="{{ $item->button_link }}">{{ $item->button_text }}</a>
+                                @endif
                             </div>
                         @endforeach
                     </div>
