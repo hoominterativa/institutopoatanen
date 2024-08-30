@@ -1,9 +1,11 @@
-@if ($gallery)
+@if (isset($gallery))
     {!! Form::model($gallery, ['route' => ['admin.copa04.gallery.update', $gallery->id], 'class' => 'parsley-validate', 'files' => true,]) !!}
     @method('PUT')
 @else
-    {!! Form::model(null, ['route' => 'admin.copa04.gallery.store', 'class' => 'parsley-validate', 'files' => true]) !!}
-    {!! Form::hidden('contentpage_id', $contentPage->id) !!}
+    @if (isset($contentPage))
+        {!! Form::model(null, ['route' => 'admin.copa04.gallery.store', 'class' => 'parsley-validate', 'files' => true]) !!}
+        {!! Form::hidden('contentpage_id', $contentPage->id) !!}
+    @endif
 @endif
 <div class="row col-12">
     <div class="col-6">

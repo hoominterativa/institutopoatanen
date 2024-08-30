@@ -359,11 +359,15 @@
                                                 src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                                         </button>
                                     </div>
-                                    <p class="copa04-page__additional-topics__carousel__item--video__title">
-                                        {{ $topic->title }}
-                                    </p>
-                                    <a href=""
-                                        class="copa04-page__additional-topics__carousel__item--video__cta">cta</a>
+                                    @if ($topic->title)                                        
+                                        <p class="copa04-page__additional-topics__carousel__item--video__title">
+                                            {{ $topic->title }}
+                                        </p>
+                                    @endif
+                                    @if ($topic->link_video)                                        
+                                        <a href="{{$topic->link_video}}"
+                                            class="copa04-page__additional-topics__carousel__item--video__cta">cta</a>
+                                    @endif
 
                                 </div>
                             @else
@@ -437,44 +441,45 @@
                     @endif
 
                 </header>
-                <div class="copa04-page__section-products__carousel">
-                    <div class="copa04-page__section-products__carousel__swiper-wrapper swiper-wrapper">
-                        @foreach ($productItem as $item)
-                            <div class="copa04-page__section-products__carousel__item swiper-slide">
-                                {{-- if tag --}}
-                                @if ($item->promotion == 1)
-                                    <span class="copa04-page__section-products__carousel__item__tag">Promoção</span>
-                                @endif
-                                @if ($item->title)                                    
-                                    <h4 class="copa04-page__section-products__carousel__item__title">{{ $item->title }}</h4>
-                                @endif
-                                @if ($item->subtitle)                                    
-                                    <h5 class="copa04-page__section-products__carousel__item__subtitle">{{ $item->subtitle }}</h5>
-                                @endif
-                                @if ($item->description)                                    
-                                    <div class="copa04-page__section-products__carousel__item__paragraph">
-                                        {!! $item->description !!}
-                                    </div>
-                                @endif
-                                @if ($item->subtitle || $item->value)                                    
-                                    <div class="copa04-page__section-products__carousel__item__price">
-                                        <h6 class="copa04-page__section-products__carousel__item__price__title">
-                                            {{ $item->subtitle }}</h6>
-                                        <p class="copa04-page__section-products__carousel__item__price__paragraph">R$
-                                            <b>{{ $item->value }}</b>
-                                        </p>
+                @if ($productItem->count() > 0)
+                    <div class="copa04-page__section-products__carousel">
+                        <div class="copa04-page__section-products__carousel__swiper-wrapper swiper-wrapper">
+                            @foreach ($productItem as $item)
+                                <div class="copa04-page__section-products__carousel__item swiper-slide">
+                                    {{-- if tag --}}
+                                    @if ($item->promotion == 1)
+                                        <span class="copa04-page__section-products__carousel__item__tag">Promoção</span>
+                                    @endif
+                                    @if ($item->title)                                    
+                                        <h4 class="copa04-page__section-products__carousel__item__title">{{ $item->title }}</h4>
+                                    @endif
+                                    @if ($item->subtitle)                                    
+                                        <h5 class="copa04-page__section-products__carousel__item__subtitle">{{ $item->subtitle }}</h5>
+                                    @endif
+                                    @if ($item->description)                                    
+                                        <div class="copa04-page__section-products__carousel__item__paragraph">
+                                            {!! $item->description !!}
+                                        </div>
+                                    @endif
+                                    @if ($item->subtitle || $item->value)                                    
+                                        <div class="copa04-page__section-products__carousel__item__price">
+                                            <h6 class="copa04-page__section-products__carousel__item__price__title">
+                                                {{ $item->subtitle }}</h6>
+                                            <p class="copa04-page__section-products__carousel__item__price__paragraph">R$
+                                                <b>{{ $item->value }}</b>
+                                            </p>
 
-                                    </div>
-                                @endif
-                                @if ($item->button_link)                                    
-                                    <a class="copa04-page__section-products__carousel__item__cta"
-                                        href="{{ $item->button_link }}">{{ $item->button_text }}</a>
-                                @endif
-                            </div>
-                        @endforeach
+                                        </div>
+                                    @endif
+                                    @if ($item->button_link)                                    
+                                        <a class="copa04-page__section-products__carousel__item__cta"
+                                            href="{{ $item->button_link }}">{{ $item->button_text }}</a>
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-
+                @endif
             </section>
         @endif
 

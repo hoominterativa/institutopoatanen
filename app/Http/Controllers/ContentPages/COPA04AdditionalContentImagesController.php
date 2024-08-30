@@ -37,6 +37,7 @@ class COPA04AdditionalContentImagesController extends Controller
 
         if(COPA04ContentPagesAdditionalContentImages::create($data)){
             $additionalContent = COPA04ContentPagesAdditionalContent::first();
+            dd($additionalContent);
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.copa04.additionalContent.edit', [$additionalContent->id]);
         }else{
