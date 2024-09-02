@@ -7,36 +7,40 @@
             /* BACKEND: Imprimir as variaveis de cor aqui ❤ */
             :root {
 
-                @if (isset($sectionHeros->color_one) || isset($sectionHeros->color_one) || isset($sectionHeros->color_one))
+                @if (isset($sectionHeros->color_one))
                     --bg-hero-primary: {{ $sectionHeros->color_one }};
+                @endif
+                @if (isset($sectionHeros->color_two))
                     --bg-hero-secondary: {{ $sectionHeros->color_two }};
+                @endif
+                @if (isset($sectionHeros->color_three))
                     --bg-hero-tertiary: {{ sectionHeros->color_three }};
                 @endif
 
-                @if ($sectionVideo)
-                    --bg-video-section: {{ $sectionVideo ? $sectionVideo->color_one : 'purple' }};
+                @if ($sectionVideo->color_one)
+                    --bg-video-section: {{ $sectionVideo->color_one }};
                 @endif
 
-                @if ($sectionHighlighted)
-                    --bg-higlighted: {{ $sectionHighlighted ? $sectionHighlighted->color_one : 'red' }};
+                @if ($sectionHighlighted->color_one)
+                    --bg-higlighted: {{ $sectionHighlighted->color_one }};
                 @endif
-                @if ($sectionTopic)
-                    --bg-topics: {{ $sectionTopic ? $sectionTopic->color_one : 'white' }};
+                @if ($sectionTopic->color_one)
+                    --bg-topics: {{ $sectionTopic->color_one }};
                 @endif
-                @if ($sectionTopicCarousel)
-                    --bg-topics-carousel: {{ $sectionTopicCarousel ? $sectionTopicCarousel->color_one : 'white' }};
+                @if ($sectionTopicCarousel->color_one)
+                    --bg-topics-carousel: {{ $sectionTopicCarousel->color_one }};
                 @endif
-                @if ($sectionGallery)
-                    --bg-gallery-topics: {{ $sectionGallery ? $sectionGallery->color_one : 'white' }};
+                @if ($sectionGallery->color_one)
+                    --bg-gallery-topics: {{ $sectionGallery->color_one }};
                 @endif
-                @if ($sectionAdditionalContent)
-                    --bg-additional-content: {{ $sectionAdditionalContent ? $sectionAdditionalContent->color_one : 'white' }};
+                @if ($sectionAdditionalContent->color_one)
+                    --bg-additional-content: {{ $sectionAdditionalContent->color_one }};
                 @endif
-                @if ($sectionFaq)
-                    --bg-faq: {{ $sectionFaq ? $sectionFaq->color_one : 'white' }};
+                @if ($sectionFaq->color_one)
+                    --bg-faq: {{ $sectionFaq->color_one }};
                 @endif
-                @if ($sectionProducts)
-                    --bg-products: {{ $sectionProducts ? $sectionProducts->color_one : 'white' }};
+                @if ($sectionProducts->color_one)
+                    --bg-products: {{ $sectionProducts->color_one }};
                 @endif
                 --bg-productsss: gray;
 

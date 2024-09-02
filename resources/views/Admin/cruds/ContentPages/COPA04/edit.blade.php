@@ -86,7 +86,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#topicsCarousel" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#topicsCarouselItem" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Tópicos Carossel
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -219,7 +219,7 @@
                         @include('Admin.cruds.ContentPages.COPA04.AdditionalContentImages.index')
                     </div>
                     <div class="tab-pane" id="additionalTopics">
-                        @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.index')
+                        @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.index', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="faq">
                         @include('Admin.cruds.ContentPages.COPA04.Faq.form', ['contentPage' => $contentPage])

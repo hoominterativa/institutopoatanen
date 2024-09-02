@@ -21,7 +21,7 @@
                 </div>
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.copa04.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
-                    @include('Admin.cruds.ContentPages.COPA04.form')
+                    @include('Admin.cruds.ContentPages.COPA04.form', ['contentPage' => $contentPage])
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
