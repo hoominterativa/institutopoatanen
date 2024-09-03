@@ -3,11 +3,11 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => 'admin.copa04.additionalContent.store', 'class' => 'parsley-validate', 'files' => true]) !!}
-    {!! Form::hidden('contentpage_id', $contentPage->id) !!}
 @endif
 <div class="row col-12">
     <div class="col-6">
         <div class="card card-body" id="tooltip-container">
+            <input type="hidden" name="contentpage_id" value="{{$contentPage->id}}">
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
                 {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}

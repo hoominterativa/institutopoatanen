@@ -52,7 +52,7 @@ class COPA04FaqController extends Controller
 
         if($COPA04ContentPagesFaq->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.faq.edit', [$COPA04ContentPagesFaq->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
