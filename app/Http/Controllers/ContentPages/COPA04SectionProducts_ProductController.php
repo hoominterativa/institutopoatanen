@@ -30,9 +30,8 @@ class COPA04SectionProducts_ProductController extends Controller
         $data['active'] = $request->active ? 1 : 0;
 
         if(COPA04ContentPagesSectionProducts_Product::create($data)){
-            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
@@ -55,9 +54,8 @@ class COPA04SectionProducts_ProductController extends Controller
         $data['active'] = $request->active ? 1 : 0;
 
         if($Products->fill($data)->save()){
-            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();

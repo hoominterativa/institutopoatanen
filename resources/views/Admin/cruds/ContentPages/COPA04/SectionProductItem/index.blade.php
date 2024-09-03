@@ -7,7 +7,27 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.copa04.product.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="{{route('admin.copa04.product.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        {{-- <a href="{{route('admin.copa04.product.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a> --}}
+                        <a href="javascript:void(0)"  data-bs-target="#modal-product-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        <div id="modal-product-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog" style="max-width: 900px;">
+                                <div class="modal-content">
+                                    <div class="modal-header p-3 pt-2 pb-2">
+                                        <h4 class="page-title">Cadastrar Tópico adicional</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                        
+                                    <div class="modal-body p-3 pt-0 pb-3">
+                                        {!! Form::model(null, ['route' => 'admin.copa04.product.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+                                            @include('Admin.cruds.ContentPages.COPA04.SectionProductItem.form', ['contentPage' => $contentPage])
+
+                                            {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                            <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                                        {!! Form::close() !!}                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -47,7 +67,25 @@
                                     <td class="align-middle">
                                         <div class="row">
                                             <div class="col-4">
-                                                <a href="{{route('admin.copa04.product.edit',['Products' => $sectionProductItem->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                <a href="javascript:void(0)"  data-bs-target="#modal-product-edit-{{$sectionProductItem->id}}" data-bs-toggle="modal"> <i class="btn-icon mdi mdi-square-edit-outline"></i></a>
+                                                <div id="modal-product-edit-{{$sectionProductItem->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                    <div class="modal-dialog" style="max-width: 900px;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header p-3 pt-2 pb-2">
+                                                                <h4 class="page-title">Editar Tópico adicional</h4>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                
+                                                            <div class="modal-body p-3 pt-0 pb-3">
+                                                                {!! Form::model($sectionProductItem, ['route' => ['admin.copa04.product.update', $sectionProductItem->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                                                                    @include('Admin.cruds.ContentPages.COPA04.SectionProductItem.form')
+                                                                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                                                    <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                                                                {!! Form::close() !!}                                     
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <form action="{{route('admin.copa04.product.destroy',['Products' => $sectionProductItem->id])}}" class="col-4" method="POST">
                                                 @method('DELETE') @csrf

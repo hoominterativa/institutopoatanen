@@ -64,12 +64,12 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="javascript:void(0)"  data-bs-target="#modal-additionalTopics-edit" data-bs-toggle="modal"> <i class="btn-icon mdi mdi-square-edit-outline"></i></a>
-                                            <div id="modal-additionalTopics-edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                            <a href="javascript:void(0)"  data-bs-target="#modal-additionalTopics-edit-{{$topic->id}}" data-bs-toggle="modal"> <i class="btn-icon mdi mdi-square-edit-outline"></i></a>
+                                            <div id="modal-additionalTopics-edit-{{$topic->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                 <div class="modal-dialog" style="max-width: 900px;">
                                                     <div class="modal-content">
                                                         <div class="modal-header p-3 pt-2 pb-2">
-                                                            <h4 class="page-title">Cadastrar Tópico adicional</h4>
+                                                            <h4 class="page-title">Editar Tópico adicional</h4>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                             
