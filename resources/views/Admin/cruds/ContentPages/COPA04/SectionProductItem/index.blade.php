@@ -7,7 +7,6 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.copa04.product.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        {{-- <a href="{{route('admin.copa04.product.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a> --}}
                         <a href="javascript:void(0)"  data-bs-target="#modal-product-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                         <div id="modal-product-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog" style="max-width: 900px;">

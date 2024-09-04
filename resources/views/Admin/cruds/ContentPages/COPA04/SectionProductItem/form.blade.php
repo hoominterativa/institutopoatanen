@@ -4,19 +4,19 @@
             <input type="hidden" name="contentpage_id" value="{{$contentPage->id}}">
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
+                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título']) !!}
             </div>
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Subtitulo', ['class'=>'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
+                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Subtitulo']) !!}
             </div>
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Valor', ['class'=>'form-label']) !!}
-                {!! Form::text('value', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Valor', 'required'=>'required']) !!}
+                {!! Form::text('value', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Valor']) !!}
             </div>
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Promoção', ['class'=>'form-label']) !!}
-                {!! Form::text('promotion', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Promoção', 'required'=>'required']) !!}
+                {!! Form::text('promotion', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Promoção']) !!}
             </div>
             <div class="basic-editor__content mb-3 col-12">
                 {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
