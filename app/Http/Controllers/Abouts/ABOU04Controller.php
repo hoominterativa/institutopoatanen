@@ -387,6 +387,7 @@ class ABOU04Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Abouts.ABOU04.section');
+        $section = ABOU04AboutsSection::active()->sorting()->first();
+        return view('Client.pages.Abouts.ABOU04.section', compact('section'));
     }
 }
