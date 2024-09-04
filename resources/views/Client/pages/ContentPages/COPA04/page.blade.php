@@ -2,7 +2,6 @@
 @extends('Client.Core.client')
 @section('content')
     <main id="root" class="copa04-page">
-        {{-- BEGIN Page content --}}
         <style>
             /* BACKEND: Imprimir as variaveis de cor aqui ❤ */
             :root {
@@ -50,28 +49,40 @@
         {{-- {{ $sectionHeros ? $sectionHeros->color_one : 'default_primary_value' }}; --}}
         @if ($sectionHeros)
             <section class="copa04-page__hero ">
-                <aside class="copa04-page__hero__aside">
-                    {{-- BACKEND está faltando verificação do conteúdo desses elementos --}}
-                    <img class="copa04-page__hero__aside__logo" src="{{ asset('storage/' . $sectionHeros->path_logo) }}"
-                        alt="icone referente a seção {{ $sectionHeros->title }}">
-                    <a class="copa04-page__hero__aside__cta"
-                        href="{{ $sectionHeros->button_link }}">{{ $sectionHeros->button_text }}</a>
-                </aside>
+                @if ($sectionHeros->button_link || $sectionHeros->path_logo)
+                    <aside class="copa04-page__hero__aside">
+                        @if ($sectionHeros->path_logo)
+                            <img class="copa04-page__hero__aside__logo"
+                                src="{{ asset('storage/' . $sectionHeros->path_logo) }}"
+                                alt="icone referente a seção {{ $sectionHeros->title }}">
+                        @endif
+                        @if ($sectionHeros->button_link)
+                            <a class="copa04-page__hero__aside__cta"
+                                href="{{ $sectionHeros->button_link }}">{{ $sectionHeros->button_text }}</a>
+                        @endif
+                    </aside>
+                @endif
 
                 <div class="copa04-page__hero__information">
-                    <header class="copa04-page__hero__information__header">
-                        <img class="copa04-page__hero__information__header__icon"
-                            src="{{ asset('storage/' . $sectionHeros->path_icon) }}"
-                            alt="ícone do {{ $sectionHeros->title }}">
-                        @if ($sectionHeros->title)
-                            <h1 class="copa04-page__hero__information__header__title">{{ $sectionHeros->title }}</h1>
-                        @endif
-                    </header>
+                    @if ($sectionHeros->title || $sectionHeros->path_icon)
+                        <header class="copa04-page__hero__information__header">
+                            @if ($sectionHeros->path_icon)
+                                <img class="copa04-page__hero__information__header__icon"
+                                    src="{{ asset('storage/' . $sectionHeros->path_icon) }}"
+                                    alt="ícone do {{ $sectionHeros->title }}">
+                            @endif
+                            @if ($sectionHeros->title)
+                                <h1 class="copa04-page__hero__information__header__title">{{ $sectionHeros->title }}</h1>
+                            @endif
+                        </header>
+                    @endif
+
                     @if ($sectionHeros->description)
                         <p class="copa04-page__hero__information__paragraph">
                             {!! $sectionHeros->description !!}
                         </p>
                     @endif
+
                     @if ($sectionHeros->link)
                         <a href="{{ $sectionHeros->link }}"
                             class="copa04-page__hero__information__cta">{{ $sectionHeros->title_btn }}</a>
@@ -98,6 +109,7 @@
                         {!! $sectionVideo->text !!}
                     </div>
                 @endif
+
                 @if ($sectionVideo->link)
                     <div data-src="{{ $sectionVideo->link ?? 'Error' }}" class="copa04-page__video-section__video"
                         style="background-image: url({{ asset('storage/' . $sectionVideo->path_image) }})">
@@ -109,6 +121,7 @@
                 @endif
             </section>
         @endif
+
         {{-- Seção Highlighted --}}
         @if ($sectionHighlighted)
             <section class="copa04-page__highlighted">
@@ -165,9 +178,12 @@
                 <div class="copa04-page__topics__main">
                     @foreach ($topicItems as $topic)
                         <div class="copa04-page__topics__main__item">
-                            <img class="copa04-page__topics__main__item__icon"
-                                src="{{ asset('storage/' . $topic->path_image) }}"
-                                alt="ícone do tópico {{ $topic->title }}">
+                            @if ($topic->path_image)
+                                <img class="copa04-page__topics__main__item__icon"
+                                    src="{{ asset('storage/' . $topic->path_image) }}"
+                                    alt="ícone do tópico {{ $topic->title }}">
+                            @endif
+
                             <h4 class="copa04-page__topics__main__item__title">{{ $topic->title }}</h4>
                             <div class="copa04-page__topics__main__item__paragraph">
                                 <p>{!! $topic->text !!}</p>
@@ -176,7 +192,8 @@
                     @endforeach
                 </div>
                 @if ($sectionTopic->btn_title)
-                    <a href="{{$sectionTopic->link}}" class="copa04-page__topics__cta">{{ $sectionTopic->btn_title }}</a>
+                    <a href="{{ $sectionTopic->link }}"
+                        class="copa04-page__topics__cta">{{ $sectionTopic->btn_title }}</a>
                 @endif
             </section>
         @endif
@@ -188,8 +205,9 @@
                     @if ($sectionTopicCarousel->title)
                         <h2 class="copa04-page__topics-carousel__header__title">{{ $sectionTopicCarousel->title }}</h2>
                     @endif
-                    @if ($sectionTopicCarousel->subtitle)                        
-                        <h3 class="copa04-page__topics-carousel__header__subtitle">{{ $sectionTopicCarousel->subtitle }}</h3>
+                    @if ($sectionTopicCarousel->subtitle)
+                        <h3 class="copa04-page__topics-carousel__header__subtitle">{{ $sectionTopicCarousel->subtitle }}
+                        </h3>
                     @endif
                     @if ($sectionTopicCarousel->description)
                         <div class="copa04-page__topics-carousel__header__paragraph">
@@ -363,13 +381,13 @@
                                                 src="{{ asset('storage/uploads/tmp/play.png') }}" alt="Play Vídeo">
                                         </button>
                                     </div>
-                                    @if ($topic->title)                                        
+                                    @if ($topic->title)
                                         <p class="copa04-page__additional-topics__carousel__item--video__title">
                                             {{ $topic->title }}
                                         </p>
                                     @endif
-                                    @if ($topic->link_video)                                        
-                                        <a href="{{$topic->link_video}}"
+                                    @if ($topic->link_video)
+                                        <a href="{{ $topic->link_video }}"
                                             class="copa04-page__additional-topics__carousel__item--video__cta">cta</a>
                                     @endif
 
@@ -454,18 +472,20 @@
                                     @if ($item->promotion == 1)
                                         <span class="copa04-page__section-products__carousel__item__tag">Promoção</span>
                                     @endif
-                                    @if ($item->title)                                    
-                                        <h4 class="copa04-page__section-products__carousel__item__title">{{ $item->title }}</h4>
+                                    @if ($item->title)
+                                        <h4 class="copa04-page__section-products__carousel__item__title">
+                                            {{ $item->title }}</h4>
                                     @endif
-                                    @if ($item->subtitle)                                    
-                                        <h5 class="copa04-page__section-products__carousel__item__subtitle">{{ $item->subtitle }}</h5>
+                                    @if ($item->subtitle)
+                                        <h5 class="copa04-page__section-products__carousel__item__subtitle">
+                                            {{ $item->subtitle }}</h5>
                                     @endif
-                                    @if ($item->description)                                    
+                                    @if ($item->description)
                                         <div class="copa04-page__section-products__carousel__item__paragraph">
                                             {!! $item->description !!}
                                         </div>
                                     @endif
-                                    @if ($item->subtitle || $item->value)                                    
+                                    @if ($item->subtitle || $item->value)
                                         <div class="copa04-page__section-products__carousel__item__price">
                                             <h6 class="copa04-page__section-products__carousel__item__price__title">
                                                 {{ $item->subtitle }}</h6>
@@ -475,7 +495,7 @@
 
                                         </div>
                                     @endif
-                                    @if ($item->button_link)                                    
+                                    @if ($item->button_link)
                                         <a class="copa04-page__section-products__carousel__item__cta"
                                             href="{{ $item->button_link }}">{{ $item->button_text }}</a>
                                     @endif
