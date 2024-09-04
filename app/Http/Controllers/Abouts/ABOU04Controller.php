@@ -106,6 +106,7 @@ class ABOU04Controller extends Controller
      */
     public function edit(ABOU04Abouts $ABOU04Abouts)
     {
+        $section = ABOU04AboutsSection::where('about_id', $ABOU04Abouts->id)->sorting()->first();
         $topics = ABOU04AboutsTopic::where('about_id', $ABOU04Abouts->id)->sorting()->get();
         $galleries = ABOU04AboutsGallery::where('about_id', $ABOU04Abouts->id)->with('category')->sorting()->get();
         $categories = ABOU04AboutsCategory::where('about_id', $ABOU04Abouts->id)->exists()->sorting()->pluck('title', 'id');
@@ -119,6 +120,7 @@ class ABOU04Controller extends Controller
             'categories' => $categories,
             'galleryCategories' => $galleryCategories,
             'categoryCreate' => $categoryCreate,
+            'section' => $section,
             'cropSetting' => getCropImage('Abouts', 'ABOU04')
         ]);
     }

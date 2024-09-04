@@ -114,6 +114,13 @@
             }
         },
         "ABOU04": {
+            "Section": {
+                "path_image": {
+                    "width": "1500",
+                    "height": "386",
+                    "activeCrop": "false"
+                }
+            },
             "path_image": {
                 "width": "600",
                 "height": "600",
