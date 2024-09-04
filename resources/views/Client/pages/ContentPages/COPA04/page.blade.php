@@ -13,32 +13,32 @@
                     --bg-hero-secondary: {{ $sectionHeros->color_two }};
                 @endif
                 @if (isset($sectionHeros->color_three))
-                    --bg-hero-tertiary: {{ sectionHeros->color_three }};
+                    --bg-hero-tertiary: {{ $sectionHeros->color_three }};
                 @endif
 
-                @if ($sectionVideo->color_one)
+                @if (isset($sectionVideo->color_one))
                     --bg-video-section: {{ $sectionVideo->color_one }};
                 @endif
 
-                @if ($sectionHighlighted->color_one)
+                @if (isset($sectionHighlighted->color_one))
                     --bg-higlighted: {{ $sectionHighlighted->color_one }};
                 @endif
-                @if ($sectionTopic->color_one)
+                @if (isset($sectionTopic->color_one))
                     --bg-topics: {{ $sectionTopic->color_one }};
                 @endif
-                @if ($sectionTopicCarousel->color_one)
+                @if (isset($sectionTopicCarousel->color_one))
                     --bg-topics-carousel: {{ $sectionTopicCarousel->color_one }};
                 @endif
-                @if ($sectionGallery->color_one)
+                @if (isset($sectionGallery->color_one))
                     --bg-gallery-topics: {{ $sectionGallery->color_one }};
                 @endif
-                @if ($sectionAdditionalContent->color_one)
+                @if (isset($sectionAdditionalContent->color_one))
                     --bg-additional-content: {{ $sectionAdditionalContent->color_one }};
                 @endif
-                @if ($sectionFaq->color_one)
+                @if (isset($sectionFaq->color_one))
                     --bg-faq: {{ $sectionFaq->color_one }};
                 @endif
-                @if ($sectionProducts->color_one)
+                @if (isset($sectionProducts->color_one))
                     --bg-products: {{ $sectionProducts->color_one }};
                 @endif
                 --bg-productsss: gray;
