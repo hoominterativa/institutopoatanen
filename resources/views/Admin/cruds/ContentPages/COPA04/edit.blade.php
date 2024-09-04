@@ -210,7 +210,7 @@
                         @include('Admin.cruds.ContentPages.COPA04.Gallery.form', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="galleryTopics">
-                        @include('Admin.cruds.ContentPages.COPA04.GalleryTopics.index')
+                        @include('Admin.cruds.ContentPages.COPA04.GalleryTopics.index', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="additionalContents">
                         @include('Admin.cruds.ContentPages.COPA04.AdditionalContent.form', ['contentPage' => $contentPage])
