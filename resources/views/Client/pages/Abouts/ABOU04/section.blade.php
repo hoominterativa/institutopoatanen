@@ -16,7 +16,7 @@
                 @endif
                 @if (isset($section->description))                
                     <div class="abou04__header__paragraph">
-                        {{!! $section->description !!}}
+                        {!! $section->description !!}
                     </div>
                 @endif
                 @if (isset($section->link_button))                
