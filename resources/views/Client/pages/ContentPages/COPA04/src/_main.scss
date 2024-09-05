@@ -490,6 +490,7 @@
 
                 &--video {
                     @include disFlex(row, center, center);
+                    @include bg;
 
                     &__button {
                         outline: none;
@@ -553,6 +554,8 @@
                 &--video {
                     width: calcWidth(4, 1rem);
                     height: auto;
+                    @include bg;
+
                     @include disFlex(column, center, stretch);
 
                     @include large-device-down {

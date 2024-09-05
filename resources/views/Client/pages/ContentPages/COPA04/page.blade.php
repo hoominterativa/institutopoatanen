@@ -317,7 +317,7 @@
         @if ($sectionAdditionalContent)
             <section class="copa04-page__additional-content">
 
-                <div class="copa04-page__additional-content__header">
+                <header class="copa04-page__additional-content__header">
                     @if ($sectionAdditionalContent->title)
                         <div class="copa04-page__additional-content__header__title"> {{ $sectionAdditionalContent->title }}
                         </div>
@@ -331,9 +331,12 @@
                             {!! $sectionAdditionalContent->description !!}
                         </div>
                     @endif
-                    <a class="copa04-page__additional-content__header__cta"
-                        href="{{ $sectionAdditionalContent->button_link }}">{{ $sectionAdditionalContent->button_text }}</a>
-                </div>
+
+                    @if ($sectionAdditionalContent->button_link)
+                        <a class="copa04-page__additional-content__header__cta"
+                            href="{{ $sectionAdditionalContent->button_link }}">{{ $sectionAdditionalContent->button_text }}</a>
+                    @endif
+                </header>
                 @if ($additionalItemImages->count() > 0)
                     <div class="copa04-page__additional-content__carousel">
                         <div class="copa04-page__additional-content__carousel__swiper-wrapper swiper-wrapper">
@@ -400,8 +403,10 @@
                                     <figcaption class="copa04-page__additional-topics__carousel__item__title">Title
                                         {{ $topic->title }}</figcaption>
 
-                                    <a href="{{ $topic->button_link }}"
-                                        class="copa04-page__additional-topics__carousel__item__cta">{{ $topic->button_text }}</a>
+                                    @if ($topic->button_link)
+                                        <a href="{{ $topic->button_link }}"
+                                            class="copa04-page__additional-topics__carousel__item__cta">{{ $topic->button_text }}</a>
+                                    @endif
                                 </figure>
                             @endif
                         @endforeach

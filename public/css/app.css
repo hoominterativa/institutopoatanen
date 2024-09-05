@@ -3917,6 +3917,9 @@ body .owl-dots .owl-dot.active {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .copa04-page__additional-content__carousel__item--video__button {
   outline: none;
@@ -3975,6 +3978,9 @@ body .owl-dots .owl-dot.active {
 .copa04-page__additional-topics__carousel__item--video {
   width: calc(25% - 0.75rem);
   height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
