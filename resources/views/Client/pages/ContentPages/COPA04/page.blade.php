@@ -375,7 +375,7 @@
                             @if ($topic->link_video)
                                 {{-- if video --}}
                                 <div class="copa04-page__additional-topics__carousel__item--video swiper-slide">
-                                    <div data-fancybox data-src="https://www.youtube.com/embed/EDnIEWyVIlE"
+                                    <div data-fancybox data-src="{{$topic->link_video}}"
                                         class="copa04-page__additional-topics__carousel__item--video__video"
                                         style="background-image: url('{{ asset('storage/' . $topic->path_image) }}')">
                                         <button
@@ -474,7 +474,7 @@
                             @foreach ($productItem as $item)
                                 <div class="copa04-page__section-products__carousel__item swiper-slide">
                                     {{-- if tag --}}
-                                    @if ($item->promotion == 1)
+                                    @if ($item->promotion)
                                         <span class="copa04-page__section-products__carousel__item__tag">Promoção</span>
                                     @endif
                                     @if ($item->title)
@@ -493,9 +493,9 @@
                                     @if ($item->subtitle || $item->value)
                                         <div class="copa04-page__section-products__carousel__item__price">
                                             <h6 class="copa04-page__section-products__carousel__item__price__title">
-                                                {{ $item->subtitle }}</h6>
+                                                {{ $item->value }}</h6>
                                             <p class="copa04-page__section-products__carousel__item__price__paragraph">R$
-                                                <b>{{ $item->value }}</b>
+                                                <b>{{ $item->promotion }}</b>
                                             </p>
 
                                         </div>

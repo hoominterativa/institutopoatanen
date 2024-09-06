@@ -102,14 +102,13 @@ class COPA04SectionHeroController extends Controller
 
         if($COPA04ContentPagesSectionHero->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.index');
         }else{
             Storage::delete($path_image);
             Storage::delete($path_logo);
             Storage::delete($path_icon);
             Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
         }
+        return redirect()->back();
     }
 
     public function destroy(COPA04ContentPagesSectionHero $COPA04ContentPagesSectionHero)

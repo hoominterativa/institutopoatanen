@@ -15,14 +15,14 @@
                                         <h4 class="page-title">Cadastrar Imagem</h4>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                        
+
                                     <div class="modal-body p-3 pt-0 pb-3">
                                         {!! Form::model(null, ['route' => 'admin.copa04.galleryTopic.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
                                             @include('Admin.cruds.ContentPages.COPA04.GalleryTopics.form')
 
                                             {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                                             <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                                        {!! Form::close() !!}                                        
+                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,6 @@
                                 <label><input name="btnSelectAll" value="btnDeleteContentPages" type="checkbox"></label>
                             </th>
                             <th>Título</th>
-                            <th>subtitulo</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
                         </tr>
@@ -51,7 +50,6 @@
                                         <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$galleryTopic->id}}"></label>
                                     </td>
                                     <td class="align-middle">{{$galleryTopic->title}}</td>
-                                    <td class="align-middle">{{$galleryTopic->subtitle}}</td>
                                     <td class="align-middle">
                                         @switch($galleryTopic->active)
                                             @case(1)
@@ -60,7 +58,7 @@
                                             @case(0)
                                                 <span class="badge bg-danger">Inativo</span>
                                                 @break
-                                            @default                                                            
+                                            @default
                                         @endswitch
                                     </td>
                                     <td class="align-middle">
@@ -74,13 +72,13 @@
                                                                 <h4 class="page-title">Editar Imagem</h4>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                
+
                                                             <div class="modal-body p-3 pt-0 pb-3">
                                                                 {!! Form::model($galleryTopic, ['route' => ['admin.copa04.galleryTopic.update', $galleryTopic->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
                                                                     @include('Admin.cruds.ContentPages.COPA04.GalleryTopics.form')
                                                                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                                                                     <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                                                                {!! Form::close() !!}                                     
+                                                                {!! Form::close() !!}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -99,6 +97,6 @@
             </div>
         </div> <!-- end card-->
     </div> <!-- end col-->
-</div>  
+</div>
 <!-- end row -->
 
