@@ -1,21 +1,24 @@
 <div class="row col-12">
-    <div class="col-6">
+    <div class="col-12">
         <div class="card card-body" id="tooltip-container">
-            <div class="mb-3 col-12">
-                {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
-            </div>
-            <div class="mb-3 col-12">
-                {!! Form::label('validationCustom01', 'Subtitulo', ['class'=>'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
-            </div>
-            <div class="mb-3 col-12">
-                {!! Form::label('validationCustom01', 'Valor', ['class'=>'form-label']) !!}
-                {!! Form::text('value', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Valor', 'required'=>'required']) !!}
-            </div>
-            <div class="mb-3 col-12">
-                {!! Form::label('validationCustom01', 'Promoção', ['class'=>'form-label']) !!}
-                {!! Form::text('promotion', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Promoção', 'required'=>'required']) !!}
+            <input type="hidden" name="contentpage_id" value="{{$contentPage->id}}">
+            <div class="row">
+                <div class="mb-3 col-12 col-lg-6">
+                    {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
+                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título']) !!}
+                </div>
+                <div class="mb-3 col-12 col-lg-6">
+                    {!! Form::label('validationCustom01', 'Subtitulo', ['class'=>'form-label']) !!}
+                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Subtitulo']) !!}
+                </div>
+                <div class="mb-3 col-12 col-lg-6">
+                    {!! Form::label('validationCustom01', 'Valor', ['class'=>'form-label']) !!}
+                    {!! Form::text('value', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Valor']) !!}
+                </div>
+                <div class="mb-3 col-12 col-lg-6">
+                    {!! Form::label('validationCustom01', 'Valor Promocional', ['class'=>'form-label']) !!}
+                    {!! Form::text('promotion', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Promoção']) !!}
+                </div>
             </div>
             <div class="basic-editor__content mb-3 col-12">
                 {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
@@ -23,7 +26,7 @@
                     'class'=>'form-control basic-editor',
                     'id'=>'basic-editor',
                 ]) !!}
-            </div>            
+            </div>
         </div>
         {{-- end card-body --}}
         <div class="card card-body" id="tooltip-container">
@@ -36,7 +39,7 @@
                 <div class="wrapper-links my-2 border px-2 py-3">
                     <ul class="nav nav-pills navtab-bg nav-justified">
                         <li class="nav-item">
-                            <a href="#linkPages1" data-bs-toggle="tab" aria-expanded="false" class="nav-link py-1">
+                            <a href="#linkPages1PD1" data-bs-toggle="tab" aria-expanded="false" class="nav-link py-1">
                                 <div class="d-flex align-items-center justify-content-center">
                                     Link para página do site
                                     <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
@@ -46,7 +49,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#linkExternal6" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                            <a href="#linkExternal6PD1" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
                                 <div class="d-flex align-items-center justify-content-center">
                                     Link para página externa
                                     <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon cloneTypeButton"
@@ -57,7 +60,7 @@
                         </li>
                     </ul> {{-- END .nav-tabs --}}
                     <div class="tab-content">
-                        <div class="tab-pane" id="linkPages1">
+                        <div class="tab-pane" id="linkPages1PD1">
                             <div class="row">
                                 <div class="dropdown mb-3 col-12">
                                     {!! Form::label(null, 'Selecione uma página do site', ['class'=>'form-label']) !!}
@@ -67,11 +70,11 @@
                                     <ul class="dropdown-menu multi-level col-12" aria-labelledby="dropdownPages">
                                         @foreach (listPage() as $page)
                                             <li class="dropdown {{$page->dropdown?'dropdown-submenu':''}}">
-                                                <a href="{{$page->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl1" data-bs-toggle="dropdown">{{$page->title}}</a>
+                                                <a href="{{$page->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl1PD1" data-bs-toggle="dropdown">{{$page->title}}</a>
                                                 @if ($page->dropdown)
                                                     <ul class="dropdown-menu">
                                                         @foreach ($page->dropdown as $itens)
-                                                            <li><a href="{{$itens->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl1">{{$itens->name}}</a></li>
+                                                            <li><a href="{{$itens->route}}" class="dropdown-item" data-bs-toggle="setUrl" data-target-url="#targetUrl1PD1">{{$itens->name}}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 @endif
@@ -81,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane show active" id="linkExternal6"></div>
+                        <div class="tab-pane show active" id="linkExternal6PD1"></div>
                     </div> {{-- END .tab-content --}}
                     <div class="row">
                         <div class="col-12">
@@ -90,7 +93,7 @@
                         </div>
                         <div class="col-12 col-sm-8">
                             {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                            {!! Form::url('button_link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl1']) !!}
+                            {!! Form::url('button_link', null, ['class'=>'form-control','parsley-type'=>'url', 'id' => 'targetUrl1PD1']) !!}
                         </div>
                         <div class="col-12 col-sm-4">
                             {!! Form::label('target_link_one', 'Redirecionar para', ['class'=>'form-label']) !!}
@@ -103,28 +106,6 @@
         <div class="mb-3 form-check me-3">
             {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
             {!! Form::label('active', 'Ativo?', ['class' => 'form-check-label']) !!}
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="card card-body">
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->SectionProducts->path_image->width}}x{{$cropSetting->SectionProducts->path_image->height}}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-status'=>$cropSetting->SectionProducts->path_image->activeCrop, // px
-                            'data-min-width'=>$cropSetting->SectionProducts->path_image->width, // px
-                            'data-min-height'=>$cropSetting->SectionProducts->path_image->height, // px
-                            'data-box-height'=>'225', // Input height in the form
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
-                            'data-default-file'=> isset($Products)?($Products->path_image<>''?url('storage/'.$Products->path_image):''):'',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
         </div>
     </div>
 </div>

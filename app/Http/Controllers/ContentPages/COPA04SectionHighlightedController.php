@@ -34,7 +34,7 @@ class COPA04SectionHighlightedController extends Controller
 
         if(COPA04ContentPagesSectionHighlighted::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->back();
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item!');
@@ -70,7 +70,7 @@ class COPA04SectionHighlightedController extends Controller
 
         if($COPA04SectionHighlighted->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->back();
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar item!');

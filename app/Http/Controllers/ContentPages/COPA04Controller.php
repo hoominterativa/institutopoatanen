@@ -38,6 +38,7 @@ class COPA04Controller extends Controller
     public function index()
     {
         $contentPages = COPA04ContentPages::sorting()->get();
+
         return view('Admin.cruds.ContentPages.COPA04.index', [
             'contentPages' => $contentPages
         ]);
@@ -89,7 +90,7 @@ class COPA04Controller extends Controller
         $topicCaroussel = COPA04ContentPagesTopiccarousel::where('contentpage_id', $COPA04ContentPages->id)->first();
         $gallery = COPA04ContentPagesGallery::where('contentpage_id', $COPA04ContentPages->id)->first();
         $additionalContent = COPA04ContentPagesAdditionalContent::where('contentpage_id', $COPA04ContentPages->id)->first();
-        $AdditionalContentImages = COPA04ContentPagesAdditionalContentImages::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
+        $AdditionalContentImages = COPA04ContentPagesAdditionalContentImages::where('contentpage_id', $COPA04ContentPages->id)->sorting()->get();
         $additionalTopics = COPA04ContentPagesAdditionalTopics::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
         $faq = COPA04ContentPagesFaq::where('contentpage_id', $COPA04ContentPages->id)->first();
         $sectionProduct = COPA04ContentPagesSectionProducts::where('contentpage_id', $COPA04ContentPages->id)->first();
@@ -98,7 +99,7 @@ class COPA04Controller extends Controller
         $galleryTopics  = COPA04ContentPagesGallerytopics::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
         $faqs = COPA04ContentPagesFaqTopics::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
         $sectionProductItems = COPA04ContentPagesSectionProducts_Product::where('contentpage_id', $COPA04ContentPages->id)->sorting()->paginate(30);
-
+        
         return view('Admin.cruds.ContentPages.COPA04.edit', [
             'contentPage' => $COPA04ContentPages,
             'sectionHero' => $sectionHero,

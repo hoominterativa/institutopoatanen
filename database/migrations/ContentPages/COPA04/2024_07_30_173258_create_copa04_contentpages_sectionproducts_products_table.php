@@ -1,4 +1,4 @@
-<?php
+->nullable()<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,14 +17,14 @@ class CreateCopa04ContentpagesSectionproductsProductsTable extends Migration
             $table->id();
             $table->index('contentpage_id', 'fk_contentpage_products_idx');
             $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_products_idx');
-            $table->string('title');
-            $table->string('subtitle');
-            $table->string('description');
-            $table->string('value');
-            $table->string('button_text');
-            $table->string('button_link');
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('description')->nullable();
+            $table->string('value')->nullable();
+            $table->string('button_text')->nullable();
+            $table->string('button_link')->nullable();
             $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
-            $table->boolean('promotion')->default(0);
+            $table->string('promotion')->nullable();
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->softDeletes();

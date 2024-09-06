@@ -2,6 +2,7 @@
 
 namespace Database\Factories\ContentPages;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\ContentPages\COPA04ContentPages;
 
@@ -21,8 +22,10 @@ class COPA04ContentPagesFactory extends Factory
      */
     public function definition()
     {
+        $title_page = $this->faker->text(10);
         return [
-            'title_page' => $this->faker->text(10),
+            'title_page' => $title_page,
+            'slug' => Str::slug($title_page),
             'active' => 1,
         ];
     }

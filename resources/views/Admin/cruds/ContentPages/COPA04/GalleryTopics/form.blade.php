@@ -1,5 +1,7 @@
 <div class="row col-12">
     <div class="col-6">
+        <input type="hidden" name="contentpage_id" value="{{$contentPage->id}}">
+        
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}

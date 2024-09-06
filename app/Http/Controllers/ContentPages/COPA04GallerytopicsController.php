@@ -19,8 +19,10 @@ class COPA04GallerytopicsController extends Controller
 
     public function create()
     {
+        $COPA04ContentPages = COPA04ContentPages::first();
         return view('Admin.cruds.ContentPages.COPA04.GalleryTopics.create',[
             'cropSetting' => getCropImage('ContentPages', 'COPA04'),
+            'COPA04ContentPages' => $COPA04ContentPages
         ]);
     }
 
@@ -34,9 +36,9 @@ class COPA04GallerytopicsController extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
 
         if($path_image) $data['path_image'] = $path_image;
-
         if(COPA04ContentPagesGallerytopics::create($data)){
             $COPA04ContentPages = COPA04ContentPages::first();
+
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
         }else{
@@ -50,9 +52,11 @@ class COPA04GallerytopicsController extends Controller
 
     public function edit(COPA04ContentPagesGallerytopics $COPA04ContentPagesGallerytopics)
     {
+        $COPA04ContentPages = COPA04ContentPages::first();
         return view('Admin.cruds.ContentPages.COPA04.GalleryTopics.edit', [
             'cropSetting' => getCropImage('ContentPages', 'COPA04'),
-            'COPA04ContentPagesGallerytopics' => $COPA04ContentPagesGallerytopics
+            'COPA04ContentPagesGallerytopics' => $COPA04ContentPagesGallerytopics,
+            'COPA04ContentPages' => $COPA04ContentPages
         ]);
     }
 

@@ -25,7 +25,7 @@ class COPA04TopicController extends Controller
         $data['active'] = $request->active?:0;
         if(COPA04ContentPagesTopic::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao cadastradar o item!');
             return redirect()->back();
@@ -48,7 +48,7 @@ class COPA04TopicController extends Controller
         $data['active'] = $request->active?:0;
         if($COPA04ContentPagesTopic->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao atualizar item!');
             return redirect()->back();

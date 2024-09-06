@@ -33,9 +33,8 @@ class COPA04TopicItemController extends Controller
         if($path_image) $data['path_image'] = $path_image;        
 
         if(COPA04ContentPagesTopicItem::create($data)){
-            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
+            return redirect()->back();
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item1');
@@ -68,9 +67,8 @@ class COPA04TopicItemController extends Controller
         }
 
         if($COPA04ContentPagesTopicItem->fill($data)->save()){
-            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
+            return redirect()->back();
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar item!');

@@ -1,9 +1,10 @@
 <div class="row col-12">
     <div class="col-6">
         <div class="card card-body" id="tooltip-container">
+            <input type="hidden" name="contentpage_id" value="{{$contentPage->id}}">
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
+                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título']) !!}
             </div>
 
             <div class="basic-editor__content mb-3 col-12">

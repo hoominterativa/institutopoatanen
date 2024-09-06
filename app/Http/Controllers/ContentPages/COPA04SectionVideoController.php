@@ -27,7 +27,7 @@ class COPA04SectionVideoController extends Controller
 
         if(COPA04ContentPagesSectionVideo::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao cadastradar o item!');
             return redirect()->back();
@@ -48,7 +48,7 @@ class COPA04SectionVideoController extends Controller
 
         if($COPA04ContentPagesSectionVideo->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao atualizar item!');
             return redirect()->back();

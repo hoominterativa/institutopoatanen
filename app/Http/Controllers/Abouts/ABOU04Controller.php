@@ -106,6 +106,7 @@ class ABOU04Controller extends Controller
      */
     public function edit(ABOU04Abouts $ABOU04Abouts)
     {
+        $section = ABOU04AboutsSection::where('about_id', $ABOU04Abouts->id)->sorting()->first();
         $topics = ABOU04AboutsTopic::where('about_id', $ABOU04Abouts->id)->sorting()->get();
         $galleries = ABOU04AboutsGallery::where('about_id', $ABOU04Abouts->id)->with('category')->sorting()->get();
         $categories = ABOU04AboutsCategory::where('about_id', $ABOU04Abouts->id)->exists()->sorting()->pluck('title', 'id');
@@ -119,6 +120,7 @@ class ABOU04Controller extends Controller
             'categories' => $categories,
             'galleryCategories' => $galleryCategories,
             'categoryCreate' => $categoryCreate,
+            'section' => $section,
             'cropSetting' => getCropImage('Abouts', 'ABOU04')
         ]);
     }
@@ -376,5 +378,16 @@ class ABOU04Controller extends Controller
             'topics' => $topics,
 
         ]);
+    }
+
+    /**
+     * Section index resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public static function section()
+    {
+        $section = ABOU04AboutsSection::active()->sorting()->first();
+        return view('Client.pages.Abouts.ABOU04.section', compact('section'));
     }
 }

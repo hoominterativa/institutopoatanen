@@ -31,6 +31,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="#firstSection" data-bs-toggle="tab" aria-expanded="true"
+                            class="nav-link d-flex align-items-center">
+                            Seção
+                            <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
+                                data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-original-title="Cadastre as categorias para as galerias"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#categories" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Categorias
@@ -119,6 +128,9 @@
                     </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Abouts.ABOU04.Banner.form')
+                    </div>
+                    <div class="tab-pane" id="firstSection">
+                        @include('Admin.cruds.Abouts.ABOU04.Section.form')
                     </div>
                 </div>
             </div> <!-- container -->

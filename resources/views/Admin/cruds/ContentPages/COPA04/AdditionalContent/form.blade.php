@@ -3,25 +3,24 @@
     @method('PUT')
 @else
     {!! Form::model(null, ['route' => 'admin.copa04.additionalContent.store', 'class' => 'parsley-validate', 'files' => true]) !!}
-    {!! Form::hidden('contentpage_id', $contentPage->id) !!}
 @endif
 <div class="row col-12">
     <div class="col-6">
         <div class="card card-body" id="tooltip-container">
+            <input type="hidden" name="contentpage_id" value="{{$contentPage->id}}">
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
-                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título', 'required'=>'required']) !!}
+                {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'placeholder'=>'Título']) !!}
             </div>
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom02', 'Subtitulo', ['class'=>'form-label']) !!}
-                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo', 'required'=>'required']) !!}
+                {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02', 'placeholder'=>'Subtitulo']) !!}
             </div>
             <div class="mb-3 col-12">
                 {!! Form::label('colorpicker-default', 'Cor primária', ['class'=>'form-label']) !!}
                 {!! Form::text('color_one', null, [
                         'class'=>'form-control colorpicker-default',
                         'id'=>'colorpicker-default',
-                        'required'=>'required',
                     ])!!}
             </div>
         </div>

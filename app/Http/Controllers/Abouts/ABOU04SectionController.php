@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\ContentPages;
+namespace App\Http\Controllers\Abouts;
 
-use App\Models\ContentPages\COPA04ContentPagesAdditionalTopics;
+use App\Models\Abouts\ABOU04AboutsSection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -11,28 +11,23 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
 
-class COPA04AdditionalTopicsController extends Controller
+class ABOU04SectionController extends Controller
 {
-    protected $path = 'uploads/ContentPages/COPA04/images/additionaltopics/';
-
-    public function create()
-    {
-        return view('Admin.cruds.ContentPages.COPA04.AdditionalTopics.create', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
-        ]);
-    }
+    protected $path = 'uploads/Module/About04/Section/images/';
 
     public function store(Request $request)
     {
         $data = $request->all();
 
-        $data['active'] = $request->active ? 1 : 0;
-
         $helper = new HelperArchive();
+
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+
         if($path_image) $data['path_image'] = $path_image;
 
-        if(COPA04ContentPagesAdditionalTopics::create($data)){
+
+
+        if(ABOU04AboutsSection::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->back();
         }else{
@@ -42,66 +37,54 @@ class COPA04AdditionalTopicsController extends Controller
         }
     }
 
-    public function edit(COPA04ContentPagesAdditionalTopics $AdditionalTopics)
-    {
-        return view('Admin.cruds.ContentPages.COPA04.AdditionalTopics.edit', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
-            'AdditionalTopics' => $AdditionalTopics
-        ]);
-    }
-
-
-    public function update(Request $request, COPA04ContentPagesAdditionalTopics $AdditionalTopics)
+    public function update(Request $request, ABOU04AboutsSection $ABOU04AboutsSection)
     {
         $data = $request->all();
 
-        $data['active'] = $request->active ? 1 : 0;
-         
         $helper = new HelperArchive();
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image){
-            storageDelete($AdditionalTopics, 'path_image');
+            storageDelete($ABOU04AboutsSection, 'path_image');
             $data['path_image'] = $path_image;
         }
         if($request->delete_path_image && !$path_image){
-            storageDelete($AdditionalTopics, 'path_image');
+            storageDelete($ABOU04AboutsSection, 'path_image');
             $data['path_image'] = null;
         }
+        
 
-        if($AdditionalTopics->fill($data)->save()){
+
+        if($ABOU04AboutsSection->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->back();
         }else{
-
             Storage::delete($path_image);
-
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
     }
 
-
-    public function destroy(COPA04ContentPagesAdditionalTopics $AdditionalTopics)
+    public function destroy(ABOU04AboutsSection $ABOU04AboutsSection)
     {
-        storageDelete($AdditionalTopics, 'path_image');
+        storageDelete($ABOU04AboutsSection, 'path_image');
 
-        if($AdditionalTopics->delete()){
+        if($ABOU04AboutsSection->delete()){
             Session::flash('success', 'Item deletado com sucessso');
             return redirect()->back();
         }
     }
 
-
     public function destroySelected(Request $request)
     {
 
-        $AdditionalTopics = COPA04ContentPagesAdditionalTopics::whereIn('id', $request->deleteAll)->get();
-        foreach($AdditionalTopics as $AdditionalTopic){
-            storageDelete($AdditionalTopic, 'path_image');
+        $ABOU04AboutsSections = ABOU04AboutsSection::whereIn('id', $request->deleteAll)->get();
+        foreach($ABOU04AboutsSections as $ABOU04AboutsSection){
+            storageDelete($ABOU04AboutsSection, 'path_image');
         }
+        
 
-        if($deleted = COPA04ContentPagesAdditionalTopics::whereIn('id', $request->deleteAll)->delete()){
+        if($deleted = ABOU04AboutsSection::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
         }
     }
@@ -109,21 +92,14 @@ class COPA04AdditionalTopicsController extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            COPA04ContentPagesAdditionalTopics::where('id', $id)->update(['sorting' => $sorting]);
+            ABOU04AboutsSection::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }
 
     // METHODS CLIENT
 
-    /**
-     * Display the specified resource.
-     * Content method
-     *
-     * @param  \App\Models\ContentPages\COPA04ContentPagesAdditionalTopics  $COPA04ContentPagesAdditionalTopics
-     * @return \Illuminate\Http\Response
-     */
-    //public function show(COPA04ContentPagesAdditionalTopics $COPA04ContentPagesAdditionalTopics)
+
     public function show()
     {
         $IncludeSectionsController = new IncludeSectionsController();
@@ -134,12 +110,7 @@ class COPA04AdditionalTopicsController extends Controller
         ]);
     }
 
-    /**
-     * Display a listing of the resourcee.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function page(Request $request)
     {
         $IncludeSectionsController = new IncludeSectionsController();
@@ -150,11 +121,7 @@ class COPA04AdditionalTopicsController extends Controller
         ]);
     }
 
-    /**
-     * Section index resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public static function section()
     {
         return view('');

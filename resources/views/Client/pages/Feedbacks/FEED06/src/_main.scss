@@ -2,136 +2,71 @@
 
 /* BEGIN STYLE */
 .feed06 {
-    @include backG;
-    padding: 26px 0;
+    overflow: hidden;
+    @include disFlex(column, start, center);
+    @extend %theme__padding;
 
-    &__title {
-        font-family: $font-primary;
-        font-size: $T2;
-        font-weight: 700;
-        line-height: $font-46;
-        margin-bottom: 20px;
-        color: $color-one;
-        text-align: center;
+    &__header {
+        @include disFlex(column, center, center);
+        margin-bottom: rem(45);
 
-        @include medium-device-down {
-            font-size: $T2-mobile;
+        &__title {
+            @extend %theme__t2-c1;
+            text-align: center;
         }
-    }
-
-    &__line {
-        width: 100%;
-        border-top: 1px solid $color-black;
-        margin: 20px auto 30px auto;
-        opacity: 1;
     }
 
     &__carousel {
         width: 100%;
         overflow: visible;
 
-        .owl-stage-outer {
-            overflow: visible;
-        }
-
-        .owl-dots {
-            justify-content: start;
-
-            .owl-dot {
-                border-radius: 0;
-            }
-        }
-    }
-
-    &__item {
-        width: 85%;
-        padding: 27px;
-        background-color: $color-five;
-
-        @include medium-device-down {
-            width: 100%;
-        }
-
-        &__title {
-            font: $paragraph;
-            font-weight: 700;
-            color: $color-two;
-            text-align: start;
-            margin-bottom: 9px;
+        &__item {
+            background-color: $color-five;
+            padding: rem(26);
+            width: rem(515);
+            @include disFlex(column);
 
             @include medium-device-down {
-                font: $paragraph-mobile;
-                font-weight: 700;
+                width: 100%;
             }
-        }
 
-        &__stars {
-            padding-left: 0;
-            gap: 4px;
-            margin-bottom: 18px;
-            list-style-type: none;
+            &__header {
+                @include disFlex(column);
+                margin-bottom: rem(18);
 
-            &__item {
-                height: 16px;
-                width: 16px;
+                &__title {
+                    @extend %theme__p2-c2;
+                    margin-bottom: 0.5rem;
+                }
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    object-position: center;
+                &__stars {
+                    @include disFlex(row, start, center);
+                    padding-left: 0;
+                    gap: 4px;
+                    list-style-type: none;
+
+                    &__item {
+                        height: 16px;
+                        width: 16px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                            object-position: center;
+                        }
+                    }
                 }
             }
-        }
 
-        &__text {
-            font: $paragraph;
-            font-weight: 400;
-            color: $color-two;
-            text-align: start;
-
-            @include medium-device-down {
-                font: $paragraph-mobile;
-                font-weight: 400;
-            }
-
-            p {
-                font: inherit;
-                font-weight: inherit;
-                color: inherit;
-                text-align: inherit;
+            &__paragraph {
+                @extend %theme__p1-c2;
             }
         }
     }
 
     &__cta {
-        @include Flex();
-        gap: 16px;
-        align-self: end;
-        white-space: nowrap;
-        background-color: $color-white;
-        padding: 6px 40px;
-        margin-top: 0px;
-
-        font: $paragraph-min;
-        font-weight: 700;
-        color: $color-one;
-
-        &:hover {
-            background-color: $color-one;
-            color: $color-white;
-        }
-
-        &__icon {
-            height: 19px;
-            width: 19px;
-            object-fit: contain;
-            object-position: center;
-            @include trans($transition: 0.5s);
-        }
-
-        &:hover &__icon {
-            filter: brightness(1) contrast(1) invert(1) grayscale(1);
-        }
+        @extend %theme__cta;
+        margin-top: 1rem;
     }
 }

@@ -86,7 +86,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#topicsCarousel" data-bs-toggle="tab" aria-expanded="true"
+                        <a href="#topicsCarouselItem" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Tópicos Carossel
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
@@ -210,22 +210,24 @@
                         @include('Admin.cruds.ContentPages.COPA04.Gallery.form', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="galleryTopics">
-                        @include('Admin.cruds.ContentPages.COPA04.GalleryTopics.index')
+                        @include('Admin.cruds.ContentPages.COPA04.GalleryTopics.index', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="additionalContents">
                         @include('Admin.cruds.ContentPages.COPA04.AdditionalContent.form', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="additionalContentsImage">
-                        @include('Admin.cruds.ContentPages.COPA04.AdditionalContentImages.index')
+                        @include('Admin.cruds.ContentPages.COPA04.AdditionalContentImages.index', [
+                            'contentPage' => $contentPage,
+                        ])
                     </div>
                     <div class="tab-pane" id="additionalTopics">
-                        @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.index')
+                        @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.index', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="faq">
                         @include('Admin.cruds.ContentPages.COPA04.Faq.form', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="faqTopics">
-                        @include('Admin.cruds.ContentPages.COPA04.FaqTopics.index')
+                        @include('Admin.cruds.ContentPages.COPA04.FaqTopics.index', ['contentPage' => $contentPage])
                     </div>
                     <div class="tab-pane" id="sectionProduct">
                         @include('Admin.cruds.ContentPages.COPA04.SectionProducts.form', ['contentPage' => $contentPage])
