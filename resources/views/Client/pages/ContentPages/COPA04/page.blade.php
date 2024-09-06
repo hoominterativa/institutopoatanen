@@ -375,7 +375,7 @@
                             @if ($topic->link_video)
                                 {{-- if video --}}
                                 <div class="copa04-page__additional-topics__carousel__item--video swiper-slide">
-                                    <div data-fancybox data-src="{{$topic->link_video}}"
+                                    <div data-fancybox data-src="{{ $topic->link_video }}"
                                         class="copa04-page__additional-topics__carousel__item--video__video"
                                         style="background-image: url('{{ asset('storage/' . $topic->path_image) }}')">
                                         <button
@@ -389,9 +389,10 @@
                                             {{ $topic->title }}
                                         </p>
                                     @endif
-                                    @if ($topic->link_video)
-                                        <a href="{{ $topic->link_video }}"
-                                            class="copa04-page__additional-topics__carousel__item--video__cta">cta</a>
+                                    @if ($topic->button_link)
+                                        <a href="{{ $topic->button_link }}"
+                                            class="copa04-page__additional-topics__carousel__item--video__cta"
+                                            target="{{ $topic->target_link_one }}">{{ $topic->button_text }}</a>
                                     @endif
 
                                 </div>
@@ -405,7 +406,8 @@
 
                                     @if ($topic->button_link)
                                         <a href="{{ $topic->button_link }}"
-                                            class="copa04-page__additional-topics__carousel__item__cta">{{ $topic->button_text }}</a>
+                                            class="copa04-page__additional-topics__carousel__item__cta"
+                                            target="{{ $topic->target_link_one }}">{{ $topic->button_text }}</a>
                                     @endif
                                 </figure>
                             @endif
@@ -490,19 +492,25 @@
                                             {!! $item->description !!}
                                         </div>
                                     @endif
-                                    @if ($item->subtitle || $item->value)
+                                    @if ($item->promotion || $item->value)
                                         <div class="copa04-page__section-products__carousel__item__price">
-                                            <h6 class="copa04-page__section-products__carousel__item__price__title">
-                                                {{ $item->value }}</h6>
-                                            <p class="copa04-page__section-products__carousel__item__price__paragraph">R$
-                                                <b>{{ $item->promotion }}</b>
-                                            </p>
+                                            @if ($item->value)
+                                                <h6 class="copa04-page__section-products__carousel__item__price__title">
+                                                    {{ $item->value }}</h6>
+                                            @endif
+                                            @if ($item->promotion)
+                                                <p class="copa04-page__section-products__carousel__item__price__paragraph">
+                                                    R$
+                                                    <b>{{ $item->promotion }}</b>
+                                                </p>
+                                            @endif
 
                                         </div>
                                     @endif
                                     @if ($item->button_link)
                                         <a class="copa04-page__section-products__carousel__item__cta"
-                                            href="{{ $item->button_link }}">{{ $item->button_text }}</a>
+                                            href="{{ $item->button_link }}"
+                                            target="{{ $item->target_link_one }}">{{ $item->button_text }}</a>
                                     @endif
                                 </div>
                             @endforeach
