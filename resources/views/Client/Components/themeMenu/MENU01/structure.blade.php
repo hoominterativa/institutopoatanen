@@ -18,8 +18,8 @@
                     </div>
                     @foreach ($listMenu as $menu)
                         <div class="mb-2 {{$menu->dropdown?'dropdown':''}}">
-                            <a href="{{$menu->anchor?$menu->link:route($menu->link)}}"
-                                class="link-item transition {{!$menu->anchor?isActive($menu->link):''}}"
+                            <a href="{{$menu->anchor?route('home').$menu->link:route($menu->link)}}"
+                                class="link-item transition {{!$menu->anchor?isActive($menu->link):'rollAnimate'}}"
                                 {{$menu->dropdown?'data-bs-toggle=dropdown':''}}
                                 {{$menu->anchor?'data-bs-toggle=jqueryanchor':''}}
                                 id="sublink--sidebar-right">{{$menu->title}}</a>

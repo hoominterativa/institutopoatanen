@@ -7,7 +7,26 @@
                         <button id="btSubmitDelete" data-route="{{route('admin.copa04.additionalTopics.destroySelected')}}" type="button" class="btn btn-danger btnDeleteContentPages" style="display: none;">Deletar selecionados</button>
                     </div>
                     <div class="col-6">
-                        <a href="{{route('admin.copa04.additionalTopics.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        <a href="javascript:void(0)"  data-bs-target="#modal-additionalTopics-create" data-bs-toggle="modal" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        <div id="modal-additionalTopics-create" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog" style="max-width: 900px;">
+                                <div class="modal-content">
+                                    <div class="modal-header p-3 pt-2 pb-2">
+                                        <h4 class="page-title">Cadastrar Tópico adicional</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                        
+                                    <div class="modal-body p-3 pt-0 pb-3">
+                                        {!! Form::model(null, ['route' => 'admin.copa04.additionalTopics.store', 'class'=>'parsley-validate', 'files'=>true]) !!}
+                                            @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.form', ['contentPage' => $contentPage])
+
+                                            {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                            <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                                        {!! Form::close() !!}                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <table class="table table-bordered table-sortable">
@@ -45,7 +64,25 @@
                                 <td class="align-middle">
                                     <div class="row">
                                         <div class="col-4">
-                                            <a href="{{route('admin.copa04.additionalTopics.edit',['AdditionalTopics' => $topic->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                            <a href="javascript:void(0)"  data-bs-target="#modal-additionalTopics-edit-{{$topic->id}}" data-bs-toggle="modal"> <i class="btn-icon mdi mdi-square-edit-outline"></i></a>
+                                            <div id="modal-additionalTopics-edit-{{$topic->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                <div class="modal-dialog" style="max-width: 900px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header p-3 pt-2 pb-2">
+                                                            <h4 class="page-title">Editar Tópico adicional</h4>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                            
+                                                        <div class="modal-body p-3 pt-0 pb-3">
+                                                            {!! Form::model($topic, ['route' => ['admin.copa04.additionalTopics.update', $topic->id], 'class'=>'parsley-validate', 'method'=>'PUT', 'files'=>true]) !!}
+                                                                @include('Admin.cruds.ContentPages.COPA04.AdditionalTopics.form')
+                                                                {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                                                <a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                                                            {!! Form::close() !!}                                     
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <form action="{{route('admin.copa04.additionalTopics.destroy',['AdditionalTopics' => $topic->id])}}" class="col-4" method="POST">
                                             @method('DELETE') @csrf

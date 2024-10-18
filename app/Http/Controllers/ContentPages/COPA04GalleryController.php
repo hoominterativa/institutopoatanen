@@ -24,9 +24,9 @@ class COPA04GalleryController extends Controller
 
         $data['active'] = $request->active ? 1 : 0;
 
-        if($gallery = COPA04ContentPagesGallery::create($data)){
+        if(COPA04ContentPagesGallery::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.copa04.gallery.edit', [$gallery->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
@@ -52,7 +52,7 @@ class COPA04GalleryController extends Controller
 
         if($COPA04ContentPagesGallery->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.gallery.edit', [$COPA04ContentPagesGallery->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();

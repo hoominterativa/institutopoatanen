@@ -16,11 +16,11 @@ class COPA04AdditionalContentImagesController extends Controller
 {
     protected $path = 'uploads/Module/Code/images/';
 
-
+    
     public function create()
     {
         return view('Admin.cruds.ContentPages.COPA04.AdditionalContentImages.create', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
         ]);
     }
 
@@ -36,9 +36,8 @@ class COPA04AdditionalContentImagesController extends Controller
 
 
         if(COPA04ContentPagesAdditionalContentImages::create($data)){
-            $additionalContent = COPA04ContentPagesAdditionalContent::first();
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.copa04.additionalContent.edit', [$additionalContent->id]);
+            return redirect()->back();
         }else{
 
             Storage::delete($path_image);
@@ -52,7 +51,7 @@ class COPA04AdditionalContentImagesController extends Controller
     public function edit(COPA04ContentPagesAdditionalContentImages $AdditionalContentImages)
     {
         return view('Admin.cruds.ContentPages.COPA04.AdditionalContentImages.edit', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
             'AdditionalContentImages' => $AdditionalContentImages
         ]);
     }
@@ -75,11 +74,9 @@ class COPA04AdditionalContentImagesController extends Controller
             $data['path_image'] = null;
         }
 
-
         if($AdditionalContentImages->fill($data)->save()){
-            $additionalContent = COPA04ContentPagesAdditionalContent::first();
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.additionalContent.edit', [$additionalContent->id]);
+            return redirect()->back();
         }else{
             
             Storage::delete($path_image);

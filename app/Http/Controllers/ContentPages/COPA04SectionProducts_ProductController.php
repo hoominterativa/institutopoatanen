@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA04ContentPagesSectionProducts;
 use App\Models\ContentPages\COPA04ContentPagesSectionProducts_Product;
@@ -18,7 +19,7 @@ class COPA04SectionProducts_ProductController extends Controller
     public function create()
     {
         return view('Admin.cruds.ContentPages.COPA04.SectionProductItem.create', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA04')
         ]);
     }
 
@@ -29,9 +30,8 @@ class COPA04SectionProducts_ProductController extends Controller
         $data['active'] = $request->active ? 1 : 0;
 
         if(COPA04ContentPagesSectionProducts_Product::create($data)){
-            $SectionProducts = COPA04ContentPagesSectionProducts::first();
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.copa04.sectionProduct.edit', [$SectionProducts->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
@@ -41,7 +41,7 @@ class COPA04SectionProducts_ProductController extends Controller
     public function edit(COPA04ContentPagesSectionProducts_Product $Products)
     {
         return view('Admin.cruds.ContentPages.COPA04.SectionProductItem.edit', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
             'Products' => $Products
         ]);
     }
@@ -54,9 +54,8 @@ class COPA04SectionProducts_ProductController extends Controller
         $data['active'] = $request->active ? 1 : 0;
 
         if($Products->fill($data)->save()){
-            $SectionProducts = COPA04ContentPagesSectionProducts::first();
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.sectionProduct.edit', [$SectionProducts->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();

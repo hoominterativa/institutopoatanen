@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA04ContentPagesTopiccarousel;
 use App\Models\ContentPages\COPA04ContentPagesTopiccarousel_cards;
@@ -19,7 +20,7 @@ class COPA04Topiccarousel_cardsController extends Controller
     public function create()
     {
         return view('Admin.cruds.ContentPages.COPA04.TopicCarouselCards.create', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01')
+            'cropSetting' => getCropImage('ContentPages', 'COPA04')
         ]);
     }
 
@@ -33,11 +34,10 @@ class COPA04Topiccarousel_cardsController extends Controller
         $helper = new HelperArchive();
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
-
+        
         if(COPA04ContentPagesTopiccarousel_cards::create($data)){
-            $sectionTopicCarousel = COPA04ContentPagesTopiccarousel::active()->first();
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.copa04.topicCaroussel.edit', [$sectionTopicCarousel->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao cadastradar o item!');
             return redirect()->back();
@@ -51,7 +51,7 @@ class COPA04Topiccarousel_cardsController extends Controller
     {
        return view('Admin.cruds.ContentPages.COPA04.TopicCarouselCards.edit', [
         'TopiccarouselCards' => $TopiccarouselCards,
-        'cropSetting' => getCropImage('ContentPages', 'COPA01')
+        'cropSetting' => getCropImage('ContentPages', 'COPA04')
        ]);
     }
 
@@ -75,9 +75,8 @@ class COPA04Topiccarousel_cardsController extends Controller
         }
 
         if($TopiccarouselCards->fill($data)->save()){
-            $sectionTopicCarousel = COPA04ContentPagesTopiccarousel::active()->first();
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.copa04.topicCaroussel.edit', [$sectionTopicCarousel->id]);
+            return redirect()->back();
         }else{
             Session::flash('error', 'Erro ao atualizar item!');
             return redirect()->back();

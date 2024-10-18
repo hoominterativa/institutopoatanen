@@ -15,10 +15,12 @@ class CreateCopa04ContentpagesSectionproductsTable extends Migration
     {
         Schema::create('copa04_contentpages_sectionproducts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('subtitle');
+            $table->index('contentpage_id', 'fk_contentpage_sectionproducts_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_sectionproducts_idx');
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
             $table->string('color_one')->nullable();
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->boolean('active')->default(0);
             $table->softDeletes();
             $table->timestamps();

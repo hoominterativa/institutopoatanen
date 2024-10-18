@@ -11700,33 +11700,22 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Components/themeMenu/SIDE03/src/main.js":
+/***/ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js":
 /*!************************************************************************!*\
-  !*** ./resources/views/Client/Components/themeMenu/SIDE03/src/main.js ***!
+  !*** ./resources/views/Client/Components/themeMenu/SIDE02/src/main.js ***!
   \************************************************************************/
 /***/ (() => {
 
 // $(function () {
-//     $("body").append('<div class="side03__override trasition"></div>');
 //     $("[data-plugin=sidebar]").on("click", function () {
-//         if ($("#SIDE03").hasClass("side03--show")) {
-//             $("#SIDE03").removeClass("side03--show");
-//             $(this).removeClass("active");
-//             $(".side03__override").removeClass("side03__override--show");
-//             $("body").removeClass("no-scroll");
-//         } else {
-//             $("#SIDE03").addClass("side03--show");
-//             $(this).addClass("active");
-//             $(".side03__override").addClass("side03__override--show");
+//             $("#SIDE02").addClass("side02--show");
 //             $("body").addClass("no-scroll");
-//         }
 //     });
 
-//     $('#SIDE03 ul li a[href^="#"]').on("click", function () {
+//     $('#SIDE02 ul li a[href^="#"]').on("click", function () {
 //         var target = $(this.getAttribute("href"));
 //         if (target.length) {
-//             $("html, body").animate(
-//                 {
+//             $("html, body").animate({
 //                     scrollTop: target.offset().top,
 //                 },
 //                 1000
@@ -11734,17 +11723,14 @@ $(document).ready(function () {
 //         }
 
 //         setTimeout(function () {
-//             $("#SIDE03").removeClass("side03--show");
-//             $(this).removeClass("active");
-//             $(".side03__override").removeClass("side03__override--show");
+//             $("#SIDE02").removeClass("side02--show");
+
 //             $("body").removeClass("no-scroll");
 //         }, 1000);
 //     });
 
-//     $(".side03__button-close").on("click", function () {
-//         $("#SIDE03").removeClass("side03--show");
-//         $(this).removeClass("active");
-//         $(".side03__override").removeClass("side03__override--show");
+//     $(".side02__header__button-close").on("click", function () {
+//         $("#SIDE02").removeClass("side02--show");
 //         $("body").removeClass("no-scroll");
 //     });
 // });
@@ -11761,27 +11747,23 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/views/Client/Core/Headers/HEAD03/src/main.js":
+/***/ "./resources/views/Client/Core/Headers/HEAD02/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/Core/Headers/HEAD03/src/main.js ***!
+  !*** ./resources/views/Client/Core/Headers/HEAD02/src/main.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (() => {
 
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(function () {
-  $(window).on('scroll', function () {
-    var rolagem = $(this).scrollTop();
-    if (rolagem >= 90 && $('#HEAD03').hasClass('normal')) {
-      $('#HEAD03').removeClass('normal');
-      $('#HEAD03').addClass('flutuante');
-    } // FIM - if(rolagem >= 200 && $('#HEAD03').hasClass('normal')){
+// const header = document.querySelector(".head02");
 
-    if (rolagem < 90 && $('#HEAD03').hasClass('flutuante')) {
-      $('#HEAD03').addClass('normal');
-      $('#HEAD03').removeClass('flutuante');
-    } // FIM - if(rolagem < 200 && $('#HEAD03').hasClass('flutuante')) {
-  });
-});
+// if (header) {
+//     window.addEventListener("scroll", function () {
+//         if (window.scrollY > 50) {
+//             header.classList.add("scrolled");
+//         } else {
+//             header.classList.remove("scrolled");
+//         }
+//     });
+// }
 
 /***/ }),
 
@@ -11859,40 +11841,26 @@ $(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD03/src/main */ "./resources/views/Client/Core/Headers/HEAD03/src/main.js");
-/* harmony import */ var _Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD03_src_main__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE03/src/main */ "./resources/views/Client/Components/themeMenu/SIDE03/src/main.js");
-/* harmony import */ var _Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE03_src_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Core/Headers/HEAD02/src/main */ "./resources/views/Client/Core/Headers/HEAD02/src/main.js");
+/* harmony import */ var _Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Core_Headers_HEAD02_src_main__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/themeMenu/SIDE02/src/main */ "./resources/views/Client/Components/themeMenu/SIDE02/src/main.js");
+/* harmony import */ var _Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Components_themeMenu_SIDE02_src_main__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
-/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Contents/CONT02/src/main */ "./resources/views/Client/pages/Contents/CONT02/src/main.js");
-/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _pages_Topics_TOPI09_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Topics/TOPI09/src/main */ "./resources/views/Client/pages/Topics/TOPI09/src/main.js");
-/* harmony import */ var _pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Products/PROD05/src/main */ "./resources/views/Client/pages/Products/PROD05/src/main.js");
-/* harmony import */ var _pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _pages_Contents_CONT11_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Contents/CONT11/src/main */ "./resources/views/Client/pages/Contents/CONT11/src/main.js");
-/* harmony import */ var _pages_Contents_CONT08_src_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/Contents/CONT08/src/main */ "./resources/views/Client/pages/Contents/CONT08/src/main.js");
-/* harmony import */ var _pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Contents/CONT06/src/main */ "./resources/views/Client/pages/Contents/CONT06/src/main.js");
-/* harmony import */ var _pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT06_src_main__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _pages_Portfolios_PORT02_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Portfolios/PORT02/src/main */ "./resources/views/Client/pages/Portfolios/PORT02/src/main.js");
-/* harmony import */ var _pages_Portfolios_PORT02_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Portfolios_PORT02_src_main__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _pages_Contents_CONT05_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Contents/CONT05/src/main */ "./resources/views/Client/pages/Contents/CONT05/src/main.js");
-/* harmony import */ var _pages_Contents_CONT05_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT05_src_main__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
-/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
-/* harmony import */ var _pages_Units_UNIT01_src_main__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../pages/Units/UNIT01/src/main */ "./resources/views/Client/pages/Units/UNIT01/src/main.js");
-/* harmony import */ var _pages_Abouts_ABOU04_src_main__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../pages/Abouts/ABOU04/src/main */ "./resources/views/Client/pages/Abouts/ABOU04/src/main.js");
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_17__);
-
-
-
-
-
-
+/* harmony import */ var _pages_Topics_TOPI03_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Topics/TOPI03/src/main */ "./resources/views/Client/pages/Topics/TOPI03/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI03_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI03_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
+/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Products/PROD02/src/main */ "./resources/views/Client/pages/Products/PROD02/src/main.js");
+/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _pages_Brands_BRAN01_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Brands/BRAN01/src/main */ "./resources/views/Client/pages/Brands/BRAN01/src/main.js");
+/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/Contents/CONT02/src/main */ "./resources/views/Client/pages/Contents/CONT02/src/main.js");
+/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -12437,6 +12405,29 @@ if (filtrinhos) {
   });
 }
 
+// ANIMATE SCROLL MENU //
+
+var menuLinks = document.querySelectorAll(".rollAnimate");
+if (menuLinks.length > 0) {
+  var urlCurrent = window.location.href;
+  urlCurrent = new URL(urlCurrent);
+  menuLinks.forEach(function (el) {
+    el.addEventListener("click", function (ev) {
+      var href = el.getAttribute("href");
+      var url = new URL(href);
+      var pathname = url.pathname;
+      if (pathname == urlCurrent.pathname) {
+        ev.preventDefault();
+        var id = url.hash;
+        var target = document.querySelector(id);
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+}
+
 /***/ }),
 
 /***/ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js":
@@ -12455,31 +12446,6 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.abou01-page__topics_
   pagination: {
     el: '.abou01-page__topics__carousel__swiper-pagination',
     clickable: true
-  }
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Abouts/ABOU04/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Abouts/ABOU04/src/main.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
-
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".abou04-page__topics__carousel", {
-  slidesPerView: 1,
-  spaceBetween: 28,
-  breakpoints: {
-    728: {
-      slidesPerView: 2
-    },
-    992: {
-      slidesPerView: 3
-    }
   }
 });
 
@@ -12592,6 +12558,23 @@ if (shareButton) {
 
 /***/ }),
 
+/***/ "./resources/views/Client/pages/Brands/BRAN01/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Brands/BRAN01/src/main.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
+
+new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.bran01__content', {
+  slidesPerView: 'auto',
+  spaceBetween: 24
+});
+
+/***/ }),
+
 /***/ "./resources/views/Client/pages/Compliances/COMP01/src/main.js":
 /*!*********************************************************************!*\
   !*** ./resources/views/Client/pages/Compliances/COMP01/src/main.js ***!
@@ -12622,318 +12605,111 @@ if (shareButton) {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT05/src/main.js":
+/***/ "./resources/views/Client/pages/Products/PROD02/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT05/src/main.js ***!
+  !*** ./resources/views/Client/pages/Products/PROD02/src/main.js ***!
   \******************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(".carousel-prod02").owlCarousel({
+  smartSpeed: 450,
+  loop: false,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true,
+  responsive: {
+    0: {
+      items: 1,
+      margin: 10
+    },
+    // breakpoint from 0 up
+    361: {
+      items: 1,
+      margin: 10
+    },
+    // breakpoint from 361 up
+    480: {
+      items: 2,
+      margin: 10
+    },
+    // breakpoint from 480 up
+    801: {
+      items: 4,
+      margin: 20
+    }
+    // breakpoint from 801 up
+  }
+});
+$(".carousel-prod02").css("width", $(".prod02 .container--edit").outerWidth());
+if ($(window).outerWidth() <= 801) {
+  $(".carousel-prod02").css("width", $(".prod02 .container--edit").outerWidth() + 150);
+}
+// END carousel_prod02
 
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Contents/CONT06/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT06/src/main.js ***!
-  \******************************************************************/
-/***/ (() => {
-
-var buttonsPlay = document.querySelectorAll('.cont06__video__button');
-if (buttonsPlay) {
-  buttonsPlay.forEach(function (el) {
-    el.addEventListener('click', function () {
-      var src = el.parentNode.dataset.src;
-      var iframe = document.createElement('iframe');
-      iframe.setAttribute('src', src + '?autoplay=1');
-      iframe.classList.add('cont06__video__iframe');
-      iframe.setAttribute('id', 'urlYoutube');
-      el.style.display = 'none';
-      el.parentNode.appendChild(iframe);
-    });
+if ($(window).outerWidth() <= 801) {
+  $(".prod02__navigation__nav__mobile").addClass("owl-carousel");
+  $(".prod02__navigation__nav__mobile").addClass("caroussel-prod02-mobile");
+  $(".caroussel-prod02-mobile").css("width", $(window).outerWidth());
+  $(".caroussel-prod02-mobile").owlCarousel({
+    margin: 10,
+    items: 3,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true
   });
 }
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Contents/CONT08/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT08/src/main.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
-
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.cont08__information__topics', {
-  slidesPerView: 'auto',
-  spaceBetween: 88
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Contents/CONT11/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT11/src/main.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
-
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.cont11__gallery', {
-  slidesPerView: 1,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  }
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Portfolios/PORT02/src/main.js":
-/*!********************************************************************!*\
-  !*** ./resources/views/Client/pages/Portfolios/PORT02/src/main.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-var owlCaterories = $('.port02__categories__carousel, .port02-page__categories__carousel');
-owlCaterories.addClass('owl-carousel');
-owlCaterories.owlCarousel({
-  loop: false,
-  nav: true,
-  dots: false,
-  margin: 10,
-  rewind: true,
-  responsive: {
-    0: {
-      items: 1
-    },
-    600: {
-      items: 3
-    },
-    960: {
-      items: 5
-    },
-    1200: {
-      items: 6
-    },
-    2000: {
-      items: 8
-    }
-  }
-});
-var owlProtfolios = $('.port02__portfolios__carousel');
-owlProtfolios.addClass('owl-carousel');
-owlProtfolios.owlCarousel({
-  loop: false,
-  nav: true,
-  dots: false,
-  margin: 10,
-  rewind: true,
-  responsive: {
-    0: {
-      items: 1
-    },
-    600: {
-      items: 2
-    },
-    960: {
-      items: 3
-    },
-    2000: {
-      items: 5
-    }
-  }
-});
-var owlGallery = $('.port02__show__gallery__thumbnail__carousel');
-owlGallery.addClass('owl-carousel');
-owlGallery.owlCarousel({
-  loop: false,
-  nav: true,
-  dots: false,
-  margin: 10,
-  rewind: true,
-  responsive: {
-    0: {
-      items: 3
-    },
-    400: {
-      items: 4
-    },
-    960: {
-      items: 4
-    },
-    2000: {
-      items: 5
-    }
-  }
-});
-$("[data-main-image]").on("click", function () {
-  var mainImageSrc = $(this).data("main-image");
-  if ($(this).hasClass('port02__show__gallery__thumbnail__item--video')) {
-    $(".port02__show__gallery__main .port02__show__gallery__main__iframe").attr("src", mainImageSrc).fadeIn('fast');
-    $(".port02__show__gallery__main .port02__show__gallery__main__item").fadeOut('slow');
-  } else {
-    $(".port02__show__gallery__main .port02__show__gallery__main__item").attr("src", mainImageSrc).fadeIn('fast');
-    $(".port02__show__gallery__main .port02__show__gallery__main__iframe").fadeOut('fast');
-  }
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Products/PROD05/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Products/PROD05/src/main.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(".prod05__carousel").owlCarousel({
-  loop: false,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  margin: 21,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 up
-    520: {
-      items: 2
-    },
-    // breakpoint from 361 up
-    768: {
-      items: 3
-    },
-    980: {
-      items: 4
-    }
-  }
-});
-$('.prod05-show__info__gallery__carousel').addClass('owl-carousel');
-$(".prod05-show__info__gallery__carousel").owlCarousel({
-  loop: false,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  margin: 10,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 up
-    520: {
-      items: 2
-    },
-    // breakpoint from 361 up
-    768: {
-      items: 3
-    },
-    980: {
-      items: 4
-    }
-  }
-});
-if ($('.prod05-show__galleries__thumbnail').length > 5) {
-  $('.prod05-show__galleries__carousel').addClass('owl-carousel');
-  $(".prod05-show__galleries__carousel").owlCarousel({
-    loop: false,
+if ($(window).outerWidth() <= 801) {
+  $(".prod02__page__content__category").addClass("owl-carousel");
+  $(".prod02__page__content__category").addClass("caroussel_prod02-page");
+  $(".caroussel_prod02-page").owlCarousel({
+    stagePadding: 0,
+    smartSpeed: 450,
     dots: true,
     nav: false,
     rewind: true,
     autoHeight: true,
-    margin: 0,
     responsive: {
       0: {
-        items: 1
+        items: 2,
+        margin: 12
       },
       // breakpoint from 0 up
-      520: {
-        items: 2
+      400: {
+        items: 2,
+        margin: 12
       },
-      // breakpoint from 361 up
-      768: {
-        items: 4
-      },
-      980: {
-        items: 5
+      // breakpoint from 400 up
+      801: {
+        items: 2,
+        margin: 20
       }
+      // breakpoint from 801 up
     }
   });
 }
-$('.prod05-show__btnForm--showForm').on('click', function () {
-  if ($(this).hasClass('active')) {
-    $('.prod05-show__wrapForm').removeClass('prod05-show__wrapForm--showForm');
-    $(this).removeClass('active');
-    $('.prod05-show__form').slideUp('fast');
-  } else {
-    $('.prod05-show__wrapForm').addClass('prod05-show__wrapForm--showForm');
-    $(this).addClass('active');
-    $('.prod05-show__form').slideDown('fast');
-  }
+$(".caroussel_prod02-show").owlCarousel({
+  margin: 5,
+  items: 1,
+  stagePadding: 0,
+  smartSpeed: 450,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true
 });
-$('body, html').on('click', '.prod05-show__info__gallery__thumbnail', function (e) {
-  var img = $(this).attr('src');
-  $('.prod05-show__info__gallery__imgMain').attr('src', img);
-});
-$('body, html').on('click', '.prod05-show__info__gallery__options__item', function (e) {
-  e.preventDefault();
-  $('.prod05-show__info__gallery__options__item').removeClass('prod05-show__info__gallery__options__item--active');
-  $(this).addClass('prod05-show__info__gallery__options__item--active');
-});
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-$('.prod05-show__info__gallery__options__item').on('click', function (e) {
-  e.preventDefault();
-  var id = $(this).data('id'),
-    url = $(this).data('url');
-  $.ajax({
-    type: 'POST',
-    url: url,
-    data: {
-      id: id
-    },
-    success: function success(response) {
-      console.log(response);
-      $('#receiveGallery > *').remove();
-      $('#receiveGallery').append(response);
-      $('.prod05-show__info__gallery__carousel').addClass('owl-carousel');
-      $(".prod05-show__info__gallery__carousel").owlCarousel({
-        loop: false,
-        dots: true,
-        nav: false,
-        rewind: true,
-        autoHeight: true,
-        margin: 10,
-        responsive: {
-          0: {
-            items: 1
-          },
-          // breakpoint from 0 up
-          520: {
-            items: 2
-          },
-          // breakpoint from 361 up
-          768: {
-            items: 3
-          },
-          980: {
-            items: 4
-          }
-        }
-      });
-    }
-  });
-});
+$(".caroussel_prod02-show").css("width", $(window).outerWidth() / 2 - 108);
+var altLightbox = $(".lightbox-prod02__content__carrossel").outerHeight();
+$(".caroussel_prod02-show").css("height", $(altLightbox));
+if ($(window).outerWidth() <= 801) {
+  $(".caroussel_prod02-show").css("width", $(window).outerWidth() - 16);
+  // $('.caroussel_prod02-show .owl-stage').css('width', $(window).outerWidth() - 150);
+  // $('.caroussel_prod02-show .owl-item').css('width', $(window).outerWidth() - 150);
+}
 
 /***/ }),
 
@@ -12954,53 +12730,13 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.slid01', {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Topics/TOPI09/src/main.js":
+/***/ "./resources/views/Client/pages/Topics/TOPI03/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI09/src/main.js ***!
+  !*** ./resources/views/Client/pages/Topics/TOPI03/src/main.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.topi09__topics__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 48
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Units/UNIT01/src/main.js":
-/*!***************************************************************!*\
-  !*** ./resources/views/Client/pages/Units/UNIT01/src/main.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
-
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit01__categories", {
-  slidesPerView: "auto",
-  spaceBetween: 20
-});
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit01__main__item__gallery", {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  navigation: {
-    prevEl: ".unit01__main__item__gallery__swiper-button-prev",
-    nextEl: ".unit01__main__item__gallery__swiper-button-next"
-  }
-});
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".unit01-show__carousel", {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  navigation: {
-    prevEl: ".unit01-show__carousel__nav__swiper-button-prev",
-    nextEl: ".unit01-show__carousel__nav__swiper-button-next"
-  }
-});
 
 /***/ }),
 

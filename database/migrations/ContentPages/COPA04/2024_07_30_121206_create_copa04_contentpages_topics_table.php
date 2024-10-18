@@ -15,12 +15,15 @@ class CreateCopa04ContentpagesTopicsTable extends Migration
     {
         Schema::create('copa04_contentpages_topics', function (Blueprint $table) {
             $table->id();
+            $table->index('contentpage_id', 'fk_contentpage_topics_idx');
+            $table->foreignId('contentpage_id')->constrained('copa04_contentpages')->name('fk_contentpage_topics_idx');
             $table->string('title', 191)->nullable();
             $table->string('subtitle', 191)->nullable();
             $table->string('description', 255)->nullable();
             $table->string('color_one', 100)->nullable();
             $table->text('link', 200)->nullable();
             $table->string('btn_title',191)->nullable();
+            $table->enum('target_link_one', ['_self', '_blank'])->default('_self');
             $table->boolean('active')->default(0);
             $table->timestamps();
         });

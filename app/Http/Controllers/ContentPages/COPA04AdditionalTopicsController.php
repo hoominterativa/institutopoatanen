@@ -32,10 +32,9 @@ class COPA04AdditionalTopicsController extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
         if($path_image) $data['path_image'] = $path_image;
 
-
         if(COPA04ContentPagesAdditionalTopics::create($data)){
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->back();
         }else{
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -70,10 +69,9 @@ class COPA04AdditionalTopicsController extends Controller
             $data['path_image'] = null;
         }
 
-
         if($AdditionalTopics->fill($data)->save()){
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.index');
+            return redirect()->back();
         }else{
 
             Storage::delete($path_image);

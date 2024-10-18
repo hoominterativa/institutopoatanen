@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\ContentPages;
 
-use App\Models\ContentPages\COPA04ContentPagesGallerytopics;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\ContentPages\COPA04ContentPages;
 use App\Http\Controllers\IncludeSectionsController;
 use App\Models\ContentPages\COPA04ContentPagesGallery;
+use App\Models\ContentPages\COPA04ContentPagesGallerytopics;
 
 class COPA04GallerytopicsController extends Controller
 {
@@ -18,8 +19,10 @@ class COPA04GallerytopicsController extends Controller
 
     public function create()
     {
+        $COPA04ContentPages = COPA04ContentPages::first();
         return view('Admin.cruds.ContentPages.COPA04.GalleryTopics.create',[
-            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
+            'COPA04ContentPages' => $COPA04ContentPages
         ]);
     }
 
@@ -33,11 +36,11 @@ class COPA04GallerytopicsController extends Controller
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
 
         if($path_image) $data['path_image'] = $path_image;
-
         if(COPA04ContentPagesGallerytopics::create($data)){
-            $gallery = COPA04ContentPagesGallery::first();
+            $COPA04ContentPages = COPA04ContentPages::first();
+
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.copa04.gallery.edit', [$gallery->id]);
+            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
         }else{
 
             Storage::delete($path_image);
@@ -49,9 +52,11 @@ class COPA04GallerytopicsController extends Controller
 
     public function edit(COPA04ContentPagesGallerytopics $COPA04ContentPagesGallerytopics)
     {
+        $COPA04ContentPages = COPA04ContentPages::first();
         return view('Admin.cruds.ContentPages.COPA04.GalleryTopics.edit', [
-            'cropSetting' => getCropImage('ContentPages', 'COPA01'),
-            'COPA04ContentPagesGallerytopics' => $COPA04ContentPagesGallerytopics
+            'cropSetting' => getCropImage('ContentPages', 'COPA04'),
+            'COPA04ContentPagesGallerytopics' => $COPA04ContentPagesGallerytopics,
+            'COPA04ContentPages' => $COPA04ContentPages
         ]);
     }
 
@@ -78,9 +83,9 @@ class COPA04GallerytopicsController extends Controller
    
 
         if($COPA04ContentPagesGallerytopics->fill($data)->save()){
-            $gallery = COPA04ContentPagesGallery::first();
+            $COPA04ContentPages = COPA04ContentPages::first();
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.copa04.gallery.edit', [$gallery->id]);
+            return redirect()->route('admin.copa04.edit', [$COPA04ContentPages->id]);
         }else{
             Storage::delete($path_image);
 

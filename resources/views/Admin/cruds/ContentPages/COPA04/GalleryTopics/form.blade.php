@@ -1,5 +1,7 @@
 <div class="row col-12">
-    <div class="col-12">
+    <div class="col-6">
+        <input type="hidden" name="contentpage_id" value="{{$contentPage->id}}">
+        
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3 col-12">
                 {!! Form::label('validationCustom01', 'Título', ['class'=>'form-label']) !!}
@@ -13,30 +15,35 @@
                     'id'=>'basic-editor',
                 ]) !!}
             </div>
-            <div class="mb-3">
-                <div class="container-image-crop">
-                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
-                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px!</small>
-                    <label class="area-input-image-crop" for="inputImage">
-                        {!! Form::file('path_image', [
-                            'id'=>'inputImage',
-                            'class'=>'inputImage',
-                            'data-status'=>$cropSetting->path_image->activeCrop, // px
-                            'data-min-width'=>$cropSetting->path_image->width, // px
-                            'data-min-height'=>$cropSetting->path_image->height, // px
-                            'data-box-height'=>'225', // Input height in the form
-                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
-                            'data-default-file'=> isset($COPA04ContentPagesTopiccarousel_cards)?($COPA04ContentPagesTopiccarousel_cards->path_image<>''?url('storage/'.$COPA04ContentPagesTopiccarousel_cards->path_image):''):'',
-                        ]) !!}
-                    </label>
-                </div><!-- END container image crop -->
-            </div>
+
             <div class="mb-3 form-check me-3">
                 {!! Form::checkbox('active', '1', null, ['class' => 'form-check-input', 'id' => 'active']) !!}
                 {!! Form::label('active', 'Ativo?', ['class' => 'form-check-label']) !!}
             </div>
         </div>
         {{-- end card-body --}}
+    </div>
+    <div class="col-6">
+        <div class="card card-body">
+            <div class="mb-3">
+                <div class="container-image-crop">
+                    {!! Form::label('inputImage', 'Imagem', ['class'=>'form-label']) !!}
+                    <small class="ms-2">Dimensões proporcionais mínimas {{$cropSetting->Gallery->path_image->width}}x{{$cropSetting->Gallery->path_image->height}}px!</small>
+                    <label class="area-input-image-crop" for="inputImage">
+                        {!! Form::file('path_image', [
+                            'id'=>'inputImage',
+                            'class'=>'inputImage',
+                            'data-status'=>$cropSetting->Gallery->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->Gallery->path_image->width, // px
+                            'data-min-height'=>$cropSetting->Gallery->path_image->height, // px
+                            'data-box-height'=>'225', // Input height in the form
+                            'accept'=>'.jpg,.jpeg,.png,.gif,.bmp,.tiff',
+                            'data-default-file'=> isset($galleryTopic)?($galleryTopic->path_image<>''?url('storage/'.$galleryTopic->path_image):''):'',
+                        ]) !!}
+                    </label>
+                </div><!-- END container image crop -->
+            </div>
+        </div>
     </div>
 </div>
 {{-- end row --}}

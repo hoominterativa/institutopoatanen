@@ -21,6 +21,7 @@ class COPA04ContentPagesAdditionalContentImages extends Model
         'path_image',
         'active',
         'sorting',
+        'contentpage_id'
     ];
 
     public function scopeSorting($query)
