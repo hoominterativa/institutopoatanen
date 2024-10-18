@@ -11848,22 +11848,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Core/Footers/FOOT02/src/main */ "./resources/views/Client/Core/Footers/FOOT02/src/main.js");
 /* harmony import */ var _Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Core_Footers_FOOT02_src_main__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
-/* harmony import */ var _pages_Topics_TOPI09_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Topics/TOPI09/src/main */ "./resources/views/Client/pages/Topics/TOPI09/src/main.js");
-/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Contents/CONT02/src/main */ "./resources/views/Client/pages/Contents/CONT02/src/main.js");
-/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Products/PROD05/src/main */ "./resources/views/Client/pages/Products/PROD05/src/main.js");
-/* harmony import */ var _pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD05_src_main__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _pages_Contents_CONT08_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Contents/CONT08/src/main */ "./resources/views/Client/pages/Contents/CONT08/src/main.js");
-/* harmony import */ var _pages_Galleries_GALL02_src_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/Galleries/GALL02/src/main */ "./resources/views/Client/pages/Galleries/GALL02/src/main.js");
-/* harmony import */ var _pages_Brands_BRAN01_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Brands/BRAN01/src/main */ "./resources/views/Client/pages/Brands/BRAN01/src/main.js");
-/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
-/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
-/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
-/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_13__);
-
-
+/* harmony import */ var _pages_Topics_TOPI03_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Topics/TOPI03/src/main */ "./resources/views/Client/pages/Topics/TOPI03/src/main.js");
+/* harmony import */ var _pages_Topics_TOPI03_src_main__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_pages_Topics_TOPI03_src_main__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
+/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Products/PROD02/src/main */ "./resources/views/Client/pages/Products/PROD02/src/main.js");
+/* harmony import */ var _pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Products_PROD02_src_main__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _pages_Brands_BRAN01_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Brands/BRAN01/src/main */ "./resources/views/Client/pages/Brands/BRAN01/src/main.js");
+/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/Contents/CONT02/src/main */ "./resources/views/Client/pages/Contents/CONT02/src/main.js");
+/* harmony import */ var _pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT02_src_main__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _pages_Blogs_BLOG01_src_main__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../pages/Blogs/BLOG01/src/main */ "./resources/views/Client/pages/Blogs/BLOG01/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
+/* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../pages/Compliances/COMP01/src/main */ "./resources/views/Client/pages/Compliances/COMP01/src/main.js");
+/* harmony import */ var _pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_pages_Compliances_COMP01_src_main__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -12608,217 +12605,111 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.bran01__content', {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Contents/CONT08/src/main.js":
+/***/ "./resources/views/Client/pages/Products/PROD02/src/main.js":
 /*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Contents/CONT08/src/main.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
-
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.cont08__information__topics', {
-  slidesPerView: 'auto',
-  spaceBetween: 88
-});
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Galleries/GALL02/src/main.js":
-/*!*******************************************************************!*\
-  !*** ./resources/views/Client/pages/Galleries/GALL02/src/main.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
-
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.gall02__gallery__carousel', {
-  slidesPerView: 'auto',
-  navigation: {
-    nextEl: ".gall02__gallery__nav__swiper-button-next",
-    prevEl: ".gall02__gallery__nav__swiper-button-prev"
-  }
-});
-var galleryLightBoxes = document.querySelectorAll('.gall02-show');
-if (galleryLightBoxes.length > 0) {
-  galleryLightBoxes.forEach(function (el) {
-    var thumbs = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](el.querySelector('.gall02-show__thumbs'), {
-      spaceBetween: 10,
-      slidesPerView: 'auto',
-      freeMode: true,
-      centerInsufficientSlides: true,
-      slideToClickedSlide: true,
-      watchSlidesProgress: true
-    });
-    new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](el.querySelector(".gall02-show__gallery"), {
-      spaceBetween: 10,
-      slidesPerView: 'auto',
-      navigation: {
-        nextEl: ".gall02-show__gallery__swiper-button-next",
-        prevEl: ".gall02-show__gallery__swiper-button-prev"
-      },
-      thumbs: {
-        swiper: thumbs
-      }
-    });
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/views/Client/pages/Products/PROD05/src/main.js":
-/*!******************************************************************!*\
-  !*** ./resources/views/Client/pages/Products/PROD05/src/main.js ***!
+  !*** ./resources/views/Client/pages/Products/PROD02/src/main.js ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(".prod05__carousel").owlCarousel({
+$(".carousel-prod02").owlCarousel({
+  smartSpeed: 450,
   loop: false,
   dots: true,
   nav: false,
   rewind: true,
   autoHeight: true,
-  margin: 21,
   responsive: {
     0: {
-      items: 1
+      items: 1,
+      margin: 10
     },
     // breakpoint from 0 up
-    520: {
-      items: 2
+    361: {
+      items: 1,
+      margin: 10
     },
     // breakpoint from 361 up
-    768: {
-      items: 3
+    480: {
+      items: 2,
+      margin: 10
     },
-    980: {
-      items: 4
+    // breakpoint from 480 up
+    801: {
+      items: 4,
+      margin: 20
     }
+    // breakpoint from 801 up
   }
 });
-$('.prod05-show__info__gallery__carousel').addClass('owl-carousel');
-$(".prod05-show__info__gallery__carousel").owlCarousel({
-  loop: false,
-  dots: true,
-  nav: false,
-  rewind: true,
-  autoHeight: true,
-  margin: 10,
-  responsive: {
-    0: {
-      items: 1
-    },
-    // breakpoint from 0 up
-    520: {
-      items: 2
-    },
-    // breakpoint from 361 up
-    768: {
-      items: 3
-    },
-    980: {
-      items: 4
-    }
-  }
-});
-if ($('.prod05-show__galleries__thumbnail').length > 5) {
-  $('.prod05-show__galleries__carousel').addClass('owl-carousel');
-  $(".prod05-show__galleries__carousel").owlCarousel({
-    loop: false,
+$(".carousel-prod02").css("width", $(".prod02 .container--edit").outerWidth());
+if ($(window).outerWidth() <= 801) {
+  $(".carousel-prod02").css("width", $(".prod02 .container--edit").outerWidth() + 150);
+}
+// END carousel_prod02
+
+if ($(window).outerWidth() <= 801) {
+  $(".prod02__navigation__nav__mobile").addClass("owl-carousel");
+  $(".prod02__navigation__nav__mobile").addClass("caroussel-prod02-mobile");
+  $(".caroussel-prod02-mobile").css("width", $(window).outerWidth());
+  $(".caroussel-prod02-mobile").owlCarousel({
+    margin: 10,
+    items: 3,
+    stagePadding: 0,
+    smartSpeed: 450,
+    dots: true,
+    nav: false,
+    rewind: true,
+    autoHeight: true
+  });
+}
+if ($(window).outerWidth() <= 801) {
+  $(".prod02__page__content__category").addClass("owl-carousel");
+  $(".prod02__page__content__category").addClass("caroussel_prod02-page");
+  $(".caroussel_prod02-page").owlCarousel({
+    stagePadding: 0,
+    smartSpeed: 450,
     dots: true,
     nav: false,
     rewind: true,
     autoHeight: true,
-    margin: 0,
     responsive: {
       0: {
-        items: 1
+        items: 2,
+        margin: 12
       },
       // breakpoint from 0 up
-      520: {
-        items: 2
+      400: {
+        items: 2,
+        margin: 12
       },
-      // breakpoint from 361 up
-      768: {
-        items: 4
-      },
-      980: {
-        items: 5
+      // breakpoint from 400 up
+      801: {
+        items: 2,
+        margin: 20
       }
+      // breakpoint from 801 up
     }
   });
 }
-$('.prod05-show__btnForm--showForm').on('click', function () {
-  if ($(this).hasClass('active')) {
-    $('.prod05-show__wrapForm').removeClass('prod05-show__wrapForm--showForm');
-    $(this).removeClass('active');
-    $('.prod05-show__form').slideUp('fast');
-  } else {
-    $('.prod05-show__wrapForm').addClass('prod05-show__wrapForm--showForm');
-    $(this).addClass('active');
-    $('.prod05-show__form').slideDown('fast');
-  }
+$(".caroussel_prod02-show").owlCarousel({
+  margin: 5,
+  items: 1,
+  stagePadding: 0,
+  smartSpeed: 450,
+  dots: true,
+  nav: false,
+  rewind: true,
+  autoHeight: true
 });
-$('body, html').on('click', '.prod05-show__info__gallery__thumbnail', function (e) {
-  var img = $(this).attr('src');
-  $('.prod05-show__info__gallery__imgMain').attr('src', img);
-});
-$('body, html').on('click', '.prod05-show__info__gallery__options__item', function (e) {
-  e.preventDefault();
-  $('.prod05-show__info__gallery__options__item').removeClass('prod05-show__info__gallery__options__item--active');
-  $(this).addClass('prod05-show__info__gallery__options__item--active');
-});
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-$('.prod05-show__info__gallery__options__item').on('click', function (e) {
-  e.preventDefault();
-  var id = $(this).data('id'),
-    url = $(this).data('url');
-  $.ajax({
-    type: 'POST',
-    url: url,
-    data: {
-      id: id
-    },
-    success: function success(response) {
-      console.log(response);
-      $('#receiveGallery > *').remove();
-      $('#receiveGallery').append(response);
-      $('.prod05-show__info__gallery__carousel').addClass('owl-carousel');
-      $(".prod05-show__info__gallery__carousel").owlCarousel({
-        loop: false,
-        dots: true,
-        nav: false,
-        rewind: true,
-        autoHeight: true,
-        margin: 10,
-        responsive: {
-          0: {
-            items: 1
-          },
-          // breakpoint from 0 up
-          520: {
-            items: 2
-          },
-          // breakpoint from 361 up
-          768: {
-            items: 3
-          },
-          980: {
-            items: 4
-          }
-        }
-      });
-    }
-  });
-});
+$(".caroussel_prod02-show").css("width", $(window).outerWidth() / 2 - 108);
+var altLightbox = $(".lightbox-prod02__content__carrossel").outerHeight();
+$(".caroussel_prod02-show").css("height", $(altLightbox));
+if ($(window).outerWidth() <= 801) {
+  $(".caroussel_prod02-show").css("width", $(window).outerWidth() - 16);
+  // $('.caroussel_prod02-show .owl-stage').css('width', $(window).outerWidth() - 150);
+  // $('.caroussel_prod02-show .owl-item').css('width', $(window).outerWidth() - 150);
+}
 
 /***/ }),
 
@@ -12839,20 +12730,13 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.slid01', {
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Topics/TOPI09/src/main.js":
+/***/ "./resources/views/Client/pages/Topics/TOPI03/src/main.js":
 /*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI09/src/main.js ***!
+  !*** ./resources/views/Client/pages/Topics/TOPI03/src/main.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.topi09__topics__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 48
-});
 
 /***/ }),
 
