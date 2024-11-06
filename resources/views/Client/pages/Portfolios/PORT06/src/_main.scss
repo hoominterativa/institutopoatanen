@@ -1,0 +1,137 @@
+@import "variables";
+
+/* BEGIN STYLE */
+.port06 {
+    overflow: hidden; /* prevenção do shift da animação*/
+    @extend %theme__padding;
+
+    &__header {
+        width: 100%;
+        @include disFlex(column, center, center);
+
+        margin-bottom: 3rem;
+
+        &__subtitle {
+            @extend %theme__t4-c1;
+            margin-bottom: 0;
+        }
+
+        &__title {
+            @extend %theme__t2-c1;
+            margin-bottom: 0.25rem;
+        }
+
+        &__paragraph {
+            width: 100%;
+            max-width: 938px;
+
+            @extend %theme__p1-c3;
+            text-align: center;
+        }
+    }
+
+    &__main {
+        @include disFlex(column, start, center);
+        width: 100%;
+
+        &__carousel {
+            width: 100%;
+            // overflow: hidden;
+
+            &__item {
+                @include disFlex(column, start, start);
+
+                &__image {
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
+                    object-position: center;
+                    margin-bottom: rem(15);
+                }
+
+                &__category {
+                    @extend %theme__p2-c1;
+                    text-align: left;
+                }
+
+                &__title {
+                    @extend %theme__t5-cb;
+                    text-align: left;
+                    margin-bottom: rem(9);
+                }
+
+                &__paragraph {
+                    @extend %theme__p2-c2;
+                    text-align: left;
+                }
+            }
+        }
+
+        &__cta {
+            @extend %theme__cta;
+            margin-top: 2rem;
+        }
+    }
+}
+
+.port06-page {
+    &__banner {
+        @extend %theme__banner;
+
+        &__title {
+            @extend %theme__banner__title;
+        }
+    }
+
+    &__categories {
+        @extend %theme__padding;
+        width: 100%;
+
+        &__item {
+            @extend %theme__category;
+        }
+    }
+
+    &__list {
+        @extend %theme__padding;
+        padding-top: 0;
+        width: 100%;
+        @include disFlex;
+        flex-wrap: wrap;
+        gap: rem(38) rem(2);
+
+        &__item {
+            @extend .port06__main__carousel__item;
+
+            width: calcWidth(4, rem(2));
+
+            @include large-device-down {
+                width: calcWidth(3, rem(2));
+            }
+
+            @include medium-device-down {
+                width: calcWidth(2, rem(2));
+            }
+
+            @include small-device-down {
+                width: 100%;
+            }
+
+            &__image {
+                @extend .port06__main__carousel__item__image;
+            }
+
+            &__category {
+                @extend .port06__main__carousel__item__category;
+            }
+
+            &__title {
+                @extend .port06__main__carousel__item__title;
+            }
+
+            &__paragraph {
+                @extend .port06__main__carousel__item__paragraph;
+            }
+        }
+    }
+}
