@@ -2,31 +2,29 @@
 
 namespace App\Models\Portfolios;
 
-use Database\Factories\Portfolios\PORT06PortfoliosFactory;
+use Database\Factories\Portfolios\PORT06PortfoliosSectionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PORT06Portfolios extends Model
+class PORT06PortfoliosSection extends Model
 {
     use HasFactory;
 
     protected static function newFactory()
     {
-        return PORT06PortfoliosFactory::new();
+        return PORT06PortfoliosSectionFactory::new();
     }
-
-    protected $table = "port06_portfolios";
+    
+    protected $table = "port06_portfolios_sections";
     protected $fillable = [
         'title',
-        'subtitle',
-        'paragrahp',
-        'text',
+        'slug',
+        'paragraph',
+        'title_button',
         'link_button',
         'target_link_button',
-        'path_image_box',
-        'path_image',
+        'sorting',
         'active',
-        'sorting'
     ];
 
     public function scopeSorting($query)
@@ -38,12 +36,9 @@ class PORT06Portfolios extends Model
     {
         return $query->where('active', 1);
     }
-    public function getRelationCore()
-    {
-        return null;
-    }
-    public function gallery()
-    {
-        return $this->hasMany(PORT06PortfoliosGallery::class, 'portfolio_id');
-    }
+
+    // public function getRelationCore()
+    // {
+    //     return null;
+    // }
 }

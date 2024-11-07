@@ -10,66 +10,57 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Http\Controllers\IncludeSectionsController;
+//
+use App\Models\Portfolios\PORT06PortfoliosSection;
+use App\Models\Portfolios\PORT06PortfoliosGallery;
+use App\Models\Portfolios\PORT06PortfoliosCategory;
+
 
 class PORT06Controller extends Controller
 {
     protected $path = 'uploads/Module/Code/images/';
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $portfolios = PORT06Portfolios::sorting()->paginate(20);
+        $sections = PORT06PortfoliosSection::firstOrCreate();
+        $categories = PORT06PortfoliosCategory::sorting()->get();
+        $galleries = PORT06PortfoliosGallery::sorting()->get();
+        return view('Admin.cruds.Portfolios.PORT06.index', [
+            'portfolios' => $portfolios,
+            'section' => $sections,
+            'categories' => $categories,
+            'galleries' => $galleries,
+            'cropSetting' => getCropImage('Portfolios', 'PORT05')
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $data = $request->all();
 
-        /*
-        Use the code below to upload image, if not, delete code
+        $data['active'] = $request->active ? 1 : 0;
 
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) $data['path_image'] = $path_image;
 
-        if($path_image) $data['path_image'] = $path_image;
 
-        Use the code below to upload archive, if not, delete code
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
+        if ($path_image_box) $data['path_image_box'] = $path_image_box;
 
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive) $data['path_archive'] = $path_archive;
-
-        */
 
         if (PORT06Portfolios::create($data)) {
             Session::flash('success', 'Item cadastrado com sucesso');
             return redirect()->route('admin.code.index');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image);
+            Storage::delete($path_image_box);
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
         }
@@ -96,48 +87,38 @@ class PORT06Controller extends Controller
     public function update(Request $request, PORT06Portfolios $PORT06Portfolios)
     {
         $data = $request->all();
-
-        /*
-        Use the code below to upload image, if not, delete code
+        $data['active'] = $request->active ? 1 : 0;
 
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
-        if($path_image){
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image) {
             storageDelete($PORT06Portfolios, 'path_image');
             $data['path_image'] = $path_image;
         }
-        if($request->delete_path_image && !$path_image){
+        if ($request->delete_path_image && !$path_image) {
             storageDelete($PORT06Portfolios, 'path_image');
             $data['path_image'] = null;
         }
-        */
 
-        /*
-        Use the code below to upload archive, if not, delete code
-
-        $helper = new HelperArchive();
-
-        $path_archive = $helper->uploadArchive($request, 'path_archive', $this->path);
-
-        if($path_archive){
-            storageDelete($PORT06Portfolios, 'path_archive');
-            $data['path_archive'] = $path_archive;
+        $path_image_box = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        if ($path_image_box) {
+            storageDelete($PORT06Portfolios, 'path_image_box');
+            $data['path_image_box'] = $path_image_box;
+        }
+        if ($request->delete_path_image_box && !$path_image_box) {
+            storageDelete($PORT06Portfolios, 'path_image_box');
+            $data['path_image_box'] = null;
         }
 
-        if($request->delete_path_archive && !$path_archive){
-            storageDelete($PORT06Portfolios, 'path_archive');
-            $data['path_archive'] = null;
-        }
 
-        */
 
         if ($PORT06Portfolios->fill($data)->save()) {
             Session::flash('success', 'Item atualizado com sucesso');
             return redirect()->route('admin.code.index');
         } else {
-            //Storage::delete($path_image);
-            //Storage::delete($path_archive);
+            Storage::delete($path_image);
+            Storage::delete($path_image_box);
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();
         }
@@ -151,8 +132,8 @@ class PORT06Controller extends Controller
      */
     public function destroy(PORT06Portfolios $PORT06Portfolios)
     {
-        //storageDelete($PORT06Portfolios, 'path_image');
-        //storageDelete($PORT06Portfolios, 'path_archive');
+        storageDelete($PORT06Portfolios, 'path_image');
+        storageDelete($PORT06Portfolios, 'path_image_box');
 
         if ($PORT06Portfolios->delete()) {
             Session::flash('success', 'Item deletado com sucessso');
@@ -168,26 +149,18 @@ class PORT06Controller extends Controller
      */
     public function destroySelected(Request $request)
     {
-        /* Use the code below to upload image or archive, if not, delete code
 
         $PORT06Portfolioss = PORT06Portfolios::whereIn('id', $request->deleteAll)->get();
-        foreach($PORT06Portfolioss as $PORT06Portfolios){
+        foreach ($PORT06Portfolioss as $PORT06Portfolios) {
             storageDelete($PORT06Portfolios, 'path_image');
-            storageDelete($PORT06Portfolios, 'path_archive');
+            storageDelete($PORT06Portfolios, 'path_image_box');
         }
-        */
+
 
         if ($deleted = PORT06Portfolios::whereIn('id', $request->deleteAll)->delete()) {
             return Response::json(['status' => 'success', 'message' => $deleted . ' itens deletados com sucessso']);
         }
     }
-    /**
-     * Sort record by dragging and dropping
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
     public function sorting(Request $request)
     {
         foreach ($request->arrId as $sorting => $id) {

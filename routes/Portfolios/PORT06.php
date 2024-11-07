@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Portfolios\PORT06CategoryController;
 /**
  * Uncomment the code below
  *
@@ -11,22 +11,28 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-// $module = 'TEST';
-// $model = 'TEST01';
+ $module = 'Portfolios';
+ $model = 'PORT06';
 
-// $class = config('modelsConfig.Class');
-// $modelConfig = config('modelsConfig.InsertModelsMain');
-// $module = getNameModule($modelConfig, $module, $model);
-// $modelConfig = $modelConfig->$module->$model->config;
+$class = config('modelsConfig.Class');
+$modelConfig = config('modelsConfig.InsertModelsMain');
+$module = getNameModule($modelConfig, $module, $model);
+$modelConfig = $modelConfig->$module->$model->config;
 
-// $route = Str::slug($modelConfig->titlePanel);
-// $routeName = Str::lower($model);
+$route = Str::slug($modelConfig->titlePanel);
+$routeName = Str::lower($model);
 
-// // ADMIN
-// Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
-//     Route::resource($route.'/categorias', TEST01Controller::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT01PortfoliosCategory']);
-//     Route::post($route.'/categoria/delete', [TEST01Controller::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
-//     Route::post($route.'/categoria/sorting', [TEST01Controller::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
-// });
-// // CLIENT
-// Route::get($route.'/teste', [TEST01Controller::class, 'page'])->name($routeName.'.page');
+// ADMIN
+Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $routeName){
+    Route::resource($route.'/categorias', PORT06CategoryController::class)->names('admin.'.$routeName.'.category')->parameters(['categorias' => 'PORT06PortfoliosCategory']);
+    Route::post($route.'/categoria/delete', [PORT06CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.category.destroySelected');
+    Route::post($route.'/categoria/sorting', [PORT06CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.category.sorting');
+    //
+    Route::resource($route.'/section', PORT06CategoryController::class)->names('admin.'.$routeName.'.section')->parameters(['section' => 'PORT06PortfoliosSection']);
+//
+    Route::resource($route.'/gallries', PORT06CategoryController::class)->names('admin.'.$routeName.'.gallery')->parameters(['gallries' => 'PORT06PortfoliosGallery']);
+    Route::post($route.'/gallries/delete', [PORT06CategoryController::class, 'destroySelected'])->name('admin.'.$routeName.'.gallery.destroySelected');
+    Route::post($route.'/gallries/sorting', [PORT06CategoryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
+});
+// CLIENT
+Route::get($route.'/teste', [PORT06CategoryController::class, 'page'])->name($routeName.'.page');
