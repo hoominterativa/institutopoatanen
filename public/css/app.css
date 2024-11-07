@@ -166,38 +166,38 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .port06-page__list, .port06-page__categories, .port06, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .port06-page__banner {
+.comp01-page__content, .port06-show__content, .port06-page__list, .port06-page__categories, .port06, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .port06-show__banner, .port06-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.comp01-page__banner__title, .port06-page__banner__title {
+.comp01-page__banner__title, .port06-show__banner__title, .port06-page__banner__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .comp01-page__banner__title, .port06-page__banner__title {
+  .comp01-page__banner__title, .port06-show__banner__title, .port06-page__banner__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
 }
-.comp01-page__banner__title, .port06-page__banner__title {
+.comp01-page__banner__title, .port06-show__banner__title, .port06-page__banner__title {
   color: #404040;
 }
-.port06__header__title {
+.port06-show__content__header__title, .port06__header__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .port06__header__title {
+  .port06-show__content__header__title, .port06__header__title {
     font-size: 1.875rem;
   }
 }
-.port06__header__title {
+.port06-show__content__header__title, .port06__header__title {
   color: #404040;
 }
 .confirmation-page__title, .comp01-page__content__header__title, .form01__main__information__title {
@@ -219,20 +219,20 @@ details .details-content {
 .confirmation-page__title {
   color: #cacaca;
 }
-.port06__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port06-page__categories__item {
+.port06-show__content__header__sutitle, .port06__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port06-page__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .port06__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port06-page__categories__item {
+  .port06-show__content__header__sutitle, .port06__header__subtitle, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port06-page__categories__item {
     font-size: 1.125rem;
   }
 }
 .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port06-page__categories__item {
   color: #000;
 }
-.port06__header__subtitle {
+.port06-show__content__header__sutitle, .port06__header__subtitle {
   color: #404040;
 }
 .port06__main__carousel__item__title, .port06-page__list__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
@@ -248,12 +248,12 @@ details .details-content {
 .port06__main__carousel__item__title, .port06-page__list__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.port06__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .port06__main__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
+.port06-show__content__header__paragraph, .port06__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .port06__main__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.port06__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .port06__main__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .side02__cta p, .head02__navigation__item__cta p {
+.port06-show__content__header__paragraph p, .port06__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .port06__main__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -261,7 +261,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .port06__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .port06__main__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
+  .port06-show__content__header__paragraph, .port06__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .port06__main__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
@@ -274,7 +274,7 @@ details .details-content {
 .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .port06__main__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
-.port06__header__paragraph {
+.port06-show__content__header__paragraph, .port06__header__paragraph {
   color: #b3b3b3;
 }
 .port06__main__carousel__item__paragraph, .port06-page__list__item__paragraph, .comp01-page__content__archives__item, .port06__main__carousel__item__category, .port06-page__list__item__category, .foot02__copyright__compliances__item, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
@@ -311,7 +311,7 @@ details .details-content {
   width: 2rem;
   height: 2rem;
 }
-.comp01-page__banner, .port06-page__banner {
+.comp01-page__banner, .port06-show__banner, .port06-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -2329,6 +2329,91 @@ body .owl-dots .owl-dot.active {
     width: 100%;
   }
 }
+.port06-show__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.port06-show__content__image {
+  width: 40%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 991.98px) {
+  .port06-show__content__image {
+    width: 100%;
+  }
+}
+.port06-show__content__header {
+  width: 50%;
+}
+@media (max-width: 991.98px) {
+  .port06-show__content__header {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+.port06-show__content__header__sutitle {
+  text-align: left;
+  margin-bottom: 0.125rem;
+}
+.port06-show__content__header__title {
+  text-align: left;
+  margin-bottom: 2.75rem;
+}
+.port06-show__gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+}
+.port06-show__gallery__image {
+  width: 100%;
+  height: auto;
+  max-height: 100dvh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.port06-show__gallery__video {
+  width: 100%;
+  height: auto;
+  max-height: 100dvh;
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.port06-show__gallery__video__button {
+  width: 5.5rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border: none;
+}
+.port06-show__gallery__video__button__icon {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.port06-show__gallery__video__iframe {
+  width: 100%;
+  height: 100%;
+}
+
 /* BEGIN STYLE */
 .comp01-page__banner {
   background-color: rgba(239, 239, 239, 0.35);

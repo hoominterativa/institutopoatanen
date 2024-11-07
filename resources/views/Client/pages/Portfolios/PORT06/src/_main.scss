@@ -135,3 +135,98 @@
         }
     }
 }
+
+.port06-show {
+    &__banner {
+        @extend %theme__banner;
+
+        &__title {
+            @extend %theme__banner__title;
+        }
+    }
+
+    &__content {
+        @include disFlex(row, space-between, center);
+        flex-wrap: wrap;
+        @extend %theme__padding;
+
+        &__image {
+            width: 40%;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
+
+            @include large-device-down {
+                width: 100%;
+            }
+        }
+
+        &__header {
+            width: 50%;
+
+            @include large-device-down {
+                width: 100%;
+                padding-right: 0;
+            }
+
+            &__sutitle {
+                @extend %theme__t4-c1;
+                text-align: left;
+                margin-bottom: rem(2);
+            }
+
+            &__title {
+                @extend %theme__t2-c1;
+                text-align: left;
+                margin-bottom: rem(44);
+            }
+
+            &__paragraph {
+                @extend %theme__p1-c3;
+            }
+        }
+    }
+
+    &__gallery {
+        @include disFlex(column);
+
+        &__image {
+            width: 100%;
+            height: auto;
+            max-height: 100dvh;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        &__video {
+            width: 100%;
+            height: auto;
+            max-height: 100dvh;
+            aspect-ratio: 16/9;
+            @include disFlex(row, center, center);
+            @include bg;
+
+            &__button {
+                width: 5.5rem;
+                height: auto;
+                aspect-ratio: 1/1;
+
+                background-color: transparent;
+                border: none;
+
+                &__icon {
+                    width: 100%;
+                    height: 100%;
+
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+
+            &__iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

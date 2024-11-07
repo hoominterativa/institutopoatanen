@@ -12452,6 +12452,20 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".port06-page__categor
   spaceBetween: 7,
   centerInsufficientSlides: true
 });
+var port06ButtonsPlay = document.querySelectorAll(".port06-show__gallery__video__button");
+if (port06ButtonsPlay) {
+  port06ButtonsPlay.forEach(function (el) {
+    el.addEventListener("click", function () {
+      var src = el.parentNode.dataset.src;
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", src + "?autoplay=1");
+      iframe.classList.add("port06-show__gallery__video__iframe");
+      iframe.setAttribute("id", "urlYoutube");
+      el.style.display = "none";
+      el.parentNode.appendChild(iframe);
+    });
+  });
+}
 
 /***/ }),
 
