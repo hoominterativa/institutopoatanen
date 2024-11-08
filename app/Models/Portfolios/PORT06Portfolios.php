@@ -20,11 +20,13 @@ class PORT06Portfolios extends Model
         'category_id',
         'title',
         'subtitle',
+        'slug',
         'paragraph',
         'text',
         'path_image_box',
         'path_image',
         'active',
+        'featured',
         'sorting'
     ];
 
@@ -45,4 +47,18 @@ class PORT06Portfolios extends Model
     {
         return $this->hasMany(PORT06PortfoliosGallery::class, 'portfolio_id');
     }
+    public function category()
+    {
+        return $this->belongsTo(PORT06PortfoliosCategory::class, 'category_id');
+    }
+    public function scopeFeatured()
+    {
+        return $this->where('featured', 1);
+    }
+
+
+    // public function getRelationCore()
+    // {
+    //     return null;
+    // }
 }

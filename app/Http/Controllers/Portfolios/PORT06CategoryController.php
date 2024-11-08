@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Str;
 
 class PORT06CategoryController extends Controller
 {
@@ -15,6 +16,7 @@ class PORT06CategoryController extends Controller
         $data = $request->all();
 
         $data['active'] = $request->active ? 1 : 0;
+        $data['slug'] = Str::slug($data['title']);
 
 
         if (PORT06PortfoliosCategory::create($data)) {
@@ -31,6 +33,7 @@ class PORT06CategoryController extends Controller
         $data = $request->all();
 
         $data['active'] = $request->active ? 1 : 0;
+        $data['slug'] = Str::slug($data['title']);
 
         if ($PORT06PortfoliosCategory->fill($data)->save()) {
             Session::flash('success', 'Item atualizado com sucesso');

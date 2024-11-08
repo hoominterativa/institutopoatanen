@@ -26,12 +26,6 @@
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.port06.store', 'class' => 'parsley-validate', 'files' => true]) !!}
                 @include('Admin.cruds.Portfolios.PORT06.form')
-                {!! Form::button('Cadastrar', [
-                    'class' => 'btn btn-primary waves-effect waves-light float-end me-3 width-lg',
-                    'type' => 'submit',
-                ]) !!}
-                <a href="{{ route('admin.port06.index') }}"
-                    class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

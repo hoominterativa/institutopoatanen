@@ -10,7 +10,8 @@ class PORT06PortfoliosGallery extends Model
     protected $fillable = [
         'portfolio_id',
         'path_image',
-        'title',
+        'link_video',
+        'active',
         'sorting',
     ];
 

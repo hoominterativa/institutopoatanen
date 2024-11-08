@@ -16,7 +16,9 @@ class PORT06SectionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['active'] = $request->active ? 1 : 0;
+        $data['active_section'] = $request->active ? 1 : 0;
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
+
 
         if (PORT06PortfoliosSection::create($data)) {
             Session::flash('success', 'Item cadastrado com sucesso');
@@ -30,7 +32,9 @@ class PORT06SectionController extends Controller
     public function update(Request $request, PORT06PortfoliosSection $PORT06PortfoliosSection)
     {
         $data = $request->all();
-        $data['active'] = $request->active ? 1 : 0;
+        $data['active_section'] = $request->active ? 1 : 0;
+        
+        $data['active_banner'] = $request->active_banner ? 1 : 0;
 
         $helper = new HelperArchive();
 

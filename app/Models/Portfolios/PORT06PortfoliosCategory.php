@@ -29,6 +29,16 @@ class PORT06PortfoliosCategory extends Model
     {
         return $this->hasMany(PORT06Portfolios::class, 'category_id', 'id');
     }
+    public function getRelationCore()
+    {
+        return null;
+    }
+    public function scopeExists($query)
+    {
+        return $query->whereExists(function($query){
+            $query->select('id')->from('port06_portfolios')->whereColumn('port06_portfolios.category_id', 'port06_portfolios_categories.id');
+        });
+    }
 
     // public function getRelationCore()
     // {

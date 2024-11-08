@@ -25,6 +25,7 @@ class PORT06PortfoliosSection extends Model
         'subtitle_page',
         'path_image_desktop_banner',
         'path_image_mobile_banner',
+        'active_banner',
         
         'title_button',
         'link_button',
@@ -40,7 +41,12 @@ class PORT06PortfoliosSection extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1);
+        return $query->where('active_section', 1);
+    }
+    
+    public function getRelationCore()
+    {
+        return null;
     }
 
     // public function getRelationCore()

@@ -28,6 +28,7 @@ class CreatePort06PortfoliosSectionsTable extends Migration
             $table->text('link_button')->nullable();
             $table->enum('target_link_button', ['_self', '_blank'])->default('_self');
             $table->integer('active_section')->default(0);
+            $table->integer('active_banner')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

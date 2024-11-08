@@ -93,7 +93,6 @@
                                                     <th>First Name</th>
                                                     <th>Last Name</th>
                                                     <th>Job Title</th>
-                                                    <th>DOB</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -109,18 +108,24 @@
                                                                     type="checkbox" value="{{ $portfolio->id }}"></label>
                                                         </td>
                                                         <td class="align-middle avatar-group">
-                                                            <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
-                                                                style="background-image: url({{ asset('Admin/assets/images/users/user-10.jpg') }})">
-                                                            </div>
+                                                            @if ($portfolio->path_image)
+                                                                <div class="avatar-group-item avatar-bg rounded-circle avatar-sm"
+                                                                    style="background-image: url({{ asset('storage/' . $portfolio->path_image) }})">
+                                                                </div>
+                                                            @endif
                                                         </td>
-                                                        <td class="align-middle">Boudreaux</td>
-                                                        <td class="align-middle">Traffic Court Referee</td>
-                                                        <td class="align-middle">22 Jun 1972</td>
-                                                        <td class="align-middle">22 Jun 1972</td>
+                                                        <td class="align-middle">{{ $portfolio->title }}</td>
+                                                        <td class="align-middle">{{ $portfolio->subtitle }}</td>
+                                                        <td class="align-middle">{!! substr($portfolio->paragraph, 0, 25) !!}</td>
                                                         <td class="align-middle">
-                                                            <span class="badge bg-success">Ativo</span>
-                                                            <span class="badge bg-primary text-white">Destaque</span>
-                                                            <span class="badge bg-danger">Inativo</span>
+                                                            @if ($portfolio->active)
+                                                                <span class="badge bg-success">Ativo</span>
+                                                            @else
+                                                                <span class="badge bg-danger">Inativo</span>
+                                                            @endif
+                                                            @if ($portfolio->featured)
+                                                                <span class="badge bg-primary text-white">Destaque</span>
+                                                            @endif
                                                         </td>
                                                         <td class="align-middle">
                                                             <div class="row">

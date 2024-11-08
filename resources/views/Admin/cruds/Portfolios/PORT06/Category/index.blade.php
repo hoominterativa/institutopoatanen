@@ -42,9 +42,6 @@
                                     @else
                                         <span class="badge bg-danger">Inativo</span>
                                     @endif
-                                    @if ($category->featured)
-                                        <span class="badge bg-primary text-white">Destaque</span>
-                                    @endif
                                 </td>
                                 <td class="align-middle">
                                     <div class="row">

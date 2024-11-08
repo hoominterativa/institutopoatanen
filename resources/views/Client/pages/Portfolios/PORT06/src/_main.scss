@@ -40,7 +40,8 @@
 
             &__item {
                 @include disFlex(column, start, start);
-
+                position: relative;
+                
                 &__image {
                     width: 100%;
                     height: auto;

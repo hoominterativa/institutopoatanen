@@ -2274,6 +2274,7 @@ body .owl-dots .owl-dot.active {
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  position: relative;
 }
 .port06__main__carousel__item__image, .port06-page__list__item__image {
   width: 100%;

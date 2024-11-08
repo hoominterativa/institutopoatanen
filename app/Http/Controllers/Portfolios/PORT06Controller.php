@@ -19,7 +19,7 @@ use App\Models\Portfolios\PORT06PortfoliosCategory;
 
 class PORT06Controller extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Portfolios/PORT06/images/';
 
     public function index()
     {
@@ -46,8 +46,9 @@ class PORT06Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($data['title']);
 
+        $data['featured'] = $request->featured ? 1 : 0;
+        $data['slug'] = Str::slug($data['title']);
         $data['active'] = $request->active ? 1 : 0;
 
         $helper = new HelperArchive();
@@ -82,7 +83,7 @@ class PORT06Controller extends Controller
         $categories = PORT06PortfoliosCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Portfolios.PORT06.edit', [
             'categories' => $categories,
-            'portifolio' => $PORT06Portfolios,
+            'portfolio' => $PORT06Portfolios,
         ]);
     }
 
@@ -96,10 +97,13 @@ class PORT06Controller extends Controller
     public function update(Request $request, PORT06Portfolios $PORT06Portfolios)
     {
         $data = $request->all();
+        $helper = new HelperArchive();
+
+        $data['featured'] = $request->featured ? 1 : 0;
+        $data['slug'] = Str::slug($data['title']);
         $data['active'] = $request->active ? 1 : 0;
 
-        $helper = new HelperArchive();
-        $data['slug'] = Str::slug($data['title']);
+        //Portfolio
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) {
             storageDelete($PORT06Portfolios, 'path_image');
@@ -110,7 +114,7 @@ class PORT06Controller extends Controller
             $data['path_image'] = null;
         }
 
-        $path_image_box = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        $path_image_box = $helper->optimizeImage($request, 'path_image_box', $this->path, null, 100);
         if ($path_image_box) {
             storageDelete($PORT06Portfolios, 'path_image_box');
             $data['path_image_box'] = $path_image_box;
@@ -120,17 +124,14 @@ class PORT06Controller extends Controller
             $data['path_image_box'] = null;
         }
 
-
-
         if ($PORT06Portfolios->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->back();
+            Session::flash('success', 'Portfólio atualizado com sucesso');
         } else {
             Storage::delete($path_image);
             Storage::delete($path_image_box);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar o portfólio');
         }
+        return redirect()->back();
     }
 
     /**
@@ -188,13 +189,24 @@ class PORT06Controller extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(PORT06Portfolios $PORT06Portfolios)
-    public function show()
+    public function show(PORT06Portfolios $PORT06Portfolios)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT06', 'show');
+        $banner = PORT06PortfoliosSection::firstOrCreate();
+
+        switch (deviceDetect()) {
+            case "mobile":
+            case "tablet":
+                if ($banner) $banner->path_image_desktop_banner = $banner->path_image_mobile_banner;
+                break;
+        }
+
 
         return view('Client.pages.Portfolios.PORT06.show', [
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'portfolio' => $PORT06Portfolios
         ]);
     }
 
@@ -204,16 +216,36 @@ class PORT06Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public function page(Request $request, $PORT06PortfoliosCategory = null)
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Portfolios', 'PORT06', 'page');
-
+        $banner = PORT06PortfoliosSection::firstOrCreate();
+        $categories = PORT06PortfoliosCategory::sorting()->get();
+        $portfolios = PORT06Portfolios::active()->sorting();
+    
+        if ($PORT06PortfoliosCategory) {
+            $PORT06PortfoliosCategory = PORT06PortfoliosCategory::where('slug', $PORT06PortfoliosCategory)->first();
+    
+            if ($PORT06PortfoliosCategory && $PORT06PortfoliosCategory->exists) {
+                $portfolios = $portfolios->where('category_id', $PORT06PortfoliosCategory->id);
+    
+                foreach ($categories as $category) {
+                    if ($PORT06PortfoliosCategory->id == $category->id) {
+                        $category->selected = true;
+                    }
+                }
+            }
+        }
+    
         return view('Client.pages.Portfolios.PORT06.page', [
-            'sections' => $sections
+            'sections' => $sections,
+            'banner' => $banner,
+            'portfolios' => $portfolios->paginate(6),
+            'categories' => $categories
         ]);
     }
-
+    
     /**
      * Section index resource.
      *
@@ -221,6 +253,11 @@ class PORT06Controller extends Controller
      */
     public static function section()
     {
-        return view('Client.pages.Portfolios.PORT06.section');
+        $section = PORT06PortfoliosSection::firstOrCreate();
+        $portfolios = PORT06Portfolios::sorting()->Featured()->active()->get();
+        return view('Client.pages.Portfolios.PORT06.section', [
+            'portfolios' => $portfolios,
+            'section' => $section
+        ]);
     }
 }

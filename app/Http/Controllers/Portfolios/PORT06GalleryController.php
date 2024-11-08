@@ -13,56 +13,53 @@ use App\Http\Controllers\IncludeSectionsController;
 
 class PORT06GalleryController extends Controller
 {
-    protected $path = 'uploads/Module/Code/images/';
+    protected $path = 'uploads/Portfolios/PORT06/images/Gallery/';
 
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['active'] = $request->active ? 1 : 0;
-
         $helper = new HelperArchive();
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
+        $data['featured'] = $request->featured?1:0;
+        $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
 
-        if ($path_image) $data['path_image'] = $path_image;
+        $path_image =  $helper->uploadMultipleImage($request, 'path_image', $this->path, null,100);
 
-
-        if (PORT06PortfoliosGallery::create($data)) {
-            Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->back();
-        } else {
-            Storage::delete($path_image);
-            Session::flash('error', 'Erro ao cadastradar o item');
-            return redirect()->back();
+        foreach ($path_image as $image) {
+            $data['path_image'] = $image;
+            PORT06PortfoliosGallery::create($data);
         }
+
+        return Response::json(['status' => 'success', 'countUploads' => COUNT($path_image)]);
     }
 
     public function update(Request $request, PORT06PortfoliosGallery $PORT06PortfoliosGallery)
     {
         $data = $request->all();
-
         $helper = new HelperArchive();
-        $data['active'] = $request->active ? 1 : 0;
 
-        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
-        if ($path_image) {
+        $data['featured'] = $request->featured?1:0;
+        $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
+
+        $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);
+        if($path_image){
             storageDelete($PORT06PortfoliosGallery, 'path_image');
             $data['path_image'] = $path_image;
         }
-        if ($request->delete_path_image && !$path_image) {
+        if($request->delete_path_image && !$path_image){
             storageDelete($PORT06PortfoliosGallery, 'path_image');
             $data['path_image'] = null;
         }
 
-        if ($PORT06PortfoliosGallery->fill($data)->save()) {
-            Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->back();
-        } else {
+        if($PORT06PortfoliosGallery->fill($data)->save()){
+            Session::flash('success', 'Galeria atualizada com sucesso');
+        }else{
             Storage::delete($path_image);
-            Session::flash('error', 'Erro ao atualizar item');
-            return redirect()->back();
+            Session::flash('error', 'Erro ao atualizar a galeria');
         }
+        return redirect()->back();
     }
+
 
     public function destroy(PORT06PortfoliosGallery $PORT06PortfoliosGallery)
     {

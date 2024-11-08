@@ -1,7 +1,7 @@
 {
     "/js/app.js": "/js/app.js?id=03f202fc090baa978027037032e4b841",
     "/css/libraries.css": "/css/libraries.css?id=737cc663ee8c81cf8b4ff0434b5b7887",
-    "/css/app.css": "/css/app.css?id=ba67fb01072cb237846b6d784d305b60",
+    "/css/app.css": "/css/app.css?id=4273b3d751fae3e3e647651943aad9d8",
     "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/images/accordion-icon.svg": "/images/accordion-icon.svg?id=77ad75de72490f605973794a0ce72bad",
     "/images/arrow-1.png": "/images/arrow-1.png?id=d8838e7abd9cb36d0b1bb7dad144a0b5",
@@ -23,6 +23,7 @@
     "/images/linkedin.png": "/images/linkedin.png?id=b4535d4d50deed32111a7616dd570ca9",
     "/images/logo-client.svg": "/images/logo-client.svg?id=d3a89c42f67d786648f094aa58c40c2f",
     "/images/logo-menu-sidebar.svg": "/images/logo-menu-sidebar.svg?id=e071ff0ddda03e1d85602a6ee6daee6d",
+    "/images/play.png": "/images/play.png?id=8adda459470ce7ece022806e9cd9ce83",
     "/images/twitter.png": "/images/twitter.png?id=b10045e516d28135c960a736d4de5236",
     "/images/vendor/@ckeditor/ckeditor5-basic-styles/theme/icons/italic.svg": "/images/vendor/@ckeditor/ckeditor5-basic-styles/theme/icons/italic.svg?id=38197d766d25fda4f12714600924b096",
     "/images/vendor/@ckeditor/ckeditor5-core/theme/icons/align-bottom.svg": "/images/vendor/@ckeditor/ckeditor5-core/theme/icons/align-bottom.svg?id=2059308904922bec5f6dfd977a3ae987",
@@ -70,6 +71,5 @@
     "/images/vendor/@ckeditor/ckeditor5-widget/theme/icons/return-arrow.svg": "/images/vendor/@ckeditor/ckeditor5-widget/theme/icons/return-arrow.svg?id=ea051d81c3ef5eab149a6e6a6e5579d3",
     "/images/vendor/owl.carousel/dist/owl.video.play.png": "/images/vendor/owl.carousel/dist/owl.video.play.png?id=ec15221ecd98ee039fe7ac3f979c6318",
     "/images/whatsapp.png": "/images/whatsapp.png?id=0f8ebb429555552e1b4a85101efa3df3",
-    "/images/youtube.png": "/images/youtube.png?id=b1485b58d676957c069409fda41723fd",
-    "/images/play.png": "/images/play.png?id=8adda459470ce7ece022806e9cd9ce83"
+    "/images/youtube.png": "/images/youtube.png?id=b1485b58d676957c069409fda41723fd"
 }

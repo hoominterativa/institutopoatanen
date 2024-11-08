@@ -32,7 +32,7 @@
                     </thead>
 
                     <tbody data-route="{{ route('admin.port06.gallery.sorting') }}">
-                        @foreach ($portifolio->galleries as $gallery)
+                        @foreach ($portfolio->galleries as $gallery)
                             <tr data-code="{{ $gallery->id }}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span>
                                 </td>
@@ -50,7 +50,7 @@
                                 <td class="align-middle">
                                     @if ($gallery->link_video)
                                         <a href="{{ $gallery->link_video }}" target="_blank"
-                                            class="mdi mdi-link-box-variant mdi-24px"></a>
+                                            class="mdi mdi-link-box-variant mdi-24px text-center">{{ $gallery->link_video }}</a>
                                     @endif
                                 </td>
                                 <td class="align-middle">

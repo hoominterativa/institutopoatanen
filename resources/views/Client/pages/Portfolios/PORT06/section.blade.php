@@ -1,31 +1,43 @@
 <section class="port06" id="PORT06">
     <header class="port06__header">
-        <h3 class="port06__header__subtitle">Subtítulo</h3>
-        <h2 class="port06__header__title">Título</h2>
+        @if ($section->subtitle_section)
+            <h3 class="port06__header__subtitle">Subtítulo</h3>
+        @endif
+        @if ($section->title_section)
+            <h2 class="port06__header__title">{{ $section->title_section }}</h2>
+        @endif
         <div class="port06__header__paragraph">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel tortor eu purus gravida sollicitudin
-                vel non libero. Vivamus commodo porta velit, vel tempus mi pretium sed. In et arcu eget purus mattis
-                posuere. Donec tincidunt dignissim faucibus. Vestibulum </p>
+            <p>{!! $section->paragraph_section !!}</p>
         </div>
     </header>
 
     <div class="port06__main">
         <div class="port06__main__carousel">
             <div class="port06__main__carousel__swiper-wrapper swiper-wrapper">
-                @for ($i = 0; $i < 6; $i++)
+                @foreach ($portfolios as $portfolio)
                     <article class="port06__main__carousel__item swiper-slide">
-                        <img src="{{ asset('images/imageServ.png') }}" alt="Imagem do [título do item]"
-                            class="port06__main__carousel__item__image">
-                        <span class="port06__main__carousel__item__category">Categoria</span>
-                        <h4 class="port06__main__carousel__item__title">Título do item</h4>
-                        <p class="port06__main__carousel__item__paragraph">Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. </p>
+                        <a class="link-full" title="{{ $portfolio->title }}"
+                            href="{{ route('port06.show', ['PORT06Portfolios' => $portfolio->slug]) }}"></a>
+
+                        @if ($portfolio->path_image_box && $portfolio->title)
+                            <img src="{{ asset('storage/' . $portfolio->path_image_box) }}"
+                                alt="Imagem do {{ $portfolio->title }}" class="port06__main__carousel__item__image">
+                        @endif
+                        <span class="port06__main__carousel__item__category">{{ $portfolio->category->title }}</span>
+                        @if ($portfolio->title)
+                            <h4 class="port06__main__carousel__item__title">{{ $portfolio->title }}</h4>
+                        @endif
+                        @if ($portfolio->subtitle)
+                            <p class="port06__main__carousel__item__paragraph">{{ $portfolio->subtitle }} </p>
+                        @endif
                     </article>
-                @endfor
+                @endforeach
             </div>
         </div>
-
-        <a href="" class="port06__main__cta">CTA</a>
+        @if ($section->title_button && $section->link_button)
+            <a href="{{ $section->link_button }}" target="{{ $section->target_link_button }}"
+                class="port06__main__cta">{{ $section_title_button }}</a>
+        @endif
     </div>
 
 </section>

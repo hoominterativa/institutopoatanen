@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Portfolios\PORT06CategoryController;
 use App\Http\Controllers\Portfolios\PORT06SectionController;
 use App\Http\Controllers\Portfolios\PORT06GalleryController;
+use App\Http\Controllers\Portfolios\PORT06Controller;
 /**
  * Uncomment the code below
  *
@@ -40,4 +41,7 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/gallries/sorting', [PORT06GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 });
 // CLIENT
-Route::get($route.'/teste', [PORT06CategoryController::class, 'page'])->name($routeName.'.page');
+// Route::get($route.'/portifolio', [PORT06Controller::class, 'page'])->name($routeName.'.page');
+Route::get($route.'/categoria/{PORT06PortfoliosCategory::slug}', [PORT06Controller::class, 'page'])->name($routeName.'.category.page');
+Route::get($route.'/{PORT06Portfolios:slug}', [PORT06Controller::class, 'show'])->name($routeName.'.show');
+

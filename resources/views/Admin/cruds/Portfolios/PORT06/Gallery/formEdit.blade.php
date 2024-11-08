@@ -44,14 +44,14 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{ $cropSetting->Gallery->path_image->width }}x{{ $cropSetting->Gallery->path_image->height }}px!</small>
+                        {{-- {{ $cropSetting->Gallery->path_image->width }}x{{ $cropSetting->Gallery->path_image->height }}px!</small> --}}
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            'data-status' => $cropSetting->Gallery->path_image->activeCrop, // px
-                            'data-min-width' => $cropSetting->Gallery->path_image->width, // px
-                            'data-min-height' => $cropSetting->Gallery->path_image->height, // px
+                            // 'data-status' => $cropSetting->Gallery->path_image->activeCrop, // px
+                            // 'data-min-width' => $cropSetting->Gallery->path_image->width, // px
+                            // 'data-min-height' => $cropSetting->Gallery->path_image->height, // px
                             'data-box-height' => '170', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp',
                             'data-default-file' => isset($gallery)

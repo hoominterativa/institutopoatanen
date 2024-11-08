@@ -47,8 +47,8 @@
                 <div class="tab-content">
                     <div class="tab-pane show active" id="editPortfolios">
                         <!-- end page title -->
-                        {!! Form::model($portifolio, [
-                            'route' => ['admin.port06.update', $portifolio->id],
+                        {!! Form::model($portfolio, [
+                            'route' => ['admin.port06.update', $portfolio->id],
                             'class' => 'parsley-validate',
                             'method' => 'PUT',
                             'files' => true,

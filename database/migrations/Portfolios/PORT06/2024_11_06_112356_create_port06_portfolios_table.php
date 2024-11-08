@@ -23,6 +23,7 @@ class CreatePort06PortfoliosTable extends Migration
             $table->text('path_image')->nullable();
             $table->text('path_image_box')->nullable();
             $table->integer('active')->default(0);
+            $table->integer('featured')->default(0);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });
