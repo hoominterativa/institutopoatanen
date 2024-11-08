@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Portfolios;
 use App\Models\Portfolios\PORT06Portfolios;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
@@ -37,11 +38,15 @@ class PORT06Controller extends Controller
 
     public function create()
     {
-        //
+        $categories = PORT06PortfoliosCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Portfolios.PORT06.create', [
+            'categories' => $categories
+        ]);
     }
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['slug'] = Str::slug($data['title']);
 
         $data['active'] = $request->active ? 1 : 0;
 
@@ -74,7 +79,11 @@ class PORT06Controller extends Controller
      */
     public function edit(PORT06Portfolios $PORT06Portfolios)
     {
-        //
+        $categories = PORT06PortfoliosCategory::sorting()->pluck('title', 'id');
+        return view('Admin.cruds.Portfolios.PORT06.edit', [
+            'categories' => $categories,
+            'portifolio' => $PORT06Portfolios,
+        ]);
     }
 
     /**
@@ -90,7 +99,7 @@ class PORT06Controller extends Controller
         $data['active'] = $request->active ? 1 : 0;
 
         $helper = new HelperArchive();
-
+        $data['slug'] = Str::slug($data['title']);
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null, 100);
         if ($path_image) {
             storageDelete($PORT06Portfolios, 'path_image');
@@ -115,7 +124,7 @@ class PORT06Controller extends Controller
 
         if ($PORT06Portfolios->fill($data)->save()) {
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->back();
         } else {
             Storage::delete($path_image);
             Storage::delete($path_image_box);

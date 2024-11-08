@@ -1,5 +1,5 @@
 {!! Form::model(null, [
-    'route' => ['admin.port05.gallery.store'],
+    'route' => ['admin.port06.gallery.store'],
     'class' => 'parsley-validate',
     'files' => true,
 ]) !!}

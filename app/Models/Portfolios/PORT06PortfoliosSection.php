@@ -17,14 +17,20 @@ class PORT06PortfoliosSection extends Model
     
     protected $table = "port06_portfolios_sections";
     protected $fillable = [
-        'title',
-        'slug',
-        'paragraph',
+        'title_section',
+        'subtitle_section',
+        'paragraph_section',
+        
+        'title_page',
+        'subtitle_page',
+        'path_image_desktop_banner',
+        'path_image_mobile_banner',
+        
         'title_button',
         'link_button',
         'target_link_button',
         'sorting',
-        'active',
+        'active_section',
     ];
 
     public function scopeSorting($query)

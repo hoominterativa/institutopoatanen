@@ -19,7 +19,7 @@ class PORT06CategoryController extends Controller
 
         if (PORT06PortfoliosCategory::create($data)) {
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->back();
         } else {
             Session::flash('error', 'Erro ao cadastradar o item');
             return redirect()->back();
@@ -34,7 +34,7 @@ class PORT06CategoryController extends Controller
 
         if ($PORT06PortfoliosCategory->fill($data)->save()) {
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->back();
         } else {
             Session::flash('error', 'Erro ao atualizar item');
             return redirect()->back();

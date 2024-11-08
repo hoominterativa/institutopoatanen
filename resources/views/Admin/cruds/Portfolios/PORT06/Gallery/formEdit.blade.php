@@ -1,13 +1,13 @@
 @if (isset($gallery))
     {!! Form::model($gallery, [
-        'route' => ['admin.port05.gallery.update', $gallery->id],
+        'route' => ['admin.port06.gallery.update', $gallery->id],
         'class' => 'parsley-validate',
         'files' => true,
     ]) !!}
     @method('PUT')
 @else
     {!! Form::model(null, [
-        'route' => ['admin.port05.gallery.store'],
+        'route' => ['admin.port06.gallery.store'],
         'class' => 'parsley-validate',
         'files' => true,
     ]) !!}

@@ -17,12 +17,11 @@ class PORT06Portfolios extends Model
 
     protected $table = "port06_portfolios";
     protected $fillable = [
+        'category_id',
         'title',
         'subtitle',
-        'paragrahp',
+        'paragraph',
         'text',
-        'link_button',
-        'target_link_button',
         'path_image_box',
         'path_image',
         'active',
@@ -42,7 +41,7 @@ class PORT06Portfolios extends Model
     {
         return null;
     }
-    public function gallery()
+    public function galleries()
     {
         return $this->hasMany(PORT06PortfoliosGallery::class, 'portfolio_id');
     }

@@ -54,7 +54,7 @@
                                                 data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
                                         <form
-                                            action="{{ route('admin.port06.category.destroy', ['port06PortfoliosCategory' => $category->id]) }}"
+                                            action="{{ route('admin.port06.category.destroy', ['PORT06PortfoliosCategory' => $category->id]) }}"
                                             class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i

@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <button id="btSubmitDelete" data-route="{{ route('admin.port05.gallery.destroySelected') }}"
+                        <button id="btSubmitDelete" data-route="{{ route('admin.port06.gallery.destroySelected') }}"
                             type="button" class="btn btn-danger btnDeleteGallery" style="display: none;">Deletar
                             selecionados</button>
                     </div>
@@ -31,8 +31,8 @@
                         </tr>
                     </thead>
 
-                    <tbody data-route="{{ route('admin.port05.gallery.sorting') }}">
-                        @foreach ($galleries as $gallery)
+                    <tbody data-route="{{ route('admin.port06.gallery.sorting') }}">
+                        @foreach ($portifolio->galleries as $gallery)
                             <tr data-code="{{ $gallery->id }}">
                                 <td class="align-middle"><span class="btnDrag mdi mdi-drag-horizontal font-22"></span>
                                 </td>
@@ -66,7 +66,7 @@
                                                 data-bs-toggle="modal" class="btn-icon mdi mdi-square-edit-outline"></a>
                                         </div>
                                         <form
-                                            action="{{ route('admin.port05.gallery.destroy', ['PORT05PortfoliosGallery' => $gallery->id]) }}"
+                                            action="{{ route('admin.port06.gallery.destroy', ['PORT06PortfoliosGallery' => $gallery->id]) }}"
                                             class="col-4" method="POST">
                                             @method('DELETE') @csrf
                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i
@@ -86,7 +86,7 @@
 
                                                     <div class="modal-body p-3 pt-0 pb-3">
                                                         @include(
-                                                            'Admin.cruds.Portfolios.PORT05.Gallery.formEdit',
+                                                            'Admin.cruds.Portfolios.PORT06.Gallery.formEdit',
                                                             [
                                                                 'gallery' => $gallery,
                                                             ]
@@ -119,7 +119,7 @@
             </div>
 
             <div class="modal-body p-3 pt-0 pb-3">
-                @include('Admin.cruds.Portfolios.PORT05.Gallery.form', [
+                @include('Admin.cruds.Portfolios.PORT06.Gallery.form', [
                     'gallery' => null,
                 ])
             </div>

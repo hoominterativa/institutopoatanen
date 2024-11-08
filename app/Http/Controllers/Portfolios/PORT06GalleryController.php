@@ -29,7 +29,7 @@ class PORT06GalleryController extends Controller
 
         if (PORT06PortfoliosGallery::create($data)) {
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->back();
         } else {
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao cadastradar o item');
@@ -56,7 +56,7 @@ class PORT06GalleryController extends Controller
 
         if ($PORT06PortfoliosGallery->fill($data)->save()) {
             Session::flash('success', 'Item atualizado com sucesso');
-            return redirect()->route('admin.code.index');
+            return redirect()->back();
         } else {
             Storage::delete($path_image);
             Session::flash('error', 'Erro ao atualizar item');
