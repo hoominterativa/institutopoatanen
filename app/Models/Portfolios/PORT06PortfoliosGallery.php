@@ -28,4 +28,8 @@ class PORT06PortfoliosGallery extends Model
     {
         return $this->belongsTo(PORT06Portfolios::class, 'portfolio_id', 'id');
     }
+    public function scopeExists($query)
+    {
+        return $query->orderBy('sorting', 'ASC')->where('active', 1);
+    }
 }

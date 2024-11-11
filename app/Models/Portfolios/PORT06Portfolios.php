@@ -45,7 +45,7 @@ class PORT06Portfolios extends Model
     }
     public function galleries()
     {
-        return $this->hasMany(PORT06PortfoliosGallery::class, 'portfolio_id');
+        return $this->hasMany(PORT06PortfoliosGallery::class, 'portfolio_id')->sorting();
     }
     public function category()
     {
@@ -55,10 +55,8 @@ class PORT06Portfolios extends Model
     {
         return $this->where('featured', 1);
     }
-
-
-    // public function getRelationCore()
-    // {
-    //     return null;
-    // }
+    public function galleriesExist()
+{
+    return $this->hasMany(PORT06PortfoliosGallery::class, 'portfolio_id')->exists(); 
+}
 }

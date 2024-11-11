@@ -20,7 +20,8 @@ class PORT06GalleryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['featured'] = $request->featured?1:0;
+        $data['active'] = $request->active?1:0;
+
         $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
 
         $path_image =  $helper->uploadMultipleImage($request, 'path_image', $this->path, null,100);
@@ -38,7 +39,7 @@ class PORT06GalleryController extends Controller
         $data = $request->all();
         $helper = new HelperArchive();
 
-        $data['featured'] = $request->featured?1:0;
+        $data['active'] = $request->active?1:0;
         $data['link_video'] = isset($data['link_video']) ? getUri($data['link_video']) : null;
 
         $path_image = $helper->optimizeImage($request, 'path_image', $this->path, null,100);

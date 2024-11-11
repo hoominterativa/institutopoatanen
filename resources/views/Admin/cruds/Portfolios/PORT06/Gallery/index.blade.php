@@ -54,8 +54,8 @@
                                     @endif
                                 </td>
                                 <td class="align-middle">
-                                    @if ($gallery->featured)
-                                        <span class="badge bg-primary text-white">Destaque</span>
+                                    @if ($gallery->active)
+                                        <span class="badge bg-primary text-white">Ativo</span>
                                     @endif
                                 </td>
                                 <td class="align-middle">
