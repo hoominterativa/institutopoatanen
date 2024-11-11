@@ -2,10 +2,18 @@
 
 namespace App\Models\Portfolios;
 
+use Database\Factories\Portfolios\PORT06PortfoliosCategoryFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PORT06PortfoliosCategory extends Model
 {
+    use HasFactory;
+
+    protected static function newFactory()
+    {
+        return PORT06PortfoliosCategoryFactory::new();
+    }
 
     protected $table = "port06_portfolios_categories";
     protected $fillable = [
