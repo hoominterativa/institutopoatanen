@@ -224,7 +224,7 @@ class BRAN01Controller extends Controller
      */
     public static function section()
     {
-        $section = BRAN01BrandsSection::activeSection()->first();
+        $section = BRAN01BrandsSection::firstOrCreate();
         $brands = BRAN01Brands::active()->featured()->sorting()->get();
         switch(deviceDetect()) {
             case 'mobile':

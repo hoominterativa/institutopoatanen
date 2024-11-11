@@ -1,5 +1,5 @@
-@if ($section || $brands->count() > 0)
-    <section id="BRAN01" class="bran01">
+@if ($brands->count() > 0)
+    {{-- <section id="BRAN01" class="bran01">
         @if ($section)
             @if ($section->title_section || $section->subtitle_section || $section->description_section)
                 <header class="bran01__header">
@@ -23,7 +23,7 @@
 
                 </header>
             @endif
-        @endif
+        @endif --}}
 
         @if ($brands->count())
             <main class="bran01__content">
