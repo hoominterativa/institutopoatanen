@@ -1,4 +1,4 @@
-@if ($section || $topics->count()  )
+@if ($section->active == 1)
     <section id="TOPI01" class="topi01">
         @if ($section)
             @if ($section->title || $section->subtitle || $section->description)
