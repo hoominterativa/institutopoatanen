@@ -18,7 +18,7 @@ class CreatePort06PortfoliosGalleriesTable extends Migration
             $table->foreignId('portfolio_id')->constrained('port06_portfolios');
             $table->string('path_image')->nullable();
             $table->text('link_video')->nullable();
-            $table->integer('active')->default(0);
+            $table->integer('active')->default(1);
             $table->integer('sorting')->default(0);
             $table->timestamps();
         });

@@ -6,6 +6,7 @@
     ]) !!}
     @method('PUT')
     {!! Form::hidden('active_banner', $section->active_banner) !!}
+
 @else
     {!! Form::model(null, ['route' => 'admin.port06.section.store', 'class' => 'parsley-validate', 'files' => true]) !!}
 @endif
