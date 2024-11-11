@@ -363,7 +363,7 @@ return [
                 'routeName' => 'port06.category.page',
                 'relationship' => [
                     'category' => [
-                        'class' => App\Models\Portfolios\PORT04PortfoliosCategory::class,
+                        'class' => App\Models\Portfolios\PORT06PortfoliosCategory::class,
                         'column' => 'category_id',
                         'seedQty' => 0,
                     ]

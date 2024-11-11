@@ -620,6 +620,37 @@
                     "activeCrop": "false"
                 }
             }
+        },
+        "PORT06": {
+            "path_image_box": {
+                "width": "327",
+                "height": "365",
+                "activeCrop": "false"
+            },
+            "path_image": {
+                "width": "1500",
+                "height": "300",
+                "activeCrop": "false"
+            },
+            "Banner": {
+                "path_image_desktop_banner": {
+                    "width": "1500",
+                    "height": "286",
+                    "activeCrop": "false"
+                },
+                "path_image_mobile_banner": {
+                    "width": "400",
+                    "height": "286",
+                    "activeCrop": "true"
+                }
+            },
+            "Gallery": {
+                "path_image": {
+                    "width": "417",
+                    "height": "350",
+                    "activeCrop": "false"
+                }
+            }
         }
     },
 

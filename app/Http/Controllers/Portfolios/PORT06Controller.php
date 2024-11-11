@@ -32,7 +32,7 @@ class PORT06Controller extends Controller
             'section' => $sections,
             'categories' => $categories,
             'galleries' => $galleries,
-            'cropSetting' => getCropImage('Portfolios', 'PORT05')
+            'cropSetting' => getCropImage('Portfolios', 'PORT06')
         ]);
     }
 
@@ -40,7 +40,9 @@ class PORT06Controller extends Controller
     {
         $categories = PORT06PortfoliosCategory::sorting()->pluck('title', 'id');
         return view('Admin.cruds.Portfolios.PORT06.create', [
-            'categories' => $categories
+            'categories' => $categories,
+            'cropSetting' => getCropImage('Portfolios', 'PORT06')
+
         ]);
     }
     public function store(Request $request)
@@ -63,7 +65,8 @@ class PORT06Controller extends Controller
 
         if (PORT06Portfolios::create($data)) {
             Session::flash('success', 'Item cadastrado com sucesso');
-            return redirect()->route('admin.code.index');
+            $portfolio = PORT06Portfolios::orderBy('id', 'desc')->first();
+            return redirect()->route('admin.port06.edit', ['PORT06Portfolios' => $portfolio->id]);
         } else {
             Storage::delete($path_image);
             Storage::delete($path_image_box);
@@ -84,6 +87,8 @@ class PORT06Controller extends Controller
         return view('Admin.cruds.Portfolios.PORT06.edit', [
             'categories' => $categories,
             'portfolio' => $PORT06Portfolios,
+            'cropSetting' => getCropImage('Portfolios', 'PORT06')
+
         ]);
     }
 
