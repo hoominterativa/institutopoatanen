@@ -646,8 +646,8 @@
             },
             "Gallery": {
                 "path_image": {
-                    "width": "417",
-                    "height": "350",
+                    "width": "390",
+                    "height": "101",
                     "activeCrop": "false"
                 }
             }
