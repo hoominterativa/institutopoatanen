@@ -16,7 +16,8 @@ class PORT06SectionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['active_section'] = $request->active ? 1 : 0;
+        $data['active_section'] = $request->active_section ? 1 : 0;
+
         $data['active_banner'] = $request->active_banner ? 1 : 0;
 
 
@@ -32,7 +33,8 @@ class PORT06SectionController extends Controller
     public function update(Request $request, PORT06PortfoliosSection $PORT06PortfoliosSection)
     {
         $data = $request->all();
-        $data['active_section'] = $request->active ? 1 : 0;
+
+        $data['active_section'] = $request->active_section ? 1 : 0;
         
         $data['active_banner'] = $request->active_banner ? 1 : 0;
 

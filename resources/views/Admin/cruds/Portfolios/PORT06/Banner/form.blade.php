@@ -6,13 +6,14 @@
     ]) !!}
     @method('PUT')
     {!! Form::hidden('active_section', $section->active_section) !!}
+
 @endif
 
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body" id="tooltip-container">
             <div class="mb-3">
-                {!! Form::label('title_page', 'Título', ['class' => 'form-label']) !!}
+                {!! Form::label('title_page', 'Subtítulo', ['class' => 'form-label']) !!}
                 {!! Form::text('title_page', null, ['class' => 'form-control', 'id' => 'title_page']) !!}
             </div>
             <div class="mb-3">
