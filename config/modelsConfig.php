@@ -27,13 +27,13 @@ return [
                     'limit' => 'all',
                     'condition' => 'active=1{Ativos}',
                     'titleList' => 'title',
-                    // 'relation' => (object)[
-                    //     'category' =>(object)[
-                    //         'name' => 'Categoria',
-                    //         'titleList' => 'title',
-                    //         'condition' => 'active=1{Ativos}',
-                    //     ]
-                    // ],
+                    'relation' => (object)[
+                        'category' =>(object)[
+                            'name' => 'Categoria',
+                            'titleList' => 'title',
+                            'condition' => 'active=1{Ativos}',
+                        ]
+                    ],
                 ],
                 'config' => (object) [
                     'titleMenu' => 'Portifólio',

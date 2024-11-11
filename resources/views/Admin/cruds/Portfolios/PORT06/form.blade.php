@@ -26,17 +26,15 @@
                 {!! Form::text('title', null, [
                     'class' => 'form-control',
                     'id' => 'title',
-                    'placeholder' => 'First name',
-                    'required' => 'required',
+                    'placeholder' => 'Titulo',
                 ]) !!}
             </div>
             <div class="mb-3">
-                {!! Form::label('subtitle', 'Subtitulo', ['class' => 'form-label']) !!}
+                {!! Form::label('subtitle', 'Subtítulo', ['class' => 'form-label']) !!}
                 {!! Form::text('subtitle', null, [
                     'class' => 'form-control',
                     'id' => 'subtitle',
-                    'placeholder' => 'First name',
-                    'required' => 'required',
+                    'placeholder' => 'Subtítulo',
                 ]) !!}
             </div>
             <div class="basic-editor__content mb-3">
@@ -55,15 +53,15 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'path_image_box', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{-- {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}px! --}}
+                        {{$cropSetting->path_image_box->width}}x{{$cropSetting->path_image_box->height}}px!
                     </small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image_box', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            // 'data-status'=>$cropSetting->path_image->activeCrop, // px
-                            // 'data-min-width'=>$cropSetting->path_image->width, // px
-                            // 'data-min-height'=>$cropSetting->path_image->height, // px
+                            'data-status'=>$cropSetting->path_image_box->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image_box->width, // px
+                            'data-min-height'=>$cropSetting->path_image_box->height, // px
                             'data-box-height' => '225', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff',
                             'data-default-file' => isset($portfolio)
@@ -80,15 +78,15 @@
                 <div class="container-image-crop">
                     {!! Form::label('inputImage', 'Imagem', ['class' => 'form-label']) !!}
                     <small class="ms-2">Dimensões proporcionais mínimas
-                        {{-- {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}} --}}
+                        {{$cropSetting->path_image->width}}x{{$cropSetting->path_image->height}}
                         px!</small>
                     <label class="area-input-image-crop" for="inputImage">
                         {!! Form::file('path_image', [
                             'id' => 'inputImage',
                             'class' => 'inputImage',
-                            // 'data-status'=>$cropSetting->path_image->activeCrop, // px
-                            // 'data-min-width'=>$cropSetting->path_image->width, // px
-                            // 'data-min-height'=>$cropSetting->path_image->height, // px
+                            'data-status'=>$cropSetting->path_image->activeCrop, // px
+                            'data-min-width'=>$cropSetting->path_image->width, // px
+                            'data-min-height'=>$cropSetting->path_image->height, // px
                             'data-box-height' => '225', // Input height in the form
                             'accept' => '.jpg,.jpeg,.png,.gif,.bmp,.tiff',
                             'data-default-file' => isset($portfolio)

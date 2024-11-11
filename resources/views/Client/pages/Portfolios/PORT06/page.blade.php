@@ -16,7 +16,7 @@
             <menu class="port06-page__categories__swiper-wrapper swiper-wrapper">
                 @foreach ($categories as $category)
                     <a class="port06-page__categories__item swiper-slide"
-                        href="{{ route('port06.category.page', ['PORT06PortfoliosCategory' => $category->id]) }}"
+                        href="{{ route('port06.category.page', ['PORT06PortfoliosCategory' => $category->slug]) }}"
                         title="{{ $category->title }}">
                         {{ $category->title }}
                     </a>

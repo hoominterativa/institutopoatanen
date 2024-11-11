@@ -41,7 +41,6 @@ Route::prefix('painel')->middleware('auth')->group(function () use (&$route, $ro
     Route::post($route.'/gallries/sorting', [PORT06GalleryController::class, 'sorting'])->name('admin.'.$routeName.'.gallery.sorting');
 });
 // CLIENT
-// Route::get($route.'/portifolio', [PORT06Controller::class, 'page'])->name($routeName.'.page');
 Route::get($route.'/categoria/{PORT06PortfoliosCategory::slug}', [PORT06Controller::class, 'page'])->name($routeName.'.category.page');
 Route::get($route.'/{PORT06Portfolios:slug}', [PORT06Controller::class, 'show'])->name($routeName.'.show');
 

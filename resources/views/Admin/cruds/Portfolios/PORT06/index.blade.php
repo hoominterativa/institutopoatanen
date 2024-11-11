@@ -90,9 +90,9 @@
                                                                 type="checkbox"></label>
                                                     </th>
                                                     <th>Imagem</th>
-                                                    <th>First Name</th>
-                                                    <th>Last Name</th>
-                                                    <th>Job Title</th>
+                                                    <th>Titulo/Subtítulo</th>
+                                                    <th>Nome Categoria</th>
+                                                    <th>Paragrafo</th>
                                                     <th width="100px">Status</th>
                                                     <th width="90px">Ações</th>
                                                 </tr>
@@ -100,7 +100,7 @@
 
                                             <tbody data-route="{{ route('admin.port06.sorting') }}">
                                                 @foreach ($portfolios as $portfolio)
-                                                    <tr data-port06="{{ $portfolio->id }}">
+                                                    <tr data-code="{{ $portfolio->id }}">
                                                         <td class="align-middle"><span
                                                                 class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                         <td class="bs-checkbox align-middle">
@@ -114,8 +114,8 @@
                                                                 </div>
                                                             @endif
                                                         </td>
-                                                        <td class="align-middle">{{ $portfolio->title }}</td>
-                                                        <td class="align-middle">{{ $portfolio->subtitle }}</td>
+                                                        <td class="align-middle">{{ $portfolio->title }} / {{ $portfolio->subtitle }}</td>
+                                                        <th class="align-middle">{{ $portfolio->category->title }}</th>
                                                         <td class="align-middle">{!! substr($portfolio->paragraph, 0, 25) !!}</td>
                                                         <td class="align-middle">
                                                             @if ($portfolio->active)
