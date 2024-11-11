@@ -178,7 +178,7 @@ class TOPI03Controller extends Controller
     public static function section()
     {
         $topics = TOPI03Topics::active()->sorting()->get();
-        $section = TOPI03TopicsSection::active()->first();
+        $section = TOPI03TopicsSection::firstOrCreate();
         return view('Client.pages.Topics.TOPI03.section', [
             'topics' => $topics,
             'section' => $section
