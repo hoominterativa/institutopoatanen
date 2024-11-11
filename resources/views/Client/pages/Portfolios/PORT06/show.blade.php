@@ -31,7 +31,7 @@
         </section>
 
         <section class="port06-show__gallery">
-            @foreach($portfolio->galleries as $image)
+            @foreach($portfolio->galleriesExist as $image)
                 {{-- BACKEND EXEMPLO DE IMAGEM --}}
             @if($image->link_video)
 
