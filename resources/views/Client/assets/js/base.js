@@ -5,6 +5,7 @@ import '../../pages/Slides/SLID01/src/main';
 import '../../pages/Topics/TOPI03/src/main';
 import '../../pages/Services/SERV04/src/main';
 import '../../pages/Topics/TOPI01/src/main';
+import '../../pages/Portfolios/PORT06/src/main';
 import '../../pages/Topics/TOPI09/src/main';
 import '../../pages/Topics/TOPI02/src/main';
 import '../../pages/Galleries/GALL01/src/main';

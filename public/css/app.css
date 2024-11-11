@@ -166,20 +166,20 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .copa04-page__section-products, .copa04-page__faq, .copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .cota02__form, .cota02__topics, .topi10, .topi08, .topi101, .cont06, .bran01-page__main, .bran01, .topi05, .cont02, .cont05, .topi02, .topi09, .topi01, .serv04-page__services-section, .serv04-page__category-information, .serv04-page__categories, .serv04, .topi03, .slid01__item, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .cota02__banner, .bran01-page__banner, .serv04-page__banner {
+.comp01-page__content, .copa04-page__section-products, .copa04-page__faq, .copa04-page__additional-topics, .copa04-page__additional-content, .copa04-page__gallery-topics, .copa04-page__topics-carousel, .copa04-page__topics, .copa04-page__highlighted, .copa04-page__video-section, .copa04-page__hero, .cota02__form, .cota02__topics, .topi10, .topi08, .topi101, .cont06, .bran01-page__main, .bran01, .topi05, .cont02, .cont05, .topi02, .topi09, .port06-show__content, .port06-page__list, .port06-page__categories, .port06, .topi01, .serv04-page__services-section, .serv04-page__category-information, .serv04-page__categories, .serv04, .topi03, .slid01__item, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .cota02__banner, .bran01-page__banner, .port06-show__banner, .port06-page__banner, .serv04-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
   padding-left: 5vw;
 }
-.topi08__header__title, .comp01-page__banner__title, .cota02__banner__title, .bran01-page__banner__title, .serv04-page__banner__title, .slid01__item__header__title {
+.topi08__header__title, .comp01-page__banner__title, .cota02__banner__title, .bran01-page__banner__title, .port06-show__banner__title, .port06-page__banner__title, .serv04-page__banner__title, .slid01__item__header__title {
   font: 700 3.125rem "Ubuntu", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.0125rem;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .topi08__header__title, .comp01-page__banner__title, .cota02__banner__title, .bran01-page__banner__title, .serv04-page__banner__title, .slid01__item__header__title {
+  .topi08__header__title, .comp01-page__banner__title, .cota02__banner__title, .bran01-page__banner__title, .port06-show__banner__title, .port06-page__banner__title, .serv04-page__banner__title, .slid01__item__header__title {
     font-size: 2.5rem;
     line-height: 90%;
   }
@@ -187,23 +187,23 @@ details .details-content {
 .slid01__item__header__title {
   color: #000;
 }
-.topi08__header__title, .comp01-page__banner__title, .cota02__banner__title, .bran01-page__banner__title, .serv04-page__banner__title {
+.topi08__header__title, .comp01-page__banner__title, .cota02__banner__title, .bran01-page__banner__title, .port06-show__banner__title, .port06-page__banner__title, .serv04-page__banner__title {
   color: #404040;
 }
-.cota02__form__header__title, .topi10__header__title, .topi101__header__title, .cont06__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont05__header__title, .topi02__header__title, .topi01__header__title, .serv04__header__title, .topi03__header__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .serv04-page__services-section__information__description__title, .serv04-page__category-information__description__title {
+.cota02__form__header__title, .topi10__header__title, .topi101__header__title, .cont06__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont05__header__title, .topi02__header__title, .port06-show__content__header__title, .port06__header__title, .topi01__header__title, .serv04__header__title, .topi03__header__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .serv04-page__services-section__information__description__title, .serv04-page__category-information__description__title {
   font: 700 2.5rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .cota02__form__header__title, .topi10__header__title, .topi101__header__title, .cont06__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont05__header__title, .topi02__header__title, .topi01__header__title, .serv04__header__title, .topi03__header__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .serv04-page__services-section__information__description__title, .serv04-page__category-information__description__title {
+  .cota02__form__header__title, .topi10__header__title, .topi101__header__title, .cont06__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont05__header__title, .topi02__header__title, .port06-show__content__header__title, .port06__header__title, .topi01__header__title, .serv04__header__title, .topi03__header__title, .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .serv04-page__services-section__information__description__title, .serv04-page__category-information__description__title {
     font-size: 1.875rem;
   }
 }
 .copa04-page__section-products__header__title, .copa04-page__faq__header__title, .copa04-page__additional-content__header__title, .copa04-page__gallery-topics__header__title, .copa04-page__topics-carousel__header__title, .copa04-page__topics__header__title, .copa04-page__highlighted__information__title, .copa04-page__video-section__title, .copa04-page__hero__information__header__title, .topi02__topics__item__title, .serv04-page__services-section__information__description__title, .serv04-page__category-information__description__title {
   color: #000;
 }
-.cota02__form__header__title, .topi10__header__title, .topi101__header__title, .cont06__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont05__header__title, .topi02__header__title, .topi01__header__title, .serv04__header__title, .topi03__header__title {
+.cota02__form__header__title, .topi10__header__title, .topi101__header__title, .cont06__header__title, .bran01__header__title, .bran01-page__main__header__title, .cont02__information__title, .cont05__header__title, .topi02__header__title, .port06-show__content__header__title, .port06__header__title, .topi01__header__title, .serv04__header__title, .topi03__header__title {
   color: #404040;
 }
 .confirmation-page__title, .cota02__banner__subtitle, .bran01-page__banner__subtitle, .slid01__item__header__subtitle, .comp01-page__content__header__title, .cota02__topics__item__title, .serv04-page__services-section__carousel__item, .form01__main__information__title {
@@ -231,18 +231,21 @@ details .details-content {
 .confirmation-page__title {
   color: #cacaca;
 }
-.topi10__header__subtitle, .topi08__header__subtitle, .topi101__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont05__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .serv04__header__subtitle, .topi03__header__subtitle, .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .serv04-page__services-section__information__description__subtitle, .topi10__topics__item__header__title, .topi05__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv04-page__categories__item {
+.topi10__header__subtitle, .topi08__header__subtitle, .topi101__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont05__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .serv04__header__subtitle, .topi03__header__subtitle, .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .serv04-page__services-section__information__description__subtitle, .port06-show__content__header__sutitle, .port06__header__subtitle, .topi10__topics__item__header__title, .topi05__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port06-page__categories__item, .serv04-page__categories__item {
   font: 700 1.25rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .topi10__header__subtitle, .topi08__header__subtitle, .topi101__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont05__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .serv04__header__subtitle, .topi03__header__subtitle, .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .serv04-page__services-section__information__description__subtitle, .topi10__topics__item__header__title, .topi05__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv04-page__categories__item {
+  .topi10__header__subtitle, .topi08__header__subtitle, .topi101__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont05__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .serv04__header__subtitle, .topi03__header__subtitle, .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .serv04-page__services-section__information__description__subtitle, .port06-show__content__header__sutitle, .port06__header__subtitle, .topi10__topics__item__header__title, .topi05__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port06-page__categories__item, .serv04-page__categories__item {
     font-size: 1.125rem;
   }
 }
-.topi10__topics__item__header__title, .topi05__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .serv04-page__categories__item {
+.topi10__topics__item__header__title, .topi05__item__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .port06-page__categories__item, .serv04-page__categories__item {
   color: #000;
+}
+.port06-show__content__header__sutitle, .port06__header__subtitle {
+  color: #404040;
 }
 .copa04-page__section-products__header__subtitle, .copa04-page__faq__header__subtitle, .copa04-page__additional-content__header__subtitle, .copa04-page__gallery-topics__header__subtitle, .copa04-page__topics-carousel__header__subtitle, .copa04-page__topics__header__subtitle, .copa04-page__highlighted__information__subtitle, .copa04-page__video-section__subtitle, .serv04-page__services-section__information__description__subtitle {
   color: #7c7c7c;
@@ -250,28 +253,28 @@ details .details-content {
 .topi10__header__subtitle, .topi08__header__subtitle, .topi101__header__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .cont02__information__subtitle, .cont05__header__subtitle, .topi02__header__subtitle, .topi01__header__subtitle, .serv04__header__subtitle, .topi03__header__subtitle {
   color: #b3b3b3;
 }
-.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .topi01__topics__item__title, .serv04__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn, .topi08__topics__item__content__title {
+.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .port06__main__carousel__item__title, .port06-page__list__item__title, .topi01__topics__item__title, .serv04__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn, .topi08__topics__item__content__title {
   font: 700 1.125rem "Ubuntu", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .topi01__topics__item__title, .serv04__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn, .topi08__topics__item__content__title {
+  .copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .port06__main__carousel__item__title, .port06-page__list__item__title, .topi01__topics__item__title, .serv04__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn, .topi08__topics__item__content__title {
     font-size: 1.063rem;
   }
 }
 .topi08__topics__item__content__title {
   color: #fff;
 }
-.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .topi01__topics__item__title, .serv04__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
+.copa04-page__section-products__carousel__item__price__paragraph b, .copa04-page__section-products__carousel__item__title, .copa04-page__additional-topics__carousel__item__title, .copa04-page__additional-topics__carousel__item--video__title, .copa04-page__gallery-topics__carousel__item__information__title, .copa04-page__topics-carousel__carousel__item__title, .copa04-page__topics__main__item__title, .port06__main__carousel__item__title, .port06-page__list__item__title, .topi01__topics__item__title, .serv04__services__item__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.topi10__header__paragraph, .topi08__header__paragraph, .topi101__timeline__item__information__paragraph, .cont06__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .topi05__item__paragraph, .cont05__main__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .slid01__item__header__description, .serv04-page__banner__paragraph, .cota02__form__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .cota02__form__footer__cta, .topi08__cta, .cont06__cta, .bran01__cta, .cont02__information__cta, .cont05__main__cta, .serv04__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .topi09__topics__item__information__title, .serv04-page__services-section__information__description__paragraph, .topi03__topics__item__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .serv04-page__services-section__accordion__item__title, .side02__cta, .head02__navigation__item__cta {
+.topi10__header__paragraph, .port06-show__content__header__paragraph, .port06__header__paragraph, .topi08__header__paragraph, .topi101__timeline__item__information__paragraph, .cont06__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .topi05__item__paragraph, .cont05__main__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .slid01__item__header__description, .serv04-page__banner__paragraph, .cota02__form__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .cota02__form__footer__cta, .topi08__cta, .cont06__cta, .bran01__cta, .cont02__information__cta, .cont05__main__cta, .port06__main__cta, .serv04__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .topi09__topics__item__information__title, .serv04-page__services-section__information__description__paragraph, .topi03__topics__item__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .serv04-page__services-section__accordion__item__title, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.topi10__header__paragraph p, .topi08__header__paragraph p, .topi101__timeline__item__information__paragraph p, .cont06__header__paragraph p, .bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .topi05__item__paragraph p, .cont05__main__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .serv04-page__category-information__description__paragraph p, .serv04__header__paragraph p, .slid01__item__header__description p, .serv04-page__banner__paragraph p, .cota02__form__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__carousel__item--video__cta p, .copa04-page__additional-topics__carousel__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .cota02__form__footer__cta p, .topi08__cta p, .cont06__cta p, .bran01__cta p, .cont02__information__cta p, .cont05__main__cta p, .serv04__cta p, .slid01__item__header__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .topi09__topics__item__information__title p, .serv04-page__services-section__information__description__paragraph p, .topi03__topics__item__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .copa04-page__faq__item__title p, .serv04-page__services-section__accordion__item__title p, .side02__cta p, .head02__navigation__item__cta p {
+.topi10__header__paragraph p, .port06-show__content__header__paragraph p, .port06__header__paragraph p, .topi08__header__paragraph p, .topi101__timeline__item__information__paragraph p, .cont06__header__paragraph p, .bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .topi05__item__paragraph p, .cont05__main__paragraph p, .topi02__header__paragraph p, .topi01__header__paragraph p, .serv04-page__category-information__description__paragraph p, .serv04__header__paragraph p, .slid01__item__header__description p, .serv04-page__banner__paragraph p, .cota02__form__header__paragraph p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .copa04-page__section-products__carousel__item__cta p, .copa04-page__additional-topics__carousel__item--video__cta p, .copa04-page__additional-topics__carousel__item__cta p, .copa04-page__additional-content__header__cta p, .copa04-page__topics-carousel__cta p, .copa04-page__topics__cta p, .copa04-page__highlighted__information__cta p, .copa04-page__hero__information__cta p, .copa04-page__hero__aside__cta p, .cota02__form__footer__cta p, .topi08__cta p, .cont06__cta p, .bran01__cta p, .cont02__information__cta p, .cont05__main__cta p, .port06__main__cta p, .serv04__cta p, .slid01__item__header__cta p, .form01__main__form__footer__cta p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .copa04-page__section-products__header__paragraph p, .copa04-page__faq__header__paragraph p, .copa04-page__additional-content__header__paragraph p, .copa04-page__gallery-topics__header__paragraph p, .copa04-page__topics-carousel__header__paragraph p, .copa04-page__topics__header__paragraph p, .copa04-page__highlighted__information__paragraph p, .copa04-page__video-section__paragraph p, .copa04-page__hero__information__paragraph p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .topi09__topics__item__information__title p, .serv04-page__services-section__information__description__paragraph p, .topi03__topics__item__title p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .copa04-page__faq__item__title p, .serv04-page__services-section__accordion__item__title p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -279,7 +282,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .topi10__header__paragraph, .topi08__header__paragraph, .topi101__timeline__item__information__paragraph, .cont06__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .topi05__item__paragraph, .cont05__main__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .slid01__item__header__description, .serv04-page__banner__paragraph, .cota02__form__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .cota02__form__footer__cta, .topi08__cta, .cont06__cta, .bran01__cta, .cont02__information__cta, .cont05__main__cta, .serv04__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .topi09__topics__item__information__title, .serv04-page__services-section__information__description__paragraph, .topi03__topics__item__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .serv04-page__services-section__accordion__item__title, .side02__cta, .head02__navigation__item__cta {
+  .topi10__header__paragraph, .port06-show__content__header__paragraph, .port06__header__paragraph, .topi08__header__paragraph, .topi101__timeline__item__information__paragraph, .cont06__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .topi05__item__paragraph, .cont05__main__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .slid01__item__header__description, .serv04-page__banner__paragraph, .cota02__form__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .cota02__form__footer__cta, .topi08__cta, .cont06__cta, .bran01__cta, .cont02__information__cta, .cont05__main__cta, .port06__main__cta, .serv04__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .topi09__topics__item__information__title, .serv04-page__services-section__information__description__paragraph, .topi03__topics__item__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .serv04-page__services-section__accordion__item__title, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
@@ -289,18 +292,21 @@ details .details-content {
 .comp01-page__content__paragraph, .copa04-page__section-products__header__paragraph, .copa04-page__faq__header__paragraph, .copa04-page__additional-content__header__paragraph, .copa04-page__gallery-topics__header__paragraph, .copa04-page__topics-carousel__header__paragraph, .copa04-page__topics__header__paragraph, .copa04-page__highlighted__information__paragraph, .copa04-page__video-section__paragraph, .copa04-page__hero__information__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .topi09__topics__item__information__title, .serv04-page__services-section__information__description__paragraph, .topi03__topics__item__title, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .copa04-page__faq__item__title, .serv04-page__services-section__accordion__item__title {
   color: #000;
 }
-.cota02__form__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .cota02__form__footer__cta, .topi08__cta, .cont06__cta, .bran01__cta, .cont02__information__cta, .cont05__main__cta, .serv04__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
+.cota02__form__header__paragraph, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .cota02__form__footer__cta, .topi08__cta, .cont06__cta, .bran01__cta, .cont02__information__cta, .cont05__main__cta, .port06__main__cta, .serv04__cta, .slid01__item__header__cta, .form01__main__form__footer__cta, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
 .topi08__header__paragraph, .topi101__timeline__item__information__paragraph, .cont06__header__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .topi05__item__paragraph, .cont05__main__paragraph, .topi02__header__paragraph, .topi01__header__paragraph, .serv04-page__category-information__description__paragraph, .serv04__header__paragraph, .slid01__item__header__description, .serv04-page__banner__paragraph {
   color: #7c7c7c;
 }
-.copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .topi10__topics__item__paragraph, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi01__topics__item__paragraph, .serv04__services__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .copa04-page__faq__item__paragraph, .serv04-page__services-section__accordion__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .topi08__topics__item__content__information {
+.port06-show__content__header__paragraph, .port06__header__paragraph {
+  color: #b3b3b3;
+}
+.copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .topi10__topics__item__paragraph, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi09__topics__item__information__paragraph, .port06__main__carousel__item__paragraph, .port06-page__list__item__paragraph, .topi01__topics__item__paragraph, .serv04__services__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .copa04-page__faq__item__paragraph, .serv04-page__services-section__accordion__item__paragraph, .comp01-page__content__archives__item, .port06__main__carousel__item__category, .port06-page__list__item__category, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .topi08__topics__item__content__information {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.copa04-page__section-products__carousel__item__price__paragraph p, .copa04-page__section-products__carousel__item__price__title p, .copa04-page__section-products__carousel__item__paragraph p, .copa04-page__section-products__carousel__item__subtitle p, .copa04-page__section-products__carousel__item__tag p, .topi10__topics__item__paragraph p, .cont02__information__paragraph p, .topi02__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .topi01__topics__item__paragraph p, .serv04__services__item__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .copa04-page__faq__item__paragraph p, .serv04-page__services-section__accordion__item__paragraph p, .comp01-page__content__archives__item p, .foot02__copyright__compliances__item p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p, .topi08__topics__item__content__information p {
+.copa04-page__section-products__carousel__item__price__paragraph p, .copa04-page__section-products__carousel__item__price__title p, .copa04-page__section-products__carousel__item__paragraph p, .copa04-page__section-products__carousel__item__subtitle p, .copa04-page__section-products__carousel__item__tag p, .topi10__topics__item__paragraph p, .cont02__information__paragraph p, .topi02__topics__item__paragraph p, .topi09__topics__item__information__paragraph p, .port06__main__carousel__item__paragraph p, .port06-page__list__item__paragraph p, .topi01__topics__item__paragraph p, .serv04__services__item__paragraph p, .topi03__topics__item__paragraph p, .topi03__header__paragraph p, .copa04-page__faq__item__paragraph p, .serv04-page__services-section__accordion__item__paragraph p, .comp01-page__content__archives__item p, .port06__main__carousel__item__category p, .port06-page__list__item__category p, .foot02__copyright__compliances__item p, .copa04-page__gallery-topics__carousel__item__information__paragraph p, .copa04-page__topics-carousel__carousel__item__paragraph p, .copa04-page__topics__main__item__paragraph p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p, .topi08__topics__item__content__information p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -308,7 +314,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .topi10__topics__item__paragraph, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi01__topics__item__paragraph, .serv04__services__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .copa04-page__faq__item__paragraph, .serv04-page__services-section__accordion__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .topi08__topics__item__content__information {
+  .copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .topi10__topics__item__paragraph, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi09__topics__item__information__paragraph, .port06__main__carousel__item__paragraph, .port06-page__list__item__paragraph, .topi01__topics__item__paragraph, .serv04__services__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .copa04-page__faq__item__paragraph, .serv04-page__services-section__accordion__item__paragraph, .comp01-page__content__archives__item, .port06__main__carousel__item__category, .port06-page__list__item__category, .foot02__copyright__compliances__item, .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .topi08__topics__item__content__information {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -319,10 +325,10 @@ details .details-content {
 .copa04-page__gallery-topics__carousel__item__information__paragraph, .copa04-page__topics-carousel__carousel__item__paragraph, .copa04-page__topics__main__item__paragraph, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance {
   color: #000;
 }
-.comp01-page__content__archives__item, .foot02__copyright__compliances__item {
+.comp01-page__content__archives__item, .port06__main__carousel__item__category, .port06-page__list__item__category, .foot02__copyright__compliances__item {
   color: #404040;
 }
-.copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .topi10__topics__item__paragraph, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi09__topics__item__information__paragraph, .topi01__topics__item__paragraph, .serv04__services__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .copa04-page__faq__item__paragraph, .serv04-page__services-section__accordion__item__paragraph {
+.copa04-page__section-products__carousel__item__price__paragraph, .copa04-page__section-products__carousel__item__price__title, .copa04-page__section-products__carousel__item__paragraph, .copa04-page__section-products__carousel__item__subtitle, .copa04-page__section-products__carousel__item__tag, .topi10__topics__item__paragraph, .cont02__information__paragraph, .topi02__topics__item__paragraph, .topi09__topics__item__information__paragraph, .port06__main__carousel__item__paragraph, .port06-page__list__item__paragraph, .topi01__topics__item__paragraph, .serv04__services__item__paragraph, .topi03__topics__item__paragraph, .topi03__header__paragraph, .copa04-page__faq__item__paragraph, .serv04-page__services-section__accordion__item__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -332,7 +338,7 @@ details .details-content {
   width: 2rem;
   height: 2rem;
 }
-.comp01-page__banner, .cota02__banner, .bran01-page__banner, .serv04-page__banner {
+.comp01-page__banner, .cota02__banner, .bran01-page__banner, .port06-show__banner, .port06-page__banner, .serv04-page__banner {
   width: 100%;
   padding-top: 6.5rem;
   padding-bottom: 6.5rem;
@@ -345,7 +351,7 @@ details .details-content {
   justify-content: center;
   align-items: start;
 }
-.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .cota02__form__footer__cta, .topi08__cta, .cont06__cta, .bran01__cta, .cont02__information__cta, .cont05__main__cta, .serv04__cta, .slid01__item__header__cta, .form01__main__form__footer__cta {
+.copa04-page__section-products__carousel__item__cta, .copa04-page__additional-topics__carousel__item--video__cta, .copa04-page__additional-topics__carousel__item__cta, .copa04-page__additional-content__header__cta, .copa04-page__topics-carousel__cta, .copa04-page__topics__cta, .copa04-page__highlighted__information__cta, .copa04-page__hero__information__cta, .copa04-page__hero__aside__cta, .cota02__form__footer__cta, .topi08__cta, .cont06__cta, .bran01__cta, .cont02__information__cta, .cont05__main__cta, .port06__main__cta, .serv04__cta, .slid01__item__header__cta, .form01__main__form__footer__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -357,11 +363,11 @@ details .details-content {
   border: none;
   font-weight: 700;
 }
-.copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__carousel__item--video__cta:focus, .copa04-page__additional-topics__carousel__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus, .cota02__form__footer__cta:focus, .topi08__cta:focus, .cont06__cta:focus, .bran01__cta:focus, .cont02__information__cta:focus, .cont05__main__cta:focus, .serv04__cta:focus, .slid01__item__header__cta:focus, .form01__main__form__footer__cta:focus {
+.copa04-page__section-products__carousel__item__cta:focus, .copa04-page__additional-topics__carousel__item--video__cta:focus, .copa04-page__additional-topics__carousel__item__cta:focus, .copa04-page__additional-content__header__cta:focus, .copa04-page__topics-carousel__cta:focus, .copa04-page__topics__cta:focus, .copa04-page__highlighted__information__cta:focus, .copa04-page__hero__information__cta:focus, .copa04-page__hero__aside__cta:focus, .cota02__form__footer__cta:focus, .topi08__cta:focus, .cont06__cta:focus, .bran01__cta:focus, .cont02__information__cta:focus, .cont05__main__cta:focus, .port06__main__cta:focus, .serv04__cta:focus, .slid01__item__header__cta:focus, .form01__main__form__footer__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
-.serv04-page__categories__item {
+.port06-page__categories__item, .serv04-page__categories__item {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -374,7 +380,7 @@ details .details-content {
   border: none;
   background-color: #efefef;
 }
-.active.serv04-page__categories__item {
+.active.port06-page__categories__item, .active.serv04-page__categories__item {
   background-color: #cacaca;
 }
 .topi08__topics__carousel .swiper-pagination-bullets {
@@ -2802,6 +2808,185 @@ body .owl-dots .owl-dot.active {
 }
 .topi01__topics__item__paragraph {
   text-align: center;
+}
+
+/* BEGIN STYLE */
+.port06 {
+  overflow: hidden; /* prevenção do shift da animação*/
+}
+.port06__header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.port06__header__subtitle {
+  margin-bottom: 0;
+}
+.port06__header__title {
+  margin-bottom: 0.25rem;
+}
+.port06__header__paragraph {
+  width: 100%;
+  max-width: 938px;
+  text-align: center;
+}
+.port06__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+.port06__main__carousel {
+  width: 100%;
+}
+.port06__main__carousel__item, .port06-page__list__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  position: relative;
+}
+.port06__main__carousel__item__image, .port06-page__list__item__image {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  margin-bottom: 0.9375rem;
+}
+.port06__main__carousel__item__category, .port06-page__list__item__category {
+  text-align: left;
+}
+.port06__main__carousel__item__title, .port06-page__list__item__title {
+  text-align: left;
+  margin-bottom: 0.5625rem;
+}
+.port06__main__carousel__item__paragraph, .port06-page__list__item__paragraph {
+  text-align: left;
+}
+.port06__main__cta {
+  margin-top: 2rem;
+}
+
+.port06-page__categories {
+  width: 100%;
+}
+.port06-page__list {
+  padding-top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2.375rem 0.125rem;
+}
+.port06-page__list__item {
+  width: calc(25% - 0.125rem * 3 / 4);
+}
+@media (max-width: 991.98px) {
+  .port06-page__list__item {
+    width: calc(33.3333333333% - 0.125rem * 2 / 3);
+  }
+}
+@media (max-width: 767.98px) {
+  .port06-page__list__item {
+    width: calc(50% - 0.125rem * 1 / 2);
+  }
+}
+@media (max-width: 575.98px) {
+  .port06-page__list__item {
+    width: 100%;
+  }
+}
+.port06-show__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.port06-show__content__image {
+  width: 40%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (max-width: 991.98px) {
+  .port06-show__content__image {
+    width: 100%;
+  }
+}
+.port06-show__content__header {
+  width: 50%;
+}
+@media (max-width: 991.98px) {
+  .port06-show__content__header {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+.port06-show__content__header__sutitle {
+  text-align: left;
+  margin-bottom: 0.125rem;
+}
+.port06-show__content__header__title {
+  text-align: left;
+  margin-bottom: 2.75rem;
+}
+.port06-show__gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+}
+.port06-show__gallery__image {
+  width: 100%;
+  height: auto;
+  max-height: 100dvh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.port06-show__gallery__video {
+  width: 100%;
+  height: auto;
+  max-height: 100dvh;
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.port06-show__gallery__video__button {
+  width: 5.5rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border: none;
+}
+.port06-show__gallery__video__button__icon {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.port06-show__gallery__video__iframe {
+  width: 100%;
+  height: 100%;
 }
 
 /* BEGIN STYLE */
