@@ -12761,16 +12761,6 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.topi09__topics__caro
 
 /***/ }),
 
-/***/ "./resources/views/Client/pages/Topics/TOPI10/src/main.js":
-/*!****************************************************************!*\
-  !*** ./resources/views/Client/pages/Topics/TOPI10/src/main.js ***!
-  \****************************************************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
 /***/ "./resources/views/Client/pages/Topics/TOPI101/src/main.js":
 /*!*****************************************************************!*\
   !*** ./resources/views/Client/pages/Topics/TOPI101/src/main.js ***!
@@ -12818,6 +12808,16 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.topi102__topics__car
     prevEl: ".topi102__topics__carousel__nav__swiper-button-prev"
   }
 });
+
+/***/ }),
+
+/***/ "./resources/views/Client/pages/Topics/TOPI10/src/main.js":
+/*!****************************************************************!*\
+  !*** ./resources/views/Client/pages/Topics/TOPI10/src/main.js ***!
+  \****************************************************************/
+/***/ (() => {
+
+
 
 /***/ }),
 
