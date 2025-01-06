@@ -318,7 +318,7 @@ if (!function_exists('getUri')) {
 
                     return $urlPath . $query . $fragment;
                 } else {
-                    return $url.'aa';
+                    return $url;
                 }
             } else {
                 return url($url);

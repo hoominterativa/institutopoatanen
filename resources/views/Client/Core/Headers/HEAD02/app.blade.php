@@ -10,7 +10,7 @@
 
     <ul class="head02__navigation">
         <li class="head02__navigation__item">
-            <a title="Home" href="{{ route('home') }}" class="head02__navigation__item__link">Home</a>
+            <a title="Home" href="{{ route('home') }}" class="head02__navigation__item__link">HOME</a>
         </li>
 
         @foreach ($listMenu as $module => $menu)
