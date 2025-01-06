@@ -26,7 +26,7 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'BANER',
+                    'titlePanel' => 'Banner',
                     'iconPanel' => 'mdi-projector-screen'
                 ]
             ],
@@ -66,10 +66,10 @@ return [
         ],
         'Abouts' => (object) [
             'ABOU01' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
-                'ViewListFooter' => false,
+                'ViewListFooter' => true,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'IncludeCore' => (object) [
                     'include' => true,
