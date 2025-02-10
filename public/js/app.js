@@ -12459,6 +12459,29 @@ if (menuLinks.length > 0) {
     });
   });
 }
+// Observe all sections with the "hidden" class
+document.addEventListener('DOMContentLoaded', function () {
+  // Seletor para todos os elementos com a classe boxAnimate
+  document.querySelectorAll('.boxAnimate').forEach(function (element) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          // Adiciona a classe de animação desejada do Animate.css
+          el.classList.add('animate');
+          // Remove a classe boxAnimate, se não for mais necessária
+          el.classList.remove('boxAnimate');
+          // Para de observar o elemento após a animação
+          observer.unobserve(el);
+        }
+      });
+    }, {
+      threshold: 0.1
+    }); // 10% do elemento deve estar visível
+
+    observer.observe(element);
+  });
+});
 
 /***/ }),
 
@@ -12976,7 +12999,31 @@ __webpack_require__.r(__webpack_exports__);
 
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.slid01', {
   slidesPerView: 1,
-  spaceBetween: 8
+  loop: true,
+  pagination: {
+    el: '.slid01__swiper-pagination',
+    clickable: true
+  },
+  autoplay: {
+    delay: 80000,
+    disableOnInteraction: false
+  },
+  speed: 900,
+  // 500 milissegundos para a transição
+  effect: 'fade',
+  // ou 'fade', 'cube', etc.
+  on: {
+    slideChangeTransitionStart: function slideChangeTransitionStart() {
+      // Remove a classe de animação dos slides
+      this.slides.forEach(function (slide) {
+        slide.classList.remove('swiper-slide-active');
+      });
+    },
+    slideChangeTransitionEnd: function slideChangeTransitionEnd() {
+      // Adiciona a classe ao slide ativo
+      this.slides[this.activeIndex].classList.add('swiper-slide-active');
+    }
+  }
 });
 
 /***/ }),

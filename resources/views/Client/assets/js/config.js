@@ -591,3 +591,24 @@ if (menuLinks.length > 0) {
         });
     });
 }
+// Observe all sections with the "hidden" class
+document.addEventListener('DOMContentLoaded', () => {
+    // Seletor para todos os elementos com a classe boxAnimate
+    document.querySelectorAll('.boxAnimate').forEach(element => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    // Adiciona a classe de animação desejada do Animate.css
+                    el.classList.add('animate');
+                    // Remove a classe boxAnimate, se não for mais necessária
+                    el.classList.remove('boxAnimate');
+                    // Para de observar o elemento após a animação
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.1 }); // 10% do elemento deve estar visível
+
+        observer.observe(element);
+    });
+});
