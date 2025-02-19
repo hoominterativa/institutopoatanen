@@ -4,8 +4,8 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD03',
-            'themeMenu' => 'SIDE03'
+            'Code' => 'HEAD02',
+            'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
             'Code' => 'FOOT02',
@@ -31,105 +31,20 @@ return [
                 ]
             ],
         ],
-        'Contents' => (object) [
-            'CONT08' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo08',
-                    'iconPanel' => 'mdi-view-split-horizontal'
-                ]
-            ],
-        ],
-        'Contents.1' => (object) [
-            'CONT02' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo02',
-                    'iconPanel' => 'mdi-table-of-contents'
-                ]
-            ],
-        ],
-        'Contents.2' => (object) [
-            'CONT06' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
+        'Topics' => (object) [
+            'TOPI09' => (object)[
+            'ViewHome' => true,
+            'ViewListMenu' => false,
+            'ViewListPanel' => true,
+            'ViewListFooter' => false,
+            'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
                 'titleMenu' => '',
                 'anchor' => false,
                 'linkMenu' => '',
                 'iconMenu' => '',
-                'titlePanel' => 'Conteúdo06',
-                'iconPanel' => 'mdi-text-box'
-                ]
-            ],
-        ],
-        'Contents.3' => (object) [
-            'CONT02V1' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Conteúdo02V1',
-                    'iconPanel' => 'mdi-content-copy'
-                ]
-            ],
-        ],
-        'Galleries' => (object) [
-            'GALL01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Galeria',
-                    'iconPanel' => 'mdi-folder-multiple-image'
-                ]
-            ],
-        ], 
-        'Topics' => (object) [
-            'TOPI08' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Tópicos08',
-                    'iconPanel' => 'mdi-book-multiple-outline'
+                'titlePanel' => 'Tópicos09',
+                'iconPanel' => 'mdi-apps'
                 ]
             ],
         ],
@@ -150,39 +65,8 @@ return [
                 ],
             ],
         ],
-        'Portfolios.1' => (object) [
-            'PORT03' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques Home}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Portfolios03',
-                    'anchor' =>  false,
-                    'linkMenu' => 'port03.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Portfolios03',
-                    'iconPanel' => 'mdi-book-multiple-outline'
-                ]
-            ],
-        ],
-        'Topics.1' => (object) [
-            'TOPI01' => (object)[
+        'Contents' => (object) [
+            'CONT08' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
@@ -193,8 +77,25 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Tópicos01',
-                    'iconPanel' => 'mdi-book-multiple-outline'
+                    'titlePanel' => 'Conteúdo08',
+                    'iconPanel' => 'mdi-view-split-horizontal'
+                ]
+            ],
+        ],
+        'Contents.2' => (object) [
+            'CONT05' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Contents05',
+                    'iconPanel' => 'mdi-folder-outline'
                 ]
             ],
         ],
@@ -231,6 +132,23 @@ return [
                 ]
             ],
         ],
+        'Topics.2' => (object) [
+            'TOPI01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => '',
+                    'anchor' =>  false,
+                    'linkMenu' => '',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Tópicos01',
+                    'iconPanel' => 'mdi-book-multiple-outline'
+                ]
+            ],
+        ],
         'Contacts' => (object) [
             'COTA02' => (object)[
                 'ViewHome' => false,
@@ -258,29 +176,7 @@ return [
                 ]
             ],
         ],
-        'BlankPages' => (object) [
-            'BAPA01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => false,
-                'ViewListPanel' => false,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => 'Pagina em branco',
-                    'anchor' => false,
-                    'linkMenu' => 'bapa01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Pagina em branco',
-                    'iconPanel' => 'mdi-contacts'
-                ],
-                'IncludeSections' => (object) [
-                    'Contents.1' => ['CONT02'],
-                    'Contents.2' => ['CONT06'],
-                    'Contents.3' => ['CONT02V1'],
-                    'Galleries' =>  ['GALL01'],
-                ]
-            ],
-        ],
+ 
     ],
 
     'ModelsForm' => (object)[
