@@ -38,7 +38,7 @@
                                 data-bs-original-title="Informações que serão exibidas acima da lista de marcas na página interna."></i>
                         </a>
                     </li>
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a href="#section" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
                             Informações para home
@@ -46,7 +46,7 @@
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Informações que serão exibidas na home, caso esteja ativa."></i>
                         </a>
-                    </li> --}}
+                    </li>
                     <li class="nav-item">
                         <a href="#banner" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
@@ -138,9 +138,9 @@
                         </div>
                         <!-- end row -->
                     </div>
-                    {{-- <div class="tab-pane" id="section">
+                    <div class="tab-pane" id="section">
                         @include('Admin.cruds.Brands.BRAN01.Section.form')
-                    </div> --}}
+                    </div>
                     <div class="tab-pane" id="banner">
                         @include('Admin.cruds.Brands.BRAN01.Banner.form')
                     </div>
