@@ -128,7 +128,7 @@
 </div>
     {{-- end row --}}
 {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-<a href="{{route('admin.copa04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+<a href="{{route('admin.abou04.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
 {!! Form::close() !!}
 {{-- END #formAboutSection --}}
 
