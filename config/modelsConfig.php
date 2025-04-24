@@ -4,7 +4,7 @@ return [
     // Configure the model the header and footer, not change the module
     'InsertModelsCore' => (object)[
         'Headers' => (object)[
-            'Code' => 'HEAD05',
+            'Code' => 'HEAD02',
             'themeMenu' => 'SIDE02'
         ],
         'Footers' => (object)[
@@ -56,7 +56,6 @@ return [
                     'iconPanel' => 'mdi-alpha-s-box-outline'
                 ],
                 'IncludeSections' => (object) [
-                    'Topics.4' => 'TOPI05',
                     'Services' => 'SERV02'
                 ]
             ],
