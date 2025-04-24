@@ -84,7 +84,9 @@ return [
                     'titlePanel' => 'Sobre',
                     'iconPanel' => 'mdi-information'
                 ],
-                'IncludeSections' => (object) [],
+                'IncludeSections' => (object) [
+                    'Topics.1' => 'TOPI101'
+                ],
             ],
         ],
 
