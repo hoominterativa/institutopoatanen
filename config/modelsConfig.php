@@ -243,7 +243,7 @@ return [
 
         'Abouts' => (object) [
             'ABOU01' => (object)[
-                'ViewHome' => true,
+                'ViewHome' => false,
                 'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
