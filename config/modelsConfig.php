@@ -26,60 +26,8 @@ return [
                     'anchor' =>  false,
                     'linkMenu' => '',
                     'iconMenu' => '',
-                    'titlePanel' => 'Banner Principal',
+                    'titlePanel' => 'Slide',
                     'iconPanel' => 'mdi-projector-screen'
-                ]
-            ],
-        ],
-
-        'Contents' => (object) [
-            'CONT03' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => false,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Sobre Home',
-                    'iconPanel' => 'mdi-view-split-horizontal'
-                ]
-            ],
-        ], 
-        
-        'Services' => (object) [
-            'SERV04' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Serviços',
-                    'anchor' =>  false,
-                    'linkMenu' => 'serv04.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Serviços',
-                    'iconPanel' => 'mdi-alpha-s-box-outline'
-                ],
-                'IncludeSections' => (object) [
                 ]
             ],
         ],
@@ -92,180 +40,103 @@ return [
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'titleMenu' => 'Músicas',
+                    'anchor' =>  true,
+                    'linkMenu' => '#CONT08',
                     'iconMenu' => '',
-                    'titlePanel' => 'Números',
+                    'titlePanel' => 'Músicas',
                     'iconPanel' => 'mdi-view-split-horizontal'
                 ]
             ],
         ],
 
         'Contents.2' => (object) [
-            'CONT02' => (object)[
+            'CONT09' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
-                    'anchor' =>  false,
-                    'linkMenu' => '',
+                    'titleMenu' => 'Playlist',
+                    'anchor' =>  true,
+                    'linkMenu' => '#CONT09',
                     'iconMenu' => '',
-                    'titlePanel' => 'Mapa',
+                    'titlePanel' => 'Playlist',
+                    'iconPanel' => 'mdi-view-split-horizontal'
+                ]
+            ],
+        ],
+
+        'Topics.1' => (object)[
+            'TOPI102' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Turnês',
+                    'anchor' => true,
+                    'linkMenu' => '#TOPI102',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Turnês',
+                    'iconPanel' => 'mdi-apps'
+                ]
+            ],
+        ],
+
+        'Contents.3' => (object) [
+            'CONT01' => (object)[
+                'ViewHome' => true,
+                'ViewListMenu' => false,
+                'ViewListPanel' => true,
+                'ViewListFooter' => false,
+                'Viewer' => 'dropdown', // accepted values, list or dropdown
+                'config' => (object) [
+                    'titleMenu' => 'Biografia',
+                    'anchor' =>  true,
+                    'linkMenu' => '#CONT01',
+                    'iconMenu' => '',
+                    'titlePanel' => 'Biografia',
                     'iconPanel' => 'mdi-table-of-contents'
                 ]
             ],
         ],
 
-        'Portfolios' => (object) [
-            'PORT04' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques Home}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Nossos projetos',
-                    'anchor' =>  false,
-                    'linkMenu' => 'port04.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Nossos projetos',
-                    'iconPanel' => 'mdi-alpha-p-box'
-                ],
-                'IncludeSections' => (object) []
-            ],
-        ],
-
-        'Brands' => (object) [
-            'BRAN01' => (object)[
+        'Galleries' => (object) [
+            'GALL01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => 'Cliente e Parceiros',
-                    'anchor' =>  false,
-                    'linkMenu' => 'bran01.page',
+                    'titleMenu' => 'Galeria',
+                    'anchor' =>  true,
+                    'linkMenu' => '#GALL01',
                     'iconMenu' => '',
-                    'titlePanel' => 'Cliente e Parceiros',
-                    'iconPanel' => 'mdi-google-my-business'
-                ],
-                'IncludeSections' => (object) [
+                    'titlePanel' => 'Galeria',
+                    'iconPanel' => 'mdi-folder-multiple-image'
                 ]
             ],
         ],
 
-        'Teams' => (object) [
-            'TEAM01' => (object)[
+        'Topics.2' => (object) [
+            'TOPI01' => (object)[
                 'ViewHome' => true,
                 'ViewListMenu' => false,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured=1{Detaques}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
                 'config' => (object) [
-                    'titleMenu' => 'Nossa Equipe',
-                    'anchor' =>  false,
-                    'linkMenu' => 'team01.page',
+                    'titleMenu' => 'Na Mídia',
+                    'anchor' =>  true,
+                    'linkMenu' => '#TOPI01',
                     'iconMenu' => '',
-                    'titlePanel' => 'Nossa Equipe',
-                    'iconPanel' => ''
-                ],
-                'IncludeSections' => (object) [
-                ],
-            ],
-        ],
-
-        'Blogs' => (object) [
-            'BLOG01' => (object)[
-                'ViewHome' => true,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos},featured_home=1{Detaques Home},featured_page=1{Detaques Página}',
-                    'titleList' => 'title',
-                    'relation' => (object)[
-                        'category' =>(object)[
-                            'name' => 'Categoria',
-                            'titleList' => 'title',
-                            'condition' => 'active=1{Ativos}',
-                        ]
-                    ],
-                ],
-                'config' => (object) [
-                    'titleMenu' => 'Blog',
-                    'anchor' =>  false,
-                    'linkMenu' => 'blog01.page',
-                    'iconMenu' => '',
-                    'titlePanel' => 'Blog',
-                    'iconPanel' => 'mdi-blogger'
-                ],
-                'IncludeSections' => (object) [
+                    'titlePanel' => 'Na Mídia',
+                    'iconPanel' => 'mdi-book-multiple-outline'
                 ]
-            ],
-        ],
-
-        'Abouts' => (object) [
-            'ABOU01' => (object)[
-                'ViewHome' => false,
-                'ViewListMenu' => true,
-                'ViewListPanel' => true,
-                'ViewListFooter' => false,
-                'Viewer' => 'dropdown', // accepted values, list or dropdown
-                'IncludeCore' => (object) [
-                    'include' => true,
-                    'sorting' => true,
-                    'limit' => 'all',
-                    'condition' => 'active=1{Ativos}',
-                    'titleList' => 'title',
-                    'relation' => '',
-                ],
-                'config' => (object) [
-                'titleMenu' => 'Sobre',
-                'anchor' => false,
-                'linkMenu' => 'abou01.page',
-                'iconMenu' => '',
-                'titlePanel' => 'Sobre',
-                'iconPanel' => 'mdi-information'
-                ],
-                'IncludeSections' => (object) [
-                ],
             ],
         ],
 
@@ -285,18 +156,16 @@ return [
                     'relation' => '',
                 ],
                 'config' => (object) [
-                    'titleMenu' => 'Contato',
+                    'titleMenu' => 'Form. Contato',
                     'anchor' =>  false,
                     'linkMenu' => 'cota02.page',
                     'iconMenu' => '',
-                    'titlePanel' => 'Contato',
+                    'titlePanel' => 'Form. Contato',
                     'iconPanel' => 'mdi-contacts'
                 ],
-                'IncludeSections' => (object) [
-                ]
+                'IncludeSections' => (object) []
             ],
         ],
-
     ],
 
     'ModelsForm' => (object)[
