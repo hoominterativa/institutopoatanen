@@ -1,12 +1,8 @@
-import '../../Core/Headers/HEAD02/src/main';
+import '../../Core/Headers/HEAD06/src/main';
 import '../../Components/themeMenu/SIDE02/src/main';
-import '../../Core/Footers/FOOT04/src/main';
-import '../../pages/Slides/SLID01/src/main';
-import '../../pages/Contents/CONT08/src/main';
-import '../../pages/Contents/CONT09/src/main';
-import '../../pages/Topics/TOPI102/src/main';
-import '../../pages/Contents/CONT01/src/main';
+import '../../Core/Footers/FOOT02/src/main';
+import '../../pages/Slides/SLID02/src/main';
+import '../../pages/Blogs/BLOG01/src/main';
+import '../../pages/Contents/CONT03/src/main';
 import '../../pages/Galleries/GALL01/src/main';
-import '../../pages/Topics/TOPI01/src/main';
-import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Compliances/COMP01/src/main';
