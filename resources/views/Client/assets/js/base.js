@@ -1,8 +1,13 @@
-import '../../Core/Headers/HEAD06/src/main';
+import '../../Core/Headers/HEAD02/src/main';
 import '../../Components/themeMenu/SIDE02/src/main';
 import '../../Core/Footers/FOOT02/src/main';
-import '../../pages/Slides/SLID02/src/main';
+import '../../pages/Slides/SLID01/src/main';
+import '../../pages/Topics/TOPI09/src/main';
+import '../../pages/Abouts/ABOU05/src/main';
+import '../../pages/Products/PROD02/src/main';
+import '../../pages/Services/SERV04/src/main';
 import '../../pages/Blogs/BLOG01/src/main';
-import '../../pages/Contents/CONT03/src/main';
-import '../../pages/Galleries/GALL01/src/main';
+import '../../pages/Topics/TOPI05/src/main';
+import '../../pages/Brands/BRAN01/src/main';
+import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Compliances/COMP01/src/main';
