@@ -23,7 +23,7 @@ if (!admin) {
         .version()
 
         //BROWSER SYNC
-        .browserSync("http://127.0.0.1:8000/");
+        // .browserSync("http://127.0.0.1:8000/");
     // .browserSync("http://127.0.0.1/");
 } else {
     mix
