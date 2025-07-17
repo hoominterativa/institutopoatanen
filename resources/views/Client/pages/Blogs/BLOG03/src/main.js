@@ -2,7 +2,7 @@ import Swiper from "swiper/bundle";
 
 new Swiper(".blog03__main", {
     slidesPerView: "auto",
-    spaceBetween: 32,
+    spaceBetween: 16,
 })
 new Swiper(".blog03-show__related__carousel", {
     slidesPerView: "auto",

@@ -571,15 +571,60 @@ details {
         width: fit-content;
         padding: 0.75rem 3rem;
 
-        background-color: $color-four;
+        background-color: #95D059;
         border: none;
+        border: 1px solid #95D059;
 
-        @extend %theme__p1-c1;
+        font-family: $font-primary;
+        color: #1A2069;
+        font-size: 14px;
+        font-style: normal;
         font-weight: 700;
+        line-height: 22px;
+        // clip-path: polygon(20% 0%, 100% 1%, 100% 100%, 0 100%, 10% 50%);
+        transform: skew(-10deg, 0deg) !important;
+        transition: 0.5s all ease;
 
         &:focus {
             /* uso do !important para resetar o valor do fancybox */
             outline: none !important;
+        }
+
+        &:hover {
+            background-color: transparent;
+            border: 1px solid #95D059;
+            color: #95D059;
+        }
+    }
+
+    &__cta--two {
+        @include disFlex;
+        width: fit-content;
+        padding: 0.75rem 3rem;
+
+        background-color: #1A2069;
+        border: none;
+        border: 1px solid #1A2069;
+
+        font-family: $font-primary;
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px;
+        // clip-path: polygon(20% 0%, 100% 1%, 100% 100%, 0 100%, 10% 50%);
+        transform: skew(-10deg, 0deg) !important;
+        transition: 0.5s all ease;
+
+        &:focus {
+            /* uso do !important para resetar o valor do fancybox */
+            outline: none !important;
+        }
+
+        &:hover {
+            background-color: transparent;
+            border: 1px solid #1A2069;
+            color: #1A2069;
         }
     }
 

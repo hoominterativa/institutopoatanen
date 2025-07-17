@@ -12636,7 +12636,7 @@ __webpack_require__.r(__webpack_exports__);
 
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog03__main", {
   slidesPerView: "auto",
-  spaceBetween: 32
+  spaceBetween: 16
 });
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog03-show__related__carousel", {
   slidesPerView: "auto",
@@ -12986,7 +12986,7 @@ __webpack_require__.r(__webpack_exports__);
 
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.topi09__topics__carousel', {
   slidesPerView: 'auto',
-  spaceBetween: 48
+  spaceBetween: 10
 });
 
 /***/ }),

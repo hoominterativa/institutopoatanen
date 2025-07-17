@@ -2,10 +2,18 @@
 
 /* BEGIN STYLE */
 .topi09 {
-    @extend %theme__padding;
+    background-color: #95D059;
+    width: 870px;
+    margin: 0 -5px 0 auto;
+    position: relative;
+    top: -56px;
+    z-index: 1;
+    padding: 0 2rem;
+    transform: skew(-10deg, 0deg) !important;
 
     &__topics {
         height: auto;
+        transform: skew(10deg, 0deg) !important;
 
         &__carousel {
             height: auto;
@@ -14,17 +22,22 @@
             @include large-device-down {
                 overflow: visible;
             }
+
+            &__swiper-wrapper {
+                justify-content: end;
+            }
         }
 
         &__item {
-            width: calc(25% - 36px);
+            width: calc(25% - 10px);
             height: auto;
-            padding: 0.75rem 0.75rem 1rem 2rem;
+            padding: 1rem 0rem 1rem 1rem;
 
-            @include disFlex(row, start, center);
-            gap: 1.5rem;
+            justify-content: center;
+            // @include disFlex(row, start, center);
+            gap: 1rem;
 
-            background-color: $color-nine;
+            // background-color: $color-nine;
 
             @include x-large-device-down {
                 width: 33.33%;
@@ -45,7 +58,7 @@
             }
 
             &__icon {
-                width: 3.5rem;
+                width: 1.25rem;
                 height: auto;
                 aspect-ratio: 1/1;
 
@@ -59,12 +72,17 @@
 
             &__information {
                 // 3.5rem = largura do icone + gap de 1.5rem do item
-                width: calc(100% - 3.5rem + 1.5rem);
+                // width: calc(100% - 3.5rem + 1.5rem);
 
                 &__title {
-                    @extend %theme__p1-cb;
-                    font-weight: 700;
+                    color: #1A2069;
                     text-align: center;
+                    font-family: $font-primary;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 22px;
+                    margin-bottom: 0;
                 }
 
                 &__paragraph {

@@ -28,11 +28,7 @@
                     @endif
 
                     @if ($content->title)
-                        <h4 class="cont04__main__information__title">{{ $content->title }}</h4>
-                    @endif
-
-                    @if ($content->title || $content->subtitle)
-                        <hr class="cont04__main__information__line">
+                        <h4 class="cont04__main__information__title">{!! $content->title !!}</h4>
                     @endif
 
                     @if ($content->description)

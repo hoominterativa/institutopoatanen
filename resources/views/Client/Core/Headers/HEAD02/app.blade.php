@@ -9,9 +9,9 @@
 
 
     <ul class="head02__navigation">
-        <li class="head02__navigation__item">
+        {{-- <li class="head02__navigation__item">
             <a title="Home" href="{{ route('home') }}" class="head02__navigation__item__link">HOME</a>
-        </li>
+        </li> --}}
 
         @foreach ($listMenu as $module => $menu)
             <li class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
