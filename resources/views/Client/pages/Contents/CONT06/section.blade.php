@@ -6,12 +6,12 @@
                 <header class="cont06__header">
                     @if ($content->title)
                         <h2 class="cont06__header__title">
-                            {{ $content->title }}
+                            {!! $content->title !!}
                         </h2>
                     @endif
-                    @if ($content->description)
+                    {{-- @if ($content->description)
                         <div class="cont06__header__paragraph">{!! $content->description !!}</div>
-                    @endif
+                    @endif --}}
                 </header>
             @endif
 

@@ -2,11 +2,11 @@
 $('.carousel-feed03').owlCarousel({
     smartSpeed:450,
     loop: true,
-    dots:false,
-    nav:true,
+    dots:true,
+    nav:false,
     rewind: true,
     autoHeight: true,
-    margin:50,
+    margin:100,
     responsive: {
 
         0 : {
@@ -22,7 +22,7 @@ $('.carousel-feed03').owlCarousel({
         },
         // breakpoint from 500 up
         801 : {
-            items:3
+            items:2
 
         }
         // breakpoint from 801 up

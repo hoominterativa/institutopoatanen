@@ -1,13 +1,13 @@
 @if ($brands->count() > 0)
-    {{-- <section id="BRAN01" class="bran01">
+    <section id="BRAN01" class="bran01">
         @if ($section)
-            @if ($section->title_section || $section->subtitle_section || $section->description_section)
+            @if ($section->title_section)
                 <header class="bran01__header">
                     @if ($section->title_section)
-                        <h2 class="bran01__header__title">{{ $section->title_section }}</h2>
+                        <h2 class="bran01__header__title">{!! $section->title_section !!}</h2>
                     @endif
 
-                    @if ($section->subtitle_section)
+                    {{-- @if ($section->subtitle_section)
                         <h3 class="bran01__header__subtitle">{{ $section->subtitle_section }}</h3>
                     @endif
 
@@ -19,11 +19,11 @@
                         <div class="bran01__header__paragraph">
                             {!! $section->description_section !!}
                         </div>
-                    @endif
+                    @endif --}}
 
                 </header>
             @endif
-        @endif --}}
+        @endif
 
         @if ($brands->count())
             <main class="bran01__content">
@@ -51,9 +51,9 @@
         @endif
 
 
-        <a title="ir para a página" href="{{ route('bran01.page') }}" class="bran01__cta">
+        {{-- <a title="ir para a página" href="{{ route('bran01.page') }}" class="bran01__cta">
             CTA
-        </a>
+        </a> --}}
 
     </section>
 @endif

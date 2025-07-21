@@ -7,14 +7,31 @@
     @extend %theme__padding;
 
     &__header {
-        width: 100%;
-        @include disFlex(column, center, center);
-
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
 
         &__title {
-            @extend %theme__t2-c1;
-            margin-bottom: 0.25rem;
+            color: #1A2069;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
+            position: relative;
+
+            span {
+                color: #95D059;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 465px;
+                height: 1px;
+                background-color: #1A2069;
+                bottom: -30px;
+                left: -70px;
+            }
         }
         &__subtitle {
             @extend %theme__t4-c3;
@@ -46,7 +63,7 @@
         &__item {
             position: relative;
 
-            width: calc(25% - 1.125rem);
+            width: calc(12% - 1.125rem);
             height: auto;
             aspect-ratio: 321/136;
 

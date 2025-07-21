@@ -8,13 +8,13 @@
                         {{ $section->title_section }}
                     </h2>
                 @endif
-                @if ($section->subtitle_section)
+                {{-- @if ($section->subtitle_section)
                     <h3 class="blog01__header__subtitle">{{ $section->subtitle_section }}</h3>
                 @endif
 
                 @if ($section->description_section)
                     <p class="blog01__header__paragraph">{!! $section->description_section !!}</p>
-                @endif
+                @endif --}}
             </header>
         @endif
     @endif
@@ -24,11 +24,11 @@
             <div class="blog01__main__carousel__swiper-wrapper swiper-wrapper">
                 @foreach ($blogs as $blog)
                     <article itemscope itemtype="http://schema.org/Article" class="blog01__main__item swiper-slide">
-                        <a
+                        {{-- <a
                         title="{{ $blog->title }}"
                         class="link-full" itemprop="url"
                             href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}">
-                        </a>
+                        </a> --}}
 
                         @if ($blog->path_image_thumbnail)
                             <img loading='lazy' itemprop="image"
@@ -37,7 +37,7 @@
                         @endif
 
                         <div class="blog01__main__item__description">
-                            <p class="blog01__main__item__description__time">Data:
+                            <p class="blog01__main__item__description__time">
                                 <time class="blog01__main__item__description__time"
                                     datetime='{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}'
                                     itemprop="datePublished">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</time>
@@ -54,6 +54,10 @@
                                 </p>
                             @endif
 
+                            <a href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}" class="blog01__main__item__description__cta">
+                                <span>Leia mais</span>
+                            </a>
+
                             {{-- BACKEND: REMOVER ÍCONE DO PAINEL --}}
                             {{-- @if ($blog->path_image_icon)
                                 <img loading='lazy' src="{{ asset('storage/' . $blog->path_image_icon) }}"
@@ -67,8 +71,8 @@
         </div>
     </main>
 
-    <a rel="next" href="{{ route('blog01.page', ['BLOG01BlogsCategory' => $category->slug]) }}" class="blog01__cta">
+    {{-- <a rel="next" href="{{ route('blog01.page', ['BLOG01BlogsCategory' => $category->slug]) }}" class="blog01__cta">
         CTA
-    </a>
+    </a> --}}
 
 </section>

@@ -166,7 +166,7 @@ details .details-content {
 
 /*******************************************************************************************************************************************/
 /* CONFIGURAÇÃO DO TEMA */
-.comp01-page__content, .cont05, .topi11, .cont02v2, .cota02__form, .cota02__topics, .abou01-page__topics, .abou01-page__main, .abou01-page__section, .abou01, .cont02v1, .bran01-page__main, .bran01, .blog01-show__related, .blog01-show__article, .blog01-page__articles, .blog01-page__categories, .blog01, .cont06, .cont02, .blog03-show__related, .blog03-show__article, .blog03-page__main, .blog03-page__navigation, .blog03, .cont08, .slid01__item, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .cota02__banner, .abou01-page__banner, .bran01-page__banner, .blog01-show__banner, .blog01-page__banner, .blog03-show__banner, .blog03-page__banner {
+.comp01-page__content, .cont05, .topi11, .cont02v2, .cota02__form, .cota02__topics, .abou01-page__topics, .abou01-page__main, .abou01-page__section, .abou01, .cont02v1, .bran01-page__main, .bran01, .blog01-show__related, .blog01-show__article, .blog01-page__articles, .blog01-page__categories, .blog01, .feed03, .cont06, .cont02, .blog03-show__related, .blog03-show__article, .blog03-page__main, .blog03-page__navigation, .blog03, .cont08, .slid01__item, .foot02__copyright, .foot02__navigation, .side02, .side02--btt, .side02--rtl, .side02--ttb, .confirmation-page__title, .form01, .comp01-page__banner, .cota02__banner, .abou01-page__banner, .bran01-page__banner, .blog01-show__banner, .blog01-page__banner, .blog03-show__banner, .blog03-page__banner {
   padding-top: 4.5rem;
   padding-right: 5vw;
   padding-bottom: 4.5rem;
@@ -187,20 +187,20 @@ details .details-content {
 .comp01-page__banner__title, .cota02__banner__title, .abou01-page__banner__title, .bran01-page__banner__title, .blog01-show__banner__title, .blog01-page__banner__title, .blog03-show__banner__title, .blog03-page__banner__title {
   color: #404040;
 }
-.cont05__header__title, .topi11__header__title, .cont02v2__information__title, .cota02__form__header__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02v1__information__title, .bran01__header__title, .bran01-page__main__header__title, .blog01__header__title, .cont06__header__title, .cont02__information__title, .cont04__header__title, .cont08__information__header__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .blog03-show__article__title {
+.cont05__header__title, .topi11__header__title, .cont02v2__information__title, .cota02__form__header__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02v1__information__title, .cont02__information__title, .cont04__header__title, .cont08__information__header__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .blog03-show__article__title {
   font: 700 2.5rem "Montserrat", sans-serif, arial;
   line-height: normal;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .cont05__header__title, .topi11__header__title, .cont02v2__information__title, .cota02__form__header__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02v1__information__title, .bran01__header__title, .bran01-page__main__header__title, .blog01__header__title, .cont06__header__title, .cont02__information__title, .cont04__header__title, .cont08__information__header__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .blog03-show__article__title {
+  .cont05__header__title, .topi11__header__title, .cont02v2__information__title, .cota02__form__header__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02v1__information__title, .cont02__information__title, .cont04__header__title, .cont08__information__header__title, .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .blog03-show__article__title {
     font-size: 1.875rem;
   }
 }
 .blog01-show__article__title, .blog01-page__articles__highlighted__item__information__title, .blog03-show__article__title {
   color: #000;
 }
-.cont05__header__title, .topi11__header__title, .cont02v2__information__title, .cota02__form__header__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02v1__information__title, .bran01__header__title, .bran01-page__main__header__title, .blog01__header__title, .cont06__header__title, .cont02__information__title, .cont04__header__title, .cont08__information__header__title {
+.cont05__header__title, .topi11__header__title, .cont02v2__information__title, .cota02__form__header__title, .abou01-page__main__information__header__title, .abou01-page__section__information__header__title, .abou01__header__title, .cont02v1__information__title, .cont02__information__title, .cont04__header__title, .cont08__information__header__title {
   color: #404040;
 }
 .confirmation-page__title, .cota02__banner__subtitle, .abou01-page__banner__subtitle, .bran01-page__banner__subtitle, .comp01-page__content__header__title, .cota02__topics__item__title, .form01__main__information__title {
@@ -225,17 +225,17 @@ details .details-content {
 .confirmation-page__title {
   color: #cacaca;
 }
-.cont05__header__subtitle, .topi11__header__subtitle, .cont02v2__information__subtitle, .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .cont02v1__information__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .blog01__header__subtitle, .cont02__information__subtitle, .blog03__header__subtitle, .cont04__header__subtitle, .cont08__information__header__subtitle, .cont04__main__information__subtitle, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .blog03-show__article__modal__header__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item, .blog03-page__navigation__categories__item {
+.cont05__header__subtitle, .topi11__header__subtitle, .cont02v2__information__subtitle, .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .cont02v1__information__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .blog01__header__subtitle, .cont02__information__subtitle, .blog03__header__subtitle, .cont04__header__subtitle, .cont08__information__header__subtitle, .cont04__main__information__subtitle, .blog01-show__article__modal__header__title, .blog03-show__article__modal__header__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item, .blog03-page__navigation__categories__item {
   font: 700 1.25rem "Montserrat", sans-serif, arial;
   line-height: normal;
   text-align: left;
 }
 @media (max-width: 991.98px) {
-  .cont05__header__subtitle, .topi11__header__subtitle, .cont02v2__information__subtitle, .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .cont02v1__information__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .blog01__header__subtitle, .cont02__information__subtitle, .blog03__header__subtitle, .cont04__header__subtitle, .cont08__information__header__subtitle, .cont04__main__information__subtitle, .blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .blog03-show__article__modal__header__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item, .blog03-page__navigation__categories__item {
+  .cont05__header__subtitle, .topi11__header__subtitle, .cont02v2__information__subtitle, .abou01-page__main__information__header__subtitle, .abou01-page__section__information__header__subtitle, .abou01__header__subtitle, .cont02v1__information__subtitle, .bran01__header__subtitle, .bran01-page__main__header__subtitle, .blog01__header__subtitle, .cont02__information__subtitle, .blog03__header__subtitle, .cont04__header__subtitle, .cont08__information__header__subtitle, .cont04__main__information__subtitle, .blog01-show__article__modal__header__title, .blog03-show__article__modal__header__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item, .blog03-page__navigation__categories__item {
     font-size: 1.125rem;
   }
 }
-.blog01-show__article__modal__header__title, .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title, .blog03-show__article__modal__header__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item, .blog03-page__navigation__categories__item {
+.blog01-show__article__modal__header__title, .blog03-show__article__modal__header__title, .foot02__navigation__pages__header, .foot02__navigation__client-contact__header, .blog01-page__categories__item, .blog03-page__navigation__categories__item {
   color: #000;
 }
 .cont04__main__information__subtitle {
@@ -257,12 +257,12 @@ details .details-content {
 .abou01-page__topics__item__header__title, .blog01-show__related__title, .blog03-show__related__title, .side02__navigation__item__link, .side02__navigation__item__btn {
   color: #000;
 }
-.cont05__main__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .slid01__item__header__description, .cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cont04__main__information__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .topi11__header__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .blog03-show__article__modal__main__socials__item__figure__title, .cont08__information__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .topi11__main__topics__item__title, .side02__cta, .head02__navigation__item__cta {
+.cont05__main__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .slid01__item__header__description, .cota02__form__header__paragraph, .cont04__main__information__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .topi11__header__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .blog03-show__article__modal__main__socials__item__figure__title, .cont08__information__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .topi11__main__topics__item__title, .side02__cta, .head02__navigation__item__cta {
   font: 400 1rem "Montserrat", sans-serif, arial;
   line-height: 170%;
   letter-spacing: 0.2px;
 }
-.cont05__main__paragraph p, .abou01-page__main__information__paragraph p, .abou01-page__section__information__paragraph p, .abou01__paragraph p, .bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .blog01-show__article__body p, .blog01-show__article__description p, .blog01-page__articles__highlighted__item__information__paragraph p, .blog01__header__paragraph p, .cont06__header__paragraph p, .blog03-show__article__body p, .blog03-show__article__description p, .blog03__main__item__information__paragraph p, .blog03-show__related__carousel__item__information__paragraph p, .blog03__header__paragraph p, .slid01__item__header__description p, .cota02__form__header__paragraph p, .blog01__main__item__description__paragraph p, .blog01-show__related__item__description__paragraph p, .blog01-page__articles__list__item__description__paragraph p, .cont04__main__information__paragraph p, .cont08__information__topics__item__description p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .topi11__header__paragraph p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .blog01-show__article__modal__main__socials__item__figure__title p, .blog03-show__article__modal__main__socials__item__figure__title p, .cont08__information__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .topi11__main__topics__item__title p, .side02__cta p, .head02__navigation__item__cta p {
+.cont05__main__paragraph p, .abou01-page__main__information__paragraph p, .abou01-page__section__information__paragraph p, .abou01__paragraph p, .bran01__header__paragraph p, .bran01-page__main__header__paragraph p, .blog01-show__article__body p, .blog01-show__article__description p, .blog01-page__articles__highlighted__item__information__paragraph p, .blog01__header__paragraph p, .cont06__header__paragraph p, .blog03-show__article__body p, .blog03-show__article__description p, .blog03__main__item__information__paragraph p, .blog03-show__related__carousel__item__information__paragraph p, .blog03__header__paragraph p, .slid01__item__header__description p, .cota02__form__header__paragraph p, .cont04__main__information__paragraph p, .cont08__information__topics__item__description p, .head02__navigation__item__link p, .head02__navigation__item__btn p, .form01__main__information__paragraph p, .head02__navigation__item--menu-mobile__item p, .comp01-page__content__paragraph p, .topi11__header__paragraph p, .cota02__form__footer__compliance__link p, .cota02__form__footer__compliance p, .cota02__topics__item__paragraph p, .blog01-show__article__modal__main__socials__item__figure__title p, .blog03-show__article__modal__main__socials__item__figure__title p, .cont08__information__description p, .foot02__navigation__pages__item p, .foot02__navigation__client-contact__item p, .confirmation-page__paragraph p, .topi11__main__topics__item__title p, .side02__cta p, .head02__navigation__item__cta p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -270,7 +270,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .cont05__main__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .slid01__item__header__description, .cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cont04__main__information__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .topi11__header__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .blog03-show__article__modal__main__socials__item__figure__title, .cont08__information__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .topi11__main__topics__item__title, .side02__cta, .head02__navigation__item__cta {
+  .cont05__main__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .slid01__item__header__description, .cota02__form__header__paragraph, .cont04__main__information__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .head02__navigation__item--menu-mobile__item, .comp01-page__content__paragraph, .topi11__header__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .blog03-show__article__modal__main__socials__item__figure__title, .cont08__information__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .topi11__main__topics__item__title, .side02__cta, .head02__navigation__item__cta {
     font-size: 0.938rem;
   }
 }
@@ -280,18 +280,18 @@ details .details-content {
 .comp01-page__content__paragraph, .topi11__header__paragraph, .cota02__form__footer__compliance__link, .cota02__form__footer__compliance, .cota02__topics__item__paragraph, .blog01-show__article__modal__main__socials__item__figure__title, .blog03-show__article__modal__main__socials__item__figure__title, .cont08__information__description, .foot02__navigation__pages__item, .foot02__navigation__client-contact__item, .confirmation-page__paragraph, .topi11__main__topics__item__title {
   color: #000;
 }
-.cota02__form__header__paragraph, .blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph, .cont04__main__information__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .head02__navigation__item--menu-mobile__item {
+.cota02__form__header__paragraph, .cont04__main__information__paragraph, .cont08__information__topics__item__description, .head02__navigation__item__link, .head02__navigation__item__btn, .form01__main__information__paragraph, .head02__navigation__item--menu-mobile__item {
   color: #404040;
 }
 .cont05__main__paragraph, .abou01-page__main__information__paragraph, .abou01-page__section__information__paragraph, .abou01__paragraph, .bran01__header__paragraph, .bran01-page__main__header__paragraph, .blog01-show__article__body, .blog01-show__article__description, .blog01-page__articles__highlighted__item__information__paragraph, .blog01__header__paragraph, .cont06__header__paragraph, .blog03-show__article__body, .blog03-show__article__description, .blog03__main__item__information__paragraph, .blog03-show__related__carousel__item__information__paragraph, .blog03__header__paragraph, .slid01__item__header__description {
   color: #7c7c7c;
 }
-.cont02v2__information__paragraph, .abou01-page__topics__item__paragraph, .cont02v1__information__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .cont02__information__paragraph, .blog03-show__article__time, .cont04__header__paragraph, .topi09__topics__item__information__paragraph, .topi11__main__topics__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .blog03-show__article__modal__main__copy__button, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .blog01-show__article__modal__main__copy__link, .blog03-show__article__modal__main__copy__link {
+.cont02v2__information__paragraph, .abou01-page__topics__item__paragraph, .cont02v1__information__paragraph, .cont02__information__paragraph, .blog03-show__article__time, .cont04__header__paragraph, .topi09__topics__item__information__paragraph, .topi11__main__topics__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .blog03-show__article__modal__main__copy__button, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .blog01-show__article__modal__main__copy__link, .blog03-show__article__modal__main__copy__link {
   font: 400 0.875rem "Montserrat", sans-serif, arial;
   line-height: 140%;
   letter-spacing: 0.2px;
 }
-.cont02v2__information__paragraph p, .abou01-page__topics__item__paragraph p, .cont02v1__information__paragraph p, .blog01__main__item__description__time p, .blog01-show__related__item__description__time p, .blog01-show__article__time p, .blog01-page__articles__list__item__description__time p, .blog01-page__articles__highlighted__item__information__time p, .cont02__information__paragraph p, .blog03-show__article__time p, .cont04__header__paragraph p, .topi09__topics__item__information__paragraph p, .topi11__main__topics__item__paragraph p, .comp01-page__content__archives__item p, .foot02__copyright__compliances__item p, .blog01-show__article__modal__main__copy__button p, .blog01-page__articles__highlighted__item__information__category p, .blog03-show__article__modal__main__copy__button p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p, .blog01-show__article__modal__main__copy__link p, .blog03-show__article__modal__main__copy__link p {
+.cont02v2__information__paragraph p, .abou01-page__topics__item__paragraph p, .cont02v1__information__paragraph p, .cont02__information__paragraph p, .blog03-show__article__time p, .cont04__header__paragraph p, .topi09__topics__item__information__paragraph p, .topi11__main__topics__item__paragraph p, .comp01-page__content__archives__item p, .foot02__copyright__compliances__item p, .blog01-show__article__modal__main__copy__button p, .blog01-page__articles__highlighted__item__information__category p, .blog03-show__article__modal__main__copy__button p, .side02__footer__item p, .side02__cta__content__item p, .head02__navigation__item__cta__content__item p, .form01__main__form__footer__compliance__link p, .form01__main__form__footer__compliance p, .blog01-show__article__modal__main__copy__link p, .blog03-show__article__modal__main__copy__link p {
   font: inherit;
   letter-spacing: inherit;
   color: inherit;
@@ -299,7 +299,7 @@ details .details-content {
   margin: 0;
 }
 @media (max-width: 991.98px) {
-  .cont02v2__information__paragraph, .abou01-page__topics__item__paragraph, .cont02v1__information__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .cont02__information__paragraph, .blog03-show__article__time, .cont04__header__paragraph, .topi09__topics__item__information__paragraph, .topi11__main__topics__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .blog03-show__article__modal__main__copy__button, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .blog01-show__article__modal__main__copy__link, .blog03-show__article__modal__main__copy__link {
+  .cont02v2__information__paragraph, .abou01-page__topics__item__paragraph, .cont02v1__information__paragraph, .cont02__information__paragraph, .blog03-show__article__time, .cont04__header__paragraph, .topi09__topics__item__information__paragraph, .topi11__main__topics__item__paragraph, .comp01-page__content__archives__item, .foot02__copyright__compliances__item, .blog01-show__article__modal__main__copy__button, .blog01-page__articles__highlighted__item__information__category, .blog03-show__article__modal__main__copy__button, .side02__footer__item, .side02__cta__content__item, .head02__navigation__item__cta__content__item, .form01__main__form__footer__compliance__link, .form01__main__form__footer__compliance, .blog01-show__article__modal__main__copy__link, .blog03-show__article__modal__main__copy__link {
     font-size: 0.813rem;
     line-height: 170%;
   }
@@ -313,7 +313,7 @@ details .details-content {
 .comp01-page__content__archives__item, .foot02__copyright__compliances__item {
   color: #404040;
 }
-.cont02v2__information__paragraph, .abou01-page__topics__item__paragraph, .cont02v1__information__paragraph, .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time, .cont02__information__paragraph, .blog03-show__article__time, .cont04__header__paragraph, .topi09__topics__item__information__paragraph, .topi11__main__topics__item__paragraph {
+.cont02v2__information__paragraph, .abou01-page__topics__item__paragraph, .cont02v1__information__paragraph, .cont02__information__paragraph, .blog03-show__article__time, .cont04__header__paragraph, .topi09__topics__item__information__paragraph, .topi11__main__topics__item__paragraph {
   color: #7c7c7c;
 }
 .head02__navigation__item--menu-mobile__item {
@@ -336,7 +336,7 @@ details .details-content {
   justify-content: center;
   align-items: start;
 }
-.cont05__main__cta, .cont02v2__information__cta, .cota02__form__footer__cta, .abou01-page__section__information__cta, .abou01__cta, .cont02v1__information__cta, .bran01__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__cta, .cont06__cta, .cont02__information__cta, .blog03-show__article__share, .blog03__main__item__information__cta, .cont04__main__information__cta, .cont08__information__cta, .slid01__item__header__cta, .form01__main__form__footer__cta {
+.cont05__main__cta, .cont02v2__information__cta, .cota02__form__footer__cta, .abou01-page__section__information__cta, .abou01__cta, .cont02v1__information__cta, .bran01__cta, .blog01-show__article__share, .blog01-page__articles__highlighted__item__information__cta, .blog01__main__item__description__cta, .cont06__cta, .cont02__information__cta, .blog03-show__article__share, .blog03__main__item__information__cta, .cont04__main__information__cta, .cont08__information__cta, .slid01__item__header__cta, .form01__main__form__footer__cta {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -356,11 +356,11 @@ details .details-content {
   transform: skew(-10deg, 0deg) !important;
   transition: 0.5s all ease;
 }
-.cont05__main__cta:focus, .cont02v2__information__cta:focus, .cota02__form__footer__cta:focus, .abou01-page__section__information__cta:focus, .abou01__cta:focus, .cont02v1__information__cta:focus, .bran01__cta:focus, .blog01-show__article__share:focus, .blog01-page__articles__highlighted__item__information__cta:focus, .blog01__cta:focus, .cont06__cta:focus, .cont02__information__cta:focus, .blog03-show__article__share:focus, .blog03__main__item__information__cta:focus, .cont04__main__information__cta:focus, .cont08__information__cta:focus, .slid01__item__header__cta:focus, .form01__main__form__footer__cta:focus {
+.cont05__main__cta:focus, .cont02v2__information__cta:focus, .cota02__form__footer__cta:focus, .abou01-page__section__information__cta:focus, .abou01__cta:focus, .cont02v1__information__cta:focus, .bran01__cta:focus, .blog01-show__article__share:focus, .blog01-page__articles__highlighted__item__information__cta:focus, .blog01__main__item__description__cta:focus, .cont06__cta:focus, .cont02__information__cta:focus, .blog03-show__article__share:focus, .blog03__main__item__information__cta:focus, .cont04__main__information__cta:focus, .cont08__information__cta:focus, .slid01__item__header__cta:focus, .form01__main__form__footer__cta:focus {
   /* uso do !important para resetar o valor do fancybox */
   outline: none !important;
 }
-.cont05__main__cta:hover, .cont02v2__information__cta:hover, .cota02__form__footer__cta:hover, .abou01-page__section__information__cta:hover, .abou01__cta:hover, .cont02v1__information__cta:hover, .bran01__cta:hover, .blog01-show__article__share:hover, .blog01-page__articles__highlighted__item__information__cta:hover, .blog01__cta:hover, .cont06__cta:hover, .cont02__information__cta:hover, .blog03-show__article__share:hover, .blog03__main__item__information__cta:hover, .cont04__main__information__cta:hover, .cont08__information__cta:hover, .slid01__item__header__cta:hover, .form01__main__form__footer__cta:hover {
+.cont05__main__cta:hover, .cont02v2__information__cta:hover, .cota02__form__footer__cta:hover, .abou01-page__section__information__cta:hover, .abou01__cta:hover, .cont02v1__information__cta:hover, .bran01__cta:hover, .blog01-show__article__share:hover, .blog01-page__articles__highlighted__item__information__cta:hover, .blog01__main__item__description__cta:hover, .cont06__cta:hover, .cont02__information__cta:hover, .blog03-show__article__share:hover, .blog03__main__item__information__cta:hover, .cont04__main__information__cta:hover, .cont08__information__cta:hover, .slid01__item__header__cta:hover, .form01__main__form__footer__cta:hover {
   background-color: transparent;
   border: 1px solid #95D059;
   color: #95D059;
@@ -3146,6 +3146,16 @@ body .owl-dots .owl-dot.active {
 /* BEGIN STYLE */
 .cont06 {
   overflow: hidden; /* prevenção do shift da animação*/
+  position: relative;
+}
+.cont06::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 475px;
+  background-color: #1A2069;
+  top: 0;
+  left: 0;
 }
 .cont06__header {
   width: 100%;
@@ -3154,9 +3164,20 @@ body .owl-dots .owl-dot.active {
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 .cont06__header__title {
-  margin-bottom: 0.75rem;
+  color: #FFF;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0;
+}
+.cont06__header__title span {
+  color: #95D059;
 }
 .cont06__header__paragraph {
   width: 100%;
@@ -3174,6 +3195,8 @@ body .owl-dots .owl-dot.active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
 }
 .cont06__video__button {
   width: 5.5rem;
@@ -3200,192 +3223,102 @@ body .owl-dots .owl-dot.active {
 
 /* BEGIN STYLE */
 .feed03 {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.feed03 .container--feed03 {
-  padding: 159px 0 69px 0;
-}
-@media (max-width: 767.98px) {
-  .feed03 .container--feed03 {
-    padding: 132px 44px 42px 44px;
-  }
+  padding-top: 0;
 }
 .feed03__header {
-  width: 100%;
-  border-bottom: 1px solid #cacaca;
-  padding-bottom: 45.99px;
   margin-bottom: 80px;
 }
 @media (max-width: 767.98px) {
   .feed03__header {
-    padding-bottom: 35px;
     margin-bottom: 59px;
   }
 }
-.feed03__header__image {
-  width: 74px;
-  height: 74px;
-  margin-right: 28px;
+.feed03__header__texto__title {
+  color: #1A2069;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
-@media (max-width: 767.98px) {
-  .feed03__header__image {
-    width: 64px;
-    height: 64px;
-    margin-right: 24px;
-  }
+.feed03__header__texto__line {
+  color: #1A2069;
+  width: 29%;
+  margin-top: 2rem;
+  position: relative;
+  left: -70px;
 }
-.feed03__header__image img {
+.feed03__content__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 44px;
+}
+.feed03__content__item__top__image {
+  width: 142px;
+  height: auto;
+  aspect-ratio: 142/142;
+}
+.feed03__content__item__top__image img {
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.feed03__header__texto__subtitle {
-  font-size: 1.25rem;
+.feed03__content__item__right__titulo {
+  color: #242424;
   font-family: "Montserrat", sans-serif, arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+.feed03__content__item__right__subtitulo {
+  color: #95D059;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 700;
+  line-height: 22px;
   margin-bottom: 10px;
-  color: #7c7c7c;
 }
-@media (max-width: 767.98px) {
-  .feed03__header__texto__subtitle {
-    font-size: 1.125rem;
-    margin-bottom: 0px;
-  }
-}
-.feed03__header__texto__title {
-  font-size: 2.5rem;
-  font-family: "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #404040;
-}
-@media (max-width: 767.98px) {
-  .feed03__header__texto__title {
-    font-size: 1.875rem;
-  }
-}
-.feed03__header__texto__line {
-  margin: 30px auto;
-  color: #404040;
-}
-@media (max-width: 767.98px) {
-  .feed03__header__texto__line {
-    margin: 20px auto 27px auto;
-  }
-}
-.feed03__content__item__top__image {
-  width: 55px;
-  height: 55px;
-}
-@media (max-width: 767.98px) {
-  .feed03__content__item__top__image {
-    width: 50px;
-    height: 50px;
-  }
-}
-.feed03__content__item__top__titulo {
-  font-size: 1.25rem;
-  font-family: "Montserrat", sans-serif, arial;
-  font-weight: 700;
-  color: #000;
-  margin-left: 5px;
-}
-@media (max-width: 767.98px) {
-  .feed03__content__item__top__titulo {
-    font-size: 1.125rem;
-  }
-}
-.feed03__content__item__description {
-  margin-top: 29px;
-}
-@media (max-width: 767.98px) {
-  .feed03__content__item__description {
-    margin-top: 24px;
-  }
-}
-.feed03__content__item__description p {
-  font: 400 1rem "Montserrat", sans-serif, arial;
-  font-family: "Montserrat", sans-serif, arial;
+.feed03__content__item__right__description p {
+  color: #242424;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 400;
-  color: #000;
-}
-@media (max-width: 767.98px) {
-  .feed03__content__item__description p {
-    font: 400 0.938rem "Montserrat", sans-serif, arial;
-  }
-}
-.feed03 .carousel-feed03 .owl-nav {
-  display: flex;
-  justify-content: center;
-  margin-top: 52px;
-  gap: 0 27px;
-}
-@media (max-width: 767.98px) {
-  .feed03 .carousel-feed03 .owl-nav {
-    margin-top: 59px;
-  }
-}
-.feed03 .carousel-feed03 .owl-nav .owl-prev {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  background: #fff;
-  transition: 0.5s all ease;
-}
-.feed03 .carousel-feed03 .owl-nav .owl-next {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  background: #fff;
-  transition: 0.5s all ease;
-}
-.feed03 .carousel-feed03 .owl-nav .owl-next span {
-  color: #9DAFBD;
-  font-size: 35px;
-  line-height: 22px;
-  transition: 0.5s all ease;
-}
-.feed03 .carousel-feed03 .owl-nav .owl-prev span {
-  color: #9DAFBD;
-  font-size: 35px;
-  line-height: 22px;
-  transition: 0.5s all ease;
-}
-.feed03 .carousel-feed03 .owl-nav .owl-next span,
-.feed03 .carousel-feed03 .owl-nav .owl-prev span {
-  line-height: 32px;
-}
-.feed03 .carousel-feed03 .owl-nav .owl-prev:hover {
-  background: #000;
-  transition: 0.5s all ease;
-}
-.feed03 .carousel-feed03 .owl-nav .owl-next:hover {
-  background: #000;
-  transition: 0.5s all ease;
-}
-.feed03 .carousel-feed03 .owl-nav .owl-prev:hover span {
-  color: #fff;
-  transition: 0.5s all ease;
-}
-.feed03 .carousel-feed03 .owl-nav .owl-next:hover span {
-  color: #fff;
-  transition: 0.5s all ease;
+  line-height: 18px;
 }
 
 /* BEGIN STYLE */
 .blog01 {
   overflow: hidden; /* prevenção do shift da animação*/
+  background-color: #1A2069;
 }
 .blog01__header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 .blog01__header__title {
-  margin-bottom: 0.25rem;
+  color: #95D059;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0;
+  position: relative;
+}
+.blog01__header__title::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 1px;
+  background-color: #FFF;
+  bottom: -30px;
+  left: -70px;
 }
 .blog01__header__subtitle {
   margin-bottom: 2rem;
@@ -3406,12 +3339,13 @@ body .owl-dots .owl-dot.active {
 }
 .blog01__main__item, .blog01-show__related__item, .blog01-page__articles__list__item {
   position: relative;
-  width: calc(25% - 15px);
+  width: calc(33.333333% - 14px);
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
+  background-color: #FFF;
 }
 @media (max-width: 991.98px) {
   .blog01__main__item, .blog01-show__related__item, .blog01-page__articles__list__item {
@@ -3431,20 +3365,53 @@ body .owl-dots .owl-dot.active {
 .blog01__main__item__image, .blog01-show__related__item__image, .blog01-page__articles__list__item__image {
   width: 100%;
   height: auto;
-  aspect-ratio: 320/284;
+  aspect-ratio: 372/259;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
+.blog01__main__item__description, .blog01-show__related__item__description, .blog01-page__articles__list__item__description {
+  padding: 1.5rem;
+}
 .blog01__main__item__description__time, .blog01-show__related__item__description__time, .blog01-show__article__time, .blog01-page__articles__list__item__description__time, .blog01-page__articles__highlighted__item__information__time {
-  margin-bottom: 0.5rem;
+  color: #2E368E;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  margin-bottom: 0;
 }
 .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title {
-  margin-bottom: 1rem;
+  color: #242424;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 7px;
+  width: 100%;
+  max-width: 310px;
 }
-.blog01__cta {
-  margin: 1rem 0 0 auto;
+@media (max-width: 991.98px) {
+  .blog01__main__item__description__title, .blog01-show__related__item__description__title, .blog01-page__articles__list__item__description__title {
+    max-width: inherit;
+  }
+}
+.blog01__main__item__description__paragraph, .blog01-show__related__item__description__paragraph, .blog01-page__articles__list__item__description__paragraph {
+  color: #242424;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+.blog01__main__item__description__cta {
+  margin: 1rem 0 1rem auto;
+}
+.blog01__main__item__description__cta span {
+  transform: skew(10deg, 0deg) !important;
 }
 
 .blog01-page__categories {
@@ -3646,15 +3613,29 @@ body .owl-dots .owl-dot.active {
   overflow: hidden; /*previne o shift da animação*/
 }
 .bran01__header, .bran01-page__main__header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 .bran01__header__title, .bran01-page__main__header__title {
-  margin-bottom: 0.25rem;
+  color: #1A2069;
+  font-family: "Montserrat", sans-serif, arial;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0;
+  position: relative;
+}
+.bran01__header__title span, .bran01-page__main__header__title span {
+  color: #95D059;
+}
+.bran01__header__title::before, .bran01-page__main__header__title::before {
+  content: "";
+  position: absolute;
+  width: 465px;
+  height: 1px;
+  background-color: #1A2069;
+  bottom: -30px;
+  left: -70px;
 }
 .bran01__header__subtitle, .bran01-page__main__header__subtitle {
   margin-bottom: 2rem;
@@ -3675,7 +3656,7 @@ body .owl-dots .owl-dot.active {
 }
 .bran01__content__item, .bran01-page__main__content__item {
   position: relative;
-  width: calc(25% - 1.125rem);
+  width: calc(12% - 1.125rem);
   height: auto;
   aspect-ratio: 321/136;
   background-size: cover;

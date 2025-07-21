@@ -12715,7 +12715,7 @@ __webpack_require__.r(__webpack_exports__);
 
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.bran01__content', {
   slidesPerView: 'auto',
-  spaceBetween: 24
+  spaceBetween: 28
 });
 
 /***/ }),
@@ -12895,11 +12895,11 @@ $('.carousel-feed01').css('width', $('.feed01 .container').outerWidth());
 $('.carousel-feed03').owlCarousel({
   smartSpeed: 450,
   loop: true,
-  dots: false,
-  nav: true,
+  dots: true,
+  nav: false,
   rewind: true,
   autoHeight: true,
-  margin: 50,
+  margin: 100,
   responsive: {
     0: {
       items: 1
@@ -12914,7 +12914,7 @@ $('.carousel-feed03').owlCarousel({
     },
     // breakpoint from 500 up
     801: {
-      items: 3
+      items: 2
     }
     // breakpoint from 801 up
   }

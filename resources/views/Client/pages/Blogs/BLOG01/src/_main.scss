@@ -4,16 +4,30 @@
 .blog01 {
     overflow: hidden; /* prevenção do shift da animação*/
     @extend %theme__padding;
+    background-color: #1A2069;
 
     &__header {
-        width: 100%;
-        @include disFlex(column, center, center);
-
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
 
         &__title {
-            @extend %theme__t2-c1;
-            margin-bottom: 0.25rem;
+            color: #95D059;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 240px;
+                height: 1px;
+                background-color: #FFF;
+                bottom: -30px;
+                left: -70px;
+            }
         }
         &__subtitle {
             @extend %theme__t4-c3;
@@ -42,10 +56,11 @@
 
         &__item {
             position: relative;
-            width: calc(25% - 15px);
+            width: calc(33.333333% - 14px);
 
             height: auto;
             @include disFlex(column);
+            background-color: #FFF;
 
             @include large-device-down {
                 width: calc(33.33% - 14px);
@@ -62,34 +77,62 @@
             &__image {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 320/284;
+                aspect-ratio: 372/259;
 
                 object-fit: cover;
                 object-position: center;
             }
 
             &__description {
+                padding: 1.5rem;
+
                 &__time {
-                    @extend %theme__p2-c2;
-                    margin-bottom: 0.5rem;
+                    color: #2E368E;
+                    font-family: $font-primary;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 22px;
+                    margin-bottom: 0;
                 }
 
                 &__title {
-                    @extend %theme__t4-cb;
-                    margin-bottom: 1rem;
+                    color: #242424;
+                    font-family: $font-primary;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 30px;
+                    margin-bottom: 7px;
+                    width: 100%;
+                    max-width: 310px;
+
+                    @include large-device-down {
+                        max-width: inherit;
+                    }
                 }
 
                 &__paragraph {
-                    @extend %theme__p1-c1;
+                    color: #242424;
+                    font-family: $font-primary;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 18px;
+                }
+
+                &__cta {
+                    @extend %theme__cta;
+                    margin: 1rem 0 1rem auto;
+
+                    span {
+                        transform: skew(10deg, 0deg) !important;
+                    }
                 }
             }
         }
     }
 
-    &__cta {
-        @extend %theme__cta;
-        margin: 1rem 0 0 auto;
-    }
 }
 
 .blog01-page {
