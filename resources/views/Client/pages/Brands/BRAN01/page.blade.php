@@ -29,10 +29,6 @@
                             <h3 class="bran01-page__main__header__subtitle">{{ $section->subtitle_content }}</h3>
                         @endif
 
-                        @if ($section->title_content || $section->subtitle_content)
-                            <hr class="bran01-page__main__header__line">
-                        @endif
-
                         @if ($section->description_content)
                             <div class="bran01-page__main__header__paragraph">
                                 <p>

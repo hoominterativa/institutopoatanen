@@ -5,6 +5,7 @@
 .bran01 {
     overflow: hidden; /*previne o shift da animação*/
     @extend %theme__padding;
+    padding-bottom: 7rem;
 
     &__header {
         margin-bottom: 5rem;
@@ -121,7 +122,13 @@
             @extend .bran01__header;
 
             &__title {
-                @extend .bran01__header__title;
+                color: #2E368E;
+                font-family: $font-primary;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 0
             }
 
             &__subtitle {

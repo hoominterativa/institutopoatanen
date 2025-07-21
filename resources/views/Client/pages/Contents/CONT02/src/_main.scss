@@ -1,9 +1,9 @@
 @import "variables";
 
 .cont02 {
-    @extend %theme__padding;
+    // @extend %theme__padding;
     padding-bottom: 0;
-    @include disFlex(row, space-between, start);
+    @include disFlex(row-reverse, space-between, start);
 
     /* Quando não houver imagem cadastrada, o box information receberá width de 100%*/
     &:not(:has(&__image)) &__information {
@@ -39,6 +39,7 @@
     &__information {
         padding: 4rem 2rem;
         width: 50%;
+        background-color: #2E368E;
 
         @include large-device-down {
             width: 100%;

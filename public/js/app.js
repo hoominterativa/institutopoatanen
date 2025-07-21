@@ -11850,6 +11850,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Slides_SLID01_src_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/Slides/SLID01/src/main */ "./resources/views/Client/pages/Slides/SLID01/src/main.js");
 /* harmony import */ var _pages_Topics_TOPI09_src_main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/Topics/TOPI09/src/main */ "./resources/views/Client/pages/Topics/TOPI09/src/main.js");
 /* harmony import */ var _pages_Contents_CONT08_src_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/Contents/CONT08/src/main */ "./resources/views/Client/pages/Contents/CONT08/src/main.js");
+/* harmony import */ var _pages_Contents_CONT08_src_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT08_src_main__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _pages_Contents_CONT04_src_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/Contents/CONT04/src/main */ "./resources/views/Client/pages/Contents/CONT04/src/main.js");
 /* harmony import */ var _pages_Contents_CONT04_src_main__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_pages_Contents_CONT04_src_main__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _pages_Blogs_BLOG03_src_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/Blogs/BLOG03/src/main */ "./resources/views/Client/pages/Blogs/BLOG03/src/main.js");
@@ -12851,16 +12852,14 @@ if (buttonsPlay) {
 /*!******************************************************************!*\
   !*** ./resources/views/Client/pages/Contents/CONT08/src/main.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
+// import Swiper from 'swiper/bundle';
 
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.cont08__information__topics', {
-  slidesPerView: 'auto',
-  spaceBetween: 88
-});
+// new Swiper('.cont08__information__topics', {
+//     slidesPerView: 'auto',
+//     spaceBetween: 88,
+// });
 
 /***/ }),
 

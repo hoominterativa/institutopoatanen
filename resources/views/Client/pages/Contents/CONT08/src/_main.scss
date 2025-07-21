@@ -4,6 +4,8 @@
     overflow: hidden; /* Previne o sfhit da animação */
     @extend %theme__padding;
     padding-bottom: 0;
+    padding-top: 0;
+    padding-right: 260px;
     @include disFlex($justify: space-between, $align: start);
 
     @include large-device-down {
@@ -33,22 +35,26 @@
     }
 
     &__information {
-        width: 53%;
-        padding-bottom: 3rem;
-        @include disFlex(column);
+        width: 100%;
+        @include disFlex(row, space-between, stretch);
 
         @include large-device-down {
             width: 100%;
         }
 
+        
         &__header {
-            width: 100%;
+            width: 44%;
             @include disFlex(column);
-
+            
             &__title {
-                @extend %theme__t2-c1;
-                text-align: left;
-                margin-bottom: 0.25rem;
+                color: #1A2069;
+                font-family: $font-primary;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 0;
             }
             &__subtitle {
                 @extend %theme__t4-c3;
@@ -64,16 +70,39 @@
         }
 
         &__description {
-            @extend %theme__p1-cb;
-            margin-bottom: 1rem;
+            color: #242424;
+            font-family: $font-primary;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
+            margin-bottom: 0;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 520px;
+                height: 1px;
+                background-color: #1A2069;
+                right: -77px;
+                bottom: -50px;
+            }
         }
 
         &__topics {
             overflow: hidden;
             margin-bottom: 3rem;
+            margin-top: 120px;
 
             @include large-device-down {
                 overflow: visible;
+            }
+
+            &__swiper-wrapper {
+                @include disFlex(row, space-between);
+                flex-wrap: wrap;
+                gap: 40px;
             }
 
             &__item {
@@ -81,22 +110,26 @@
                 gap: 12px;
 
                 /* (quantidade de gap * tamanho do gap / quantidade de elementos) */
-                width: calc(33.33% - 58px);
+                width: calc(50% - 58px);
 
-                @include medium-device-down {
-                    width: calc(50% - 44px);
-                }
-
-                &__icon {
-                    width: 3.5rem;
-                    height: auto;
-                    aspect-ratio: 1/1;
+                &__title {
+                    color: #2E368E;
+                    text-align: center;
+                    font-family: $font-primary;
+                    font-size: 64px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    margin-bottom: 0
                 }
 
                 &__description {
-                    @extend %theme__p1-c1;
-                    text-align: center;
-                    max-width: 166px;
+                    color: #242424;
+                    font-family: $font-primary;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 28px;
                 }
             }
         }
@@ -110,4 +143,7 @@
             }
         }
     }
+}
+.right {
+    width: 40%;
 }

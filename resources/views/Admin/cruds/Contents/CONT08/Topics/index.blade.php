@@ -17,7 +17,7 @@
                             <th width="30px" class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteTopics" type="checkbox"></label>
                             </th>
-                            <th>Imagem</th>
+                            <th>Número</th>
                             <th>Descrição</th>
                             <th width="100px">Status</th>
                             <th width="90px">Ações</th>
@@ -31,11 +31,12 @@
                                 <td class="bs-checkbox align-middle">
                                     <label><input name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$topic->id}}"></label>
                                 </td>
-                                <td class="align-middle avatar-group">
+                                <!-- <td class="align-middle avatar-group">
                                     @if ($topic->path_image)
                                         <div class="avatar-group-item avatar-bg rounded-circle avatar-sm" style="background-image: url({{asset('storage/' . $topic->path_image)}})"></div>
                                     @endif
-                                </td>
+                                </td> -->
+                                <td class="align-middle">{!! substr($topic->path_image, 0 , 25) !!}<b>...</b></td>
                                 <td class="align-middle">{!! substr($topic->description, 0 , 25) !!}<b>...</b></td>
                                 <td class="align-middle">
                                     @if ($topic->active)

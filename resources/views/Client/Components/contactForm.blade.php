@@ -5,7 +5,7 @@
             <div class="form01__main">
 
                 <div class="form01__main__information">
-                    <h2 class="form01__main__information__title">{{ $content->title->value }}</h2>
+                    <h2 class="form01__main__information__title">{!! $content->title->value !!}</h2>
                     <div class="form01__main__information__paragraph">
                         <p>
                             {{ $content->description->value }}
@@ -48,7 +48,7 @@
                     </label>
 
                     <button type="submit" class="form01__main__form__footer__cta">
-                        CTA
+                        Enviar
                     </button>
                 </div>
 

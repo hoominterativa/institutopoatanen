@@ -5,6 +5,7 @@
     overflow: hidden; /* prevenção do shift da animação*/
     // @extend %theme__padding;
     position: relative;
+    margin-top: -16rem;
 
     &__header {
         width: 100%;

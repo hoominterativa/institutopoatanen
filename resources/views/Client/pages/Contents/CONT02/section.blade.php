@@ -11,12 +11,12 @@
             @if ($content->title || $content->subtitle || $content->description)
                 <div class="cont02__information">
                     @if ($content->title)
-                        <h2 class="cont02__information__title">{{ $content->title }}</h2>
+                        <h2 class="cont02__information__title">{!! $content->title !!}</h2>
                     @endif
 
-                    @if ($content->subtitle)
+                    {{-- @if ($content->subtitle)
                         <h3 class="cont02__information__subtitle">{{ $content->subtitle }}</h3>
-                    @endif
+                    @endif --}}
 
                     @if ($content->description)
                         <div class="cont02__information__paragraph">

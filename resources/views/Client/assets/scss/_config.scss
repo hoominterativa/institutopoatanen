@@ -543,10 +543,11 @@ details {
 
     &__banner {
         width: 100%;
+        // height: 545px;
 
         @extend %theme__padding;
-        padding-top: 6.5rem;
-        padding-bottom: 6.5rem;
+        padding-top: 9rem;
+        padding-bottom: 9rem;
 
         @include bg;
         background-color: $color-four;
@@ -554,7 +555,13 @@ details {
         @include disFlex(column, center, start);
 
         &__title {
-            @extend %theme__t1-c1;
+            color: #FFF;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
         }
 
         &__subtitle {
@@ -1479,12 +1486,17 @@ body {
 //FIM FORM102
 // INICIO FORM01
 .form01 {
-    @include disFlex(row, space-between);
+    @include disFlex(row-reverse, space-between);
     flex-wrap: wrap;
     @extend %theme__padding;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #95D059;
+    position: relative;
+    height: 447px;
 
     &__main {
-        @include disFlex(column);
+        @include disFlex(column, center);
         width: 50%;
 
         @include large-device-down {
@@ -1493,11 +1505,22 @@ body {
         }
 
         &__information {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
 
             &__title {
-                @extend %theme__t3-cb;
-                margin-bottom: 2.5rem;
+                color: #1A2069;
+                font-family: $font-primary;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 0;
+                width: 100%;
+                max-width: 420px;
+
+                span {
+                    color: #FFF;
+                }
             }
 
             &__paragraph {
@@ -1544,15 +1567,19 @@ body {
                 }
 
                 &__cta {
-                    @extend %theme__cta;
+                    @extend %theme__cta--two;
                 }
             }
         }
     }
 
     &__image {
-        width: 30%;
+        width: 62%;
         height: auto;
+        position: absolute;
+        z-index: 1;
+        top: -100px;
+        left: 0;
 
         @include large-device-down {
             width: 100%;

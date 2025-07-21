@@ -6,15 +6,19 @@
     {!! Form::hidden('content_id', $content->id) !!}
 @endif
 <div class="row">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-12">
         <div class="card card-body border" id="tooltip-container">
+            <div class="mb-3">
+                {!! Form::label('title', 'Título', ['class' => 'form-label']) !!}
+                {!! Form::text('path_image', null, ['class' => 'form-control', 'id' => 'path_image']) !!}
+            </div>
             <div class="mb-3">
                 {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
                 {!! Form::textarea('description', null, [
                     'class'=>'form-control',
                     'id'=>'description',
                     'data-parsley-trigger'=>'keyup',
-                    'data-parsley-minlength'=>'20',
+                    'data-parsley-minlength'=>'1',
                     'data-parsley-maxlength'=>'300',
                     'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                     'data-parsley-validation-threshold'=>'10',
@@ -28,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-6">
+    {{-- <div class="col-12 col-lg-6">
         <div class="card card-body border" id="tooltip-container">
             <div class="mb-3">
                 <div class="container-image-crop">
@@ -51,11 +55,10 @@
                                 : '',
                         ]) !!}
                     </label>
-                </div><!-- END container image crop -->
+                </div>
             </div>
         </div>
-        {{-- end card-body --}}
-    </div>
+    </div> --}}
 </div>
 <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">
     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}
