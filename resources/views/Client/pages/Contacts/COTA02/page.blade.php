@@ -84,7 +84,9 @@
                 </div>
 
                 <button type="submit" class="cota02__form__footer__cta">
-                    {{ $contact->title_button_form }}
+                    <span>
+                        {{ $contact->title_button_form }}
+                    </span>
                 </button>
             </div>
             {!! Form::close() !!}

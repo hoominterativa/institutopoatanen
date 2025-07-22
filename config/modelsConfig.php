@@ -313,20 +313,40 @@ return [
             ],
         ],
 
-        'Feedbacks.1' => (object) [
-            'FEED01' => (object)[
+        // 'Feedbacks.1' => (object) [
+        //     'FEED01' => (object)[
+        //         'ViewHome' => false,
+        //         'ViewListMenu' => false,
+        //         'ViewListPanel' => true,
+        //         'ViewListFooter' => false,
+        //         'Viewer' => 'dropdown', // accepted values, list or dropdown
+        //         'config' => (object) [
+        //             'titleMenu' => '',
+        //             'anchor' =>  false,
+        //             'linkMenu' => '',
+        //             'iconMenu' => '',
+        //             'titlePanel' => 'FAQ',
+        //             'iconPanel' => 'mdi-android-messages'
+        //         ]
+        //     ],
+        // ],
+
+        'Frequently' => (object) [
+            'FREQ01' => (object)[
                 'ViewHome' => false,
-                'ViewListMenu' => false,
+                'ViewListMenu' => true,
                 'ViewListPanel' => true,
                 'ViewListFooter' => false,
                 'Viewer' => 'dropdown', // accepted values, list or dropdown
                 'config' => (object) [
-                    'titleMenu' => '',
+                    'titleMenu' => 'FAQ',
                     'anchor' =>  false,
-                    'linkMenu' => '',
+                    'linkMenu' => 'freq01.page',
                     'iconMenu' => '',
                     'titlePanel' => 'FAQ',
-                    'iconPanel' => 'mdi-android-messages'
+                    'iconPanel' => 'mdi-frequently-asked-questions'
+                ],
+                'IncludeSections' => (object) [
                 ]
             ],
         ],
@@ -355,7 +375,7 @@ return [
                     'iconPanel' => 'mdi-contacts'
                 ],
                 'IncludeSections' => (object) [
-                    'Feedbacks.1' => 'FEED01',
+                    'Frequently' => 'FREQ01',
                 ]
             ],
         ],

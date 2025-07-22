@@ -29,13 +29,21 @@
                             <h3 class="bran01-page__main__header__subtitle">{{ $section->subtitle_content }}</h3>
                         @endif
 
-                        @if ($section->description_content)
-                            <div class="bran01-page__main__header__paragraph">
-                                <p>
-                                    {!! $section->description_content !!}
-                                </p>
-                            </div>
-                        @endif
+                        <div class="bran01-page__main__header__conteudo">
+                            @if ($section->description_content)
+                                <div class="bran01-page__main__header__paragraph">
+                                    <p>
+                                        {!! $section->description_content !!}
+                                    </p>
+                                </div>
+                            @endif
+                            <a href="#" class="bran01-page__main__header__cta">
+                                <span>
+                                    Seja um apoiador
+                                </span>    
+                            </a>
+                        </div>
+
                     </header>
                 @endif
             @endif

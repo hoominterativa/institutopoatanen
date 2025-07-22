@@ -4,15 +4,18 @@
 .cont05 {
     overflow: hidden; /* prevenção do shift da animação*/
     @extend %theme__padding;
+    background-color: #2E368E;
 
     &__header {
-        width: 100%;
-        @include disFlex(column, center, center);
-        margin-bottom: 2.5rem;
 
         &__title {
-            @extend %theme__t2-c1;
-            margin-bottom: 0.25rem;
+            color: #FFF;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
         }
 
         &__subtitle {
@@ -21,19 +24,34 @@
     }
 
     &__main {
-        @include disFlex(column, center, center);
+        @include disFlex(row, space-between, center);
 
         &__paragraph {
-            width: 100%;
-            max-width: 680px;
+            color:#FFF;
+            font-family: $font-primary;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
+        }
 
-            @extend %theme__p1-c2;
-            text-align: center;
-            margin-bottom: 2rem;
+        p {
+            color:#FFF;
+            font-family: $font-primary;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
+            text-align: left;
         }
 
         &__cta {
             @extend %theme__cta;
+            background-color: #FFF;
+
+            span {
+                transform: skew(10deg, 0deg) !important;
+            }
         }
     }
 }

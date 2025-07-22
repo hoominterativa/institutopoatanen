@@ -729,7 +729,7 @@ details {
 
     &__accordion {
         &__item {
-            border-bottom: solid 1px rgba($color-one, 0.2);
+            border-bottom: solid 1px rgba(#2E368E, 0.5);
 
             &[open] &__title::after {
                 transform: rotate(180deg);
@@ -738,8 +738,12 @@ details {
 
             &__title {
                 padding: 1rem 0.5rem;
-                @extend %theme__p1-cb;
-                font-weight: 700;
+                color: #272727;
+                font-family: Montserrat;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px;
 
                 &::after {
                     position: absolute;
@@ -749,7 +753,7 @@ details {
                     height: 1.25rem;
 
                     content: "";
-                    background-color: $color-one;
+                    background-color: #1A2069;
                     clip-path: polygon(50% 100%, 0 0, 100% 0);
 
                     transition: transform 0.2s ease-out;
@@ -768,10 +772,15 @@ details {
             }
 
             &__paragraph {
-                @extend %theme__p2-c2;
-                padding: 1rem;
+                color: #FFF;
+                font-family: $font-primary;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px;
+                padding: 1rem 3rem;
 
-                background-color: $color-five;
+                background-color: #1A2069;
             }
         }
     }
