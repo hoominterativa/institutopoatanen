@@ -11,7 +11,7 @@
             @endif
         @endif
 
-        <aside class="blog03-page__navigation">
+        {{-- <aside class="blog03-page__navigation">
             @if ($categories->count())
                 <menu class="blog03-page__navigation__categories">
                     @foreach ($categories as $category)
@@ -32,15 +32,15 @@
                 </button>
 
             </form>
-        </aside>
+        </aside> --}}
 
         @if ($blogs->count())
             <div class="blog03-page__main">
                 @foreach ($blogs as $blog)
                     <article class="blog03-page__main__item" itemscope itemtype="http://schema.org/Article">
-                        <a title="{!! $blog->title !!}"
+                        {{-- <a title="{!! $blog->title !!}"
                             href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug]) }}"
-                            class="link-full"></a>
+                            class="link-full"></a> --}}
 
                         @if ($blog->path_image_box)
                             <figure class="blog03-page__main__item__image">
@@ -56,11 +56,17 @@
                                         {!! $blog->title !!}</h3>
                                 @endif
 
-                                @if ($blog->description)
+                                {{-- @if ($blog->description)
                                     <p class="blog03-page__main__item__information__paragraph">
                                         {!! $blog->description !!}
                                     </p>
-                                @endif
+                                @endif --}}
+
+                                <a href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug]) }}" class="blog03-page__main__item__information__cta">
+                                    <span>
+                                        Veja mais
+                                    </span>
+                                </a>
                             </div>
                         @endif
                     </article>

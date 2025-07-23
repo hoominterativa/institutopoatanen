@@ -1,23 +1,64 @@
 @extends('Client.Core.client')
 @section('content')
+<style>
+    .cont05 {
+        background-color: #FFF;
+    }
+    .cont05__header__title {
+        color: #2E368E;
+    }
+    .cont05__main p {
+        color: #242424;
+    }
+    .cont05__main__cta {
+        background-color: #1A2069;
+        border: 1px solid #1A2069;
+        color: #FFFF;
+    }
+    .cont05__main__cta:hover {
+        background-color: transparent;
+        border: 1px solid #1A2069;
+        color: #1A2069;
+    }
+    .blog03 {
+        background-color: #FFFF;
+        position: relative;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+    .blog03:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 560px;
+        background-color: #95D059;
+        top: 0;
+        left: 0;
+    }
+    .blog03__header {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    .blog03__main {
+        padding-left: 5vw;
+        margin-right: 5vw;
+    }
+    .blog03__cta {
+        margin-right: 5vw;
+    }
+</style>
     {{-- BEGIN Page content --}}
     <main id="root">
         <div id="COPA02" class="copa02-page">
-            <section class="copa02-page__assortedBox container-fluid px-0">
+            <section class="copa02-page__assortedBox">
                 @if ($section->active_banner == 1)
-                    <header class="copa02-page__assortedBox__header position-relative"
+                    <section class="copa02-page__assortedBox__banner"
                         style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
-                        <div class="copa02-page__assortedBox__header__mask"></div>
-                        @if ($section->title_banner || $section->subtitle_banner)
-                            <div class="container-assortedBox--copa02-page container d-flex flex-column justify-content-center align-items-center">
-                                <h3 class="copa02-page__assortedBox__header__encompass flex-column">
-                                    <span class="copa02-page__assortedBox__header__title">{{ $section->title_banner }}</span>
-                                    <span class="copa02-page__assortedBox__header__subtitle">{{ $section->subtitle_banner }}</span>
-                                </h3>
-                                <hr class="copa02-page__assortedBox__header__line" />
-                            </div>
+                        @if ($section->title_banner)
+                            <h1 class="copa02-page__assortedBox__banner__title">{{ $section->title_banner }}</h1>
                         @endif
-                    </header>
+                    </section>
                 @endif
                 @if ($contentPages->count())
                     <div class="copa02-page__assortedBox__content">

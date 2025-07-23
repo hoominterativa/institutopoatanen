@@ -30,7 +30,9 @@
                         <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}"
                             class="cont02v1__information__cta">
                             @if ($content->title_button)
-                                {{ $content->title_button }}
+                                <span>
+                                    {{ $content->title_button }}
+                                </span>
                             @endif
                         </a>
                     @endif

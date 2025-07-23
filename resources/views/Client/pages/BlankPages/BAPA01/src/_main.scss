@@ -1,3 +1,16 @@
 @import 'variables';
 
 /* BEGIN STYLE */
+
+.bapa01 {
+    &__banner {
+        @extend %theme__banner;
+        padding-top: 14rem;
+
+        &__title {
+            @extend %theme__banner__title;
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+}

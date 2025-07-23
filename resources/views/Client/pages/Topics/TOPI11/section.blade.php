@@ -7,7 +7,7 @@
                         <h2 class="topi11__header__title">{{ $section->title }}</h2>
                     @endif
 
-                    @if ($section->subtitle)
+                    {{-- @if ($section->subtitle)
                         <h3 class="topi11__header__subtitle">{{ $section->subtitle }}</h3>
                     @endif
 
@@ -17,7 +17,7 @@
 
                     @if ($section->description)
                         <div class="topi11__header__paragraph">{!! $section->description !!}</div>
-                    @endif
+                    @endif --}}
                 </header>
             @endif
         @endif

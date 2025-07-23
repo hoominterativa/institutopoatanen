@@ -20,9 +20,7 @@
 
                     @if ($content->description)
                         <div class="cont02v2__information__paragraph">
-                            <p>
-                                {!! $content->description !!}
-                            </p>
+                            {!! $content->description !!}
                         </div>
                     @endif
 

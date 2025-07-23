@@ -279,6 +279,7 @@ return [
                     'iconPanel' => 'mdi-book-open-page-variant'
                 ],
                 'IncludeSections' => (object) [
+                    'Contents.6' => 'CONT05',
                     'Blogs' => 'BLOG03',
                     'Contents.4' => 'CONT02V1',
                 ]

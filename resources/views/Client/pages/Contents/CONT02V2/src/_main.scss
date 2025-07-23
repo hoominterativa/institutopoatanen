@@ -1,9 +1,10 @@
 @import "variables";
 
 .cont02v2{
-    @extend %theme__padding;
-    padding-bottom: 0;
-    @include disFlex(row, space-between, start);
+    // @extend %theme__padding;
+    // padding-bottom: 0;
+    @include disFlex(row, space-between, stretch);
+    background-color: #FFF;
 
     /* Quando não houver imagem cadastrada, o box information receberá width de 100%*/
     &:not(:has(&__image)) &__information {
@@ -16,17 +17,16 @@
     }
 
     &__image {
-        width: 32%;
+        width: 53%;
         height: 100%;
-        aspect-ratio: 430/593;
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        
+        // aspect-ratio: 905/510;
 
-        align-self: end;
-        margin-inline: auto;
-
-        @include large-device-down {
-            width: 100%;
-            aspect-ratio: 256/351;
-        }
+        // @include large-device-down {
+        //     width: 100%;
+        //     aspect-ratio: 256/351;
+        // }
 
         &__img {
             width: 100%;
@@ -37,31 +37,72 @@
     }
 
     &__information {
-        padding: 4rem 2rem;
-        width: 50%;
+        padding: 0 4rem;
+        width: 47.6%;
+        @include disFlex(column, center);
+
+        clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
 
         @include large-device-down {
             width: 100%;
         }
 
         &__title {
-            @extend %theme__t2-c1;
-            text-align: left;
-            margin-bottom: 0.75rem;
+            color: #1A2069;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
         }
 
         &__subtitle {
-            @extend %theme__t4-c3;
-            margin-bottom: 1.25rem;
+            color: #1A2069;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 25px;
         }
 
         &__paragraph {
-            @extend %theme__p2-c2;
-            margin-bottom: 2rem;
+            color: #242424;
+            font-family: $font-primary;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
         }
 
         &__cta {
             @extend %theme__cta;
         }
+    }
+
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+        background-color: #1A2069;
+    }
+
+    &:nth-child(even) .cont02v2__image {
+        clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    &:nth-child(even) .cont02v2__information {
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+    }
+
+    &:nth-child(even) .cont02v2__information__title{
+        color: #FFF;
+    }
+
+    &:nth-child(even) .cont02v2__information__subtitle{
+        color: #FFF;
+    }
+
+    &:nth-child(even) .cont02v2__information__paragraph {
+        color: #FFF;
     }
 }
