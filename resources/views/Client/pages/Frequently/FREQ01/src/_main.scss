@@ -7,6 +7,8 @@
 
     &__faq {
         @extend %theme__padding;
+        padding-left: 10vw;
+        padding-right: 10vw;
         padding-bottom: 9rem;
 
         &__title {

@@ -48,7 +48,9 @@
                     </label>
 
                     <button type="submit" class="form01__main__form__footer__cta">
-                        Enviar
+                        <span>
+                            Enviar
+                        </span>
                     </button>
                 </div>
 

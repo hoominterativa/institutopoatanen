@@ -21,10 +21,10 @@
         </div>
 
         <ul class="foot02__navigation__pages">
-            <li class="foot02__navigation__pages__header">Site Map</li>
+            <!-- <li class="foot02__navigation__pages__header">Site Map</li>
             <li class="foot02__navigation__pages__item">
                 <a title="Home" href="{{ route('home') }}" class="foot02__navigation__pages__item__link">Home</a>
-            </li>
+            </li> -->
 
             @foreach ($listMenu as $module => $menu)
                 <li class="foot02__navigation__pages__item">

@@ -70,6 +70,8 @@
 
     &__form {
         @extend %theme__padding;
+        padding-left: 10vw;
+        padding-right: 10vw;
         @include disFlex(row, start, start);
         flex-wrap: wrap;
         width: 100%;

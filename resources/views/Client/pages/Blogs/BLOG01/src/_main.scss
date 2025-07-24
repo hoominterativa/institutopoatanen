@@ -124,6 +124,7 @@
                 &__cta {
                     @extend %theme__cta;
                     margin: 1rem 0 1rem auto;
+                    color: #FFF;
 
                     span {
                         transform: skew(10deg, 0deg) !important;
@@ -523,10 +524,27 @@
     &__related {
         @extend %theme__padding;
         padding-bottom: 7rem;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 90%;
+            height: 1px;
+            background-color: #1a216988;
+            top: 0;
+            left: 0;
+            transform: translate(5%, -50%);
+        }
 
         &__title {
-            @extend %theme__t5-cb;
-            margin-bottom: 1.5rem;
+            color: #242424;
+            font-family: $font-primary;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+            margin-bottom: 27px;
         }
 
         &__carousel {

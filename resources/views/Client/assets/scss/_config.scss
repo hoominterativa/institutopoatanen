@@ -1558,11 +1558,22 @@ body {
                 flex-wrap: wrap;
 
                 &__compliance {
-                    @extend %theme__p2-cb;
-                    opacity: 0.4;
+                    color: #FFF;
+                    font-family: $font-primary;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 18px;
+                    opacity: 0.8;
 
                     &__link {
-                        @extend %theme__p2-cb;
+                        color: #FFF;
+                        font-family: $font-primary;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 18px;
+                        opacity: 0.8;
                         text-decoration: underline;
                     }
 
@@ -1577,6 +1588,10 @@ body {
 
                 &__cta {
                     @extend %theme__cta--two;
+
+                    span {
+                        transform: skew(10deg, 0deg) !important;
+                    }
                 }
             }
         }
@@ -2138,6 +2153,8 @@ body {
 
 .form-placeholder {
     position: relative;
+    background-color: #FFF;
+
     .placeholder--custom {
         font-size: 16px;
         position: absolute;

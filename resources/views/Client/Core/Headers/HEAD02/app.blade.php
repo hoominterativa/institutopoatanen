@@ -92,7 +92,7 @@
         @endif
 
 
-        @if ($socials->count())
+        {{-- @if ($socials->count())
             <li class="head02__navigation__item--socials">
                 @foreach ($socials as $social)
                     <a href="{{ $social->link }}" class="head02__navigation__item--socials__item"
@@ -102,7 +102,7 @@
                     </a>
                 @endforeach
             </li>
-        @endif
+        @endif --}}
 
         {{-- IDIOMAS --}}
         {{-- <li class="head02__navigation__item--languages">

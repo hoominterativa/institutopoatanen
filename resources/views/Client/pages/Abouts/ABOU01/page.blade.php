@@ -17,6 +17,11 @@
                 </section>
             @endif
 
+            <section class="abou01-page__top">
+                <h3 class="abou01-page__top__title">Juntos levamos oportunidades</h3>
+                <p class="abou01-page__top__paragraph">Rutrum vitae turpis massa ullamcorper mauris adipiscing justo, imperdiet. Vivamus et mi augue gravida commodo.</p>
+            </section>
+
             @if ($about->path_image || $about->title || $about->subtitle || $about->text)
                 <section class="abou01-page__main" {{-- style="background-image: url({{ asset('storage/' . $about->path_image_desktop) }});background-color: {{ $about->background_color }}" --}}>
                     @if ($about->path_image)
@@ -26,7 +31,7 @@
                         </div>
                     @endif
 
-                    @if ($about->title || $about->subtitle || $about->text)
+                    @if ($about->title || $about->text)
                         <div class="abou01-page__main__information">
                             @if ($about->title || $about->subtitle)
                                 <header class="abou01-page__main__information__header">
@@ -34,10 +39,10 @@
                                         <h2 class="abou01-page__main__information__header__title">{{ $about->title }}</h2>
                                     @endif
 
-                                    @if ($about->subtitle)
+                                    {{-- @if ($about->subtitle)
                                         <h3 class="abou01-page__main__information__header__subtitle">{{ $about->subtitle }}
                                         </h3>
-                                    @endif
+                                    @endif --}}
                                 </header>
                             @endif
 
@@ -46,48 +51,28 @@
                                     {!! $about->text !!}
                                 </div>
                             @endif
+
+                            <a href="#" class="abou01-page__main__information__cta">
+                                <span>Seja um apoiador</span>
+                            </a>
                         </div>
                     @endif
                 </section>
             @endif
 
-            @if ($about->topics->count())
-                <section class="abou01-page__topics">
-
-                    <div class="abou01-page__topics__carousel">
-                        <div class="abou01-page__topics__carousel__swiper-wrapper swiper-wrapper">
-
-                            @foreach ($about->topics as $topic)
-                                <article class="abou01-page__topics__item swiper-slide">
-
-                                    <header class="abou01-page__topics__item__header">
-
-                                        @if ($topic->path_image_icon)
-                                            <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
-                                                class="abou01-page__topics__item__header__icon" alt="{{ $topic->title }}">
-                                        @endif
-
-                                        @if ($topic->title)
-                                            <h3 class="abou01-page__topics__item__header__title">{{ $topic->title }}</h3>
-                                        @endif
-                                    </header>
-
-                                    @if ($topic->description)
-                                        <div class="abou01-page__topics__item__paragraph">
-                                            {!! $topic->description !!}
-                                        </div>
-                                    @endif
-
-                                </article>
-                            @endforeach
-
+            <div class="abou01-page__topics">
+                <h3 class="abou01-page__topics__title">A luta de um virou esperança para muitos. Esse é o Instituto Poatan</h3>
+                @foreach ($about->topics as $topic)
+                    <details class="abou01-page__topics__item">
+                        <summary class="abou01-page__topics__item__title" aria-level="3" role="heading">
+                            {{ $topic->title }}
+                        </summary>
+                        <div class="abou01-page__topics__item__paragraph details-content">
+                            {!! $topic->description !!}
                         </div>
-
-                        <div class="abou01-page__topics__carousel__swiper-pagination"></div>
-                    </div>
-
-                </section>
-            @endif
+                    </details>
+                @endforeach
+            </div>
 
 
             @if ($about->active_content)
@@ -131,7 +116,9 @@
                                     class="abou01-page__section__information__cta">
 
                                     @if ($about->title_button_content)
-                                        {{ $about->title_button_content }}
+                                        <span>
+                                            {{ $about->title_button_content }}
+                                        </span>
                                     @endif
                                 </a>
                             @endif

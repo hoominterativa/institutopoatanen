@@ -11869,6 +11869,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_ContentPages_COPA02_src_main__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../pages/ContentPages/COPA02/src/main */ "./resources/views/Client/pages/ContentPages/COPA02/src/main.js");
 /* harmony import */ var _pages_ContentPages_COPA02_src_main__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_pages_ContentPages_COPA02_src_main__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../pages/Abouts/ABOU01/src/main */ "./resources/views/Client/pages/Abouts/ABOU01/src/main.js");
+/* harmony import */ var _pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_pages_Abouts_ABOU01_src_main__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../pages/Frequently/FREQ01/src/main */ "./resources/views/Client/pages/Frequently/FREQ01/src/main.js");
 /* harmony import */ var _pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_pages_Frequently_FREQ01_src_main__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var _pages_Contacts_COTA02_src_main__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../pages/Contacts/COTA02/src/main */ "./resources/views/Client/pages/Contacts/COTA02/src/main.js");
@@ -12491,20 +12492,9 @@ document.addEventListener('DOMContentLoaded', function () {
 /*!****************************************************************!*\
   !*** ./resources/views/Client/pages/Abouts/ABOU01/src/main.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.mjs");
 
-new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.abou01-page__topics__carousel', {
-  slidesPerView: 'auto',
-  spaceBetween: 24,
-  pagination: {
-    el: '.abou01-page__topics__carousel__swiper-pagination',
-    clickable: true
-  }
-});
 
 /***/ }),
 

@@ -88,6 +88,10 @@
         &__cta {
             @extend %theme__cta;
             margin: 32px 0 0 auto;
+
+            span {
+                transform: skew(10deg, 0deg) !important;
+            }
         }
     }
 

@@ -1,19 +1,21 @@
 @import "variables";
 
 .foot02 {
-    background-color: $color-three;
+    background-color: #1A2069;
 
     &__navigation {
         position: relative;
         @extend %theme__padding;
-        @include disFlex;
-        gap: 1rem;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        @include disFlex(row, space-between);
+        // gap: 1rem;
         flex-wrap: wrap;
 
         &__client-info {
             @include disFlex(column, center, center);
             gap: 3rem;
-            margin-right: 2rem;
+            margin-right: 11rem;
 
             @include large-device-down {
                 width: 100%;
@@ -22,9 +24,9 @@
             }
 
             &__logo {
-                width: 12.5rem;
+                width: 13.5rem;
                 height: auto;
-                aspect-ratio: 200/96;
+                aspect-ratio: 200/206;
 
                 object-fit: contain;
                 object-position: center;
@@ -32,7 +34,7 @@
 
             &__socials {
                 @include disFlex(row, center, center);
-                gap: 0.75rem;
+                gap: 25px;
 
                 list-style: none;
 
@@ -55,7 +57,9 @@
 
         &__pages {
             list-style: none;
-            flex: 1 0 auto;
+            // flex: 1 0 auto;
+            @include disFlex(column, flex-start);
+            gap: 19px;
 
             &__header {
                 @extend %theme__t4-cb;
@@ -69,7 +73,12 @@
             }
 
             &__item {
-                @extend %theme__p1-cb;
+                color: #FFF;
+                font-family: $font-primary;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 22px;
 
                 &__link {
                     font: inherit;
@@ -82,10 +91,16 @@
 
         &__client-contact {
             list-style: none;
-            flex: 1 0 auto;
+            // flex: 1 0 auto;
 
             &__header {
-                @extend .foot02__navigation__pages__header;
+                color: #FFF;
+                font-family: $font-primary;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 28px;
+                margin-bottom: 24px;
             }
 
             &__item {
@@ -98,16 +113,18 @@
         }
 
         &__button {
-            @include disFlex;
+            @include disFlex(row, center, flex-start);
             position: absolute;
             bottom: 0;
-            right: 5%;
+            right: 8%;
             height: 5rem;
-            width: 3.5rem;
+            width: 2.5rem;
 
             border: none;
             outline: none;
-            background-color: $color-three;
+            background-color: #2E368E;
+            border-radius: 21px 21px 0 0;
+            padding: 10px 0 0 0;
 
             img {
                 height: 23px;
@@ -122,6 +139,8 @@
 
         @include disFlex(row, space-between, center);
 
+        background-color: #2E368E;
+
         @include large-device-down {
             flex-direction: column;
             gap: 1.5rem;
@@ -131,7 +150,12 @@
             list-style: none;
 
             &__item {
-                @extend %theme__p2-c1;
+                color: #FFF;
+                font-family: $font-primary;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
 
                 &__list {
                     font: inherit;

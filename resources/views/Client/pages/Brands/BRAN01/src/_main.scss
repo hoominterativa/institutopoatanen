@@ -123,7 +123,8 @@
             margin-bottom: 4rem;
 
             &__conteudo {
-                @include disFlex(row, space-between, center);
+                @include disFlex(row, flex-start, center);
+                gap: 10rem;
             }
 
             &__title {
