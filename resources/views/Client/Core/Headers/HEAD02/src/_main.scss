@@ -2,17 +2,21 @@
 
 .head02 {
     width: 100%;
-    padding-right: 5vw;
-    padding-left: 5vw;
+    // padding-right: 5vw;
+    // padding-left: 5vw;
 
     @include disFlex(row, space-between);
 
     &__logo {
         position: relative;
+        background-color: #1A2069;
 
-        width: 12.5rem; /* = 200px */
-        height: auto;
-        aspect-ratio: 200/90;
+        // width: 12.5rem;
+        // height: auto;
+        // aspect-ratio: 200/90;
+        height: 100%;
+        padding: 0.5rem 5rem;
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
 
         &__img {
             height: 100%;
@@ -25,7 +29,7 @@
     &__navigation {
         @include disFlex(row, end);
         list-style: none;
-        gap: 1.5rem;
+        gap: 44px;
         width: calc(100% - 15rem);
 
         &__item {
@@ -37,8 +41,28 @@
             }
 
             &__link {
-                @extend %theme__p1-c1;
+                color: #1A2069;
+                text-align: center;
+                font-family: $font-primary;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 22px;
                 text-decoration: none;
+
+                border-bottom: 2px solid transparent;
+                padding-bottom: 5px;
+                transition: 0.5s all ease;
+
+                &:hover {
+                    border-bottom: 2px solid #1A2069;
+                    transition: 0.5s all ease;
+                }
+
+                &:active {
+                    border-bottom: 2px solid #1A2069;
+                    transition: 0.5s all ease;
+                }
             }
 
             &__btn {
@@ -57,33 +81,28 @@
             }
 
             &__cta {
-                width: fit-content;
-                padding: 0.25rem 1.5rem;
+                background-color: #95D059;
+                color: #1A2069;
+                text-align: center;
+                font-family: $font-primary;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 22px;
 
+                height: 100%;
                 @include disFlex(row, center, center);
-                gap: 0.75rem;
+                width: 170px;
 
-                border: solid 1px $color-black;
-                border-radius: 0.75rem;
+                clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+                transition: 0.5s all ease;
 
-                background-color: $color-black;
-
-                @extend %theme__p1-cw;
-                white-space: nowrap;
-
-                // setinha do dropdown (quando houver)
-                &::after {
-                    position: relative;
-                    top: unset;
-                    right: unset;
-                    transform: unset;
-
-                    display: block;
-
-                    width: 0.5rem;
-
-                    background-color: $color-four;
+                &:hover {
+                    background-color: #1A2069;
+                    color: #FFF;
+                    transition: 0.5s all ease;
                 }
+
                 // corpo do dropdown
                 &__content {
                     top: 71%;

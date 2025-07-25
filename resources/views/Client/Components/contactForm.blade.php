@@ -5,19 +5,19 @@
             <div class="form01__main">
 
                 <div class="form01__main__information">
-                    <h2 class="form01__main__information__title">{{ $content->title->value }}</h2>
-                    <div class="form01__main__information__paragraph">
+                    <h2 class="form01__main__information__title animation fadeInRight">{!! $content->title->value !!}</h2>
+                    {{-- <div class="form01__main__information__paragraph">
                         <p>
                             {{ $content->description->value }}
                         </p>
-                    </div>
+                    </div> --}}
                 </div>
 
                 {!! Form::open([
                     'route' => 'lead.store',
                     'method' => 'post',
                     'files' => true,
-                    'class' => 'send_form_ajax form-contact parsley-validate form01__main__form',
+                    'class' => 'send_form_ajax form-contact parsley-validate form01__main__form animation fadeInRight',
                 ]) !!}
 
                 <input type="hidden" name="target_lead" value="Newslatter">
@@ -35,7 +35,7 @@
 
                 <div class="form01__main__form__footer">
 
-                    <label class="form01__main__form__footer__compliance">
+                    <label class="form01__main__form__footer__compliance animation fadeInRight">
                         {!! Form::checkbox('term_accept', 1, null, [
                             'class' => 'form-check-input form01__main__form__footer__compliance__checkbox',
                             'id' => 'term_accept',
@@ -47,8 +47,10 @@
                             Privacidade</a>
                     </label>
 
-                    <button type="submit" class="form01__main__form__footer__cta">
-                        CTA
+                    <button type="submit" class="form01__main__form__footer__cta animation fadeInRight">
+                        <span>
+                            Enviar
+                        </span>
                     </button>
                 </div>
 
@@ -57,7 +59,7 @@
 
             </div>
 
-            <div class="form01__image">
+            <div class="form01__image animation fadeInLeft">
                 <img class="form01__image__img" src="{{ asset('storage/' . $content->path_image_content->value) }}"
                     alt="Imagem form">
             </div>

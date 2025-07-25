@@ -3,32 +3,39 @@
     <main id="root">
         <section id="root" class="blog03-show">
             <section class="blog03-show__banner">
-                <h2 class="blog03-show__banner__title">Blog</h2>
+                <h2 class="blog03-show__banner__title animation fadeInLeft">Nossos projetos</h2>
             </section>
 
             <article itemscope itemtype="http://schema.org/Article" class="blog03-show__article">
-                <h1 iitemprop="headline" class="blog03-show__article__title">{{ $blog->title }}</h1>
-                <p class="blog03-show__article__time">
+                
+                @if ($blog->path_image)
+                    <img itemprop="image" src="{{ asset('storage/' . $blog->path_image) }}" alt="{{ $blog->title }}"
+                        class="blog03-show__article__image animation fadeInUp" />
+                @endif
+
+                <h1 iitemprop="headline" class="blog03-show__article__title animation fadeInLeft">{!! $blog->title !!}</h1>
+
+                {{-- <p class="blog03-show__article__time">
                     Publicado em: <time class="blog03-show__article__time"
                         datetime="{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}" itemprop="datePublished"
                         class="blog03-show__item__date">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</time>
-                </p>
-                <p itemprop="description" class="blog03-show__article__description">
+                </p> --}}
+
+                {{-- <p itemprop="description" class="blog03-show__article__description">
                     {!! $blog->description !!}
-                </p>
+                </p> --}}
 
-                @if ($blog->path_image)
-                    <img itemprop="image" src="{{ asset('storage/' . $blog->path_image) }}" alt="{{ $blog->title }}"
-                        class="blog03-show__article__image" />
-                @endif
-
-                <div itemprop="articleBody" class="blog03-show__article__body ck-content">
+                <div itemprop="articleBody" class="blog03-show__article__body ck-content animation fadeInLeft">
                     <p>
                         {!! $blog->text !!}
                     </p>
                 </div>
 
-                <button class="blog03-show__article__share">Compartilhar artigo</button>
+                <button class="blog03-show__article__share animation fadeInRight">
+                    <span>
+                        Compartilhar artigo
+                    </span>
+                </button>
                 <dialog class="blog03-show__article__modal">
                     <header class="blog03-show__article__modal__header">
                         <h3 class="blog03-show__article__modal__header__title">Compartilhar</h3>
@@ -130,14 +137,14 @@
 
             @if ($blogsRelated->count() > 0)
                 <section class="blog03-show__related">
-                    <h3 class="blog03-show__related__title">Artigos Relacionados</h3>
+                    <h3 class="blog03-show__related__title animation fadeInLeft">Outros <span>projetos</span></h3>
                     <div class="blog03-show__related__carousel">
                         <div class="blog03-show__related__carousel__swiper-wrapper swiper-wrapper">
                             @foreach ($blogsRelated as $blogRelated)
                                 <article itemscope itemtype="http://schema.org/Article"
-                                    class="blog03-show__related__carousel__item swiper-slide">
-                                    <a class="link-full" title="{{ $blogRelated->title }}"
-                                        href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blogRelated->category->slug, 'BLOG03Blogs' => $blogRelated->slug]) }}"></a>
+                                    class="blog03-show__related__carousel__item swiper-slide animation fadeInLeft">
+                                    {{-- <a class="link-full" title="{{ $blogRelated->title }}"
+                                        href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blogRelated->category->slug, 'BLOG03Blogs' => $blogRelated->slug]) }}"></a> --}}
 
                                     <figure class="blog03-show__related__carousel__item__image">
                                         <img src="{{ asset('storage/' . $blogRelated->path_image) }}"
@@ -147,14 +154,21 @@
 
                                     <div class="blog03-show__related__carousel__item__information">
                                         <h4 class="blog03-show__related__carousel__item__information__title">
-                                            {{ $blogRelated->title }}</h4>
+                                            {!! $blogRelated->title !!}</h4>
 
-                                        <p class="blog03-show__related__carousel__item__information__paragraph">
-                                            {!! $blogRelated->description !!}</p>
+                                        {{-- <p class="blog03-show__related__carousel__item__information__paragraph">
+                                            {!! $blogRelated->description !!}</p> --}}
+
+                                            <a href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blogRelated->category->slug, 'BLOG03Blogs' => $blogRelated->slug]) }}" class="blog03-show__related__carousel__item__information__cta">
+                                                <span>
+                                                    Veja mais
+                                                </span>
+                                            </a>
                                     </div>
                                 </article>
                             @endforeach
                         </div>
+                        <div class="blog03-show__related__carousel-pagination swiper-pagination"></div>
                     </div>
 
                 </section>

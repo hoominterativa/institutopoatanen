@@ -1,9 +1,9 @@
 @import "variables";
 
 .cont02 {
-    @extend %theme__padding;
+    // @extend %theme__padding;
     padding-bottom: 0;
-    @include disFlex(row, space-between, start);
+    @include disFlex(row, space-between);
 
     /* Quando não houver imagem cadastrada, o box information receberá width de 100%*/
     &:not(:has(&__image)) &__information {
@@ -16,17 +16,20 @@
     }
 
     &__image {
-        width: 32%;
-        height: 100%;
-        aspect-ratio: 430/593;
+        width: 50%;
+        // height: 750px;
 
-        align-self: end;
-        margin-inline: auto;
+        clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
 
-        @include large-device-down {
-            width: 100%;
-            aspect-ratio: 256/351;
-        }
+        // aspect-ratio: 430/593;
+
+        // align-self: end;
+        // margin-inline: auto;
+
+        // @include large-device-down {
+        //     width: 100%;
+        //     aspect-ratio: 256/351;
+        // }
 
         &__img {
             width: 100%;
@@ -37,17 +40,32 @@
     }
 
     &__information {
-        padding: 4rem 2rem;
-        width: 50%;
+        padding: 0 4rem;
+        width: 55.2%;
+        background-color: #2E368E;
+
+        @include disFlex(column, center);
+
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
 
         @include large-device-down {
             width: 100%;
         }
 
         &__title {
-            @extend %theme__t2-c1;
-            text-align: left;
-            margin-bottom: 0.75rem;
+            color: #FFF;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 42px;
+            width: 100%;
+            max-width: 530px;
+
+            span {
+                color: #95D059;
+            }
         }
 
         &__subtitle {
@@ -57,12 +75,40 @@
 
 
         &__paragraph {
-            @extend %theme__p2-c2;
-            margin-bottom: 2rem;
+            color: #FFF;
+            font-family: $font-primary;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
+            // width: 100%;
+            // max-width: 500px;
         }
 
         &__cta {
             @extend %theme__cta;
+            margin: 32px 0 0 auto;
+
+            span {
+                transform: skew(10deg, 0deg) !important;
+            }
         }
+    }
+
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    &:nth-child(odd) .cont02__image {
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        height: 650px;
+    }
+
+    &:nth-child(odd) .cont02__image img{
+        object-position: right;
+    }
+
+    &:nth-child(odd) .cont02__information {
+        clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
     }
 }

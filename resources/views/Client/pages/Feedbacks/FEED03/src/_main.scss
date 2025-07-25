@@ -3,179 +3,102 @@
 /* BEGIN STYLE */
 
 .feed03{
-    background-position: center;
-    background-size: cover;
-    background-repeat:no-repeat;
-
-    .container--feed03{
-        padding: 159px 0 69px 0;
-
-        @include medium-device-down{
-            padding: 132px 44px 42px 44px;
-        }
-    }
+    // background-position: center;
+    // background-size: cover;
+    // background-repeat:no-repeat;
+    @extend %theme__padding;
+    padding-top: 0;
 
     &__header{
-        width: 100%;
-        border-bottom:1px solid $color-four;
-        padding-bottom:45.99px;
+        // width: 100%;
+        // border-bottom:1px solid $color-four;
+        // padding-bottom:45.99px;
         margin-bottom: 80px;
 
         @include medium-device-down{
-            padding-bottom:35px;
+            // padding-bottom:35px;
             margin-bottom: 59px;
         }
 
-        &__image{
-            width:74px;
-            height: 74px;
-            margin-right: 28px;
-
-            @include medium-device-down{
-                width:64px;
-                height: 64px;
-                margin-right: 24px;
-            }
-            img{
-              object-fit: cover;
-            }
-        }
         &__texto{
-            &__subtitle{
-                font-size: $T4;
-                font-family: $font-primary;
-                font-weight: $weight-700;
-                margin-bottom: 10px;
-                color:$color-two;
-
-                @include medium-device-down{
-                    font-size: $T4-mobile;
-                    margin-bottom: 0px;
-                }
-            }
 
             &__title{
-                font-size: $T2;
+                color: #1A2069;
                 font-family: $font-primary;
-                font-weight: $weight-700;
-                color:$color-one;
-
-                @include medium-device-down{
-                    font-size: $T2-mobile;
-                }
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
             }
 
             &__line{
-                margin: 30px auto;
-                color:$color-one;
-
-                @include medium-device-down{
-                    margin: 20px auto 27px auto;
-                }
+                // margin: 30px auto;
+                // color:$color-one;
+                color: #1A2069;
+                width: 29%;
+                margin-top: 2rem;
+                position: relative;
+                left: -70px;
             }
         }
     }
     &__content{
+
         &__item{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 44px;
+
             &__top{
                 &__image{
-                    width: 55px;
-                    height: 55px;
+                    width: 142px;
+                    height: auto;
+                    aspect-ratio: 142/142;
 
-                    @include medium-device-down{
-                        width: 50px;
-                        height: 50px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
+            }
+
+            &__right {
+
                 &__titulo{
-                    font-size: $T4;
+                    color: #242424;
                     font-family: $font-primary;
-                    font-weight: $weight-700;
-                    color:$color-black;
-                    margin-left: 5px;
-
-                    @include medium-device-down{
-                        font-size: $T4-mobile;
-                    }
-                }
-            }
-            &__description{
-                margin-top: 29px;
-
-                @include medium-device-down{
-                    margin-top: 24px;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 30px;
+                    margin-bottom: 5px;
                 }
 
-                p{
-                    font: $paragraph;
+                &__subtitulo{
+                    color: #95D059;
                     font-family: $font-primary;
-                    font-weight: $weight-400;
-                    color:$color-black;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 22px;
+                    margin-bottom: 10px;
+                }
 
-                    @include medium-device-down{
-                        font: $paragraph-mobile;
+                &__description{
+    
+                    p{
+                        color: #242424;
+                        font-family: Montserrat;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 18px;
                     }
                 }
             }
         }
-    }
-    .carousel-feed03 .owl-nav{
-        display: flex;
-        justify-content: center;
-        margin-top: 52px;
-        gap: 0 27px;
-
-        @include medium-device-down {
-            margin-top: 59px;
-        }
-    }
-
-    .carousel-feed03 .owl-nav .owl-prev{
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        background: #fff;
-        transition: 0.5s all ease;
-    }
-    .carousel-feed03 .owl-nav .owl-next{
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        background: #fff;
-        transition: 0.5s all ease;
-    }
-    .carousel-feed03 .owl-nav .owl-next span{
-        color:#9DAFBD;
-        font-size: 35px;
-        line-height: 22px;
-        transition: 0.5s all ease;
-    }
-
-    .carousel-feed03 .owl-nav .owl-prev span{
-        color:#9DAFBD;
-        font-size: 35px;
-        line-height: 22px;
-        transition: 0.5s all ease;
-    }
-
-    .carousel-feed03 .owl-nav .owl-next span,
-    .carousel-feed03 .owl-nav .owl-prev span{
-        line-height: 32px;
-    }
-    .carousel-feed03 .owl-nav .owl-prev:hover{
-        background: #000;
-        transition: 0.5s all ease;
-    }
-    .carousel-feed03 .owl-nav .owl-next:hover{
-        background: #000;
-        transition: 0.5s all ease;
-    }
-    .carousel-feed03 .owl-nav .owl-prev:hover span{
-        color: #fff;
-        transition: 0.5s all ease;
-    }
-    .carousel-feed03 .owl-nav .owl-next:hover span{
-        color: #fff;
-        transition: 0.5s all ease;
     }
 }

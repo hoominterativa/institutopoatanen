@@ -8,12 +8,14 @@
         z-index: 0;
         min-height: 100dvh;
         @include disFlex(row, space-between, center);
+        padding-left: 18vw;
+        padding-top: 0;
 
-        @include large-device-down {
-            flex-direction: column;
-            gap: 2.5rem;
+        // @include large-device-down {
+        //     flex-direction: column;
+        //     gap: 2.5rem;
 
-        }
+        // }
 
         &__background {
             position: absolute;
@@ -35,13 +37,39 @@
                 width: 100%;
             }
             &__title {
-                @extend %theme__t1-cb;
-                margin-bottom: 2rem;
-                text-align: left
+                color: #FFF;
+                font-family: $font-primary;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px;
+                margin-bottom: 57px;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 410px;
+                    height: 1px;
+                    background-color: #FFF;
+                    bottom: -29px;
+                    left: -48%;
+                }
             }
             &__subtitle {
-                @extend %theme__t3-c2;
-                margin-bottom: 1.75rem;
+                color: #FFF;
+                font-family: $font-primary;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 0;
+
+                span {
+                    color: #95D059;
+                }
 
             }
             &__description {
@@ -56,6 +84,10 @@
             &__cta {
                 @extend %theme__cta;
                 margin-top: 3rem;
+
+                span {
+                    transform: skew(10deg, 0deg) !important;
+                }
             }
         }
 

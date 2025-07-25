@@ -4,16 +4,30 @@
 .blog01 {
     overflow: hidden; /* prevenção do shift da animação*/
     @extend %theme__padding;
+    background-color: #1A2069;
 
     &__header {
-        width: 100%;
-        @include disFlex(column, center, center);
-
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
 
         &__title {
-            @extend %theme__t2-c1;
-            margin-bottom: 0.25rem;
+            color: #95D059;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 240px;
+                height: 1px;
+                background-color: #FFF;
+                bottom: -30px;
+                left: -70px;
+            }
         }
         &__subtitle {
             @extend %theme__t4-c3;
@@ -42,10 +56,11 @@
 
         &__item {
             position: relative;
-            width: calc(25% - 15px);
+            width: calc(33.333333% - 14px);
 
             height: auto;
             @include disFlex(column);
+            background-color: #FFF;
 
             @include large-device-down {
                 width: calc(33.33% - 14px);
@@ -62,42 +77,90 @@
             &__image {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 320/284;
+                aspect-ratio: 372/259;
 
                 object-fit: cover;
                 object-position: center;
             }
 
             &__description {
+                padding: 1.5rem;
+
                 &__time {
-                    @extend %theme__p2-c2;
-                    margin-bottom: 0.5rem;
+                    color: #2E368E;
+                    font-family: $font-primary;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 22px;
+                    margin-bottom: 0;
                 }
 
                 &__title {
-                    @extend %theme__t4-cb;
-                    margin-bottom: 1rem;
+                    color: #242424;
+                    font-family: $font-primary;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 30px;
+                    margin-bottom: 7px;
+                    width: 100%;
+                    max-width: 310px;
+
+                    @include large-device-down {
+                        max-width: inherit;
+                    }
                 }
 
                 &__paragraph {
-                    @extend %theme__p1-c1;
+                    color: #242424;
+                    font-family: $font-primary;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 18px;
+                }
+
+                &__cta {
+                    @extend %theme__cta;
+                    margin: 1rem 0 1rem auto;
+                    color: #FFF;
+
+                    span {
+                        transform: skew(10deg, 0deg) !important;
+                    }
                 }
             }
         }
     }
 
-    &__cta {
-        @extend %theme__cta;
-        margin: 1rem 0 0 auto;
-    }
 }
 
 .blog01-page {
     &__banner {
-        @extend %theme__banner;
-
+        @extend %theme__padding;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
         &__title {
-            @extend %theme__banner__title;
+            color: #1A2069;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 250px;
+                height: 1px;
+                background-color: #1A2069;
+                left: -77px;
+                bottom: -30px;
+
+            }
         }
     }
 
@@ -114,6 +177,9 @@
 
     &__articles {
         @extend %theme__padding;
+        padding-top: 2.5rem;
+        padding-bottom: 8rem;
+
         &__highlighted {
             margin-bottom: 5rem;
             &__carousel {
@@ -124,7 +190,7 @@
 
             &__item {
                 width: 100%;
-                @include disFlex(row, space-between);
+                @include disFlex(row, start, center);
                 gap: 4.5rem;
 
                 @include large-device-down {
@@ -145,7 +211,7 @@
                 }
 
                 &__information {
-                    width: calc(50% - 4.5rem);
+                    width: calc(45% - 4.5rem);
 
                     @include large-device-down {
                         width: 100%;
@@ -161,23 +227,46 @@
                     }
 
                     &__title {
-                        @extend %theme__t2-cb;
-                        text-align: left;
+                        color: #1A2069;
+                        font-family: $font-primary;
+                        font-size: 40px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        margin-bottom: 1rem;
+                        width: 100%;
+                        max-width: 360px;
                     }
 
                     &__time {
-                        @extend .blog01__main__item__description__time;
-                        margin-bottom: 2rem;
+                        color: #1A2069;
+                        font-family: $font-primary;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 22px;
+                        margin-bottom: 4rem;
                     }
 
                     &__paragraph {
-                        @extend %theme__p1-c2;
-                        margin-bottom: 2.5rem;
+                        color: #242424;
+                        font-family: $font-primary;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 18px;
+                        width: 100%;
+                        max-width: 360px;
                     }
 
                     &__cta {
                         @extend %theme__cta;
                         margin-left: auto;
+                        margin-top: 2rem;
+
+                        span {
+                            transform: skew(10deg, 0deg) !important;
+                        }
                     }
                 }
             }
@@ -187,6 +276,18 @@
             @include disFlex;
             gap: 1.25rem;
             flex-wrap: wrap;
+            position: relative;
+            padding-top: 1rem;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: #00000051;
+                width: 100%;
+                height: 1px;
+                top: -30px;
+                left: 0;
+            }
 
             &__item {
                 @extend .blog01__main__item;
@@ -197,6 +298,7 @@
 
                 &__description {
                     @extend .blog01__main__item__description;
+                    padding-right: 2.5rem;
 
                     &__time {
                         @extend .blog01__main__item__description__time;
@@ -208,6 +310,16 @@
 
                     &__paragraph {
                         @extend .blog01__main__item__description__paragraph;
+                        width: 100%;
+                        max-width: 300px;
+                    }
+                    &__cta {
+                        @extend %theme__cta;
+                        margin: 1rem 0 0 auto;
+
+                        span {
+                            transform: skew(10deg, 0deg) !important;
+                        }
                     }
                 }
             }
@@ -217,37 +329,70 @@
 
 .blog01-show {
     &__banner {
-        @extend %theme__banner;
-
+        @extend %theme__padding;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
         &__title {
-            @extend %theme__banner__title;
+            color: #1A2069;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 250px;
+                height: 1px;
+                background-color: #1A2069;
+                left: -77px;
+                bottom: -30px;
+
+            }
         }
     }
 
     &__article {
         overflow: hidden; /* Prevenção do shift da animação */
         @extend %theme__padding;
+        padding-top: 2.5rem;
 
         &__title {
-            @extend %theme__t2-cb;
-            margin-bottom: 0;
-            text-align: left;
+            color:#242424;
+            font-family: $font-primary;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-bottom: 17px;
         }
 
         &__time {
-            @extend .blog01__main__item__description__time;
-            margin-bottom: 0.75rem;
+            color: #1A2069;
+            font-family: $font-primary;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 22px;
+            margin-bottom: 1.5rem;
         }
 
         &__description {
-            @extend %theme__p1-c2;
-            margin-bottom: 1.5rem;
+           color: #242424;
+            font-family: $font-primary;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px;
         }
 
         &__image {
             width: 100%;
             height: auto;
-            aspect-ratio: 940/572;
+            aspect-ratio: 1244/524;
 
             margin-bottom: 2.5rem;
 
@@ -256,13 +401,23 @@
         }
 
         &__body {
-            @extend %theme__p1-c2;
-            margin-bottom: 2rem;
+           color: #242424;
+            font-family: Montserrat;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
+            margin-top: 22px;
         }
 
         &__share {
             @extend %theme__cta;
             margin-left: auto;
+            margin-top: 3rem;
+
+            span {
+                transform: skew(10deg, 0deg) !important;
+            }
         }
 
         &__modal {
@@ -368,10 +523,28 @@
 
     &__related {
         @extend %theme__padding;
+        padding-bottom: 7rem;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 90%;
+            height: 1px;
+            background-color: #1a216988;
+            top: 0;
+            left: 0;
+            transform: translate(5%, -50%);
+        }
 
         &__title {
-            @extend %theme__t5-cb;
-            margin-bottom: 1.5rem;
+            color: #242424;
+            font-family: $font-primary;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+            margin-bottom: 27px;
         }
 
         &__carousel {
@@ -387,6 +560,7 @@
 
             &__description {
                 @extend .blog01__main__item__description;
+                padding-right: 2.5rem;
                 &__time {
                     @extend .blog01__main__item__description__time;
                 }
@@ -396,6 +570,17 @@
 
                 &__paragraph {
                     @extend .blog01__main__item__description__paragraph;
+                    width: 100%;
+                    max-width: 300px;
+                }
+
+                &__cta {
+                    @extend %theme__cta;
+                    margin: 2rem 0 0 auto;
+
+                    span {
+                        transform: skew(10deg, 0deg) !important;
+                    }
                 }
             }
         }

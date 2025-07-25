@@ -17,4 +17,4 @@
         ],
         'IncludeSections' => (object) []
     ]
-]
+],

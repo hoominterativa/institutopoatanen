@@ -1,16 +1,16 @@
 <section id="BLOG03" class="blog03">
     @if ($section)
-        @if ($section->title_section || $section->subtitle_section || $section->description)
+        @if ($section->title_section)
             <header class="blog03__header">
                 @if ($section->title_section)
-                    <h2 class="blog03__header__title">{{ $section->title_section }}</h2>
+                    <h2 class="blog03__header__title animation fadeInLeft">{!! $section->title_section !!}</h2>
                 @endif
-                @if ($section->subtitle_section)
+                {{-- @if ($section->subtitle_section)
                     <h3 class="blog03__header__subtitle">{{ $section->subtitle_section }}</h3>
                 @endif
                 @if ($section->description_section)
                     <p class="blog03__header__paragraph">{!! $section->description_section !!}</p>
-                @endif
+                @endif --}}
             </header>
         @endif
     @endif
@@ -18,10 +18,10 @@
     <div class="blog03__main">
         <div class="blog03__main__swiper-wrapper swiper-wrapper">
             @foreach ($blogs as $blog)
-                <article class="blog03__main__item swiper-slide">
-                    <a itemprop="url"
+                <article class="blog03__main__item swiper-slide animation fadeInLeft">
+                    {{-- <a itemprop="url"
                         href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug]) }}"
-                        class="link-full"></a>
+                        class="link-full"></a> --}}
 
                     @if ($blog->path_image_box)
                         <figure class="blog03__main__item__image">
@@ -32,24 +32,32 @@
                     @if ($blog->title || $blog->description)
                         <div class="blog03__main__item__information">
                             @if ($blog->title)
-                                <h4 class="blog03__main__item__information__title">{{ $blog->title }}
+                                <h4 class="blog03__main__item__information__title">{!! $blog->title !!}
                                 </h4>
                             @endif
 
-                            @if ($blog->description)
+                            {{-- @if ($blog->description)
                                 <p class="blog03__main__item__information__paragraph">
                                     {!! $blog->description !!}
                                 </p>
-                            @endif
+                            @endif --}}
+
+                            <a href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug]) }}" class="blog03__main__item__information__cta">
+                                <span>
+                                    Veja mais
+                                </span>
+                            </a>
                         </div>
                     @endif
                 </article>
             @endforeach
         </div>
+        <div class="blog03__main__swiper-pagination swiper-pagination"></div>
     </div>
 
-    <a class="blog03__cta" href="{{ route('blog03.category.page', ['BLOG03BlogsCategory' => $category->slug]) }}">
-        Ver todos</a>
+    <a class="blog03__cta animation fadeInRight" href="{{ route('blog03.category.page', ['BLOG03BlogsCategory' => $category->slug]) }}">
+        <span>Ver todos</span>
+    </a>
 
 
 </section>

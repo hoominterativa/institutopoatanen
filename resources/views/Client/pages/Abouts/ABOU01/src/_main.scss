@@ -44,20 +44,50 @@
 .abou01-page {
     &__banner {
         @extend %theme__banner;
+        padding-top: 14rem;
+
         &__title {
             @extend %theme__banner__title;
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+
+    &__top {
+        @extend %theme__padding;
+        padding-right: 10vw;
+        @include disFlex(row, space-between, center);
+
+        &__title {
+            color:#2E368E;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
+            width: 100%;
+            max-width: 415px;
         }
 
-        &__subtitle {
-            @extend %theme__banner__subtitle;
+        &__paragraph {
+            color: #242424;
+            font-family: $font-primary;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
+            width: 100%;
+            max-width: 415px;
         }
     }
 
     &__main {
         @include disFlex($justify: space-between);
+        background-color: #1A2069;
 
-        @extend %theme__padding;
-        padding-bottom: 0;
+        // @extend %theme__padding;
+        // padding-bottom: 0;
 
         @include large-device-down {
             flex-direction: column;
@@ -67,7 +97,7 @@
         }
 
         &:has(&__image) &__information {
-            width: 65%;
+            width: 50%;
 
             @include large-device-down {
                 width: 100%;
@@ -75,7 +105,7 @@
         }
 
         &:has(&__information) &__image {
-            width: 30%;
+            width: 50%;
 
             @include large-device-down {
                 width: 100%;
@@ -83,137 +113,163 @@
         }
 
         &__information {
-            @include disFlex(column, start, start);
-
-            padding-bottom: 2.5rem;
-            width: 100%;
-
-            @include large-device-down {
-                width: 100%;
-                padding-bottom: 0px;
-            }
+            @include disFlex(column, center);
+            padding: 4rem 5rem;
+            padding-right: 9vw;
+            clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
 
             &__header {
-                margin-bottom: 2rem;
-                width: 100%;
 
                 &__title {
-                    @extend %theme__t2-c1;
-                    text-align: left;
-
-                    margin-bottom: 1.5rem;
+                    color:#FFF;
+                    text-align: right;
+                    font-family: $font-primary;
+                    font-size: 40px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    width: 100%;
+                    max-width: 290px;
+                    margin: 0 0 20px auto;
                 }
 
-                &__subtitle {
-                    @extend %theme__t4-c3;
-                    text-align: left;
-                }
             }
 
             &__paragraph {
-                @extend %theme__p1-c2;
+                color: #FFF;
+                text-align: right;
+                font-family: $font-primary;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px;
+                width: 100%;
+                max-width: 370px;
+                margin: 0 0 0 auto;
+            }
+
+            &__cta {
+                @extend %theme__cta--two;
+                background-color: #FFF;
+                color: #1A2069;
+                margin: 40px 0 0 auto;
+
+                &:hover {
+                    border: 1px solid #FFF;
+                    color: #FFF;
+                }
+
+                span {
+                    transform: skew(10deg, 0deg) !important;
+                }
             }
         }
 
         &__image {
             width: 100%;
             height: auto;
-            aspect-ratio: 436/528;
+            // aspect-ratio: 436/528;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
 
             &__img {
                 width: 100%;
                 height: 100%;
 
-                object-fit: contain;
-                object-position: center bottom;
+                object-fit: cover;
+                object-position: center;
             }
         }
     }
 
     &__topics {
-        @include bg;
-
         @extend %theme__padding;
-        height: auto;
+        padding-left: 7vw;
+        padding-right: 10vw;
 
-        /* FRONTEND CASO SEJA NECESSÁRIO O CARROSSEL VAZANDO, REMOVER O OVERFLOW HIDDEN */
-        &__carousel {
-            overflow: hidden;
-
-            @extend %theme__pagination;
+        &__title {
+            color: #2E368E;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 950px;
         }
 
         &__item {
-            @include disFlex(column);
-            padding: 2.8rem 2.25rem;
-            width: calc(33.33% - 1rem);
-            height: auto;
+            @extend %theme__accordion__item;
 
-            background-color: $color-four;
-
-            @include large-device-down {
-                width: calc(50% - 0.75rem);
-            }
-
-            @include medium-device-down {
-                width: 100%;
-            }
-
-            &__header {
-                @include disFlex;
-                gap: 1.25rem;
-                margin-bottom: 1.75rem;
+            &__title {
+                @extend %theme__accordion__item__title;
 
                 &__icon {
-                    width: 2rem;
-                    height: auto;
-                    aspect-ratio: 1/1;
-
-                    object-fit: contain;
-                    object-position: center;
-                }
-
-                &__title {
-                    @extend %theme__t5-cb;
+                    @extend %theme__accordion__item__title__icon;
                 }
             }
 
             &__paragraph {
-                @extend %theme__p2-c2;
+                @extend %theme__accordion__item__paragraph;
             }
         }
     }
 
     &__section {
         @extend .abou01-page__main;
+        flex-direction: row-reverse;
+        position: relative;
+        height: 573px;
 
         &__information {
             @extend .abou01-page__main__information;
+            padding-left: 7vw;
+            width: 100% !important;
 
             &__header {
                 @extend .abou01-page__main__information__header;
 
                 &__title {
                     @extend .abou01-page__main__information__header__title;
+                    text-align: left;
+                    margin: 0;
+                    margin-bottom: 20px;
                 }
 
-                &__subtitle {
-                    @extend .abou01-page__main__information__header__subtitle;
-                }
             }
 
             &__paragraph {
                 @extend .abou01-page__main__information__paragraph;
+                text-align: left;
+                margin: 0;
+                width: 100%;
+                max-width: 480px;
             }
 
             &__cta {
-                margin-top: 3rem;
-                @extend %theme__cta;
+                @extend %theme__cta--two;
+                background-color: #FFF;
+                color: #1A2069;
+                margin-top: 37px;
+
+                &:hover {
+                    border: 1px solid #FFF;
+                    color: #FFF;
+                }
+
+                span {
+                    transform: skew(10deg, 0deg) !important;
+                }
             }
         }
 
         &__image {
             @extend .abou01-page__main__image;
+            height: 100%;
+            aspect-ratio: 964/763;
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
 
             &__img {
                 @extend .abou01-page__main__image__img;

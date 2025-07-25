@@ -162,9 +162,6 @@ class HelperArchive extends Controller
                 return $uploadImage;
             }
 
-            // Max width of image
-            $sizeBase = 2000;
-
             // Protection from image clone
             !Session::has('timestampArchive')?Session::put('timestampArchive', 1):Session::put('timestampArchive', Session::get('timestampArchive')+1);
             $timestampArchive = Session::get('timestampArchive');
@@ -202,34 +199,13 @@ class HelperArchive extends Controller
 
             $image = new ImageResize($fileImage);
 
-            $widthImage = $image->getDestWidth();
-
             if($width){
                 // Resize image as of width
                 $image->resizeToWidth($width);
-            }else{
-                // Resize image as of scale
-                if($widthImage > $sizeBase){
-                    $image->scale(80);
-                }else{
-                    $image->scale(100);
-                }
             }
 
             // Save image optimized
             $image->save($destinationPath.$name.'.webp', IMAGETYPE_WEBP, $quality);
-
-            // Ensures the image has been optimized
-            $optimizedImage = new ImageResize($destinationPath.$name.'.webp');
-            $currentWidth = $optimizedImage->getDestWidth();
-            if($currentWidth > $sizeBase){
-                for ($size=$currentWidth; $size > $sizeBase;) {
-                    $optimizedImage = new ImageResize($destinationPath.$name.'.webp');
-                    $optimizedImage->scale(70)->save($destinationPath.$name.'.webp', IMAGETYPE_WEBP);
-                    $optimizedImageCurrent = new ImageResize($destinationPath.$name.'.webp');
-                    $size = $optimizedImageCurrent->getDestWidth();
-                }
-            }
 
             // Delete image converted
             if($request->has($columnCrop)) Storage::delete($path.$name.'.'.$request->$column->getClientOriginalExtension());

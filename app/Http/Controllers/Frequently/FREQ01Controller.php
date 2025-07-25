@@ -146,7 +146,7 @@ class FREQ01Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function page(Request $request)
+    public static function section()
     {
         $IncludeSectionsController = new IncludeSectionsController();
         $sections = $IncludeSectionsController->IncludeSectionsPage('Frequently', 'FREQ01');

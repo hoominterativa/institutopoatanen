@@ -17,18 +17,20 @@
                     @if ($slide->title || $slide->subtitle || $slide->description || $slide->link_button)
                         <header class="slid01__item__header">
                             @if ($slide->title)
-                                <h1 class="slid01__item__header__title">{{ $slide->title }}</h1>
+                                <h1 class="slid01__item__header__title animation fadeInLeft">{!! $slide->title !!}</h1>
                             @endif
                             @if ($slide->subtitle)
-                                <h2 class="slid01__item__header__subtitle">{{ $slide->subtitle }}</h2>
+                                <h2 class="slid01__item__header__subtitle animation fadeInLeft">{!! $slide->subtitle !!}</h2>
                             @endif
-                            @if ($slide->description)
+                            {{-- @if ($slide->description)
                                 <p class="slid01__item__header__description">{{ $slide->description }}</p>
-                            @endif
+                            @endif --}}
                             @if ($slide->link_button)
-                                <a href="{{ getUri($slide->link_button) }}" target="{{ $slide->target_link_button }}" class="slid01__item__header__cta">
+                                <a href="{{ getUri($slide->link_button) }}" target="{{ $slide->target_link_button }}" class="slid01__item__header__cta animation fadeInLeft">
                                     @if ($slide->title_button)
-                                        {{ $slide->title_button }}
+                                        <span>
+                                            {{ $slide->title_button }}
+                                        </span>
                                     @endif
                                 </a>
                             @endif

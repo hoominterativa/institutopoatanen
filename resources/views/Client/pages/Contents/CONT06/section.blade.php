@@ -5,19 +5,19 @@
             @if ($content->title || $content->description)
                 <header class="cont06__header">
                     @if ($content->title)
-                        <h2 class="cont06__header__title">
-                            {{ $content->title }}
+                        <h2 class="cont06__header__title animation fadeInLeft">
+                            {!! $content->title !!}
                         </h2>
                     @endif
-                    @if ($content->description)
+                    {{-- @if ($content->description)
                         <div class="cont06__header__paragraph">{!! $content->description !!}</div>
-                    @endif
+                    @endif --}}
                 </header>
             @endif
 
 
             @if ($content->link_video)
-                <main class="cont06__video" {{--BACKEND: INSERIR REQUIRED NO CAMPO DE IMAGEM THUMBNAIL --}}
+                <main class="cont06__video animation fadeInRight" {{--BACKEND: INSERIR REQUIRED NO CAMPO DE IMAGEM THUMBNAIL --}}
                     data-src="{{ getUri($content->link_video) }}"
                     style="background-image: url({{ asset('storage/' . $content->path_image) }});">
 

@@ -3,20 +3,23 @@
 /* BEGIN STYLE */
 
 .freq01-page {
-    &__header {
-        @extend %theme__banner;
-
-        &__title {
-            @extend %theme__banner__title;
-        }
-
-        &__subtitle {
-            @extend %theme__banner__subtitle;
-        }
-    }
+    background-color: #FFF;
 
     &__faq {
         @extend %theme__padding;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        padding-bottom: 9rem;
+
+        &__title {
+            color: #2E368E;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 30px;
+        }
 
         &__item {
             @extend %theme__accordion__item;
@@ -28,59 +31,6 @@
             &__paragraph {
                 @extend %theme__accordion__item__paragraph;
             }
-        }
-    }
-
-    &__form {
-        @include disFlex(row);
-        @extend %theme__padding;
-        flex-wrap: wrap;
-        gap: 1rem 0.75rem;
-
-        &__header {
-            width: 100%;
-            @include disFlex(column, center, center);
-
-            margin-bottom: 4rem;
-
-            &__title {
-                @extend %theme__t2-c1;
-                margin-bottom: 0.25rem;
-            }
-
-            &__subtitle {
-                @extend %theme__t4-c3;
-                margin-bottom: 2rem;
-            }
-        }
-
-        .input__item {
-            margin-bottom: 0;
-            width: calc(50% - 0.375rem);
-
-            @include large-device-down {
-                width: 100%;
-            }
-
-            &--textarea {
-                width: 100%;
-            }
-        }
-
-        &__compliance {
-            width: 100%;
-
-            &__link,
-            .form-check-label {
-                @extend %theme__p1-cb;
-            }
-
-            .form-check-input {
-                box-shadow: none;
-            }
-        }
-        &__submit {
-            @extend %theme__cta;
         }
     }
 }

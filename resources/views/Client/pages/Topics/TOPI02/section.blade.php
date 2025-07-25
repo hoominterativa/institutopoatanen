@@ -1,7 +1,5 @@
-@if ($section || $topics->count())
-    <section id="TOPI02" class="topi02"
-    {{-- BACKEND: Ocultar do painel esses itens --}}
-    {{-- style="background-image: url({{asset('storage/'.$section->path_image_background)}}); background-color: {{$section->background_color}};" --}}>
+@if ($section->active == 1)
+    <section id="TOPI02" class="topi02" {{-- BACKEND: Ocultar do painel esses itens --}} {{-- style="background-image: url({{asset('storage/'.$section->path_image_background)}}); background-color: {{$section->background_color}};" --}}>
         @if ($section)
             @if ($section->title || $section->subtitle || $section->description)
                 <header class="topi02__header">
@@ -28,9 +26,7 @@
                             <article class="topi02__topics__item swiper-slide">
 
                                 @if ($topic->link)
-                                    <a
-                                    title="{{ $topic->title }}"
-                                    class="link-full" href="{{ getUri($topic->link) }}"
+                                    <a title="{{ $topic->title }}" class="link-full" href="{{ getUri($topic->link) }}"
                                         target="{{ $topic->target_link }}"></a>
                                 @endif
 

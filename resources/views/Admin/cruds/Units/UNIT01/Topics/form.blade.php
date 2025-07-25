@@ -20,15 +20,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    {!! Form::label('description', 'Descrição', ['class'=>'form-label']) !!}
+            
+                <div class="complete-editor__content mb-3">
+                    {!! Form::label('complete-editor', 'Descrição', ['class'=>'form-label']) !!}
+                    <small class="ms-1"><b>Recomendamos salvar de tempo em tempo caso a matéria seja extensa</b></small>
                     {!! Form::textarea('description', null, [
-                        'class'=>'form-control',
-                        'id'=>'description',
-                        'data-parsley-trigger'=>'keyup',
-                        'data-parsley-maxlength'=>'500',
-                        'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
-                        'data-parsley-validation-threshold'=>'10',
+                        'class'=>'form-control complete-editor',
+                        'id'=>'complete-editor',
                     ]) !!}
                 </div>
                 <div class="wrapper-links my-2 border px-2 py-3">

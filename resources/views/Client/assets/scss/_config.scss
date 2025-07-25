@@ -543,10 +543,11 @@ details {
 
     &__banner {
         width: 100%;
+        // height: 545px;
 
         @extend %theme__padding;
-        padding-top: 6.5rem;
-        padding-bottom: 6.5rem;
+        padding-top: 9rem;
+        padding-bottom: 9rem;
 
         @include bg;
         background-color: $color-four;
@@ -554,7 +555,13 @@ details {
         @include disFlex(column, center, start);
 
         &__title {
-            @extend %theme__t1-c1;
+            color: #FFF;
+            font-family: $font-primary;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 0;
         }
 
         &__subtitle {
@@ -571,15 +578,60 @@ details {
         width: fit-content;
         padding: 0.75rem 3rem;
 
-        background-color: $color-four;
+        background-color: #95D059;
         border: none;
+        border: 1px solid #95D059;
 
-        @extend %theme__p1-c1;
+        font-family: $font-primary;
+        color: #1A2069;
+        font-size: 14px;
+        font-style: normal;
         font-weight: 700;
+        line-height: 22px;
+        // clip-path: polygon(20% 0%, 100% 1%, 100% 100%, 0 100%, 10% 50%);
+        transform: skew(-10deg, 0deg) !important;
+        transition: 0.5s all ease;
 
         &:focus {
             /* uso do !important para resetar o valor do fancybox */
             outline: none !important;
+        }
+
+        &:hover {
+            background-color: transparent;
+            border: 1px solid #95D059;
+            color: #95D059;
+        }
+    }
+
+    &__cta--two {
+        @include disFlex;
+        width: fit-content;
+        padding: 0.75rem 3rem;
+
+        background-color: #1A2069;
+        border: none;
+        border: 1px solid #1A2069;
+
+        font-family: $font-primary;
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px;
+        // clip-path: polygon(20% 0%, 100% 1%, 100% 100%, 0 100%, 10% 50%);
+        transform: skew(-10deg, 0deg) !important;
+        transition: 0.5s all ease;
+
+        &:focus {
+            /* uso do !important para resetar o valor do fancybox */
+            outline: none !important;
+        }
+
+        &:hover {
+            background-color: transparent;
+            border: 1px solid #1A2069;
+            color: #1A2069;
         }
     }
 
@@ -622,15 +674,38 @@ details {
     &__pagination {
         .swiper-pagination-bullets {
             margin-top: 2rem;
-            text-align: left;
+            text-align: center;
             .swiper-pagination-bullet {
-                width: 20px;
-                height: 20px;
+                width: 15px;
+                height: 15px;
 
-                border-radius: 0;
-                background-color: $color-two;
+                border-radius: 100%;
+                background-color: #FFF;
+                opacity: 1;
 
                 &-active {
+                    opacity: 1;
+                    background-color: #95D059;
+                }
+            }
+        }
+    }
+
+    &__pagination--two {
+        .swiper-pagination-bullets {
+            margin-top: 2rem;
+            text-align: center;
+            .swiper-pagination-bullet {
+                width: 15px;
+                height: 15px;
+
+                border-radius: 100%;
+                
+                background-color: #FFF;
+                opacity: 1;
+
+                &-active {
+                    background-color: #1A2069;
                     opacity: 1;
                 }
             }
@@ -677,7 +752,7 @@ details {
 
     &__accordion {
         &__item {
-            border-bottom: solid 1px rgba($color-one, 0.2);
+            border-bottom: solid 1px rgba(#2E368E, 0.5);
 
             &[open] &__title::after {
                 transform: rotate(180deg);
@@ -686,8 +761,12 @@ details {
 
             &__title {
                 padding: 1rem 0.5rem;
-                @extend %theme__p1-cb;
-                font-weight: 700;
+                color: #272727;
+                font-family: Montserrat;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px;
 
                 &::after {
                     position: absolute;
@@ -697,7 +776,7 @@ details {
                     height: 1.25rem;
 
                     content: "";
-                    background-color: $color-one;
+                    background-color: #1A2069;
                     clip-path: polygon(50% 100%, 0 0, 100% 0);
 
                     transition: transform 0.2s ease-out;
@@ -716,10 +795,15 @@ details {
             }
 
             &__paragraph {
-                @extend %theme__p2-c2;
-                padding: 1rem;
+                color: #FFF;
+                font-family: $font-primary;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px;
+                padding: 1rem 3rem;
 
-                background-color: $color-five;
+                background-color: #1A2069;
             }
         }
     }
@@ -1103,21 +1187,21 @@ body {
     .owl-dots {
         display: flex;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 50px;
 
         .owl-dot {
-            background-color: $color-one;
-            color: $color-white;
+            background-color: #1a216984;
+            color: #1a216984;
             border-radius: 100%;
             display: block;
             width: 15px;
             height: 15px;
             margin: 0 3px;
-            &:hover {
-                background-color: $color-two;
-            }
+            // &:hover {
+            //     background-color: #1A2069;
+            // }
             &.active {
-                background-color: $color-three;
+                background-color: #1A2069;
             }
         }
     }
@@ -1434,12 +1518,17 @@ body {
 //FIM FORM102
 // INICIO FORM01
 .form01 {
-    @include disFlex(row, space-between);
+    @include disFlex(row-reverse, space-between);
     flex-wrap: wrap;
     @extend %theme__padding;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #95D059;
+    position: relative;
+    height: 447px;
 
     &__main {
-        @include disFlex(column);
+        @include disFlex(column, center);
         width: 50%;
 
         @include large-device-down {
@@ -1448,11 +1537,22 @@ body {
         }
 
         &__information {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
 
             &__title {
-                @extend %theme__t3-cb;
-                margin-bottom: 2.5rem;
+                color: #1A2069;
+                font-family: $font-primary;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 0;
+                width: 100%;
+                max-width: 420px;
+
+                span {
+                    color: #FFF;
+                }
             }
 
             &__paragraph {
@@ -1481,11 +1581,22 @@ body {
                 flex-wrap: wrap;
 
                 &__compliance {
-                    @extend %theme__p2-cb;
-                    opacity: 0.4;
+                    color: #FFF;
+                    font-family: $font-primary;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 18px;
+                    opacity: 0.8;
 
                     &__link {
-                        @extend %theme__p2-cb;
+                        color: #FFF;
+                        font-family: $font-primary;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 18px;
+                        opacity: 0.8;
                         text-decoration: underline;
                     }
 
@@ -1499,15 +1610,23 @@ body {
                 }
 
                 &__cta {
-                    @extend %theme__cta;
+                    @extend %theme__cta--two;
+
+                    span {
+                        transform: skew(10deg, 0deg) !important;
+                    }
                 }
             }
         }
     }
 
     &__image {
-        width: 30%;
+        width: 62%;
         height: auto;
+        position: absolute;
+        z-index: 1;
+        top: -100px;
+        left: 0;
 
         @include large-device-down {
             width: 100%;
@@ -2057,6 +2176,8 @@ body {
 
 .form-placeholder {
     position: relative;
+    background-color: #FFF;
+
     .placeholder--custom {
         font-size: 16px;
         position: absolute;

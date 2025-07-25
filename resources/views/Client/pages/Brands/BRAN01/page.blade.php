@@ -7,12 +7,12 @@
                 style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }});">
 
                 @if ($section->title_banner)
-                    <h1 class="bran01-page__banner__title">{{ $section->title_banner }}</h1>
+                    <h1 class="bran01-page__banner__title animation fadeInLeft">{{ $section->title_banner }}</h1>
                 @endif
 
-                @if ($section->subtitle_banner)
+                {{-- @if ($section->subtitle_banner)
                     <h2 class="bran01-page__banner__subtitle">{{ $section->subtitle_banner }}</h2>
-                @endif
+                @endif --}}
 
             </section>
         @endif
@@ -22,24 +22,28 @@
                 @if ($section->title_content || $section->subtitle_content || $section->description_content)
                     <header class="bran01-page__main__header">
                         @if ($section->title_content)
-                            <h2 class="bran01-page__main__header__title">{{ $section->title_content }}</h2>
+                            <h2 class="bran01-page__main__header__title animation fadeInLeft">{{ $section->title_content }}</h2>
                         @endif
 
                         @if ($section->subtitle_content)
-                            <h3 class="bran01-page__main__header__subtitle">{{ $section->subtitle_content }}</h3>
+                            <h3 class="bran01-page__main__header__subtitle animation fadeInLeft">{{ $section->subtitle_content }}</h3>
                         @endif
 
-                        @if ($section->title_content || $section->subtitle_content)
-                            <hr class="bran01-page__main__header__line">
-                        @endif
+                        <div class="bran01-page__main__header__conteudo">
+                            @if ($section->description_content)
+                                <div class="bran01-page__main__header__paragraph animation fadeInLeft">
+                                    <p>
+                                        {!! $section->description_content !!}
+                                    </p>
+                                </div>
+                            @endif
+                            <a href="#" class="bran01-page__main__header__cta animation fadeInRight">
+                                <span>
+                                    Seja um apoiador
+                                </span>    
+                            </a>
+                        </div>
 
-                        @if ($section->description_content)
-                            <div class="bran01-page__main__header__paragraph">
-                                <p>
-                                    {!! $section->description_content !!}
-                                </p>
-                            </div>
-                        @endif
                     </header>
                 @endif
             @endif
@@ -47,7 +51,7 @@
             @if ($brands->count() > 0)
                 <div class="bran01-page__main__content">
                     @foreach ($brands as $brand)
-                        <div class="bran01-page__main__content__item"
+                        <div class="bran01-page__main__content__item animation fadeInLeft"
                             style="background-image:url({{ asset('storage/' . $brand->path_image_box) }});">
 
                             @if ($brand->link)
