@@ -3,7 +3,7 @@
         <section id="CONT02" class="cont02">
             @if ($content->path_image)
                 <div class="cont02__image">
-                    <img src="{{ asset('storage/' . $content->path_image) }}" class="cont02__image__img"
+                    <img src="{{ asset('storage/' . $content->path_image) }}" class="cont02__image__img animation fadeInUp"
                         alt="Imagem do conteúdo {{ $content->title }}" loading="lazy" />
                 </div>
             @endif
@@ -11,7 +11,7 @@
             @if ($content->title || $content->subtitle || $content->description)
                 <div class="cont02__information">
                     @if ($content->title)
-                        <h2 class="cont02__information__title">{!! $content->title !!}</h2>
+                        <h2 class="cont02__information__title animation fadeInUp">{!! $content->title !!}</h2>
                     @endif
 
                     {{-- @if ($content->subtitle)
@@ -19,7 +19,7 @@
                     @endif --}}
 
                     @if ($content->description)
-                        <div class="cont02__information__paragraph">
+                        <div class="cont02__information__paragraph animation fadeInUp">
                             <p>
                                 {!! $content->description !!}
                             </p>
@@ -28,7 +28,7 @@
 
                     @if ($content->link_button)
                         <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}"
-                            class="cont02__information__cta">
+                            class="cont02__information__cta animation fadeInUp">
                             @if ($content->title_button)
                                 <span>
                                     {{ $content->title_button }}

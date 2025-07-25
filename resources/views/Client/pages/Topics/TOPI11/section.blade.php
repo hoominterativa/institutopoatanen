@@ -4,7 +4,7 @@
             @if ($section->title || $section->subtitle || $section->description)
                 <header class="topi11__header">
                     @if ($section->title)
-                        <h2 class="topi11__header__title">{{ $section->title }}</h2>
+                        <h2 class="topi11__header__title animation fadeInLeft">{{ $section->title }}</h2>
                     @endif
 
                     {{-- @if ($section->subtitle)
@@ -25,7 +25,7 @@
         <main class="topi11__main">
             <div class="topi11__main__topics">
                 @foreach ($topics as $topic)
-                    <details class="topi11__main__topics__item">
+                    <details class="topi11__main__topics__item animation fadeInUp">
 
                         <summary class="topi11__main__topics__item__title" aria-level="3" role="heading">
                             @if ($topic->path_image_icon)

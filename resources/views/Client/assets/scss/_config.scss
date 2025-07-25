@@ -674,15 +674,38 @@ details {
     &__pagination {
         .swiper-pagination-bullets {
             margin-top: 2rem;
-            text-align: left;
+            text-align: center;
             .swiper-pagination-bullet {
-                width: 20px;
-                height: 20px;
+                width: 15px;
+                height: 15px;
 
-                border-radius: 0;
-                background-color: $color-two;
+                border-radius: 100%;
+                background-color: #FFF;
+                opacity: 1;
 
                 &-active {
+                    opacity: 1;
+                    background-color: #95D059;
+                }
+            }
+        }
+    }
+
+    &__pagination--two {
+        .swiper-pagination-bullets {
+            margin-top: 2rem;
+            text-align: center;
+            .swiper-pagination-bullet {
+                width: 15px;
+                height: 15px;
+
+                border-radius: 100%;
+                
+                background-color: #FFF;
+                opacity: 1;
+
+                &-active {
+                    background-color: #1A2069;
                     opacity: 1;
                 }
             }
@@ -1164,21 +1187,21 @@ body {
     .owl-dots {
         display: flex;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 50px;
 
         .owl-dot {
-            background-color: $color-one;
-            color: $color-white;
+            background-color: #1a216984;
+            color: #1a216984;
             border-radius: 100%;
             display: block;
             width: 15px;
             height: 15px;
             margin: 0 3px;
-            &:hover {
-                background-color: $color-two;
-            }
+            // &:hover {
+            //     background-color: #1A2069;
+            // }
             &.active {
-                background-color: $color-three;
+                background-color: #1A2069;
             }
         }
     }

@@ -4,7 +4,7 @@
             <div class="topi09__topics__carousel">
                 <div class="topi09__topics__carousel__swiper-wrapper swiper-wrapper">
                     @foreach ($topics as $topic)
-                        <article class="topi09__topics__item swiper-slide">
+                        <article class="topi09__topics__item swiper-slide animation fadeInLeft">
                             @if ($topic->path_image_icon)
                                 <div class="topi09__topics__item__icon">
                                     <img src="{{ asset('storage/' . $topic->path_image_icon) }}"
@@ -19,11 +19,11 @@
                                         <h3 class="topi09__topics__item__information__title">{{ $topic->title }}</h3>
                                     @endif
 
-                                    @if ($topic->description)
+                                    {{-- @if ($topic->description)
                                         <div class="topi09__topics__item__information__paragraph">
                                             <p>{!! $topic->description !!}</p>
                                         </div>
-                                    @endif
+                                    @endif --}}
                                 </div>
                             @endif
 

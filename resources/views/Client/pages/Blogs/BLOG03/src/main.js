@@ -3,10 +3,18 @@ import Swiper from "swiper/bundle";
 new Swiper(".blog03__main", {
     slidesPerView: "auto",
     spaceBetween: 16,
+    pagination: {
+        el: ".blog03__main__swiper-pagination",
+        clickable: true,
+    },
 })
 new Swiper(".blog03-show__related__carousel", {
     slidesPerView: "auto",
     spaceBetween: 16,
+    pagination: {
+        el: ".blog03-show__related__carousel-pagination",
+        clickable: true,
+    },
 })
 
 // CONSTANTES PARA COMPARTILHAMENTO

@@ -28,6 +28,13 @@
     .blog03__cta {
         margin-right: 5vw;
     }
+    .blog03__main .swiper-pagination-bullets .swiper-pagination-bullet {
+        background-color: #1A2069;
+        opacity: 0.5;
+    }
+    .blog03__main .swiper-pagination-bullets .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
 </style>
     {{-- BEGIN Page content --}}
     <main id="root">
@@ -37,7 +44,7 @@
                     <section class="copa02-page__assortedBox__banner"
                         style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); background-color: {{ $section->background_color_banner }};">
                         @if ($section->title_banner)
-                            <h1 class="copa02-page__assortedBox__banner__title">{{ $section->title_banner }}</h1>
+                            <h1 class="copa02-page__assortedBox__banner__title animation fadeInLeft">{{ $section->title_banner }}</h1>
                         @endif
                     </section>
                 @endif
@@ -47,10 +54,10 @@
             <section class="copa02-page__emphasis">
                 <div class="copa02-page__emphasis__header">
                         @if ($section->title_content)
-                            <h3 class="copa02-page__emphasis__header__title">{{ $section->title_content }}</h3>
+                            <h3 class="copa02-page__emphasis__header__title animation fadeInLeft">{{ $section->title_content }}</h3>
                         @endif
                         @if ($section->description_content)
-                            <div class="copa02-page__emphasis__header__paragraph">
+                            <div class="copa02-page__emphasis__header__paragraph animation fadeInRight">
                                 {!! $section->description_content !!}
                             </div>
                         @endif
@@ -64,18 +71,18 @@
                     <div class="copa02-page__assortedBox__boxStandard"
                         style="background-image: url({{ asset('storage/' . $contentPage->path_image_desktop) }});">
                         @if ($contentPage->path_image_box)
-                            <div class="copa02-page__assortedBox__boxStandard__image">
+                            <div class="copa02-page__assortedBox__boxStandard__image animation fadeInUp">
                                 <img src="{{ asset('storage/' . $contentPage->path_image_box) }}"
                                     loading="lazy" />
                             </div>
                         @endif
                         <div class="copa02-page__assortedBox__boxStandard__description">
                             @if ($contentPage->title)
-                                <h4 class="copa02-page__assortedBox__boxStandard__description__title">
+                                <h4 class="copa02-page__assortedBox__boxStandard__description__title animation fadeInUp">
                                     {{ $contentPage->title }}
                                 </h4>
                             @endif
-                            <div class="copa02-page__assortedBox__boxStandard__description__paragraph">
+                            <div class="copa02-page__assortedBox__boxStandard__description__paragraph animation fadeInUp">
                                 @if ($contentPage->description)
                                     {!! $contentPage->description !!}
                                 @endif
@@ -107,19 +114,19 @@
                     @endif
                     <div class="copa02-page__boxContent__item__description">
                         @if ($section->title_last_section)
-                            <h4 class="copa02-page__boxContent__item__description__title">
+                            <h4 class="copa02-page__boxContent__item__description__title animation fadeInLeft">
                                 {{ $section->title_last_section }}
                             </h4>
                         @endif
 
                         <div class="copa02-page__boxContent__item__description__center">
                             @if ($section->description_last_section)
-                                <div class="copa02-page__boxContent__item__description__paragraph">
+                                <div class="copa02-page__boxContent__item__description__paragraph animation fadeInLeft">
                                     {!! $section->description_last_section !!}
                                 </div>
                             @endif
                             @if ($section->link_button_last_section)
-                                <a href="{{ getUri($section->link_button_last_section) }}"target="{{ $section->target_link_button_last_section }}" class="copa02-page__boxContent__item__description__cta">
+                                <a href="{{ getUri($section->link_button_last_section) }}"target="{{ $section->target_link_button_last_section }}" class="copa02-page__boxContent__item__description__cta animation fadeInRight">
                                     @if ($section->title_button_last_section)
                                         <span>
                                             {{ $section->title_button_last_section }}

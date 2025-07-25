@@ -2,7 +2,7 @@
     <section id="GALL01" class="gall01">
         @foreach ($images as $image)
             <img
-            class="gall01__item"
+            class="gall01__item animation fadeInUp"
             alt="Image da galeria"
             loading="lazy"
             src="{{ asset('storage/' . $image->path_image) }}" />

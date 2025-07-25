@@ -3,17 +3,17 @@
     <main id="root">
         <section id="root" class="blog03-show">
             <section class="blog03-show__banner">
-                <h2 class="blog03-show__banner__title">Nossos projetos</h2>
+                <h2 class="blog03-show__banner__title animation fadeInLeft">Nossos projetos</h2>
             </section>
 
             <article itemscope itemtype="http://schema.org/Article" class="blog03-show__article">
                 
                 @if ($blog->path_image)
                     <img itemprop="image" src="{{ asset('storage/' . $blog->path_image) }}" alt="{{ $blog->title }}"
-                        class="blog03-show__article__image" />
+                        class="blog03-show__article__image animation fadeInUp" />
                 @endif
 
-                <h1 iitemprop="headline" class="blog03-show__article__title">{!! $blog->title !!}</h1>
+                <h1 iitemprop="headline" class="blog03-show__article__title animation fadeInLeft">{!! $blog->title !!}</h1>
 
                 {{-- <p class="blog03-show__article__time">
                     Publicado em: <time class="blog03-show__article__time"
@@ -25,13 +25,13 @@
                     {!! $blog->description !!}
                 </p> --}}
 
-                <div itemprop="articleBody" class="blog03-show__article__body ck-content">
+                <div itemprop="articleBody" class="blog03-show__article__body ck-content animation fadeInLeft">
                     <p>
                         {!! $blog->text !!}
                     </p>
                 </div>
 
-                <button class="blog03-show__article__share">
+                <button class="blog03-show__article__share animation fadeInRight">
                     <span>
                         Compartilhar artigo
                     </span>
@@ -137,12 +137,12 @@
 
             @if ($blogsRelated->count() > 0)
                 <section class="blog03-show__related">
-                    <h3 class="blog03-show__related__title">Outros <span>projetos</span></h3>
+                    <h3 class="blog03-show__related__title animation fadeInLeft">Outros <span>projetos</span></h3>
                     <div class="blog03-show__related__carousel">
                         <div class="blog03-show__related__carousel__swiper-wrapper swiper-wrapper">
                             @foreach ($blogsRelated as $blogRelated)
                                 <article itemscope itemtype="http://schema.org/Article"
-                                    class="blog03-show__related__carousel__item swiper-slide">
+                                    class="blog03-show__related__carousel__item swiper-slide animation fadeInLeft">
                                     {{-- <a class="link-full" title="{{ $blogRelated->title }}"
                                         href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blogRelated->category->slug, 'BLOG03Blogs' => $blogRelated->slug]) }}"></a> --}}
 
@@ -168,6 +168,7 @@
                                 </article>
                             @endforeach
                         </div>
+                        <div class="blog03-show__related__carousel-pagination swiper-pagination"></div>
                     </div>
 
                 </section>

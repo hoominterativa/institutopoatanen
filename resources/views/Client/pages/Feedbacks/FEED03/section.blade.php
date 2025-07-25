@@ -10,7 +10,7 @@
                 <div class="feed03__header__texto">
                     @if ($section->subtitle || $section->title)
                         {{-- <h3 class="feed03__header__texto__subtitle">{{ $section->subtitle }}</h3> --}}
-                        <h2 class="feed03__header__texto__title mb-0">{{ $section->title }}</h2>
+                        <h2 class="feed03__header__texto__title animation fadeInLeft">{{ $section->title }}</h2>
                         <hr class="feed03__header__texto__line">
                     @endif
                 </div>
@@ -18,7 +18,7 @@
         @endif
         <div class="feed03__content carousel-feed03 owl-carousel">
             @foreach ($feedbacks as $feedback)
-                <div class="feed03__content__item">
+                <div class="feed03__content__item animation fadeInLeft">
                     <div class="feed03__content__item__top">
                         <div class="feed03__content__item__top__image">
                             @if ($feedback->path_image_icon)

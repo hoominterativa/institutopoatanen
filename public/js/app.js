@@ -12627,11 +12627,19 @@ __webpack_require__.r(__webpack_exports__);
 
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog03__main", {
   slidesPerView: "auto",
-  spaceBetween: 16
+  spaceBetween: 16,
+  pagination: {
+    el: ".blog03__main__swiper-pagination",
+    clickable: true
+  }
 });
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog03-show__related__carousel", {
   slidesPerView: "auto",
-  spaceBetween: 16
+  spaceBetween: 16,
+  pagination: {
+    el: ".blog03-show__related__carousel-pagination",
+    clickable: true
+  }
 });
 
 // CONSTANTES PARA COMPARTILHAMENTO

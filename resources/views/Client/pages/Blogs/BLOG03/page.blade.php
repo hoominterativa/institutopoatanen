@@ -6,7 +6,7 @@
             @if ($section->title_banner)
                 <section class="blog03-page__banner"
                     style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }}); ">
-                    <h1 class="blog03-page__banner__title">{{ $section->title_banner }}</h1>
+                    <h1 class="blog03-page__banner__title animation fadeInLeft">{{ $section->title_banner }}</h1>
                 </section>
             @endif
         @endif
@@ -37,7 +37,7 @@
         @if ($blogs->count())
             <div class="blog03-page__main">
                 @foreach ($blogs as $blog)
-                    <article class="blog03-page__main__item" itemscope itemtype="http://schema.org/Article">
+                    <article class="blog03-page__main__item animation fadeInLeft" itemscope itemtype="http://schema.org/Article">
                         {{-- <a title="{!! $blog->title !!}"
                             href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug]) }}"
                             class="link-full"></a> --}}

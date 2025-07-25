@@ -52,10 +52,14 @@
     }
 
     &__main {
+        height: auto;
+        @extend %theme__pagination--two;
+
         overflow: hidden;
         @include large-device-down {
             overflow: visible;
         }
+
         &__item {
             position: relative;
             width: calc(33.333333% - 1rem);
@@ -141,7 +145,7 @@
     }
 
     &__cta {
-        margin: 1.75rem 0 0 auto;
+        margin: 0 0 0 auto;
         @extend %theme__cta--two;
 
         span {

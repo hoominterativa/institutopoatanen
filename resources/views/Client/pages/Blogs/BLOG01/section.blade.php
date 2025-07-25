@@ -4,7 +4,7 @@
         @if ($section->title_section || $section->subtitle_section || $section->description_section)
             <header class="blog01__header">
                 @if ($section->title_section)
-                    <h2 class="blog01__header__title">
+                    <h2 class="blog01__header__title animation fadeInLeft">
                         {{ $section->title_section }}
                     </h2>
                 @endif
@@ -23,7 +23,7 @@
         <div class="blog01__main__carousel">
             <div class="blog01__main__carousel__swiper-wrapper swiper-wrapper">
                 @foreach ($blogs as $blog)
-                    <article itemscope itemtype="http://schema.org/Article" class="blog01__main__item swiper-slide">
+                    <article itemscope itemtype="http://schema.org/Article" class="blog01__main__item swiper-slide animation fadeInLeft">
                         {{-- <a
                         title="{{ $blog->title }}"
                         class="link-full" itemprop="url"

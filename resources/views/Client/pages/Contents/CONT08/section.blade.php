@@ -12,22 +12,22 @@
                     @if ($content->title || $content->subtitle || $content->text)
                         <header class="cont08__information__header">
                             @if ($content->title)
-                                <h2 class="cont08__information__header__title">{{ $content->title }}</h2>
+                                <h2 class="cont08__information__header__title animation fadeInLeft">{{ $content->title }}</h2>
                             @endif
 
-                            @if ($content->subtitle)
+                            {{-- @if ($content->subtitle)
                                 <h3 class="cont08__information__header__subtitle">{{ $content->subtitle }}</h3>
                             @endif
 
                             @if ($content->title || $content->subtitle)
                                 <hr class="cont08__information__header__line">
-                            @endif
+                            @endif --}}
                         </header>
                     @endif
 
                     <div class="right">
                         @if ($content->text)
-                            <div class="cont08__information__description">
+                            <div class="cont08__information__description animation fadeInRight">
                                 {!! $content->text !!}
                             </div>
                         @endif
@@ -38,7 +38,7 @@
                                     <div class="cont08__information__topics__swiper-wrapper">
                                     @foreach ($content->topics as $topic)
                                         <!-- <article class="cont08__information__topics__item swiper-slide"> -->
-                                        <article class="cont08__information__topics__item">
+                                        <article class="cont08__information__topics__item animation fadeInRight">
     
                                             @if ($topic->path_image)
                                                 <div class="cont08__information__topics__item__title">

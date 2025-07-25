@@ -5,7 +5,7 @@
             <section class="cota02__banner"
                 style="background-image: url({{ asset('storage/' . $contact->path_image_banner_desktop) }})">
                 @if ($contact->title_banner)
-                    <h1 class="cota02__banner__title">{{ $contact->title_banner }}</h1>
+                    <h1 class="cota02__banner__title animation fadeInLeft">{{ $contact->title_banner }}</h1>
                 @endif
                 @if ($contact->subtitle_banner)
                     <h2 class="cota02__banner__subtitle">{{ $contact->subtitle_banner }}
@@ -15,7 +15,7 @@
 
             <section class="cota02__topics">
                 @foreach ($topics as $topic)
-                    <div class="cota02__topics__item">
+                    <div class="cota02__topics__item animation fadeInLeft">
                         @if ($topic->path_image_icon)
                             <img src="{{ asset('storage/' . $topic->path_image_icon) }}" class="cota02__topics__item__icon"
                                 alt="Ícone do tópico  {{ $topic->title }}">
@@ -41,21 +41,21 @@
                 'route' => 'lead.store',
                 'method' => 'post',
                 'files' => true,
-                'class' => 'send_form_ajax parsley-validate cota02__form',
+                'class' => 'send_form_ajax parsley-validate cota02__form animation fadeInLeft',
             ]) !!}
 
             <header class="cota02__form__header">
                 @if ($contact->title_form)
-                    <h2 class="cota02__form__header__title">{{ $contact->title_form }}</h2>
+                    <h2 class="cota02__form__header__title animation fadeInLeft">{{ $contact->title_form }}</h2>
                 @endif
 
-                @if ($contact->description_form)
+                {{-- @if ($contact->description_form)
                     <div class="cota02__form__header__paragraph">
                         <p>
                             {!! $contact->description_form !!}
                         </p>
                     </div>
-                @endif
+                @endif --}}
             </header>
 
             <input type="hidden" name="target_lead" value="{{ $contact->title_page }}">

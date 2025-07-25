@@ -7,25 +7,25 @@
                     style="background-image: url({{ asset('storage/' . $about->path_image_banner_desktop) }}); ">
                     @if ($about->title_banner || $about->subtitle_banner)
                         @if ($about->title_banner)
-                            <h1 class="abou01-page__banner__title">{{ $about->title_banner }}</h1>
+                            <h1 class="abou01-page__banner__title animation fadeInLeft">{{ $about->title_banner }}</h1>
                         @endif
 
-                        @if ($about->subtitle_banner)
+                        {{-- @if ($about->subtitle_banner)
                             <h2 class="abou01-page__banner__subtitle">{{ $about->subtitle_banner }}</h2>
-                        @endif
+                        @endif --}}
                     @endif
                 </section>
             @endif
 
             <section class="abou01-page__top">
-                <h3 class="abou01-page__top__title">Juntos levamos oportunidades</h3>
-                <p class="abou01-page__top__paragraph">Rutrum vitae turpis massa ullamcorper mauris adipiscing justo, imperdiet. Vivamus et mi augue gravida commodo.</p>
+                <h3 class="abou01-page__top__title animation fadeInLeft">Juntos levamos oportunidades</h3>
+                <p class="abou01-page__top__paragraph animation fadeInRight">Rutrum vitae turpis massa ullamcorper mauris adipiscing justo, imperdiet. Vivamus et mi augue gravida commodo.</p>
             </section>
 
             @if ($about->path_image || $about->title || $about->subtitle || $about->text)
                 <section class="abou01-page__main" {{-- style="background-image: url({{ asset('storage/' . $about->path_image_desktop) }});background-color: {{ $about->background_color }}" --}}>
                     @if ($about->path_image)
-                        <div class="abou01-page__main__image">
+                        <div class="abou01-page__main__image animation fadeInUp">
                             <img src="{{ asset('storage/' . $about->path_image) }}" class="abou01-page__main__image__img"
                                 alt="{{ $about->title }}">
                         </div>
@@ -36,7 +36,7 @@
                             @if ($about->title || $about->subtitle)
                                 <header class="abou01-page__main__information__header">
                                     @if ($about->title)
-                                        <h2 class="abou01-page__main__information__header__title">{{ $about->title }}</h2>
+                                        <h2 class="abou01-page__main__information__header__title animation fadeInUp">{{ $about->title }}</h2>
                                     @endif
 
                                     {{-- @if ($about->subtitle)
@@ -47,12 +47,12 @@
                             @endif
 
                             @if ($about->text)
-                                <div class="abou01-page__main__information__paragraph">
+                                <div class="abou01-page__main__information__paragraph animation fadeInUp">
                                     {!! $about->text !!}
                                 </div>
                             @endif
 
-                            <a href="#" class="abou01-page__main__information__cta">
+                            <a href="#" class="abou01-page__main__information__cta animation fadeInUp">
                                 <span>Seja um apoiador</span>
                             </a>
                         </div>
@@ -61,9 +61,9 @@
             @endif
 
             <div class="abou01-page__topics">
-                <h3 class="abou01-page__topics__title">A luta de um virou esperança para muitos. Esse é o Instituto Poatan</h3>
+                <h3 class="abou01-page__topics__title animation fadeInLeft">A luta de um virou esperança para muitos. Esse é o Instituto Poatan</h3>
                 @foreach ($about->topics as $topic)
-                    <details class="abou01-page__topics__item">
+                    <details class="abou01-page__topics__item animation fadeInUp">
                         <summary class="abou01-page__topics__item__title" aria-level="3" role="heading">
                             {{ $topic->title }}
                         </summary>
@@ -79,7 +79,7 @@
                 <section class="abou01-page__section">
 
                     @if ($about->path_image_content)
-                        <div class="abou01-page__section__image">
+                        <div class="abou01-page__section__image animation fadeInRight">
                             <img src="{{ asset('storage/' . $about->path_image_content) }}"
                                 class="abou01-page__section__image__img" alt="{{ $about->title_content }}">
                         </div>
@@ -90,7 +90,7 @@
                             @if ($about->title_content || $about->subtitle_content)
                                 <header class="abou01-page__section__information__header">
                                     @if ($about->title_content)
-                                        <h2 class="abou01-page__section__information__header__title">
+                                        <h2 class="abou01-page__section__information__header__title animation fadeInLeft">
                                             {{ $about->title_content }}
                                         </h2>
                                     @endif
@@ -104,7 +104,7 @@
                             @endif
 
                             @if ($about->text_content)
-                                <div class="abou01-page__section__information__paragraph">
+                                <div class="abou01-page__section__information__paragraph animation fadeInLeft">
                                     {!! $about->text_content !!}
                                 </div>
                             @endif
@@ -113,7 +113,7 @@
                                 <a title="{{ $about->title_button_content }}"
                                     href="{{ getUri($about->link_button_content) }}"
                                     target="{{ $about->target_link_button_content }}"
-                                    class="abou01-page__section__information__cta">
+                                    class="abou01-page__section__information__cta animation fadeInLeft">
 
                                     @if ($about->title_button_content)
                                         <span>

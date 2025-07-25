@@ -3,7 +3,7 @@
         @if ($section->title_section)
             <header class="blog03__header">
                 @if ($section->title_section)
-                    <h2 class="blog03__header__title">{!! $section->title_section !!}</h2>
+                    <h2 class="blog03__header__title animation fadeInLeft">{!! $section->title_section !!}</h2>
                 @endif
                 {{-- @if ($section->subtitle_section)
                     <h3 class="blog03__header__subtitle">{{ $section->subtitle_section }}</h3>
@@ -18,7 +18,7 @@
     <div class="blog03__main">
         <div class="blog03__main__swiper-wrapper swiper-wrapper">
             @foreach ($blogs as $blog)
-                <article class="blog03__main__item swiper-slide">
+                <article class="blog03__main__item swiper-slide animation fadeInLeft">
                     {{-- <a itemprop="url"
                         href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug]) }}"
                         class="link-full"></a> --}}
@@ -52,9 +52,10 @@
                 </article>
             @endforeach
         </div>
+        <div class="blog03__main__swiper-pagination swiper-pagination"></div>
     </div>
 
-    <a class="blog03__cta" href="{{ route('blog03.category.page', ['BLOG03BlogsCategory' => $category->slug]) }}">
+    <a class="blog03__cta animation fadeInRight" href="{{ route('blog03.category.page', ['BLOG03BlogsCategory' => $category->slug]) }}">
         <span>Ver todos</span>
     </a>
 

@@ -6,7 +6,7 @@
                 @if ($content->title || $content->subtitle)
                     <header class="cont05__header">
                         @if ($content->title)
-                            <h2 class="cont05__header__title">
+                            <h2 class="cont05__header__title animation fadeInLeft">
                                 {{ $content->title }}
                             </h2>
                         @endif
@@ -16,13 +16,13 @@
                     </header>
                 @endif
 
-                <div class="cont05__main">
+                <div class="cont05__main animation fadeInLeft">
                     @if ($content->description)
                         {!! $content->description !!}
                     @endif
                     @if ($content->link_button)
                         <a href="{{ getUri($content->link_button) }}" target="{{ $content->target_link_button }}"
-                            class="cont05__main__cta">
+                            class="cont05__main__cta animation fadeInRight">
                             @if ($content->title_button)
                                 <span>
                                     {{ $content->title_button }}

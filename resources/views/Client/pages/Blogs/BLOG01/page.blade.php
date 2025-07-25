@@ -1,11 +1,20 @@
 @extends('Client.Core.client')
 @section('content')
+<style>
+    .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
+        background-color: #95D059;
+        opacity: 0.5;
+    }
+    .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+</style>
     <main id="root" class="blog01-page">
         @if ($section)
             @if ($section->title_banner)
                 <section class="blog01-page__banner"
                     style="background-image: url({{ asset('storage/' . $section->path_image_desktop_banner) }});">
-                    <h1 class="blog01-page__banner__title">{{ $section->title_banner }}</h1>
+                    <h1 class="blog01-page__banner__title animation fadeInLeft">{{ $section->title_banner }}</h1>
                 </section>
             @endif
         @endif
@@ -34,7 +43,7 @@
                                     itemtype="http://schema.org/Article">
 
                                     <img itemprop="image" src="{{ asset('storage/' . $blogFeatured->path_image) }}"
-                                        class="blog01-page__articles__highlighted__item__image"
+                                        class="blog01-page__articles__highlighted__item__image animation fadeInLeft"
                                         alt="{{ $blogFeatured->title }}" />
 
 
@@ -43,7 +52,7 @@
                                             {{ $blogFeatured->category->title }}
                                         </p> --}}
 
-                                        <p class="blog01-page__articles__highlighted__item__information__time">
+                                        <p class="blog01-page__articles__highlighted__item__information__time animation fadeInRight">
                                             <time
                                                 datetime="{{ dateFormat($blogFeatured->publishing, 'd', 'M', 'Y', '') }}"
                                                 itemprop="datePublished" content="{{ $blogFeatured->publishing }}"
@@ -52,16 +61,16 @@
 
 
                                         <h2 itemprop="headline"
-                                            class="blog01-page__articles__highlighted__item__information__title">
+                                            class="blog01-page__articles__highlighted__item__information__title animation fadeInRight">
                                             {{ $blogFeatured->title }}
                                         </h2>
 
                                         <p itemprop="description"
-                                            class="blog01-page__articles__highlighted__item__information__paragraph">
+                                            class="blog01-page__articles__highlighted__item__information__paragraph animation fadeInRight">
                                             {{ $blogFeatured->description }}</p>
                                         <a itemprop="url"
                                             href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blogFeatured->category->slug, 'BLOG01Blogs' => $blogFeatured->slug]) }}"
-                                            class="blog01-page__articles__highlighted__item__information__cta">
+                                            class="blog01-page__articles__highlighted__item__information__cta animation fadeInRight">
                                             <span>
                                                 Leia mais
                                             </span>
@@ -79,7 +88,7 @@
 
             <div class="blog01-page__articles__list">
                 @foreach ($blogs as $blog)
-                    <article itemscope itemtype="http://schema.org/Article" class="blog01-page__articles__list__item">
+                    <article itemscope itemtype="http://schema.org/Article" class="blog01-page__articles__list__item animation fadeInLeft">
 
                         {{-- <a title="{{ $blog->title }}" class="link-full" itemprop="url"
                             href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}"></a> --}}

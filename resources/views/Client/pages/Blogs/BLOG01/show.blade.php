@@ -1,32 +1,41 @@
 @extends('Client.Core.client')
 @section('content')
+    <style>
+        .blog01-show__related__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
+            background-color: #95D059;
+            opacity: 0.5;
+        }
+        .blog01-show__related__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+    </style>
     <main id="root" class="blog01-show">
         <section class="blog01-show__banner">
-            <h2 class="blog01-show__banner__title">Notícias</h2>
+            <h2 class="blog01-show__banner__title animation fadeInLeft">Notícias</h2>
         </section>
 
         <article itemscope itemtype="http://schema.org/Article" class="blog01-show__article">
 
             @if ($blog->path_image)
                 <img itemprop="image" src="{{ asset('storage/' . $blog->path_image) }}" alt="{{ $blog->title }}"
-                    class="blog01-show__article__image" />
+                    class="blog01-show__article__image animation fadeInUp" />
             @endif
 
-            <p class="blog01-show__article__time">
+            <p class="blog01-show__article__time animation fadeInLeft">
                 <time datetime="{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}" itemprop="datePublished"
                     content="{{ $blog->publishing }}"
                     class="blog01-show__article__time">{{ dateFormat($blog->publishing, 'd', 'M', 'Y', '') }}</time>
             </p>
 
-            <h1 itemprop="headline" class="blog01-show__article__title">{{ $blog->title }}</h1>
+            <h1 itemprop="headline" class="blog01-show__article__title animation fadeInLeft">{{ $blog->title }}</h1>
 
-            <p itemprop="description" class="blog01-show__article__description">{{ $blog->description }}</p>
+            <p itemprop="description" class="blog01-show__article__description animation fadeInLeft">{{ $blog->description }}</p>
 
-            <div itemprop="articleBody" class="blog01-show__article__body ck-content">
+            <div itemprop="articleBody" class="blog01-show__article__body ck-content animation fadeInLeft">
                 {!! $blog->text !!}
             </div>
 
-            <button class="blog01-show__article__share">
+            <button class="blog01-show__article__share animation fadeInRight">
                 <span>
                     Compartilhar
                 </span>
@@ -130,12 +139,12 @@
 
         @if ($blogsRelated->count() > 0)
             <section class="blog01-show__related">
-                <h3 class="blog01-show__related__title">Notícias relacionadas</h3>
+                <h3 class="blog01-show__related__title animation fadeInLeft">Notícias relacionadas</h3>
                 <div class="blog01-show__related__carousel">
                     <div class="blog01-show__related__carousel__swiper-wrapper swiper-wrapper">
                         @foreach ($blogsRelated as $blogRelated)
                             <article itemscope itemtype="http://schema.org/Article"
-                                class="blog01-show__related__item swiper-slide">
+                                class="blog01-show__related__item swiper-slide animation fadeInLeft">
                                 {{-- <a class="link-full" title=" {{ $blogRelated->title }}" itemprop="url"
                                     href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blogRelated->category->slug, 'BLOG01Blogs' => $blogRelated->slug]) }}"></a> --}}
 

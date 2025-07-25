@@ -43,6 +43,7 @@
                     width: 1.75rem;
                     height: auto;
                     aspect-ratio: 1/1;
+                    transition: 0.5s all ease;
 
                     &__icon {
                         width: 100%;
@@ -50,6 +51,11 @@
 
                         object-fit: contain;
                         object-position: center;
+                    }
+
+                    &:hover {
+                        transition: 0.5s all ease;
+                        transform: scale(1.2);
                     }
                 }
             }
@@ -79,6 +85,12 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: 22px;
+                transition: 0.5s all ease;
+
+                &:hover {
+                    opacity: 0.5;
+                    transition: 0.5s all ease;
+                }
 
                 &__link {
                     font: inherit;
@@ -156,6 +168,11 @@
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
+
+                &:hover {
+                    opacity: 0.5;
+                    transition: 0.5s all ease;
+                }
 
                 &__list {
                     font: inherit;

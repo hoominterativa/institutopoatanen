@@ -400,15 +400,32 @@ details .details-content {
 }
 .blog01__main__carousel .swiper-pagination-bullets, .blog01-show__related__carousel .swiper-pagination-bullets, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets {
   margin-top: 2rem;
-  text-align: left;
+  text-align: center;
 }
 .blog01__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .blog01-show__related__carousel .swiper-pagination-bullets .swiper-pagination-bullet, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets .swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
-  border-radius: 0;
-  background-color: #7c7c7c;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #FFF;
+  opacity: 1;
 }
 .blog01__main__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .blog01-show__related__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active, .blog01-page__articles__highlighted__carousel .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #95D059;
+}
+.blog03__main .swiper-pagination-bullets {
+  margin-top: 2rem;
+  text-align: center;
+}
+.blog03__main .swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: #FFF;
+  opacity: 1;
+}
+.blog03__main .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  background-color: #1A2069;
   opacity: 1;
 }
 .topi11__main__topics__item, .freq01-page__faq__item, .abou01-page__topics__item {
@@ -838,22 +855,19 @@ body .owl-nav button.owl-prev:hover {
 body .owl-dots {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 body .owl-dots .owl-dot {
-  background-color: #404040;
-  color: #fff;
+  background-color: rgba(26, 33, 105, 0.5176470588);
+  color: rgba(26, 33, 105, 0.5176470588);
   border-radius: 100%;
   display: block;
   width: 15px;
   height: 15px;
   margin: 0 3px;
 }
-body .owl-dots .owl-dot:hover {
-  background-color: #7c7c7c;
-}
 body .owl-dots .owl-dot.active {
-  background-color: #b3b3b3;
+  background-color: #1A2069;
 }
 
 .fixed-floating {
@@ -2001,6 +2015,17 @@ body .owl-dots .owl-dot.active {
   font-weight: 600;
   line-height: 22px;
   text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 5px;
+  transition: 0.5s all ease;
+}
+.head02__navigation__item__link:hover, .head02__navigation__item__btn:hover {
+  border-bottom: 2px solid #1A2069;
+  transition: 0.5s all ease;
+}
+.head02__navigation__item__link:active, .head02__navigation__item__btn:active {
+  border-bottom: 2px solid #1A2069;
+  transition: 0.5s all ease;
 }
 .head02__navigation__item__content {
   padding: 0.5rem;
@@ -2299,6 +2324,7 @@ body .owl-dots .owl-dot.active {
   width: 1.75rem;
   height: auto;
   aspect-ratio: 1/1;
+  transition: 0.5s all ease;
 }
 .foot02__navigation__client-info__socials__item__icon {
   width: 100%;
@@ -2307,6 +2333,10 @@ body .owl-dots .owl-dot.active {
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
+}
+.foot02__navigation__client-info__socials__item:hover {
+  transition: 0.5s all ease;
+  transform: scale(1.2);
 }
 .foot02__navigation__pages {
   list-style: none;
@@ -2329,6 +2359,11 @@ body .owl-dots .owl-dot.active {
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
+  transition: 0.5s all ease;
+}
+.foot02__navigation__pages__item:hover, .foot02__navigation__client-contact__item:hover {
+  opacity: 0.5;
+  transition: 0.5s all ease;
 }
 .foot02__navigation__pages__item__link, .foot02__navigation__client-contact__item__link {
   font: inherit;
@@ -2392,6 +2427,10 @@ body .owl-dots .owl-dot.active {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+.foot02__copyright__compliances__item:hover {
+  opacity: 0.5;
+  transition: 0.5s all ease;
 }
 .foot02__copyright__compliances__item__list {
   font: inherit;
@@ -2882,6 +2921,7 @@ body .owl-dots .owl-dot.active {
   text-align: center;
 }
 .blog03__main {
+  height: auto;
   overflow: hidden;
 }
 @media (max-width: 991.98px) {
@@ -2955,7 +2995,7 @@ body .owl-dots .owl-dot.active {
   transform: skew(10deg, 0deg) !important;
 }
 .blog03__cta {
-  margin: 1.75rem 0 0 auto;
+  margin: 0 0 0 auto;
 }
 .blog03__cta span {
   transform: skew(10deg, 0deg) !important;

@@ -4,7 +4,7 @@
             @if ($section->title_section)
                 <header class="bran01__header">
                     @if ($section->title_section)
-                        <h2 class="bran01__header__title">{!! $section->title_section !!}</h2>
+                        <h2 class="bran01__header__title animation fadeInLeft">{!! $section->title_section !!}</h2>
                     @endif
 
                     {{-- @if ($section->subtitle_section)
@@ -29,7 +29,7 @@
             <main class="bran01__content">
                 <div class="bran01__content__swiper-wrapper swiper-wrapper">
                     @foreach ($brands as $brand)
-                        <article class="bran01__content__item swiper-slide"
+                        <article class="bran01__content__item swiper-slide animation fadeInLeft"
                             style="background-image:url({{ asset('storage/' . $brand->path_image_box) }})">
 
                             @if ($brand->link)
