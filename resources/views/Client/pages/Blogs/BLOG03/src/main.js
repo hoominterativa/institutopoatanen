@@ -6,7 +6,7 @@ new Swiper(".blog03__main", {
 })
 new Swiper(".blog03-show__related__carousel", {
     slidesPerView: "auto",
-    spaceBetween: 32,
+    spaceBetween: 16,
 })
 
 // CONSTANTES PARA COMPARTILHAMENTO

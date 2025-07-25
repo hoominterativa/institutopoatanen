@@ -12631,7 +12631,7 @@ new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog03__main", {
 });
 new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".blog03-show__related__carousel", {
   slidesPerView: "auto",
-  spaceBetween: 32
+  spaceBetween: 16
 });
 
 // CONSTANTES PARA COMPARTILHAMENTO

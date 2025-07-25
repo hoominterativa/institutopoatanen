@@ -39,6 +39,8 @@
 
             // background-color: $color-nine;
 
+            position: relative;
+
             @include x-large-device-down {
                 width: 33.33%;
             }
@@ -55,6 +57,16 @@
 
             @include small-device-down {
                 width: 80%;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 30px;
+                right: -10px;
+                top: 20%;
+                background-color: #1A2069;
             }
 
             &__icon {
