@@ -1525,7 +1525,7 @@ body {
     padding-bottom: 0;
     background-color: #95D059;
     position: relative;
-    height: 447px;
+    height: 350px;
 
     &__main {
         @include disFlex(column, center);
@@ -1621,12 +1621,13 @@ body {
     }
 
     &__image {
-        width: 62%;
-        height: auto;
-        position: absolute;
-        z-index: 1;
-        top: -100px;
-        left: 0;
+        width: 50%;
+        margin-top: -100px;
+        // height: auto;
+        // position: absolute;
+        // z-index: 1;
+        // bottom: 0;
+        // left: 0;
 
         @include large-device-down {
             width: 100%;

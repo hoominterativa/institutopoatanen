@@ -265,7 +265,7 @@
 
         &__image {
             @extend .abou01-page__main__image;
-            height: 100%;
+            height: auto;
             aspect-ratio: 964/763;
             position: absolute;
             z-index: 1;

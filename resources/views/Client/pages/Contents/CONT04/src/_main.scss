@@ -64,7 +64,8 @@
         }
 
         &__information {
-            width: 37%;
+            width: 100%;
+            max-width: 490px;
             padding-right: 260px;
             position: absolute;
             top: 50%;

@@ -66,9 +66,10 @@
 
             width: calc(12% - 1.125rem);
             height: auto;
-            aspect-ratio: 321/136;
+            aspect-ratio: 320/245;
 
             @include bg;
+            background-size: contain;
 
             @include disFlex(row, center, center);
 
