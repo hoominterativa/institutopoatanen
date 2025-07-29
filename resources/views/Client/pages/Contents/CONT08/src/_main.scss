@@ -7,11 +7,19 @@
     padding-top: 0;
     // padding-right: 260px;
     @include disFlex($justify: space-between, $align: start);
+    position: relative;
 
     @include large-device-down {
         flex-direction: column-reverse;
         gap: 80px;
     }
+
+    &__firula {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        bottom: 0;
+    }    
 
     &__image {
         width: 34%;
@@ -39,6 +47,7 @@
         @include disFlex(row, space-between, stretch);
 
         @include large-device-down {
+            flex-direction: column;
             width: 100%;
         }
 
@@ -46,6 +55,11 @@
         &__header {
             width: 50%;
             @include disFlex(column);
+
+            @include large-device-down {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
             
             &__title {
                 color: #1A2069;
@@ -96,8 +110,15 @@
 
         &__topics {
             overflow: hidden;
+            width: 100%;
+            max-width: 430px;
+            margin: 0 auto;
             margin-bottom: 3rem;
             margin-top: 120px;
+
+            @include large-device {
+                max-width: inherit;
+            }
 
             @include large-device-down {
                 overflow: visible;
@@ -106,7 +127,7 @@
             &__swiper-wrapper {
                 @include disFlex(row, center);
                 flex-wrap: wrap;
-                gap: 40px 0;
+                gap: 40px 115px;
             }
 
             &__item {
@@ -150,4 +171,8 @@
 }
 .right {
     width: 50%;
+
+    @include large-device-down {
+        width: 100%;
+    }
 }

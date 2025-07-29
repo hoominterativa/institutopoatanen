@@ -1624,10 +1624,14 @@ body {
         width: 50%;
         margin-top: -100px;
         // height: auto;
-        // position: absolute;
-        // z-index: 1;
-        // bottom: 0;
-        // left: 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+
+        @include large-device {
+            width: 65%;
+        }
 
         @include large-device-down {
             width: 100%;

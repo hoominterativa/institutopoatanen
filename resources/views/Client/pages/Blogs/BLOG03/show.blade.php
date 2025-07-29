@@ -135,6 +135,75 @@
                 </dialog>
             </article>
 
+            <section id="blog03-show__galeria" class="blog03-show__galeria">
+                <!-- Imagem -->
+                
+                <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
+                    <img
+                        class="blog03-show__galeria__item animation fadeInUp"
+                        alt="Imagem da galeria"
+                        loading="lazy"
+                        src="{{ asset('images/blog03-galeria.png') }}" />
+                </a>
+
+                <!-- Vídeo como imagem de capa com botão Play -->
+                <a
+                    href="{{ asset('videos/demo.mp4') }}"
+                    class="blog03-show__galeria__item blog03-show__galeria__video animation fadeInUp"
+                    data-fancybox>
+                    <img
+                        src="{{ asset('images/blog03-galeria-dois.png') }}"
+                        alt="Capa do vídeo"
+                        loading="lazy" />
+                    <span>
+                        <img src="{{ asset('images/play.png') }}" alt="Firula">
+                    </span> <!-- Ícone de play -->
+                </a>
+
+                <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
+                    <img
+                        class="blog03-show__galeria__item animation fadeInUp"
+                        alt="Imagem da galeria"
+                        loading="lazy"
+                        src="{{ asset('images/blog03-galeria-tres.png') }}" />
+                </a>
+
+                <!-- Imagem -->
+                
+                <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
+                    <img
+                        class="blog03-show__galeria__item animation fadeInUp"
+                        alt="Imagem da galeria"
+                        loading="lazy"
+                        src="{{ asset('images/blog03-galeria-quatro.png') }}" />
+                </a>
+
+                <!-- Imagem -->
+                
+                <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
+                    <img
+                        class="blog03-show__galeria__item animation fadeInUp"
+                        alt="Imagem da galeria"
+                        loading="lazy"
+                        src="{{ asset('images/blog03-galeria-cinco.png') }}" />
+                </a>
+
+                <a
+                    href="{{ asset('videos/demo.mp4') }}"
+                    class="blog03-show__galeria__item blog03-show__galeria__video animation fadeInUp"
+                    data-fancybox>
+                    <img
+                        src="{{ asset('images/blog03-galeria-seis.png') }}"
+                        alt="Capa do vídeo"
+                        loading="lazy" />
+                    <span>
+                        <img src="{{ asset('images/play.png') }}" alt="Firula">
+                    </span> <!-- Ícone de play -->
+                </a>
+            </section>
+
+
+
             @if ($blogsRelated->count() > 0)
                 <section class="blog03-show__related">
                     <h3 class="blog03-show__related__title animation fadeInLeft">Outros <span>projetos</span></h3>

@@ -26,10 +26,10 @@
         // align-self: end;
         // margin-inline: auto;
 
-        // @include large-device-down {
-        //     width: 100%;
-        //     aspect-ratio: 256/351;
-        // }
+        @include large-device-down {
+            width: 100%;
+            // aspect-ratio: 256/351;
+        }
 
         &__img {
             width: 100%;
@@ -50,6 +50,8 @@
 
         @include large-device-down {
             width: 100%;
+            clip-path: inherit;
+            padding: 4rem 5vw;
         }
 
         &__title {
@@ -97,11 +99,19 @@
 
     &:nth-child(even) {
         flex-direction: row-reverse;
+
+        @include large-device-down {
+            flex-direction: column-reverse;
+        }
     }
 
     &:nth-child(odd) .cont02__image {
         clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
         height: 650px;
+
+        @include large-device-down {
+            height: 100%;
+        }
     }
 
     &:nth-child(odd) .cont02__image img{
@@ -110,5 +120,9 @@
 
     &:nth-child(odd) .cont02__information {
         clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+
+        @include large-device-down {
+            clip-path: inherit;
+        }
     }
 }

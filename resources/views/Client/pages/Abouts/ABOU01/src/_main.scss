@@ -221,6 +221,10 @@
         position: relative;
         height: 573px;
 
+        @include large-device {
+            height: 395px;
+        }
+
         &__information {
             @extend .abou01-page__main__information;
             padding-left: 7vw;
