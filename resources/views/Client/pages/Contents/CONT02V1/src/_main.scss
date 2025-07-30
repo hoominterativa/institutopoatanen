@@ -4,7 +4,7 @@
     @extend %theme__padding;
     padding-top: 0;
     padding-bottom: 0;
-    @include disFlex(row-reverse, space-between, start);
+    @include disFlex(row-reverse, space-between, center);
 
     /* Quando não houver imagem cadastrada, o box information receberá width de 100%*/
     &:not(:has(&__image)) &__information {

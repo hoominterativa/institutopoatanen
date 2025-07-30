@@ -221,6 +221,10 @@
         position: relative;
         height: 573px;
 
+        @include large-device {
+            height: 395px;
+        }
+
         &__information {
             @extend .abou01-page__main__information;
             padding-left: 7vw;
@@ -265,7 +269,7 @@
 
         &__image {
             @extend .abou01-page__main__image;
-            height: 100%;
+            height: auto;
             aspect-ratio: 964/763;
             position: absolute;
             z-index: 1;

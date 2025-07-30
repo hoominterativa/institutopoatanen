@@ -402,6 +402,68 @@
         }
     }
 
+    &__galeria {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr; // total de 4 colunas
+        grid-template-rows: auto auto;
+        // gap: 1rem;
+        // padding: 2rem 1rem;
+
+        // Define o layout
+        grid-template-areas:
+            "item1 item1 item2 item3"
+            "item4 item5 item6 item6";
+
+        &__item {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            // border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            // border-radius: 12px;
+            }
+
+            // Aplicar as áreas dinamicamente (opcional: via nth-child ou classes)
+            &:nth-child(1) { grid-area: item1; }
+            &:nth-child(2) { grid-area: item2; }
+            &:nth-child(3) { grid-area: item3; }
+            &:nth-child(4) { grid-area: item4; }
+            &:nth-child(5) { grid-area: item5; }
+            &:nth-child(6) { grid-area: item6; }
+        }
+
+        &__video {
+            span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            // border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+            }
+        }
+    }
+
     &__article {
         overflow: hidden; /* Prevenção do shift da animação */
         @extend %theme__padding;

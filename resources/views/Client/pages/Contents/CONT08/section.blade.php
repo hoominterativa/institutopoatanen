@@ -1,6 +1,8 @@
 @if ($contents->count())
     @foreach ($contents as $content)
         <section id="CONT08" class="cont08">
+            <img class="cont08__firula" src="{{asset('images/cont08-firula.png')}}"
+                alt="Firula">
             @if ($content->path_image)
                 <div class="cont08__image">
                     <img class="cont08__image__img" src="{{ asset('storage/' . $content->path_image) }}"
