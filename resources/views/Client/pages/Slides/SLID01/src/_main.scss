@@ -28,6 +28,10 @@
 
                 object-fit: cover;
                 object-position: center;
+
+                @include large-device-down {
+                    filter: brightness(0.8);
+                }
             }
         }
         &__header {
