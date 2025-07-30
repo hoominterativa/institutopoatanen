@@ -44,6 +44,11 @@
         @include disFlex(row, flex-start, center);
         gap: 130px;
 
+        @include large-device-down {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
         p {
             color:#FFF;
             font-family: $font-primary;

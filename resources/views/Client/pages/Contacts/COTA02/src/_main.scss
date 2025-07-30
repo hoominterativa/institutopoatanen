@@ -36,6 +36,10 @@
 
             // width: fit-content;
 
+            @include large-device-down {
+                width: 70%;
+            }
+
             &__icon {
                 width: 3.25rem;
                 height: auto;
@@ -77,6 +81,11 @@
         width: 100%;
         gap: 0 1.5rem;
         // background-color: #95D059;
+
+        @include large-device-down {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
 
         &__header {
             width: 100%;

@@ -9,6 +9,10 @@
     @extend %theme__padding;
     padding-top: 0;
 
+    @include large-device-down {
+        padding-top: 2rem;
+    }
+
     &__header{
         // width: 100%;
         // border-bottom:1px solid $color-four;
@@ -39,6 +43,11 @@
                 margin-top: 2rem;
                 position: relative;
                 left: -70px;
+
+                @include large-device-down {
+                    width: 85%;
+                    left: -20px;
+                }
             }
         }
     }

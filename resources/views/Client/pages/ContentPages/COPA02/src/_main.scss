@@ -28,10 +28,20 @@
             @include disFlex(row, space-between);
             background-color: #2E368E;
 
+            @include large-device-down {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
             &__image {
                 width: 53%;
                 height: 100%;
                 clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+
+                @include large-device-down {
+                    width: 100%;
+                    clip-path: none;
+                }
 
                 img {
                     width: 100%;
@@ -50,6 +60,12 @@
                 justify-content: center;
                 align-items: stretch;
                 clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+
+                @include large-device-down {
+                    width: 100%;
+                    padding-right: 5vw;
+                    padding-bottom: 3rem;
+                }
 
                 &__title {
                     color: #FFF;
@@ -70,6 +86,10 @@
                         background-color: #FFF;
                         bottom: -35px;
                         right: -130px;
+
+                        @include large-device-down {
+                            right: -20px;
+                        }
                     }
                 }
 
@@ -90,8 +110,16 @@
             &:nth-child(even) {
                 flex-direction: row-reverse;
 
+                @include large-device-down {
+                    flex-direction: column;
+                }
+
                 .copa02-page__assortedBox__boxStandard__image {
                     clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+
+                    @include large-device-down {
+                        clip-path: none;
+                    }
                 }
 
                 .copa02-page__assortedBox__boxStandard__description {
@@ -110,11 +138,19 @@
                 .copa02-page__assortedBox__boxStandard__description__title::before {
                     left: -130px;
                     width: 70%;
+
+                    @include large-device-down {
+                        width: 100%;
+                    }
                 }
 
                 .copa02-page__assortedBox__boxStandard__description {
                     padding-right: inherit;
                     padding-left: 8rem;
+
+                    @include large-device-down {
+                        padding-left: 5vw;
+                    }
                 }
             }
         }
@@ -125,6 +161,11 @@
 
         &__header {
             @include disFlex(row, space-between, center);
+
+            @include large-device-down {
+                flex-direction: column;
+                gap: 3rem;
+            }
 
             &__title {
                 color: #2E368E;
@@ -186,6 +227,11 @@
                 &__center {
                     @include disFlex(row, flex-start, center);
                     gap: 130px;
+
+                    @include large-device-down {
+                        flex-direction: column;
+                        gap: 3rem;
+                    }
                 }
 
                 &__title {

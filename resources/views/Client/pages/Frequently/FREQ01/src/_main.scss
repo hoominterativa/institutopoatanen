@@ -11,6 +11,12 @@
         padding-right: 10vw;
         padding-bottom: 9rem;
 
+        @include large-device-down {
+            padding-left: 5vw;
+            padding-right: 5vw;
+            padding-bottom: 5rem;
+        }
+
         &__title {
             color: #2E368E;
             font-family: $font-primary;

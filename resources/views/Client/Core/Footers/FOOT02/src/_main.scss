@@ -67,6 +67,11 @@
             @include disFlex(column, flex-start);
             gap: 19px;
 
+            @include large-device-down {
+                width: 100%;
+                text-align: center;
+            }
+
             &__header {
                 @extend %theme__t4-cb;
 
@@ -104,6 +109,11 @@
         &__client-contact {
             list-style: none;
             // flex: 1 0 auto;
+
+            @include large-device-down {
+                width: 100%;
+                text-align: center;
+            }
 
             &__header {
                 color: #FFF;

@@ -11,6 +11,11 @@
     padding: 0 2rem;
     transform: skew(-10deg, 0deg) !important;
 
+    @include large-device-down {
+        width: 100%;
+        // top: -78px;
+    }
+
     &__topics {
         height: auto;
         transform: skew(10deg, 0deg) !important;
@@ -25,6 +30,10 @@
 
             &__swiper-wrapper {
                 justify-content: end;
+
+                @include large-device-down {
+                    justify-content: left;
+                }
             }
         }
 
@@ -46,18 +55,18 @@
             }
 
             @include large-device-down {
-                width: 50%;
-                padding: 1rem;
-                flex-direction: column;
+                width: 55%;
+                // padding: 1rem;
+                // flex-direction: column;
             }
 
-            @include medium-device-down {
-                width: 72%;
-            }
+            // @include medium-device-down {
+            //     width: 72%;
+            // }
 
-            @include small-device-down {
-                width: 80%;
-            }
+            // @include small-device-down {
+            //     width: 80%;
+            // }
 
             &::before {
                 content: "";

@@ -7,6 +7,10 @@
     @extend %theme__padding;
     padding-bottom: 7rem;
 
+    @include large-device-down {
+        padding-bottom: 0;
+    }
+
     &__header {
         margin-bottom: 5rem;
 
@@ -126,6 +130,11 @@
             &__conteudo {
                 @include disFlex(row, flex-start, center);
                 gap: 10rem;
+
+                @include large-device-down {
+                    flex-direction: column;
+                    gap: 2rem;
+                }
             }
 
             &__title {

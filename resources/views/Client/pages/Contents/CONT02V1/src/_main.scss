@@ -21,6 +21,10 @@
         height: auto;
         aspect-ratio: 965/750;
 
+        @include large-device-down {
+            display: none;
+        }
+
         // align-self: end;
         // margin-inline: auto;
 
@@ -43,6 +47,7 @@
 
         @include large-device-down {
             width: 100%;
+            padding: 2rem 0;
         }
 
         &__title {
