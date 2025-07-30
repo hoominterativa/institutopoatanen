@@ -157,6 +157,11 @@
                 &__item {
                     @extend %theme__menu-mobile;
 
+                    @include large-device-down {
+                        position: relative;
+                        right: 2rem;
+                    }
+
                     &__icon {
                         @extend %theme__menu-mobile__icon;
                     }
