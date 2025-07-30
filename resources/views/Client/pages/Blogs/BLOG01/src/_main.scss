@@ -180,6 +180,10 @@
         padding-top: 2.5rem;
         padding-bottom: 8rem;
 
+        @include large-device-down {
+            padding-bottom: 1rem;
+        }
+
         &__highlighted {
             margin-bottom: 5rem;
             &__carousel {
@@ -195,6 +199,10 @@
 
                 @include large-device-down {
                     flex-direction: column;
+                }
+
+                @include large-device-down {
+                    gap: 1rem;
                 }
 
                 &__image {
@@ -246,6 +254,10 @@
                         font-weight: 700;
                         line-height: 22px;
                         margin-bottom: 4rem;
+
+                        @include large-device-down {
+                            margin-bottom: 2rem;
+                        }
                     }
 
                     &__paragraph {
@@ -299,6 +311,11 @@
                 &__description {
                     @extend .blog01__main__item__description;
                     padding-right: 2.5rem;
+
+                    @include large-device-down {
+                        padding-left: 0;
+                        padding-right: 0;
+                    }
 
                     &__time {
                         @extend .blog01__main__item__description__time;
@@ -526,6 +543,10 @@
         padding-bottom: 7rem;
         position: relative;
 
+        @include large-device-down {
+            padding-bottom: 2rem;
+        }
+
         &::before {
             content: "";
             position: absolute;
@@ -561,6 +582,12 @@
             &__description {
                 @extend .blog01__main__item__description;
                 padding-right: 2.5rem;
+
+                @include large-device-down {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                
                 &__time {
                     @extend .blog01__main__item__description__time;
                 }

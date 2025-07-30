@@ -20,6 +20,11 @@
         width: 53%;
         height: 100%;
         clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+
+        @include large-device-down {
+            width: 100%;
+            clip-path: none;
+        }
         
         // aspect-ratio: 905/510;
 
@@ -45,6 +50,7 @@
 
         @include large-device-down {
             width: 100%;
+            padding: 2rem 5vw;
         }
 
         &__title {
@@ -84,10 +90,19 @@
     &:nth-child(even) {
         flex-direction: row-reverse;
         background-color: #1A2069;
+
+        @include large-device-down {
+            flex-direction: column-reverse;
+        }
     }
 
     &:nth-child(even) .cont02v2__image {
         clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+
+        @include large-device-down {
+            width: 100%;
+            clip-path: none;
+        }
     }
 
     &:nth-child(even) .cont02v2__information {

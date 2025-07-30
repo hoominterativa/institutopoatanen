@@ -1,7 +1,7 @@
 {
     "/js/app.js": "/js/app.js?id=cf126b0147ac3b176c129f3b0b972311",
     "/css/libraries.css": "/css/libraries.css?id=388723d136fc2a555f8c27175a9fdce4",
-    "/css/app.css": "/css/app.css?id=5f6e896d12eff6445a2ca2724c900ab7",
+    "/css/app.css": "/css/app.css?id=672d5d88b6bdd12dd634d4c2a63cb914",
     "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/images/accordion-icon.svg": "/images/accordion-icon.svg?id=77ad75de72490f605973794a0ce72bad",
     "/images/arrow-1.png": "/images/arrow-1.png?id=d8838e7abd9cb36d0b1bb7dad144a0b5",
@@ -10,8 +10,15 @@
     "/images/banner.png": "/images/banner.png?id=a0d9f306ac747b9132b08ce03b2d6ae1",
     "/images/bell-icon.png": "/images/bell-icon.png?id=97e2473b8ff369c3c6272998907f8a92",
     "/images/bg-colorido.svg": "/images/bg-colorido.svg?id=65d23a0d9711da34d28bd508336307ee",
+    "/images/blog03-galeria-cinco.png": "/images/blog03-galeria-cinco.png?id=f10ca47515acd17f997a84a2ff9811c0",
+    "/images/blog03-galeria-dois.png": "/images/blog03-galeria-dois.png?id=16daa5ac61c77e1d0d48d37c6dce9b00",
+    "/images/blog03-galeria-quatro.png": "/images/blog03-galeria-quatro.png?id=86b36a0ec97e0bc4c2958b458e9c48a6",
+    "/images/blog03-galeria-seis.png": "/images/blog03-galeria-seis.png?id=de5407b909fd124d35f10805a97f477d",
+    "/images/blog03-galeria-tres.png": "/images/blog03-galeria-tres.png?id=74fcaa9c353059e5ae2a9a9e0b9850e1",
+    "/images/blog03-galeria.png": "/images/blog03-galeria.png?id=ece4b7db5695218fb897ff32dbb20f5b",
     "/images/calendar.png": "/images/calendar.png?id=c3656f24528bd44fdce2de2782d184e2",
     "/images/cont05-firula.png": "/images/cont05-firula.png?id=a910b8a02300d11c5e59800112f6dcc9",
+    "/images/cont08-firula.png": "/images/cont08-firula.png?id=e6d9afe67e1cdce0a48fc2e12bfb6645",
     "/images/cota05-icon01.png": "/images/cota05-icon01.png?id=90d4ac8cac1d707687257002e8eca94a",
     "/images/cota05-icon02.png": "/images/cota05-icon02.png?id=a51344a3a54b20670897ea3ca1fad023",
     "/images/cota05-icon03.png": "/images/cota05-icon03.png?id=54c1eabdec57e6989c1b54dbd9170867",
@@ -73,12 +80,5 @@
     "/images/vendor/@ckeditor/ckeditor5-widget/theme/icons/return-arrow.svg": "/images/vendor/@ckeditor/ckeditor5-widget/theme/icons/return-arrow.svg?id=ea051d81c3ef5eab149a6e6a6e5579d3",
     "/images/vendor/owl.carousel/dist/owl.video.play.png": "/images/vendor/owl.carousel/dist/owl.video.play.png?id=ec15221ecd98ee039fe7ac3f979c6318",
     "/images/whatsapp.png": "/images/whatsapp.png?id=0f8ebb429555552e1b4a85101efa3df3",
-    "/images/youtube.png": "/images/youtube.png?id=b1485b58d676957c069409fda41723fd",
-    "/images/cont08-firula.png": "/images/cont08-firula.png?id=e6d9afe67e1cdce0a48fc2e12bfb6645",
-    "/images/blog03-galeria-dois.png": "/images/blog03-galeria-dois.png?id=16daa5ac61c77e1d0d48d37c6dce9b00",
-    "/images/blog03-galeria-tres.png": "/images/blog03-galeria-tres.png?id=74fcaa9c353059e5ae2a9a9e0b9850e1",
-    "/images/blog03-galeria.png": "/images/blog03-galeria.png?id=ece4b7db5695218fb897ff32dbb20f5b",
-    "/images/blog03-galeria-cinco.png": "/images/blog03-galeria-cinco.png?id=f10ca47515acd17f997a84a2ff9811c0",
-    "/images/blog03-galeria-quatro.png": "/images/blog03-galeria-quatro.png?id=86b36a0ec97e0bc4c2958b458e9c48a6",
-    "/images/blog03-galeria-seis.png": "/images/blog03-galeria-seis.png?id=de5407b909fd124d35f10805a97f477d"
+    "/images/youtube.png": "/images/youtube.png?id=b1485b58d676957c069409fda41723fd"
 }

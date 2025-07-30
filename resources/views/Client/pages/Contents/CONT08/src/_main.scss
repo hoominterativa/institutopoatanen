@@ -19,6 +19,10 @@
         z-index: 1;
         left: 0;
         bottom: 0;
+
+        @include large-device-down {
+            left: -200px;
+        }
     }    
 
     &__image {
@@ -122,6 +126,7 @@
 
             @include large-device-down {
                 overflow: visible;
+                width: 85%;
             }
 
             &__swiper-wrapper {

@@ -1527,6 +1527,11 @@ body {
     position: relative;
     height: 350px;
 
+    @include large-device-down {
+        height: auto;
+        padding-top: 2rem;
+    }
+
     &__main {
         @include disFlex(column, center);
         width: 50%;
@@ -1534,6 +1539,7 @@ body {
         @include large-device-down {
             width: 100%;
             margin-bottom: 2.5rem;
+            justify-content: flex-start;
         }
 
         &__information {
@@ -1552,6 +1558,11 @@ body {
 
                 span {
                     color: #FFF;
+                }
+
+                @include large-device-down {
+                    max-width: inherit;
+                    font-size: 38px;
                 }
             }
 
@@ -1635,6 +1646,8 @@ body {
 
         @include large-device-down {
             width: 100%;
+            margin-top: 0;
+            display: none;
         }
 
         &__img {

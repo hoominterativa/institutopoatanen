@@ -58,6 +58,15 @@
         padding-right: 10vw;
         @include disFlex(row, space-between, center);
 
+        @include large-device-down {
+            flex-direction: column;
+            gap: 2rem;
+            padding-left: 5vw;
+            padding-right: 5vw;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
         &__title {
             color:#2E368E;
             font-family: $font-primary;
@@ -230,6 +239,11 @@
             padding-left: 7vw;
             width: 100% !important;
 
+            @include large-device-down {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
             &__header {
                 @extend .abou01-page__main__information__header;
 
@@ -274,6 +288,10 @@
             position: absolute;
             z-index: 1;
             bottom: 0;
+
+            @include large-device-down {
+                display: none;
+            }
 
             &__img {
                 @extend .abou01-page__main__image__img;

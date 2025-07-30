@@ -58,6 +58,10 @@
                 &__title {
                     @extend %theme__accordion__item__title;
 
+                    @include large-device-down {
+                        padding-right: 2rem;
+                    }
+
                     &__icon {
                         @extend %theme__accordion__item__title__icon;
                     }
