@@ -375,9 +375,9 @@ return [
                     'titlePanel' => 'Contato',
                     'iconPanel' => 'mdi-contacts'
                 ],
-                'IncludeSections' => (object) [
-                    'Frequently' => 'FREQ01',
-                ]
+                // 'IncludeSections' => (object) [
+                //     'Frequently' => 'FREQ01',
+                // ]
             ],
         ],
 
