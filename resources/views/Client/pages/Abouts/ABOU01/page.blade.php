@@ -19,7 +19,7 @@
 
             <section class="abou01-page__top">
                 <h3 class="abou01-page__top__title animation fadeInLeft">Juntos levamos oportunidades</h3>
-                <p class="abou01-page__top__paragraph animation fadeInRight">Rutrum vitae turpis massa ullamcorper mauris adipiscing justo, imperdiet. Vivamus et mi augue gravida commodo.</p>
+                <p class="abou01-page__top__paragraph animation fadeInRight">Cada apoio recebido é um passo a mais para mudar histórias e construir futuros mais justos. Vamos juntos?</p>
             </section>
 
             @if ($about->path_image || $about->title || $about->subtitle || $about->text)

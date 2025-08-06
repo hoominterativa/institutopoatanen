@@ -19,19 +19,19 @@
         <div class="feed03__content carousel-feed03 owl-carousel">
             @foreach ($feedbacks as $feedback)
                 <div class="feed03__content__item animation fadeInLeft">
-                    <div class="feed03__content__item__top">
+                    {{-- <div class="feed03__content__item__top">
                         <div class="feed03__content__item__top__image">
                             @if ($feedback->path_image_icon)
                                 <img src="{{ asset('storage/' . $feedback->path_image_icon) }}" class="w-100 h-100" alt="Imagem Perfil">
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="feed03__content__item__right">
                         @if ($feedback->name)
                             <h4 class="feed03__content__item__right__titulo">{{ $feedback->name }}</h4>
                         @endif
 
-                            <h3 class="feed03__content__item__right__subtitulo">Médica</h3>
+                            {{-- <h3 class="feed03__content__item__right__subtitulo">Médica</h3> --}}
 
                         @if ($feedback->testimony)
                             <div class="feed03__content__item__right__description">
