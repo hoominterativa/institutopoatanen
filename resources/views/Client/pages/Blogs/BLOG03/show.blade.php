@@ -34,7 +34,7 @@
 
                 <button class="blog03-show__article__share animation fadeInRight">
                     <span>
-                        Compartilhar artigo
+                        Compartilhe esse projeto
                     </span>
                 </button>
                 <dialog class="blog03-show__article__modal">
