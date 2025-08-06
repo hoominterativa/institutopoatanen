@@ -22,7 +22,7 @@ $('.carousel-feed03').owlCarousel({
         },
         // breakpoint from 500 up
         801 : {
-            items:2
+            items:3
 
         }
         // breakpoint from 801 up

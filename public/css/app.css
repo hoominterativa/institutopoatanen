@@ -3287,8 +3287,8 @@ body .owl-dots .owl-dot.active {
   margin-bottom: 43px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: top center;
+     object-position: top center;
 }
 .blog03-show__article__body {
   color: #242424;
