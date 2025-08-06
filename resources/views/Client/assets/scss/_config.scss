@@ -1534,6 +1534,7 @@ body {
 
     &__main {
         @include disFlex(column, center);
+        padding-top: 5rem;
         width: 50%;
 
         @include large-device-down {
@@ -1632,7 +1633,7 @@ body {
     }
 
     &__image {
-        width: 50%;
+        width: 42%;
         margin-top: -100px;
         // height: auto;
         position: absolute;
