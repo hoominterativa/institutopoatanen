@@ -60,7 +60,7 @@
 
             object-fit: cover;
             object-position: center;
-            filter: brightness(0.5);
+            filter: brightness(0.9);
 
             @include large-device-down {
                 width: 100%;
@@ -97,7 +97,7 @@
                 margin-bottom: 0;
 
                 span {
-                    color: #95D059;
+                    color: #ffffff;
                 }
             }
 

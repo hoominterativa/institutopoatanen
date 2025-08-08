@@ -158,9 +158,12 @@
     // Fim assortedBox
     &__emphasis {
         @extend %theme__padding;
+        padding-top: 5.5rem;
+        padding-bottom: 5.5rem;
 
         &__header {
-            @include disFlex(row, space-between, center);
+            @include disFlex(row, center, center);
+            gap: 9rem;
 
             @include large-device-down {
                 flex-direction: column;

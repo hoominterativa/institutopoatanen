@@ -15,6 +15,11 @@
         // Padrão (caso outras imagens sejam adicionadas)
         width: 25%;
 
+        &:hover{
+            transform: scale(1.03);
+            transition: all ease 0.5s;
+        }
+
         // Layout especial da primeira linha
         &:nth-child(1) {
             width: 50%;
