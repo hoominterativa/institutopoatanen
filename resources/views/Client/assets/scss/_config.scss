@@ -578,9 +578,9 @@ details {
         width: fit-content;
         padding: 0.75rem 3rem;
 
-        background-color: #95D059;
+        background-color: #cacaca;
         border: none;
-        border: 1px solid #95D059;
+        border: 1px solid #cacaca;
 
         font-family: $font-primary;
         color: #1A2069;
@@ -599,8 +599,8 @@ details {
 
         &:hover {
             background-color: transparent;
-            border: 1px solid #95D059;
-            color: #95D059;
+            border: 1px solid #cacaca;
+            color: #cacaca;
         }
     }
 
@@ -1523,7 +1523,7 @@ body {
     @extend %theme__padding;
     padding-top: 0;
     padding-bottom: 0;
-    background-color: #95D059;
+    background-color: #cacaca;
     position: relative;
     height: 350px;
 
