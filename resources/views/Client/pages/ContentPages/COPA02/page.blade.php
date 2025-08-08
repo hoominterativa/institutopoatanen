@@ -13,7 +13,7 @@
         position: absolute;
         width: 100%;
         height: 560px;
-        background-color: #95D059;
+        background-color: #cacaca;
         top: 0;
         left: 0;
     }
