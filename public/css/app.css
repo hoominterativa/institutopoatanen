@@ -1261,16 +1261,16 @@ body .owl-dots .owl-dot.active {
   flex-wrap: wrap;
 }
 .form01__main__form__footer__compliance {
-  color: #FFF;
+  color: #1A2069;
   font-family: "Montserrat", sans-serif, arial;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 18px;
   opacity: 0.8;
 }
 .form01__main__form__footer__compliance__link {
-  color: #FFF;
+  color: #1A2069;
   font-family: "Montserrat", sans-serif, arial;
   font-size: 14px;
   font-style: normal;
@@ -2057,7 +2057,7 @@ body .owl-dots .owl-dot.active {
   width: 100%;
 }
 .head02__navigation__item__cta {
-  background-color: #212121;
+  background-color: #1A2069;
   color: #ffffff;
   text-align: center;
   font-family: "Montserrat", sans-serif, arial;
@@ -2075,7 +2075,7 @@ body .owl-dots .owl-dot.active {
   transition: 0.5s all ease;
 }
 .head02__navigation__item__cta:hover {
-  background-color: #1A2069;
+  background-color: #212121;
   color: #FFF;
   transition: 0.5s all ease;
 }
@@ -4387,6 +4387,7 @@ body .owl-dots .owl-dot.active {
   background-color: #EFEFEF;
 }
 .bran01-page__main {
+  background-color: #ffffff;
   padding-top: 3rem;
   padding-bottom: 4.5rem;
 }
