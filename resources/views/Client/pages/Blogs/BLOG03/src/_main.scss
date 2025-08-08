@@ -6,7 +6,7 @@
     @extend %theme__padding;
     overflow: hidden;
     /* prevenção do shift da animação*/
-    background-color: #cacaca;
+    background-color: #ffffff;
 
     &__header {
         width: 100%;
@@ -15,7 +15,7 @@
         margin-bottom: 5rem;
 
         &__title {
-            color: #FFF;
+            color: #1A2069;
             font-family: $font-primary;
             font-size: 40px;
             font-style: normal;
@@ -122,6 +122,15 @@
                     span {
                         color: #cacaca;
                     }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: 39px;
+                        width: 250px;
+                        background-color: #ffffff;
+                        height: 1px;
+                    }
                 }
 
                 &__paragraph {
@@ -130,6 +139,8 @@
 
                 &__cta {
                     @extend %theme__cta;
+
+                    display: none;
                     margin-top: 39px;
                     // display: none;
                     // transition: all 0.5s ease;

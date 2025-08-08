@@ -87,7 +87,7 @@
             }
 
             &__description {
-                padding: 1.5rem;
+                padding: 1.5rem 0 7rem 1.5rem;
 
                 &__time {
                     color: #2E368E;
@@ -106,7 +106,7 @@
                     font-style: normal;
                     font-weight: 600;
                     line-height: 30px;
-                    margin-bottom: 7px;
+                    margin-bottom: 25px;
                     width: 100%;
                     max-width: 310px;
 
@@ -121,15 +121,19 @@
                     font-size: 14px;
                     font-style: normal;
                     font-weight: 400;
-                    line-height: 18px;
+                    line-height: 25px;
                 }
 
                 &__cta {
                     @extend %theme__cta;
                     background-color: #1A2069;
                     border-color: #1A2069;
-                    margin: 1rem 0 1rem auto;
+                    // margin: 1rem 0 1rem auto;
                     color: #FFF;
+
+                    position: absolute;
+                    bottom: 1rem;
+                    right: 1rem;
 
                     &:hover {
                         color: #1A2069;
