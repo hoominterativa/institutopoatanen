@@ -21,7 +21,8 @@
                     title="{{ $menu->title }}"
                     href="{{ $menu->anchor ? route('home') . $menu->link : $menu->link }}"
                         target="{{ $menu->target_link ?? '_self' }}"
-                        class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link).'sadsad' : 'rollAnimate' }}">
+                        class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->anchor ? route('home') . $menu->link : $menu->link).'active' : 'rollAnimate' }}">
+                        {{-- class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link).'sadsad' : 'rollAnimate' }}"> --}}
                         {{ $menu->title }}
                     </a>
                 @else
@@ -62,6 +63,10 @@
                 @endif
             </li>
         @endforeach
+        <li class="head02__navigation__location">
+            <a class="head02__navigation__location__link"><img class="head02__navigation__location__link__image" src="{{ asset('images/flag-br.png') }}" alt="pt-br"></a>
+            <a class="head02__navigation__location__link"><img class="head02__navigation__location__link__image" src="{{ asset('images/flag-en.png') }}" alt="en-eua"></a>
+        </li>
 
         @if ($linksCtaHeader->count() > 0 && $callToActionTitle->active_header)
             <li class="head02__navigation__item  {{ $linksCtaHeader->count() > 1 ? 'quedinha' : '' }}">

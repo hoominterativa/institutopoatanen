@@ -5,7 +5,7 @@
 .topi11 {
     overflow: hidden; /* Prevenção do shift da animação */
     @extend %theme__padding;
-    padding-bottom: 0;
+    padding-bottom: 3.5rem;
 
     &__header {
 
