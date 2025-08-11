@@ -4,8 +4,9 @@
 /* BEGIN STYLE */
 .blog03 {
     @extend %theme__padding;
-    overflow: hidden; /* prevenção do shift da animação*/
-    background-color: #95D059;
+    overflow: hidden;
+    /* prevenção do shift da animação*/
+    background-color: #ffffff;
 
     &__header {
         width: 100%;
@@ -14,7 +15,7 @@
         margin-bottom: 5rem;
 
         &__title {
-            color: #FFF;
+            color: #1A2069;
             font-family: $font-primary;
             font-size: 40px;
             font-style: normal;
@@ -37,6 +38,7 @@
                 bottom: -40px;
             }
         }
+
         &__subtitle {
             @extend %theme__t4-c3;
             margin-bottom: 2rem;
@@ -56,6 +58,7 @@
         @extend %theme__pagination--two;
 
         overflow: hidden;
+
         @include large-device-down {
             overflow: visible;
         }
@@ -75,6 +78,7 @@
             @include medium-device-down {
                 width: 70%;
             }
+
             @include small-device-down {
                 width: 90%;
             }
@@ -116,15 +120,27 @@
                     max-width: 160px;
 
                     span {
-                        color: #95D059;
+                        color: #cacaca;
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: 39px;
+                        width: 250px;
+                        background-color: #ffffff;
+                        height: 1px;
                     }
                 }
+
                 &__paragraph {
                     @extend %theme__p1-c2;
                 }
 
                 &__cta {
                     @extend %theme__cta;
+
+                    display: none;
                     margin-top: 39px;
                     // display: none;
                     // transition: all 0.5s ease;
@@ -145,7 +161,7 @@
     }
 
     &__cta {
-        margin: 0 0 0 auto;
+        margin: 2rem 0 0 auto;
         @extend %theme__cta--two;
 
         span {
@@ -163,6 +179,7 @@
         @extend %theme__padding;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
+
         &__title {
             color: #1A2069;
             font-family: $font-primary;
@@ -263,13 +280,13 @@
     //     &__item {
     //         position: relative;
     //         @extend .blog03__main__item;
-            
+
     //         @include large-device-down {
     //             width: 100%;
     //         }
     //         &__image {
     //             @extend .blog03__main__item__image;
-                
+
     //             &__img {
     //                 @extend .blog03__main__item__image__img;
     //             }
@@ -287,6 +304,7 @@
         @extend %theme__padding;
         padding-top: 3rem;
         padding-bottom: 7rem;
+
         // overflow: hidden;
         // @include large-device-down {
         //     overflow: visible;
@@ -294,10 +312,10 @@
         &__item {
             position: relative;
             width: calc(33.333333% - 1rem);
-            
+
             // @include disFlex;
             // gap: 2rem;
-            
+
 
             @include large-device-down {
                 flex-direction: column;
@@ -308,7 +326,7 @@
             &__image {
                 margin: 0;
                 width: 100%;
-                
+
 
                 &__img {
                     width: 100%;
@@ -350,9 +368,10 @@
                     max-width: 160px;
 
                     span {
-                        color: #95D059;
+                        color: #cacaca;
                     }
                 }
+
                 &__paragraph {
                     @extend %theme__p1-c2;
                 }
@@ -384,6 +403,7 @@
         @extend %theme__padding;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
+
         &__title {
             color: #1A2069;
             font-family: $font-primary;
@@ -427,50 +447,68 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
 
             &:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: scale(1.02);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
 
             img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            // border-radius: 12px;
+                width: 100%;
+                height: 100%;
+                display: block;
+                // border-radius: 12px;
             }
 
             // Aplicar as áreas dinamicamente (opcional: via nth-child ou classes)
-            &:nth-child(1) { grid-area: item1; }
-            &:nth-child(2) { grid-area: item2; }
-            &:nth-child(3) { grid-area: item3; }
-            &:nth-child(4) { grid-area: item4; }
-            &:nth-child(5) { grid-area: item5; }
-            &:nth-child(6) { grid-area: item6; }
+            &:nth-child(1) {
+                grid-area: item1;
+            }
+
+            &:nth-child(2) {
+                grid-area: item2;
+            }
+
+            &:nth-child(3) {
+                grid-area: item3;
+            }
+
+            &:nth-child(4) {
+                grid-area: item4;
+            }
+
+            &:nth-child(5) {
+                grid-area: item5;
+            }
+
+            &:nth-child(6) {
+                grid-area: item6;
+            }
         }
 
         &__video {
             span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 60px;
-            height: 60px;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.5);
-            // border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 60px;
+                height: 60px;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 0, 0, 0.5);
+                // border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-            img {
-                width: 30px;
-                height: 30px;
-            }
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
             }
         }
     }
 
     &__article {
-        overflow: hidden; /* Prevenção do shift da animação */
+        overflow: hidden;
+        /* Prevenção do shift da animação */
         @extend %theme__padding;
 
         @include large-device-down {
@@ -634,8 +672,8 @@
     &__related {
         @extend %theme__padding;
         padding-bottom: 8rem;
-        background-color:#2E368E;
-        
+        background-color: #2E368E;
+
 
         &__title {
             color: #FFF;
@@ -647,11 +685,11 @@
             margin-bottom: 65px;
 
             span {
-                color: #95D059;
+                color: #cacaca;
             }
         }
 
-        &__carousel{
+        &__carousel {
             &__item {
                 @extend .blog03__main__item;
                 height: 605px;
@@ -663,7 +701,7 @@
                         height: 600px;
                     }
 
-                    &__img{
+                    &__img {
                         @extend .blog03__main__item__image__img;
 
                     }

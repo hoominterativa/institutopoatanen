@@ -25,7 +25,7 @@
             position: relative;
 
             span {
-                color: #95D059;
+                color: #212121;
             }
 
             &::before {
@@ -121,6 +121,7 @@
 
     &__main {
         @extend %theme__padding;
+        background-color: #ffffff;
         padding-top: 3rem;
         padding-bottom: 4.5rem;
 

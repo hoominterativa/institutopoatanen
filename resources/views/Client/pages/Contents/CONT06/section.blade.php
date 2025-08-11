@@ -23,7 +23,7 @@
 
 
                     <button class="cont06__video__button" title="Play">
-                        <img class="cont06__video__button__icon" src="{{ asset('storage/uploads/tmp/play.png') }}"
+                        <img class="cont06__video__button__icon" src="{{ asset('storage/uploads/tmp/play-main.png') }}"
                             alt="Play Vídeo">
                     </button>
 

@@ -2,11 +2,11 @@
 
 /* BEGIN STYLE */
 .topi09 {
-    background-color: #95D059;
+    background-color: #cacaca;
     width: 870px;
     margin: 0 -5px 0 auto;
     position: relative;
-    top: -56px;
+    top: -72px;
     z-index: 1;
     padding: 0 2rem;
     transform: skew(-10deg, 0deg) !important;
@@ -40,7 +40,7 @@
         &__item {
             width: calc(25% - 10px);
             height: auto;
-            padding: 1rem 0rem 1rem 1rem;
+            padding: 1.5rem 0rem 1.5rem 1.5rem;
 
             justify-content: center;
             // @include disFlex(row, start, center);

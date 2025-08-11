@@ -1,11 +1,21 @@
 @import "variables";
 
+.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #FFFFFF;
+}
+
 .head02 {
     width: 100%;
     // padding-right: 5vw;
     // padding-left: 5vw;
 
     @include disFlex(row, space-between);
+
+
 
     &__logo {
         position: relative;
@@ -44,7 +54,7 @@
                 color: #1A2069;
                 text-align: center;
                 font-family: $font-primary;
-                font-size: 12px;
+                font-size: 0.875rem;
                 font-style: normal;
                 font-weight: 600;
                 line-height: 22px;
@@ -81,7 +91,7 @@
             }
 
             &__cta {
-                background-color: #95D059;
+                background-color: #cacaca;
                 color: #1A2069;
                 text-align: center;
                 font-family: $font-primary;
@@ -98,7 +108,7 @@
                 transition: 0.5s all ease;
 
                 &:hover {
-                    background-color: #1A2069;
+                    background-color: #212121;
                     color: #FFF;
                     transition: 0.5s all ease;
                 }
@@ -169,4 +179,8 @@
             }
         }
     }
+}
+
+.topi09__topics__item:last-child::before {
+    content: none;
 }
