@@ -189,6 +189,7 @@
                     <div class="blog03-show__related__carousel">
                         <div class="blog03-show__related__carousel__swiper-wrapper swiper-wrapper">
                             @foreach ($blogsRelated as $blogRelated)
+                            
                                 <article itemscope itemtype="http://schema.org/Article"
                                     class="blog03-show__related__carousel__item swiper-slide animation fadeInLeft">
                                     {{-- <a class="link-full" title="{{ $blogRelated->title }}"
@@ -210,7 +211,7 @@
                                         <a href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blogRelated->category->slug, 'BLOG03Blogs' => $blogRelated->slug]) }}"
                                             class="blog03-show__related__carousel__item__information__cta">
                                             <span>
-                                                Veja mais
+                                                
                                             </span>
                                         </a>
                                     </div>

@@ -732,6 +732,23 @@
 
                     &__cta {
                         @extend .blog03__main__item__information__cta;
+
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: transparent;
+                        border: inherit;
+                        transform: inherit !important;
+                        margin-top: 0;
+
+                        &:hover {
+                            background-color: inherit;
+                            border: inherit;
+                            color: inherit;
+                        }
                     }
                 }
             }
