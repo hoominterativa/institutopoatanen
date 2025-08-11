@@ -99,6 +99,13 @@
             &__cta {
                 @extend %theme__cta;
                 margin-top: 3rem;
+                background-color: transparent;
+                color: #cacaca;
+
+                &:hover{
+                    background-color: #cacaca;
+                    color: #1A2069;
+                }
 
                 span {
                     transform: skew(10deg, 0deg) !important;
