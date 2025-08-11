@@ -2024,7 +2024,7 @@ body .owl-dots .owl-dot.active {
 }
 .head02__logo__img {
   height: 100%;
-  width: 100%;
+  width: 11rem;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
@@ -2079,7 +2079,7 @@ body .owl-dots .owl-dot.active {
   display: block;
   position: absolute;
   left: 0;
-  bottom: 20px;
+  bottom: 30px;
   border-radius: 2px;
   opacity: 0;
   transition: all 0.4s ease;
