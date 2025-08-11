@@ -10,16 +10,19 @@
         {{-- <li class="head02__navigation__item">
             <a title="Home" href="{{ route('home') }}" class="head02__navigation__item__link">HOME</a>
         </li> --}}
-        
+
         @foreach ($listMenu as $module => $menu)
-            <li class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }} {{ !$menu->anchor && Request::url() === $menu->link ? 'active' : 'rollAnimate' }}">
+            <li
+                class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }} 
+                {{ (!$menu->anchor && Request::url() === $menu->link) ||
+                ($menu->anchor && Request::url() === route('home') . $menu->link)
+                    ? 'active'
+                    : 'rollAnimate' }}">
 
                 @if (!$menu->dropdown)
                     <a title="{{ $menu->title }}"
                         href="{{ $menu->anchor ? route('home') . $menu->link : $menu->link }}"
-                        target="{{ $menu->target_link ?? '_self' }}"
-                        class="head02__navigation__item__link ">
-                        {{-- class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link).'sadsad' : 'rollAnimate' }}"> --}}
+                        target="{{ $menu->target_link ?? '_self' }}" class="head02__navigation__item__link ">
                         {{ $menu->title }}
                     </a>
                 @else
