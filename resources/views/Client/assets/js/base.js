@@ -16,6 +16,7 @@ import '../../pages/Contents/CONT02V1/src/main';
 import '../../pages/ContentPages/COPA02/src/main';
 import '../../pages/Abouts/ABOU01/src/main';
 import '../../pages/Frequently/FREQ01/src/main';
+import '../../pages/Contacts/COTA02/src/main';
 import '../../pages/Contacts/COTA03/src/main';
 import '../../pages/Contents/CONT02V2/src/main';
 import '../../pages/Topics/TOPI11/src/main';

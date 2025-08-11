@@ -1,6 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=c49e383e7f1a205b96a3484785be19d5",
+    "/js/app.js": "/js/app.js?id=3fa64f5e68f1299dceeef53b30b82fd8",
     "/css/libraries.css": "/css/libraries.css?id=388723d136fc2a555f8c27175a9fdce4",
+    "/css/app.css": "/css/app.css?id=39a6fdae698d1dbe7bc07396fca0d059",
     "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/images/accordion-icon.svg": "/images/accordion-icon.svg?id=77ad75de72490f605973794a0ce72bad",
     "/images/arrow-1.png": "/images/arrow-1.png?id=d8838e7abd9cb36d0b1bb7dad144a0b5",
@@ -84,6 +85,5 @@
     "/images/vendor/@ckeditor/ckeditor5-widget/theme/icons/return-arrow.svg": "/images/vendor/@ckeditor/ckeditor5-widget/theme/icons/return-arrow.svg?id=ea051d81c3ef5eab149a6e6a6e5579d3",
     "/images/vendor/owl.carousel/dist/owl.video.play.png": "/images/vendor/owl.carousel/dist/owl.video.play.png?id=ec15221ecd98ee039fe7ac3f979c6318",
     "/images/whatsapp.png": "/images/whatsapp.png?id=0f8ebb429555552e1b4a85101efa3df3",
-    "/images/youtube.png": "/images/youtube.png?id=b1485b58d676957c069409fda41723fd",
-    "/css/app.css": "/css/app.css?id=8b53dccc6f733ce089e8230276ed25c4"
+    "/images/youtube.png": "/images/youtube.png?id=b1485b58d676957c069409fda41723fd"
 }
