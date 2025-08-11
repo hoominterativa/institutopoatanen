@@ -1,17 +1,21 @@
 @import "variables";
 
 .scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background-color: #FFFFFF;
+    .head02__logo__img{
+        width: 9rem;
+    }
 }
 
 .head02 {
     width: 100%;
     // padding-right: 5vw;
     // padding-left: 5vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #FFFFFF;
 
     @include disFlex(row, space-between);
 
@@ -28,11 +32,23 @@
         padding: 0.5rem 5rem;
         clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
 
+        @include large-device-down {
+            padding-left: 5vw;
+        }
+
+        @include small-device-down {
+            padding-right: 2rem;
+        }
+
         &__img {
             height: 100%;
             width: 100%;
             object-fit: contain;
             object-position: center;
+
+            @include small-device-down {
+                width: 9rem;
+            }
         }
     }
 
@@ -44,7 +60,7 @@
 
         &__item {
             position: relative;
-            @include disFlex(row, center, center);
+            @include disFlex(column, center, center);
 
             @include large-device-down {
                 display: none;
@@ -59,20 +75,24 @@
                 font-weight: 600;
                 line-height: 22px;
                 text-decoration: none;
-
-                border-bottom: 2px solid transparent;
-                padding-bottom: 5px;
                 transition: 0.5s all ease;
 
-                &:hover {
-                    border-bottom: 2px solid #1A2069;
-                    transition: 0.5s all ease;
+                &:after{
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    background-color: #1A2069;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    bottom: 20px;
+                    border-radius: 2px;
+                    opacity: 0;
+                    @include trans(0.4s);
                 }
-
-                &:active {
-                    border-bottom: 2px solid #1A2069;
-                    transition: 0.5s all ease;
-                }
+            }
+            &.active &__link:after, &:hover &__link:after{
+                opacity: 1;
             }
 
             &__btn {
@@ -178,9 +198,64 @@
                 }
             }
         }
+
+        &__location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 9;
+
+            @include large-device-down {
+                margin-right: 1rem;
+            }
+
+            &__link {
+                &__image {
+                    width: 2rem;
+                    height: auto;
+                    object-fit: contain;
+
+                    margin-bottom: 0.438rem;
+
+                    @include large-device-down {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
     }
 }
 
 .topi09__topics__item:last-child::before {
     content: none;
 }
+
+.topi09__topics__item {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+
+    z-index: 99;
+}
+
+// .head02__navigation__item__link::after {
+//     background-color: #da2029;
+//     border-radius: 2px;
+//     bottom: -9px;
+//     content: "";
+//     display: block;
+//     height: 4px;
+//     left: 0;
+//     opacity: 0;
+//     position: absolute;
+//     transition: all .4s ease;
+//     width: 100%;
+// }
+
+// .head02__navigation__item.active {
+//     opacity: 1;
+// }

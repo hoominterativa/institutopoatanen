@@ -28,7 +28,7 @@
                 @endif
                 @if ($contact->subtitle_content)
                     <h3 class="cota03__content__header__subtitle">
-                        {{ $contact->subtitle_content }}</h3>
+                        {!! $contact->subtitle_content !!}</h3>
                 @endif
 
                 @if ($contact->description_content)

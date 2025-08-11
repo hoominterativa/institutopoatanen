@@ -1,8 +1,6 @@
 <nav id="HEAD02" class="head02">
 
-    <a
-    title="HOME"
-    href="{{ route('home') }}" class="head02__logo">
+    <a title="HOME" href="{{ route('home') }}" class="head02__logo">
         <img src="{{ asset('storage/' . $generalSetting->path_logo_header_light) }}" alt="Logo do site" loading="lazy"
             class="head02__logo__img">
     </a>
@@ -14,14 +12,17 @@
         </li> --}}
 
         @foreach ($listMenu as $module => $menu)
-            <li class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }}">
+            <li
+                class="head02__navigation__item {{ $menu->dropdown ? 'quedinha' : '' }} 
+                {{ (!$menu->anchor && Request::url() === $menu->link) ||
+                ($menu->anchor && Request::url() === route('home') . $menu->link)
+                    ? 'active'
+                    : 'rollAnimate' }}">
 
                 @if (!$menu->dropdown)
-                    <a
-                    title="{{ $menu->title }}"
-                    href="{{ $menu->anchor ? route('home') . $menu->link : $menu->link }}"
-                        target="{{ $menu->target_link ?? '_self' }}"
-                        class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link).'sadsad' : 'rollAnimate' }}">
+                    <a title="{{ $menu->title }}"
+                        href="{{ $menu->anchor ? route('home') . $menu->link : $menu->link }}"
+                        target="{{ $menu->target_link ?? '_self' }}" class="head02__navigation__item__link {{ !$menu->anchor ? isActive($menu->link).'sadsad' : 'rollAnimate' }}"> 
                         {{ $menu->title }}
                     </a>
                 @else
@@ -45,16 +46,16 @@
                                             </li>
                                         @endforeach
                                         <li class="head02__navigation__item">
-                                            <a
-                                            title="ver todos"
-                                            href="{{ $item->route }}" class="head02__navigation__item__link">Ver
+                                            <a title="ver todos" href="{{ $item->route }}"
+                                                class="head02__navigation__item__link">Ver
                                                 todos</a>
                                         </li>
                                     </ul>
 
                                 </li>
                             @else
-                                <a title="{{ $item->name }}"  href="{{ $item->route }}" target="{{ $item->target }}"
+                                <a title="{{ $item->name }}" href="{{ $item->route }}"
+                                    target="{{ $item->target }}"
                                     class="head02__navigation__item__link">{{ $item->name }}</a>
                             @endif
                         @endforeach
@@ -62,6 +63,12 @@
                 @endif
             </li>
         @endforeach
+        <li class="head02__navigation__location">
+            <a class="head02__navigation__location__link"><img class="head02__navigation__location__link__image"
+                    src="{{ asset('images/flag-br.png') }}" alt="pt-br"></a>
+            <a class="head02__navigation__location__link"><img class="head02__navigation__location__link__image"
+                    src="{{ asset('images/flag-en.png') }}" alt="en-eua"></a>
+        </li>
 
         @if ($linksCtaHeader->count() > 0 && $callToActionTitle->active_header)
             <li class="head02__navigation__item  {{ $linksCtaHeader->count() > 1 ? 'quedinha' : '' }}">
@@ -73,8 +80,7 @@
                     <ul class="head02__navigation__item__cta__content quedinha__content">
                         @foreach ($linksCtaHeader as $linkCtaHeader)
                             <li>
-                                <a title="{{ $linkCtaHeader->title }}"
-                                href="{{ getUri($linkCtaHeader->link) }}"
+                                <a title="{{ $linkCtaHeader->title }}" href="{{ getUri($linkCtaHeader->link) }}"
                                     target="{{ $linkCtaHeader->link_target }}"
                                     class="head02__navigation__item__cta__content__item">{{ $linkCtaHeader->title }}</a>
                             </li>
@@ -82,8 +88,8 @@
                     </ul>
                 @else
                     {{-- BACKEND: Inserir required no link - Verificar o script que reescreve o código do link, pois só está inserindo uma barra e não está inserindo o https:// --}}
-                    <a title="{{ $linksCtaHeader[0]->title }}"
-                    href="{{ getUri($linksCtaHeader[0]->link) }}" target="{{ $linksCtaHeader[0]->link_target }}"
+                    <a title="{{ $linksCtaHeader[0]->title }}" href="{{ getUri($linksCtaHeader[0]->link) }}"
+                        target="{{ $linksCtaHeader[0]->link_target }}"
                         class="head02__navigation__item__cta">{{ $linksCtaHeader[0]->title }}</a>
 
                 @endif

@@ -211,6 +211,10 @@
         position: relative;
         background-color: #EFEFEF;
 
+        @include small-device-down{
+            height: auto;
+        }
+
         
         &__item {
             width: 100%;
@@ -228,8 +232,8 @@
             &__description {
 
                 &__center {
-                    @include disFlex(row, flex-start, center);
-                    gap: 130px;
+                    @include disFlex(column, flex-start, flex-start);
+                    gap: 11px;
 
                     @include large-device-down {
                         flex-direction: column;
@@ -244,7 +248,7 @@
                     font-style: normal;
                     font-weight: 700;
                     line-height: normal;
-                    margin-bottom: 5px;
+                    margin-bottom: 22px;
                 }
                 
                 p {

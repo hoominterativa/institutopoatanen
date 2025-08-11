@@ -2,6 +2,12 @@
 
 /* BEGIN STYLE */
 .slid01 {
+    padding-top: 5rem;
+
+    @include small-device-down{
+        padding-top: 4rem;
+    }
+
     &__item {
         @extend %theme__padding;
         padding-bottom: 0;
@@ -34,12 +40,14 @@
                 }
             }
         }
+
         &__header {
             width: 50%;
 
             @include large-device-down {
                 width: 100%;
             }
+
             &__title {
                 color: #FFF;
                 font-family: $font-primary;
@@ -60,6 +68,7 @@
                     left: -48%;
                 }
             }
+
             &__subtitle {
                 color: #FFF;
                 font-family: $font-primary;
@@ -76,6 +85,7 @@
                 }
 
             }
+
             &__description {
                 @extend %theme__p1-c2;
 
@@ -85,9 +95,17 @@
                     max-width: 100%;
                 }
             }
+
             &__cta {
                 @extend %theme__cta;
                 margin-top: 3rem;
+                background-color: transparent;
+                color: #cacaca;
+
+                &:hover{
+                    background-color: #cacaca;
+                    color: #1A2069;
+                }
 
                 span {
                     transform: skew(10deg, 0deg) !important;
