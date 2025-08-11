@@ -5388,7 +5388,7 @@ body .owl-dots .owl-dot.active {
   }
 }
 .cota03__content__image {
-  width: calc(50% - 120px);
+  width: calc(45% - 120px);
 }
 @media (max-width: 991.98px) {
   .cota03__content__image {

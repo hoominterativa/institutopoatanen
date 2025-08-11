@@ -35,7 +35,7 @@
         }
 
         &__image {
-            width: calc(50% - 120px);
+            width: calc(45% - 120px);
 
             @include large-device-down {
                 width: 100%;
