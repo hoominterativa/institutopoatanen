@@ -1,7 +1,6 @@
 {
-    "/js/app.js": "/js/app.js?id=351c89370ae7ae35c0a3ba4a454d27e5",
+    "/js/app.js": "/js/app.js?id=c49e383e7f1a205b96a3484785be19d5",
     "/css/libraries.css": "/css/libraries.css?id=388723d136fc2a555f8c27175a9fdce4",
-    "/css/app.css": "/css/app.css?id=c0be42609a13a3522c6dd18daaf28fe9",
     "/css/icons.css": "/css/icons.css?id=9ce42de05f9dbc66830890ffc9f60fa2",
     "/images/accordion-icon.svg": "/images/accordion-icon.svg?id=77ad75de72490f605973794a0ce72bad",
     "/images/arrow-1.png": "/images/arrow-1.png?id=d8838e7abd9cb36d0b1bb7dad144a0b5",
@@ -10,6 +9,8 @@
     "/images/banner.png": "/images/banner.png?id=a0d9f306ac747b9132b08ce03b2d6ae1",
     "/images/bell-icon.png": "/images/bell-icon.png?id=97e2473b8ff369c3c6272998907f8a92",
     "/images/bg-colorido.svg": "/images/bg-colorido.svg?id=65d23a0d9711da34d28bd508336307ee",
+    "/images/blog03-firula.png": "/images/blog03-firula.png?id=45a9a4e72e259f6f5298ca8bd2b013cb",
+    "/images/blog03-firula.png.old": "/images/blog03-firula.png.old?id=1ac7a51f02afd633d2b099d5dfada311",
     "/images/blog03-galeria-cinco.png": "/images/blog03-galeria-cinco.png?id=f10ca47515acd17f997a84a2ff9811c0",
     "/images/blog03-galeria-dois.png": "/images/blog03-galeria-dois.png?id=16daa5ac61c77e1d0d48d37c6dce9b00",
     "/images/blog03-galeria-quatro.png": "/images/blog03-galeria-quatro.png?id=86b36a0ec97e0bc4c2958b458e9c48a6",
@@ -24,6 +25,8 @@
     "/images/cota05-icon03.png": "/images/cota05-icon03.png?id=54c1eabdec57e6989c1b54dbd9170867",
     "/images/cta.png": "/images/cta.png?id=c6d58e1ed1eb7d5f45185abe30c17d6a",
     "/images/facebook.png": "/images/facebook.png?id=1aab8bbf90ebdecd9a2d957d4c2504af",
+    "/images/flag-br.png": "/images/flag-br.png?id=5a20a0d7946cdbd559907f7e847e80d0",
+    "/images/flag-en.png": "/images/flag-en.png?id=a7fe50e1ac2dc2489427866ecfb3bc6a",
     "/images/gray.png": "/images/gray.png?id=b13c2bebd2c53561cbe2e5bf2bb18612",
     "/images/icon.png": "/images/icon.png?id=64c89a8c37cbce4bd3093b1c468a4c6d",
     "/images/icon.svg": "/images/icon.svg?id=ced4becb3f7d8d0f1032aebe408e6d5a",
@@ -82,8 +85,5 @@
     "/images/vendor/owl.carousel/dist/owl.video.play.png": "/images/vendor/owl.carousel/dist/owl.video.play.png?id=ec15221ecd98ee039fe7ac3f979c6318",
     "/images/whatsapp.png": "/images/whatsapp.png?id=0f8ebb429555552e1b4a85101efa3df3",
     "/images/youtube.png": "/images/youtube.png?id=b1485b58d676957c069409fda41723fd",
-    "/images/blog03-firula.png": "/images/blog03-firula.png?id=45a9a4e72e259f6f5298ca8bd2b013cb",
-    "/images/blog03-firula.png.old": "/images/blog03-firula.png.old?id=1ac7a51f02afd633d2b099d5dfada311",
-    "/images/flag-br.png": "/images/flag-br.png?id=5a20a0d7946cdbd559907f7e847e80d0",
-    "/images/flag-en.png": "/images/flag-en.png?id=a7fe50e1ac2dc2489427866ecfb3bc6a"
+    "/css/app.css": "/css/app.css?id=8b53dccc6f733ce089e8230276ed25c4"
 }

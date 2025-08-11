@@ -19,6 +19,8 @@
         @extend %theme__padding;
         @include disFlex(row, space-between, center);
 
+        background-color: #FFFFFF;
+
         @include large-device-down {
             flex-direction: column;
             justify-content: start;
@@ -49,7 +51,8 @@
             }
 
             &__title {
-                @extend %theme__t2-cb;
+                @extend .abou01-page__main__information__header__title;
+                color: #1A2069;
                 text-align: left;
             }
 
