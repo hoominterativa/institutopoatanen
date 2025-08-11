@@ -1,17 +1,17 @@
 @import "variables";
 
-.scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background-color: #FFFFFF;
-}
+.scrolled {}
 
 .head02 {
     width: 100%;
     // padding-right: 5vw;
     // padding-left: 5vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #FFFFFF;
 
     @include disFlex(row, space-between);
 
@@ -28,11 +28,23 @@
         padding: 0.5rem 5rem;
         clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
 
+        @include large-device-down {
+            padding-left: 5vw;
+        }
+
+        @include small-device-down {
+            padding-right: 2rem;
+        }
+
         &__img {
             height: 100%;
             width: 100%;
             object-fit: contain;
             object-position: center;
+
+            @include small-device-down {
+                width: 9rem;
+            }
         }
     }
 
@@ -48,6 +60,11 @@
 
             @include large-device-down {
                 display: none;
+            }
+
+            &.active {
+                border-bottom: 2px solid #1A2069;
+                transition: 0.5s all ease;
             }
 
             &__link {
@@ -69,10 +86,10 @@
                     transition: 0.5s all ease;
                 }
 
-                &:active {
-                    border-bottom: 2px solid #1A2069;
-                    transition: 0.5s all ease;
-                }
+                // &.active {
+                //     border-bottom: 2px solid #1A2069;
+                //     transition: 0.5s all ease;
+                // }
             }
 
             &__btn {
@@ -178,9 +195,41 @@
                 }
             }
         }
+
+        &__location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 9;
+
+            @include large-device-down {
+                margin-right: 1rem;
+            }
+
+            &__link {
+                &__image {
+                    width: 2rem;
+                    height: auto;
+                    object-fit: contain;
+
+                    margin-bottom: 0.438rem;
+
+                    @include large-device-down {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
     }
 }
 
 .topi09__topics__item:last-child::before {
     content: none;
 }
+
+// .head02__navigation__item {
+//     .active {
+//         border-bottom: 2px solid #1A2069;
+//         transition: 0.5s all ease;
+//     }
+// }
