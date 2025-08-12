@@ -5436,7 +5436,7 @@ body .owl-dots .owl-dot.active {
      object-position: center;
 }
 .cota03__content__header {
-  width: 60%;
+  width: 39rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -5450,9 +5450,10 @@ body .owl-dots .owl-dot.active {
 .cota03__content__header__title {
   color: #1A2069;
   text-align: right;
+  max-width: 100%;
 }
 .cota03__content__header__subtitle {
-  max-width: 39rem;
+  max-width: 100%;
   text-align: right;
   margin-bottom: 2rem;
   color: #1A2069;
