@@ -3212,8 +3212,8 @@ body .owl-dots .owl-dot.active {
 }
 
 .blog03-page__banner {
-  background-size: cover;
-  background-position: center;
+  background-size: cover !important;
+  background-position: center !important;
 }
 .blog03-page__main {
   display: flex;
