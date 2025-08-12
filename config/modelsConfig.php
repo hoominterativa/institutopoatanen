@@ -115,7 +115,9 @@ return [
                     'titlePanel' => 'Projetos',
                     'iconPanel' => 'mdi-blogger'
                 ],
-                'IncludeSections' => (object) []
+                'IncludeSections' => (object) [
+                    'Galleries' => 'GALL01',
+                ]
             ],
         ],
 
