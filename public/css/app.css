@@ -3212,8 +3212,8 @@ body .owl-dots .owl-dot.active {
 }
 
 .blog03-page__banner {
-  background-size: cover;
-  background-position: center;
+  background-size: cover !important;
+  background-position: center !important;
 }
 .blog03-page__main {
   display: flex;
@@ -5436,7 +5436,7 @@ body .owl-dots .owl-dot.active {
      object-position: center;
 }
 .cota03__content__header {
-  width: 60%;
+  width: 39rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -5449,13 +5449,19 @@ body .owl-dots .owl-dot.active {
 }
 .cota03__content__header__title {
   color: #1A2069;
-  text-align: right;
+  text-align: left;
+  max-width: 100%;
 }
 .cota03__content__header__subtitle {
-  max-width: 39rem;
-  text-align: right;
+  max-width: 100%;
+  text-align: left;
   margin-bottom: 2rem;
   color: #1A2069;
+}
+@media (max-width: 575.98px) {
+  .cota03__content__header__subtitle {
+    margin-left: 1.3rem;
+  }
 }
 .cota03__content__header__paragraph {
   width: 100%;
