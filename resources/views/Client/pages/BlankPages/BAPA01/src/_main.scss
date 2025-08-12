@@ -6,6 +6,9 @@
     &__banner {
         @extend %theme__banner;
         padding-top: 14rem;
+        margin-top: 4.6rem;
+        background-size: contain;
+        background-position: bottom;
 
         &__title {
             @extend %theme__banner__title;

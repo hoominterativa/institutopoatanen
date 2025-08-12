@@ -585,6 +585,7 @@ details {
         @extend %theme__padding;
         padding-top: 9rem;
         padding-bottom: 9rem;
+        margin-top: 4.6rem;
 
         @include bg;
         background-color: $color-four;
@@ -867,13 +868,13 @@ details {
 }
 
 body::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
     height: 10px;
-    background: rgba($color-one, 0.5);
+    background: #cacaca;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: rgba($color-one, 0.8);
+    background: #1A2069;
 }
 
 body::-webkit-scrollbar-thumb:hover {
