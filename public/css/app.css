@@ -3312,7 +3312,7 @@ body .owl-dots .owl-dot.active {
   z-index: 9;
 }
 .blog03-show__galeria {
-  display: none;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "item1 item1 item2 item3" "item4 item5 item6 item6";
