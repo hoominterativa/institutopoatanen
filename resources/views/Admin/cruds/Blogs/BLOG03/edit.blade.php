@@ -35,10 +35,10 @@
                     <li class="nav-item">
                         <a href="#gallery" data-bs-toggle="tab" aria-expanded="true"
                             class="nav-link d-flex align-items-center">
-                            Informações para home
+                            Galeria
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-20 ms-2 btn-icon"
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-original-title="Esta seção será apresentada na home, junto com os tópicos em destaque"></i>
+                                data-bs-original-title="Esta seção será apresentada na home, junto com os galeria em destaque"></i>
                         </a>
                     </li>
                 </ul>
