@@ -35,7 +35,7 @@
         }
 
         &__image {
-            width: calc(45% - 120px);
+            width: calc(35% - 120px);
 
             @include large-device-down {
                 width: 100%;
@@ -50,7 +50,7 @@
         }
 
         &__header {
-            width: 50%;
+            width: 60%;
             @include disFlex(column);
 
             @include large-device-down {
@@ -65,6 +65,7 @@
 
             &__subtitle {
                 @extend .abou01-page__main__information__paragraph;
+                max-width: 39rem;
                 text-align: right;
                 margin-bottom: 2rem;
                 color: #1A2069;
@@ -108,7 +109,7 @@
 
         &__header {
             width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
 
             &__title {
                 @extend .cota02__form__header__title;
@@ -117,9 +118,9 @@
 
             &__paragraph {
                 @extend %theme__p1-c1;
-                text-align: center;
+                text-align: left;
 
-                display: none;
+                color: #FFFFFF;
             }
         }
 
