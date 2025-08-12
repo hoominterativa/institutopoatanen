@@ -182,6 +182,8 @@
     &__banner {
         @extend %theme__padding;
         @extend .bapa01__banner;
+        background-size: cover;
+        background-position: center;
 
         &__title {
             @extend .bapa01__banner__title;
