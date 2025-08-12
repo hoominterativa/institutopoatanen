@@ -135,99 +135,102 @@
                     </div>
                 </dialog>
             </article>
+            @if ($blog->galleriesActive->count())
+                <section id="blog03-show__galeria" class="blog03-show__galeria">
+                    {{-- @dd($blog->galleriesActive) --}}
+                    @foreach ($blog->galleriesActive as $gallery)
+                        {{-- @dd($gallery) --}}
 
-            <section id="blog03-show__galeria" class="blog03-show__galeria">
-                {{-- @dd($blog->galleriesActive) --}}
-                @foreach ($blog->galleriesActive as $gallery)
-                {{-- @dd($gallery) --}}
-
-                @if(!$gallery->link_url)
-                    <a href="{{ asset('storage/' . $gallery->path_image) }}" class="blog03-show__galeria__item"
-                        data-fancybox>
-                        <img class="blog03-show__galeria__item animation fadeInUp" alt="Imagem da galeria" loading="lazy"
-                            src="{{ asset('storage/' . $gallery->path_image) }}" />
-                    </a>
-                @else
-                    <!-- Vídeo como imagem de capa com botão Play -->
-                    <a href="{{ $gallery->link_url }}"
-                        class="blog03-show__galeria__item blog03-show__galeria__video animation fadeInUp" data-fancybox>
-                        <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Capa do vídeo" loading="lazy" />
-                        <span>
-                            <img src="{{ asset('images/play.png') }}" alt="Firula">
-                        </span> <!-- Ícone de play -->
-                    </a>
-                @endif
-                @endforeach
-
-                {{-- <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
+                        @if (!$gallery->link_url)
+                            <a href="{{ asset('storage/' . $gallery->path_image) }}" class="blog03-show__galeria__item"
+                                data-fancybox>
+                                <img class="blog03-show__galeria__item animation fadeInUp" alt="Imagem da galeria"
+                                    loading="lazy" src="{{ asset('storage/' . $gallery->path_image) }}" />
+                            </a>
+                            
+                        @else
+                            <!-- Vídeo como imagem de capa com botão Play -->
+                            <a href="{{ $gallery->link_url }}"
+                                class="blog03-show__galeria__item blog03-show__galeria__video animation fadeInUp"
+                                data-fancybox>
+                                <img src="{{ asset('storage/' . $gallery->path_image) }}" alt="Capa do vídeo"
+                                    loading="lazy" />
+                                <span>
+                                    <img src="{{ asset('images/play.png') }}" alt="Firula">
+                                </span> <!-- Ícone de play -->
+                            </a>
+                        @endif
+                    @endforeach
+            @endif
+            {{-- <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
                     <img class="blog03-show__galeria__item animation fadeInUp" alt="Imagem da galeria" loading="lazy"
                         src="{{ asset('images/blog03-galeria-tres.png') }}" />
                 </a> --}}
 
-                <!-- Imagem -->
+            <!-- Imagem -->
 
-                {{-- <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
+            {{-- <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
                     <img class="blog03-show__galeria__item animation fadeInUp" alt="Imagem da galeria" loading="lazy"
                         src="{{ asset('images/blog03-galeria-quatro.png') }}" />
                 </a> --}}
 
-                <!-- Imagem -->
+            <!-- Imagem -->
 
-                {{-- <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
+            {{-- <a href="{{ asset('images/blog03-galeria.png') }}" class="blog03-show__galeria__item" data-fancybox>
                     <img class="blog03-show__galeria__item animation fadeInUp" alt="Imagem da galeria" loading="lazy"
                         src="{{ asset('images/blog03-galeria-cinco.png') }}" />
                 </a> --}}
 
-                {{-- <a href="{{ asset('videos/demo.mp4') }}"
+            {{-- <a href="{{ asset('videos/demo.mp4') }}"
                     class="blog03-show__galeria__item blog03-show__galeria__video animation fadeInUp" data-fancybox>
                     <img src="{{ asset('images/blog03-galeria-seis.png') }}" alt="Capa do vídeo" loading="lazy" />
                     <span>
                         <img src="{{ asset('images/play.png') }}" alt="Firula">
                     </span> <!-- Ícone de play -->
                 </a> --}}
-            </section>
+        </section>
 
 
 
-            @if ($blogsRelated->count() > 0)
-                <section class="blog03-show__related">
-                    <h3 class="blog03-show__related__title animation fadeInLeft">Outros <span>projetos</span></h3>
-                    <div class="blog03-show__related__carousel">
-                        <div class="blog03-show__related__carousel__swiper-wrapper swiper-wrapper">
-                            @foreach ($blogsRelated as $blogRelated)
-                                <article itemscope itemtype="http://schema.org/Article"
-                                    class="blog03-show__related__carousel__item swiper-slide animation fadeInLeft">
-                                    {{-- <a class="link-full" title="{{ $blogRelated->title }}"
+        @if ($blogsRelated->count() > 0)
+            <section class="blog03-show__related">
+                <h3 class="blog03-show__related__title animation fadeInLeft">Outros <span>projetos</span></h3>
+                <div class="blog03-show__related__carousel">
+                    <div class="blog03-show__related__carousel__swiper-wrapper swiper-wrapper">
+                        @foreach ($blogsRelated as $blogRelated)
+                            <article itemscope itemtype="http://schema.org/Article"
+                                class="blog03-show__related__carousel__item swiper-slide animation fadeInLeft">
+                                {{-- <a class="link-full" title="{{ $blogRelated->title }}"
                                         href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blogRelated->category->slug, 'BLOG03Blogs' => $blogRelated->slug]) }}"></a> --}}
 
-                                    <figure class="blog03-show__related__carousel__item__image">
-                                        <img src="{{ asset('storage/' . $blogRelated->path_image_box) }}"
-                                            class="blog03-show__related__carousel__item__image__img"
-                                            alt="{{ $blogRelated->title }}" />
-                                    </figure>
+                                <figure class="blog03-show__related__carousel__item__image">
+                                    <img src="{{ asset('storage/' . $blogRelated->path_image_box) }}"
+                                        class="blog03-show__related__carousel__item__image__img"
+                                        alt="{{ $blogRelated->title }}" />
+                                </figure>
 
-                                    <div class="blog03-show__related__carousel__item__information">
-                                        <h4 class="blog03-show__related__carousel__item__information__title">
-                                            {!! $blogRelated->title !!}</h4>
+                                <div class="blog03-show__related__carousel__item__information">
+                                    <h4 class="blog03-show__related__carousel__item__information__title">
+                                        {!! $blogRelated->title !!}</h4>
 
-                                        {{-- <p class="blog03-show__related__carousel__item__information__paragraph">
+                                    {{-- <p class="blog03-show__related__carousel__item__information__paragraph">
                                             {!! $blogRelated->description !!}</p> --}}
 
-                                        <a href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blogRelated->category->slug, 'BLOG03Blogs' => $blogRelated->slug]) }}"
-                                            class="blog03-show__related__carousel__item__information__cta">
-                                            <span>
+                                    <a href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blogRelated->category->slug, 'BLOG03Blogs' => $blogRelated->slug]) }}"
+                                        class="blog03-show__related__carousel__item__information__cta">
+                                        <span>
 
-                                            </span>
-                                        </a>
-                                    </div>
-                                </article>
-                            @endforeach
-                        </div>
-                        <div class="blog03-show__related__carousel-pagination swiper-pagination"></div>
+                                        </span>
+                                    </a>
+                                </div>
+                            </article>
+                        @endforeach
                     </div>
+                    <div class="blog03-show__related__carousel-pagination swiper-pagination"></div>
+                </div>
 
-                </section>
-            @endif
+            </section>
+        @endif
         </section>
 
         @foreach ($sections as $section)
