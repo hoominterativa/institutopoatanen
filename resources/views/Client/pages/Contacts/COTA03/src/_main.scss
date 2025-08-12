@@ -19,12 +19,12 @@
 
     &__content {
         overflow: hidden;
-        padding-bottom: 4rem;
+        padding-bottom: 1rem;
         padding-top: 2rem;
         padding-right: 9vw;
 
         @extend %theme__padding;
-        @include disFlex(row, space-between, end);
+        @include disFlex(row, space-between, center);
 
         background-color: #ffffff;
 
