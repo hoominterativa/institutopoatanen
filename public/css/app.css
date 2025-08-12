@@ -5449,14 +5449,19 @@ body .owl-dots .owl-dot.active {
 }
 .cota03__content__header__title {
   color: #1A2069;
-  text-align: right;
+  text-align: left;
   max-width: 100%;
 }
 .cota03__content__header__subtitle {
   max-width: 100%;
-  text-align: right;
+  text-align: left;
   margin-bottom: 2rem;
   color: #1A2069;
+}
+@media (max-width: 575.98px) {
+  .cota03__content__header__subtitle {
+    margin-left: 2rem;
+  }
 }
 .cota03__content__header__paragraph {
   width: 100%;
