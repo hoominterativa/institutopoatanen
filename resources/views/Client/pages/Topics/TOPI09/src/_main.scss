@@ -50,6 +50,8 @@
 
             position: relative;
 
+            bottom: inherit;
+
             @include x-large-device-down {
                 width: 33.33%;
             }
