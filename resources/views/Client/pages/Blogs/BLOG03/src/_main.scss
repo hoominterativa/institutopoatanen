@@ -416,7 +416,7 @@
     }
 
     &__galeria {
-        // display: none;
+        display: none;
         grid-template-columns: 1fr 1fr 1fr 1fr; // total de 4 colunas
         grid-template-rows: auto auto;
         // gap: 1rem;

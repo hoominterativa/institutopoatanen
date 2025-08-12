@@ -136,11 +136,11 @@
                 </dialog>
             </article>
 
-            <section id="blog03-show__galeria" class="blog03-show__galeria" style="display: grid;">
+            <section id="blog03-show__galeria" class="blog03-show__galeria">
                 {{-- @dd($blog->galleriesActive) --}}
                 @foreach ($blog->galleriesActive as $gallery)
                 {{-- @dd($gallery) --}}
-                
+
                 @if(!$gallery->link_url)
                     <a href="{{ asset('storage/' . $gallery->path_image) }}" class="blog03-show__galeria__item"
                         data-fancybox>
