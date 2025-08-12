@@ -50,7 +50,7 @@
         }
 
         &__header {
-            width: 60%;
+            width: 39rem;
             @include disFlex(column);
 
             @include large-device-down {
@@ -61,11 +61,12 @@
                 @extend .abou01-page__main__information__header__title;
                 color: #1A2069;
                 text-align: right;
+                max-width: 100%;
             }
 
             &__subtitle {
                 @extend .abou01-page__main__information__paragraph;
-                max-width: 39rem;
+                max-width: 100%;
                 text-align: right;
                 margin-bottom: 2rem;
                 color: #1A2069;
