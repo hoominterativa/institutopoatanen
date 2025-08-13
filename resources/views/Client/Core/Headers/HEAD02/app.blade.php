@@ -80,7 +80,7 @@
                     <ul class="head02__navigation__item__cta__content quedinha__content">
                         @foreach ($linksCtaHeader as $linkCtaHeader)
                             <li>
-                                <a title="{{ $linkCtaHeader->title }}" href="{{ getUri($linkCtaHeader->link) }}"
+                                <a title="{{ $linkCtaHeader->title }}" href="{{ $linkCtaHeader->link }}"
                                     target="{{ $linkCtaHeader->link_target }}"
                                     class="head02__navigation__item__cta__content__item">{{ $linkCtaHeader->title }}</a>
                             </li>

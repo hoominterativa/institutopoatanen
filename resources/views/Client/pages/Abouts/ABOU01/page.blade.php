@@ -52,7 +52,7 @@
                                 </div>
                             @endif
 
-                            <a href="en/doacao" class="abou01-page__main__information__cta animation fadeInUp">
+                            <a href="https://institutoalexpoatan.com.br/en/doacao" class="abou01-page__main__information__cta animation fadeInUp">
                                 <span>Become a Supporter</span>
                             </a>
                         </div>
