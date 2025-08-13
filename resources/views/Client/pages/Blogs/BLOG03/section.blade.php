@@ -44,7 +44,7 @@
 
                             <a href="{{ route('blog03.show.content', ['BLOG03BlogsCategory' => $blog->category->slug, 'BLOG03Blogs' => $blog->slug]) }}" class="blog03__main__item__information__cta">
                                 <span>
-                                    Veja mais
+                                    
                                 </span>
                             </a>
                         </div>

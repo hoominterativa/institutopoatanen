@@ -44,14 +44,17 @@ class BLOG03Blogs extends Model
     {
         return $query->where('featured', 1);
     }
+    
     public function scopeCategory($query, $categoryId)
     {
         return $query->where('category_id', $categoryId);
     }
+
     public function galleries()
     {
         return $this->hasMany(BLOG03BlogsGalleries::class, 'blog_id');
     }
+
     public function galleriesActive()
     {
         return $this->hasMany(BLOG03BlogsGalleries::class, 'blog_id')->where('active', 1);

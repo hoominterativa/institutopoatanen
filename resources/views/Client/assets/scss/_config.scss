@@ -585,6 +585,7 @@ details {
         @extend %theme__padding;
         padding-top: 9rem;
         padding-bottom: 9rem;
+        margin-top: 4.6rem;
 
         @include bg;
         background-color: $color-four;
@@ -867,13 +868,13 @@ details {
 }
 
 body::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
     height: 10px;
-    background: rgba($color-one, 0.5);
+    background: #cacaca;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: rgba($color-one, 0.8);
+    background: #1A2069;
 }
 
 body::-webkit-scrollbar-thumb:hover {
@@ -1622,7 +1623,8 @@ body {
 
     &__main {
         @include disFlex(column, center);
-        padding-top: 5rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
         width: 50%;
 
         @include large-device-down {
@@ -1634,7 +1636,7 @@ body {
         &__information {
             margin-bottom: 1rem;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
 
             &__title {
                 color: #1A2069;
@@ -1646,7 +1648,7 @@ body {
                 margin-bottom: 0;
                 width: 100%;
                 max-width: 420px;
-                text-align: center;
+                text-align: left;
 
                 span {
                     color: #FFF;
@@ -1683,7 +1685,7 @@ body {
                 gap: 0.5rem;
                 flex-wrap: wrap;
 
-                @include x-large-device-down{
+                @include x-large-device-down {
                     justify-content: center;
                 }
 

@@ -10,9 +10,9 @@
                                 data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-original-title="Título que é exibido no conteúdo da página"></i>
                         </div>
-                        {!! Form::text('title_content', null, ['class' => 'form-control', 'id' => 'title_content',]) !!}
+                        {!! Form::text('title_content', null, ['class' => 'form-control', 'id' => 'title_content']) !!}
                     </div>
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                         <div class="d-flex align-items-center mb-1">
                             {!! Form::label('subtitle_content', 'Subtítulo', ['class' => 'form-label mb-0']) !!}
                             <i href="javascript:void(0)" class="mdi mdi-help-circle font-22 ms-2 btn-icon"
@@ -20,7 +20,14 @@
                                 data-bs-original-title="Subtítulo que é exibido no conteúdo da página"></i>
                         </div>
                         {!! Form::text('subtitle_content', null, ['class' => 'form-control', 'id' => 'subtitle_content']) !!}
-                    </div>
+                    </div> --}}
+                </div>
+                <div class="normal-editor__content mb-3">
+                    {!! Form::label('normal-editor', 'Descrição', ['class' => 'form-label']) !!}
+                    {!! Form::textarea('subtitle_content', null, [
+                        'class' => 'form-control normal-editor',
+                        'id' => 'normal-editor',
+                    ]) !!}
                 </div>
             </div>
             <div class="wrapper-links my-2 border px-2 py-3">
@@ -91,8 +98,12 @@
                     </div>
                     <div class="col-12 col-sm-8">
                         {!! Form::label(null, 'Link do botão', ['class' => 'form-label']) !!}
-                        {!! Form::url('link_button_content', (isset($content) ? getUri($content->link_button_content) : null), ['class' => 'form-control', 'parsley-type' => 'url', 'id' => 'targetUrl']) !!}
-                     </div>
+                        {!! Form::url('link_button_content', isset($content) ? getUri($content->link_button_content) : null, [
+                            'class' => 'form-control',
+                            'parsley-type' => 'url',
+                            'id' => 'targetUrl',
+                        ]) !!}
+                    </div>
                     <div class="col-12 col-sm-4">
                         {!! Form::label('target_link_button_content', 'Redirecionar para', ['class' => 'form-label']) !!}
                         {!! Form::select('target_link_button_content', ['_self' => 'Na mesma aba', '_blank' => 'Em nova aba'], null, [
@@ -139,4 +150,3 @@
         {{-- end card-body --}}
     </div>
 </div>
-
