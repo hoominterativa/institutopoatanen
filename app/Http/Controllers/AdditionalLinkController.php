@@ -46,7 +46,7 @@ class AdditionalLinkController extends Controller
         $data = $request->all();
         $data['active'] = $request->active?1:0;
 
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        $data['link'] = isset($data['link']) ? $data['link'] : null;
 
         if(AdditionalLink::create($data)){
             Session::flash('success', 'Link cadastrado com sucesso');
@@ -68,7 +68,7 @@ class AdditionalLinkController extends Controller
         $data = $request->all();
         $data['active'] = $request->active?1:0;
 
-        $data['link'] = isset($data['link']) ? getUri($data['link']) : null;
+        $data['link'] = isset($data['link']) ? $data['link'] : null;
 
         if($AdditionalLink->fill($data)->save()){
             Session::flash('success', 'link atualizado com sucesso');
