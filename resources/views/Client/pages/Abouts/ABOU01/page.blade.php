@@ -52,7 +52,7 @@
                                 </div>
                             @endif
 
-                            <a href="/doacao" class="abou01-page__main__information__cta animation fadeInUp">
+                            <a href="en/doacao" class="abou01-page__main__information__cta animation fadeInUp">
                                 <span>Become a Supporter</span>
                             </a>
                         </div>

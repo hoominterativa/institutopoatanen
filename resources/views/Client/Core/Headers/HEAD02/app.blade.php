@@ -64,9 +64,9 @@
             </li>
         @endforeach
         <li class="head02__navigation__location">
-            <a class="head02__navigation__location__link"><img class="head02__navigation__location__link__image"
+            <a href="https://institutoalexpoatan.com.br/home" class="head02__navigation__location__link"><img class="head02__navigation__location__link__image"
                     src="{{ asset('images/flag-br.png') }}" alt="pt-br"></a>
-            <a class="head02__navigation__location__link"><img class="head02__navigation__location__link__image"
+            <a href="https://institutoalexpoatan.com.br/en/home" class="head02__navigation__location__link"><img class="head02__navigation__location__link__image"
                     src="{{ asset('images/flag-en.png') }}" alt="en-eua"></a>
         </li>
 
