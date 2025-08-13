@@ -35,7 +35,7 @@
 
                 <button class="blog03-show__article__share animation fadeInRight">
                     <span>
-                        Enviar
+                        Share This Project
                     </span>
                 </button>
                 <dialog class="blog03-show__article__modal">
@@ -194,7 +194,7 @@
 
         @if ($blogsRelated->count() > 0)
             <section class="blog03-show__related">
-                <h3 class="blog03-show__related__title animation fadeInLeft">Outros <span>projetos</span></h3>
+                <h3 class="blog03-show__related__title animation fadeInLeft">Other <span>Projects</span></h3>
                 <div class="blog03-show__related__carousel">
                     <div class="blog03-show__related__carousel__swiper-wrapper swiper-wrapper">
                         @foreach ($blogsRelated as $blogRelated)

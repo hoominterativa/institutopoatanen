@@ -18,8 +18,8 @@
             @endif
 
             <section class="abou01-page__top">
-                <h3 class="abou01-page__top__title animation fadeInLeft">Juntos levamos oportunidades</h3>
-                <p class="abou01-page__top__paragraph animation fadeInRight">Cada apoio recebido é um passo a mais para mudar histórias e construir futuros mais justos. Vamos juntos?</p>
+                <h3 class="abou01-page__top__title animation fadeInLeft">Together, We Bring Opportunities</h3>
+                <p class="abou01-page__top__paragraph animation fadeInRight">Every bit of support is another step toward changing lives and building a fairer future. Shall we do this together?</p>
             </section>
 
             @if ($about->path_image || $about->title || $about->subtitle || $about->text)
@@ -53,7 +53,7 @@
                             @endif
 
                             <a href="/doacao" class="abou01-page__main__information__cta animation fadeInUp">
-                                <span>Seja um apoiador</span>
+                                <span>Become a Supporter</span>
                             </a>
                         </div>
                     @endif
@@ -61,7 +61,7 @@
             @endif
 
             <div class="abou01-page__topics">
-                <h3 class="abou01-page__topics__title animation fadeInLeft">A luta de um virou esperança para muitos. Esse é o Instituto Poatan</h3>
+                <h3 class="abou01-page__topics__title animation fadeInLeft">One man’s fight became hope for many. This is the Poatan Institute.</h3>
                 @foreach ($about->topics as $topic)
                     <details class="abou01-page__topics__item animation fadeInUp">
                         <summary class="abou01-page__topics__item__title" aria-level="3" role="heading">

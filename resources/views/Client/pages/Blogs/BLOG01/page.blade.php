@@ -72,7 +72,7 @@
                                             href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blogFeatured->category->slug, 'BLOG01Blogs' => $blogFeatured->slug]) }}"
                                             class="blog01-page__articles__highlighted__item__information__cta animation fadeInRight">
                                             <span>
-                                                Leia mais
+                                                Read More
                                             </span>
                                         </a>
                                     </div>
@@ -115,7 +115,7 @@
 
                             <a href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}" class="blog01-page__articles__list__item__description__cta">
                                 <span>
-                                    Ler mais
+                                    Read More
                                 </span>
                             </a>
                         </div>

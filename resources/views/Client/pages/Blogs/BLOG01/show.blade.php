@@ -11,7 +11,7 @@
     </style>
     <main id="root" class="blog01-show">
         <section class="blog01-show__banner">
-            <h2 class="blog01-show__banner__title animation fadeInLeft">Notícias</h2>
+            <h2 class="blog01-show__banner__title animation fadeInLeft">News</h2>
         </section>
 
         <article itemscope itemtype="http://schema.org/Article" class="blog01-show__article">
@@ -37,12 +37,12 @@
 
             <button class="blog01-show__article__share animation fadeInRight">
                 <span>
-                    Compartilhar
+                    Share
                 </span>
             </button>
             <dialog class="blog01-show__article__modal">
                 <header class="blog01-show__article__modal__header">
-                    <h3 class="blog01-show__article__modal__header__title">Compartilhar</h3>
+                    <h3 class="blog01-show__article__modal__header__title">Share</h3>
                     <button class="blog01-show__article__modal__header__close" aria-label="Cancelar">
                         <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
                             viewBox="0 0 24 24" width="24" focusable="false"
@@ -139,7 +139,7 @@
 
         @if ($blogsRelated->count() > 0)
             <section class="blog01-show__related">
-                <h3 class="blog01-show__related__title animation fadeInLeft">Notícias relacionadas</h3>
+                <h3 class="blog01-show__related__title animation fadeInLeft">Related News</h3>
                 <div class="blog01-show__related__carousel">
                     <div class="blog01-show__related__carousel__swiper-wrapper swiper-wrapper">
                         @foreach ($blogsRelated as $blogRelated)
@@ -168,7 +168,7 @@
 
                                     <a href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blogRelated->category->slug, 'BLOG01Blogs' => $blogRelated->slug]) }}" class="blog01-show__related__item__description__cta">
                                         <span>
-                                            Leia mais
+                                            Read More
                                         </span>
                                     </a>
                                 </div>

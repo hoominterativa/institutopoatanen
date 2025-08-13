@@ -78,9 +78,9 @@
                         'id' => 'term_accept',
                         'required' => true,
                     ]) !!}
-                    {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'cota02__form__footer__compliance']) !!}
+                    {!! Form::label('term_accept', 'I Accept the Terms Described in the ', ['class' => 'cota02__form__footer__compliance']) !!}
                     <a href="{{ $compliance->link ?? '#' }}" target="_blank"
-                        class="cota02__form__footer__compliance__link">Política de Privacidade</a>
+                        class="cota02__form__footer__compliance__link">Privacy Policy</a>
                 </div>
 
                 <button type="submit" class="cota02__form__footer__cta">

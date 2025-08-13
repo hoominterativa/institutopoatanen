@@ -18,7 +18,7 @@
 </style>
 {{-- BEGIN Page content --}}
     <section class="bapa01__banner" style="background-image: url({{asset('images/poatan-banner-o-que-fazemos.png')}})">
-        <h1 class="bapa01__banner__title animation fadeInLeft">O que fazemos</h1>
+        <h1 class="bapa01__banner__title animation fadeInLeft">What We Do</h1>
     </section>
 {{-- Finish Content page Here --}}
 <main id="root">

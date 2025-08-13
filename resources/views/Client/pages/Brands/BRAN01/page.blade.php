@@ -39,7 +39,7 @@
                             @endif
                             <a href="#" class="bran01-page__main__header__cta animation fadeInRight">
                                 <span>
-                                    Seja um apoiador
+                                    Become a Supporter
                                 </span>    
                             </a>
                         </div>
