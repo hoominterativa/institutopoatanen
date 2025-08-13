@@ -55,7 +55,7 @@
                             @endif
 
                             <a href="{{ route('blog01.show.content', ['BLOG01BlogsCategory' => $blog->category->slug, 'BLOG01Blogs' => $blog->slug]) }}" class="blog01__main__item__description__cta">
-                                <span>Leia mais</span>
+                                <span>Read More</span>
                             </a>
 
                             {{-- BACKEND: REMOVER ÍCONE DO PAINEL --}}

@@ -56,7 +56,7 @@
     </div>
 
     <a class="blog03__cta animation fadeInRight" href="{{ route('blog03.category.page', ['BLOG03BlogsCategory' => $category->slug]) }}">
-        <span>Ver todos</span>
+        <span>View All</span>
     </a>
 
 

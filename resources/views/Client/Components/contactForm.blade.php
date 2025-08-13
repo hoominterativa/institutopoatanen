@@ -41,15 +41,14 @@
                             'id' => 'term_accept',
                             'required' => true,
                         ]) !!}
-                        {!! Form::label('term_accept', 'Aceito os termos descritos na ', ['class' => 'form-check-label']) !!}
+                        {!! Form::label('term_accept', 'I Accept the Terms Described in the ', ['class' => 'form-check-label']) !!}
                         <a href="{{ $compliance->link ?? '#' }}" target="_blank"
-                            class="form01__main__form__footer__compliance__link">Política de
-                            Privacidade</a>
+                            class="form01__main__form__footer__compliance__link">Privacy Policy</a>
                     </label>
-
+ 
                     <button type="submit" class="form01__main__form__footer__cta animation fadeInRight">
                         <span>
-                            Enviar
+                            Send
                         </span>
                     </button>
                 </div>

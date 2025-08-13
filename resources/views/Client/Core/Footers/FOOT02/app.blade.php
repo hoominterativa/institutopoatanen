@@ -57,7 +57,7 @@
         @if ($generalSetting->phone || $generalSetting->whatsapp || $generalSetting->email || $generalSetting->address)
 
             <ul class="foot02__navigation__client-contact">
-                <li class="foot02__navigation__client-contact__header">Contatos</li>
+                <li class="foot02__navigation__client-contact__header">Contacts</li>
 
                 @if ($generalSetting->phone)
                     <li class="foot02__navigation__client-contact__item">
